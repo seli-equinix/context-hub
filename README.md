@@ -1,35 +1,20 @@
 # Context Hub
 
-Context Hub gives AI agents the right documentation — and agents that use it get smarter with every task.
+AI agents hallucinate APIs and forget what they learn in a session. Context Hub gives them curated, versioned docs — and the ability to get smarter with every task. All content is open and maintained as markdown in this repo — you can inspect exactly what your agent reads, and contribute back.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/v/@aisuite/chub)](https://www.npmjs.com/package/@aisuite/chub)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org)
 
-## The Problem
+## Quick Start
 
-Your LLM agent was trained months — or years — ago. You need to use an API which was not present in the training set. The agent doesn't know. It hallucinates parameters, uses deprecated patterns, and writes code that doesn't compile. Web search can solve this but is more error prone, and causes token burn.
-
-Debugging existing projects come with their own challenges. They use a particular version of API - and sometimes agents mix up parameters or names across versions. Web search again helps with this, but is still highly error prone based on the agent you are using.
-
-Then there are the things that aren't in any public doc: your team's deployment playbook, your auth patterns, your coding conventions. Every agent on your team should follow them, but none of them know they exist.
-
-You can paste docs into chat, but it doesn't scale. The agent forgets everything next session and makes the same mistakes again. And when the agent does figure something out — a workaround, a missing detail — that knowledge is lost. There's no way to capture it for next time.
-
-```
-  Without Context Hub                          With Context Hub
-  ───────────────────                          ─────────────────
-  Search the web                               Fetch curated docs
-  Noisy results                                Higher chance of code working
-  Code breaks                                  Agent notes any gaps/workarounds
-  Effort in fixing                             ↗ Even smarter next session
-  Knowledge forgotten
-  ↻ Repeat next session
+```bash
+npm install -g @aisuite/chub
+chub search "stripe"                 # find what's available
+chub get stripe/api                  # fetch current docs
 ```
 
-## The Agent Workflow
-
-Context Hub is designed for a loop where agents get better over time.
+## How It Works
 
 **Most of the time, it's simple — search, fetch, use:**
 
@@ -42,28 +27,12 @@ chub get stripe/api                  # fetch the doc
 **When the agent discovers a gap**, it can annotate locally for next time:
 
 ```bash
-# Agent figured out that webhook verification needs the raw request body.
-# That wasn't obvious from the doc. Save it:
-chub annotate stripe/api "Webhook verification requires raw body — do not parse JSON before verifying"
+chub annotate stripe/api "Needs raw body for webhook verification"
 
-# Next session, the annotation appears automatically:
-chub get stripe/api
-# ---
-# [Agent note]
-# Webhook verification requires raw body — do not parse JSON before verifying
+# Next session, the annotation appears automatically on fetch.
 ```
 
-The annotation persists across sessions. The agent doesn't repeat the same mistake.
-
-**The content itself improves over time too.** Agents can send feedback (`chub feedback stripe/api up` or `down`) to doc authors, who update the content based on what's working and what isn't. So the docs get better for everyone — not just your local annotations.
-
-## Quick Start
-
-```bash
-npm install -g @aisuite/chub
-chub search "stripe"                 # find what's available
-chub get stripe/api                  # fetch current docs
-```
+**Feedback flows back to authors** — `chub feedback stripe/api up` or `down` — so the docs get better for everyone over time.
 
 ## Content Types
 
@@ -93,23 +62,44 @@ Both are markdown with YAML frontmatter, following the [Agent Skills](https://ag
 
 For the full list of commands, flags, and piping patterns, see the [CLI Reference](docs/cli-reference.md).
 
+## Self-Improving Agents
+
+Context Hub is designed for a loop where agents get better over time.
+
+**Annotations** are local notes that agents attach to docs. They persist across sessions and appear automatically on future fetches — so agents learn from past experience. See [Feedback and Annotations](docs/feedback-and-annotations.md).
+
+**Feedback** (up/down ratings with optional labels) goes to doc authors, who update the content based on what's working and what isn't. The docs get better for everyone — not just your local annotations.
+
+```
+  Without Context Hub                          With Context Hub
+  ───────────────────                          ─────────────────
+  Search the web                               Fetch curated docs
+  Noisy results                                Higher chance of code working
+  Code breaks                                  Agent notes any gaps/workarounds
+  Effort in fixing                             ↗ Even smarter next session
+  Knowledge forgotten
+  ↻ Repeat next session
+```
+
 ## Key Features
 
 ### Incremental Fetch
 
-Docs can have multiple reference files beyond the main entry point. The CLI shows you what's available and lets you fetch only what you need — no wasted tokens. Use `--file` to grab specific references, or `--full` for everything. See the [CLI Reference](docs/cli-reference.md) for details.
-
-### Agent Annotations & Feedback
-
-Annotations are local notes that agents attach to docs. They persist across sessions and appear automatically on future fetches — so agents learn from past experience. Feedback (up/down ratings) goes to doc authors to improve the content for everyone. See [Feedback and Annotations](docs/feedback-and-annotations.md).
+Docs can have multiple reference files beyond the main entry point. Fetch only what you need — no wasted tokens. Use `--file` to grab specific references, or `--full` for everything. See the [CLI Reference](docs/cli-reference.md).
 
 ### Private Content Repo — *Coming Soon*
 
-Teams need their own internal docs alongside the public registry: deployment playbooks, coding conventions, internal API references. Agents should be able to search both seamlessly. We're working on making this easy to set up and distribute across your team. See [Private Content Repo](docs/private-content.md) for more.
+Teams need their own internal docs alongside the public registry: deployment playbooks, coding conventions, internal API references. See [Private Content Repo](docs/private-content.md).
 
-### JSON Output
+### Annotations & Feedback
 
-Every command supports `--json` for structured output, making it easy to pipe into agents and automation. See the [CLI Reference](docs/cli-reference.md) for piping patterns.
+Annotations are local notes that agents attach to docs — they persist across sessions and appear automatically on future fetches. Feedback (up/down ratings) goes to doc authors to improve the content for everyone. See [Feedback and Annotations](docs/feedback-and-annotations.md).
+
+## Contributing
+
+Anyone can contribute docs and skills — API providers, framework authors, and the community. Content is plain markdown with YAML frontmatter, submitted as pull requests. See the [Content Guide](docs/content-guide.md) for the format and structure.
+
+Agent feedback (up/down ratings from real usage) flows back to authors, helping surface what needs fixing and improving overall quality over time.
 
 ## License
 
