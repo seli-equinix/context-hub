@@ -1,6 +1,6 @@
 # Context Hub
 
-AI agents hallucinate APIs and forget what they learn in a session. Context Hub gives them curated, versioned docs — and the ability to get smarter with every task.
+AI agents hallucinate APIs and forget what they learn in a session. Context Hub gives them curated, versioned docs — and the ability to get smarter with every task. All content is open and maintained as markdown in this repo — you can inspect exactly what your agent reads, and contribute back.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![npm](https://img.shields.io/npm/v/@aisuite/chub)](https://www.npmjs.com/package/@aisuite/chub)
@@ -16,14 +16,23 @@ chub get stripe/api                  # fetch current docs
 
 ## How It Works
 
-Your agent searches the registry, fetches a doc, and uses it to write correct code. If the agent discovers a gap — a missing detail, a version quirk — it annotates the doc locally. Next session, the annotation is already there. The agent doesn't repeat the same mistake.
+**Most of the time, it's simple — search, fetch, use:**
 
 ```bash
-chub search "payments"               # search the registry
-chub get stripe/api                  # fetch versioned doc
-chub annotate stripe/api "Needs raw body for webhook verification"
-chub feedback stripe/api up          # tell the author it helped
+chub search "stripe payments"        # find relevant docs
+chub get stripe/api                  # fetch the doc
+# Agent reads the doc, writes correct code. Done.
 ```
+
+**When the agent discovers a gap**, it can annotate locally for next time:
+
+```bash
+chub annotate stripe/api "Needs raw body for webhook verification"
+
+# Next session, the annotation appears automatically on fetch.
+```
+
+**Feedback flows back to authors** — `chub feedback stripe/api up` or `down` — so the docs get better for everyone over time.
 
 ## Content Types
 
@@ -82,9 +91,15 @@ Docs can have multiple reference files beyond the main entry point. Fetch only w
 
 Teams need their own internal docs alongside the public registry: deployment playbooks, coding conventions, internal API references. See [Private Content Repo](docs/private-content.md).
 
-### JSON Output
+### Annotations & Feedback
 
-Every command supports `--json` for structured output, making it easy to pipe into agents and automation. See the [CLI Reference](docs/cli-reference.md).
+Annotations are local notes that agents attach to docs — they persist across sessions and appear automatically on future fetches. Feedback (up/down ratings) goes to doc authors to improve the content for everyone. See [Feedback and Annotations](docs/feedback-and-annotations.md).
+
+## Contributing
+
+Anyone can contribute docs and skills — API providers, framework authors, and the community. Content is plain markdown with YAML frontmatter, submitted as pull requests. See the [Content Guide](docs/content-guide.md) for the format and structure.
+
+Agent feedback (up/down ratings from real usage) flows back to authors, helping surface what needs fixing and improving overall quality over time.
 
 ## License
 
