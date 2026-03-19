@@ -93,12 +93,20 @@ export function registerSearchCommand(program) {
       }
 
       // Fuzzy search
+      const searchStart = Date.now();
       const results = searchEntries(query, opts).slice(0, limit);
+      const duration_ms = Date.now() - searchStart;
+      const resultIds = results.map((e) => e.id || e.name || 'unknown');
       trackEvent('search', {
+        query: query.slice(0, 1000),
         query_length: query.length,
         result_count: results.length,
+        results: resultIds,
+        duration_ms,
         has_tags: !!opts.tags,
         has_lang: !!opts.lang,
+        tags: opts.tags || undefined,
+        lang: opts.lang || undefined,
       }).catch(() => {});
       output({ results, total: results.length, query }, (data) => {
         if (data.results.length === 0) {
