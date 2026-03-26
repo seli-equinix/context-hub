@@ -237,7 +237,7 @@ log_spec = mon_client.LogCollectionSpec(
 )
 
 task_response = logs_api.collect_logs(body=log_spec)
-wait_for_task(factory, task_response.data.ext_id, timeout=600)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=600)
 ```
 
 ## System-Defined Health Checks

@@ -39,7 +39,7 @@ pip install \
   ntnx-datapolicies-py-client==4.2.1 \
   ntnx-dataprotection-py-client==4.2.1 \
   ntnx-volumes-py-client==4.2.1 \
-  ntnx-licensing-py-client==4.3.1 \
+  ntnx-licensing-py-client==4.2.1 \
   ntnx-monitoring-py-client==4.2.1 \
   ntnx-aiops-py-client==4.2.1b1
 ```
@@ -346,9 +346,11 @@ Defaults: 5 retries with factor 3 = waits of 0, 3, 6, 12, 24 seconds.
 | datapolicies | ntnx_datapolicies_py_client | 4.2.1 | ProtectionPoliciesApi, RecoveryPlansApi | 43 | 158 |
 | dataprotection | ntnx_dataprotection_py_client | 4.2.1 | RecoveryPointsApi, ConsistencyGroupsApi | 31 | 117 |
 | volumes | ntnx_volumes_py_client | 4.2.1 | VolumeGroupsApi (25) | 30 | 87 |
-| licensing | ntnx_licensing_py_client | 4.3.1 | LicensesApi, LicenseKeysApi | 19 | 72 |
+| licensing | ntnx_licensing_py_client | 4.2.1 | LicensesApi, LicenseKeysApi | 19 | 72 |
 | monitoring | ntnx_monitoring_py_client | 4.2.1 | AlertsApi, EventsApi, AuditsApi | 23 | 67 |
 | aiops | ntnx_aiops_py_client | 4.2.1b1 | ScenariosApi, StatsApi | 18 | 40 |
+
+> **Version note**: The `aiops` namespace does not have a stable v4.2.1 release on PyPI — only `4.2.1b1` (beta) is available. All other namespaces are stable v4.2.1 releases.
 
 **Totals: 112 API classes, 644 methods, 3,075 models**
 

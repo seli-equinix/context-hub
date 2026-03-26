@@ -34,7 +34,7 @@ config.username = "admin"
 config.password = "password"
 config.verify_ssl = False
 config.max_retry_attempts = 3
-config.backoff_multiplier = 2
+config.backoff_factor = 2
 
 client = ApiClient(configuration=config)
 clusters_api = ntnx_clustermgmt_py_client.ClustersApi(api_client=client)

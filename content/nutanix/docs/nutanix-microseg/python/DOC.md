@@ -83,7 +83,7 @@ task_response = nsp_api.create_network_security_policy(body=policy)
 task_ext_id = task_response.data.ext_id
 
 # Poll task to completion
-wait_for_task(factory, task_ext_id, timeout=120)
+wait_for_task(prism_client, task_ext_id, timeout=120)
 ```
 
 ### 2. List Security Policies

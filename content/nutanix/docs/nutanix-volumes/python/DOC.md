@@ -62,7 +62,7 @@ task_response = vg_api.create_volume_group(body=volume_group)
 task_ext_id = task_response.data.ext_id
 
 # Poll task to completion
-task_data = wait_for_task(factory, task_ext_id, timeout=120)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=120)
 vg_ext_id = task_data.completion_details[0].value
 ```
 
@@ -104,7 +104,7 @@ task_response = vg_api.create_volume_disk(
     volumeGroupExtId=vg_ext_id,
     body=volume_disk
 )
-wait_for_task(factory, task_response.data.ext_id, timeout=120)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=120)
 ```
 
 ### 5. Attach a VM to a Volume Group
@@ -118,7 +118,7 @@ task_response = vg_api.attach_vm(
     extId=vg_ext_id,
     body=vm_attachment
 )
-wait_for_task(factory, task_response.data.ext_id, timeout=60)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=60)
 ```
 
 ### 6. Detach a VM from a Volume Group
@@ -132,7 +132,7 @@ task_response = vg_api.detach_vm(
     extId=vg_ext_id,
     body=vm_detach
 )
-wait_for_task(factory, task_response.data.ext_id, timeout=60)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=60)
 ```
 
 ### 7. Attach an iSCSI Client

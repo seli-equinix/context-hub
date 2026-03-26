@@ -69,7 +69,7 @@ task_response = rp_api.create_recovery_point(body=recovery_point)
 task_ext_id = task_response.data.ext_id
 
 # Poll task to completion
-task_data = wait_for_task(factory, task_ext_id, timeout=300)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=300)
 # Extract recovery point ext_id from completion_details
 rp_ext_id = task_data.completion_details[0].value
 ```
@@ -112,7 +112,7 @@ task_response = rp_api.restore_recovery_point(
     extId=rp_ext_id,
     body=restore_spec
 )
-wait_for_task(factory, task_response.data.ext_id, timeout=600)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=600)
 ```
 
 ### 5. Replicate Recovery Point to Remote Site
@@ -126,7 +126,7 @@ task_response = rp_api.replicate_recovery_point(
     extId=rp_ext_id,
     body=replicate_spec
 )
-wait_for_task(factory, task_response.data.ext_id, timeout=1800)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=1800)
 ```
 
 ### 6. Delete a Recovery Point
@@ -157,7 +157,7 @@ failover_spec = v4DpConfig.PlannedFailoverSpec(
 )
 
 task_response = rpa_api.perform_planned_failover(body=failover_spec)
-wait_for_task(factory, task_response.data.ext_id, timeout=3600)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=3600)
 ```
 
 ### Unplanned Failover
@@ -170,7 +170,7 @@ failover_spec = v4DpConfig.UnplannedFailoverSpec(
 )
 
 task_response = rpa_api.perform_unplanned_failover(body=failover_spec)
-wait_for_task(factory, task_response.data.ext_id, timeout=3600)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=3600)
 ```
 
 ### Test Failover
@@ -183,7 +183,7 @@ test_spec = v4DpConfig.TestFailoverSpec(
 )
 
 task_response = rpa_api.perform_test_failover(body=test_spec)
-wait_for_task(factory, task_response.data.ext_id, timeout=3600)
+wait_for_task(prism_client, task_response.data.ext_id, timeout=3600)
 
 # After testing, clean up the test failover
 cleanup_spec = v4DpConfig.TestFailoverCleanupSpec(

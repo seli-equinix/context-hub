@@ -75,8 +75,8 @@ def wait_for_task(tasks_api, task_ext_id, timeout=600, poll_interval=5):
             raise RuntimeError(
                 f"Task {task_ext_id} failed: {errors}"
             )
-        elif status == "CANCELLED":
-            raise RuntimeError(f"Task {task_ext_id} was cancelled")
+        elif status == "CANCELED":
+            raise RuntimeError(f"Task {task_ext_id} was canceled")
 
         # Still RUNNING or QUEUED
         time.sleep(poll_interval)
@@ -186,7 +186,8 @@ from ntnx_prism_py_client.models.prism.v4.operations.BatchSpecPayloadMetadataPat
 from ntnx_vmm_py_client.models.vmm.v4.ahv.config.AssociateVmCategoriesParams import AssociateVmCategoriesParams
 from ntnx_vmm_py_client.models.vmm.v4.ahv.config.CategoryReference import CategoryReference
 
-vm_api = ntnx_vmm_py_client.api.VmApi(api_client=vmm_client)
+from ntnx_vmm_py_client.api import VmApi
+vm_api = VmApi(api_client=vmm_client)
 
 # Build per-item payloads with individual ETags and path params
 payloads = []
@@ -243,15 +244,17 @@ The `uri` in `BatchSpecMetadata` must match the v4.2 API path. Common patterns:
 ### Task Status Values
 
 ```python
-# Task status progression:
-# QUEUED -> RUNNING -> SUCCEEDED | FAILED | CANCELLED
+# Task status progression (TaskStatus enum):
+# QUEUED -> RUNNING -> SUCCEEDED | FAILED | CANCELED
 #
 # task.data.status values:
 #   "QUEUED"    - waiting to start
 #   "RUNNING"   - in progress
 #   "SUCCEEDED" - completed successfully
 #   "FAILED"    - completed with error
-#   "CANCELLED" - cancelled by user
+#   "CANCELED"  - canceled by user
+#   "CANCELING" - cancellation in progress
+#   "SUSPENDED" - task suspended
 ```
 
 ### Extracting Created Entity ID from Task
@@ -301,7 +304,7 @@ for sub in parent_task.data.sub_tasks:
 | `ext_id` | str | Task UUID |
 | `operation` | str | Operation name |
 | `operation_description` | str | Human-readable description |
-| `status` | TaskStatus | QUEUED, RUNNING, SUCCEEDED, FAILED, CANCELLED |
+| `status` | TaskStatus | QUEUED, RUNNING, SUCCEEDED, FAILED, CANCELED, CANCELING, SUSPENDED |
 | `progress_percentage` | int | 0-100 |
 | `created_time` | datetime | When task was created |
 | `started_time` | datetime | When execution began |

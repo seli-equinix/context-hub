@@ -60,7 +60,7 @@ task_response = pp_api.create_protection_policy(body=protection_policy)
 task_ext_id = task_response.data.ext_id
 
 # Poll task to completion
-task_data = wait_for_task(factory, task_ext_id, timeout=120)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=120)
 pp_ext_id = task_data.completion_details[0].value
 ```
 
@@ -120,7 +120,7 @@ recovery_plan = dp_client.RecoveryPlan(
 task_response = rp_api.create_recovery_plan(body=recovery_plan)
 task_ext_id = task_response.data.ext_id
 
-task_data = wait_for_task(factory, task_ext_id, timeout=120)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=120)
 rp_ext_id = task_data.completion_details[0].value
 ```
 

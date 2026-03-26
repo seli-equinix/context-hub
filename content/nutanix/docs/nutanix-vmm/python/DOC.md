@@ -139,7 +139,7 @@ new_vm = AhvVmConfig.Vm.Vm(
     ),
 )
 
-vm_api = ntnx_vmm_py_client.api.VmApi(api_client=client)
+vm_api = VmApi(api_client=client)
 response = vm_api.create_vm(async_req=False, body=new_vm)
 task_ext_id = response.data.ext_id  # TaskReference -> poll via prism TasksApi
 ```

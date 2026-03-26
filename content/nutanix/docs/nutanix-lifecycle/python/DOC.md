@@ -77,7 +77,7 @@ task_response = inventory_api.perform_inventory(X_Cluster_Id=cluster_ext_id)
 task_ext_id = task_response.data.ext_id
 
 # Poll task to completion (inventory can take 5-15 minutes)
-wait_for_task(factory, task_ext_id, timeout=900)
+wait_for_task(prism_client, task_ext_id, timeout=900)
 ```
 
 ### Step 2: Get Recommendations
@@ -98,7 +98,7 @@ task_response = rec_api.compute_recommendations(
 task_ext_id = task_response.data.ext_id
 
 # Poll task - CRITICAL: extract recommendation_id from completion_details
-task_data = wait_for_task(factory, task_ext_id, timeout=300)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=300)
 recommendation_id = task_data.completion_details[0].value
 ```
 
@@ -132,7 +132,7 @@ task_response = notify_api.compute_notifications(
 task_ext_id = task_response.data.ext_id
 
 # Poll task
-task_data = wait_for_task(factory, task_ext_id, timeout=300)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=300)
 notification_id = task_data.completion_details[0].value
 
 # Retrieve notifications to check warnings
@@ -164,7 +164,7 @@ task_response = upgrade_api.perform_upgrade(
 task_ext_id = task_response.data.ext_id
 
 # Poll task - upgrades can take 30-120+ minutes depending on scope
-wait_for_task(factory, task_ext_id, timeout=7200)
+wait_for_task(prism_client, task_ext_id, timeout=7200)
 ```
 
 ## Entity Management

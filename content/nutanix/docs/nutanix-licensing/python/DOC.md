@@ -3,18 +3,18 @@ name: nutanix-licensing
 description: "Nutanix Licensing Python SDK - license management, license keys, EULA, compliance, entitlements, violations"
 metadata:
   languages: "python"
-  versions: "4.3.1"
+  versions: "4.2.1"
   revision: 1
   updated-on: "2026-03-16"
   source: community
   tags: "nutanix,licensing,license,eula,compliance,entitlement"
 ---
 
-# Nutanix Licensing Python SDK v4.3.1
+# Nutanix Licensing Python SDK v4.2.1
 
 ## Golden Rule
 
-Package: `ntnx_licensing_py_client` (note: version 4.3.1, not 4.2.1 like most other SDK packages)
+Package: `ntnx_licensing_py_client`
 
 ```python
 import ntnx_licensing_py_client as lic_client

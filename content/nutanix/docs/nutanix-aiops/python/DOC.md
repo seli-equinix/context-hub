@@ -62,7 +62,7 @@ task_response = scenario_api.create_scenario(body=scenario)
 task_ext_id = task_response.data.ext_id
 
 # Poll task to completion
-task_data = wait_for_task(factory, task_ext_id, timeout=300)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=300)
 scenario_ext_id = task_data.completion_details[0].value
 ```
 
@@ -78,7 +78,7 @@ simulation = aiops_client.Simulation(
 task_response = scenario_api.create_simulation(body=simulation)
 task_ext_id = task_response.data.ext_id
 
-task_data = wait_for_task(factory, task_ext_id, timeout=300)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=300)
 simulation_ext_id = task_data.completion_details[0].value
 ```
 
@@ -91,7 +91,7 @@ task_response = scenario_api.generate_runway(extId=scenario_ext_id)
 task_ext_id = task_response.data.ext_id
 
 # Runway generation can take several minutes
-task_data = wait_for_task(factory, task_ext_id, timeout=600)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=600)
 ```
 
 ### 4. Generate Recommendation
@@ -102,7 +102,7 @@ Get recommendations for capacity additions based on the scenario analysis.
 task_response = scenario_api.generate_recommendation(extId=scenario_ext_id)
 task_ext_id = task_response.data.ext_id
 
-task_data = wait_for_task(factory, task_ext_id, timeout=600)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=600)
 ```
 
 ### 5. Generate Report
@@ -113,7 +113,7 @@ Create a downloadable capacity planning report.
 task_response = scenario_api.generate_report(extId=scenario_ext_id)
 task_ext_id = task_response.data.ext_id
 
-task_data = wait_for_task(factory, task_ext_id, timeout=300)
+task_data = wait_for_task(prism_client, task_ext_id, timeout=300)
 ```
 
 ### 6. Get Scenario Report
