@@ -10,47 +10,47 @@ Add failure context with `-Because`: `$x | Should -Be 5 -Because 'config require
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-Be` | Case-insensitive equality (strings), value equality (numbers) | `'Hello' \| Should -Be 'hello'` |
-| `-BeExactly` | Case-sensitive equality | `'Hello' \| Should -BeExactly 'Hello'` |
-| `-HaveParameter` | Assert function has parameter with optional type/attributes | `Get-Command Get-Item \| Should -HaveParameter 'Path' -Type [string[]]` |
+| `-Be` | Case-insensitive equality (strings), value equality (numbers) | `'Hello' | Should -Be 'hello'` |
+| `-BeExactly` | Case-sensitive equality | `'Hello' | Should -BeExactly 'Hello'` |
+| `-HaveParameter` | Assert function has parameter with optional type/attributes | `Get-Command Get-Item | Should -HaveParameter 'Path' -Type [string[]]` |
 
 ## Comparison
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-BeGreaterThan` | Greater than (`-gt`) | `10 \| Should -BeGreaterThan 5` |
-| `-BeGreaterOrEqual` | Greater than or equal (`-ge`) | `10 \| Should -BeGreaterOrEqual 10` |
-| `-BeLessThan` | Less than (`-lt`) | `3 \| Should -BeLessThan 5` |
-| `-BeLessOrEqual` | Less than or equal (`-le`) | `3 \| Should -BeLessOrEqual 3` |
-| `-BeIn` | Value is contained in expected collection | `'a' \| Should -BeIn @('a','b','c')` |
+| `-BeGreaterThan` | Greater than (`-gt`) | `10 | Should -BeGreaterThan 5` |
+| `-BeGreaterOrEqual` | Greater than or equal (`-ge`) | `10 | Should -BeGreaterOrEqual 10` |
+| `-BeLessThan` | Less than (`-lt`) | `3 | Should -BeLessThan 5` |
+| `-BeLessOrEqual` | Less than or equal (`-le`) | `3 | Should -BeLessOrEqual 3` |
+| `-BeIn` | Value is contained in expected collection | `'a' | Should -BeIn @('a','b','c')` |
 
 ## Boolean and Null
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-BeTrue` | Value is `$true` | `$result \| Should -BeTrue` |
-| `-BeFalse` | Value is `$false` | `$result \| Should -BeFalse` |
-| `-BeNullOrEmpty` | Value is `$null`, empty string, or empty collection | `$null \| Should -BeNullOrEmpty` |
-| `-Be $null` | Strictly null (not empty string/collection) | `$result \| Should -Be $null` |
-| `-Be $true` | Truthy check via `-Be` | `$result \| Should -Be $true` |
+| `-BeTrue` | Value is `$true` | `$result | Should -BeTrue` |
+| `-BeFalse` | Value is `$false` | `$result | Should -BeFalse` |
+| `-BeNullOrEmpty` | Value is `$null`, empty string, or empty collection | `$null | Should -BeNullOrEmpty` |
+| `-Be $null` | Strictly null (not empty string/collection) | `$result | Should -Be $null` |
+| `-Be $true` | Truthy check via `-Be` | `$result | Should -Be $true` |
 
 ## String Matching
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-BeLike` | Wildcard match (case-insensitive, `*`, `?`, `[]`) | `'PowerShell' \| Should -BeLike '*shell'` |
-| `-BeLikeExactly` | Wildcard match (case-sensitive) | `'PowerShell' \| Should -BeLikeExactly 'Power*'` |
-| `-Match` | Regex match (case-insensitive) | `'Error 404' \| Should -Match '\d{3}'` |
-| `-MatchExactly` | Regex match (case-sensitive) | `'PowerShell' \| Should -MatchExactly '^Power'` |
+| `-BeLike` | Wildcard match (case-insensitive, `*`, `?`, `[]`) | `'PowerShell' | Should -BeLike '*shell'` |
+| `-BeLikeExactly` | Wildcard match (case-sensitive) | `'PowerShell' | Should -BeLikeExactly 'Power*'` |
+| `-Match` | Regex match (case-insensitive) | `'Error 404' | Should -Match '\d{3}'` |
+| `-MatchExactly` | Regex match (case-sensitive) | `'PowerShell' | Should -MatchExactly '^Power'` |
 
 ## Collection
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-Contain` | Collection contains expected value (case-insensitive) | `@(1,2,3) \| Should -Contain 2` |
-| `-HaveCount` | Collection has exact count | `@(1,2,3) \| Should -HaveCount 3` |
-| `-BeIn` | Value is member of expected collection | `'b' \| Should -BeIn @('a','b','c')` |
-| `-Be` (arrays) | Arrays match element-by-element | `@(1,2) \| Should -Be @(1,2)` |
+| `-Contain` | Collection contains expected value (case-insensitive) | `@(1,2,3) | Should -Contain 2` |
+| `-HaveCount` | Collection has exact count | `@(1,2,3) | Should -HaveCount 3` |
+| `-BeIn` | Value is member of expected collection | `'b' | Should -BeIn @('a','b','c')` |
+| `-Be` (arrays) | Arrays match element-by-element | `@(1,2) | Should -Be @(1,2)` |
 
 ### Contain vs BeIn
 
@@ -66,9 +66,9 @@ Add failure context with `-Because`: `$x | Should -Be 5 -Because 'config require
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-BeOfType` | Value is the specified .NET type | `42 \| Should -BeOfType [int]` |
-| `-BeOfType` (string) | Also accepts type name as string | `42 \| Should -BeOfType 'System.Int32'` |
-| `-HaveType` | Alias for `-BeOfType` | `'hi' \| Should -HaveType [string]` |
+| `-BeOfType` | Value is the specified .NET type | `42 | Should -BeOfType [int]` |
+| `-BeOfType` (string) | Also accepts type name as string | `42 | Should -BeOfType 'System.Int32'` |
+| `-HaveType` | Alias for `-BeOfType` | `'hi' | Should -HaveType [string]` |
 
 ### Common Types
 
@@ -88,10 +88,10 @@ $true       | Should -BeOfType [bool]
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-Exist` | Path exists (file or directory) | `'/tmp/file.txt' \| Should -Exist` |
-| `-FileContentMatch` | File contains line matching regex (case-insensitive) | `'/tmp/f.txt' \| Should -FileContentMatch 'error'` |
-| `-FileContentMatchExactly` | File contains line matching regex (case-sensitive) | `'/tmp/f.txt' \| Should -FileContentMatchExactly 'Error'` |
-| `-FileContentMatchMultiline` | Regex match across entire file content (multiline) | `'/tmp/f.txt' \| Should -FileContentMatchMultiline '(?s)start.*end'` |
+| `-Exist` | Path exists (file or directory) | `'/tmp/file.txt' | Should -Exist` |
+| `-FileContentMatch` | File contains line matching regex (case-insensitive) | `'/tmp/f.txt' | Should -FileContentMatch 'error'` |
+| `-FileContentMatchExactly` | File contains line matching regex (case-sensitive) | `'/tmp/f.txt' | Should -FileContentMatchExactly 'Error'` |
+| `-FileContentMatchMultiline` | Regex match across entire file content (multiline) | `'/tmp/f.txt' | Should -FileContentMatchMultiline '(?s)start.*end'` |
 
 ### File Assertions with TestDrive
 
@@ -109,11 +109,11 @@ $path | Should -Not -FileContentMatch 'ERROR'
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-Throw` | ScriptBlock throws any error | `{ throw 'fail' } \| Should -Throw` |
-| `-Throw 'message'` | Error message matches (substring, case-insensitive) | `{ throw 'bad input' } \| Should -Throw 'bad input'` |
-| `-Throw -ExceptionType` | Thrown exception is specific .NET type | `{ throw [System.IO.FileNotFoundException]::new() } \| Should -Throw -ExceptionType ([System.IO.FileNotFoundException])` |
-| `-Throw -ErrorId` | Matches the FullyQualifiedErrorId | `{ Write-Error -ErrorId 'MyErr' -ErrorAction Stop } \| Should -Throw -ErrorId 'MyErr'` |
-| `-Not -Throw` | ScriptBlock does NOT throw | `{ 1 + 1 } \| Should -Not -Throw` |
+| `-Throw` | ScriptBlock throws any error | `{ throw 'fail' } | Should -Throw` |
+| `-Throw 'message'` | Error message matches (substring, case-insensitive) | `{ throw 'bad input' } | Should -Throw 'bad input'` |
+| `-Throw -ExceptionType` | Thrown exception is specific .NET type | `{ throw [System.IO.FileNotFoundException]::new() } | Should -Throw -ExceptionType ([System.IO.FileNotFoundException])` |
+| `-Throw -ErrorId` | Matches the FullyQualifiedErrorId | `{ Write-Error -ErrorId 'MyErr' -ErrorAction Stop } | Should -Throw -ErrorId 'MyErr'` |
+| `-Not -Throw` | ScriptBlock does NOT throw | `{ 1 + 1 } | Should -Not -Throw` |
 
 ### Combined Exception Matching
 
@@ -192,10 +192,10 @@ Describe 'Scoped counts' {
 
 | Assertion | Description | Example |
 |-----------|-------------|---------|
-| `-HaveParameter` | Command has named parameter | `Get-Command Get-Item \| Should -HaveParameter 'Path'` |
-| `-HaveParameter -Type` | Parameter is specific type | `Get-Command Get-Item \| Should -HaveParameter 'Path' -Type [string[]]` |
-| `-HaveParameter -Mandatory` | Parameter is mandatory | `Get-Command Get-Item \| Should -HaveParameter 'Path' -Mandatory` |
-| `-HaveParameter -DefaultValue` | Parameter has default value | `Get-Command MyFunc \| Should -HaveParameter 'Count' -DefaultValue 10` |
+| `-HaveParameter` | Command has named parameter | `Get-Command Get-Item | Should -HaveParameter 'Path'` |
+| `-HaveParameter -Type` | Parameter is specific type | `Get-Command Get-Item | Should -HaveParameter 'Path' -Type [string[]]` |
+| `-HaveParameter -Mandatory` | Parameter is mandatory | `Get-Command Get-Item | Should -HaveParameter 'Path' -Mandatory` |
+| `-HaveParameter -DefaultValue` | Parameter has default value | `Get-Command MyFunc | Should -HaveParameter 'Count' -DefaultValue 10` |
 
 ```powershell
 Describe 'Get-Widget parameters' {

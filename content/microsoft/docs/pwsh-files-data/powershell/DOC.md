@@ -174,9 +174,9 @@ $users[0].Name                    # Property access by header name
 $data = Import-Csv ./data.tsv -Delimiter "`t"
 $data = Import-Csv ./noheader.csv -Header 'Col1', 'Col2', 'Col3'
 
-# Export — -NoTypeInformation is REMOVED in PS 7 (now default behavior)
-$users | Export-Csv ./output.csv                       # RIGHT in PS 7
-$users | Export-Csv ./output.csv -NoTypeInformation    # ERROR in PS 7
+# Export — -NoTypeInformation is REDUNDANT in PS 7+ (no type info is emitted by default)
+$users | Export-Csv ./output.csv                       # Preferred in PS 7+
+$users | Export-Csv ./output.csv -NoTypeInformation    # Valid but redundant in PS 7+
 
 # -UseQuotes (PS 7+ only)
 $data | Export-Csv out.csv -UseQuotes AsNeeded    # Quote only when needed

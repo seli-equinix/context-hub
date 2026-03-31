@@ -14,7 +14,7 @@ metadata:
 
 ## Golden Rule
 
-**These modules are WINDOWS-ONLY.** They do not exist on Linux or macOS. Every cmdlet in this document requires Windows. Always check `$IsWindows` before using them in cross-platform scripts.
+**Many of the modules and scenarios in this guide are WINDOWS-ONLY.** The Windows-specific modules and cmdlets discussed here (for example, ScheduledTasks, NetSecurity, and Get-WinEvent) do not exist on Linux or macOS. Always check `$IsWindows` before using these Windows-only cmdlets in cross-platform scripts.
 
 ```powershell
 # Guard all Windows-only code

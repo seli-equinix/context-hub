@@ -166,11 +166,11 @@ $files.Count                    # Always works
 | `[array]` | System.Array | `[xml]` | System.Xml.XmlDocument |
 | `[hashtable]` | System.Collections.Hashtable | `[ipaddress]` | System.Net.IPAddress |
 | `[psobject]` | System.Management.Automation.PSObject | `[scriptblock]` | ScriptBlock |
-| `[pscustomobject]` | System.Management.Automation.PSObject | `[ordered]` | OrderedDictionary |
+| `[pscustomobject]` | System.Management.Automation.PSCustomObject | `[ordered]` | OrderedDictionary |
 | `[semver]` | SemanticVersion | `[switch]` | SwitchParameter |
 
-Note: `[pscustomobject]` and `[psobject]` map to the **same type**. The difference is
-syntactic: `[PSCustomObject]@{}` triggers ordered-property creation.
+Note: `[pscustomobject]` and `[psobject]` map to **different types** (PSCustomObject vs PSObject).
+`[PSCustomObject]@{}` triggers ordered-property creation and produces a PSCustomObject instance.
 
 ## Casting and Type Conversion
 

@@ -38,7 +38,7 @@ Get-Process | Where-Object ProcessName -eq 'chrome'
 | `[string]` | System.String | `[int]` | System.Int32 |
 | `[long]` | System.Int64 | `[double]` | System.Double |
 | `[decimal]` | System.Decimal | `[bool]` | System.Boolean |
-| `[datetime]` | System.DateTime | `[array]` | System.Object[] |
+| `[datetime]` | System.DateTime | `[array]` | System.Array |
 | `[hashtable]` | System.Collections.Hashtable | `[pscustomobject]` | PSCustomObject |
 | `[xml]` | System.Xml.XmlDocument | `[regex]` | System.Text.RegularExpressions.Regex |
 | `[ipaddress]` | System.Net.IPAddress | `[uri]` | System.Uri |
