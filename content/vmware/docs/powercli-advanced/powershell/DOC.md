@@ -2003,3 +2003,28 @@ Wait-ApplianceBackupJob
 | `-Server` | `VIServer[]` | No | Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more infor... |
 
 ---
+
+### Complete-VIOAuth2ClientSecretRotation
+
+Forces an immediate secret rotation for a specific OAuth 2 client.
+
+Forces an immediate secret rotation for a specific OAuth 2 client. The new secret becomes the current secret of the OAuth 2 client.
+
+**Returns**: `VMware.VimAutomation.ViCore.Types.V1.IdentityBroker.OAuth2Client`
+
+```
+Complete-VIOAuth2ClientSecretRotation
+    [-OAuth2Client <OAuth2Client[]>]
+    [-Server <VIServer[]>]
+    [-Confirm]
+    [-WhatIf]
+```
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `-OAuth2Client` | `OAuth2Client[]` | No | Specifies the OAuth 2 client whose secrete rotation you want to force immediately. |
+| `-Server` | `VIServer[]` | No | Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more infor... |
+| `-Confirm` | `SwitchParameter` | No | Prompts you for confirmation before running the cmdlet. |
+| `-WhatIf` | `SwitchParameter` | No | Shows what would happen when the cmdlet runs. Note that the cmdlet is actually not started. |
+
+---

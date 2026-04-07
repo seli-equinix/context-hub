@@ -1865,18 +1865,6 @@ $obj | ConvertTo-Json -Depth 10    # RIGHT — preserves all nesting
 $obj | ConvertTo-Json -Depth 32    # Safe habit. Max is 100
 ```
 
-### ConvertFrom-Json
-
-```powershell
-$obj = '{"a":1}' | ConvertFrom-Json
-
-$ht = '{"a":1}' | ConvertFrom-Json -AsHashtable
-$ht.ContainsKey('a')     # True
-
-$obj.ContainsKey('a')    # ERROR
-$null -ne $obj.PSObject.Properties['a']
-```
-
 ### JSON Round-Trip and Edge Cases
 
 ```powershell
