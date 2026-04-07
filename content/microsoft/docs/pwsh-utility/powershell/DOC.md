@@ -133,6 +133,106 @@ metadata:
 
 ---
 
+## Patterns & Common Usage
+
+## Set-PSDebug (Trace and Strict Mode)
+
+### Trace Levels
+
+```powershell
+Set-PSDebug -Trace 0
+
+Set-PSDebug -Trace 1
+
+Set-PSDebug -Trace 2
+
+Set-PSDebug -Off
+```
+
+### Other Set-PSDebug Modes
+
+- `Set-PSDebug -Step` — prompts before every statement (interactive)
+- `Set-PSDebug -Strict` — errors on uninitialized variables (prefer `Set-StrictMode -Version Latest` for more comprehensive checks)
+- `Set-PSDebug -Off` — fully resets all debug modes
+
+## Debugging in VS Code
+
+VS Code with the PowerShell extension provides full GUI debugging. Key shortcuts:
+
+| Shortcut | Action | Shortcut | Action |
+|----------|--------|----------|--------|
+| **F5** | Start/Continue | **F9** | Toggle breakpoint |
+| **F10** | Step Over | **F11** | Step Into |
+| **Shift+F11** | Step Out | **Shift+F5** | Stop debugging |
+
+Right-click gutter for **Conditional Breakpoints**: expression (`$count -gt 100`), hit count, or log message (logpoint).
+
+See VS Code PowerShell extension docs for `launch.json` configuration.
+
+## Golden Rule: Everything Is an Object
+
+PowerShell pipeline passes **objects**, not text. Screen output is a formatted view.
+
+```powershell
+$p = Get-Process -Name pwsh
+$p.Id              # PID (int)
+$p.WorkingSet64    # Memory in bytes (long)
+$p.StartTime       # DateTime object
+```
+
+Parsing text output with regex is almost always wrong. Access properties directly.
+
+## Member Enumeration (PS 3+)
+
+Accessing a property on a collection returns that property from each element:
+
+```powershell
+$procs = Get-Process
+$procs.Name         # Array of all process names
+
+$names = @("hello", "world")
+$names.ToUpper()    # @("HELLO", "WORLD")
+```
+
+### The `.Count`/`.Length` Ambiguity
+
+```powershell
+$files = Get-ChildItem *.txt
+$files.Length    # Number of files (array property wins over FileInfo.Length)
+```
+
+When collection and elements share a property name, the collection's property wins.
+
+### Single-Element Gotcha
+
+```powershell
+$files = Get-ChildItem *.txt    # Might return 1 FileInfo, not an array
+$files.Count                    # Could be $null on single FileInfo
+
+$files = @(Get-ChildItem *.txt)
+$files.Count                    # Always works
+```
+
+## Type Accelerators
+
+| Accelerator | .NET Type | Accelerator | .NET Type |
+|-------------|-----------|-------------|-----------|
+| `[string]` | System.String | `[datetime]` | System.DateTime |
+| `[int]` | System.Int32 | `[timespan]` | System.TimeSpan |
+| `[long]` | System.Int64 | `[guid]` | System.Guid |
+| `[bool]` | System.Boolean | `[uri]` | System.Uri |
+| `[double]` | System.Double | `[version]` | System.Version |
+| `[decimal]` | System.Decimal | `[regex]` | System.Text.RegularExpressions.Regex |
+| `[array]` | System.Array | `[xml]` | System.Xml.XmlDocument |
+| `[hashtable]` | System.Collections.Hashtable | `[ipaddress]` | System.Net.IPAddress |
+| `[psobject]` | System.Management.Automation.PSObject | `[scriptblock]` | ScriptBlock |
+| `[pscustomobject]` | System.Management.Automation.PSCustomObject | `[ordered]` | OrderedDictionary |
+| `[semver]` | SemanticVersion | `[switch]` | SwitchParameter |
+
+Note: `[pscustomobject]` and `[psobject]` map to **different types** (PSCustomObject vs PSObject).
+`[PSCustomObject]@{}` triggers ordered-property creation and produces a PSCustomObject instance.
+
+
 ### Add-Member
 
 Adds custom properties and methods to an instance of a PowerShell object.
@@ -169,6 +269,28 @@ Add-Member
 | `-SecondValue` | `Object` | No | Specifies optional additional information about **AliasProperty**, **ScriptProperty**, or **CodeProperty** members.   If used when adding an **AliasProperty**, this parameter must be a data type. A... |
 | `-TypeName` | `Object` | Yes | Specifies a name for the type.   When the type is a class in the **System** namespace or a type that has a type accelerator, you can enter the short name of the type. Otherwise, the full type name ... |
 | `-Value` | `Object` | No | Specifies the initial value of the added member. If you add an **AliasProperty**, **CodeProperty**, or **ScriptProperty** member, you can supply additional information using the **SecondValue** par... |
+
+**Patterns & Best Practices:**
+
+```powershell
+$obj = [PSCustomObject]@{ Name = "Sean" }
+
+$obj | Add-Member NoteProperty Email "sean@example.com"
+
+$obj | Add-Member ScriptProperty Upper { $this.Name.ToUpper() }
+
+$obj | Add-Member ScriptMethod Greet { "Hello, $($this.Name)" }
+
+$obj.Email    # sean@example.com
+$obj.Upper    # SEAN
+$obj.Greet()  # Hello, Sean
+```
+
+**Gotchas:**
+- `Add-Member` returns nothing by default. Use `-PassThru` to chain.
+- Duplicate property names error unless you use `-Force`.
+- `Add-Member` modifies the object in place (no assignment needed).
+
 
 ---
 
@@ -284,6 +406,15 @@ Compare-Object
 | `-Property` | `Object` | No | Specifies an array of properties of the **reference** and **difference** objects to compare.   The value of the **Property** parameter can be a new calculated property. The calculated property can ... |
 | `-ReferenceObject` | `Object` | Yes | Specifies an array of objects used as a reference for comparison. |
 | `-SyncWindow` | `Object` | No | Specifies the number of adjacent objects that `Compare-Object` inspects while looking for a match in a collection of objects. `Compare-Object` examines adjacent objects when it doesn't find the obj... |
+
+**Patterns & Best Practices:**
+
+```powershell
+Compare-Object @(1,2,3,4) @(2,3,4,5)
+
+Compare-Object $old $new -Property Name, Email
+```
+
 
 ---
 
@@ -613,6 +744,68 @@ Disable-PSBreakpoint
 | `-PassThru` | `Object` | No | Returns an object representing the enabled breakpoints. By default, this cmdlet does not generate any output. |
 | `-Runspace` | `Object` | No | Specifies the Id of a **Runspace** object so you can interact with breakpoints in the specified runspace.   This parameter was added in PowerShell 7.2. |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet is not run. |
+
+**Patterns & Best Practices:**
+
+### Set-PSBreakpoint
+
+PowerShell supports three types of breakpoints: line, command, and variable.
+
+#### Line Breakpoints
+
+```powershell
+Set-PSBreakpoint -Script 'C:\Scripts\Deploy.ps1' -Line 25
+
+Set-PSBreakpoint -Script 'C:\Scripts\Deploy.ps1' -Line 25, 40, 55
+
+Set-PSBreakpoint -Script 'C:\Scripts\Deploy.ps1' -Line 25 -Action {
+    if ($count -gt 100) { break }
+}
+```
+
+#### Command Breakpoints
+
+```powershell
+Set-PSBreakpoint -Command 'Get-Service'
+
+Set-PSBreakpoint -Script 'C:\Scripts\Deploy.ps1' -Command 'Invoke-RestMethod'
+
+Set-PSBreakpoint -Command 'Remove-Item' -Action {
+    Write-Warning "Remove-Item called with: $($args[0])"
+    continue   # Don't actually break — just log and continue
+}
+```
+
+#### Variable Breakpoints
+
+```powershell
+Set-PSBreakpoint -Variable 'count' -Mode Write
+
+Set-PSBreakpoint -Variable 'config' -Mode Read
+
+Set-PSBreakpoint -Variable 'data' -Mode ReadWrite
+
+Set-PSBreakpoint -Script 'C:\Scripts\Deploy.ps1' -Variable 'result' -Mode Write
+```
+
+### Managing Breakpoints
+
+```powershell
+Get-PSBreakpoint
+
+Get-PSBreakpoint -Type Line
+Get-PSBreakpoint -Type Command
+Get-PSBreakpoint -Type Variable
+
+Disable-PSBreakpoint -Id 0
+
+Enable-PSBreakpoint -Id 0
+
+Remove-PSBreakpoint -Id 0
+
+Get-PSBreakpoint | Remove-PSBreakpoint
+```
+
 
 ---
 
@@ -1167,6 +1360,34 @@ Get-Date
 | `-UnixTimeSeconds` | `Object` | Yes | Date and time represented in seconds since January 1, 1970, 0:00:00.   This parameter was introduced in PowerShell 7.1. |
 | `-Year` | `Object` | No | Specifies the year that is displayed. Enter a value from 1 to 9999. |
 
+**Patterns & Best Practices:**
+
+```powershell
+Start-Transcript -Path "C:\Logs\debug-$(Get-Date -Format 'yyyyMMdd-HHmmss').txt"
+Stop-Transcript
+
+Start-Transcript -Path (Join-Path $PSScriptRoot "logs\$(Get-Date -Format 'yyyyMMdd-HHmmss').txt")
+try { <# script logic #> } finally { Stop-Transcript }
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+$proc = Get-Process -Id $PID
+
+"Process: $proc.Name"            # Process: System.Diagnostics.Process (pwsh).Name
+
+"Process: $($proc.Name)"        # Process: pwsh
+"Sum: $(2 + 2)"                  # Sum: 4
+"Today: $(Get-Date -Format 'yyyy-MM-dd')"
+"Files: $((Get-ChildItem).Count)"
+```
+
+Array in strings: `"Items: $arr"` gives space-separated output (controlled by `$OFS`).
+Use `"$($arr -join ', ')"` for custom separators.
+
+
 ---
 
 ### Get-Error
@@ -1429,6 +1650,54 @@ Get-Runspace
 | `-Id` | `Object` | Yes | Specifies the Id of a runspace |
 | `-InstanceId` | `Object` | Yes | Specifies the instance ID GUID of a running job. |
 | `-Name` | `Object` | No | Specifies the Name of a runspace |
+
+**Patterns & Best Practices:**
+
+### How Wait-Debugger Works
+
+`Wait-Debugger` pauses the current runspace and waits for a debugger to attach. This is essential for debugging code that runs in contexts you cannot directly interact with: jobs, remote sessions, containers, scheduled tasks.
+
+```powershell
+$data = Get-Content '/app/config.json' | ConvertFrom-Json
+Wait-Debugger   # Script pauses here until debugger attaches
+$data.settings | ForEach-Object { ... }
+```
+
+### Attaching to a Paused Runspace
+
+```powershell
+Enter-PSHostProcess -Id <PID>
+Enter-PSHostProcess -Name 'pwsh'
+
+Get-Runspace
+
+Debug-Runspace -Id <RunspaceId>
+
+
+q        # Quit debugger
+exit     # Exit the host process
+```
+
+### Debugging a Background Job
+
+```powershell
+$job = Start-Job -ScriptBlock {
+    $items = Get-ChildItem /tmp
+    Wait-Debugger   # Job pauses here
+    $items | Where-Object Length -gt 1MB
+}
+
+Debug-Job -Job $job
+
+[DBG]: PS>> $items.Count
+42
+[DBG]: PS>> c    # Continue the job
+```
+
+### Debugging in Remote Sessions
+
+Same pattern: script with `Wait-Debugger` runs via `Invoke-Command -Session $session`. In another terminal, `Enter-PSSession -Session $session`, then `Get-Runspace` and `Debug-Runspace -Id <id>`.
+
 
 ---
 
@@ -1966,6 +2235,218 @@ Invoke-RestMethod
 | `-UserAgent` | `Object` | No | Specifies a user agent string for the web request.   The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variation... |
 | `-WebSession` | `Object` | No | Specifies a web request session. Enter the variable name, including the dollar sign (`$`).   To override a value in the web request session, use a cmdlet parameter, such as **UserAgent** or **Crede... |
 
+**Patterns & Best Practices:**
+
+PowerShell has TWO web cmdlets with different return types:
+
+| Cmdlet | Returns | Use When |
+|--------|---------|----------|
+| `Invoke-RestMethod` | Auto-parsed objects (JSON->PSObject, XML->XmlDocument) | You only need the body |
+| `Invoke-WebRequest` | `BasicHtmlWebResponseObject` with `.StatusCode`, `.Headers`, `.Content` | You need status codes, headers, or raw content |
+
+`Invoke-RestMethod` does NOT have a `.StatusCode` property. `Invoke-WebRequest` does NOT auto-parse JSON.
+
+```powershell
+$users = Invoke-RestMethod -Uri 'https://api.example.com/users'
+$users[0].name   # Direct property access on parsed JSON
+
+$response = Invoke-WebRequest -Uri 'https://api.example.com/users'
+$response.StatusCode        # 200
+$response.Content | ConvertFrom-Json   # Manual parse needed
+```
+
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+```powershell
+$headers = @{
+    'Accept'       = 'application/json'
+    'X-Request-Id' = [guid]::NewGuid().ToString()
+}
+Invoke-RestMethod -Uri $uri -Method Post -Headers $headers `
+    -ContentType 'application/json' -Body $json
+```
+
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+```powershell
+Invoke-RestMethod -Uri 'https://self-signed.local/api' -SkipCertificateCheck
+
+
+$cert = Get-PfxCertificate -FilePath './client.pfx'
+Invoke-RestMethod -Uri $uri -Certificate $cert
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+$form = @{
+    file        = Get-Item './document.pdf'    # FileInfo = file upload
+    description = 'Quarterly report'           # String = form field
+}
+Invoke-RestMethod -Uri "$uri/upload" -Method Post -Form $form
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+Invoke-RestMethod -Uri "$uri/login" -Method Post `
+    -Body $loginJson -ContentType 'application/json' `
+    -SessionVariable 'session'   # Creates $session in current scope
+
+Invoke-RestMethod -Uri "$uri/data" -WebSession $session
+```
+
+
+**Patterns & Best Practices:**
+
+### 1: Hashtable -Body sends form-encoded, not JSON
+```powershell
+Invoke-RestMethod -Uri $uri -Method Post `        Invoke-RestMethod -Uri $uri -Method Post `
+    -Body @{ name = 'test' }                          -Body (@{ name = 'test' } | ConvertTo-Json) `
+                                                      -ContentType 'application/json'
+```
+
+### 2: Expecting StatusCode from Invoke-RestMethod
+`Invoke-RestMethod` returns parsed data only. Use `Invoke-WebRequest` for status codes.
+
+### 3: .NET Framework certificate hack in PS7
+`[ServicePointManager]::ServerCertificateValidationCallback` is ignored. Use `-SkipCertificateCheck`.
+
+### 4: ConvertTo-Json depth truncation
+Default depth 2 silently converts nested hashtables to type name strings. Always use `-Depth`.
+
+### 5: -Credential without -Authentication
+Waits for 401 challenge. Use `-Authentication Basic -Credential $cred` to send on first request.
+
+### 6: Setting -ContentType with -Form
+Overrides the multipart boundary. Let `-Form` set Content-Type automatically.
+
+### 7: -SessionVariable takes a string name
+`-SessionVariable $session` is wrong. Use `-SessionVariable 'session'` then `-WebSession $session`.
+
+### 8: -FollowRelLink returns array of arrays
+Each element is one page. Flatten with `$pages | ForEach-Object { $_ }`.
+
+### 9: -Body with GET requests
+Some servers reject GET with a body. Put query parameters in the URI instead:
+```powershell
+$qs = [System.Web.HttpUtility]::ParseQueryString('')
+$qs.Add('q', 'test with spaces'); $qs.Add('limit', '10')
+Invoke-RestMethod -Uri "https://api.example.com/search?$($qs.ToString())"
+```
+
+### 10: Ignoring character encoding
+`Invoke-RestMethod` uses Content-Type charset for decoding. For raw bytes control, use `Invoke-WebRequest` and read `$response.RawContentStream`.
+
+
+### -FollowRelLink (Automatic)
+
+```powershell
+$pages = Invoke-RestMethod -Uri "$uri?page=1" -FollowRelLink -MaximumFollowRelLink 10
+
+$allItems = $pages | ForEach-Object { $_ }   # Flatten to single list
+```
+
+### Manual Cursor-Based
+
+```powershell
+$allItems = [System.Collections.Generic.List[object]]::new()
+$cursor = $null
+do {
+    $uri = 'https://api.example.com/items?limit=100'
+    if ($cursor) { $uri += "&cursor=$cursor" }
+    $response = Invoke-RestMethod -Uri $uri
+    $allItems.AddRange($response.data)
+    $cursor = $response.next_cursor
+} while ($cursor)
+```
+
+### Manual Offset-Based
+
+```powershell
+$allItems = [System.Collections.Generic.List[object]]::new()
+$offset = 0; $limit = 100
+do {
+    $response = Invoke-RestMethod -Uri "$uri?offset=$offset&limit=$limit"
+    $allItems.AddRange($response.items)
+    $offset += $limit
+} while ($response.items.Count -eq $limit)
+```
+
+
+### Built-in -Authentication (PS 7+)
+
+```powershell
+$token = ConvertTo-SecureString 'your-api-token' -AsPlainText -Force
+Invoke-RestMethod -Uri $uri -Authentication Bearer -Token $token
+
+$secPass = ConvertTo-SecureString 'MyPassword' -AsPlainText -Force
+$cred = [PSCredential]::new('username', $secPass)
+Invoke-RestMethod -Uri $uri -Authentication Basic -Credential $cred
+
+Invoke-RestMethod -Uri $uri -Authentication OAuth -Token $token
+```
+
+### CRITICAL: -Credential Alone vs -Authentication Basic
+
+```powershell
+Invoke-RestMethod -Uri $uri -Credential $cred  # May fail!
+
+Invoke-RestMethod -Uri $uri -Authentication Basic -Credential $cred  # Correct
+```
+
+### Manual Authorization Header
+
+```powershell
+$headers = @{ Authorization = 'Bearer your-api-token-here' }
+Invoke-RestMethod -Uri $uri -Headers $headers
+
+$base64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes('user:pass'))
+Invoke-RestMethod -Uri $uri -Headers @{ Authorization = "Basic $base64" }
+
+Invoke-RestMethod -Uri $uri -Headers @{ 'X-API-Key' = 'your-key' }
+```
+
+
+### GET, POST, PUT, PATCH, DELETE
+
+```powershell
+$data = Invoke-RestMethod -Uri 'https://api.example.com/search?q=test&limit=10'
+
+$body = @{ name = 'Widget'; price = 9.99 } | ConvertTo-Json
+$result = Invoke-RestMethod -Uri 'https://api.example.com/items' `
+    -Method Post -Body $body -ContentType 'application/json'
+
+Invoke-RestMethod -Uri $uri -Method Post -Body @{ name = 'Widget' }
+
+$body = @{ name = 'Updated'; price = 12.99 } | ConvertTo-Json
+Invoke-RestMethod -Uri "$uri/42" -Method Put -Body $body -ContentType 'application/json'
+
+Invoke-RestMethod -Uri "$uri/42" -Method Patch `
+    -Body (@{ price = 14.99 } | ConvertTo-Json) -ContentType 'application/json'
+
+Invoke-RestMethod -Uri "$uri/42" -Method Delete
+```
+
+### ConvertTo-Json Depth
+
+```powershell
+@{ a = @{ b = @{ c = 'deep' } } } | ConvertTo-Json
+
+@{ a = @{ b = @{ c = 'deep' } } } | ConvertTo-Json -Depth 10
+```
+
+
 ---
 
 ### Invoke-WebRequest
@@ -2066,6 +2547,25 @@ Invoke-WebRequest
 | `-UseDefaultCredentials` | `Object` | No | Indicates that the cmdlet uses the credentials of the current user to send the web request. This can't be used with **Authentication** or **Credential** and may not be supported on all platforms. |
 | `-UserAgent` | `Object` | No | Specifies a user agent string for the web request.   The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variation... |
 | `-WebSession` | `Object` | No | Specifies a web request session. Enter the variable name, including the dollar sign (`$`).   To override a value in the web request session, use a cmdlet parameter, such as **UserAgent** or **Crede... |
+
+**Patterns & Best Practices:**
+
+```powershell
+$response = Invoke-WebRequest -Uri 'https://api.example.com/items'
+$response.StatusCode          # 200
+$response.Headers             # Dictionary (case-insensitive keys in PS7)
+$response.Content             # Raw response body string
+$response.Links               # Parsed <a>/<link> tags from HTML
+
+$response = Invoke-WebRequest -Uri $uri -SkipHttpErrorCheck
+$response.StatusCode  # 404 — no exception thrown
+
+try { $r = Invoke-WebRequest -Uri $uri }
+catch {
+    $statusInt = [int]$_.Exception.Response.StatusCode  # 404
+}
+```
+
 
 ---
 
@@ -2273,6 +2773,41 @@ New-Object
 | `-Strict` | `Object` | No | Indicates that the cmdlet generates a non-terminating error when a COM object that you attempt to create uses an interop assembly. This feature distinguishes actual COM objects from .NET Framework ... |
 | `-TypeName` | `Object` | Yes | Specifies the fully qualified name of the .NET Framework class. You cannot specify both the **TypeName** parameter and the **ComObject** parameter. |
 
+**Patterns & Best Practices:**
+
+```powershell
+$obj = [PSCustomObject]@{
+    Name = "Sean"
+    Age  = 30
+    Role = "Admin"
+}
+$obj.Name    # Sean
+```
+
+Properties retain insertion order (implicit `[ordered]` for this pattern).
+
+### WRONG: `New-Object` with Hashtable
+
+```powershell
+$obj = New-Object PSObject -Property @{ Name = "Sean"; Age = 30; Role = "Admin" }
+```
+
+### Hashtable vs PSCustomObject — Not Interchangeable
+
+```powershell
+$hash = @{ Name = "Sean" }          # Hashtable
+$obj = [PSCustomObject]@{ Name = "Sean" }  # PSCustomObject
+
+$hash.Keys                # Works (Hashtable method)
+$obj.Keys                 # $null (no .Keys on PSCustomObject)
+
+$hash | Select-Object Name     # EMPTY — hashtable keys are not properties
+$obj | Select-Object Name      # Name = Sean — works as expected
+```
+
+Cmdlets expect objects with properties, not hashtables.
+
+
 ---
 
 ### New-TemporaryFile
@@ -2425,6 +2960,37 @@ Out-String
 | `-NoNewline` | `Object` | No | Removes all newlines from output generated by the PowerShell formatter. Newlines that are part of the string objects are preserved.   This parameter was introduced in PowerShell 6.0. |
 | `-Stream` | `Object` | No | By default, `Out-String` outputs a single string formatted as you would see it in the console including any blank headers or trailing newlines. The **Stream** parameter enables `Out-String` to outp... |
 | `-Width` | `Object` | No | Specifies the number of characters in each line of output. Any additional characters are wrapped to the next line or truncated depending on the formatter cmdlet used. The **Width** parameter applie... |
+
+**Patterns & Best Practices:**
+
+**1. Parsing text instead of using objects:** Do not regex `Out-String` output.
+Access `.Property` directly.
+
+**2. `New-Object PSObject -Property @{}`:** Unordered. Use `[PSCustomObject]@{}`.
+
+**3. Missing `@()` wrapper:** `Get-ChildItem` returning 1 item gives a scalar, not
+an array. Wrap: `@(Get-ChildItem *.log)`.
+
+**4. Select-Object kills original type:** `Get-Process | Select-Object Name` returns
+PSCustomObject. Cannot call `.Kill()` on it.
+
+**5. `[bool]"False"` is `$true`:** Non-empty strings are truthy. Use
+`[Convert]::ToBoolean("False")`.
+
+**6. Left-operand coercion:** `"5" + 3` is `"53"`, not `8`.
+
+**7. `.Count` on single objects:** `$file.Count` may be `$null` (pre-PS 7.5) or 1.
+Use `@($file).Count`.
+
+**8. Hashtable in pipeline:** `@{Name="X"} | Select-Object Name` gives empty Name.
+Cast to `[PSCustomObject]` first.
+
+**9. Add-Member silent return:** `$obj | Add-Member NoteProperty X 1` returns nothing.
+Use `-PassThru` if chaining.
+
+**10. Member enumeration property collision:** `$files.Length` returns array length,
+not file sizes. Use `ForEach-Object` for element properties.
+
 
 ---
 
@@ -2686,6 +3252,41 @@ Select-Object
 | `-SkipLast` | `Object` | No | Skips (doesn't select) the specified number of items from the end of the list or array. Works in the same way as using **Skip** together with **Last** parameter.   Unlike the **Index** parameter, w... |
 | `-Unique` | `Object` | No | Specifies that if a subset of the input objects has identical properties and values, only a single member of the subset should be selected.   **Unique** selects values _after_ other filtering param... |
 | `-Wait` | `Object` | No | Indicates that the cmdlet turns off optimization. PowerShell runs commands in the order that they appear in the command pipeline and lets them generate all objects. By default, if you include a `Se... |
+
+**Patterns & Best Practices:**
+
+### Property Selection Creates NEW Objects
+
+```powershell
+$p = Get-Process -Name pwsh | Select-Object Name, Id
+$p.GetType().Name    # PSCustomObject (NOT Process!)
+$p.Kill()            # ERROR: method does not exist
+```
+
+### Calculated Properties
+
+```powershell
+Get-Process | Select-Object Name, @{N='MemMB'; E={[math]::Round($_.WS / 1MB, 2)}}
+```
+
+Aliases: `N`/`Name`/`Label`/`L` for name, `E`/`Expression` for expression.
+
+### `-ExpandProperty` — Get Raw Values
+
+```powershell
+Get-Process | Select-Object Name           # Returns PSCustomObjects with .Name
+Get-Process | Select-Object -ExpandProperty Name  # Returns raw strings
+```
+
+### `-First`, `-Last`, `-Skip`, `-Unique`
+
+```powershell
+1..100 | Select-Object -First 5             # 1..5 (stops pipeline early)
+1..100 | Select-Object -Last 3              # 98..100 (buffers everything)
+1..100 | Select-Object -Skip 10 -First 5    # 11..15
+1,2,2,3,3 | Select-Object -Unique           # 1,2,3
+```
+
 
 ---
 
@@ -3215,6 +3816,25 @@ Trace-Command
 | `-Option` | `Object` | No | Determines the type of events that are traced. The acceptable values for this parameter are:   - `None` - `Constructor` - `Dispose` - `Finalizer` - `Method` - `Property` - `Delegates` - `Events` - ... |
 | `-PSHost` | `Object` | No | Indicates that the cmdlet sends the trace output to the PowerShell host. This parameter also selects the PSHost trace listener. |
 
+**Patterns & Best Practices:**
+
+`Trace-Command` is invaluable for understanding why PowerShell binds parameters the way it does.
+
+```powershell
+Trace-Command -Name ParameterBinding -Expression {
+    Get-ChildItem -Path /tmp -Filter '*.log'
+} -PSHost
+
+
+Trace-Command -Name ParameterBinding, TypeConversion -Expression {
+    [int]"42"
+} -PSHost
+
+
+Get-TraceSource
+```
+
+
 ---
 
 ### Unblock-File
@@ -3394,6 +4014,40 @@ Stops the PowerShell script execution engine at the point immediately after the 
 Wait-Debugger
 ```
 
+**Patterns & Best Practices:**
+
+**`Wait-Debugger` is the most useful debugging tool in PowerShell 7.** Drop it anywhere in your code to pause execution at that exact point. It works in scripts, modules, remote sessions, jobs, and containers. When execution hits `Wait-Debugger`, it halts and waits for a debugger to attach.
+
+```powershell
+function Process-Data {
+    param([string]$Path)
+    $data = Get-Content $Path
+    Wait-Debugger   # Execution pauses here — attach debugger to inspect $data
+    $data | ConvertFrom-Json | ForEach-Object { ... }
+}
+```
+
+
+**Patterns & Best Practices:**
+
+When execution hits a breakpoint or `Wait-Debugger`, you enter the interactive debugger. The prompt changes to `[DBG]:`.
+
+### Debugger Commands
+
+| Command | Shortcut | Description |
+|---------|----------|-------------|
+| `stepInto` | `s` | Execute next statement, stepping INTO functions |
+| `stepOver` | `v` | Execute next statement, stepping OVER functions |
+| `stepOut` | `o` | Run to end of current function, then break |
+| `continue` | `c` | Continue execution until next breakpoint |
+| `quit` | `q` | Stop execution and exit debugger |
+| `list` | `l` | Show source code around current line |
+| `list <n>` | `l <n>` | Show source code around line n |
+| `<expression>` | | Evaluate any PowerShell expression |
+
+At the `[DBG]:` prompt you can evaluate any PowerShell expression, inspect variables, and use the step commands above. Key distinction: `s` (stepInto) enters called functions, `v` (stepOver) executes them entirely, `o` (stepOut) runs to end of current function.
+
+
 ---
 
 ### Wait-Event
@@ -3434,6 +4088,101 @@ Write-Debug
 |-----------|------|----------|-------------|
 | `-Message` | `Object` | Yes | Specifies the debug message to send to the console. |
 
+**Patterns & Best Practices:**
+
+`$DebugPreference` controls `Write-Debug` visibility: `SilentlyContinue` (default/hidden), `Continue` (show), `Inquire` (show + confirm), `Stop` (throw).
+
+Use `Write-Debug` in `[CmdletBinding()]` functions — callers enable with `-Debug` switch:
+
+```powershell
+function Invoke-Deploy {
+    [CmdletBinding()]   # Required for -Debug switch to work
+    param([string]$Server, [string]$Package)
+    Write-Debug "Starting deployment to $Server"
+    # ... logic ...
+}
+Invoke-Deploy -Server 'Web01' -Package 'app.zip' -Debug  # Shows debug messages
+```
+
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Forgetting [CmdletBinding()] for -Debug and -Verbose
+
+```powershell
+function Get-Data {
+    param([string]$Name)
+    Write-Debug "Processing $Name"   # This is NEVER visible
+}
+Get-Data -Name 'test' -Debug
+
+function Get-Data {
+    [CmdletBinding()]
+    param([string]$Name)
+    Write-Debug "Processing $Name"
+}
+Get-Data -Name 'test' -Debug
+```
+
+### Mistake 2: Using Write-Host for Debugging
+
+```powershell
+function Process-Items {
+    param([array]$Items)
+    Write-Host "Item count: $($Items.Count)"   # Always visible, clutters output
+    Write-Host "Processing..."
+}
+
+function Process-Items {
+    [CmdletBinding()]
+    param([array]$Items)
+    Write-Debug "Item count: $($Items.Count)"    # Only with -Debug
+    Write-Verbose "Processing..."                 # Only with -Verbose
+}
+```
+
+### Mistake 3: Leaving Wait-Debugger in Production Code
+
+```powershell
+function Deploy-App {
+    $config = Get-Config
+    Wait-Debugger   # Script hangs forever in production!
+    Start-Deploy $config
+}
+
+function Deploy-App {
+    $config = Get-Config
+    if ($env:POWERSHELL_DEBUG) { Wait-Debugger }   # Only in debug mode
+    Start-Deploy $config
+}
+```
+
+### Mistake 4: Not Using -Off to Disable Set-PSDebug
+
+Use `Set-PSDebug -Off` to fully reset (not `-Trace 0`, which doesn't disable Step mode).
+
+### Mistake 5: Confusing Set-StrictMode with Set-PSDebug -Strict
+
+`Set-PSDebug -Strict` only catches uninitialized variables. Prefer `Set-StrictMode -Version Latest` which also catches non-existent properties, wrong function call syntax, and out-of-bounds array access.
+
+### Mistake 6: Breakpoints Not Working
+
+- If breakpoints don't hit: use `pwsh -File script.ps1` (not `-Command`)
+- For module-private functions: use `-Script` with the file path, not `-Command`
+
+### Mistake 7: Not Using Trace-Command for Parameter Binding Issues
+
+Use `Trace-Command -Name ParameterBinding -Expression { <cmd> } -PSHost` to diagnose "cannot bind parameter" errors instead of guessing.
+
+### Mistake 8: Forgetting Enter-PSHostProcess for Container Debugging
+
+You must `Enter-PSHostProcess -Id <PID>` first, then `Get-Runspace` and `Debug-Runspace`. You cannot call `Debug-Runspace` directly from outside the host process.
+
+### Mistake 9: Write-Debug Stream Redirection
+
+`Write-Debug` goes to stream 5. To capture: `5>&1` (merge to output), `5> debug.log` (to file), `*>&1` (all streams). Piping without redirect only searches stream 1.
+
+
 ---
 
 ### Write-Error
@@ -3472,6 +4221,25 @@ Write-Error
 | `-Message` | `Object` | Yes | Specifies the message text of the error. If the text includes spaces or special characters, enclose it in quotation marks. You can also pipe a message string to `Write-Error`. |
 | `-RecommendedAction` | `Object` | No | Specifies the action that the user should take to resolve or prevent the error. |
 | `-TargetObject` | `Object` | No | Specifies the object that was being processed when the error occurred. Enter the object, a variable that contains the object, or a command that gets the object. |
+
+**Patterns & Best Practices:**
+
+```powershell
+try {
+    $result = Invoke-RestMethod -Uri $uri -Method Post `
+        -Body $json -ContentType 'application/json'
+}
+catch [Microsoft.PowerShell.Commands.HttpResponseException] {
+    # ErrorDetails.Message often contains the JSON error body
+    $apiError = $_.ErrorDetails.Message | ConvertFrom-Json
+    $statusCode = [int]$_.Exception.Response.StatusCode
+    Write-Error "HTTP $statusCode : $($apiError.message)"
+}
+catch {
+    Write-Error "Request failed: $($_.Exception.Message)"  # Network/DNS/timeout
+}
+```
+
 
 ---
 
@@ -3595,6 +4363,38 @@ Write-Verbose
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `-Message` | `Object` | Yes | Specifies the message to display. This parameter is required. You can also pipe a message string to `Write-Verbose`. |
+
+**Patterns & Best Practices:**
+
+```powershell
+Invoke-RestMethod -Uri $uri -TimeoutSec 30
+
+function Invoke-RestMethodWithRetry {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)] [string]$Uri,
+        [string]$Method = 'Get',
+        [int]$MaxRetries = 3,
+        [int]$BaseDelaySec = 2
+    )
+    for ($attempt = 1; $attempt -le $MaxRetries; $attempt++) {
+        try { return Invoke-RestMethod -Uri $Uri -Method $Method }
+        catch {
+            $code = [int]$_.Exception.Response.StatusCode
+            if ($code -notin @(429, 500, 502, 503, 504) -or $attempt -eq $MaxRetries) { throw }
+            $delay = $BaseDelaySec * [math]::Pow(2, $attempt - 1)
+            Write-Verbose "Attempt $attempt failed (HTTP $code). Retrying in ${delay}s..."
+            Start-Sleep -Seconds $delay
+        }
+    }
+}
+```
+
+
+**Patterns & Best Practices:**
+
+Use `Write-Verbose` in `[CmdletBinding()]` functions. Callers enable with `-Verbose` switch or `$VerbosePreference = 'Continue'` globally.
+
 
 ---
 

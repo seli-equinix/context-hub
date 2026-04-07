@@ -104,6 +104,57 @@ Find-PSResource
 | `-Type` | `Object` | No | Specifies one or more resource types to find. Resource types supported are:   - `None` - `Module` - `Script` |
 | `-Version` | `Object` | No | Specifies the version of the resource to be returned. The value can be an exact version or a version range using the NuGet versioning syntax.   Wildcards are supported but NuGet only accepts wildca... |
 
+**Patterns & Best Practices:**
+
+**PowerShellGet v2 (`Install-Module`, `Find-Module`) is DEPRECATED.** PowerShell 7.4+ ships with `Microsoft.PowerShell.PSResourceGet` v1.1 as the built-in, default package manager. Use `Install-PSResource`, `Find-PSResource`, and related cmdlets for all package operations.
+
+The old cmdlets still work (for now) via a compatibility layer, but they are slower, buggier, and will be removed. Write new code with PSResourceGet exclusively.
+
+```powershell
+Install-Module -Name Az -Force
+Find-Module -Name Pester
+
+Install-PSResource -Name Az -TrustRepository
+Find-PSResource -Name Pester
+```
+
+
+**Patterns & Best Practices:**
+
+### Find-PSResource
+
+```powershell
+Find-PSResource -Name Pester
+
+Find-PSResource -Name Az.*
+
+Find-PSResource -Name Pester -Type Module
+Find-PSResource -Type Script -Tag 'azure'
+
+Find-PSResource -Name Pester -Prerelease
+
+Find-PSResource -Name Pester -Repository PSGallery
+
+Find-PSResource -Tag 'azure', 'cloud'
+
+Find-PSResource -Name Pester -Version '5.6.1'
+
+Find-PSResource -Name Pester -Version '[5.0.0, 6.0.0)'
+```
+
+### Version Range Syntax (NuGet Ranges)
+
+PSResourceGet uses NuGet version range notation: `[` = inclusive, `(` = exclusive, `,]` = no upper bound.
+
+| Example | Meaning |
+|---------|---------|
+| `'5.6.1'` or `'[5.6.1]'` | Exact version |
+| `'[5.0.0, 6.0.0)'` | 5.0.0 to 5.x (excludes 6.0.0) |
+| `'[4.10.0,]'` | 4.10.0 or higher |
+| `'(,2.0.0)'` | Below 2.0.0 |
+| `'*'` | Latest stable |
+
+
 ---
 
 ### Get-InstalledPSResource
@@ -128,6 +179,19 @@ Get-InstalledPSResource
 | `-Path` | `Object` | No | Specifies the path to search in. |
 | `-Scope` | `Object` | No | Specifies the scope of the resource. |
 | `-Version` | `Object` | No | Specifies the version of the resource to be returned. The value can be an exact version or a version range using the NuGet versioning syntax.   For more information about NuGet version ranges, see ... |
+
+**Patterns & Best Practices:**
+
+```powershell
+Get-InstalledPSResource
+
+Get-InstalledPSResource -Name Pester
+
+Get-InstalledPSResource -Name Pester -Version '*'
+
+Get-InstalledPSResource -Scope CurrentUser
+```
+
 
 ---
 
@@ -270,6 +334,152 @@ Install-PSResource
 | `-Version` | `Object` | No | Specifies the version of the resource to be returned. The value can be an exact version or a version range using the NuGet versioning syntax.   For more information about NuGet version ranges, see ... |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
 
+**Patterns & Best Practices:**
+
+### Install-PSResource
+
+```powershell
+Install-PSResource -Name Pester
+
+Install-PSResource -Name Pester -TrustRepository
+
+Install-PSResource -Name Pester -Version '5.6.1'
+
+Install-PSResource -Name Pester -Prerelease -TrustRepository
+
+Install-PSResource -Name Pester -Scope CurrentUser
+Install-PSResource -Name Pester -Scope AllUsers   # Requires elevation
+
+Install-PSResource -Name MyModule -Repository MyPrivateRepo -TrustRepository
+
+Install-PSResource -Name Pester -Reinstall
+
+Install-PSResource -Name Pester -TrustRepository -Quiet
+```
+
+**Patterns & Best Practices:**
+
+```powershell
+$cred = [PSCredential]::new('user', (ConvertTo-SecureString 'PAT' -AsPlainText -Force))
+Install-PSResource -Name MyModule -Repository AzureFeed -Credential $cred
+
+Set-PSResourceRepository -Name PSGallery -Trusted
+Install-PSResource -Name Pester -Version '[5.6.0]' -Quiet
+```
+
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Using Install-Module in New Scripts
+
+```powershell
+Install-Module -Name Az -Force -AllowClobber
+
+Install-PSResource -Name Az -TrustRepository -Reinstall
+```
+
+### Mistake 2: Using -Force Instead of -TrustRepository or -Reinstall
+
+```powershell
+Install-PSResource -Name Pester -Force  # ERROR: parameter not found
+
+Install-PSResource -Name Pester -TrustRepository
+
+Install-PSResource -Name Pester -Reinstall -TrustRepository
+```
+
+### Mistake 3: Using PowerShellGet v2 Version Syntax
+
+```powershell
+Install-PSResource -Name Pester -MinimumVersion '5.0.0' -MaximumVersion '5.99.99'
+
+Install-PSResource -Name Pester -Version '[5.0.0, 6.0.0)'
+
+Install-PSResource -Name Pester -RequiredVersion '5.6.1'
+
+Install-PSResource -Name Pester -Version '5.6.1'
+```
+
+### Mistake 4: Assuming Dependencies Auto-Install
+
+PSResourceGet v1.1 does install dependencies automatically, but it handles them differently from PowerShellGet v2. If a dependency is already installed (any version matching the range), it will not reinstall or update it.
+
+```powershell
+Install-PSResource -Name Az -TrustRepository
+
+Install-PSResource -Name Az.Accounts -Reinstall -TrustRepository
+Install-PSResource -Name Az -TrustRepository
+```
+
+### Mistake 5: Using Register-PSRepository Instead of Register-PSResourceRepository
+
+```powershell
+Register-PSRepository -Name MyRepo -SourceLocation 'https://...' -PublishLocation 'https://...'
+
+Register-PSResourceRepository -Name MyRepo -Uri 'https://mynuget.example.com/v3/index.json'
+```
+
+### Mistake 6: Not Setting Repository Priority
+
+When multiple repositories are registered, PSResourceGet searches them by priority order (lowest number first). If you have a private repo and PSGallery, modules may resolve from the wrong source.
+
+```powershell
+Set-PSResourceRepository -Name MyPrivateRepo -Priority 25
+
+Install-PSResource -Name MyModule -Repository MyPrivateRepo -TrustRepository
+```
+
+### Mistake 7: Confusing Scope Behavior
+
+```powershell
+Install-PSResource -Name Pester  # Goes to CurrentUser
+
+Install-PSResource -Name Pester  # Still CurrentUser even when elevated!
+
+Install-PSResource -Name Pester -Scope AllUsers  # Must be admin/elevated
+```
+
+### Mistake 8: Trying to Use -AllowClobber
+
+```powershell
+Install-PSResource -Name SomeModule -AllowClobber
+
+Import-Module ModuleA
+Import-Module ModuleB -Prefix B  # Commands become Get-BThing instead of Get-Thing
+```
+
+### Mistake 9: Publishing Without Required Manifest Fields
+
+```powershell
+Publish-PSResource -Path './MyModule' -Repository PSGallery -ApiKey $key
+
+Publish-PSResource -Path './MyModule' -Repository PSGallery -ApiKey $key
+```
+
+### Mistake 10: Checking PSResourceGet Availability Incorrectly
+
+```powershell
+if (Get-Module -ListAvailable -Name PowerShellGet) { ... }
+
+if (Get-Module -ListAvailable -Name Microsoft.PowerShell.PSResourceGet) {
+    # PSResourceGet is available (built-in from PS 7.4+)
+    Install-PSResource -Name Pester -TrustRepository
+} else {
+    # Fallback to PowerShellGet v2 for older PS versions
+    Install-Module -Name Pester -Force
+}
+
+if (Get-Command Install-PSResource -ErrorAction SilentlyContinue) {
+    Install-PSResource -Name Pester -TrustRepository
+}
+```
+
+
+### Key Differences from Install-Module
+
+No `-Force` (use `-Reinstall`), no `-AllowClobber`, no `-SkipPublisherCheck`. Use `-TrustRepository` to skip trust prompts. Scope defaults to `CurrentUser` even when elevated.
+
+
 ---
 
 ### New-PSScriptFileInfo
@@ -366,6 +576,14 @@ Publish-PSResource
 | `-SkipModuleManifestValidate` | `Object` | No | Skips validating the module manifest before publishing. |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
 
+**Patterns & Best Practices:**
+
+```powershell
+Publish-PSResource -Path './MyModule' -Repository PSGallery -ApiKey $apiKey
+Publish-PSResource -Path './MyScript.ps1' -Repository PSGallery -ApiKey $apiKey
+```
+
+
 ---
 
 ### Register-PSResourceRepository
@@ -408,6 +626,29 @@ Register-PSResourceRepository
 | `-Trusted` | `Object` | No | Specifies whether the repository should be trusted. |
 | `-Uri` | `Object` | Yes | Specifies the location of the repository to be registered. The value must use one of the following URI schemas:   - `https://` - `http://` - `ftp://` - `file://` |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
+
+**Patterns & Best Practices:**
+
+### Viewing Repositories
+
+```powershell
+Get-PSResourceRepository
+
+Get-PSResourceRepository -Name PSGallery
+```
+
+### Registering Repositories
+
+```powershell
+Register-PSResourceRepository -Name MyRepo -Uri 'https://mynuget.example.com/v3/index.json' -Trusted
+Register-PSResourceRepository -Name LocalRepo -Uri '\\fileserver\psrepo' -Trusted
+
+Set-PSResourceRepository -Name PSGallery -Trusted
+Set-PSResourceRepository -Name MyRepo -Priority 25  # Lower = checked first (PSGallery default: 50)
+
+Unregister-PSResourceRepository -Name MyRepo
+```
+
 
 ---
 
@@ -484,6 +725,14 @@ Save-PSResource
 | `-TrustRepository` | `Object` | No | Suppress prompts to trust repository. The prompt to trust repository only occurs if the repository isn't configured as trusted. |
 | `-Version` | `Object` | No | Specifies the version of the resource to be returned. The value can be an exact version or a version range using the NuGet versioning syntax.   For more information about NuGet version ranges, see ... |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
+
+**Patterns & Best Practices:**
+
+```powershell
+Save-PSResource -Name Pester -Path './modules' -TrustRepository
+Save-PSResource -Name Pester -Version '5.6.1' -Path './modules'
+```
+
 
 ---
 
@@ -575,6 +824,43 @@ Uninstall-PSResource
 | `-SkipDependencyCheck` | `Object` | No | By default, the cmdlet checks to see whether the resource being removed is a dependency for another resource. Using this parameter skips the dependency test. |
 | `-Version` | `Object` | No | Specifies the version of the resource to be removed. The value can be an exact version or a version range using the NuGet versioning syntax.   For more information about NuGet version ranges, see [... |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
+
+**Patterns & Best Practices:**
+
+| PowerShellGet v2 (Deprecated) | PSResourceGet v1.1 (Use This) |
+|-------------------------------|-------------------------------|
+| `Find-Module` | `Find-PSResource` |
+| `Find-Script` | `Find-PSResource -Type Script` |
+| `Find-DscResource` | `Find-PSResource -Type DscResource` |
+| `Find-Command` | `Find-PSResource -Type Command` |
+| `Install-Module` | `Install-PSResource` |
+| `Install-Script` | `Install-PSResource` |
+| `Update-Module` | `Update-PSResource` |
+| `Update-Script` | `Update-PSResource` |
+| `Uninstall-Module` | `Uninstall-PSResource` |
+| `Uninstall-Script` | `Uninstall-PSResource` |
+| `Get-InstalledModule` | `Get-InstalledPSResource` |
+| `Get-InstalledScript` | `Get-InstalledPSResource` |
+| `Publish-Module` | `Publish-PSResource` |
+| `Publish-Script` | `Publish-PSResource` |
+| `Save-Module` | `Save-PSResource` |
+| `Save-Script` | `Save-PSResource` |
+| `Register-PSRepository` | `Register-PSResourceRepository` |
+| `Unregister-PSRepository` | `Unregister-PSResourceRepository` |
+| `Get-PSRepository` | `Get-PSResourceRepository` |
+| `Set-PSRepository` | `Set-PSResourceRepository` |
+
+
+**Patterns & Best Practices:**
+
+```powershell
+Uninstall-PSResource -Name OldModule
+
+Uninstall-PSResource -Name Pester -Version '4.10.1'
+
+Uninstall-PSResource -Name Pester -Version '[0.0.0, 99.0.0]'
+```
+
 
 ---
 
@@ -744,6 +1030,19 @@ Update-PSResource
 | `-TrustRepository` | `Object` | No | Suppress prompts to trust repository. The prompt to trust repository only occurs if the repository isn't configured as trusted. |
 | `-Version` | `Object` | No | Specifies the version of the resource to be returned. The value can be an exact version or a version range using the NuGet versioning syntax.   For more information about NuGet version ranges, see ... |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
+
+**Patterns & Best Practices:**
+
+```powershell
+Update-PSResource -Name Pester
+
+Update-PSResource -Name '*'
+
+Update-PSResource -Name Pester -Version '5.7.0'
+
+Update-PSResource -Name Pester -Prerelease
+```
+
 
 ---
 

@@ -67,6 +67,139 @@ metadata:
 
 ---
 
+## Patterns & Common Usage
+
+## Golden Rule
+
+PowerShell classes are NOT C# classes:
+
+- **No partial classes** — one class definition per type, in one file
+- **Types must be defined before use** — parse order matters; referenced class must appear BEFORE the referencing class
+- **Single inheritance only** — one base class, multiple interfaces (PS 7.4+)
+- **No constructor chaining** like C# `this()` — use `$this.Init()` helper methods instead
+- **Classes in .psm1 only** for cross-file use — `using module` does not work with `.ps1`
+- **Return semantics differ** — methods emit ALL uncaptured output to the pipeline
+
+## Class Declaration
+
+```powershell
+class ServerInfo {
+    [string]$Name
+    [string]$IPAddress
+    [int]$Port = 443
+}
+
+$server = [ServerInfo]::new()
+$server.Name = 'web01'
+
+$server = [ServerInfo]@{ Name = 'web01'; IPAddress = '10.0.0.1'; Port = 8080 }
+```
+
+## Properties
+
+Typed with optional defaults. Validation attributes work on properties.
+
+```powershell
+class User {
+    [string]$Name = 'Unknown'
+
+    [ValidateRange(1, 65535)]
+    [int]$Port
+
+    [ValidateNotNullOrEmpty()]
+    [string]$Email
+
+    [ValidateSet('Admin', 'User', 'Guest')]
+    [string]$Role = 'User'
+
+    [Nullable[datetime]]$LastLogin
+}
+```
+
+No `readonly` keyword exists. Use hidden backing field + getter method as a workaround.
+
+## Methods
+
+Methods MUST declare a return type. Use `[void]` for no return. Every non-void method MUST have a `return` statement.
+
+```powershell
+class Calculator {
+    [int]$Value = 0
+    [void] Add([int]$n) { $this.Value += $n }
+    [int] GetValue() { return $this.Value }
+
+    # Method overloading
+    [string] Format() { return "Value: $($this.Value)" }
+    [string] Format([string]$prefix) { return "${prefix}: $($this.Value)" }
+}
+```
+
+### Critical: Suppress Pipeline Output in Methods
+
+```powershell
+[string] CreateFile([string]$path) {
+    New-Item -Path $path -ItemType File    # leaks FileInfo into return!
+    return 'Done'
+}
+
+[string] CreateFile([string]$path) {
+    $null = New-Item -Path $path -ItemType File
+    return 'Done'
+}
+```
+
+## Constructors
+
+```powershell
+class DatabaseConnection {
+    [string]$Server
+    [string]$Database
+    [int]$Port
+
+    DatabaseConnection() {
+        $this.Server = 'localhost'; $this.Database = 'master'; $this.Port = 1433
+    }
+    DatabaseConnection([string]$server, [string]$database) {
+        $this.Server = $server; $this.Database = $database; $this.Port = 1433
+    }
+    DatabaseConnection([string]$server, [string]$database, [int]$port) {
+        $this.Server = $server; $this.Database = $database; $this.Port = $port
+    }
+}
+
+$db = [DatabaseConnection]::new('sql01', 'AppDB', 5432)
+```
+
+### No Constructor Chaining — Use Init Helper
+
+```powershell
+class Service {
+    [string]$Name; [int]$Port; [bool]$UseTls
+
+    hidden [void] Init([string]$name, [int]$port, [bool]$tls) {
+        $this.Name = $name; $this.Port = $port; $this.UseTls = $tls
+    }
+
+    Service() { $this.Init('default', 80, $false) }
+    Service([string]$name) { $this.Init($name, 443, $true) }
+    Service([string]$name, [int]$port) { $this.Init($name, $port, $true) }
+}
+```
+
+### Static Factory Methods
+
+```powershell
+class Endpoint {
+    [string]$Uri
+    Endpoint([string]$uri) { $this.Uri = $uri }
+
+    static [Endpoint] FromParts([string]$host, [int]$port) {
+        return [Endpoint]::new("https://${host}:${port}")
+    }
+}
+```
+
+
 ### Add-History
 
 Appends entries to the session history.
@@ -349,6 +482,31 @@ Export-ModuleMember
 | `-Function` | `Object` | No | Specifies the functions that are exported from the script module file. Enter the function names. Wildcard characters are permitted. You can also pipe function name strings to `Export-ModuleMember`. |
 | `-Variable` | `Object` | No | Specifies the variables that are exported from the script module file. Enter the variable names, without a dollar sign character (`$`). Wildcard characters are permitted. |
 
+**Patterns & Best Practices:**
+
+**The module manifest (.psd1) is the contract.** It controls what a module exports — not `Export-ModuleMember`. When a manifest with explicit `FunctionsToExport`, `CmdletsToExport`, `VariablesToExport`, and `AliasesToExport` entries exists, those fields determine visibility and override `Export-ModuleMember`.
+
+
+**Patterns & Best Practices:**
+
+Used inside .psm1 to control exports. **The manifest overrides it** when both exist.
+
+When `Export-ModuleMember` matters:
+1. **No manifest** — it is the only export control.
+2. **Manifest with `'*'` wildcards** — acts as secondary filter.
+
+Without `Export-ModuleMember` and no manifest: all functions export, no variables or aliases export.
+
+```powershell
+function Get-Widget { "public" }
+function Set-Widget { param($Name) }
+function Initialize-Internal { }  # Helper
+$ModuleVersion = '1.0.0'
+
+Export-ModuleMember -Function 'Get-Widget', 'Set-Widget' -Variable 'ModuleVersion'
+```
+
+
 ---
 
 ### ForEach-Object
@@ -444,6 +602,18 @@ Get-Command
 | `-UseAbbreviationExpansion` | `Object` | No | Indicates using matching of the characters in the command to find with uppercase characters in a command. For example, `i-psdf` would match `Import-PowerShellDataFile` as each of the characters to ... |
 | `-UseFuzzyMatching` | `Object` | No | Indicates using a fuzzy matching algorithm when finding commands. The order of the output is from closest match to least likely match. Wildcards shouldn't be used with fuzzy matching as it will att... |
 | `-Verb` | `Object` | No | Specifies an array of command verbs. This cmdlet gets commands, which include cmdlets, functions, and aliases, that have names that include the specified verb. Enter one or more verbs or verb patte... |
+
+**Patterns & Best Practices:**
+
+Alias > Function > Cmdlet > External Application.
+
+```powershell
+function ping { Write-Host 'Custom' }
+ping          # Runs function, NOT ping.exe
+& (Get-Command ping.exe).Source 8.8.8.8
+Microsoft.PowerShell.Management\Get-ChildItem
+```
+
 
 ---
 
@@ -605,6 +775,23 @@ Get-Module
 | `-PSSession` | `Object` | Yes | Gets the modules in the specified user-managed PowerShell session (**PSSession**). Enter a variable that contains the session, a command that gets the session, such as a `Get-PSSession` command, or... |
 | `-Refresh` | `Object` | No | Indicates that this cmdlet refreshes the cache of installed commands. The command cache is created when the session starts. It enables the `Get-Command` cmdlet to get commands from modules that are... |
 | `-SkipEditionCheck` | `Object` | No | Skips the check of the **CompatiblePSEditions** field.   By default, `Get-Module` omits modules in the `%windir%\System32\WindowsPowerShell\v1.0\Modules` directory that do not specify `Core` in the... |
+
+**Patterns & Best Practices:**
+
+| Task | Command |
+|------|---------|
+| Create manifest | `New-ModuleManifest -Path ./M/M.psd1 -RootModule M.psm1` |
+| Import module | `Import-Module MyModule` |
+| Import version | `Import-Module MyModule -RequiredVersion 2.0.0` |
+| Reimport (dev) | `Import-Module MyModule -Force` |
+| List loaded | `Get-Module` |
+| List installed | `Get-Module -ListAvailable` |
+| Find on gallery | `Find-Module -Name 'ModName'` |
+| Install | `Install-Module ModName -Scope CurrentUser` |
+| Validate manifest | `Test-ModuleManifest ./M/M.psd1` |
+| Module paths | `$env:PSModulePath -split [IO.Path]::PathSeparator` |
+| Require in script | `#Requires -Modules ModName` |
+
 
 ---
 
@@ -772,6 +959,102 @@ Import-Module
 | `-UseWindowsPowerShell` | `Object` | Yes | Loads module using Windows PowerShell Compatibility functionality. See [about_Windows_PowerShell_Compatibility](About/about_Windows_PowerShell_Compatibility.md) for more information. |
 | `-Variable` | `Object` | No | Specifies an array of variables that this cmdlet imports from the module into the current session. Enter a list of variables. Wildcard characters are permitted.   Some modules automatically export ... |
 
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+Since PS 3.0, modules are auto-imported when you call an exported command. No `Import-Module` needed if:
+1. The module is in `$PSModulePath`.
+2. The manifest has **explicit** `FunctionsToExport` (not `'*'`).
+
+```powershell
+Get-Widget  # PS finds this in MyModule, auto-imports, runs it
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+Install-Module 'Pester' -RequiredVersion 4.10.1 -Scope CurrentUser
+Install-Module 'Pester' -RequiredVersion 5.6.1 -Scope CurrentUser
+
+Import-Module 'Pester' -RequiredVersion 5.6.1
+
+Import-Module 'Pester'
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+Import-Module MyModule -Force     # Reimport (removes and reloads; useful in dev)
+Import-Module MyModule -PassThru  # Returns module info object
+Import-Module MyModule -DisableNameChecking  # Suppress non-standard verb warnings
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+. ./helpers.ps1
+Invoke-HelperFunction   # Available directly
+
+./helpers.ps1
+
+Import-Module ./MyModule.psm1
+Remove-Module MyModule; Import-Module ./MyModule.psm1 -Force  # Reload
+```
+
+| Aspect | Dot-Source | Module Import |
+|--------|-----------|---------------|
+| Scope | Caller's scope | Isolated module scope |
+| Variables | Leak into caller | Encapsulated |
+| Functions | All visible | Only exported |
+| Use case | Script helpers | Reusable libraries |
+
+
+### Case-Sensitive Filesystem
+
+```powershell
+Test-Path ./README.md      # True
+Test-Path ./readme.md      # FALSE on Linux — different file!
+
+Import-Module ./MyModule.psm1     # Works
+Import-Module ./mymodule.psm1     # FAILS if file is MyModule.psm1
+
+$ht = @{}; $ht['Key'] = 1; $ht['key']   # Returns 1
+```
+
+### File Permissions
+
+```powershell
+if (-not $IsWindows) {
+    & chmod 755 ./script.sh
+    & chmod 600 ./secrets.conf
+    & chown 'user:group' ./file.txt
+}
+```
+
+### Configuration File Locations
+
+```powershell
+$PROFILE
+
+$env:PSModulePath -split [IO.Path]::PathSeparator
+```
+
+### Systemd Integration
+
+```powershell
+if ($IsLinux) {
+    & systemctl is-active --quiet nginx
+    if ($LASTEXITCODE -eq 0) { Write-Host "nginx is running" }
+}
+```
+
+---
+
+
 ---
 
 ### Invoke-Command
@@ -863,6 +1146,222 @@ Invoke-Command
 | `-VMId` | `Object` | Yes | Specifies an array of IDs of virtual machines. |
 | `-VMName` | `Object` | Yes | Specifies an array of names of virtual machines. |
 
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+Runs in the **same process** in a separate runspace. Bundled with PS 7.5.
+
+```powershell
+$job = Start-ThreadJob -ScriptBlock {
+    param($Path, $Filter)
+    Get-ChildItem -Path $Path -Filter $Filter -Recurse
+} -ArgumentList '/var/log', '*.log'
+
+$results = Receive-Job $job -Wait -AutoRemoveJob
+```
+
+Both `-ArgumentList` with `param()` and `$using:` work with `Start-ThreadJob`.
+
+**Patterns & Best Practices:**
+
+**Remote objects are deserialized snapshots.** Objects crossing a remoting boundary are serialized to CLIXML and deserialized on the other side. The result is a property bag — **all methods are gone**, only properties survive. The type gains a `Deserialized.` prefix (e.g., `Deserialized.System.Diagnostics.Process`).
+
+```powershell
+$svc = Invoke-Command -HostName server1 -ScriptBlock { Get-Service wuauserv }
+$svc.Stop()  # ERROR: Method invocation failed
+
+Invoke-Command -HostName server1 -ScriptBlock { Stop-Service wuauserv }
+```
+
+
+**Patterns & Best Practices:**
+
+```powershell
+Invoke-Command -ComputerName server1 -ScriptBlock { Get-Process | Where-Object CPU -gt 100 }
+
+Invoke-Command -HostName server1 -ScriptBlock { Get-Process | Where-Object CPU -gt 100 }
+```
+
+`-ComputerName` = WinRM (port 5985/5986). `-HostName` = SSH (port 22). **Mutually exclusive.**
+
+**Patterns & Best Practices:**
+
+Default depth is **2**. Nested objects beyond that become `.ToString()` strings.
+
+**Types that survive:** `[string]`, `[int]`, `[long]`, `[double]`, `[decimal]`, `[bool]`, `[DateTime]`, `[TimeSpan]`, `[Guid]`, `[Uri]`, `[Version]`, `[byte[]]`, `[PSCustomObject]`, `[hashtable]`, `[array]` (becomes `[object[]]`).
+
+**Types that do NOT survive:** Any .NET object with methods (becomes `Deserialized.*`), `[ScriptBlock]`, `[SecureString]` (only WinRM+CredSSP), file handles, connections.
+
+```powershell
+$remote_proc = Invoke-Command -HostName server1 -ScriptBlock { Get-Process pwsh }
+$remote_proc.GetType().FullName  # System.Management.Automation.PSObject (NOT Process)
+```
+
+
+**Patterns & Best Practices:**
+
+| Task | Command |
+|------|---------|
+| Remote command (SSH) | `Invoke-Command -HostName host -ScriptBlock { ... }` |
+| Remote command (WinRM) | `Invoke-Command -ComputerName host -ScriptBlock { ... }` |
+| Persistent session | `New-PSSession -HostName host` |
+| Interactive session | `Enter-PSSession -HostName host` |
+| Import remote cmds | `Import-PSSession -Session $s -Module Mod` |
+| Fan-out | `Invoke-Command -HostName h1,h2,h3 -ScriptBlock { ... }` |
+| Background job | `Invoke-Command -HostName host -ScriptBlock { ... } -AsJob` |
+| Pass local variable | `$using:varName` inside ScriptBlock |
+| Limit concurrency | `-ThrottleLimit 5` |
+
+
+### Passing Arguments
+
+```powershell
+Invoke-Command -HostName server1 -ScriptBlock {
+    param($Name, $Threshold)
+    Get-Process -Name $Name | Where-Object CPU -gt $Threshold
+} -ArgumentList 'pwsh', 50
+
+$processName = 'pwsh'
+$threshold = 50
+Invoke-Command -HostName server1 -ScriptBlock {
+    Get-Process -Name $using:processName | Where-Object CPU -gt $using:threshold
+}
+```
+
+### Fan-Out and Throttling
+
+```powershell
+$servers = 'web01', 'web02', 'web03', 'db01'
+
+Invoke-Command -HostName $servers -ScriptBlock {
+    [PSCustomObject]@{ Host = $env:COMPUTERNAME; Uptime = (Get-Uptime).TotalHours }
+}
+
+Invoke-Command -HostName $servers -ThrottleLimit 5 -ScriptBlock { }
+```
+
+Results include `PSComputerName` so you know which host returned what.
+
+### Credentials
+
+```powershell
+Invoke-Command -ComputerName server1 -Credential (Get-Credential) -ScriptBlock { whoami }
+
+Invoke-Command -HostName server1 -UserName admin -KeyFilePath ~/.ssh/id_ed25519 -ScriptBlock { whoami }
+```
+
+
+### Multiple ThreadJobs
+
+```powershell
+$jobs = foreach ($server in 'web01', 'web02', 'db01') {
+    Start-ThreadJob -ScriptBlock {
+        Invoke-Command -HostName $using:server -ScriptBlock { Get-Uptime }
+    }
+}
+$results = $jobs | Receive-Job -Wait -AutoRemoveJob
+```
+
+
+### 1. Using `==` instead of `-eq`
+```powershell
+if ($name == 'admin') { }   # WRONG — not valid PowerShell
+if ($name -eq 'admin') { }  # CORRECT
+```
+
+### 2. Forgetting `-eq` is case-insensitive
+```powershell
+'Hello' -eq 'hello'    # $true (surprise!)
+'Hello' -ceq 'hello'   # $false (case-sensitive)
+```
+
+### 3. All uncaptured output goes to pipeline
+```powershell
+function Broken {
+    'leaked'                           # Output 1
+    $list = [System.Collections.ArrayList]::new()
+    $list.Add(42)                      # .Add() returns index 0 — Output 2!
+    return 'done'                      # Output 3
+}
+function Fixed {
+    [void]$list.Add(42)   # Suppressed
+    return 'done'         # Only output
+}
+```
+
+### 4. `-contains` is not substring check
+```powershell
+'hello world' -contains 'hello'        # $false! (not a collection)
+@('hello', 'world') -contains 'hello'  # $true (collection membership)
+'hello world' -match 'hello'           # $true (substring/regex)
+```
+
+### 5. Missing `$using:` in remote/parallel
+```powershell
+$name = 'svchost'
+Invoke-Command -ComputerName S1 -ScriptBlock { Get-Process $name }         # $name is $null!
+Invoke-Command -ComputerName S1 -ScriptBlock { Get-Process $using:name }   # CORRECT
+```
+
+### 6. Backtick line continuation (fragile)
+```powershell
+Get-Process | `
+    Where-Object CPU -gt 100
+Get-Process |
+    Where-Object CPU -gt 100
+```
+
+### 7. Array `+=` is O(n) per append
+```powershell
+$arr = @(); foreach ($i in 1..10000) { $arr += $i }
+$list = [System.Collections.Generic.List[object]]::new()
+foreach ($i in 1..10000) { $list.Add($i) }
+$arr = foreach ($i in 1..10000) { $i }
+```
+
+### 8. Single-element array unwrapping
+```powershell
+$r = @('only-one')
+$r.GetType().Name        # String — unwrapped!
+$r = @(Get-ChildItem *.log)   # Force array with @()
+[array]$r = Get-ChildItem *.log  # Or type-constrain
+```
+
+### 9. Hashtable key order in [pscustomobject]
+```powershell
+[pscustomobject]@{ Z = 1; A = 2; M = 3 }
+[pscustomobject][ordered]@{ Z = 1; A = 2; M = 3 }
+```
+
+
+### Scope Modifiers
+
+| Modifier | Description |
+|---|---|
+| `$local:var` | Current scope only (default for new variables) |
+| `$script:var` | Visible to entire .ps1 file |
+| `$global:var` | Visible to entire session |
+| `$private:var` | Current scope, invisible to child scopes |
+| `$using:var` | Pass local variable into remote/parallel scope |
+
+**Key rule**: Child scopes READ parent variables, but WRITING creates a local copy unless you use a scope modifier.
+
+```powershell
+$script:counter = 0
+function Increment { $script:counter++ }
+
+$threshold = 100
+Invoke-Command -ComputerName Server1 -ScriptBlock {
+    Get-Process | Where-Object { $_.WorkingSet64 -gt $using:threshold }
+}
+$prefix = 'LOG'
+1..10 | ForEach-Object -Parallel { "$($using:prefix): Processing $_" }
+```
+
+
 ---
 
 ### Invoke-History
@@ -916,6 +1415,18 @@ New-Module
 | `-Name` | `Object` | Yes | Specifies a name for the new module. You can also pipe a module name to New-Module.   The default value is an autogenerated name that starts with `__DynamicModule_` and is followed by a GUID that s... |
 | `-ReturnResult` | `Object` | No | Indicates that this cmdlet runs the scriptblock and returns the scriptblock results instead of returning a module object. |
 | `-ScriptBlock` | `Object` | Yes | Specifies the contents of the dynamic module. Enclose the contents in braces (`{}`) to create a scriptblock. This parameter is required. |
+
+**Patterns & Best Practices:**
+
+| Type | Extension | Description |
+|------|-----------|-------------|
+| Script module | `.psm1` | PowerShell code; most common |
+| Module manifest | `.psd1` | Metadata controlling exports; points to RootModule |
+| Binary module | `.dll` | Compiled C# cmdlets |
+| Dynamic module | (none) | Created at runtime with `New-Module`; not on disk |
+
+A typical module ships as a manifest + script module pair: `MyModule.psd1` + `MyModule.psm1`.
+
 
 ---
 
@@ -1017,6 +1528,37 @@ New-ModuleManifest
 | `-TypesToProcess` | `Object` | No | Specifies the type files (`.ps1xml`) that run when the module is imported.   When you import the module, PowerShell runs the `Update-TypeData` cmdlet with the specified files. Because type files ar... |
 | `-VariablesToExport` | `Object` | No | Specifies the variables that the module exports. Wildcards are permitted.   You can use this parameter to restrict the variables that are exported by the module. It can remove variables from the li... |
 | `-WhatIf` | `Object` | No | Shows what would happen if `New-ModuleManifest` runs. The cmdlet isn't run. |
+
+**Patterns & Best Practices:**
+
+```powershell
+New-ModuleManifest -Path ./MyModule/MyModule.psd1 `
+    -RootModule 'MyModule.psm1' `
+    -ModuleVersion '1.0.0' `
+    -Author 'Your Name' `
+    -Description 'What this module does' `
+    -FunctionsToExport @('Get-Widget', 'Set-Widget', 'Remove-Widget') `
+    -CmdletsToExport @() `
+    -VariablesToExport @() `
+    -AliasesToExport @()
+```
+
+### Critical Manifest Fields
+
+| Field | Purpose | Rule |
+|-------|---------|------|
+| `RootModule` | .psm1 or .dll to load | Required for code modules |
+| `ModuleVersion` | Semantic version | Required for PSGallery |
+| `FunctionsToExport` | Visible functions | **Explicit list, never `'*'`** |
+| `CmdletsToExport` | Visible cmdlets | `@()` if none |
+| `VariablesToExport` | Visible variables | `@()` — almost never export |
+| `AliasesToExport` | Visible aliases | Explicit list or `@()` |
+| `RequiredModules` | Dependencies loaded first | Array of names or specs |
+| `NestedModules` | Sub-modules loaded into module scope | Different from RequiredModules |
+| `PrivateData.PSData` | PSGallery metadata | Tags, LicenseUri, ProjectUri |
+
+**Why explicit lists matter:** With `FunctionsToExport = '*'`, PowerShell must **load the entire module** to discover commands. With an explicit list, it reads only the manifest, making tab completion and autoloading dramatically faster.
+
 
 ---
 
@@ -1147,6 +1689,17 @@ New-PSSession
 | `-UseWindowsPowerShell` | `Object` | Yes | Creates a remote connection to a new Windows PowerShell runspace on the local system. |
 | `-VMId` | `Object` | Yes | Specifies an array of virtual machine IDs. This cmdlet starts a PowerShell Direct interactive session with each of the specified virtual machines. For more information, see [Virtual Machine automat... |
 | `-VMName` | `Object` | Yes | Specifies an array of names of virtual machines. This cmdlet starts a PowerShell Direct interactive session with each of the specified virtual machines. For more information, see [Virtual Machine a... |
+
+**Patterns & Best Practices:**
+
+Proxy remote commands locally via `Import-PSSession`:
+
+```powershell
+$s = New-PSSession -HostName exchange-server
+Import-PSSession -Session $s -Module ExchangeOnlineManagement -Prefix Remote
+Get-RemoteMailbox -Identity user@domain.com  # Runs on remote, looks local
+```
+
 
 ---
 
@@ -1394,6 +1947,127 @@ Out-Null
 |-----------|------|----------|-------------|
 | `-InputObject` | `Object` | No | Specifies the object to be sent to NULL (removed from pipeline). Enter a variable that contains the objects, or type a command or expression that gets the objects. |
 
+**Patterns & Best Practices:**
+
+```text
+TYPES:        [string] [int] [bool] [array] [hashtable] [pscustomobject] [datetime]
+COMPARE:      -eq -ne -gt -lt -ge -le -like -match -contains -in  (case-insensitive!)
+CASE-SENS:    -ceq -cne -cgt -clt -cge -cle -clike -cmatch
+LOGIC:        -and -or -not -xor !
+NULL:         $null -eq $var (LEFT side!)  ??  ??=  ${x}?.Prop
+TERNARY:      $cond ? $ifTrue : $ifFalse
+CHAIN:        cmd1 && cmd2 (on success)    cmd1 || cmd2 (on failure)
+SCOPE:        $local: $script: $global: $private: $using:
+SUCCESS:      $? (last PS cmd)    $LASTEXITCODE (last native exe)
+IDENTITY:     $PSVersionTable  $IsLinux  $IsWindows  $IsMacOS
+CONTEXT:      $PSScriptRoot  $PSCommandPath  $MyInvocation
+PIPELINE:     $_ ($PSItem)  $input  $Matches
+PRECEDENCE:   alias > function > cmdlet > external application
+SUPPRESS:     [void]$x.Method()  or  $null = expr  or  | Out-Null
+FORCE ARRAY:  @(expression)  or  [array]$var = expression
+```
+
+
+**Patterns & Best Practices:**
+
+When parallel iterations write to a shared collection, use `System.Collections.Concurrent`:
+
+```powershell
+$bag = [System.Collections.Concurrent.ConcurrentBag[object]]::new()
+1..100 | ForEach-Object -Parallel {
+    ($using:bag).Add([PSCustomObject]@{ Id = $_; Squared = $_ * $_ })
+} -ThrottleLimit 10
+$bag.Count  # 100
+
+$dict = [System.Collections.Concurrent.ConcurrentDictionary[string, int]]::new()
+Get-ChildItem *.log | ForEach-Object -Parallel {
+    $lines = (Get-Content $_.FullName | Measure-Object -Line).Lines
+    ($using:dict).TryAdd($_.Name, $lines) | Out-Null
+}
+```
+
+**Regular collections (ArrayList, List\<T\>) are NOT thread-safe** and will corrupt data or throw in parallel scenarios.
+
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Forgetting $using: in -Parallel Blocks
+```powershell
+$path = '/var/log'
+Get-ChildItem $path | ForEach-Object -Parallel { Get-Content "$path/$($_.Name)" }
+Get-ChildItem $path | ForEach-Object -Parallel { Get-Content "$($using:path)/$($_.Name)" }
+```
+
+### Mistake 2: Trying to Modify $using: Variables
+```powershell
+$counter = 0
+1..10 | ForEach-Object -Parallel { $using:counter++ }  # ERROR
+$bag = [System.Collections.Concurrent.ConcurrentBag[int]]::new()
+1..10 | ForEach-Object -Parallel { ($using:bag).Add($_) }
+```
+
+### Mistake 3: Using Start-Job When -Parallel or ThreadJob Suffices
+```powershell
+$jobs = 1..50 | ForEach-Object { Start-Job { param($n) $n * 2 } -ArgumentList $_ }
+$results = 1..50 | ForEach-Object -Parallel { $_ * 2 } -ThrottleLimit 10
+```
+
+### Mistake 4: Expecting Ordered Output from -Parallel
+```powershell
+$out = 1..10 | ForEach-Object -Parallel { Start-Sleep (Get-Random -Max 3); $_ }
+$out = 1..10 | ForEach-Object -Parallel {
+    [PSCustomObject]@{ Order = $_; Value = $_ * 2 }
+} | Sort-Object Order
+```
+
+### Mistake 5: Using Non-Thread-Safe Collections
+```powershell
+$list = [System.Collections.ArrayList]::new()
+1..1000 | ForEach-Object -Parallel { ($using:list).Add($_) | Out-Null }  # Race condition!
+$bag = [System.Collections.Concurrent.ConcurrentBag[int]]::new()
+1..1000 | ForEach-Object -Parallel { ($using:bag).Add($_) }
+```
+
+### Mistake 6: Not Understanding -ThrottleLimit Default
+The default is **5**, not unlimited. Set it explicitly for your workload:
+```powershell
+1..1000 | ForEach-Object -Parallel { Invoke-RestMethod "https://api.example.com/$_" } -ThrottleLimit 20
+```
+
+### Mistake 7: Wrong $using: Capture in Loops
+```powershell
+$items = 1..5
+$items | ForEach-Object { Start-ThreadJob { "Processing $using:_" } }  # $_ ambiguous
+$items | ForEach-Object {
+    $item = $_
+    Start-ThreadJob { "Processing $using:item" }
+}
+```
+
+### Mistake 8: Forgetting -Wait on Receive-Job
+```powershell
+$job = Start-ThreadJob { Start-Sleep 5; "Done" }
+$result = Receive-Job $job  # Empty!
+$result = Receive-Job $job -Wait
+```
+
+### Mistake 9: Not Cleaning Up Jobs
+```powershell
+foreach ($i in 1..100) {
+    $job = Start-ThreadJob { "work" }
+    Receive-Job $job -Wait  # Job still exists!
+}
+Get-Job | Measure-Object  # 100 stale jobs
+Receive-Job $job -Wait -AutoRemoveJob
+```
+
+### Mistake 10: Using -Parallel for Trivial or Sequential Work
+```powershell
+1..5 | ForEach-Object -Parallel { $_ * 2 }
+1..5 | ForEach-Object { $_ * 2 }
+```
+
+
 ---
 
 ### Receive-Job
@@ -1438,6 +2112,20 @@ Receive-Job
 | `-Wait` | `Object` | No | Indicates that this cmdlet suppresses the command prompt until all job results are received. By default, `Receive-Job` immediately returns the available results.   By default, the **Wait** paramete... |
 | `-WriteEvents` | `Object` | No | Indicates that this cmdlet reports changes in the job state while it waits for the job to finish.   This parameter is valid only when the **Wait** parameter is used in the command and the **Keep** ... |
 | `-WriteJobInResults` | `Object` | No | Indicates that this cmdlet returns the job object followed by the results.   This parameter is valid only when the **Wait** parameter is used in the command and the **Keep** parameter is omitted.  ... |
+
+**Patterns & Best Practices:**
+
+Runs in a **separate process** — full isolation but serialization overhead and high memory.
+
+```powershell
+$job = Start-Job -ScriptBlock { param($Dir) Get-ChildItem $Dir -Recurse | Measure-Object } -ArgumentList '/var/log'
+$result = Receive-Job $job -Wait -AutoRemoveJob
+```
+
+`$using:` works in PS7 Start-Job, but values are serialized across process boundaries (same deserialization rules as remoting).
+
+**Use Start-Job only when you need:** process isolation, crash protection, or assembly conflict avoidance. Otherwise prefer ThreadJob or -Parallel.
+
 
 ---
 
@@ -1501,6 +2189,137 @@ Remove-Job
 | `-State` | `Object` | Yes | Only deletes jobs with the specified state. To delete jobs with a state of **Running**, use the **Force** parameter.   Accepted values:   - AtBreakpoint - Blocked - Completed - Disconnected - Faile... |
 | `-WhatIf` | `Object` | No | Shows what would happen if `Remove-Job` runs. The cmdlet isn't run. |
 
+**Patterns & Best Practices:**
+
+```powershell
+1..10 | ForEach-Object -Parallel {
+    "Processing $_ on thread $([Threading.Thread]::CurrentThread.ManagedThreadId)"
+    Start-Sleep 1
+} -ThrottleLimit 5
+```
+
+- Pipeline input available as `$_` / `$PSItem`.
+- `-ThrottleLimit` controls max concurrent runspaces (**default: 5**).
+- Each iteration runs in its own runspace — **separate scope, no shared state**.
+- Output order is **non-deterministic**.
+
+**Patterns & Best Practices:**
+
+```powershell
+$job = Start-ThreadJob { long-running-work }
+Get-Job                              # List all jobs
+$job.State                           # Running, Completed, Failed
+Receive-Job $job                     # Get available output (non-blocking)
+Receive-Job $job -Wait               # Block until complete
+Receive-Job $job -Wait -AutoRemoveJob  # Wait + get output + cleanup
+Stop-Job $job                        # Signal stop
+Remove-Job $job                      # Remove (must be stopped/completed)
+Remove-Job $job -Force               # Force-remove even if running
+```
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+| Task | Command |
+|------|---------|
+| Parallel iteration | `items \| ForEach-Object -Parallel { ... } -ThrottleLimit N` |
+| Async parallel | `items \| ForEach-Object -Parallel { ... } -AsJob` |
+| Lightweight job | `Start-ThreadJob -ScriptBlock { ... }` |
+| Isolated job | `Start-Job -ScriptBlock { ... }` |
+| Wait + collect | `Receive-Job $job -Wait -AutoRemoveJob` |
+| Check all jobs | `Get-Job` |
+| Clean completed | `Get-Job -State Completed \| Remove-Job` |
+| Pass variable | `$using:varName` |
+| Thread-safe add | `[Concurrent.ConcurrentBag[T]]::new()` |
+
+
+**Patterns & Best Practices:**
+
+```powershell
+$job = Invoke-Command -HostName server1, server2 -ScriptBlock { Start-Sleep 30; Get-Process } -AsJob
+$job.ChildJobs | Format-Table State, Location  # Per-host child jobs
+$results = Receive-Job $job -Wait
+Remove-Job $job
+```
+
+
+### In ForEach-Object -Parallel
+
+Errors from one iteration do NOT stop others. Capture via the output stream:
+
+```powershell
+$results = 1..5 | ForEach-Object -Parallel {
+    if ($_ -eq 3) { throw "Item 3 failed" }
+    "OK: $_"
+} 2>&1
+
+$results | ForEach-Object {
+    if ($_ -is [System.Management.Automation.ErrorRecord]) { "ERROR: $($_.Exception.Message)" }
+    else { $_ }
+}
+```
+
+### In Jobs
+
+```powershell
+$job = Start-ThreadJob { throw "Something went wrong" }
+Wait-Job $job
+$job.State  # Failed
+try { Receive-Job $job -Wait -ErrorAction Stop }
+catch { "Job failed: $_" }
+Remove-Job $job
+```
+
+
+### Collecting from Multiple Jobs
+
+```powershell
+$jobs = 1..5 | ForEach-Object {
+    $num = $_
+    Start-ThreadJob { Start-Sleep 2; "Result from $using:num" }
+}
+$results = $jobs | Receive-Job -Wait -AutoRemoveJob
+```
+
+
+### $using: for Local Variables
+
+Variables from the calling scope are NOT visible inside `-Parallel`. Use `$using:`.
+
+```powershell
+$logPath = '/var/log/app'
+$threshold = 100
+Get-ChildItem $logPath -Filter '*.log' | ForEach-Object -Parallel {
+    $errors = (Get-Content "$($using:logPath)/$($_.Name)" | Select-String 'ERROR').Count
+    if ($errors -gt $using:threshold) { [PSCustomObject]@{ File = $_.Name; Errors = $errors } }
+} -ThrottleLimit 4
+```
+
+`$using:` values are **read-only copies**. You cannot write back to the caller's scope.
+
+### -AsJob for Async
+
+```powershell
+$job = 1..20 | ForEach-Object -Parallel {
+    Start-Sleep (Get-Random -Minimum 1 -Maximum 5); "Done: $_"
+} -ThrottleLimit 5 -AsJob
+
+$results = Receive-Job $job -Wait
+Remove-Job $job
+```
+
+### No Pipeline Blocks Inside -Parallel
+
+```powershell
+1..5 | ForEach-Object -Parallel {
+    begin { $total = 0 }      # ERROR
+    process { $total += $_ }
+}
+$results = 1..5 | ForEach-Object -Parallel { $_ * 2 }
+```
+
+
 ---
 
 ### Remove-Module
@@ -1529,6 +2348,72 @@ Remove-Module
 | `-ModuleInfo` | `Object` | Yes | Specifies the module objects to remove. Enter a variable that contains a **PSModuleInfo** object or a command that gets a module object, such as a `Get-Module` command. You can also pipe module obj... |
 | `-Name` | `Object` | Yes | Specifies the names of modules to remove. Wildcard characters are permitted. You can also pipe name strings to `Remove-Module`. |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Using Export-ModuleMember When a Manifest Controls Exports
+```powershell
+Export-ModuleMember -Function 'Get-Widget', 'Set-Widget'  # Set-Widget still NOT exported!
+```
+
+### Mistake 2: Using FunctionsToExport = '*'
+```powershell
+@{ FunctionsToExport = '*' }
+@{ FunctionsToExport = @('Get-Widget', 'Set-Widget', 'Remove-Widget') }
+```
+
+### Mistake 3: Confusing Module Scope with Script/Global Scope
+```powershell
+$script:cache = @{}  # Correct: module-level state
+
+$global:cache = @{}  # Don't do this for module state
+```
+
+### Mistake 4: Forgetting to Update FunctionsToExport After Adding Functions
+```powershell
+@{ FunctionsToExport = @('Get-Widget', 'Set-Widget') }  # New-Widget invisible!
+```
+
+### Mistake 5: Redundant Import-Module with #Requires
+```powershell
+#Requires -Modules Az.Accounts
+Import-Module Az.Accounts  # Unnecessary
+
+#Requires -Modules Az.Accounts
+Get-AzContext
+```
+
+### Mistake 6: Not Specifying Install-Module Scope
+```powershell
+Install-Module Pester  # CurrentUser on Linux, AllUsers if elevated on Windows
+Install-Module Pester -Scope CurrentUser
+```
+
+### Mistake 7: Confusing RequiredModules and NestedModules
+```powershell
+@{
+    RequiredModules = @('Az.Accounts')    # Dependency loaded INDEPENDENTLY, before your module
+    NestedModules = @('Helper.psm1')      # Loaded INTO your module's scope
+}
+```
+
+### Mistake 8: Assuming Remove-Module Unloads .NET Assemblies
+```powershell
+Remove-Module MyBinaryModule
+```
+
+### Mistake 9: Using $PSScriptRoot Wrong in Dot-Sourced Files
+```powershell
+
+$script:ModuleRoot = $PSScriptRoot
+$configPath = Join-Path $script:ModuleRoot 'config.json'
+```
+
+### Mistake 10: Publishing Without Checking the Manifest
+```powershell
+Test-ModuleManifest ./MyModule/MyModule.psd1
+```
+
 
 ---
 
@@ -1566,6 +2451,108 @@ Remove-PSSession
 | `-VMId` | `Object` | Yes | Specifies an array of ID of virtual machines. This cmdlet starts an interactive session with each of the specified virtual machines. To see the virtual machines that are available to you, use the f... |
 | `-VMName` | `Object` | Yes | Specifies an array of names of virtual machines. This cmdlet starts an interactive session with each of the specified virtual machines. To see the virtual machines that are available to you, use th... |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet is not run. |
+
+**Patterns & Best Practices:**
+
+Sessions maintain state — variables, functions, and modules persist between calls.
+
+```powershell
+$s = New-PSSession -HostName server1
+Invoke-Command -Session $s -ScriptBlock { $counter = 0 }
+Invoke-Command -Session $s -ScriptBlock { $counter++; $counter }  # Returns 1
+
+$sessions = New-PSSession -HostName web01, web02, web03
+Invoke-Command -Session $sessions -ScriptBlock { Get-Service nginx }
+$sessions | Remove-PSSession
+
+Enter-PSSession -Session $s
+Exit-PSSession
+Remove-PSSession $s
+```
+
+**Disconnected sessions** (WinRM only, not SSH):
+```powershell
+$s = New-PSSession -ComputerName server1
+Disconnect-PSSession $s
+```
+
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Forgetting $using: in Remote ScriptBlocks
+```powershell
+$name = 'nginx'
+Invoke-Command -HostName server1 -ScriptBlock { Get-Service $name }
+Invoke-Command -HostName server1 -ScriptBlock { Get-Service $using:name }
+```
+Local variables do NOT exist in the remote scope without `$using:`.
+
+### Mistake 2: Mixing -ComputerName and -HostName Parameters
+```powershell
+Invoke-Command -ComputerName server1 -KeyFilePath ~/.ssh/id_ed25519 -ScriptBlock { }
+Invoke-Command -HostName server1 -KeyFilePath ~/.ssh/id_ed25519 -ScriptBlock { }
+```
+
+### Mistake 3: Calling Methods on Deserialized Objects
+```powershell
+$proc = Invoke-Command -HostName server1 -ScriptBlock { Get-Process -Id 1234 }
+$proc.Kill()  # Method does not exist
+Invoke-Command -HostName server1 -ScriptBlock { Stop-Process -Id 1234 -Force }
+```
+
+### Mistake 4: Passing ScriptBlocks to Remote Sessions
+```powershell
+$filter = { $_.CPU -gt 100 }
+Invoke-Command -HostName server1 -ScriptBlock { Get-Process | Where-Object $using:filter }
+Invoke-Command -HostName server1 -ScriptBlock { Get-Process | Where-Object CPU -gt 100 }
+```
+
+### Mistake 5: Using -Credential with SSH Remoting
+```powershell
+Invoke-Command -HostName server1 -Credential $cred -ScriptBlock { whoami }
+Invoke-Command -HostName server1 -UserName admin -KeyFilePath ~/.ssh/id_ed25519 -ScriptBlock { whoami }
+```
+
+### Mistake 6: Assuming Fan-Out Is Sequential
+```powershell
+Invoke-Command -HostName server1, server2, server3 -ScriptBlock { Restart-Service nginx }
+```
+
+### Mistake 7: Using Disconnect-PSSession with SSH
+```powershell
+$s = New-PSSession -HostName linux-box
+Disconnect-PSSession $s  # ERROR
+```
+
+### Mistake 8: Not Flattening Objects for Serialization
+```powershell
+$r = Invoke-Command -HostName s1 -ScriptBlock { Get-ChildItem -Recurse | Select-Object * }
+$r = Invoke-Command -HostName s1 -ScriptBlock {
+    Get-ChildItem -Recurse | ForEach-Object {
+        [PSCustomObject]@{ FullName = $_.FullName; Length = $_.Length }
+    }
+}
+```
+
+### Mistake 9: Leaking PSSessions
+```powershell
+foreach ($server in $servers) {
+    $s = New-PSSession -HostName $server
+    Invoke-Command -Session $s -ScriptBlock { Get-Service }  # Never removed!
+}
+$sessions = New-PSSession -HostName $servers
+try { Invoke-Command -Session $sessions -ScriptBlock { Get-Service } }
+finally { $sessions | Remove-PSSession }
+```
+
+### Mistake 10: Using Enter-PSSession in Scripts
+```powershell
+Enter-PSSession -HostName server1
+Get-Service nginx  # Runs LOCALLY, not on server1!
+Exit-PSSession
+Invoke-Command -HostName server1 -ScriptBlock { Get-Service nginx }
+```
+
 
 ---
 
@@ -1648,6 +2635,122 @@ Set-StrictMode
 | `-Off` | `Object` | Yes | Indicates that this cmdlet turns strict mode off for the current scope and all child scopes. |
 | `-Version` | `Object` | Yes | Specifies the conditions that cause an error in strict mode. This parameter accepts any valid PowerShell version number. Any number higher than `3` is treated as `Latest`. The value supplied must b... |
 
+**Patterns & Best Practices:**
+
+```powershell
+#!/usr/bin/env pwsh
+#Requires -Version 7.4
+
+<#
+.SYNOPSIS
+    Brief one-line description.
+.PARAMETER Name
+    Description of the Name parameter.
+.EXAMPLE
+    ./Deploy-Service.ps1 -Name 'web-api' -Environment Production
+#>
+
+[CmdletBinding(SupportsShouldProcess)]
+param(
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$Name,
+
+    [ValidateSet('Development', 'Staging', 'Production')]
+    [string]$Environment = 'Development'
+)
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
+Write-Verbose "Deploying $Name to $Environment"
+```
+
+**Patterns & Best Practices:**
+
+`Set-StrictMode -Version Latest` catches common bugs at runtime:
+
+| Behavior | Without StrictMode | With StrictMode |
+|----------|-------------------|-----------------|
+| Undefined variable | Returns `$null` | Throws error |
+| Nonexistent property | Returns `$null` | Throws error |
+| Function called as method `f()` | Calls function | Throws error |
+
+```powershell
+Set-StrictMode -Version Latest
+
+$config = Import-Csv './config.csv'
+$config[0].Naem   # Typo caught immediately!
+
+function Test-Thing {
+    $undefined.Property   # No error! Must set StrictMode inside function too
+}
+```
+
+**Patterns & Best Practices:**
+
+### 1: Missing [CmdletBinding()] param()
+Without it, `-Verbose`, `-Debug`, and `-ErrorAction` are not available to callers.
+
+### 2: Wrong shebang
+`#!/usr/bin/pwsh` (not portable), `#!/usr/bin/env powershell` (invokes PS 5.1), or shebang not on line 1.
+
+### 3: Set-StrictMode before param()
+```powershell
+Set-StrictMode -Version Latest   [CmdletBinding()]
+[CmdletBinding()]                param()
+param()                          Set-StrictMode -Version Latest
+```
+
+### 4: Using exit in functions
+`exit` terminates the entire PowerShell process. In functions, use `throw` or `return`.
+
+### 5: Not saving $? immediately
+`$?` is reset by every statement including assignments. Save it on the very next line.
+
+### 6: Assuming $LASTEXITCODE resets after cmdlets
+Cmdlets do NOT reset `$LASTEXITCODE`. Check it immediately after native commands or reset manually.
+
+### 7: Dot-sourcing when you want isolation
+`. ./setup.ps1` leaks all variables into your scope. Use `./setup.ps1` or `Import-Module` for isolation.
+
+### 8: Expecting StrictMode to inherit into child scopes
+StrictMode is scoped. Functions do NOT inherit it. Set `Set-StrictMode -Version Latest` inside each function.
+
+### 9: Using Write-Host for output data
+```powershell
+function Get-Name { Write-Host "server-01" }
+$name = Get-Name   # $null! Write-Host is display-only
+
+function Get-Name { "server-01" }   # Implicit Write-Output
+$name = Get-Name   # "server-01"
+```
+
+### 10: #Requires inside a function
+`#Requires` is silently ignored inside functions. It only works at script level.
+
+
+### StrictMode Gotcha: Property Existence Checks
+
+```powershell
+Set-StrictMode -Version Latest
+
+if ($obj.Optional) { ... }
+
+if ($null -ne $obj.PSObject.Properties['Optional']) { ... }
+$value = $obj?.Optional   # PS7.1+ null-conditional — returns $null safely
+```
+
+
+### Why This Order Matters
+
+1. **Shebang** must be the very first line (Linux/macOS execution)
+2. **#Requires** directives are checked before ANY code runs
+3. **Comment-based help** must immediately precede `param()`
+4. **`[CmdletBinding()]` and `param()`** must be the first non-comment code
+5. **`Set-StrictMode`** and **`$ErrorActionPreference`** go in the body, after param
+
+
 ---
 
 ### Start-Job
@@ -1694,6 +2797,26 @@ Start-Job
 | `-ScriptBlock` | `Object` | Yes | Specifies the commands to run in the background job. To create a scriptblock, enclose the commands in curly braces (`{}`). Use the `$input` automatic variable to access the value of the **InputObje... |
 | `-Type` | `Object` | No | Specifies the custom type for jobs started by `Start-Job`. Enter a custom job type name, such as PSScheduledJob for scheduled jobs or PSWorkflowJob for workflows jobs. This parameter isn't valid fo... |
 | `-WorkingDirectory` | `Object` | No | Specifies the initial working directory of the background job. If the parameter isn't specified, the job runs from the default location. The default location is the current working directory of the... |
+
+**Patterns & Best Practices:**
+
+**`ForEach-Object -Parallel` is the PS7 way.** It uses runspaces, is far lighter than `Start-Job`, and is the default choice for parallel iteration. Use `Start-ThreadJob` when you need a job object without process isolation. Reserve `Start-Job` only when you need full process isolation.
+
+
+**Patterns & Best Practices:**
+
+| Feature | `ForEach-Object -Parallel` | `Start-ThreadJob` | `Start-Job` |
+|---------|---------------------------|-------------------|-------------|
+| Execution | Runspace pool | Single runspace | Separate process |
+| Overhead | Low | Low | High |
+| Serialization | No (same process) | No (same process) | Yes (cross-process) |
+| `$using:` | Yes (read-only) | Yes | Yes (serialized) |
+| Pipeline input | Yes (`$_`) | No | No |
+| Job object | Only with `-AsJob` | Always | Always |
+| Default throttle | 5 | Manual | Manual |
+| Memory per unit | ~2-5 MB | ~2-5 MB | ~30-80 MB |
+| Startup time | Milliseconds | Milliseconds | Seconds |
+
 
 ---
 
@@ -1931,5 +3054,129 @@ Where-Object
 | `-NotMatch` | `Object` | Yes | Indicates that this cmdlet gets objects when the property value doesn't match the specified regular expression. When the input is a single object, the matched value is saved in the `$Matches` autom... |
 | `-Property` | `Object` | Yes | Specifies the name of a property of the input object. The property must be an instance property, not a static property. This is a positional parameter, so the name, **Property**, is optional.   Thi... |
 | `-Value` | `Object` | No | Specifies a property value. The parameter name, **Value**, is optional. This parameter accepts wildcard characters when used with the following comparison parameters:   - **CLike** - **CNotLike** -... |
+
+**Patterns & Best Practices:**
+
+**PowerShell passes .NET objects through the pipeline, not strings.** Every command emits objects with typed properties and methods. Never parse text when you can access object properties directly.
+
+```powershell
+Get-Process | grep "chrome"
+Get-Process | Where-Object ProcessName -eq 'chrome'
+(Get-Process -Name chrome).WorkingSet64   # Returns [long], not a string
+```
+
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+Any function that modifies state should support `-WhatIf` and `-Confirm`:
+
+```powershell
+function Remove-OldLogs {
+    [CmdletBinding(SupportsShouldProcess)]
+    param(
+        [Parameter(Mandatory)]
+        [string]$Path,
+        [int]$DaysOld = 30
+    )
+
+    $cutoff = (Get-Date).AddDays(-$DaysOld)
+    $files = Get-ChildItem $Path -Filter '*.log' | Where-Object { $_.LastWriteTime -lt $cutoff }
+
+    foreach ($file in $files) {
+        if ($PSCmdlet.ShouldProcess($file.FullName, 'Delete')) {
+            Remove-Item $file.FullName
+        }
+    }
+}
+
+Remove-OldLogs -Path 'C:\Logs' -WhatIf     # Preview only
+Remove-OldLogs -Path 'C:\Logs' -Confirm     # Prompt per item
+```
+
+**ShouldProcess signatures**: `ShouldProcess($target)`, `ShouldProcess($target, $action)`, `ShouldProcess($verboseDesc, $warning, $caption)`.
+
+**ConfirmImpact** controls auto-prompting: `High` prompts when `$ConfirmPreference` is `High` or `Medium` (default). `Low` never auto-prompts.
+
+**ShouldContinue** is for additional confirmation beyond `-Confirm` (always prompts):
+
+```powershell
+if ($PSCmdlet.ShouldProcess($target, 'Delete')) {
+    if ($Force -or $PSCmdlet.ShouldContinue("Permanently delete '$target'?", 'Confirm')) {
+        Remove-Item $target -Force
+    }
+}
+```
+
+
+### 1. Hardcoding backslash path separators
+```powershell
+$path = "$HOME\Documents\file.txt"    # WRONG — \ is literal on Linux
+$path = Join-Path $HOME 'Documents' 'file.txt'  # RIGHT
+```
+
+### 2. Using $env:USERPROFILE on Linux (it's null)
+```powershell
+Join-Path $env:USERPROFILE '.config'   # WRONG — null on Linux
+Join-Path $HOME '.config'              # RIGHT — works everywhere
+```
+
+### 3. Using CIM/WMI in cross-platform scripts
+```powershell
+$os = Get-CimInstance Win32_OperatingSystem   # CRASHES on Linux
+```
+
+### 4. Assuming $IsWindows exists in PS 5.1
+```powershell
+if ($IsWindows) { ... }   # NEVER TRUE in PS 5.1 ($IsWindows is undefined/null)
+```
+
+### 5. Hardcoding PATH separator
+```powershell
+$env:PATH += ";/usr/local/bin"                            # WRONG
+$env:PATH += [IO.Path]::PathSeparator + '/usr/local/bin'  # RIGHT
+```
+
+### 6. Using .exe extension in cross-platform scripts
+```powershell
+& git.exe status       # WRONG on Linux
+& git status           # RIGHT — PS resolves .exe on Windows automatically
+```
+
+### 7. Assuming case-insensitive filesystem
+```powershell
+Test-Path './Config.JSON'    # FALSE on Linux if file is config.json
+Get-ChildItem . | Where-Object { $_.Name -like 'config.json' }
+```
+
+### 8. Using Windows-specific paths without guards
+```powershell
+$logPath = 'C:\Logs\app.log'    # WRONG — C:\ doesn't exist on Linux
+$logPath = if ($IsWindows) {
+    Join-Path $env:ProgramData 'MyApp' 'Logs' 'app.log'
+} else {
+    Join-Path '/var/log' 'myapp' 'app.log'
+}
+```
+
+### 9. Relying on Windows line endings
+```powershell
+$lines = $text -split "`r`n"    # WRONG — misses LF-only on Linux
+$lines = $text -split '\r?\n'   # RIGHT — handles both
+```
+
+### 10. Using Registry provider in cross-platform modules
+```powershell
+Get-ItemProperty 'HKCU:\Software\MyApp' -Name 'Setting'
+
+if ($IsWindows) {
+    (Get-ItemProperty 'HKCU:\Software\MyApp' -Name 'Setting').Setting
+} else {
+    $f = Join-Path $HOME '.config' 'myapp' 'settings.json'
+    if (Test-Path $f) { (Get-Content $f -Raw | ConvertFrom-Json).Setting }
+}
+```
+
 
 ---

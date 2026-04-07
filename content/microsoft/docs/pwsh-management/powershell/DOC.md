@@ -66,6 +66,107 @@ metadata:
 
 ---
 
+## Patterns & Common Usage
+
+## Golden Rule
+
+**`Get-WmiObject` is REMOVED in PowerShell 7.** It does not exist. It is not deprecated — it is gone. Every WMI cmdlet (`Get-WmiObject`, `Invoke-WmiMethod`, `Set-WmiInstance`, `Remove-WmiObject`) was removed. Use the CIM equivalents exclusively.
+
+```powershell
+Get-WmiObject -Class Win32_OperatingSystem
+
+Get-CimInstance -ClassName Win32_OperatingSystem
+```
+
+## CIM vs WMI: What Changed
+
+CIM (Common Information Model) cmdlets replaced WMI cmdlets starting in PowerShell 3.0 and became the only option in PowerShell 7.
+
+| Aspect | WMI (Removed) | CIM (Current) |
+|--------|---------------|---------------|
+| Protocol | DCOM | WS-Man (WinRM) by default |
+| Remote firewall | Requires DCOM ports (135 + dynamic) | Port 5985 (HTTP) or 5986 (HTTPS) |
+| Object type | Live COM objects with methods | Deserialized CIM instances (no live methods) |
+| Method calls | `$obj.MethodName()` | `Invoke-CimMethod` only |
+| PowerShell 7 | Removed entirely | Built-in, fully supported |
+
+**Critical difference**: CIM objects are deserialized — you cannot call methods directly on them. You must use `Invoke-CimMethod`.
+
+## Get-CimInstance
+
+The primary cmdlet for querying system information.
+
+### Basic Queries
+
+```powershell
+Get-CimInstance -ClassName Win32_OperatingSystem
+
+Get-CimInstance -ClassName Win32_Process -Property Name, ProcessId, WorkingSetSize
+
+Get-CimInstance -ClassName Win32_Service -Filter "State = 'Running'"
+
+Get-CimInstance -ClassName __Namespace -Namespace 'root'
+
+(Get-CimInstance -ClassName Win32_Process).Count
+```
+
+### The -Filter Parameter (WQL Syntax)
+
+Filters use WQL (WMI Query Language) — SQL-like but with specific syntax rules.
+
+```powershell
+Get-CimInstance -ClassName Win32_Service -Filter "Name = 'WinRM'"
+
+Get-CimInstance -ClassName Win32_Service -Filter "Name LIKE 'Win%'"
+
+Get-CimInstance -ClassName Win32_Service -Filter "State = 'Running' AND StartMode = 'Auto'"
+
+Get-CimInstance -ClassName Win32_Service -Filter "PathName IS NOT NULL"
+Get-CimInstance -ClassName Win32_Service -Filter "PathName LIKE '%\\svchost%'"
+```
+
+### The -Query Parameter (Full WQL)
+
+```powershell
+Get-CimInstance -Query "SELECT Name, ProcessId FROM Win32_Process WHERE Name = 'pwsh.exe'"
+Get-CimInstance -Query "ASSOCIATORS OF {Win32_Service.Name='WinRM'} WHERE AssocClass=Win32_DependentService"
+```
+
+## Invoke-CimMethod
+
+CIM instances are deserialized objects. You cannot call methods on them directly — you must use `Invoke-CimMethod`.
+
+```powershell
+$proc = Get-CimInstance -ClassName Win32_Process -Filter "Name = 'notepad.exe'"
+$proc.Terminate()  # ERROR: Method invocation failed
+
+$proc = Get-CimInstance -ClassName Win32_Process -Filter "Name = 'notepad.exe'"
+$proc | Invoke-CimMethod -MethodName Terminate
+
+Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{
+    CommandLine = 'notepad.exe'
+}
+
+Invoke-CimMethod -ClassName Win32_OperatingSystem -MethodName Reboot
+```
+
+CIM methods return a result object — check `$result.ReturnValue -eq 0` for success.
+
+## CIM Sessions (Remote Management)
+
+```powershell
+$session = New-CimSession -ComputerName 'Server01'
+$session = New-CimSession -ComputerName 'Server01' -Credential (Get-Credential)
+
+$session = New-CimSession -ComputerName 'OldServer' -SessionOption (New-CimSessionOption -Protocol Dcom)
+
+Get-CimInstance -ClassName Win32_OperatingSystem -CimSession $session
+Get-CimInstance -ClassName Win32_Service -CimSession $session
+
+$session | Remove-CimSession
+```
+
+
 ### Add-Content
 
 Adds content to the specified items, such as adding words to a file.
@@ -489,6 +590,67 @@ Get-Content
 | `-TotalCount` | `Object` | No | Specifies the number of lines from the beginning of a file or other item. A value of `0` returns no lines. Negative values cause an error.   You can use the **TotalCount** parameter name or its ali... |
 | `-Wait` | `Object` | No | Causes the cmdlet to wait indefinitely, keeping the file open, until interrupted. While waiting, `Get-Content` checks the file once per second and outputs new lines if present. When used with the *... |
 
+**Patterns & Best Practices:**
+
+**CIM cmdlets are Windows-only in PowerShell 7.** They are not available on Linux or macOS.
+
+```powershell
+if ($IsWindows) {
+    $os = Get-CimInstance -ClassName Win32_OperatingSystem
+    Write-Output "Windows: $($os.Caption)"
+} else {
+    # Use /proc, /sys, or platform tools on Linux
+    $osInfo = Get-Content /etc/os-release | ConvertFrom-StringData
+    Write-Output "Linux: $($osInfo.PRETTY_NAME)"
+}
+```
+
+The `CimCmdlets` module ships with PowerShell on Windows but is not present on non-Windows platforms. Attempting to import it on Linux fails.
+
+
+**Patterns & Best Practices:**
+
+**`Get-Content` returns an ARRAY OF LINES by default, not a single string.**
+
+```powershell
+$text = Get-Content ./config.json
+$obj = $text | ConvertFrom-Json   # Works by accident (pipeline joins) but is fragile
+
+$text = Get-Content ./config.json -Raw
+$obj = $text | ConvertFrom-Json
+```
+
+Single-line files return `[string]`, multi-line files return `[string[]]`. This
+polymorphism silently breaks `.Length`, indexing, and type checks. Always use `-Raw`
+when you need the whole file as one string.
+
+**Patterns & Best Practices:**
+
+| Parameter | Purpose |
+|-----------|---------|
+| `-Raw` | Return entire file as one string (preserves internal newlines) |
+| `-TotalCount` (`-Head`, `-First`) | Read only first N lines (efficient, stops early) |
+| `-Tail` (`-Last`) | Read only last N lines (efficient, seeks from end) |
+| `-ReadCount` | Lines sent through pipeline at a time (perf tuning) |
+| `-Encoding` | File encoding (default: UTF-8 in PS 7) |
+| `-Wait` | Output new lines as appended (like `tail -f`). Does NOT work with `-Raw` |
+| `-AsByteStream` | Read as raw `[byte[]]`. Replaces PS 5.1's `-Encoding Byte` |
+| `-Delimiter` | Split on this string instead of newlines |
+
+```powershell
+Get-Content bigfile.txt -ReadCount 0   # [string[]] — one array in pipeline
+Get-Content bigfile.txt -Raw           # [string] — one string in pipeline
+
+Get-Content file.bin -Encoding Byte    # WRONG — error in PS 7
+Get-Content file.bin -AsByteStream     # RIGHT
+```
+
+---
+
+
+---
+
+
 ---
 
 ### Get-Item
@@ -564,6 +726,147 @@ Get-ItemProperty
 | `-LiteralPath` | `Object` | Yes | Specifies a path to one or more locations. The value of **LiteralPath** is used exactly as it is typed. No characters are interpreted as wildcards. If the path includes escape characters, enclose i... |
 | `-Name` | `Object` | No | Specifies the name of the property or properties to retrieve. Wildcard characters are permitted. |
 | `-Path` | `Object` | Yes | Specifies the path to the item or items. Wildcard characters are permitted. |
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Using Get-WmiObject in PS7
+
+```powershell
+Get-WmiObject Win32_OperatingSystem
+
+Get-CimInstance -ClassName Win32_OperatingSystem
+```
+
+### Mistake 2: Calling Methods Directly on CIM Objects
+
+```powershell
+$svc = Get-CimInstance -ClassName Win32_Service -Filter "Name = 'Spooler'"
+$svc.StopService()  # FAILS
+
+$svc | Invoke-CimMethod -MethodName StopService
+
+Stop-Service -Name 'Spooler'
+```
+
+### Mistake 3: Using PowerShell Wildcards in -Filter
+
+```powershell
+Get-CimInstance -ClassName Win32_Service -Filter "Name LIKE 'Win*'"
+
+Get-CimInstance -ClassName Win32_Service -Filter "Name LIKE 'Win%'"
+```
+
+### Mistake 4: Using $null in WQL Filters
+
+```powershell
+Get-CimInstance -ClassName Win32_Service -Filter "PathName = $null"
+
+Get-CimInstance -ClassName Win32_Service -Filter "PathName IS NULL"
+```
+
+### Mistake 5: Forgetting to Escape Backslashes in WQL
+
+```powershell
+Get-CimInstance -ClassName Win32_Service -Filter "PathName LIKE '%\svchost%'"
+
+Get-CimInstance -ClassName Win32_Service -Filter "PathName LIKE '%\\svchost%'"
+```
+
+### Mistake 6: Using Win32_Product to List Software
+
+```powershell
+Get-CimInstance -ClassName Win32_Product | Where-Object Name -like '*Office*'
+
+Get-ItemProperty 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' |
+    Where-Object DisplayName -like '*Office*' |
+    Select-Object DisplayName, DisplayVersion
+```
+
+### Mistake 7: Assuming CIM Works Cross-Platform
+
+```powershell
+Get-CimInstance -ClassName Win32_OperatingSystem
+
+if ($IsWindows) {
+    Get-CimInstance -ClassName Win32_OperatingSystem
+}
+```
+
+### Mistake 8: Converting DateTime Properties from CIM
+
+```powershell
+$os = Get-CimInstance -ClassName Win32_OperatingSystem
+$bootTime = [Management.ManagementDateTimeConverter]::ToDateTime($os.LastBootUpTime)
+
+$os = Get-CimInstance -ClassName Win32_OperatingSystem
+$bootTime = $os.LastBootUpTime  # Already [datetime]
+```
+
+### Mistake 9: Not Cleaning Up CIM Sessions
+
+```powershell
+function Get-RemoteInfo {
+    $s = New-CimSession -ComputerName $env:COMPUTERNAME
+    Get-CimInstance -ClassName Win32_OperatingSystem -CimSession $s
+    # session never removed
+}
+
+function Get-RemoteInfo {
+    $s = New-CimSession -ComputerName $env:COMPUTERNAME
+    try {
+        Get-CimInstance -ClassName Win32_OperatingSystem -CimSession $s
+    } finally {
+        $s | Remove-CimSession
+    }
+}
+```
+
+### Mistake 10: Confusing -Property with Select-Object
+
+```powershell
+Get-CimInstance -ClassName Win32_Process | Select-Object Name, ProcessId
+
+Get-CimInstance -ClassName Win32_Process -Property Name, ProcessId
+
+```
+
+
+### Common CIM Classes Quick Reference
+
+| Class | Key Properties | Notes |
+|-------|---------------|-------|
+| `Win32_OperatingSystem` | Caption, Version, LastBootUpTime, FreePhysicalMemory | Memory in KB (not bytes!) |
+| `Win32_ComputerSystem` | TotalPhysicalMemory (bytes), NumberOfLogicalProcessors, Model, Domain | |
+| `Win32_BIOS` | SerialNumber, SMBIOSBIOSVersion | |
+| `Win32_Processor` | Name, NumberOfCores, NumberOfLogicalProcessors | |
+| `Win32_LogicalDisk` | DeviceID, Size, FreeSpace | Filter: `"DriveType = 3"` for local |
+| `Win32_DiskDrive` | Model, Size, MediaType | |
+| `Win32_Process` | ProcessId, Name, CommandLine | |
+| `Win32_Service` | Name, DisplayName, State, StartMode | |
+| `Win32_NetworkAdapterConfiguration` | Description, IPAddress, MACAddress | Filter: `"IPEnabled = TRUE"` |
+
+```powershell
+Get-CimInstance -ClassName Win32_LogicalDisk -Filter "DriveType = 3" |
+    Select-Object DeviceID, @{N='SizeGB';E={[math]::Round($_.Size/1GB,2)}},
+                  @{N='FreeGB';E={[math]::Round($_.FreeSpace/1GB,2)}}
+```
+
+### WARNING: Win32_Product
+
+```powershell
+Get-CimInstance -ClassName Win32_Product  # BAD — triggers MSI reconfiguration
+
+Get-ItemProperty 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' |
+    Select-Object DisplayName, DisplayVersion, Publisher |
+    Where-Object { $_.DisplayName }
+
+Get-ItemProperty 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' |
+    Select-Object DisplayName, DisplayVersion, Publisher |
+    Where-Object { $_.DisplayName }
+```
+
 
 ---
 
@@ -693,6 +996,125 @@ Get-Process
 | `-InputObject` | `Object` | Yes | Specifies one or more **Process** objects. Use a variable that contains the objects, or a command or expression that gets the objects. |
 | `-Module` | `Object` | No | Indicates that this cmdlet gets the modules that the process has loaded.   On Windows Vista and later versions of Windows, you must run PowerShell with elevated user rights (**Run as administrator*... |
 | `-Name` | `Object` | No | Specifies one or more processes by process name. You can specify multiple process names separated by commas and use wildcard characters. Using the `-Name` parameter is optional. |
+
+**Patterns & Best Practices:**
+
+| Cmdlet | Encoding (PS 7) | Writes | Appends? |
+|--------|-----------------|--------|----------|
+| `Set-Content` | UTF-8 NoBOM | `.ToString()` of each object | No |
+| `Add-Content` | UTF-8 NoBOM | `.ToString()` of each object | Yes |
+| `Out-File` / `>` | UTF-8 NoBOM | Formatted display output (like console) | No (`>>` appends) |
+
+```powershell
+$procs = Get-Process | Select-Object -First 3
+
+$procs | Out-File procs.txt
+
+$procs | Set-Content procs.txt    # NOT what you want for display
+
+$procs | ConvertTo-Csv | Set-Content procs.csv
+
+Get-Process | Out-File procs.txt -Width 300
+```
+
+**Patterns & Best Practices:**
+
+```powershell
+[xml]$doc = Get-Content ./config.xml -Raw
+[xml]$doc = '<root><item id="1">Hello</item></root>'
+$doc.root.item          # "Hello"
+$doc.root.item.id       # "1"
+
+[xml]$doc = '<r><item>A</item></r>'
+$doc.r.item             # "A" (string)
+[xml]$doc = '<r><item>A</item><item>B</item></r>'
+$doc.r.item             # @("A", "B") (array) — polymorphism breaks assumptions
+
+$result = Select-Xml -Path ./data.xml -XPath '//item[@type="active"]'
+$result.Node             # Access the actual XmlNode
+
+$ns = @{ ns = 'http://example.com/schema' }
+Select-Xml -Path ./data.xml -XPath '//ns:item' -Namespace $ns
+
+Get-Process | Export-Clixml ./procs.xml
+$procs = Import-Clixml ./procs.xml
+```
+
+**Patterns & Best Practices:**
+
+### 1. Forgetting -Raw with ConvertFrom-Json
+```powershell
+Get-Content file.json | ConvertFrom-Json      # WRONG — fragile
+Get-Content file.json -Raw | ConvertFrom-Json  # RIGHT
+```
+
+### 2. Ignoring ConvertTo-Json -Depth (default 2 silently truncates)
+```powershell
+$complex | ConvertTo-Json | Set-Content out.json              # WRONG
+$complex | ConvertTo-Json -Depth 10 | Set-Content out.json    # RIGHT
+```
+
+### 3. Using -NoTypeInformation in PS 7 (parameter removed)
+```powershell
+$data | Export-Csv out.csv -NoTypeInformation  # ERROR in PS 7
+$data | Export-Csv out.csv                     # RIGHT
+```
+
+### 4. Assuming CSV values are typed (all values are strings)
+```powershell
+$row.Amount + 1          # "1001" string concat if Amount is "100"
+[int]$row.Amount + 1     # 101 — cast first
+```
+
+### 5. Using -Encoding Byte in PS 7 (removed, use -AsByteStream)
+```powershell
+Get-Content file.bin -Encoding Byte      # ERROR in PS 7
+Get-Content file.bin -AsByteStream       # RIGHT
+```
+
+### 6. Using Set-Content for formatted output (writes type names)
+```powershell
+Get-Process | Set-Content procs.txt      # Writes "System.Diagnostics.Process (pwsh)"
+Get-Process | Out-File procs.txt         # RIGHT — formatted table
+```
+
+### 7. String manipulation for paths (breaks cross-platform)
+```powershell
+$folder + "\" + $filename                  # WRONG
+Join-Path $folder $filename                # RIGHT
+$path.Substring(0, $path.LastIndexOf('\')) # WRONG
+Split-Path $path -Parent                   # RIGHT
+```
+
+### 8. Treating Get-Content output as a single string
+```powershell
+$content = Get-Content ./file.txt
+$content.Length    # LINE COUNT, not character count
+$content = Get-Content ./file.txt -Raw
+$content.Length    # Character count — correct
+```
+
+### 9. Writing JSON with > operator (may truncate at console width)
+```powershell
+$obj | ConvertTo-Json > out.json                             # WRONG
+$obj | ConvertTo-Json -Depth 10 | Set-Content out.json       # RIGHT
+```
+
+### 10. Not using -AsHashtable for key lookups on JSON
+```powershell
+$cfg = Get-Content cfg.json -Raw | ConvertFrom-Json
+$cfg.ContainsKey('key')    # ERROR — PSCustomObject has no ContainsKey
+
+$cfg = Get-Content cfg.json -Raw | ConvertFrom-Json -AsHashtable
+$cfg.ContainsKey('key')    # Works
+```
+
+
+---
+
+
+---
+
 
 ---
 
@@ -1071,6 +1493,18 @@ Remove-Item
 | `-Stream` | `Object` | No | This is a dynamic parameter made available by the **FileSystem** provider. This parameter is only available on Windows. This parameter can't be used in combination with the **Recurse** parameter.  ... |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet isn't run. |
 
+**Patterns & Best Practices:**
+
+```powershell
+Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -Name 'ProductName'
+Set-ItemProperty -Path 'HKCU:\SOFTWARE\MyApp' -Name 'Setting1' -Value 'enabled'
+New-Item -Path 'HKCU:\SOFTWARE\MyApp' -Force                          # Create key
+New-ItemProperty -Path 'HKCU:\SOFTWARE\MyApp' -Name 'Count' -Value 42 -PropertyType DWord
+Remove-Item -Path 'HKCU:\SOFTWARE\MyApp' -Recurse -Force              # Remove key + subkeys
+Test-Path -Path 'HKLM:\SOFTWARE\MyApp'                                # Check existence
+```
+
+
 ---
 
 ### Remove-ItemProperty
@@ -1242,6 +1676,43 @@ Resolve-Path
 | `-Relative` | `Object` | No | Indicates that this cmdlet returns a relative path. |
 | `-RelativeBasePath` | `Object` | No | Specifies a path to resolve the relative path from. When you use this parameter, the cmdlet returns the **System.Management.Automation.PathInfo** object for the resolved path.   When you use this p... |
 
+**Patterns & Best Practices:**
+
+```powershell
+$path = "$dir\$file"
+
+$path = Join-Path $dir $file
+$path = Join-Path $dir 'sub' $file    # Variadic in PS 7+
+
+Test-Path ./config.json -PathType Leaf       # Must be a file
+Test-Path ./config.json -PathType Container  # Must be a directory
+
+Split-Path '/home/user/file.txt' -Parent     # /home/user
+Split-Path '/home/user/file.txt' -Leaf       # file.txt
+Split-Path '/home/user/file.txt' -Extension  # .txt (PS 7+)
+Split-Path '/home/user/file.txt' -LeafBase   # file (PS 7+)
+
+Resolve-Path ./relative/path
+```
+
+### New-TemporaryFile and Get-FileHash
+
+```powershell
+$tmpFile = New-TemporaryFile    # Creates .tmp in system temp dir
+try { <# use $tmpFile.FullName #> }
+finally { Remove-Item $tmpFile.FullName -ErrorAction SilentlyContinue }
+
+Get-FileHash ./installer.exe
+Get-FileHash ./file.txt -Algorithm MD5
+Get-FileHash ./file.txt -Algorithm SHA512
+
+$stream = [IO.MemoryStream]::new([Text.Encoding]::UTF8.GetBytes("hello"))
+Get-FileHash -InputStream $stream -Algorithm SHA256
+```
+
+---
+
+
 ---
 
 ### Restart-Computer
@@ -1354,6 +1825,75 @@ Set-Content
 | `-Stream` | `Object` | No | This is a dynamic parameter made available by the **FileSystem** provider. This Parameter is only available on Windows. For more information, see [about_FileSystem_Provider](../Microsoft.PowerShell... |
 | `-Value` | `Object` | Yes | Specifies the new content for the item. |
 | `-WhatIf` | `Object` | No | Shows what would happen if the cmdlet runs. The cmdlet is not run. |
+
+**Patterns & Best Practices:**
+
+PS 7 defaults to **UTF-8 NoBOM** everywhere. This is a major change from PS 5.1.
+
+| Cmdlet | PS 5.1 Default | PS 7.5 Default |
+|--------|----------------|----------------|
+| `Set-Content` | ASCII (lossy!) | UTF-8 NoBOM |
+| `Add-Content` | ASCII | UTF-8 NoBOM |
+| `Out-File` / `>` | UTF-16 LE (BOM) | UTF-8 NoBOM |
+| `Export-Csv` | ASCII | UTF-8 NoBOM |
+| `Export-Clixml` | UTF-8 BOM | UTF-8 NoBOM |
+
+```powershell
+-Encoding utf8         # UTF-8 no BOM (same as default)
+-Encoding utf8BOM      # UTF-8 WITH BOM
+-Encoding utf8NoBOM    # UTF-8 no BOM (explicit)
+-Encoding ascii        # ASCII (7-bit, lossy)
+-Encoding unicode      # UTF-16 LE with BOM
+
+-Encoding utf7
+
+$data | Export-Csv output.csv -Encoding utf8BOM
+```
+
+**Patterns & Best Practices:**
+
+### ConvertTo-Json — The -Depth Trap
+
+**Default `-Depth` is 2.** Anything deeper is silently replaced with the type name string.
+
+```powershell
+$obj = @{ L1 = @{ L2 = @{ L3 = @{ value = "lost" } } } }
+
+$obj | ConvertTo-Json
+
+$obj | ConvertTo-Json -Depth 10    # RIGHT — preserves all nesting
+$obj | ConvertTo-Json -Depth 32    # Safe habit. Max is 100
+```
+
+### ConvertFrom-Json
+
+```powershell
+$obj = '{"a":1}' | ConvertFrom-Json
+
+$ht = '{"a":1}' | ConvertFrom-Json -AsHashtable
+$ht.ContainsKey('a')     # True
+
+$obj.ContainsKey('a')    # ERROR
+$null -ne $obj.PSObject.Properties['a']
+```
+
+### JSON Round-Trip and Edge Cases
+
+```powershell
+$config = Get-Content ./config.json -Raw | ConvertFrom-Json
+$config | ConvertTo-Json -Depth 10 | Set-Content ./config.json
+
+1, 2, 3 | ConvertTo-Json         # Three separate JSON values, NOT an array
+ConvertTo-Json -InputObject @(1, 2, 3)   # [1,2,3] — correct
+
+$obj | ConvertTo-Json -Depth 10 -Compress
+```
+
+---
+
+
+---
+
 
 ---
 
@@ -1670,6 +2210,130 @@ Test-Connection
 | `-TcpPort` | `Object` | Yes | Specifies the TCP port number on the target to be used in the TCP connection test.   The cmdlet attempts to make a TCP connection to the specified port on the target.   - The cmdlet returns `$true`... |
 | `-TimeoutSeconds` | `Object` | No | Sets the timeout value for the test. The test fails if a response isn't received before the timeout expires. The default is five seconds.   This parameter was introduced in PowerShell 6.0. |
 | `-Traceroute` | `Object` | Yes | Causes the cmdlet to do a traceroute test. When this parameter is used, the cmdlet returns a `TestConnectionCommand+TraceStatus` object. |
+
+**Patterns & Best Practices:**
+
+**Patterns & Best Practices:**
+
+### Mistake 1: Using Get-EventLog in PowerShell 7
+
+```powershell
+Get-EventLog -LogName System -Newest 10
+
+Get-WinEvent -LogName System -MaxEvents 10
+```
+
+### Mistake 2: Assuming Windows Cmdlets Work on Linux
+
+```powershell
+$fw = Get-NetFirewallRule -Direction Inbound
+
+if ($IsWindows) {
+    $fw = Get-NetFirewallRule -Direction Inbound
+} else {
+    # Use iptables/nftables on Linux
+    Write-Warning "Firewall cmdlets are Windows-only"
+}
+```
+
+### Mistake 3: Using -EntryType with Get-WinEvent
+
+```powershell
+Get-WinEvent -LogName System -EntryType Error
+
+Get-WinEvent -FilterHashtable @{ LogName = 'System'; Level = 2 }
+```
+
+### Mistake 4: Slow Event Log Queries
+
+```powershell
+Get-WinEvent -LogName 'Security' | Where-Object { $_.Id -eq 4625 -and $_.TimeCreated -gt (Get-Date).AddDays(-1) }
+
+Get-WinEvent -FilterHashtable @{
+    LogName   = 'Security'
+    ID        = 4625
+    StartTime = (Get-Date).AddDays(-1)
+}
+```
+
+### Mistake 5: Confusing Get-WindowsFeature with Get-WindowsOptionalFeature
+
+```powershell
+Get-WindowsFeature -Name 'Hyper-V'
+
+Get-WindowsOptionalFeature -Online -FeatureName 'Microsoft-Hyper-V-All'
+
+```
+
+### Mistake 6: Forgetting -Force on Stop-Service with Dependencies
+
+```powershell
+Stop-Service -Name 'LanmanServer'
+
+Stop-Service -Name 'LanmanServer' -Force
+```
+
+### Mistake 7: Using Test-Connection for TCP Port Checks
+
+```powershell
+Test-Connection -TargetName 'server01' -TcpPort 443
+
+Test-NetConnection -ComputerName 'server01' -Port 443
+
+```
+
+### Mistake 8: Not Handling the FilterHashtable Syntax Correctly
+
+```powershell
+Get-WinEvent -FilterHashtable @{ LogName = System; Level = Error }
+
+Get-WinEvent -FilterHashtable @{ LogName = 'System'; Level = 2 }
+```
+
+### Mistake 9: Assuming Import-Module ActiveDirectory Works in PS 7
+
+```powershell
+Import-Module ActiveDirectory
+
+Import-Module ActiveDirectory -UseWindowsPowerShell
+
+```
+
+### Mistake 10: Creating Scheduled Tasks Without All Components
+
+```powershell
+Register-ScheduledTask -TaskName 'Test' -Action (New-ScheduledTaskAction -Execute 'notepad.exe')
+
+$action = New-ScheduledTaskAction -Execute 'pwsh.exe' -Argument '-File C:\Scripts\task.ps1'
+$trigger = New-ScheduledTaskTrigger -Daily -At '2:00 AM'
+Register-ScheduledTask -TaskName 'Test' -Action $action -Trigger $trigger
+```
+
+
+### Test-NetConnection (Not Test-Connection for TCP)
+
+```powershell
+Test-Connection -TargetName 'server01' -Count 4
+
+Test-NetConnection -ComputerName 'server01' -Port 443
+Test-NetConnection -ComputerName 'server01' -Port 443 -InformationLevel Quiet  # Returns $true/$false
+Test-NetConnection -ComputerName '8.8.8.8' -TraceRoute
+```
+
+### Network Adapter Management
+
+```powershell
+Get-NetAdapter | Where-Object Status -eq 'Up' | Get-NetIPAddress
+Get-NetIPAddress -AddressFamily IPv4 | Where-Object IPAddress -notlike '127.*'
+Get-NetRoute -DestinationPrefix '0.0.0.0/0'   # Default gateway
+
+Resolve-DnsName -Name 'google.com' -Type A
+Get-DnsClientServerAddress -AddressFamily IPv4
+
+New-NetIPAddress -InterfaceAlias 'Ethernet' -IPAddress '192.168.1.100' -PrefixLength 24 -DefaultGateway '192.168.1.1'
+Set-DnsClientServerAddress -InterfaceAlias 'Ethernet' -ServerAddresses '8.8.8.8', '8.8.4.4'
+```
+
 
 ---
 
