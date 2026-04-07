@@ -1,99 +1,109 @@
 ---
 name: powercli-lifecycle
-description: "VMware PowerCLI 13.3 — Image management, firmware, host patching, LCM"
+description: "VMware PowerCLI 13.3 — vSphere Lifecycle Manager (LCM) images, offline depots, and VMware Tools updates for host and VM patching"
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 3
-  updated-on: "2026-04-06"
+  revision: 4
+  updated-on: "2026-04-07"
   source: community
-  tags: "vmware,powercli,vsphere,lifecycle,Get-LcmImage, New-LcmOfflineDepot, Update-Tools"
+  tags: "vmware,powercli,vsphere,lifecycle,lcm,patching,vmware-tools,update,firmware,Get-LcmImage,New-LcmOfflineDepot,Update-Tools"
 ---
 
 # VMware PowerCLI — Lifecycle Management
 
-Image management, firmware, host patching, LCM. Module: VMware.VimAutomation (3 cmdlets).
+## Golden Rule
 
-## Get
+**vSphere Lifecycle Manager (LCM) manages ESXi host images and firmware. `Get-LcmImage` and `New-LcmOfflineDepot` handle the IMAGE side (what version of ESXi hosts should run). `Update-Tools` handles the GUEST side (VMware Tools inside VMs). They are different workflows.**
 
-### `Get-LcmImage`
+| Task | Cmdlet | Use When | Critical Notes |
+|------|--------|----------|----------------|
+| Find available ESXi images | `Get-LcmImage` | Checking what base images and vendor add-ons exist | Filter by `-Type` (BaseImage, VendorAddOn, Component, etc.) |
+| Import offline depot | `New-LcmOfflineDepot` | Air-gapped environments without internet access | Accepts file:// or http:// URIs |
+| Update VMware Tools in VMs | `Update-Tools` | Keeping Tools current for guest integration | VM must be powered on; may reboot the guest |
 
-**This cmdlet retrieves the vSphere Lifecycle Manager images available on a vCenter Server system.**
+**LCM image-based patching flow:**
+1. `Get-LcmImage` -- discover available base images and vendor add-ons
+2. Configure cluster desired state in vCenter (GUI or API)
+3. `Test-LcmClusterCompliance` -- check if hosts match desired state
+4. `Test-LcmClusterHealth` -- pre-check before remediation
+5. Remediate via vCenter (puts hosts in maintenance mode one by one)
 
-This cmdlet retrieves the vSphere Lifecycle Manager images available on a vCenter Server system. The cmdlet returns a set of vSphere Lifecycle Manager images that correspond to the filter criteria specified by the provided parameters. To specify a server different from the default one, use the -Server parameter.
-
-**Parameters:**
-
-- -Category [LcmImageCategory[]] (Optional) Specifies the categories of the vSphere Lifecycle Manager images you want to retrieve.
-- -Id [String[]] (Required) Specifies the IDs of the vSphere Lifecycle Manager images you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
-- -Name [String[]] (Optional) Specifies the names of the vSphere Lifecycle Manager images you want to retrieve.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -Type [LcmImageType] (Optional) Specifies the type of the vSphere Lifecycle Manager images you want to retrieve.   Note: LcmImageType is a flag enumeration. If you want to pass multiple image types, you might use "-bor" to group them in a single value (e.g., [LcmImageType]::BaseImage -bor [LcmImageType]::VendorAddOn).
-- -Version [String[]] (Optional) Specifies the versions of the vSphere Lifecycle Manager images you want to retrieve.
-
-**Examples:**
+## Scenario: Discover Available Images and Check Compliance
 
 ```powershell
-Get-LcmImage -Type BaseImage -Version '7.0 GA - 15843807'
+# List all available ESXi base images
+Get-LcmImage -Type BaseImage -Server $vcenter |
+    Select-Object Name, Version, ReleaseDate |
+    Sort-Object Version -Descending | Format-Table
+
+# Find vendor add-ons (Dell, HPE, etc.) that are bug fixes or enhancements
+Get-LcmImage -Type VendorAddOn -Category @('Bugfix', 'Enhancement') -Server $vcenter |
+    Select-Object Name, Version, Vendor, Category | Format-Table
+
+# Check cluster compliance against the desired image
+$cluster = Get-Cluster "Production" -Server $vcenter
+Test-LcmClusterCompliance -Cluster $cluster -Server $vcenter
+
+# Pre-remediation health check
+Test-LcmClusterHealth -Cluster $cluster -Server $vcenter
 ```
-_Retrieves an ESXi base image with version 7.0 and build number 15843807 from the default connected servers._
+
+## Scenario: VMware Tools Update Across a Cluster
 
 ```powershell
-Get-LcmImage -Type VendorAddOn -Category @('Bugfix', 'Enhancement')
+# Find VMs with outdated VMware Tools
+$cluster = Get-Cluster "Production" -Server $vcenter
+Get-VM -Location $cluster -Server $vcenter | Where-Object {
+    $_.PowerState -eq "PoweredOn" -and
+    $_.ExtensionData.Guest.ToolsVersionStatus -ne "guestToolsCurrent"
+} | Select-Object Name, @{N='ToolsStatus';E={$_.ExtensionData.Guest.ToolsVersionStatus}},
+    @{N='ToolsVersion';E={$_.ExtensionData.Guest.ToolsVersion}} |
+    Format-Table
+
+# Update Tools on specific VMs (with reboot suppression for Windows)
+$vmsToUpdate = Get-VM -Name "web-*" -Server $vcenter | Where-Object {
+    $_.PowerState -eq "PoweredOn"
+}
+$vmsToUpdate | Update-Tools -NoReboot -RunAsync -Server $vcenter
+
+# Monitor update tasks
+Get-Task -Server $vcenter |
+    Where-Object { $_.Name -eq "UpgradeTools_Task" -and $_.State -eq "Running" } |
+    Select-Object @{N='VM';E={$_.ObjectId}}, PercentComplete | Format-Table
 ```
-_Retrieves vendor add-ons that are either bug fixes or enhancements from the default connected servers._
 
-## New
+## Common Mistakes
 
-### `New-LcmOfflineDepot`
-
-**This cmdlet creates a new vSphere Lifecycle Manager offline depot.**
-
-This cmdlet creates a new vSphere Lifecycle Manager offline depot from a provided online location.
-
-**Parameters:**
-
-- -Description [String] (Optional) Provides a description of the depot that you want to create.
-- -Location [Uri] (Optional) The URL of the depot update file from which to create the offline depot.
-- -OwnerData [String] (Optional) Any string that you want to associate and store with the depot.
-- -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter, run "help About_RunAsync" in the VMware PowerCLI console.
-
-**Examples:**
+### Mistake 1: Running Update-Tools on Powered-Off VMs
 
 ```powershell
-PS C:\> New-LcmOfflineDepot -Location 'http://link/to/offline/depot' -Description 'Company offline depot' -OwnerData '{depot:security_updates}'
+# WRONG -- Tools update requires the VM to be running
+Update-Tools -VM (Get-VM "offline-server")
+# Error: VM must be powered on
+
+# CORRECT -- Filter to powered-on VMs only
+Get-VM -Name "prod-*" -Server $vcenter |
+    Where-Object { $_.PowerState -eq "PoweredOn" } |
+    Update-Tools -NoReboot -RunAsync
 ```
-_Creates a new offline depot from the depot update file located at http://link/to/offline/depot. OwnerData can be any string that you want to associate with the new depot._
+
+### Mistake 2: Not Using -NoReboot on Windows Production VMs
 
 ```powershell
-PS C:\> New-LcmOfflineDepot -Location 'file:///link/to/offline/depot' -Description 'Company offline depot' -OwnerData 'Building 1 servers' -RunAsync
+# WRONG -- Tools update reboots the Windows VM during business hours
+Update-Tools -VM $windowsVM
+# Guest OS reboots immediately after Tools upgrade
+
+# CORRECT -- Suppress reboot, schedule restart during maintenance window
+Update-Tools -VM $windowsVM -NoReboot
+# Note: -NoReboot only works for Windows; Linux VMs may still reboot
 ```
-_Creates a new offline depot from the depot update file located at http://link/to/offline/depot. The command will return a task that continues to run in the background_
 
-## Update
+## Cmdlet Quick Reference
 
-### `Update-Tools`
-
-**This cmdlet upgrades VMware Tools on the specified virtual machine guest OS.**
-
-This cmdlet upgrades the VMware Tools on the specified virtual machine guest OS. VMware Tools must be installed prior to updating it. After VMware Tools is updated, the virtual machine is restarted unless the NoReboot parameter is specified.
-
-**Parameters:**
-
-- -Guest [VMGuest[]] (Optional) Specifies the guest operating systems on which you want to update VMware Tools.
-- -NoReboot [SwitchParameter] (Optional) Indicates that you do not want to reboot the system after updating VMware Tools. This parameter is supported only for Windows operating systems. NoReboot passes the following set of options to the VMware Tools installer on the guest OS:   /s /v"/qn REBOOT=ReallySuppress"   However, the virtual machine might still reboot after updating VMware Tools, depending on the currently installed VMware Tools version, the VMware Tools version to which you want to upgrade, and the vCenter Center/ESX versions.
-- -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -VM [VirtualMachine[]] (Optional) Specifies a list of the virtual machines whose VMware Tools you want to upgrade.
-
-**Examples:**
-
-```powershell
-Update-Tools VM
-```
-_Updates the VMware Tools on the specified virtual machine. The virtual machine must be powered on._
-
-```powershell
-Get-VMGuest VM | Update-Tools
-```
-_Updates the VMware Tools on the virtual machine specified by its guest operating system. The virtual machine must be powered on._
+| Cmdlet | Purpose | Key Parameters |
+|--------|---------|----------------|
+| `Get-LcmImage` | List LCM images | `-Type` (BaseImage/VendorAddOn/Component), `-Name`, `-Version`, `-Category` |
+| `New-LcmOfflineDepot` | Import offline depot | `-Location` (URI), `-Description`, `-OwnerData`, `-RunAsync` |
+| `Update-Tools` | Upgrade VMware Tools | `-VM`, `-Guest`, `-NoReboot` (Windows only), `-RunAsync` |

@@ -1,174 +1,127 @@
 ---
 name: powercli-appliance
-description: "VMware PowerCLI 13.3 — vCenter appliance backup and management"
+description: "VMware PowerCLI 13.3 — vCenter Server Appliance (VCSA) backup management, backup jobs, and backup parts"
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 3
-  updated-on: "2026-04-06"
+  revision: 4
+  updated-on: "2026-04-07"
   source: community
-  tags: "vmware,powercli,vsphere,appliance,Get-ApplianceBackupJob, Get-ApplianceBackupPart, New-ApplianceBackupJob, Stop-ApplianceBackupJob, Wait-ApplianceBackupJob"
+  tags: "vmware,powercli,vsphere,appliance,vcsa,backup,disaster-recovery,Get-ApplianceBackupJob,Get-ApplianceBackupPart,New-ApplianceBackupJob,Stop-ApplianceBackupJob,Wait-ApplianceBackupJob"
 ---
 
 # VMware PowerCLI — Appliance Management
 
-vCenter appliance backup and management. Module: VMware.VimAutomation (5 cmdlets).
+## Golden Rule
 
-## Get
+**These cmdlets manage file-based backups of the vCenter Server Appliance (VCSA) itself -- not VM backups. VCSA backup captures the vCenter database, configuration, and certificates. Without a current VCSA backup, losing your vCenter means rebuilding your entire management plane from scratch.**
 
-### `Get-ApplianceBackupJob`
+| Task | Cmdlet | Use When | Critical Notes |
+|------|--------|----------|----------------|
+| List backup jobs | `Get-ApplianceBackupJob` | Verifying backups ran successfully | Filter by `-StartDate`/`-EndDate` for time range |
+| List backup parts | `Get-ApplianceBackupPart` | Checking what can be backed up and size estimates | Non-optional parts are always included |
+| Start backup | `New-ApplianceBackupJob` | Scheduled or ad-hoc VCSA backup | Requires a reachable backup server (FTP/SCP/SFTP/NFS/SMB) |
+| Monitor backup | `Wait-ApplianceBackupJob` | Waiting for backup to complete in a script | Blocks until job finishes |
+| Cancel backup | `Stop-ApplianceBackupJob` | Aborting a running backup | Use when backup is stuck or no longer needed |
 
-**This cmdlet retrieves a list of backup jobs for a vCenter Server system.**
-
-This cmdlet retrieves a list of finished or currently running backup jobs.
-
-**Parameters:**
-
-- -EndDate [DateTime] (Optional) Retrieves backup jobs with end time later than the provided time.
-- -Id [String[]] (Optional) Retrieves backup jobs whose IDs match the specified IDs.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -StartDate [DateTime] (Optional) Retrieves backup jobs with start time later than the provided time.
-
-**Examples:**
+## Scenario: Automated VCSA Backup to SFTP Server
 
 ```powershell
-Get-ApplianceBackupJob
+# Estimate backup size before starting
+$parts = Get-ApplianceBackupPart -Server $vcenter
+$totalMB = ($parts | Measure-Object -Property SizeMB -Sum).Sum
+Write-Output "Estimated full backup size: $([math]::Round($totalMB / 1024, 2)) GB"
+
+# List optional parts (stats, events, tasks DB)
+$optionalParts = Get-ApplianceBackupPart -OptionalOnly -Server $vcenter
+$optionalParts | Select-Object Id, Name, SizeMB, Optional | Format-Table
+
+# Start a full backup (mandatory + all optional parts) to SFTP
+$backupDate = Get-Date -Format "yyyyMMdd-HHmm"
+$job = $optionalParts | New-ApplianceBackupJob `
+    -BackupServerType SFTP `
+    -BackupServer "backup.example.com" `
+    -BackupServerPort 22 `
+    -BackupServerUsername "vcbackup" `
+    -BackupServerPassword (ConvertTo-SecureString "BackupPass!" -AsPlainText -Force) `
+    -FolderPath "/backups/vcenter/$backupDate" `
+    -Password (ConvertTo-SecureString "EncryptB@ckup1" -AsPlainText -Force) `
+    -Description "Automated backup $backupDate" `
+    -Server $vcenter
+
+# Wait for completion and check result
+$result = Wait-ApplianceBackupJob -BackupJob $job -Server $vcenter
+Write-Output "Backup $($result.Id): $($result.State) - Duration: $($result.Duration)"
 ```
-_List all backup jobs._
+
+## Scenario: Backup Verification and Monitoring
 
 ```powershell
-Get-ApplianceBackupJob -StartDate (Get-Date).AddDays(-1)
+# Check if any backup has run in the last 24 hours
+$recentJobs = Get-ApplianceBackupJob -StartDate (Get-Date).AddDays(-1) -Server $vcenter
+if ($recentJobs.Count -eq 0) {
+    Write-Warning "NO VCSA BACKUP in the last 24 hours!"
+} else {
+    $recentJobs | Select-Object Id, State, StartTime, EndTime,
+        @{N='Duration';E={if($_.EndTime){($_.EndTime - $_.StartTime).ToString("hh\:mm\:ss")}else{"Running"}}} |
+        Format-Table
+}
+
+# Find failed backup jobs in the last week
+Get-ApplianceBackupJob -StartDate (Get-Date).AddDays(-7) -Server $vcenter |
+    Where-Object { $_.State -eq "FAILED" } |
+    Select-Object Id, StartTime, State, Messages | Format-Table -Wrap
+
+# Stop a stuck backup job
+$runningJobs = Get-ApplianceBackupJob -Server $vcenter |
+    Where-Object { $_.State -eq "INPROGRESS" }
+if ($runningJobs) {
+    $runningJobs | Stop-ApplianceBackupJob -Confirm:$false -Server $vcenter
+    Write-Output "Stopped $($runningJobs.Count) running backup jobs"
+}
 ```
-_List all backup jobs that have started since yesterday or will start in the future._
+
+## Common Mistakes
+
+### Mistake 1: No Encryption Password on Backup
 
 ```powershell
-Get-ApplianceBackupJob -EndDate (Get-Date).AddDays(-1)
+# WRONG -- Backup is unencrypted, contains vCenter DB with credentials
+New-ApplianceBackupJob -BackupServerType SFTP -BackupServer "backup.example.com" `
+    -BackupServerUsername "vcbackup" -BackupServerPassword $pass `
+    -FolderPath "/backups/vcenter/latest"
+# Anyone with access to the backup server can read vCenter secrets
+
+# CORRECT -- Always encrypt VCSA backups
+New-ApplianceBackupJob -BackupServerType SFTP -BackupServer "backup.example.com" `
+    -BackupServerUsername "vcbackup" -BackupServerPassword $pass `
+    -FolderPath "/backups/vcenter/latest" `
+    -Password (ConvertTo-SecureString "Str0ngEncrypt!" -AsPlainText -Force)
 ```
-_List all backup jobs that have finished since yesterday or will finish in the future._
 
-### `Get-ApplianceBackupPart`
-
-**This cmdlet retrieves backup parts that can be included in a backup for a vCenter Server system.**
-
-Retrieves a list of parts that can be included in a backup job, and their estimated backup size. Non-optional backup parts are always included in the backup.
-
-**Parameters:**
-
-- -Id [String[]] (Required) Retrieves only those backup parts whose IDs match the provided IDs.
-- -Name [String[]] (Optional) Retrieves only those backup parts whose names match the provided names.
-- -OptionalOnly [SwitchParameter] (Optional) Returns optional backup parts only.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-
-**Examples:**
+### Mistake 2: Not Including Optional Parts in the Backup
 
 ```powershell
-Get-ApplianceBackupPart
+# WRONG -- Only mandatory parts backed up (config + DB core)
+# Stats, events, and tasks history are lost on restore
+New-ApplianceBackupJob -BackupServerType SFTP -BackupServer "backup.example.com" `
+    -BackupServerUsername "vcbackup" -BackupServerPassword $pass `
+    -FolderPath "/backups/vcenter/latest"
+
+# CORRECT -- Include optional parts for a complete backup
+Get-ApplianceBackupPart -OptionalOnly | New-ApplianceBackupJob `
+    -BackupServerType SFTP -BackupServer "backup.example.com" `
+    -BackupServerUsername "vcbackup" -BackupServerPassword $pass `
+    -FolderPath "/backups/vcenter/latest" `
+    -Password $encryptionPass
 ```
-_Lists all available backup parts._
 
-```powershell
-Get-ApplianceBackupPart -OptionalOnly
-```
-_Retrieves all optional backup parts. You can pass them by pipeline to the New-ApplianceBackupJob cmdlet._
+## Cmdlet Quick Reference
 
-```powershell
-Get-ApplianceBackupPart | Measure-Object -Sum -Property SizeMB | Select-Object -ExpandProperty Sum
-```
-_Compute the estimated size of a full backup in MBs._
-
-## New
-
-### `New-ApplianceBackupJob`
-
-**This cmdlet starts a backup job for a vCenter Server system.**
-
-This cmdlet starts a file-based backup job for a vCenter Server system to a backup server.
-
-**Parameters:**
-
-- -BackupServer [String] (Required) The IP or FQDN of the backup server to be used for the backup.
-- -BackupServerPassword [SecureString] (Optional) Password for the given backup server. If unset, authentication will not be used for the specified backup server.
-- -BackupServerPort [Int32] (Optional) The backup server port to be used for the backup.
-- -BackupServerType [String] (Required) The type of the backup server. Currently supported types are FTP, HTTP, FTPS, HTTPS, SCP, SFTP, NFS, SMB
-- -BackupServerUsername [String] (Optional) Username for the given backup server. If unset, authentication will not be used for the specified backup server.
-- -Description [String] (Optional) Provides a custom comment to the backup job. If unset, the comment will be empty.
-- -FolderPath [String] (Required) A folder path on the backup server where the backup will be created. It must be an empty or non-existing folder. In case the folder doesn't exist it will be created.
-- -OptionalBackupParts [ApplianceBackupPart[]] (Optional) A list of optional backup parts that will be included in the backup job. You can use Get-ApplianceBackupPart -OptinalOnly to retrieve a list of the available parts.
-- -Password [SecureString] (Optional) You can set a password for encryption of a backup. The password must adhere to the following requirements. The length must be at least 8 characters but not more than 20 characters. It must include at least one uppercase letter, lowercase letter, numeric digit, and special character (i.e. any character different from [0-9,a-z,A-Z]). Only visible ASCII characters are permitted (no spaces). If no password is specified, the backup will not be encrypted.
-- -Server [VIServer] (Optional) Specifies the vCenter Server system on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default server. Note: This cmdlet can only run on a single vCenter Server at a time since a specific folder on the backup server can only hold a single server backup.
-
-**Examples:**
-
-```powershell
-PS C:\> New-ApplianceBackupJob `
-   -BackupServerType FTP `
-   -BackupServer <backup server ip> `
-   -BackupServerPort 21 `
-   -BackupServerUsername <backup server username> `
-   -BackupServerPassword <backup server password> `
-   -FolderPath /backups/manual_backup_1 `
-   -Description "This is a custom comment"
-```
-_Starts a backup job for a vCenter Server system that is going to be stored at an FTP server in the /backups/manual_backup_1 folder and encrypted with a password. Only mandatory backup parts are included since no optional backup parts have been specified._
-
-```powershell
-PS C:\> Get-ApplianceBackupPart -OptionalOnly | New-ApplianceBackupJob `
-   -BackupServerType FTP `
-   -BackupServer <backup server ip> `
-   -BackupServerPort 21 `
-   -BackupServerUsername <backup server username> `
-   -BackupServerPassword <backup server password> `
-   -FolderPath /backups/manual_backup_1 `
-   -Description "This is a custom comment"
-```
-_Starts a backup job for a vCenter Server system that is going to be stored at an FTP server in the /backups/manual_backup_1 folder and encrypted with a password. All mandatory and optional backup parts are included._
-
-## Stop
-
-### `Stop-ApplianceBackupJob`
-
-**This cmdlet stops running backup jobs on a vCenter Server system.**
-
-This cmdlet stops a list of running backup jobs matching the specified parameters.
-
-**Parameters:**
-
-- -BackupJob [ApplianceBackupJob[]] (Optional) A list of ApplianceBackupJob objects representing the backup jobs to be stopped.
-- -Id [String[]] (Required) Stops backup jobs whose IDs match the specified IDs.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-
-**Examples:**
-
-```powershell
-PS C:\> Get-ApplianceBackupJob -Server 'vCenter Server' | Stop-ApplianceBackupJob
-```
-_Stops all backup jobs on the specified vCenter Server._
-
-```powershell
-PS C:\> Stop-ApplianceBackupJob -Id '<backup job id>'
-```
-_Stops a backup job with the specified ID._
-
-## Wait
-
-### `Wait-ApplianceBackupJob`
-
-**This cmdlet monitors the progress of a backup job and returns the ApplianceBackupJob object when the backup job is complete.**
-
-**Parameters:**
-
-- -BackupJob [ApplianceBackupJob[]] (Optional) Specifies one or more ApplianceBackupJob object(s) representing the backup jobs you want to monitor and receive when finished.
-- -Id [String[]] (Required) Specifies the IDs of the backup jobs you want to monitor and receive when finished.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-
-**Examples:**
-
-```powershell
-PS C:\> Get-ApplianceBackupJob -Server 'vCenter server' | Wait-ApplianceBackupJob
-```
-_Monitors the progress of all backup jobs on the 'vCenter Server' server and returns the backup job objects when finished._
-
-```powershell
-PS C:\> Wait-ApplianceBackupJob -Id '<backup job id>'
-```
-_Monitors the progress of a backup job with the specified ID and returns the backup job object when finished_
+| Cmdlet | Purpose | Key Parameters |
+|--------|---------|----------------|
+| `Get-ApplianceBackupJob` | List backup jobs | `-Id`, `-StartDate`, `-EndDate`, `-Server` |
+| `Get-ApplianceBackupPart` | List backup parts + sizes | `-Name`, `-OptionalOnly`, `-Server` |
+| `New-ApplianceBackupJob` | Start backup | `-BackupServerType` (FTP/FTPS/HTTP/HTTPS/SCP/SFTP/NFS/SMB), `-BackupServer`, `-BackupServerPort`, `-BackupServerUsername`, `-BackupServerPassword`, `-FolderPath`, `-Password` (encryption), `-OptionalBackupParts`, `-Description` |
+| `Stop-ApplianceBackupJob` | Cancel running backup | `-BackupJob` or `-Id` |
+| `Wait-ApplianceBackupJob` | Block until complete | `-BackupJob` or `-Id` |

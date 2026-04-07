@@ -1,269 +1,159 @@
 ---
 name: powercli-guest-customization
-description: "VMware PowerCLI 13.3 — OS customization specs, in-guest script execution, file copy"
+description: "VMware PowerCLI 13.3 — OS customization specifications for automated VM provisioning, NIC mapping, hostname, domain join"
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 3
-  updated-on: "2026-04-06"
+  revision: 4
+  updated-on: "2026-04-07"
   source: community
-  tags: "vmware,powercli,vsphere,guest-customization,Get-OSCustomizationNicMapping, Get-OSCustomizationSpec, New-OSCustomizationNicMapping, New-OSCustomizationSpec, Remove-OSCustomizationNicMapping, Remove-OSCustomizationSpec, Set-OSCustomizationNicMapping, Set-OSCustomizationSpec"
+  tags: "vmware,powercli,vsphere,guest-customization,os-customization,sysprep,kickstart,nic-mapping,Get-OSCustomizationSpec,New-OSCustomizationSpec,Set-OSCustomizationSpec,Remove-OSCustomizationSpec,Get-OSCustomizationNicMapping,New-OSCustomizationNicMapping,Set-OSCustomizationNicMapping,Remove-OSCustomizationNicMapping"
 ---
 
 # VMware PowerCLI — Guest Customization
 
-OS customization specs, in-guest script execution, file copy. Module: VMware.VimAutomation (8 cmdlets).
+## Golden Rule
 
-## Get
+**OS Customization Specs automate the first-boot configuration of VMs deployed from templates: hostname, domain join, IP address, and SID generation. Without them, every clone is a copy of the template with the same hostname and IP -- causing network conflicts.**
 
-### `Get-OSCustomizationNicMapping`
+| Task | Cmdlet | Use When | Critical Notes |
+|------|--------|----------|----------------|
+| List specs | `Get-OSCustomizationSpec` | Audit what specs exist before deploying | Persistent specs are stored on vCenter; NonPersistent are ephemeral |
+| Create Linux spec | `New-OSCustomizationSpec -OSType Linux` | Deploying Linux from template | `-Domain` is required; add `-DnsServer` and `-DnsSuffix` |
+| Create Windows spec | `New-OSCustomizationSpec -OSType Windows` | Deploying Windows from template | Must specify `-Domain` or `-Workgroup`; `-ChangeSid` is critical |
+| Set NIC IP | `New-OSCustomizationNicMapping` | Static IP assignment | Without NIC mapping, guest defaults to DHCP |
+| Apply during deploy | `New-VM -OSCustomizationSpec` | Actually using the spec | Spec is applied during first boot after clone |
 
-**This cmdlet retrieves the configured NIC setting mappings for the specified OS customization specification.**
+**Persistent vs NonPersistent:**
+- **Persistent**: Saved on vCenter, reusable by name, appears in the GUI
+- **NonPersistent**: In-memory only, typically cloned from a persistent spec and modified per-VM for unique IPs
 
-**Parameters:**
-
-- -OSCustomizationSpec [OSCustomizationSpec[]] (Required) Specifies the OS customization specification for which you want to retrieve the NIC settings mapping.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-
-**Examples:**
-
-```powershell
-$spec1 = Get-OSCustomizationSpec "test"
-
-$spec2 = Get-OSCustomizationSpec "test_old"
-
-Get-OSCustomizationNicMapping -OSCustomizationSpec $spec1,$spec2
-```
-_Retrieves the NIC mappings of the "test" and "test_old" OS customization specifications._
-
-### `Get-OSCustomizationSpec`
-
-**This cmdlet retrieves the OS customization specifications available on a vCenter Server system.**
-
-This cmdlet retrieves the OS customization specifications available on a vCenter Server system. To specify a server different from the default one, use the Server parameter.
-
-**Parameters:**
-
-- -Id [String[]] (Optional) Specifies the IDs of the OS customization specifications you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
-- -Name [String[]] (Optional) Specifies the names of the OS customization specifications you want to retrieve.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -Type [OSCustomizationSpecType] (Optional) Specifis the type of the OS customization specifications you want to retrieve. The valid values are Persistent and NonPersistent.
-
-**Examples:**
+## Scenario: Automated Linux VM Deployment with Static IP
 
 ```powershell
-Get-OSCustomizationSpec "test"
+# Create a reusable Linux customization spec
+New-OSCustomizationSpec -Name "linux-prod" `
+    -OSType Linux -Domain "example.com" `
+    -DnsServer "10.0.0.10", "10.0.0.11" `
+    -DnsSuffix "example.com" `
+    -NamingScheme Fixed -NamingPrefix "server" `
+    -Description "Production Linux - static IP" `
+    -Type Persistent -Server $vcenter
+
+# Add static NIC mapping
+$spec = Get-OSCustomizationSpec -Name "linux-prod" -Server $vcenter
+New-OSCustomizationNicMapping -OSCustomizationSpec $spec `
+    -IpMode UseStaticIp -IpAddress "10.0.100.50" `
+    -SubnetMask "255.255.255.0" -DefaultGateway "10.0.100.1" `
+    -Dns "10.0.0.10", "10.0.0.11"
+
+# Deploy VM from template using the spec
+$template = Get-Template "ubuntu-22.04-base" -Server $vcenter
+$ds = Get-Datastore "VMFS-Prod-01" -Server $vcenter
+$cluster = Get-Cluster "Production" -Server $vcenter
+
+New-VM -Name "web-prod-05" -Template $template `
+    -OSCustomizationSpec $spec -ResourcePool $cluster `
+    -Datastore $ds -Location (Get-Folder "Web Servers") -Server $vcenter
+
+Start-VM "web-prod-05" -Server $vcenter
 ```
-_Retrieves from the server the OS customization specification named 'test'._
+
+## Scenario: Per-VM Unique IP Using NonPersistent Clone
+
+For deploying multiple VMs, clone the spec per-VM and customize the IP.
 
 ```powershell
-New-VM -Name VM -VMHost Host -Template Template -OSCustomizationSpec $spec
+# Clone persistent spec into a non-persistent (ephemeral) copy per VM
+$baseSpec = Get-OSCustomizationSpec -Name "linux-prod" -Server $vcenter
+
+$vmConfigs = @(
+    @{ Name = "web-01"; IP = "10.0.100.51" },
+    @{ Name = "web-02"; IP = "10.0.100.52" },
+    @{ Name = "web-03"; IP = "10.0.100.53" }
+)
+
+foreach ($cfg in $vmConfigs) {
+    # Clone spec (NonPersistent = in-memory, no server-side conflict)
+    $tempSpec = New-OSCustomizationSpec -OSCustomizationSpec $baseSpec `
+        -Name "temp-$($cfg.Name)" -Type NonPersistent
+
+    # Update hostname and NIC IP
+    Set-OSCustomizationSpec -OSCustomizationSpec $tempSpec `
+        -NamingScheme Fixed -NamingPrefix $cfg.Name
+
+    Get-OSCustomizationNicMapping -OSCustomizationSpec $tempSpec |
+        Set-OSCustomizationNicMapping -IpMode UseStaticIp `
+            -IpAddress $cfg.IP -SubnetMask "255.255.255.0" `
+            -DefaultGateway "10.0.100.1"
+
+    # Deploy
+    New-VM -Name $cfg.Name -Template $template `
+        -OSCustomizationSpec $tempSpec -ResourcePool $cluster `
+        -Datastore $ds -Server $vcenter
+}
 ```
-_Creates a new virtual machine from a template and configures it using a customization specification._
 
-## New
-
-### `New-OSCustomizationNicMapping`
-
-**This cmdlet adds NIC settings mappings to the specified OS customization specifications.**
-
-This cmdlet adds  NIC settings mappings to the specified OS customization specifications. If the given specification is server-side, it is updated on the server. If it is client-side, the reference that is kept in-memory is updated but the variable that is passed to the cmdlet is not modified.
-
-**Parameters:**
-
-- -AlternateGateway [String] (Optional) Specifies an alternate gateway.
-- -DefaultGateway [String] (Optional) Specifies a default gateway.
-- -Dns [String[]] (Optional) Specifies a DNS address. This parameter applies only to Windows operating systems.
-- -IpAddress [String] (Optional) Specifies an IP address. Using this parameter automatically sets the IpMode parameter to UseStaticIp.
-- -IpMode [OSCustomizationIPMode] (Optional) Specifies the IP configuration mode. The valid values are UseDhcp, PromptUser, UseVCApplication, and UseStaticIP.
-- -NetworkAdapterMac [String[]] (Optional) Specifies the MAC addresses of the network adapters to which you want to map the new OS customization specifications.
-- -OSCustomizationSpec [OSCustomizationSpec] (Required) Specifies the OS customization specification to which you want to add the NIC setting mapping. Passing multiple values to this parameter is obsolete.
-- -Position [Int32[]] (Optional) Specifies the position of the NIC to which you want to map the OS customization specification.
-- -Ipv6Address [String] (Optional) Specifies an IPv6 address.
-- -Ipv6AlternateGateway [String] (Optional) Specifies an alternate IPv6 gateway.
-- -Ipv6Gateway [String] (Optional) Specifies the default IPv6 gateway.
-- -Ipv6Mode [OSCustomizationIPMode] (Optional) Specifies the IPv6 configuration mode. The valid values are UseDhcp, PromptUser, UseVCApplication, UseStaticIP, UseStatelessIpv6 and UseAutoIpv6.
-- -Ipv6Prefix [Int32] (Optional) Specifies the IPv6 prefix.
-- -Ipv6VcApplicationArgument [String] (Optional) Specifies a new argument to pass to a vCenter Server application to obtain an IPv6 address.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -SubnetMask [String] (Optional) Specifies a subnet mask.
-- -VCApplicationArgument [String] (Optional) Specifies an optional argument you want to pass to the vCenter Server to obtain an IP address.
-- -Wins [String[]] (Optional) Specifies WINS servers. This parameter applies only to Windows operating systems.
-
-**Examples:**
+## Scenario: Windows Domain Join with SID Regeneration
 
 ```powershell
-New-OSCustomizationNicMapping -OSCustomizationSpec $spec -IpMode UseStaticIP -IPAddress 10.0.0.1 -SubnetMask 255.255.255.0 -DefaultGateway 10.0.0.253 -DnsServer 10.0.0.253
+New-OSCustomizationSpec -Name "win-domain-join" `
+    -OSType Windows -FullName "Administrator" -OrgName "Contoso" `
+    -NamingScheme Prefix -NamingPrefix "WS-" `
+    -Domain "contoso.com" `
+    -DomainUsername "svc-vmjoin" -DomainPassword "JoinPassword!" `
+    -ChangeSid `
+    -TimeZone "035" `
+    -AdminPassword "InitialP@ss1" `
+    -LicenseMode PerSeat `
+    -Type Persistent -Server $vcenter
+
+# Set NIC to DHCP (common for Windows domain environments)
+$spec = Get-OSCustomizationSpec "win-domain-join" -Server $vcenter
+New-OSCustomizationNicMapping -OSCustomizationSpec $spec -IpMode UseDhcp
 ```
-_Creates a new NIC mapping for the OS customization spec stored in $spec._
 
-### `New-OSCustomizationSpec`
+CRITICAL: `-ChangeSid` is essential for Windows. Without it, cloned VMs share the same SID, which breaks Active Directory trust relationships and causes authentication failures.
 
-**This cmdlet creates a new OS customization specification.**
+## Common Mistakes
 
-This cmdlet creates a new OS customization specification or clones an existing one. If a name is provided, creates and adds the specified customization specification to the server. Otherwise, creates and returns the requested specification object. If the Name parameter is not specified, the OSCustomizationSpec object is not persisted on the server. Either the Domain or the Workgroup parameters should be provided if a Windows specification is created. If a Linux specification is created, the Domain parameter is mandatory. New-OSCustomizationSpec automatically creates a default NIC mapping.
-
-**Parameters:**
-
-- -AdminPassword [String] (Optional) Specifies a new OS administrator's password. This parameter applies only to Windows operating systems. If not specified, the administrator's password is set to blank.
-- -AutoLogonCount [Int32] (Optional) Specifies the number of times the virtual machine automatically logs in as administrator without prompting for user credentials. The valid values are in the range between 0 and Int32.MaxValue. Specifying 0 deactivates auto log-on. This parameter applies only to Windows operating systems.
-- -ChangeSid [SwitchParameter] (Optional) Indicates that the customization should modify the system security identifier (SID). This parameter applies only to Windows operating systems.
-- -CustomizationScript [String] (Optional) Specifies a bash script that runs before and after the customization of the guest operating system. You can use this parameter only for Linux-based operating systems. Use the bash script itself and not the path to it.
-- -DeleteAccounts [SwitchParameter] (Optional) Indicates that you want to delete all user accounts. This parameter applies only to Windows operating systems.
-- -Description [String] (Optional) Provides a description for the new specification.
-- -DnsServer [String[]] (Optional) Specifies the DNS server settings. This parameter applies only to Linux operating systems.
-- -DnsSuffix [String[]] (Optional) Specifies the DNS suffix settings. This parameter applies only to Linux operating systems.
-- -Domain [String] (Optional) Specifies a domain name.
-- -DomainCredentials [PSCredential] (Optional) Specifies the credentials you want to use for domain authentication. This parameter applies only to Windows operating systems.
-- -DomainPassword [String] (Optional) Specifies the password you want to use for domain authentication. This parameter applies only to Windows operating systems.
-- -DomainUsername [String] (Optional) Specifies the user name you want to use for domain authentication. This parameter applies only to Windows operating systems.
-- -FullName [String] (Required) Specifies the administrator's full name. This parameter applies only to Windows operating systems.
-- -GuiRunOnce [String[]] (Optional) Specifies a list of commands. These commands run when a user logs in for the first time after the customization completes. This parameter applies only to Windows operating systems.
-- -LicenseMaxConnections [Int32] (Optional) Specifies the maximum connections for server license mode. Use this parameter only if the LicenseMode parameter is set to Perserver. This parameter applies only to Windows operating systems.
-- -LicenseMode [LicenseMode] (Optional) Specifies the license mode of the Windows 2000/2003 guest operating system. The valid values are Perseat, Perserver, and Notspecified. If Perserver is set, use the LicenseMaxConnection parameter to define the maximum number of connections. This parameter applies only to Windows operating systems.
-- -Name [String] (Optional) Specifies a name for the new specification.
-- -NamingPrefix [String] (Optional) Depends on the customization naming scheme - Custom, NamingPrefix, or Prefix. If the "Custom" naming scheme is used, NamingPrefix is an optional argument that is passed to the utility for this IP address. The meaning of this field is user-defined in the script. If the "Fixed" naming scheme is used, NamingPrefix should indicate the name of the virtual machine. If the "Prefix" naming scheme is selected, NamingPrefix indicates the prefix to which a unique number is appended.
-- -NamingScheme [String] (Optional) Specifies the naming scheme for the virtual machine. The following values are valid:   Custom - Specifies that vCenter Server will launch an external application to generate the (hostname/IP). The command line for this application must be specified in the server configuration file (vpxd.cfg) in the vpxd/name-ip-generator key.     Fixed - Specifies that the name is fixed.   Prefix - Specifies that a unique name should be generated by concatenating the base string with a number. Virtual machine names are unique across the set of hosts and virtual machines known to the vCenter Server system. vCenter Server tracks the network names of virtual machines as well as hosts. VMware Tools runs in a guest operating system and reports information to vCenter Server, including the network name of the guest.  Vm - Specifies that vCenter Server should generate a virtual machine name from a base prefix comprising the virtual machine entity name. A number is appended, if necessary, to make it unique. Virtual machine names are unique across the set of hosts and virtual machines known to the vCenter Server system. VMware Tools reports the names of existing virtual machines.
-- -OrgName [String] (Required) Specifies the name of the organization to which the administrator belongs.
-- -OSCustomizationSpec [OSCustomizationSpec] (Required) Specifies an OS customization specification that you want to clone.
-- -OSType [String] (Optional) Specifies the type of the operating system. The valid values are Linux and Windows.
-- -ProductKey [String] (Optional) Specifies the MS product key. If the guest OS version is earlier than Vista, this parameter is required in order to make the customization unattended. For Vista or later, the OS customization is unattended no matter if the ProductKey parameter is set.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -TimeZone [String] (Optional) Specifies the name or ID of the time zone for a Windows guest OS only. Using wildcards is supported. The following time zones are available:     000 Int'l Dateline 001 Samoa 002 Hawaii 003 Alaskan 004 Pacific 010 Mountain (U.S. and Canada) 015 U.S. Mountain: Arizona 020 Central (U.S. and Canada) 025 Canada Central 030 Mexico 033 Central America 035 Eastern (U.S. and Canada) 040 U.S. Eastern: Indiana (East) 045 S.A. Pacific 050 Atlantic (Canada) 055 S.A. Western 056 Pacific S.A. 060 Newfoundland 065 E. South America 070 S.A. Eastern 073 Greenland 075 Mid-Atlantic 080 Azores 083 Cape Verde Islands 085 GMT (Greenwich Mean Time) 090 GMT Greenwich 095 Central Europe 100 Central European 105 Romance 110 W. Europe 113 W. Central Africa 115 E. Europe 120 Egypt 125 EET (Helsinki, Riga, Tallinn) 130 EET (Athens, Istanbul, Minsk) 135 Israel: Jerusalem 140 S. Africa: Harare, Pretoria 145 Russian 150 Arab 155 E. Africa 160 Iran 165 Arabian 170 Caucasus Pacific (U.S. and Canada) 175 Afghanistan 180 Russia Yekaterinburg 185 W. Asia 190 India 193 Nepal 195 Central Asia 200 Sri Lanka 201 N. Central Asia 203 Myanmar: Rangoon 205 S.E. Asia 207 N. Asia 210 China 215 Singapore 220 Taipei 225 W. Australia 227 N. Asia East 230 Korea: Seoul 235 Tokyo 240 Sakha Yakutsk 245 A.U.S. Central: Darwin 250 Central Australia 255 A.U.S. Eastern 260 E. Australia 265 Tasmania 270 Vladivostok 275 W. Pacific 280 Central Pacific 285 Fiji 290 New Zealand 300 Tonga
-- -Type [OSCustomizationSpecType] (Optional) Specifies the type of the OS customization specification. The valid values are Persistent and NonPersistent.
-- -Workgroup [String] (Optional) Specifies a workgroup. This parameter applies only to Windows operating systems.
-
-**Examples:**
+### Mistake 1: Forgetting -ChangeSid on Windows Specs
 
 ```powershell
-New-OSCustomizationSpec -Name Spec -OSType Windows -FullName Administrator -OrgName Organization -NamingScheme Fixed -NamingPrefix Computer -ProductKey "xxxx-xxxx" -LicenseMode PerSeat -Workgroup Workgroup -ChangeSid
+# WRONG -- Cloned VMs have duplicate SIDs
+New-OSCustomizationSpec -Name "win-spec" -OSType Windows `
+    -FullName "Admin" -OrgName "Corp" -Workgroup "WORKGROUP"
+# Every VM deployed from this spec has the SAME Windows SID
+
+# CORRECT -- Always use -ChangeSid for Windows
+New-OSCustomizationSpec -Name "win-spec" -OSType Windows `
+    -FullName "Admin" -OrgName "Corp" -Workgroup "WORKGROUP" -ChangeSid
 ```
-_Generates a new SID for the machine and sets the name of the machine to "Computer"._
+
+### Mistake 2: No NIC Mapping Means DHCP by Default
 
 ```powershell
-New-OSCustomizationSpec -Name Spec -OSType Windows -Description "This spec adds a computer in a domain." -FullName Administrator -OrgName Organization -NamingScheme Fixed -NamingPrefix "Computer" -ProductKey "xxxx-xxxx" -LicenseMode Perserver -LicenseMaxConnections 30 -AdminPassword pass -Domain Domain -DomainUsername Root -DomainPassword pass
+# WRONG -- Create spec but forget NIC mapping, guest gets random DHCP address
+New-OSCustomizationSpec -Name "linux-static" -OSType Linux -Domain "example.com"
+# VM boots with DHCP -- not the static IP you expected
+
+# CORRECT -- Always add NIC mapping for static IP environments
+$spec = Get-OSCustomizationSpec "linux-static"
+New-OSCustomizationNicMapping -OSCustomizationSpec $spec `
+    -IpMode UseStaticIp -IpAddress "10.0.100.50" `
+    -SubnetMask "255.255.255.0" -DefaultGateway "10.0.100.1"
 ```
-_Creates a customization specification that adds a computer in the domain named "Domain"._
 
-## Remove
+## Cmdlet Quick Reference
 
-### `Remove-OSCustomizationNicMapping`
-
-**This cmdlet removes the specified OS customization NIC mappings.**
-
-**Parameters:**
-
-- -OSCustomizationNicMapping [OSCustomizationNicMapping[]] (Required) Specifies the OSCustomizationNicMapping objects you want to remove.
-
-**Examples:**
-
-```powershell
-$nicMapping = Get-OSCustomization MyCustomizationSpec | Get-OSCustomizationNicMapping
-Remove-OSCustomizationNicMapping $nicMapping -Confirm:$false
-```
-_Removes the NIC mappings of the specified OS customization spec without asking for confirmation._
-
-### `Remove-OSCustomizationSpec`
-
-**This cmdlet removes the specified OS customization specifications.**
-
-**Parameters:**
-
-- -OSCustomizationSpec [OSCustomizationSpec[]] (Required) Specifies the customization specifications you want to remove.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-
-**Examples:**
-
-```powershell
-Remove-OSCustomizationSpec Spec -Confirm
-```
-_Removes the Spec OS customization specification from the server._
-
-## Set
-
-### `Set-OSCustomizationNicMapping`
-
-**This cmdlet modifies the provided OS customization NIC mappings.**
-
-This cmdlet modifies the provided OS customization NIC mappings. If the parent spec of the provided NIC mapping is a server-side spec, it is updated on the server. If the parent spec is client-side, the reference that is kept in the memory is updated, but the variable that is passed to the cmdlet is not modified.
-
-**Parameters:**
-
-- -AlternateGateway [String] (Optional) Specifies an alternate gateway.
-- -DefaultGateway [String] (Optional) Specifies a default gateway.
-- -Dns [String[]] (Optional) Specifies a DNS address. This parameter applies only to Windows operating systems.
-- -IpAddress [String] (Optional) Specifies an IP address. Using this parameter automatically sets the IpMode parameter to UseStaticIp.
-- -IpMode [OSCustomizationIPMode] (Optional) Specifies the IP configuration mode. The valid values are UseDhcp, PromptUser, UseVCApplication, and UseStaticIP.
-- -NetworkAdapterMac [String] (Optional) Specifies the MAC address of the network adapter to which you want to map the OS customization specification.
-- -OSCustomizationNicMapping [OSCustomizationNicMapping[]] (Required) Specifies the OS customization NIC mapping you want to configure.
-- -Position [Int32] (Optional) Specifies the position of the mapping you want to modify.
-- -Ipv6Address [String] (Optional) Specifies an IPv6 address.
-- -Ipv6AlternateGateway [String] (Optional) Specifies an alternate IPv6 gateway.
-- -Ipv6Gateway [String] (Optional) Specifies the default IPv6 gateway.
-- -Ipv6Mode [OSCustomizationIPMode] (Optional) Specifies the IPv6 configuration mode. The valid values are UseDhcp, PromptUser, UseVCApplication, UseStaticIP, UseStatelessIpv6 and UseAutoIpv6.
-- -Ipv6Prefix [Int32] (Optional) Specifies the IPv6 prefix.
-- -Ipv6VcApplicationArgument [String] (Optional) Specifies a new argument to pass to a vCenter Server application to obtain an IPv6 address.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -SubnetMask [String] (Optional) Specifies a subnet mask.
-- -VCApplicationArgument [String] (Optional) Specifies a new argument you want to pass to VCApplication in order to obtain an IP address.
-- -Wins [String[]] (Optional) Specifies WINS servers. This parameter applies only to Windows operating systems.
-
-**Examples:**
-
-```powershell
-Get-OSCustomizationSpec Spec | Get-OSCustomizationNicMapping | Set-OSCustomizationNicMapping -IpAddress 10.0.0.2
-```
-_Modifies the IP address of the specified NIC mapping that uses static IP mode._
-
-```powershell
-Get-OSCustomizationSpec Spec | Get-OSCustomizationNicMapping | Set-OSCustomizationNicMapping -VcApplicationArgument "subnet2"
-```
-_Modifies the VCApplication argument of the specified NIC mapping._
-
-```powershell
-Get-OSCustomizationSpec Spec | Get-OSCustomizationNicMapping | Set-OSCustomizationNicMapping -IpMode UseStaticIp -IpAddress 10.10.0.1 -SubnetMask 255.255.255.0 -DefaultGateway 10.10.0.1 -AlternateGateway 10.10.0.1 -Dns 10.10.150.1 -PrimaryWins 10.10.150.2
-```
-_Modifies the attributes of a NIC mapping._
-
-### `Set-OSCustomizationSpec`
-
-**This cmdlet modifies the specified OS customization specification.**
-
-This cmdlet modifies the specified OS customization specification. The specification to be updated is identified by one or both of the Name and Spec parameters. If a Windows specification is to be updated, one of the  Domain and Workgroup parameters must be provided. If a Linux specification is to be updated, the Domain parameter must be provided.
-
-**Parameters:**
-
-- -AdminPassword [String] (Optional) Specifies the new OS administrator's password. This parameter applies only to Windows operating systems.
-- -AutoLogonCount [Int32] (Optional) Specifies the number of times the virtual machine should automatically login as an administrator. The valid values are in the range between 0 and Int32.MaxValue. Specifying 0 deactivates auto log-on. This parameter applies only to Windows operating systems.
-- -ChangeSID [Boolean] (Optional) Indicates that the customization should modify the system security identifier (SID). This parameter applies only to Windows operating systems.
-- -CustomizationScript [String] (Optional) Specifies a bash script that runs before and after the customization of the guest operating system. You can use this parameter only for Linux-based operating systems. Use the bash script itself and not the path to it.
-- -DeleteAccounts [Boolean] (Optional) Indicates that you want to delete all user accounts. This parameter applies only to Windows operating systems.
-- -Description [String] (Optional) Provides a new description for the specification.
-- -DnsServer [String[]] (Optional) Specifies the DNS server. This parameter applies only to Linux operating systems.
-- -DnsSuffix [String[]] (Optional) Specifies the DNS suffix. This parameter applies only to Linux operating systems.
-- -Domain [String] (Optional) Specifies the domain name.
-- -DomainCredentials [PSCredential] (Optional) Specifies credentials for authentication with the specified domain. This parameter applies only to Windows operating systems.
-- -DomainPassword [String] (Optional) Specifies a password for authentication with the specified domain. This parameter applies only to Windows operating systems.
-- -DomainUsername [String] (Optional) Specifies a username for authentication with the specified domain. This parameter applies only to Windows operating systems.
-- -FullName [String] (Optional) Specifies the administrator's full name. This parameter applies only to Windows operating systems.
-- -GuiRunOnce [String[]] (Optional) Provides a list of commands to run after first user login. This parameter applies only to Windows operating systems.
-- -LicenseMaxConnections [Int32] (Optional) Specifies the maximum connections for server license mode. Use this parameter only if the LicenseMode parameter is set to Perserver. This parameter applies only to Windows operating systems.
-- -LicenseMode [LicenseMode] (Optional) Specifies the license mode of the Windows 2000/2003 guest operating system. The valid values are Perseat, Perserver, and NotSpecified. If Perserver is set, use the LicenseMaxConnection parameter to define the maximum number of connections. This parameter applies only to Windows operating systems.
-- -Name [String] (Optional) Specifies a new name for the OS customization specification.
-- -NamingPrefix [String] (Optional) The behavior of this parameter is related to the customization scheme. If a Custom customization scheme is specified, NamingPrefix is an optional argument that is passed to the utility for this IP address. The value of this field is defined by the user in the script. If a Fixed customization scheme is specified, NamingPrefix should indicate the name of the virtual machine. If a Prefix customization scheme is set, NamingPrefix indicates the prefix to which a unique number is appended.
-- -NamingScheme [String] (Optional) Specifies the naming scheme for the virtual machine. The valid values are Custom, Fixed, Prefix, and Vm.
-- -NewSpec [OSCustomizationSpec] (Optional) If no other parameters are provided, this parameter specifies a specification from which to retrieve information for the updated specification.
-- -OrgName [String] (Optional) Specifies the name of the organization to which the administrator belongs.
-- -OSCustomizationSpec [OSCustomizationSpec[]] (Required) Specifies the specification you want to modify.
-- -ProductKey [String] (Optional) Specifies the MS product key. If the guest OS version is earlier than Vista, this parameter is required in order to make the customization unattended. For Windows Vista and later, the OS customization is unattended no matter if the ProductKey parameter is set.
-- -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
-- -TimeZone [String] (Optional) Specifies the name or ID of the time zone for a Windows guest OS only. Using wildcards is supported. The following time zones are available:     000 Int'l Dateline 001 Samoa 002 Hawaii 003 Alaskan 004 Pacific 010 Mountain (U.S. and Canada) 015 U.S. Mountain: Arizona 020 Central (U.S. and Canada) 025 Canada Central 030 Mexico 033 Central America 035 Eastern (U.S. and Canada) 040 U.S. Eastern: Indiana (East) 045 S.A. Pacific 050 Atlantic (Canada) 055 S.A. Western 056 Pacific S.A. 060 Newfoundland 065 E. South America 070 S.A. Eastern 073 Greenland 075 Mid-Atlantic 080 Azores 083 Cape Verde Islands 085 GMT (Greenwich Mean Time) 090 GMT Greenwich 095 Central Europe 100 Central European 105 Romance 110 W. Europe 113 W. Central Africa 115 E. Europe 120 Egypt 125 EET (Helsinki, Riga, Tallinn) 130 EET (Athens, Istanbul, Minsk) 135 Israel: Jerusalem 140 S. Africa: Harare, Pretoria 145 Russian 150 Arab 155 E. Africa 160 Iran 165 Arabian 170 Caucasus Pacific (U.S. and Canada) 175 Afghanistan 180 Russia Yekaterinburg 185 W. Asia 190 India 193 Nepal 195 Central Asia 200 Sri Lanka 201 N. Central Asia 203 Myanmar: Rangoon 205 S.E. Asia 207 N. Asia 210 China 215 Singapore 220 Taipei 225 W. Australia 227 N. Asia East 230 Korea: Seoul 235 Tokyo 240 Sakha Yakutsk 245 A.U.S. Central: Darwin 250 Central Australia 255 A.U.S. Eastern 260 E. Australia 265 Tasmania 270 Vladivostok 275 W. Pacific 280 Central Pacific 285 Fiji 290 New Zealand 300 Tonga
-- -Type [OSCustomizationSpecType] (Optional) Sets the type of the OS customization specification. The valid values are Persistent and NonPersistent.
-- -Workgroup [String] (Optional) Specifies the workgroup. This parameter applies only to Windows operating systems.
-
-**Examples:**
-
-```powershell
-Set-OSCustomizationSpec Spec -Description 'This is a test OS customization specification.'
-```
-_Updates the description of the Spec OS customization specification._
+| Cmdlet | Purpose | Key Parameters |
+|--------|---------|----------------|
+| `Get-OSCustomizationSpec` | List specs | `-Name`, `-Type` (Persistent/NonPersistent), `-Server` |
+| `New-OSCustomizationSpec` | Create spec | `-Name`, `-OSType` (Linux/Windows), `-Domain`, `-NamingScheme`, `-ChangeSid`, `-Type` |
+| `New-OSCustomizationSpec` (clone) | Clone existing spec | `-OSCustomizationSpec` (source), `-Name`, `-Type NonPersistent` |
+| `Set-OSCustomizationSpec` | Modify spec | `-NamingScheme`, `-Domain`, `-DnsServer`, `-Description` |
+| `Remove-OSCustomizationSpec` | Delete spec | `-OSCustomizationSpec` |
+| `Get-OSCustomizationNicMapping` | List NIC mappings | `-OSCustomizationSpec` |
+| `New-OSCustomizationNicMapping` | Add NIC mapping | `-OSCustomizationSpec`, `-IpMode`, `-IpAddress`, `-SubnetMask`, `-DefaultGateway`, `-Dns` |
+| `Set-OSCustomizationNicMapping` | Modify NIC mapping | `-IpMode`, `-IpAddress`, `-SubnetMask`, `-DefaultGateway` |
+| `Remove-OSCustomizationNicMapping` | Delete NIC mapping | `-OSCustomizationNicMapping` |
