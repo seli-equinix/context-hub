@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — ESXi host operations — configure, maint
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,host-management,Add-VDSwitchVMHost, Add-VMHost, Add-VMHostNtpServer, Export-LcmVMHostDesiredState, Export-VMHostImageDb, Export-VMHostProfile, Format-VMHostDiskPartition, Get-DrsVMHostRule, Get-EsxCli, Get-EsxTop, Get-HAPrimaryVMHost, Get-TrustAuthorityVMHostBaseImage, Get-VMHost, Get-VMHostAccount, Get-VMHostAdvancedConfiguration, Get-VMHostAuthentication, Get-VMHostAvailableTimeZone, Get-VMHostDiagnosticPartition, Get-VMHostDisk, Get-VMHostDiskPartition, Get-VMHostFirewallDefaultPolicy, Get-VMHostFirewallException, Get-VMHostFirmware, Get-VMHostHardware, Get-VMHostHba, Get-VMHostModule, Get-VMHostNetwork, Get-VMHostNetworkAdapter, Get-VMHostNetworkStack, Get-VMHostNtpServer, Get-VMHostPatch, Get-VMHostPciDevice, Get-VMHostProfile, Get-VMHostProfileImageCacheConfiguration, Get-VMHostProfileRequiredInput, Get-VMHostProfileStorageDeviceConfiguration, Get-VMHostProfileUserConfiguration, Get-VMHostProfileVmPortGroupConfiguration, Get-VMHostRoute, Get-VMHostService, Get-VMHostSnmp, Get-VMHostStartPolicy, Get-VMHostStorage, Get-VMHostSysLogServer, Get-VMHostTPM, Import-VMHostProfile, Install-VMHostPatch, Invoke-VMHostProfile, Move-VMHost, New-DrsVMHostRule, New-TrustAuthorityVMHostBaseImage, New-VMHostAccount, New-VMHostNetworkAdapter, New-VMHostProfile, New-VMHostProfileVmPortGroupConfiguration, New-VMHostRoute, Remove-DrsVMHostRule, Remove-TrustAuthorityVMHostBaseImage, Remove-VDSwitchVMHost, Remove-VMHost, Remove-VMHostAccount, Remove-VMHostNetworkAdapter, Remove-VMHostNtpServer, Remove-VMHostProfile, Remove-VMHostProfileVmPortGroupConfiguration, Remove-VMHostRoute, Restart-VMHost, Restart-VMHostService, Set-DrsVMHostRule, Set-VMHost, Set-VMHostAccount, Set-VMHostAdvancedConfiguration, Set-VMHostAuthentication, Set-VMHostDiagnosticPartition, Set-VMHostFirewallDefaultPolicy, Set-VMHostFirewallException, Set-VMHostFirmware, Set-VMHostHba, Set-VMHostModule, Set-VMHostNetwork, Set-VMHostNetworkAdapter, Set-VMHostNetworkStack, Set-VMHostProfile, Set-VMHostProfileImageCacheConfiguration, Set-VMHostProfileStorageDeviceConfiguration, Set-VMHostProfileUserConfiguration, Set-VMHostProfileVmPortGroupConfiguration, Set-VMHostRoute, Set-VMHostService, Set-VMHostSnmp, Set-VMHostStartPolicy, Set-VMHostStorage, Set-VMHostSysLogServer, Start-VMHost, Start-VMHostService, Stop-VMHost, Stop-VMHostService, Suspend-VMHost, Test-VMHostProfileCompliance, Test-VMHostSnmp"
@@ -58,16 +58,21 @@ This cmdlet adds a host to be managed by a vCenter Server system. The host is ad
 
 ```powershell
 $myServer = Connect-VIServer -Server 10.23.112.235
+Add-VMHost -Server $myServer -Name MyVMHost1 -Location MyDatacenter1 -User MyUsername1 -Password MyPassword1
 ```
 _Adds a VM host to a specified vCenter Server system and provides a username and password for authentication._
 
 ```powershell
 $myCredentials = Get-VICredentialStoreItem -File "C:\MyCredentials.xml"
+$myServer = Connect-VIServer -Server 10.23.112.235
+Add-VMHost -Server $myServer -Name MyVMHost1 -Location MyDatacenter1 -Credentials $myCredentials
 ```
 _Adds a VM host to a vCenter Server system and specifies a PSCredential object that contains authentication credentials._
 
 ```powershell
 $myCredentials = Get-VICredentialStoreItem -File "C:\MyCredentials.xml"
+$myServer = Connect-VIServer -Server 10.23.112.235
+Add-VMHost -Server $server -Name MyVMHost1 -Location MyDatacenter1 -Credentials $myCredentials -Port MyVMHostPortNumber1 -Confirm:$false
 ```
 _Adds a VM host to a vCenter Server system without asking for confirmation and specifies a port on the host for connecting._
 
@@ -160,6 +165,8 @@ This cmdlet exports the specified host profile to a file that is in the VMware p
 
 ```powershell
 $profile = (Get-VMHostProfile -Name Profile )[0]
+
+Export-VMHostProfile -FilePath export.prf -Profile $profile -Force
 ```
 _Exports the selected host profile to the export.prf file._
 
@@ -205,6 +212,7 @@ _Retrieves all VM to VMHost DRS rules, which are of type "MustRunOn"._
 
 ```powershell
 $cluster = Get-Cluster "MyCluster"
+Get-DrsVMHostRule -VMHostGroup "MyDrsVMHostGroup" -Cluster $cluster
 ```
 _Retrieves all available VM to VMHost DRS which include the "MyDrsVMHostGroup" DRS VMHost group in the "MyCluster" cluster._
 
@@ -222,6 +230,7 @@ _Retrieves all available VM to VMHost DRS which include the "MyDrsVMHostGroup" D
 
 ```powershell
 $vmHost = Get-VMHost "vmHostIp"
+$esxcli_v1 = Get-EsxCli -VMHost $vmHost
 ```
 _Retrieves a version 1 interface to ESXCLI. This interface version is deprecated and will be removed in a future release. This example works on vCenter Server 5.0/ESXi 5.0 and later._
 
@@ -232,6 +241,7 @@ _Retrieves a version 1 interface to ESXCLI using the default connection when con
 
 ```powershell
 $vmHost = Get-VMHost "vmHostIp"
+$esxcli = Get-EsxCli -VMHost $vmHost -V2
 ```
 _Retrieves a version 2 interface to ESXCLI by specifying a version switch parameter. This example works on vCenter Server 5.0/ESXi 5.0 and later._
 
@@ -263,6 +273,16 @@ _Retrieves the available counters._
 
 ```powershell
 $vm = Get-VM VM
+$group = Get-EsxTop -CounterName SchedGroup | where {$_.VMName -eq $vm.Name}
+$groupIDs = $group | select -ExpandProperty GroupID
+$gr = Get-EsxTop -TopologyInfo -Topology SchedGroup | %{$_.Entries} | where {$groupIDs -contains $_.GroupId}
+
+$cpuIds = @()
+$gr | %{$_.CpuClient} | %{$cpuIds += $_.CPUClientID}
+
+$cpuStats = Get-EsxTop -CounterName 'VCPU' | where {$cpuIds -contains $_.VCPUID}
+
+$cpuStats | fl *
 ```
 _Retrieves statistics for the virtual CPUs of the specified virtual machine._
 
@@ -296,7 +316,7 @@ _Retrieves the HA primary host of the cluster named Cluster._
 **Parameters:**
 
 - -Health [TrustAuthoritySettingsConfigHealth[]] (Optional) Specifies the healths of the Trust Authority virtual machine host base images you want to retrieve.
-- -Id [String[]] (Required) Specifies the IDs of the Trust Authority virtual machine host base image you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the Trust Authority virtual machine host base image you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -TrustAuthorityCluster [TrustAuthorityCluster[]] (Required) Specifies the Trust Authority clusters from which you want to retrieve the Trust Authority virtual machine host base images.
 - -VMHostVersion [String[]] (Optional) Specifies the virtual machine host versions of the Trust Authority virtual machine host base images you want to retrieve.
@@ -318,7 +338,7 @@ This cmdlet retrieves the hosts on a vCenter Server system. Returns a set of hos
 
 - -Datastore [StorageResource[]] (Optional) Specifies the datastores or datastore clusters to which the hosts that you want to retrieve are associated. Passing values to this parameter through a pipeline is deprecated and will be removed in a future release.
 - -DistributedSwitch [DistributedSwitch[]] (Optional) Filters the available hosts by the virtual switches they are connected to.
-- -Id [String[]] (Required) Specifies the IDs of the hosts you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the hosts you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies the vSphere container objects (such as folders, datacenters, and clusters) you want to search for hosts.
 - -Name [String[]] (Optional) Specifies the names of the hosts you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -338,11 +358,13 @@ _Retrieves all hosts in the specified datacenter._
 
 ```powershell
 $MyVM = Get-VM -Name MyVM
+Get-VMHost -VM $MyVM
 ```
 _Retrieves the host on which the specified virtual machine runs._
 
 ```powershell
 $myVDSwitch = Get-VDSwitch -Name "MyVDSwitch"
+Get-VMHost -DistributedSwitch $myVDSwitch
 ```
 _Retrieves all hosts associated with the specified vSphere distributed switch._
 
@@ -355,7 +377,7 @@ This cmdlet retrieves the host accounts available on a vCenter Server system. If
 **Parameters:**
 
 - -Group [SwitchParameter] (Optional) Indicates that you want to retrieve only group host accounts. Starting with ESXi 5.1, this parameter is not supported.
-- -Id [String[]] (Optional) Specifies the IDs of the host accounts you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the host accounts you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -User [SwitchParameter] (Optional) Indicates that you want to retrieve only user host accounts.
 
@@ -368,11 +390,15 @@ _Retrieves the group accounts for the default ESX/ESXi host. Starting with ESXi 
 
 ```powershell
 $myServer1 = Connect-VIServer -Server 10.23.112.235
+$myUserAccount1 = New-VMHostAccount -ID MyUser1 -Password MyPass1 -UserAccount
+Get-VMHostAccount -Server $myServer1 -ID $myUserAccount1.Id -User
 ```
 _Retrieves a host account specified by an ID and an ESX/ESXi host._
 
 ```powershell
 $myServer1 = Connect-VIServer -Server 10.23.112.235
+$myGroupAccount1 = New-VMHostAccount -ID MyGroup1 -Password MyPassword1 -GroupAccount
+Get-VMHostAccount -Server $myServer1 -Id $myGroupAccount.Id -Group
 ```
 _Retrieves a group host account specified by an ID and an ESX/ESXi host. Starting with ESXi 5.1, you cannot retrieve group host accounts._
 
@@ -401,7 +427,7 @@ _Retrieves the virtual machine host advanced configuration settings, whose names
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the host authentication information that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the host authentication information that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHost [VMHost[]] (Optional) Specifies the hosts for which you want to retrieve authentication information.
 
@@ -454,7 +480,7 @@ _Retrieves all diagnostic partitions for the specified host._
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the SCSI LUN disks that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the SCSI LUN disks that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -ScsiLun [ScsiLun[]] (Optional) Specifies the SCSI LUN for which you want to retrieve information.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHost [VMHost[]] (Optional) Specifies hosts to retrieve the hard disks attached to them.
@@ -477,7 +503,7 @@ _Retrieves the host disks only for LUNs that are of FibreChannel type._
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the host disk partitions that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the host disk partitions that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHostDisk [VMHostDisk[]] (Optional) Specifies the host disk for which you want to retrieve the partitions.
 
@@ -570,12 +596,12 @@ This cmdlet retrieves hardware and firmware information for the hosts specified 
 
 **Parameters:**
 
-- -Id [String[]] (Required) Filters the ESXi hosts by ID.
+- -Id [String[]] (Required) Filters the ESXi hosts by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) This parameter is required when you specify the host by name. In this case, the host with the specified name is searched on the specified servers and hardware information is retrieved from it. If a VMHost object is passed to the VMHost parameter, the Server parameter is not used.
-- -SkipAllSslCertificateChecks [SwitchParameter] (Optional) Indicates that all checks for SSL server certificates are skipped.
-- -SkipCACheck [SwitchParameter] (Optional) Indicates that when connecting through HTTPS, the client does not validate that the server certificate is signed by a trusted certification authority (CA).
-- -SkipCNCheck [SwitchParameter] (Optional) Indicates that the certificate common name (CN) of the server does not need to match the hostname of the server.
-- -SkipRevocationCheck [SwitchParameter] (Optional) Indicates that the revocation check for server certificates is skipped.
+- -SkipAllSslCertificateChecks [SwitchParameter] (Optional) Indicates that all checks for SSL server certificates are skipped.   Note: You should use this parameter only for trusted computers.
+- -SkipCACheck [SwitchParameter] (Optional) Indicates that when connecting through HTTPS, the client does not validate that the server certificate is signed by a trusted certification authority (CA).   Note: You should use this parameter only when the remote server can be trusted by using another mechanism, such as when the remote computer is part of a network that is physically secure and isolated.
+- -SkipCNCheck [SwitchParameter] (Optional) Indicates that the certificate common name (CN) of the server does not need to match the hostname of the server.   Note: You should use this parameter only for trusted computers.
+- -SkipRevocationCheck [SwitchParameter] (Optional) Indicates that the revocation check for server certificates is skipped.   Note: You should use this parameter only for trusted computers.
 - -VMHost [VMHost[]] (Optional) Specifies the hosts for which you want to retrieve hardware information. If not specified, the cmdlet retrieves hardware information for all hosts on all default connections.
 - -WaitForAllData [SwitchParameter] (Optional) If specified, forces all data for each result object to be retrieved before that object is returned. If this parameter is not specified, retrieval of some of the data in the output objects might be postponed to an arbitrary point in time between the cmdlet call and the first time the data is accessed through the corresponding property. As a result, not specifying this parameter makes the cmdlet return data faster, but different portions of the data in result objects might come from different points in time.
 
@@ -653,7 +679,7 @@ _Retrieves the  networking configuration for the virtual machine host on IP addr
 **Parameters:**
 
 - -Console [SwitchParameter] (Optional) Indicates that you want to retrieve only service console virtual network adapters.
-- -Id [String[]] (Optional) Specifies the IDs of the host network adapters you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the host network adapters you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the host network adapters you want to retrieve. The position of this parameter is deprecated and will be changed in a future release. To avoid errors when you run existing scripts on future PowerCLI versions, specify the parameter by name.
 - -Physical [SwitchParameter] (Optional) Indicates that you want to retrieve only physical network adapters.
 - -PortGroup [VirtualPortGroupBase[]] (Optional) Specifies the port groups to which network adapters that you want to retrieve are connected.
@@ -671,11 +697,13 @@ _Retrieves information about about all VMKernel network adapters on servers that
 
 ```powershell
 $myVMHost = Get-VMHost -Name MyVMHost
+Get-VMHostNetworkAdapter -VMHost $myVMHost -Physical
 ```
 _Retrieves all physical network adapters on the specified host._
 
 ```powershell
 $myVDSwitch = Get-VDSwitch -Name MyVDSwitch
+Get-VMHostNetworkAdapter -VirtualSwitch $myVDSwitch -VMKernel
 ```
 _Retrieves all VMKernel network adapters connected to the specified virtual switch._
 
@@ -685,7 +713,7 @@ _Retrieves all VMKernel network adapters connected to the specified virtual swit
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the host network stacks you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the host network stacks you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the host network stacks you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -VMHost [VMHost[]] (Optional) Specifies the hosts whose network stacks you want to retrieve.
@@ -699,6 +727,7 @@ _Retrieves all network stacks on servers that you are connected to._
 
 ```powershell
 $myVMHost = Get-VMHost -Name MyVMHost
+Get-VMHostNetworkStack -VMHost $myVMHost
 ```
 _Retrieves all network stacks on the specified host._
 
@@ -716,7 +745,7 @@ _Retrieves all network stacks on the specified host._
 ```powershell
 Get-VMHostNtpServer -VMHost 10.23.123.100
 ```
-_Retrieves the NTP server of the virtual machine host with an IP address 10.23.123.100._
+_Retrieves the NTP server of the virtual machine host with an IP address 10.23.123.100.   127.127.1.0_
 
 ### `Get-VMHostPatch`
 
@@ -741,7 +770,7 @@ _Retrieves information of the host patches installed on the specified host._
 **Parameters:**
 
 - -DeviceClass [PciDeviceClass[]] (Optional) Limits results to devices of the specified classes.
-- -Name [String[]] (Optional) Filters the PCI devices by name.
+- -Name [String[]] (Optional) Filters the PCI devices by name.   Note: This parameter is not case-sensitive.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHost [VMHost[]] (Optional) Specifies the hosts whose PCI devices you want to retrieve. If not specified, the cmdlet retrieves PCI devices for all hosts on all default connections.
 
@@ -762,7 +791,7 @@ This cmdlet retrieves the available host profiles. A host profile encapsulates t
 
 - -Description [String[]] (Optional) Specifies a phrase from the description of the host profiles you want to retrieve.
 - -Entity [InventoryItem[]] (Optional) Specifies inventory objects associated with the host profiles you want to retrieve.
-- -Id [String[]] (Optional) Specifies the IDs of the host profiles you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the host profiles you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the host profiles you want to retrieve.
 - -ReferenceHost [VMHost[]] (Optional) Specifies the reference hosts of the profiles you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
@@ -820,6 +849,8 @@ _Retrieves a required input by specifying a host and a profile._
 
 ```powershell
 $result = Get-VMHostProfileRequiredInput -VMHost $vmhost -Variable $requiredInputHashtable;
+
+if (-not $result) { Apply-VMHostProfile -Entity $vmhost -Variable $requiredInputHashtable}
 ```
 _Check whether the specified hashtable that contains values for each required input is exhaustive. If the result is null, then the hashtable can be used by Apply-VMHostProfile._
 
@@ -918,6 +949,8 @@ _Refreshes and retrieves the host services on the default server._
 
 ```powershell
 $vmhost = Get-VMHost -Name Host
+
+$vmHostService = Get-VMHostService -VMHost $vmhost
 ```
 _Gets the services of the specified host._
 
@@ -964,7 +997,7 @@ This cmdlet retrieves the host storages on a vCenter Server system. The cmdlet r
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the host storages that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the host storages that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Refresh [SwitchParameter] (Optional) Indicates whether the cmdlet refreshes the storage system information before retrieving the specified host storages.
 - -RescanAllHba [SwitchParameter] (Optional) Indicates whether to issue a request to rescan all virtual machine hosts bus adapters for new storage devices prior to retrieving the storage information.
 - -RescanVmfs [SwitchParameter] (Optional) Indicates whether to perform a re-scan for new virtual machine file systems that might have been added, prior to retrieving the storage information.
@@ -981,7 +1014,7 @@ _Retrieves storage information from the virtual machine host with IP address 10.
 ```powershell
 Get-VMHostStorage | select -expandproperty scsilun | fl *
 ```
-_Retrieves information about the vendor, model, and serial number of the virtual machine host storage SCSI adapter._
+_Retrieves information about the vendor, model, and serial number of the virtual machine host storage SCSI adapter.   Note that for devices, that are not SCSI-3 compliant, the SerialNumber property is not defined. And not  all SCSI-3 compliant devices provide the serial number information._
 
 ### `Get-VMHostSysLogServer`
 
@@ -1015,11 +1048,13 @@ _Retrieves the SysLog server of the virtual machine host with IP address 10.23.1
 
 ```powershell
 Connect-VIServer -Server $vCenterAddress -User myroot -Password mypassword
+Get-VMHostTPM -VMHost $esxiAddress
 ```
 _Retrieves the TPM 2.0 devices info of the specified host._
 
 ```powershell
 Connect-VIServer -Server $vCenterAddress -User myroot -Password mypassword
+Get-VMHostTPM -Id myTpmId
 ```
 _Retrieves the TPM 2.0 devices info corresponding to the specified TPM Id._
 
@@ -1078,6 +1113,13 @@ _Upgrades an ESX server using a Web location. Before running the cmdlet, you mus
 
 ```powershell
 $datastore = Get-Datastore -Name Datastore
+
+Copy-DatastoreItem c:\temp\ESX400-200906001\
+
+$datastore.DatastoreBrowserPath -Recurse
+
+$vmhost1,$vmhost2 | Install-VMHostPatch -HostPath
+/vmfs/volumes/datastore/ESX400-200906001/metadata.zip
 ```
 _Upgrades ESX servers using the -HostPath parameter. First, you must download the patch file and extract its contents to a temporary folder that is named after the patch ID (for example, c:\temp\ESX400-200906001\). Copy the folder in the root folder of the Datastore datastore and run Install-VMHostPatch providing the datastore path to the patch. Note that the datastore path is case-sensitive._
 
@@ -1176,6 +1218,7 @@ _Creates a new VM to VMHost DRS rule within the "MyCluster" cluster._
 
 ```powershell
 Export-VMHostImageDb -VMHost 1.1.1.1 -FilePath c:\mypath -Server workloadSystem
+New-TrustAuthorityVMHostBaseImage -TrustAuthorityCluster mycluster -FilePath c:\mypath -Server trustAuthoritySystem
 ```
 _Creates a new Trust Authority virtual machine host base image in the Trust Authority cluster mycluster from the image file c:\mypath. You can export it from a workload host in the workload vCenter Server system._
 
@@ -1206,6 +1249,7 @@ _Creates a user account with a specified user ID and password. The user account 
 
 ```powershell
 $myUser1 = Get-VMHostAccount -ID MyUser1 -User
+New-VMHostAccount -Id MyGroup1 -GroupAccount -AssignUsers $myUser1
 ```
 _Creates a group account with a specified ID and assigns a specified user to the group account. Starting with ESXi 5.1, you cannot create group host accounts._
 
@@ -1240,16 +1284,22 @@ This cmdlet creates a new HostVirtualNIC (Service Console or VMKernel) on the sp
 
 ```powershell
 $vmhost = Get-VMHost -Name MyVMHost1
+$myVirtualSwitch = Get-VirtualSwitch -VMHost $vmhost -Name MyVirtualSwitch1
+New-VMHostNetworkAdapter -VMHost $vmhost -PortGroup MyVMKernelPortGroup1 -VirtualSwitch $myVirtualSwitch -Mtu 4000
 ```
 _Creates a VMKernel port group at the MyVirtualSwitch1 virtual switch. The IP address is obtained via DHCP._
 
 ```powershell
 $vmhost = Get-VMHost -Name MyVMHost1
+$myVirtualSwitch = Get-VirtualSwitch -VMHost $vmhost -Name MyVirtualSwitch1
+New-VMHostNetworkAdapter -VMHost $vmhost -PortGroup MyVMKernelPortGroup1 -VirtualSwitch $myVirtualSwitch -IP 192.168.168.110 -SubnetMask 255.255.255.0
 ```
 _Creates a VMKernel port group at the MyVirtualSwitch1 virtual switch and assigns a static IP address._
 
 ```powershell
 $vmhost = Get-VMHost -Name MyVMHost1
+$myVirtualSwitch = Get-VirtualSwitch -VMHost $vmhost -Name MyVirtualSwitch1
+New-VMHostNetworkAdapter -VMHost $vmhost -VirtualSwitch $myVirtualSwitch -PortGroup MyVMKernelPortGroup1 -IP 192.168.0.1 -SubnetMask 255.255.255.0 -IPv6 "0200:2342::1/32"
 ```
 _Creates a VMKernel NIC that has an IPv4 address and an IPv6 address._
 
@@ -1271,6 +1321,8 @@ This cmdlet creates a new host profile based on a reference host.
 
 ```powershell
 $h = Get-VMHost 10.23.134.133
+
+New-VMHostProfile -Name testProfile -Description "This is my first test profile." -ReferenceHost $h
 ```
 _Creates a profile based on the virtual machine host with an IP address 10.23.134.133._
 
@@ -1343,6 +1395,7 @@ _Removes the "MyDRSRule" VM to VMHost DRS rule from the environment._
 
 ```powershell
 $baseImages = Get-TrustAuthorityVMHostBaseImage -TrustAuthorityCluster mycluster
+Remove-TrustAuthorityVMHostBaseImage -VMHostBaseImage $baseImages
 ```
 _Removes the Trust Authority virtual machine host base images from the mycluster Trust Authority cluster._
 
@@ -1377,6 +1430,7 @@ _Removes two hosts from the specified vSphere distributed switch._
 
 ```powershell
 $myServer = Connect-VIServer -Server 10.23.112.235
+Get-VMHost -Server $myServer -Location MyDatacenter1 | Remove-VMHost -Confirm:$false
 ```
 _Removes all VM hosts in the specified location from the vCenter Server system without asking for confirmation._
 
@@ -1410,6 +1464,8 @@ _Removes the group account with ID "user". Asks for confirmation before running 
 
 ```powershell
 $network = Get-VMHostNetwork
+
+Remove-VMHostNetworkAdapter $network.VirtualNic[0] -Confirm
 ```
 _Removes the first virtual network adapter of the host._
 
@@ -1467,6 +1523,7 @@ _Deletes the Profile host profile._
 
 ```powershell
 $conf = Get-VMHostProfileVmPortGroupConfiguration -HostProfile 'Host_Profile' -PortGroup 'VM Network2'
+Remove-VMHostProfileVmPortGroupConfiguration -VmPortGroupConfiguration $conf
 ```
 _Removes the virtual machine port group configuration 'VM Network2' from the host profile._
 
@@ -1482,6 +1539,10 @@ _Removes the virtual machine port group configuration 'VM Network2' from the hos
 
 ```powershell
 $destIpList = ('192.168.111.101', '192.168.111.102')
+
+$routes = Get-VMHostRoute -VMHost ($script:vmhost1, $script:vmhost2) | where {$destIpList -contains $_.Destination.IPAddressToString}
+
+Remove-VMHostRoute -VMHostRoute $routes -Confirm:$false
 ```
 _Removes the host routes that have the specified destination IP addresses._
 
@@ -1562,7 +1623,7 @@ _Renames and deactivates the "MyVMHostRule" VM to VMHost DRS rule._
 - -LicenseKey [String] (Optional) Specifies the license key to be used by the host. You can set the host to evaluation mode by passing the 00000-00000-00000-00000-00000 evaluation key.
 - -Profile [VMHostProfile] (Optional) Specifies a host profile you want to associate with the host. If the value of this parameter is $null, the current profile association is removed.
 - -Reason [String] (Optional) Specifies a short message containing the reason for putting the host in maintenance mode. The message cannot be null or empty string. This parameter can only be used when passing "Maintenance" value to the "State" parameter.
-- -RemovedComponent [String[]] (Optional) Specifies a list of components that you want to remove from the base image.
+- -RemovedComponent [String[]] (Optional) Specifies a list of components that you want to remove from the base image.   Calling the commandlet with a new value for this parameter overrides any previously configured value. It does not add new components to the list of removed ones. To reset the list of removed components provide an empty array to this parameter.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter, run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -State [VMHostState] (Optional) Specifies the state of the host. The valid values are Connected, Disconnected, and Maintenance. If there are powered on virtual machines on the host, you can set the host into a maintenance mode, only if it is a part of a DRS-enabled cluster. Before entering maintenance mode, if the host is fully automated, the cmdlet relocates all powered on virtual machines. If the host is not automated or partially automated, you must first generate a DRS recommendation and wait until all powered on virtual machines are relocated or powered off. In this case, you must specify the RunAsync parameter. Otherwise, an error appears.
@@ -1570,7 +1631,7 @@ _Renames and deactivates the "MyVMHostRule" VM to VMHost DRS rule._
 - -VendorAddOn [AddOn] (Optional) Specifies the ESXi vendor add-on that the host should comply with.
 - -VMHost [VMHost[]] (Required) Specifies the host you want to configure.
 - -VMSwapfileDatastore [Datastore] (Optional) Specifies a datastore that is visible to the host and can be used for storing swapfiles for the virtual machines that run on this host. Using a host-specific swap location might degrade the vMotion performance.
-- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:
+- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:   InHostDataStore - stores the swapfile in the datastore specified by the VMSwapfileDatastoreID property of the virtual machine host. If the VMSwapfileDatastoreID property is not set or indicates a datastore with insufficient free space, the swapfile is stored in the same directory as the virtual machine. This setting might degrade the vMotion performance.   WithVM - stores the swapfile in the same directory as the virtual machine.
 - -VsanDataMigrationMode [VsanDataMigrationMode] (Optional) Specifies the special action to take regarding the vSAN data when moving in maintenance mode. The VsanDataMigrationMode parameter is valid only when connected to a vCenter Server system and when the State parameter is set to VMHostState.Maintenance.
 
 **Examples:**
@@ -1582,11 +1643,18 @@ _Resets the state of the Host virtual host to Disconnected._
 
 ```powershell
 $cluster = Get-Cluster -VMHost Host
+
+$task = Set-VMHost -VMHost Host -State "Maintenance" -RunAsync
+
+Get-DrsRecommendation -Cluster $cluster | where {$_.Reason -eq "Host is entering maintenance mode"} | Apply-DrsRecommendation
+
+$vmhost = Wait-Task $task
 ```
 _Activates a maintenance mode for a not automated host that is part of a DRS-enabled cluster and has powered on virtual machines on it._
 
 ```powershell
 $keyprovider = Get-KeyProvider | select -First 1
+Set-VMHost -VMHost Host -KeyProvider $keyprovider
 ```
 _Resets the cryptokey of the VMHost named 'Host'._
 
@@ -1613,6 +1681,8 @@ This cmdlet configures a host account. When configuring a host user account, you
 
 ```powershell
 $myUserAccount = New-VMHostAccount -ID MyUser1 -Password MyPassword1 -UserAccount
+$myGroupAccount = New-VMHostAccount -ID MyGroup1 -GroupAccount -AssignUsers $myUserAccount
+Set-VMHostAccount -UserAccount $myUserAccount -UnassignGroups $myGroupAccount
 ```
 _Creates a user account with an ID MyUser1. Then creates a group account with an ID MyGroup1 and assigns the user account MyUser1 to the group account MyGroup1. Finally, excludes the MyUser1 account from the MyGroup1 account. Starting with ESXi 5.1, you cannot configure group host accounts._
 
@@ -1639,6 +1709,8 @@ _Change the migration timeout for the virtual machine host with an IP address 10
 
 ```powershell
 $migrationSettings = Get-VMHost 10.23.123.144| Get-VmHostAdvancedConfiguration -Name Migrate.*
+
+Set-VmHostAdvancedConfiguration -VMHost 10.23.123.122  -NameValue $migrationSettings
 ```
 _Gets the advanced settings concerning migration from the host with an IP address 10.23.123.144 and applies them to the virtual machine host with an IP address 10.23.123.122._
 
@@ -1694,6 +1766,8 @@ This cmdlet activates or deactivates the diagnostic partitions of hosts.
 
 ```powershell
 $diagPartition = Get-VMHostDiagnosticPartition -VMHost $vmhost
+
+$diagPartition | Set-VMHostDiagnosticPartition -Active $false -Confirm
 ```
 _Deactivates the active diagnostic partition of the specified host._
 
@@ -1713,8 +1787,10 @@ This cmdlet sets the default policy for the specified host firewall. This policy
 
 ```powershell
 $firewallpolicy = Get-VMHostFirewallDefaultPolicy -VMHost 10.23.123.100
+
+Set-VMHostFirewallDefaultPolicy -Policy $firewallpolicy -AllowOutGoing $true | fl
 ```
-_Changes the default firewall policy of the virtual machine host with IP address 10.23.123.100, so that the outgoing connections are allowed._
+_Changes the default firewall policy of the virtual machine host with IP address 10.23.123.100, so that the outgoing connections are allowed.   VMHostId        : HostSystem-host-8 IncomingEnabled : False OutgoingEnabled : True Client          : VMware.VimAutomation.Client20.VimClient_
 
 ### `Set-VMHostFirewallException`
 
@@ -1729,6 +1805,8 @@ _Changes the default firewall policy of the virtual machine host with IP address
 
 ```powershell
 $ftpFirewallExceptions = Get-VMHostFirewallException -VMHost $vmhost | where {$_.Name.StartsWith('FTP')}
+
+$ftpFirewallExceptions | Set-VMHostFirewallException -Enabled $true
 ```
 _Enables the firewall exceptions for the FTP services on the specified host._
 
@@ -1740,7 +1818,7 @@ This cmdlet configures hosts firmware settings. If the BackupConfiguration param
 
 **Parameters:**
 
-- -BackupConfiguration [SwitchParameter] (Optional) The Backup functionality of Set-VMHostFirmware is deprecated and scheduled for removal. For making backups, use the Get-VMHostFirmware cmdlet instead.
+- -BackupConfiguration [SwitchParameter] (Optional) The Backup functionality of Set-VMHostFirmware is deprecated and scheduled for removal. For making backups, use the Get-VMHostFirmware cmdlet instead.   Indicates that you want to backup the host firmware configuration and download the bundle to the path specified by the DestinationPath parameter.
 - -DestinationPath [String] (Required) Specifies a destination path where to download the host configuration backup bundle if the BackupConfiguration parameter is set.
 - -Force [SwitchParameter] (Optional) Indicates that you want to apply the configuration even if the bundle is mismatched. Use this parameter in combination with the Restore parameter.
 - -HostCredential [PSCredential] (Optional) Specifies the credential object you want to use for authenticating with the host when uploading a firmware configuration bundle. Do not use this parameter if the HostUser and HostPassword parameters are specified.
@@ -1756,16 +1834,22 @@ This cmdlet configures hosts firmware settings. If the BackupConfiguration param
 
 ```powershell
 Set-VMHost -VMHost Host -State 'Maintenance'
+
+Set-VMHostFirmware -VMHost Host -Restore
 ```
-_Restore the host firmware by using the default path for the firmware bundle. You can store the bundle to the default path through HTTP by using the upload URL specified in the firmware bundle object:_
+_Restore the host firmware by using the default path for the firmware bundle. You can store the bundle to the default path through HTTP by using the upload URL specified in the firmware bundle object:   $bundle = Get-VMHostFirmware   $uploadUrl = $bundle.UploadUrl_
 
 ```powershell
 Set-VMHost -VMHost Host -State 'Maintenance'
+
+Set-VMHostFirmware -VMHost Host -Restore -SourcePath c:\bundleToRestore.tgz -HostUser user -HostPassword pass
 ```
 _Restore the host firmware by specifying a firmware bundle as a source path._
 
 ```powershell
 Set-VMHost -VMHost Host -State 'Maintenance'
+
+Set-VMHostFirmware -VMHost Host -ResetToDefaults
 ```
 _Reset the host configuration to the factory default settings._
 
@@ -1812,6 +1896,8 @@ _Enables Mutual CHAP for the iScsi devices stored in the $iscsi variable and cha
 
 ```powershell
 $module = Get-VMHostModule -Name Shaper
+
+Set-VMHostModule -HostModule $module -Options "New options text"
 ```
 _Overrides the options of the Shaper host module with the provided ones._
 
@@ -1849,11 +1935,15 @@ This cmdlet updates the specified virtual network. The service console and the V
 
 ```powershell
 $vmHostNetworkInfo = Get-VmHostNetwork -Host Host
+
+Set-VmHostNetwork -Network $vmHostNetworkInfo -VMKernelGateway 10.23.11.11 -DomainName eng.vmware.com -HostName Host1 -DnsFromDhcp $false
 ```
 _Gets the network configuration of the virtual machine host named Host. Sets the virtual machine kernel gateway, the domain name, the host name, and the Dhcp of the network._
 
 ```powershell
 Get-VMHost Host | Get-VMHostNetwork | Set-VMHostNetwork -IPv6Enabled $true
+
+Get-VMHost Host | Restart-VMHost -Force -Confirm:$false
 ```
 _Enables IPv6 support on the Host host and restarts the host._
 
@@ -1898,6 +1988,10 @@ This cmdlet configures the specified host network adapter. For a physical NIC, y
 
 ```powershell
 $vswitch =  New-VirtualSwitch -VMHost 10.23.112.234  -Name VSwitch
+
+$nic =  New-VMHostNetworkAdapter -VMHost 10.23.112.234 -PortGroup PortGroup -VirtualSwitch $vswitch -IP 10.23.123.234 -SubnetMask 255.255.254.0
+
+Set-VMHostNetworkAdapter -VirtualNIC $nic -IP 10.23.112.245 -SubnetMask 255.255.255.0 -Mtu 4000
 ```
 _Updates the network adapter IP address, Subnet mask, and MTU size._
 
@@ -1920,14 +2014,14 @@ This cmdlet configures the specified host network stack.
 **Parameters:**
 
 - -CongestionControlAlgoritm [HostNetworkStackCongestionControlAlgoritm] (Optional) Specifies the TCP congest control algorithm used by the network stack.
-- -DnsAddress [String[]] (Optional) Specifies the IP addresses of the DNS servers, placed in order of preference.
+- -DnsAddress [String[]] (Optional) Specifies the IP addresses of the DNS servers, placed in order of preference.   Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property cannot be set.
 - -DnsFromDhcp [Boolean] (Optional) Specifies whether or not DHCP (dynamic host control protocol) is used to determine DNS configuration automatically.
-- -DomainName [String] (Optional) Specifies the domain name portion of the DNS name. For example, "vmware.com".
-- -HostName [String] (Optional) Specifies the host name portion of DNS name. For example, "esx01".
+- -DomainName [String] (Optional) Specifies the domain name portion of the DNS name. For example, "vmware.com".   Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property cannot be set.
+- -HostName [String] (Optional) Specifies the host name portion of DNS name. For example, "esx01".   Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property cannot be set.
 - -MaxNumberOfConnections [Int32] (Optional) Specifies the maximum number of socket connections that can be requested on the network stack.
 - -Name [String] (Optional) Specifies a new name for the network stack.
 - -NetworkStack [HostNetworkStack[]] (Required) Specifies the network stack that you want to configure.
-- -SearchDomain [String[]] (Optional) Specifies the domain in which to search for hosts, placed in order of preference.
+- -SearchDomain [String[]] (Optional) Specifies the domain in which to search for hosts, placed in order of preference.   Note: When DHCP is not enabled, the property can be set explicitly. When DHCP is enabled, the property cannot be set.
 - -VMKernelGateway [String] (Optional) Specifies an IP address for the default gateway using an IPv4 dot notation.
 - -VMKernelV6Gateway [String] (Optional) Specifies the default IPv6 gateway using the following format: <IPv6>/<subnet_prefix_length> or <IPv6>. If you skip <subnet_prefix_length>, the default value of 64 is used.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
@@ -1936,6 +2030,8 @@ This cmdlet configures the specified host network stack.
 
 ```powershell
 $vmHostNetworkStack = Get-VMHostNetworkStack -VMHost Host
+
+Set-VMHostNetworkStack -Network $vmHostNetworkStack -VMKernelGateway 10.23.11.11 -DomainName eng.vmware.com -HostName Host1 -DnsFromDhcp $false
 ```
 _Retrieves the network stack configuration of the virtual machine host named Host. Sets the virtual machine kernel gateway, the domain name, the host name, and the Dhcp of the network._
 
@@ -1955,6 +2051,8 @@ _Retrieves the network stack configuration of the virtual machine host named Hos
 
 ```powershell
 $profile = ( Get-VMHostProfile -Name Profile )[0]
+
+Set-VMHostProfile -Profile $profile -Description "New description."
 ```
 _Changes the description of the Profile host profile._
 
@@ -1978,6 +2076,8 @@ This cmdlet modifies the image cache configuration for the given host profile.
 
 ```powershell
 $conf = Get-VMHostProfileImageCacheConfiguration -HostProfile "Host_Profile"
+
+Set-VMHostProfileImageCacheConfiguration -ImageCacheConfiguration $conf -InstallationType StatelessCaching -InstallationDevice Disk
 ```
 _Modifies the image cache configuration by setting the installation type to stateless and device type to Disk for the host profile named Host_Profile._
 
@@ -2002,6 +2102,7 @@ _Modifies the image cache configuration by setting the installation type to stat
 
 ```powershell
 $conf = Get-VMHostProfileStorageDeviceConfiguration --HostProfile 'Host_Profile' --DeviceName 'mpx.vmhba1:C0:T5:L0'
+Set-VMHostProfileStorageDeviceConfiguration -StorageDeviceConfiguration $config -DeviceStateOn $true -QueueFullSampleSize 0
 ```
 _Modifies the storage device configuration by setting the DeviceStateOn to true and QueueFullSampleSize to zero for device name mpx.vmhba1:C0:T5:L0 in the host profile named Host_Profile._
 
@@ -2020,6 +2121,8 @@ _Modifies the storage device configuration by setting the DeviceStateOn to true 
 
 ```powershell
 $config = Get-VMHostProfileUserConfiguration -HostProfile "Host_Profile" -UserName "root"
+
+Set-VMHostProfileUserConfiguration -UserConfiguration $config -PasswordPolicy Default
 ```
 _Changes the password policy type to default for the root user configuration within the host profile named Host_Profile._
 
@@ -2038,6 +2141,7 @@ _Changes the password policy type to default for the root user configuration wit
 
 ```powershell
 $conf = Get-VMHostProfileVmPortGroupConfiguration -HostProfile 'Host_Profile'
+Set-VMHostProfileVmPortGroupConfiguration -VmPortGroupConfiguration $conf -VLanId 0
 ```
 _Modifies the virtual machine port group configuration by setting the VLAN ID to zero._
 
@@ -2056,11 +2160,17 @@ _Modifies the virtual machine port group configuration by setting the VLAN ID to
 
 ```powershell
 $vmhostroute = New-VMHostRoute -VMHost 10.23.114.189 -Destination 192.168.104.101 -Gateway 10.23.84.69 -PrefixLength 32
+
+$vmhostroute | Set-VMHostRoute -Gateway 10.23.84.70
 ```
 _Creates a new host route and modifies its gateway._
 
 ```powershell
 $vmhostroute1 = New-VMHostRoute -VMHost 10.23.114.189 -Destination 192.168.104.101 -Gateway 10.23.84.69 -PrefixLength 32
+
+$vmhostroute2 = New-VMHostRoute -VMHost 10.23.114.190 -Destination 192.168.104.101 -Gateway 10.23.84.70 -PrefixLength 32
+
+Set-VMHostRoute -VMHostRoute ($vmhostroute1, $vmhostroute2) -Destination 192.168.104.0 -PrefixLength 24
 ```
 _Modifies the destination and the prefix length of two host routes._
 
@@ -2093,7 +2203,7 @@ This cmdlet modifies the host SNMP configuration. If specified, adds or removes 
 - -HostSnmp [VmHostSnmp[]] (Required) Specifies the host Snmp object you want to modify.
 - -Port [Int32] (Optional) Specifies the port on which the host listens to SNMP messages.
 - -ReadOnlyCommunity [String[]] (Optional) Provide a list of communities, identifying who is able to send SNMP requests to that host. If $null, an empty array or string are passed to this parameter, its old values are erased and the output object for the ReadOnlyCommunity property is an empty array. In PowerShell an empty array is defined by @().
-- -RemoveTarget [SwitchParameter] (Required) Indicates that you want to remove a trap target from the host SNMP configuration. There are two ways to specify a trap target: * Pass the trap target to the TrapTargetToRemove parameter.
+- -RemoveTarget [SwitchParameter] (Required) Indicates that you want to remove a trap target from the host SNMP configuration. There are two ways to specify a trap target: * Pass the trap target to the TrapTargetToRemove parameter.   * Use a combination of the TargetCommunity, TargetHost, and TargetPort parameters to specify a criteria (for example, remove all trap targets that are using port 162).
 - -TargetCommunity [String] (Required) Specifies the community identifier of the trap target.
 - -TargetHost [String] (Required) Specifies the identifier of the target host - a host name or an IP address.
 - -TargetPort [Int32] (Optional) Specifies the port on which the target host listens to SNMP messages.
@@ -2103,6 +2213,8 @@ This cmdlet modifies the host SNMP configuration. If specified, adds or removes 
 
 ```powershell
 $vmhostSNMP = Get-VMHostSNMP
+
+Set-VMHostSNMP $vmhostSNMP -Enabled:$true -ReadOnlyCommunity 'example-community'
 ```
 _Enables SNMP on a virtual machine host._
 
@@ -2303,6 +2415,10 @@ _Tests the specified host for compliance with the profiles associated with it._
 
 ```powershell
 $profile = Get-VMHostProfile -Name Profile
+
+Apply-VMHostProfile -AssociateOnly -Profile $profile -Entity 10.0.0.126
+
+Test-VMHostProfileCompliance -VMHost 10.0.0.126 | fl *
 ```
 _Test the profile compliance of a non-compliant virtual machine host associated with the profile._
 

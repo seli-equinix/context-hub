@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — NFS and iSCSI storage protocol management
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,storage-protocols,Get-IScsiHbaTarget, Get-NfsUser, New-IScsiHbaTarget, New-NfsUser, Remove-IScsiHbaTarget, Remove-NfsUser, Set-IScsiHbaTarget, Set-NfsUser"
@@ -87,6 +87,8 @@ This cmdlet creates a new iSCSI HBA target. The cmdlet also enables and configur
 
 ```powershell
 $hba = Get-VMHost | Get-VMHostHba -Type iScsi
+
+New-IScsiHbaTarget -IScsiHba $hba -Address 10.23.84.73
 ```
 _Creates a new target with IP address 10.23.84.73 on the specified iSCSI HBA device._
 
@@ -190,6 +192,8 @@ _Retrieves the targets of type Static on the specified address and sets their CH
 
 ```powershell
 $target = Get-IScsiHbaTarget -Address "10.23.84.73" -Type Send
+
+Set-IScsiHbaTarget -Target $target -ChapType Required -ChapPassword pass1 -MutualChapEnabled -MutualChapPassword pass2
 ```
 _Modifies the CHAP and Mutual CHAP settings of the targets of type Send on the specified address._
 

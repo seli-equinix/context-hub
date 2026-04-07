@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — vCenter connection, credentials, PowerCLI
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,connection-core,Connect-CisServer, Connect-VIServer, Disconnect-CisServer, Disconnect-VIServer, Get-PowerCLIConfiguration, Get-PowerCLIVersion, Get-VICommand, Get-VICredentialStoreItem, Get-View, Get-VIObjectByVIView, Get-VIProperty, HookGetViewAutoCompleter, New-VICredentialStoreItem, New-VIProperty, Remove-VICredentialStoreItem, Remove-VIProperty, Set-PowerCLIConfiguration"
@@ -28,13 +28,13 @@ This cmdlet establishes a connection to the vSphere Automation SDK server specif
 - -Force [SwitchParameter] (Optional) Suppresses all user interface prompts during the cmdlet execution. Currently, these include 'Multiple default servers' and 'Invalid certificate action'.
 - -Menu [SwitchParameter] (Required) Indicates that you want to select a connection server from a list of recently connected servers. If Menu is set to $true, the cmdlet retrieves a list of the last visited servers and enters a nested command prompt, so that you can select a server from the list.
 - -NotDefault [SwitchParameter] (Optional) Specifies that you do not want to save the specified servers as default servers.
-- -Password [SecureString] (Optional) Specifies the password you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication".
+- -Password [SecureString] (Optional) Specifies the password you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication".   Note: If the password contains special characters, enclose the entire string in single quotes (').
 - -Port [Int32] (Optional) Specifies the port on the server you want to use for the connection.
 - -SamlSecurityContext [SamlSecurityContext] (Required) Specifies the SAML2 security context for the vCenter Server system. For more information about security contexts, see the about_security_context (about_security_context.html)article.
 - -SaveCredentials [SwitchParameter] (Optional) Indicates that you want to save the specified credentials in the local credential store.
 - -Server [String[]] (Required) Specifies the IP or DNS addresses of the vSphere Automation SDK servers you want to connect to.
 - -SessionSecret [String] (Required) Specifies the ID of an existing vSphere Automation SDK session you want to reestablish.
-- -User [String] (Optional) Specifies the user name you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication".
+- -User [String] (Optional) Specifies the user name you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication".   Note: If the user name contains special characters, enclose the entire string in single quotes (').
 
 **Examples:**
 
@@ -45,11 +45,13 @@ _Connects to a vSphere Automation SDK server by using the User and Password para
 
 ```powershell
 $credential = Get-Credential
+Connect-CisServer -Server $serverAddress -Credential $credential
 ```
 _Connects to a vSphere Automation SDK server by using the Credential parameter._
 
 ```powershell
 $serverConnection = Connect-CisServer -Server $serverAddress -User $user -Password $pass
+Connect-CisServer -Server $serverAddress -SessionSecret $serverConnection.SessionSecret
 ```
 _Connects to a vSphere Automation SDK server by using the SessionSecret parameter._
 
@@ -61,19 +63,19 @@ This cmdlet establishes a connection to a vCenter Server system. The cmdlet star
 
 **Parameters:**
 
-- -AllLinked [SwitchParameter] (Optional) Indicates whether you want to connect to vCenter Server in linked mode. If you specify $true for the AllLinked parameter and the server to which you want to connect is a part of a federation vCenter Server, you'll be connected to all members of the linked vCenter Server.
+- -AllLinked [SwitchParameter] (Optional) Indicates whether you want to connect to vCenter Server in linked mode. If you specify $true for the AllLinked parameter and the server to which you want to connect is a part of a federation vCenter Server, you'll be connected to all members of the linked vCenter Server.   To use this option, PowerCLI must be configured to work in multiple servers connection mode. To configure PowerCLI to support multiple servers connection, specify Multiple for the DefaultVIServerMode parameter of the Set-PowerCLIConfiguration cmdlet.
 - -Credential [PSCredential] (Optional) Specifies a PSCredential object that contains credentials for authenticating with the server. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication". Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release.
 - -Force [SwitchParameter] (Optional) Suppresses all user interface prompts during the cmdlet execution. Currently, these include 'Multiple default servers' and 'Invalid certificate action'.
 - -Menu [SwitchParameter] (Required) Indicates that you want to select a connection server from a list of recently connected servers. If Menu is set to $true, the cmdlet retrieves a list of the last visited servers and enters a nested command prompt, so that you can select a server from the list.
 - -NotDefault [SwitchParameter] (Optional) Indicates that you do not want to include the server to which you connect into the $defaultVIServers variable.
-- -Password [String] (Optional) Specifies the password you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication".
+- -Password [String] (Optional) Specifies the password you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication".   Note: If the password contains special characters, enclose the entire string in single quotes (').
 - -Port [Int32] (Optional) Specifies the port on the server you want to use for the connection.
 - -Protocol [String] (Optional) Specifies the Internet protocol you want to use for the connection. It can be either http or https.
 - -SamlSecurityContext [SamlSecurityContext] (Required) Specifies the SAML2 security context for the vCenter Server system. For more information about security contexts, see the about_security_context (about_security_context.html)article.
-- -SaveCredentials [SwitchParameter] (Optional) Indicates that you want to save the specified credentials in the local credential store.
+- -SaveCredentials [SwitchParameter] (Optional) Indicates that you want to save the specified credentials in the local credential store.   Note: This parameter is not supported on the Core edition of PowerShell.
 - -Server [String[]] (Required) Specifies the IP address or the DNS name of the vSphere server to which you want to connect. You can also specify a server by providing its IPv6 address enclosed in square brackets, for example [fe80::250:56ff:feb0:74bd%4].
 - -Session [String] (Optional) Specifies the ID of an existing vCenter Server session you want to re-establish.
-- -User [String] (Optional) Specifies the user name you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication". Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release.
+- -User [String] (Optional) Specifies the user name you want to use for authenticating with the server. If the Credential parameter is also specified, this parameter is ignored. For more information about the server authentication logic of PowerCLI, run "help about_server_authentication". Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release.   Note: If the user name contains special characters, enclose the entire string in single quotes (').
 
 **Examples:**
 
@@ -107,11 +109,14 @@ _Connects by using a server session ID. Once you connect to a server, you can sa
 
 ```powershell
 $server = Connect-CisServer -Server 'server_name' -User 'user@domain' -Password 'user_password'
+Disconnect-CisServer $server -Confirm:$false
 ```
 _Disconnects the specified vSphere Automation SDK server without asking for confirmation._
 
 ```powershell
 Connect-CisServer -Server 'server_name' -User 'user@domain' -Password 'user_password'
+Connect-CisServer -Server 'server2_name' -User 'user@domain' -Password 'user_password'
+Disconnect-CisServer * -Confirm:$false
 ```
 _Disconnects all connected vSphere Automation SDK servers without asking for confirmation._
 
@@ -130,6 +135,8 @@ This cmdlet closes the connection to a vCenter Server system. In PowerCLI, you c
 
 ```powershell
 $Server = Connect-VIServer 10.23.112.235
+
+Disconnect-VIServer -Server $Server
 ```
 _Connects to a server with an IP address 10.23.112.235 and saves the returned VIServer object in the $Server variable. Then disconnects from the specified server._
 
@@ -231,6 +238,8 @@ This cmdlet converts a vSphere View object to a VIObject using the object ID pro
 
 ```powershell
 $view = Get-VM VM | Stop-VM | Get-View
+
+$vm = Get-VIObjectByVIView $view | Start-VM
 ```
 _Gets the VM virtual machine, stops it, and gets its view object. Then, the command gets the virtual machine object using the Get-VIObjectByVIView cmdlet and starts the VM virtual machine._
 
@@ -272,28 +281,38 @@ This cmdlet returns the vSphere View objects that correspond to the specified se
 **Parameters:**
 
 - -Filter [Hashtable] (Optional) Specifies a hash of <name>-<value> pairs, where <name> represents the property value to test, and <value> represents a regex pattern the property must match. If more than one pair is present, all the patterns must match.
-- -Id [ManagedObjectReference[]] (Required) Specifies the IDs of the View objects you want to retrieve. A view object ID is a <type>-<value> string. For objects with constant names such as AlarmManager and ServiceInstance, the ID format is <type> (see the examples).
+- -Id [ManagedObjectReference[]] (Required) Specifies the IDs of the View objects you want to retrieve. A view object ID is a <type>-<value> string. For objects with constant names such as AlarmManager and ServiceInstance, the ID format is <type> (see the examples).   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Property [String[]] (Optional) Specifies the properties of the view object you want to retrieve. If no value is given, all properties are shown.
 - -RelatedObject [ViewBaseMirroredObject[]] (Required) Specifies view-related objects to retrieve their views.
 - -SearchRoot [ManagedObjectReference] (Optional) Specifies a starting point for the search (in the context of the inventory).
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -ViewType [Type] (Required) Specifies the type of the View objects you want to retrieve. This parameter accepts ClusterComputeResource, ComputeResource, Datacenter,Datastore, DistributedVirtualPortgroup, DistributedVirtualSwitch, Folder, HostSystem, Network, OpaqueNetwork, ResourcePool,StoragePod, VirtualApp, VirtualMachine, and VmwareDistributedVirtualSwitch values.
-- -VIObject [VIObject[]] (Required) Specifies the vSphere managed object that corresponds to the View object you want to retrieve.
+- -VIObject [VIObject[]] (Required) Specifies the vSphere managed object that corresponds to the View object you want to retrieve.   When you pass VIServer, Get-View returns ServiceInstance. When the retrieved View object is a ServiceInstance, you cannot convert it to a VIObject with Get-VIObjectByVIView.
 
 **Examples:**
 
 ```powershell
 $vm = Get-View -ViewType VirtualMachine -Filter @{"Name" = "VM"}
+
+$vmhostView = Get-View -ID $vm.Runtime.Host
+
+$vmhostView.Summary.Runtime
 ```
 _Gets the VM virtual machine using a filter by name, populates the view object and retrieves the runtime information._
 
 ```powershell
 $folder = Get-Folder Folder | Get-View
+
+Get-View -SearchRoot $folder.MoRef -ViewType "VirtualMachine"
 ```
 _Gets the view objects of virtual machines by specifying the root folder - MoRef._
 
 ```powershell
 $folder = Get-Folder VM
+
+$folderView = Get-View $folder -Property "[VirtualMachine]ChildEntity.Network.*"
+
+$folderView.LinkedView.ChildEntity[0].LinkedView.Network
 ```
 _Gets the view of a folder by specifying for the Property parameter a property path, which leads to the networks of the virtual machines in the specified folder. Retrieves the first of the returned networks._
 
@@ -338,11 +357,15 @@ This cmdlet creates a new extension property on the specified object type. Chang
 
 ```powershell
 New-VIProperty -ObjectType VirtualMachine -Name CommittedSpaceMB -Value { $vm = $args[0]; $sum = 0; $vm.ExtensionData.Storage.PerDatastoreUsage | foreach { $sum += $_.Committed} ; $sum = [int]($sum / 1024 / 1024); return $sum }
+
+Get-VM | select Name, CommittedSpaceMB
 ```
 _Creates a script-based property for the VirtualMachine object type that calculates the committed space of a virtual machine._
 
 ```powershell
 New-VIProperty -ObjectType VirtualMachine -Name CommittedSpaceMB -Value { $vm = $args[0]; $sum = 0; $vm.ExtensionData.Storage.PerDatastoreUsage | foreach { $sum += $_.Committed} ; $sum = [int]($sum / 1024 / 1024); return $sum } -BasedOnExtensionProperty 'Storage.PerDatastoreUsage.Committed' -Force
+
+Get-VM | select Name, CommittedSpaceMB
 ```
 _Creates a property that calculates the committed space of a virtual machine. The cmdlet uses the BasedOnExtensionProperty parameter to specify which   ExtensionData member is used by the script block. This mean that during the creation of each virtual machine, only the specified property of extension data - Storage.PerDatastoreUsage.Committed will be filled up._
 
@@ -422,9 +445,9 @@ _Removes the OverallStatus and ConfigStatus for the VirtualMachine object type._
 **Parameters:**
 
 - -CEIPDataTransferProxyPolicy [ProxyPolicy] (Optional) Specifies the proxy policy for the connection through which Customer Experience Improvement Program (CEIP) data is sent to VMware. Setting this option is valid only when ParticipateInCEIP option is set to $true. Changing this setting requires a restart of PowerCLI before it takes effect.
-- -DefaultVIServerMode [DefaultVIServerMode] (Optional) Specifies the server connection mode. The new configuration takes effect immediately after you run the cmdlet. The following values are valid:
+- -DefaultVIServerMode [DefaultVIServerMode] (Optional) Specifies the server connection mode. The new configuration takes effect immediately after you run the cmdlet. The following values are valid:   - Single - Switching to "single" removes all server connections except the last established one. If no target servers are specified, cmdlets run only on the last connected server.   - Multiple - All servers connected after switching to "multiple" mode are stored together with the current server connection in an array variable. If no target servers are specified, cmdlets run on the servers in the variable.   For more information on default servers, see the description of Connect-VIServer.
 - -DisplayDeprecationWarnings [Boolean] (Optional) Indicates whether you want to see warnings about deprecated elements.
-- -InvalidCertificateAction [BadCertificateAction] (Optional) Define the action to take when an attempted connection to a server fails due to a certificate error. The following values are valid:
+- -InvalidCertificateAction [BadCertificateAction] (Optional) Define the action to take when an attempted connection to a server fails due to a certificate error. The following values are valid:   Unset - this is the default value and it acts as a "Fail".   Prompt - if the server certificate is not trusted the cmdlet will prompt you for a course of action before it continues. There are several options:             - Deny - Cancel the server connection.   - Connect once - Establish the server connection and suppress further warnings for the current PowerShell session.   - Add a permanent exception for the server_address/certificate pair - Persist the server certificate in the PowerCLI Trusted Certificate Store (PCTCS) for the current user and establish the server connection.   - Add a permanent exception for all users - Persist the server/certificate pair both in the current user PowerCLI Trusted Certificate Store (PCTCS) and in the All Users PCTCS and establish the server connection.     Fail - the cmdlet will not establish connection if the certificate is not valid.   Ignore - the cmdlet will establish the connection without taking into account that the certificate is invalid.   Warn - the cmdlet will display a warning saying that the certificate is not valid, the reason why it is not considered valid and then will print additional information about the certificate.   On PowerShell Core, only the Fail and Ignore options are supported.  For more information about invalid certificates, run 'Get-Help about_invalid_certificates'.
 - -ParticipateInCeip [Boolean] (Optional) Specifies if PowerCLI should send anonymous usage information to VMware. For more information about the Customer Experience Improvement Program (CEIP), see the PowerCLI User's Guide. Setting this option is valid only for the AllUsers and User configuration scopes. Changing this setting requires a restart of PowerCLI before it takes effect.
 - -ProxyPolicy [ProxyPolicy] (Optional) Specifies whether VMware PowerCLI uses a system proxy server to connect to the vCenter Server system. The valid values are NoProxy and UseSystemProxy.
 - -Scope [ConfigurationScope] (Optional) Specifies the scope of the setting that you want to modify. The parameter accepts Session, User, and All Users values.      *Session - the setting is valid for the current VMware PowerCLI session only and overrides any User and All Users settings.      *User - the setting is valid for the current Windows user only, overrides All Users settings, and is applied only if a Session setting cannot be detected.      *All Users - the setting is valid for all users and is applied only if Session and User settings cannot be detected.

@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Content libraries, library items, OVF imp
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,content-library,Copy-ContentLibraryItem, Export-ContentLibraryItem, Export-VApp, Get-ContentLibrary, Get-ContentLibraryItem, Get-OvfConfiguration, Import-VApp, New-ContentLibrary, New-ContentLibraryItem, Remove-ContentLibrary, Remove-ContentLibraryItem, Set-ContentLibrary, Set-ContentLibraryItem"
@@ -24,7 +24,7 @@ Content libraries, library items, OVF import/export. Module: VMware.VimAutomatio
 
 - -ContentLibraryItem [ContentLibraryItem[]] (Required) Specifies the content library item that you want to copy.
 - -Destination [LocalContentLibrary] (Required) Specifies the local content library where you want to copy the item.
-- -Name [String] (Optional) Specifies the name on the library item. Library item names cannot be undefined or an empty string. Names do not have to be unique.
+- -Name [String] (Optional) Specifies the name on the library item. Library item names cannot be undefined or an empty string. Names do not have to be unique.   Note: If not specified, the name of the source content library item will be used.
 - -Notes [String] (Optional) Specifies a human-readable description for the content library item that you want to copy.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 
@@ -32,6 +32,8 @@ Content libraries, library items, OVF import/export. Module: VMware.VimAutomatio
 
 ```powershell
 $item = Get-ContentLibraryItem -Name 'vm1'
+$library = Get-ContentLibrary -Name 'Local content library' -Local
+Copy-ContentLibraryItem -ContentLibraryItem $item -Destination $library
 ```
 _Copies a content library item named 'vm1' to the 'Local content library' content library._
 
@@ -44,7 +46,7 @@ _Copies a content library item named 'vm1' to the 'Local content library' conten
 **Parameters:**
 
 - -ContentLibraryItem [ContentLibraryItem[]] (Required) Specifies the content library item whose content you want to export.
-- -Destination [String] (Optional) Specifies an existing local directory where you want to save the content library items.
+- -Destination [String] (Optional) Specifies an existing local directory where you want to save the content library items.   Note: If the parameter is not specified, your current directory will be used.
 - -Force [SwitchParameter] (Optional) Specifies if you want to overwrite existing files with the same name that exist in the destination directory.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter, run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
@@ -53,6 +55,7 @@ _Copies a content library item named 'vm1' to the 'Local content library' conten
 
 ```powershell
 $item = Get-ContentLibraryItem -Name 'vm1'
+Export-ContentLibraryItem -ContentLibraryItem $item -Destination ./vm1-files
 ```
 _Exports 'vm1' content library item's files to the C:\vm1-files directory._
 
@@ -85,11 +88,13 @@ _Retrieves all vApps whose names start with "MyVApp" and exports them to the spe
 
 ```powershell
 $myVApp = Get-VApp -Name "MyVApp1"
+Export-VApp -Destination "C:\NewFolder\" -VApp $myVApp -Name "EMail_vApp" -Force
 ```
 _Exports the vApp in the $myVApp variable to the specified location and assigns a name to the folder._
 
 ```powershell
 $myVApp = Get-VApp -Name "MyVApp1"
+Export-VApp -vApp $myVApp -Destination "C:\vapps\Vapp\" -Force -CreateSeparateFolder:$false
 ```
 _Exports the vApp in the $myVApp variable to the specified location without creating a separate folder for each virtual appliance._
 
@@ -135,7 +140,7 @@ This cmdlet retrieves catalog items from the content library and returns a set o
 **Parameters:**
 
 - -ContentLibrary [ContentLibrary[]] (Optional) Filters items by ContentLibrary.
-- -Id [String[]] (Required) Specifies the IDs of the catalog items you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the catalog items you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -ItemType [String[]] (Optional) Filters the catalog items by type.
 - -Name [String[]] (Optional) Specifies the names of the catalog items you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
@@ -164,11 +169,25 @@ This cmdlet retrieves the OVF configuration object from the specified OVF, OVA, 
 
 ```powershell
 $datastore = Get-Datastore -Name 'MyDatastore'
+$ovfPath = "myOvfTemplate.ovf"
+
+$ovfConfig = Get-OvfConfiguration -Ovf $ovfPath
+$ovfConfig.NetworkMapping.VM_Network.Value = 'VM Network'
+
+Import-VApp -Name 'myVApp' -Source $ovfPath -OvfConfiguration $ovfConfig -VMHost $vmHost -Datastore $datastore
 ```
 _Modifies a specific OVF property and passes it to the Import-VApp cmdlet._
 
 ```powershell
 $datastore = Get-Datastore -Name 'MyDatastore'
+$contentLibraryItem = Get-ContentLibraryItem -Name 'MyContentLibraryItem'
+$target = Get-VMHost -Name 'MyVMHost'
+
+$ovfConfig = Get-OvfConfiguration -ContentLibraryItem $contentLibraryItem -Target $target
+$ovfConfig.EULAs.Accept.Value = $true
+$ovfConfig.Common.vamitimezone.Value = 'US/Pacific'
+
+New-VM -Name 'myVM' -ContentLibraryItem $contentLibraryItem -OvfConfiguration $ovfConfig -VMHost $target -Datastore $datastore
 ```
 _Specifies a content library item, sets the OVF parameters, and deploys a new virtual machine from specified content library item._
 
@@ -198,16 +217,21 @@ This cmdlet imports OVF (Open Virtualization Format) and OVA packages. The packa
 
 ```powershell
 $vmHost = Get-VMHost -Name "MyVMHost1"
+Import-vApp -Source "c:\vApps\WebServer\WebServer.ovf" -VMHost $vmHost
 ```
 _Imports an OVF package by specifying the target host and name._
 
 ```powershell
 $myCluster = Get-Cluster -Name "MyCluster1"
+$vmHost = Get-VMHost -Name "MyVMHost1"
+Import-vApp -Source "c:\vApps\WebServer\WebServer.ovf" -VMHost $vmHost -Location $myCluster -Name "MyWebServerProduction1"
 ```
 _Imports an OVF package within a cluster._
 
 ```powershell
 $vmHost = Get-VMHost -Name "MyVMHost1"
+$myDatastore = Get-Datastore -Name "MyDatastore1"
+$vmHost | Import-vApp -Source "c:\vApps\WebServer\WebServer.ovf" -Datastore $myDatastore
 ```
 _Imports an OVF package by specifying a datastore where to store the virtual machines._
 
@@ -221,17 +245,17 @@ This cmdlet creates a new new local or subscribed content library depending on t
 
 **Parameters:**
 
-- -AutomaticSync [SwitchParameter] (Optional) Specifies whether the library should participate in automatic library synchronization. If you want to do an automatic synchronization, the global Automatic Sync option must be enabled.
+- -AutomaticSync [SwitchParameter] (Optional) Specifies whether the library should participate in automatic library synchronization. If you want to do an automatic synchronization, the global Automatic Sync option must be enabled.   The subscription is still active even when automatic synchronization is turned off, but synchronization is only done manually by using the -Sync parameter of the Set-ContentLibrary cmdlet.
 - -Datastore [Datastore] (Required) Specifies the datastore that you want to use to store files for library items in this library.
 - -Description [String] (Optional) Specifies a human-readable description for the content library that you want to create.
-- -DownloadContentOnDemand [SwitchParameter] (Optional) Indicates whether a library item's content is synchronized only on demand.
+- -DownloadContentOnDemand [SwitchParameter] (Optional) Indicates whether a library item's content is synchronized only on demand.   If specified, then the library item's metadata is synchronized but the item's content (its files) is not. The Content Library Service synchronizes the content upon request only. This can cause the first use of the content to have a noticeable delay.   If not specified, all content is synchronized in advance.
 - -Name [String] (Required) Specifies the name of the library. Library names cannot be undefined or an empty string. Names do not have to be unique.
-- -OptimizeRemotePublishing [SwitchParameter] (Optional) If specified, the library is optimized for remote publishing and the Published parameter is required.
-- -Password [String] (Optional) Specifies the password you want to use for the content library.
-- -PersistJson [SwitchParameter] (Optional) Specifies whether library and library item metadata are persisted in the storage location as JSON files. This flag only applies if the local library is published.
+- -OptimizeRemotePublishing [SwitchParameter] (Optional) If specified, the library is optimized for remote publishing and the Published parameter is required.   This parameter specifies if remote publishing is the dominant use case for this library. The remote publishing occurs when the publisher and subscribers are not part of the same vCenter Single Sign-On domain.   Any optimizations can be done as a result of turning on this optimization during library creation. For example, library content could be stored in different formats, but optimizations are not limited to just a storage format.   You can set the value of this toggle only during the creation of the library and you need to migrate your library in case you need to change this value (optimize the library for a different use case).
+- -Password [String] (Optional) Specifies the password you want to use for the content library.   If you want to create a local content library, the password is required from subscribers in Basic authentication mode.   If you want to subscribe to a content library, the password should be in Basic authentication mode.
+- -PersistJson [SwitchParameter] (Optional) Specifies whether library and library item metadata are persisted in the storage location as JSON files. This flag only applies if the local library is published.   You can copy the local library content and metadata to another storage location manually and then create a subscribed library referencing the location of the library JSON file in the SubscriptionUrl. When the subscribed library's storage location matches the subscription URL, you do not need to copy the files to the subscribed library.
 - -Published [SwitchParameter] (Optional) Specifies whether you need to publish the local library.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -SslThumbprint [String] (Optional) Specifies an optional SHA-1 hash of the SSL certificate for the remote endpoint.
+- -SslThumbprint [String] (Optional) Specifies an optional SHA-1 hash of the SSL certificate for the remote endpoint.   If this value is defined, the SSL certificate is verified by comparing it to the SSL thumbprint. The SSL certificate must be verified against the thumbprint. When specified, the standard certificate chain validation behavior is not used.   The certificate chain is validated normally if this value is unset.
 - -SubscriptionUrl [String] (Required) Specifies the URL of the endpoint where the metadata for the remotely published library is served.
 
 **Examples:**
@@ -243,6 +267,7 @@ _Creates a new local content library that uses Datastore1 as a repository for it
 
 ```powershell
 $localContentLibrary = Get-ContentLibrary -Name 'Local Content Library' -Local
+New-ContentLibrary -Name 'Subscribed Content Library' -Description 'Subscribed content library description.' -Datastore $Datastore1 -SubscriptionUrl $localContentLibrary.PublishUrl
 ```
 _Creates a new subscribed content library that is subscribed to $localContentLibrary and uses Datastore1 as a repository for its items._
 
@@ -271,22 +296,28 @@ This cmdlet creates a new content library item in the specified content library.
 - -SslThumbprint [String] (Optional) Specifies the SSL thumbprint of the server hosting the file specified by the URI in the Uri parameter.
 - -StoragePolicy [StoragePolicy] (Optional) Specifies the storage policy for the new virtual machine template in the content library.
 - -Template [Template] (Optional) Specifies a virtual machine template from which to create the OVF template in the content library.
-- -Uri [String[]] (Required) Specifies a list of URIs of the file that you want to pull into the content library item.
+- -Uri [String[]] (Required) Specifies a list of URIs of the file that you want to pull into the content library item.   Note: http://, https://, and ds:// uris are acceptable.
 
 **Examples:**
 
 ```powershell
 $files = Get-ChildItem -File
+$localContentLibrary = Get-ContentLibrary -name 'Local content library' -Local
+New-ContentLibraryItem -ContentLibrary $localContentLibrary -name 'New item' -Files $files
 ```
 _Creates a content library item named 'New item' in the 'Local content library' library, containing all the files from the C: directory._
 
 ```powershell
 $files = Get-ChildItem -Name '*.ps1' -File
+$localContentLibrary = Get-ContentLibrary -Name 'Local content library' -Local
+New-ContentLibraryItem -ContentLibrary $localContentLibrary -Name 'New item' -ItemType 'script' -Files $files
 ```
 _Creates a content library item named 'New item' in the 'Local content library' library, containing all PowerShell script files from the C: directory. The type of the content library item is 'script'._
 
 ```powershell
 $datastore = Get-Datastore -Name 'Datastore'
+$localContentLibrary = Get-ContentLibrary -Name 'Local content library' -Local
+New-ContentLibraryItem -ContentLibrary $localContentLibrary -Name 'New item' -Uri ($datastore.ExtensionData.Info.Url + 'ISOs/Photon-minimal-3.0.iso') -FileName 'Photon-minimal-3.0.iso'
 ```
 _Creates a content library item named 'New item' in the 'Local content library' library, containing a 'Photon-minimal-3.0.iso' file from the 'Datastore' datastore._
 
@@ -305,6 +336,7 @@ _Creates a content library item named 'New item' in the 'Local content library' 
 
 ```powershell
 $libraries = Get-ContentLibrary -Name '*obsolete'
+Remove-ContentLibrary $libraries
 ```
 _Removes all content libraries whose names end in 'obsolete' from the default connected servers._
 
@@ -333,18 +365,18 @@ _Permanently deletes all content library items whose names end in 'obsolete' fro
 **Parameters:**
 
 - -AutomaticSync [SwitchParameter] (Optional) If specified, synchronization of content library items happens automatically. If not, synchronization happens by using the Set-ContentLibrary cmdlet with the Sync parameter.
-- -CurrentPassword [String] (Optional) Indicates if you want to update a password protected content library. Currently set password is supplied to complete the operation.
+- -CurrentPassword [String] (Optional) Indicates if you want to update a password protected content library. Currently set password is supplied to complete the operation.   Note: Available on vCenter Server 6.7 and later.
 - -Description [String] (Optional) Specifies a human-readable description for the content library that you want to create.
 - -DisableAuthentication [SwitchParameter] (Optional) If specified, deactivates authentication of the content library.
-- -DownloadContentOnDemand [SwitchParameter] (Optional) Indicates whether a library item's content is synchronized only on demand.
+- -DownloadContentOnDemand [SwitchParameter] (Optional) Indicates whether a library item's content is synchronized only on demand.   If specified, the library item's metadata is synchronized, but the item's content (its files) is not synchronized. The Content Library Service  synchronizes the content upon request only. This can cause a noticeable delay when using the content for the first time.   If not specified, all content is synchronized in advance.
 - -Evict [SwitchParameter] (Required) Removes cached content library's items content of a subscribed content library whose content is downloaded on demand.
 - -LocalContentLibrary [LocalContentLibrary[]] (Required) A local content library whose properties you want to alter.
 - -Name [String] (Optional) Specifies a new name for the content library.
 - -Password [String] (Optional) Specifies the password that you want to set or update to the target content library.
-- -PersistJson [SwitchParameter] (Optional) Specifies whether library and library item metadata are persisted in the storage location as JSON files. This flag only applies if you want to publish the local library.
+- -PersistJson [SwitchParameter] (Optional) Specifies whether library and library item metadata are persisted in the storage location as JSON files. This flag only applies if you want to publish the local library.   Enabling JSON persistence allows you to synchronize a subscribed library manually instead of over HTTP. You can copy the local library content and metadata to another storage location manually and then create a subscribed library referencing the location of the library JSON file in the SubscriptionUrl. When the subscribed library's storage location matches the subscription URL, you do not need to copy the files to the subscribed library.
 - -Published [SwitchParameter] (Optional) Specifies whether you want to publish the local library.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no given is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -SslThumbprint [String] (Optional) Specifies an optional SHA-1 hash of the SSL certificate for the remote endpoint.
+- -SslThumbprint [String] (Optional) Specifies an optional SHA-1 hash of the SSL certificate for the remote endpoint.   If this value is defined, the SSL certificate is verified by comparing it to the SSL thumbprint. The SSL certificate must be verified against the thumbprint. When specified, the standard certificate chain validation behavior is not used.   The certificate chain is validated normally if this value is unset.
 - -SubscribedContentLibrary [SubscribedContentLibrary[]] (Required) Specifies a subscribed content library which properties you want to alter.
 - -SubscriptionUrl [String] (Optional) Specifies the URL of the endpoint where the metadata for the remotely published library is served.
 - -Sync [SwitchParameter] (Required) If specified, manually synchronizes the subscribed content library.
@@ -353,16 +385,19 @@ _Permanently deletes all content library items whose names end in 'obsolete' fro
 
 ```powershell
 $contentLibrary = Get-ContentLibrary -Name 'Content Library' -Local
+Set-ContentLibrary -LocalContentLibrary $contentLibrary -Name 'Local Content Library' -Description 'This is local content library.'
 ```
 _Modifies a local content library named 'Content Library' by changing its name to 'Local Content Library' and its description to 'This is local content library.'._
 
 ```powershell
 $subscribedContentLibrary = Get-ContentLibrary -Name 'Content Library' -Subscribed
+Set-ContentLibrary -SubscribedContentLibrary $subscribedContentLibrary -Sync
 ```
 _Manually synchronizes a subscribed content library named 'Content Library'._
 
 ```powershell
 $subscribedContentLibrary = Get-ContentLibrary -Name 'Content Library' -Subscribed
+Set-ContentLibrary -SubscribedContentLibrary $subscribedContentLibrary -Evict
 ```
 _Removes cached content library items' content of subscribed content library that has -DownloadContentOnDemand set._
 
@@ -377,7 +412,7 @@ This cmdlet modifies the properties of a content library item.
 - -ClearExistingFiles [SwitchParameter] (Optional) Indicates that if there are any files in the content library item, they will be removed before uploading the new ones.
 - -ContentLibraryItem [ContentLibraryItem[]] (Required) Specifies the content library item whose properties you want to change.
 - -FileName [String[]] (Required) Specifies a list of file names that you want to use for the file pulled by the content library item from the URI specified in the Uri parameter.
-- -Files [String[]] (Optional) Specifies the paths to the local files that substitute the current content library item's files.
+- -Files [String[]] (Optional) Specifies the paths to the local files that substitute the current content library item's files.   Note: If the Files parameter is not specified, the content library item's files do not get altered.
 - -ItemType [String] (Optional) Specifies the type of the library item.
 - -Name [String] (Optional) Specifies a new name for the content library item.
 - -Notes [String] (Optional) Specifies a new description for the content library item.
@@ -387,21 +422,25 @@ This cmdlet modifies the properties of a content library item.
 - -DisableOvfCertificateChecks [SwitchParameter] (Optional) Specifies to skip all OVA/OVF certificate checks during the upload to the content library item.
 - -SslThumbprint [String] (Optional) Specifies the SSL thumbprint of the server hosting the file specified by the URI in the Uri parameter.
 - -Template [Template] (Optional) Specifies a virtual machine template to overwrite the original content of the OVF template content library item.
-- -Uri [String[]] (Required) Specifies a list of URIs of the file that you want to pull into the content library item.
+- -Uri [String[]] (Required) Specifies a list of URIs of the file that you want to pull into the content library item.   Note: http://, https://, and ds:// uris are acceptable.
 
 **Examples:**
 
 ```powershell
 $files = Get-ChildItem -File
+$item = Get-ContentLibraryItem -Name 'vm1'
+Set-ContentLibraryItem -ContentLibraryItem $item -Name 'New name' -Files $files
 ```
 _Modifies the content library item named 'vm1' by setting its name to 'New name' and updates its files to the current content of the C: directory._
 
 ```powershell
 $item = Get-ContentLibraryItem -Name 'vm1'
+Set-ContentLibraryItem -ContentLibraryItem $item -ItemType 'file'
 ```
 _Modifies the content library item named 'vm1' by setting its type to 'file'._
 
 ```powershell
 $item = Get-ContentLibraryItem -Name 'vm1'
+Set-ContentLibraryItem -ContentLibraryItem $item -Uri 'http://10.23.112.235:81/ISOs/Photon-minimal-3.0.iso' -FileName 'Photon-minimal-3.0.iso'
 ```
 _Modifies the content library item named 'vm1' by adding the 'Photon-minimal-3.0.iso' file from the specified URI._

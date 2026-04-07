@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Virtual machine lifecycle — create, pow
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,vm-operations,Copy-VMGuestFile, Get-VM, Get-VMGuest, Get-VMGuestDisk, Get-VMQuestion, Get-VMResourceConfiguration, Get-VMStartPolicy, Invoke-VMScript, Move-VM, New-VM, Open-VMConsoleWindow, Remove-VM, Restart-VM, Restart-VMGuest, Set-VM, Set-VMQuestion, Set-VMResourceConfiguration, Set-VMStartPolicy, Start-VM, Stop-VM, Stop-VMGuest, Suspend-VM, Suspend-VMGuest, Test-VsanVMCreation, Unlock-VM"
@@ -48,6 +48,8 @@ _Copies the text.txt file from the guest OS system to the local Temp directory._
 
 ```powershell
 $vm = Get-VM -Name VM
+
+Get-Item "c:\FolderToCopy\*.*" | Copy-VMGuestFile -Destination "c:\MyFolder" -VM $vm -LocalToGuest -GuestUser -GuestPassword pass2
 ```
 _Copies files from a local machine to a guest operating system._
 
@@ -62,7 +64,7 @@ This cmdlet retrieves the virtual machines on a vCenter Server system. Returns a
 **Parameters:**
 
 - -Datastore [StorageResource[]] (Optional) Specifies datastores or datastore clusters to filter the virtual machines associated with them. Passing values to this parameter through a pipeline is deprecated and will be removed in a future release.
-- -Id [String[]] (Required) Specifies the IDs of the virtual machines you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the virtual machines you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies vSphere container objects you want to search for virtual machines. Supported container object types are: ResourcePool, VApp, VMHost, Folder, Cluster, Datacenter.
 - -Name [String[]] (Optional) Specifies the names of the virtual machines you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -80,11 +82,13 @@ _Retrieves all virtual machines whose names starting with "MyVM"._
 
 ```powershell
 $myDatastore = Get-Datastore -Name "MyDatastore"
+Get-VM -Datastore $myDatastore
 ```
 _Retrieves all virtual machines that reside on the specified datastore._
 
 ```powershell
 $myDatacenter = Get-Datacenter -Name "MyDatacenter"
+Get-VM -Location $myDatacenter
 ```
 _Retrieves all virtual machines in the specified datacenter._
 
@@ -154,6 +158,8 @@ _Retrieves the questions of the VM virtual machine._
 
 ```powershell
 $vm = Get-VM VM
+
+$vm | Get-VMQuestion -QuestionText "*have been moved or copied*"
 ```
 _Retrieves the VM virtual machine questions that contain the phrase "have been moved or copied"._
 
@@ -224,13 +230,17 @@ _Lists the directory entries on the guest OS._
 
 ```powershell
 $script = '&"$env:ProgramFiles\Common Files\Microsoft Shared\MSInfo\msinfo32.exe" /report "$env:Tmp\inforeport"'
+
+Invoke-VMScript -ScriptText $script -VM VM -GuestCredential $guestCredential
 ```
 _Runs a PowerShell script. In PowerShell, to access environment variables, you must use the following syntax: $env:<environment variable> (for example, $env:ProgramFiles). Also, to run the program, you must specify an ampersand (&) in front of the program path. The outer quotes ($script = '...') are required because this is how you define a string variable in PowerShell. The inner double quotes are required because there are spaces in the path._
 
 ```powershell
 $script = '"%programfiles%\Common Files\Microsoft Shared\MSInfo\msinfo32.exe" /report "%tmp%\inforeport"'
+
+Invoke-VMScript -ScriptText $script -VM VM -GuestCredential $guestCredential -ScriptType Bat
 ```
-_Runs a BAT script. In BAT scripts, to access environment variables, you must use the following syntax: %<environment variable>% (for example, %programfiles%)._
+_Runs a BAT script. In BAT scripts, to access environment variables, you must use the following syntax: %<environment variable>% (for example, %programfiles%).   The outer quotes ($script = '...') are required because this is how you define a string variable in PowerShell. The inner double quotes are required because there are spaces in the path._
 
 ## Move
 
@@ -242,7 +252,7 @@ This cmdlet moves a virtual machine to the location that is specified by the Des
 
 **Parameters:**
 
-- -AdvancedOption [AdvancedOption[]] (Optional) This parameter is only applicable when a DatastoreCluster object is passed to the Datastore parameter. Specifies one or more rules for the placement of the virtual machines that you want to relocate.
+- -AdvancedOption [AdvancedOption[]] (Optional) This parameter is only applicable when a DatastoreCluster object is passed to the Datastore parameter. Specifies one or more rules for the placement of the virtual machines that you want to relocate.   To indicate that you want to store the virtual machines on different datastores, pass an SdrsVMAntiAffinityRule object to the parameter. You can set more than one Storage DRS (SDRS) virtual machine anti-affinity rules.   To indicate that you want to store the virtual machine disks on different datastores, pass an SdrsVMDiskAntiAffinityRule object to the parameter. You can set only one SDRS virtual machine disk anti-affinity rule.
 - -Datastore [StorageResource] (Optional) Specifies the datastore or datastore cluster where you want to move the virtual machines. When you pass a datastore cluster to the Datastore parameter, you can also set the AdvancedOption parameter.
 - -Destination [VIContainer] (Optional) Specifies a folder, host, cluster, or a resource pool where you want to move the virtual machines. If a data center is specified for the Destination parameter, you can move the virtual machines to the data center's "vmFolder" folder. The "vmFolder" is a system folder and is guaranteed to exist. Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release.
 - -DiskStorageFormat [VirtualDiskStorageFormat] (Optional) Specifies a new storage format for the hard disk of the virtual machine you want to move. This parameter is applicable only when moving a virtual machine to a different datastore, using the Datastore parameter. This parameter accepts Thin, Thick, and EagerZeroedThick values.
@@ -284,7 +294,7 @@ This cmdlet creates a new virtual machine with the provided parameters. The netw
 
 **Parameters:**
 
-- -AdvancedOption [AdvancedOption[]] (Optional) Specifies advanced options for creating virtual machines. Accepts only SdrsVMDiskAntiAffinityRule and SdrsVMAntiAffinityRule objects.
+- -AdvancedOption [AdvancedOption[]] (Optional) Specifies advanced options for creating virtual machines. Accepts only SdrsVMDiskAntiAffinityRule and SdrsVMAntiAffinityRule objects.   The SdrsVMDiskAntiAffinityRule defines a Storage DRS intra-VM anti-affinity rule (vm disk anti-affinity rule). It is only applicable when creating a virtual machine or hard disk on a datastore cluster. You can create an instance of the object by invoking its constructor. There are two constructors - "public SdrsVMDiskAntiAffinityRule(param string[] diskIdentifier)" and "public SdrsVMDiskAntiAffinityRule(param HardDisk[] disk)". For the first constructor, "diskIdentifier" can be either the disk key or the index of the disk in the disk array. The specified disks (and the disk to which the rule is applied) are placed in an anti-affinity rule on a DatastoreCluster. Only one such rule is supported per a virtual machine. You can pass the instance to the AdvancedOption parameter of the New-VM or New-HardDisk cmdlets.   The SdrsVMAntiAffinityRule defines a Storage DRS inter-VM anti-affinity rule. It is only applicable when creating a virtual machine on a DatastoreCluster. You can create an instance of the object by invoking its constructor. The constructor has one parameter - an array of virtual machines - "public SdrsVMAntiAffinityRule(param VirtualMachine[] vm)". Then you can pass the instance to the AdvancedOption parameter of the New-VM cmdlet. ?he new virtual machine and the virtual machines specified in the constructor are placed in an inter-VM anti-affinity rule on a DatastoreCluster.
 - -AlternateGuestName [String] (Optional) Specifies the full OS name of the new virtual machine. Use this parameter if the GuestID parameter is set to otherGuest or otherGuest64.
 - -BootDelayMillisecond [Int64] (Optional) Specifies the time interval in milliseconds between a virtual machine power on or restart and the beginning of the boot sequence.
 - -CD [SwitchParameter] (Optional) Indicates that you want to add a CD drive to the new virtual machine.
@@ -305,7 +315,7 @@ This cmdlet creates a new virtual machine with the provided parameters. The netw
 - -Location [Folder] (Optional) Specifies the folder where you want to place the new virtual machine.
 - -MemoryGB [Decimal] (Optional) Specifies the memory size in gigabytes (GB) of the new virtual machine.
 - -MemoryMB [Int64] (Optional) This parameter is obsolete. Use MemoryGB instead. Specifies the memory size in megabytes (MB) of the new virtual machine.
-- -MigrationEncryption [VMMigrationEncryptionMode] (Optional) Specifies the encryption behavior when migrating the virtual machine. Valid options are: - Disabled: Do not use encrypted vSphere vMotion.
+- -MigrationEncryption [VMMigrationEncryptionMode] (Optional) Specifies the encryption behavior when migrating the virtual machine. Valid options are: - Disabled: Do not use encrypted vSphere vMotion.   - Opportunistic: Use encrypted vSphere vMotion if source and destination hosts support it. Only ESXi versions 6.5 and later use encrypted vSphere vMotion.   - Required: Allow only encrypted vSphere vMotion. If the source or destination host does not support encrypted vSphere vMotion, migration with vSphere vMotion is not allowed.
 - -Name [String] (Required) Specifies a name for the new virtual machine. If you want to register or clone an existing virtual machine, this parameter is not mandatory.
 - -NetworkName [String[]] (Optional) Specifies the networks to which you want to connect the new virtual machine. Specifying a distributed port group name is obsolete. Use the Portgroup parameter instead.
 - -Notes [String] (Optional) Provides a description of the new virtual machine. The alias of this parameter is Description.
@@ -324,7 +334,7 @@ This cmdlet creates a new virtual machine with the provided parameters. The netw
 - -VM [VirtualMachine[]] (Required) Specifies a virtual machine that you want to clone.
 - -VMFilePath [String] (Required) Specifies a path to the virtual machine that you want to register.
 - -VMHost [VMHost] (Optional) Specifies the host on which you want to create the new virtual machine.
-- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:
+- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:   InHostDataStore - stores the swapfile in the datastore specified by the VMSwapfileDatastoreID property of the virtual machine host. If the VMSwapfileDatastoreID property is not set or indicates a datastore with insufficient free space, the swapfile is stored in the same directory as the virtual machine. This setting might degrade the vMotion performance.   WithVM - stores the swapfile in the same directory as the virtual machine.
 - -SkipHardDisks [SwitchParameter] (Optional) Specifies whether to apply the StoragePolicy or Encryption to the hard disks in the new virtual machine.
 - -StoragePolicy [StoragePolicy] (Optional) Specifies the StoragePolicy that you want to attach to the new virtual machine during creation. If the StoragePolicy is an encryption policy, the new virtual machine is encrypted.
 - -ReplicationGroup [ReplicationGroup] (Optional) Specifies the ReplicationGroup where you want to place the new virtual machine. It is applicable with the storage policy provided in the StoragePolicy parameter.
@@ -338,16 +348,20 @@ This cmdlet creates a new virtual machine with the provided parameters. The netw
 
 ```powershell
 $myTargetVMHost = Get-VMHost -Name MyVMHost1
+New-VM -Name MyVM1 -ResourcePool $myTargetVMHost -Datastore MyDatastore1 -NumCPU 2 -MemoryGB 4 -DiskGB 40 -NetworkName "VM Network" -Floppy -CD -DiskStorageFormat Thin -GuestID winNetDatacenterGuest
 ```
 _Creates a virtual machine by specifying a target host, a target datastore, and a network to connect to, and configures the settings for the virtual machine._
 
 ```powershell
 $myCluster = Get-Cluster -Name MyCluster1
+New-VM -Name MyVM1 -ResourcePool $myCluster
 ```
 _Creates a virtual machine by specifying a cluster. The ResourcePool parameter accepts ResourcePool, Cluster, VApp, and standalone VMHost objects._
 
 ```powershell
 $vmhost = Get-VMHost -Name MyVMHost1
+$myCluster = Get-Cluster -Name MyCluster1
+New-VM -Name MyVM1 -VMHost $vmhost -ResourcePool $myCluster -DiskGB 4 -MemoryGB 1
 ```
 _Creates a virtual machine by specifying a cluster and explicitly selecting the host, instead of allowing autoselection of a target host._
 
@@ -361,7 +375,7 @@ _Creates a virtual machine by specifying a cluster and explicitly selecting the 
 
 - -FullScreen [SwitchParameter] (Optional) If specified, opens the virtual machine's console window in full-screen mode.
 - -Server [VIConnection[]] (Optional) Specifies the vCenter Server systems or cloud server instances on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -UrlOnly [SwitchParameter] (Optional) If specified, the cmdlet returns the URL for opening a console window to the virtual machine without actually opening the console window.
+- -UrlOnly [SwitchParameter] (Optional) If specified, the cmdlet returns the URL for opening a console window to the virtual machine without actually opening the console window.   Note: The URL is valid for 30 seconds. After 30 seconds, the screen authentication ticket contained in the URL expires.
 - -VM [RemoteConsoleVM[]] (Required) Specifies the virtual machine for which you want to open a remote console. Supports vCloud and vSphere virtual machines.
 
 **Examples:**
@@ -450,7 +464,7 @@ This cmdlet modifies the configuration of the virtual machine. If the OSCustomiz
 - -HARestartPriority [HARestartPriority] (Optional) Specifies the virtual machine High Availability (HA) restart priority. The valid values are Disabled, Lowest, Low, Medium, High, Highest and ClusterRestartPriority. VMware HA is a feature that detects failed virtual machines and automatically restarts them on alternative ESX hosts. Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release. Specifying this parameter is only supported when the virtual machine is inside a cluster. Otherwise, an error appears.
 - -MemoryGB [Decimal] (Optional) Specifies the memory size in gigabytes (GB).
 - -MemoryMB [Int64] (Optional) This parameter is obsolete. Use MemoryGB instead. Specifies the memory size in megabytes (MB).
-- -MigrationEncryption [VMMigrationEncryptionMode] (Optional) Specifies the encryption behavior when migrating the virtual machine. Valid options are: - Disabled: Do not use encrypted vSphere vMotion.
+- -MigrationEncryption [VMMigrationEncryptionMode] (Optional) Specifies the encryption behavior when migrating the virtual machine. Valid options are: - Disabled: Do not use encrypted vSphere vMotion.   - Opportunistic: Use encrypted vSphere vMotion if source and destination hosts support it. Only ESXi versions 6.5 and later use encrypted vSphere vMotion.   - Required: Allow only encrypted vSphere vMotion. If the source or destination host does not support encrypted vSphere vMotion, migration with vSphere vMotion is not allowed.
 - -Name [String] (Optional) Specifies a new name for the virtual machine.
 - -Notes [String] (Optional) Provides a description for the virtual machine. The alias of this parameter is Description.
 - -NumCpu [Int32] (Optional) Specifies the number of virtual CPUs.
@@ -465,7 +479,7 @@ This cmdlet modifies the configuration of the virtual machine. If the OSCustomiz
 - -ToTemplate [SwitchParameter] (Optional) Indicates that you want to convert the virtual machine to a template.
 - -Version [VMVersion] (Optional) This parameter is deprecated. Use the HardwareVersion parameter instead. Specifies the version to which you want to upgrade the virtual machine. The valid values are v4, v7, v8, v9, v10, v11, v12, v13, and v14. You cannot downgrade to an earlier version.
 - -VM [VirtualMachine[]] (Required) Specifies the virtual machine that you want to configure.
-- -VMSwapFilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:
+- -VMSwapFilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:   InHostDataStore - stores the swapfile in the datastore specified by the VMSwapfileDatastoreID property of the virtual machine host. If the VMSwapfileDatastoreID property is not set or indicates a datastore with insufficient free space, the swapfile is stored in the same directory as the virtual machine. This setting might degrade the vMotion performance.   WithVM - stores the swapfile in the same directory as the virtual machine.
 - -CpuHotAddEnabled [Boolean] (Optional) Specifies if virtual processors can be added to the virtual machine while it is running.
 - -CpuHotRemoveEnabled [Boolean] (Optional) Specifies if virtual processors can be removed from the virtual machine while it is running.
 - -MemoryHotAddEnabled [Boolean] (Optional) Specifies if memory can be added to the virtual machine while it is running.
@@ -526,15 +540,15 @@ This cmdlet configures resource allocation between the virtual machines. To reta
 **Parameters:**
 
 - -Configuration [VMResourceConfiguration[]] (Required) Specifies the configuration object you want to modify.
-- -CpuAffinity [CpuAffinity] (Optional) The use of this parameter is deprecated. Use CpuAffinityList instead.
-- -CpuAffinityList [Int32[]] (Optional) Specifies the distribution of virtual machine CPUs across the physical cores or hyperthreads of the host. You must pass exactly as many arguments as the number of CPUs of the virtual machine. Each argument specifies the physical core or hyperthread that the virtual machine will use. Valid arguments are positive integers. To clear formerly specified arguments, pass an empty array.
+- -CpuAffinity [CpuAffinity] (Optional) The use of this parameter is deprecated. Use CpuAffinityList instead.   Specifies the distribution of virtual machine CPUs across the physical cores or hyperthreads of the host. You must pass exactly as many arguments as the number of CPUs of the virtual machine. Each argument specifies the physical core or hyperthread that the virtual machine will use. Valid arguments are NoAffinity, Cpu1, ..., Cpu63.   When the virtual machine resides in a DRS cluster, you cannot use CpuAffinity.
+- -CpuAffinityList [Int32[]] (Optional) Specifies the distribution of virtual machine CPUs across the physical cores or hyperthreads of the host. You must pass exactly as many arguments as the number of CPUs of the virtual machine. Each argument specifies the physical core or hyperthread that the virtual machine will use. Valid arguments are positive integers. To clear formerly specified arguments, pass an empty array.   When the virtual machine resides in a DRS cluster, you cannot use CpuAffinityList.
 - -CpuLimitMhz [Int64] (Optional) Specifies the limit on CPU usage in MHz. Utilization will not exceed this limit even if there are available resources.
 - -CpuReservationMhz [Int64] (Optional) Specifies the number of CPU MHz that are guaranteed to be available.
 - -CpuSharesLevel [SharesLevel] (Optional) Specifies the CPU allocation level. Used in relative allocation between virtual machines. The valid values are Custom, High, Low, and Normal.
 - -Disk [HardDisk[]] (Optional) Specifies the virtual hard disk you want to configure.
 - -DiskLimitIOPerSecond [Int64] (Optional) Specifies the disk limit IO per second. The valid values are in the range between 16 and 2147483647. -1 means unlimited.
 - -DiskSharesLevel [SharesLevel] (Optional) Specifies the allocation level. The level is a simplified view of shares. Levels map to a pre-determined set of numeric values for shares. If the shares value does not map to a predefined size, then the level is set as custom.
-- -HtCoreSharing [HTCoreSharing] (Optional) Specifies whether a virtual machine is scheduled to share a physical processor core (assuming hyperthreading is enabled on the host at all). The following values are valid:
+- -HtCoreSharing [HTCoreSharing] (Optional) Specifies whether a virtual machine is scheduled to share a physical processor core (assuming hyperthreading is enabled on the host at all). The following values are valid:   Any - (default) the virtual CPUs of this virtual machine can freely share cores with other virtual CPUs of this or other virtual machines.   None - the virtual CPUs of this virtual machine have exclusive use of a processor core whenever they are scheduled to it. The other hyperthread of the core is "halted" while this virtual machine is using the core.   Internal - on a virtual machine with exactly two virtual processors, the two virtual processors are allowed to share one physical core (at the discretion of the ESX scheduler), but this virtual machine never shares a core with any other virtual machine. If this virtual machine has any other number of processors than two, this setting is the same as the None setting.
 - -MemLimitGB [Decimal] (Optional) Specifies a memory usage limit in gigabytes (GB). If this parameter is set, utilization will not exceed the specified limit even if there are available resources.
 - -MemLimitMB [Int64] (Optional) This parameter is obsolete. Use MemLimitGB instead. Specifies a memory usage limit in megabytes (MB). If this parameter is set, utilization will not exceed the specified limit even if there are available resources.
 - -MemReservationGB [Decimal] (Optional) Specifies the guaranteed available memory in gigabytes (GB).
@@ -576,6 +590,8 @@ This cmdlet modifies the virtual machine start policy. Start policy defines what
 
 ```powershell
 $vmstartpolicy = Get-VMStartPolicy -VM VM
+
+Set-VMStartPolicy -StartPolicy $vmstartpolicy -StartAction PowerOn
 ```
 _Retrieves the start policy of the VM virtual machine and defines that when the server starts, the virtual machine is powered on._
 

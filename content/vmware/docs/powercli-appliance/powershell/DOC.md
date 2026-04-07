@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — vCenter appliance backup and management"
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,appliance,Get-ApplianceBackupJob, Get-ApplianceBackupPart, New-ApplianceBackupJob, Stop-ApplianceBackupJob, Wait-ApplianceBackupJob"
@@ -101,11 +101,25 @@ This cmdlet starts a file-based backup job for a vCenter Server system to a back
 
 ```powershell
 PS C:\> New-ApplianceBackupJob `
+   -BackupServerType FTP `
+   -BackupServer <backup server ip> `
+   -BackupServerPort 21 `
+   -BackupServerUsername <backup server username> `
+   -BackupServerPassword <backup server password> `
+   -FolderPath /backups/manual_backup_1 `
+   -Description "This is a custom comment"
 ```
 _Starts a backup job for a vCenter Server system that is going to be stored at an FTP server in the /backups/manual_backup_1 folder and encrypted with a password. Only mandatory backup parts are included since no optional backup parts have been specified._
 
 ```powershell
 PS C:\> Get-ApplianceBackupPart -OptionalOnly | New-ApplianceBackupJob `
+   -BackupServerType FTP `
+   -BackupServer <backup server ip> `
+   -BackupServerPort 21 `
+   -BackupServerUsername <backup server username> `
+   -BackupServerPassword <backup server password> `
+   -FolderPath /backups/manual_backup_1 `
+   -Description "This is a custom comment"
 ```
 _Starts a backup job for a vCenter Server system that is going to be stored at an FTP server in the /backups/manual_backup_1 folder and encrypted with a password. All mandatory and optional backup parts are included._
 

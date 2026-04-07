@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Clusters, datacenters, resource pools, fo
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,cluster-datacenter,Add-TrustedClusterAttestationServiceInfo, Add-TrustedClusterKeyProviderServiceInfo, Copy-HardDisk, Export-LcmClusterDesiredState, Get-Cluster, Get-Datacenter, Get-DrsClusterGroup, Get-DrsRecommendation, Get-DrsRule, Get-Folder, Get-HardDisk, Get-Inventory, Get-LcmClusterDesiredStateRecommendation, Get-LcmHardwareCompatibility, Get-ResourcePool, Get-TrustAuthorityCluster, Get-TrustedCluster, Get-TrustedClusterAppliedStatus, Get-VDTrafficShapingPolicy, Import-LcmClusterDesiredState, Invoke-DrsRecommendation, Move-Cluster, Move-Datacenter, Move-Folder, Move-HardDisk, Move-Inventory, Move-ResourcePool, New-Cluster, New-CnsContainerCluster, New-Datacenter, New-DrsClusterGroup, New-DrsRule, New-Folder, New-HardDisk, New-ResourcePool, New-VIInventoryDrive, Remove-Cluster, Remove-Datacenter, Remove-DrsClusterGroup, Remove-DrsRule, Remove-Folder, Remove-HardDisk, Remove-Inventory, Remove-ResourcePool, Remove-TrustedClusterAttestationServiceInfo, Remove-TrustedClusterKeyProviderServiceInfo, Set-Cluster, Set-Datacenter, Set-DrsClusterGroup, Set-DrsRule, Set-Folder, Set-HardDisk, Set-ResourcePool, Set-TrustAuthorityCluster, Set-TrustedCluster, Set-VDTrafficShapingPolicy, Test-LcmClusterCompliance, Test-LcmClusterHealth"
@@ -30,6 +30,7 @@ Clusters, datacenters, resource pools, folders, DRS rules, inventory. Module: VM
 
 ```powershell
 $attestService = Get-AttestationServiceInfo
+Add-TrustedClusterAttestationServiceInfo -TrustedCluster myCluster -AttestationServiceInfo $attestService
 ```
 _Adds the attestation service information configured in the workload vCenter Server system to the trusted hosts in the trusted cluster named myCluster._
 
@@ -47,6 +48,7 @@ _Adds the attestation service information configured in the workload vCenter Ser
 
 ```powershell
 $kmxService = Get-KeyProviderServiceInfo
+Add-TrustedClusterKeyProviderServiceInfo -TrustedCluster myCluster -KeyProviderServiceInfo $kmxService
 ```
 _Adds the key provider service information configured in the workload vCenter Server system to the trusted hosts in the trusted cluster named myCluster._
 
@@ -89,7 +91,7 @@ This cmdlet exports the desired state of a vSphere Lifecycle Manager cluster as 
 **Parameters:**
 
 - -Cluster [Cluster[]] (Required) Specifies the name of the cluster whose desired state you want to export.
-- -Destination [String] (Optional) Specifies a local directory where you want to save the JSON metadata file, the installable ISO image, or the ZIP offline bundle.
+- -Destination [String] (Optional) Specifies a local directory where you want to save the JSON metadata file, the installable ISO image, or the ZIP offline bundle.   Note: If no value is provided, your current directory will be used.
 - -ExportIsoImage [SwitchParameter] (Optional) Specifies whether to export the ESXi base image as an installable ISO image.
 - -ExportOfflineBundle [SwitchParameter] (Optional) Specifies whether to export an offline ZIP bundle containing all software packages that can be imported into the vSphere Lifecycle Manager depot.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
@@ -117,7 +119,7 @@ This cmdlet retrieves the clusters available on a vCenter Server system. Returns
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the clusters you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the clusters you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies vSphere container objects (such as folders, datacenters, and clusters) you want to search for clusters.
 - -Name [String[]] (Optional) Specifies the names of the clusters you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -143,7 +145,7 @@ This cmdlet retrieves the datacenters available on a vCenter Server system. Retu
 **Parameters:**
 
 - -Cluster [Cluster[]] (Optional) Specifies clusters to filter the datacenters that contain at least one of them.
-- -Id [String[]] (Required) Specifies the IDs of the datacenters you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the datacenters you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [Folder[]] (Optional) Specifies vSphere container objects (such as folders) you want to search for datacenters.
 - -Name [String[]] (Optional) Specifies the names of the datacenters you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -227,6 +229,7 @@ This cmdlet retrieves the list of DRS rules for the specified clusters. Each rul
 
 ```powershell
 $myCluster = Get-Cluster -Name "MyCluster1"
+Get-DrsRule -Cluster $myCluster -Name "*Rule1*"
 ```
 _Retrieves the DRS rules for the cluster stored in the $myCluster variable, whose names contain "Rule1"._
 
@@ -237,6 +240,8 @@ _Retrieves the virtual machine affinity and anti-affinity rules for the specifie
 
 ```powershell
 $myVm1 = Get-VM -Name 'MyVm1'
+$myCluster1 = Get-Cluster 'MyCluster1'
+Get-DrsRule -Cluster $myCluster1 -VM $myVm1
 ```
 _Retrieves the virtual machine affinity and anti-affinity rules for the specified virtual machine in the specified cluster._
 
@@ -248,7 +253,7 @@ This cmdlet retrieves the folders available on a vCenter Server system. The cmdl
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the folders you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the folders you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies vSphere container objects (folders or datacenters) you want to search for folders.
 - -Name [String[]] (Optional) Specifies the names of the folders you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -261,6 +266,8 @@ This cmdlet retrieves the folders available on a vCenter Server system. The cmdl
 
 ```powershell
 $server = Connect-VIServer -Server 10.23.112.235
+
+Get-Folder -Server $server -Name Folder
 ```
 _Retrieves the folder named Folder on the server with IP address 10.23.112.235._
 
@@ -283,9 +290,9 @@ This cmdlet returns the virtual hard disks available on a vCenter Server system.
 **Parameters:**
 
 - -Datastore [Datastore[]] (Required) Specifies the datastores or datastore clusters you want to search for hard disks. This parameter is required when retrieving a hard disk that is attached to no virtual machines, templates, or snapshots.
-- -DatastorePath [String[]] (Optional) Specifies datastore paths to the hard disks you want to retrieve. The paths must be in the following format: [datastore_name] <file_path>, where [datastore_name] is the name of the datastore in square brackets and <file_path> is a slash-delimited path from the root of the datastore to the virtual hard disk file. The cmdlet searches recursively the specified locations.
+- -DatastorePath [String[]] (Optional) Specifies datastore paths to the hard disks you want to retrieve. The paths must be in the following format: [datastore_name] <file_path>, where [datastore_name] is the name of the datastore in square brackets and <file_path> is a slash-delimited path from the root of the datastore to the virtual hard disk file. The cmdlet searches recursively the specified locations.   To learn more about the Datastore Provider, in the VMware PowerCLI service console, type:   help about_vimdatastore
 - -DiskType [DiskType[]] (Optional) Specifies the type of the hard disks you want to retrieve. The valid values are rawVirtual, rawPhysical, flat, and unknown. If the hard disk is not attached to any virtual machines, templates, or snapshots, you can retrieve it by providing a datastore path to the file where the virtual hard disk is stored. In this case, you might not be able to derive disk type info, and the value of the DiskType property of the hard disk is Unknown.
-- -Id [String[]] (Optional) Specifies the IDs of the hard disks you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the hard disks you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the SCSI hard disks you want to retrieve.
 - -Path [DatastoreItem[]] (Optional) Specifies the file paths to the virtual hard disks you want to retrieve. The cmdlet searches recursively the specified locations.
 - -RelatedObject [HardDiskRelatedObjectBase[]] (Required) Specifies objects to retrieve one or more HardDisk objects that are related to them.
@@ -320,7 +327,7 @@ This cmdlet retrieves the inventory items available on a vCenter Server system. 
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the inventory objects you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the inventory objects you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies vSphere container objects (such as folders, datacenters, and clusters) you want to search for inventory items.
 - -Name [String[]] (Optional) Specifies the names of the inventory objects you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -385,7 +392,7 @@ Retrieves the resource pools available on a vCenter Server system. The cmdlet re
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the resource pools you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the resource pools you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies vSphere container objects (such as folders, datacenters, and clusters) you want to search for resource pools.
 - -Name [String[]] (Optional) Specifies the names of the resource pools you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -398,6 +405,8 @@ Retrieves the resource pools available on a vCenter Server system. The cmdlet re
 
 ```powershell
 $server = Connect-VIServer -Server 10.23.112.235
+
+Get-ResourcePool -Server $server -VM VM
 ```
 _Retrieves information of the resource pool to which the virtual machine MS Win belongs._
 
@@ -407,7 +416,7 @@ _Retrieves information of the resource pool to which the virtual machine MS Win 
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the Trust Authority cluster you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the Trust Authority cluster you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the Trust Authority clusters you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -State [TrustAuthorityState] (Optional) Specifies the state of the Trust Authority clusters you want to retrieve.
@@ -425,7 +434,7 @@ _Retrieves the Trust Authority clusters from the connected Trust Authority vCent
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the trusted cluster you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the trusted cluster you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the trusted clusters you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -State [TrustedState] (Optional) Specifies the state of the trusted clusters you want to retrieve.
@@ -526,6 +535,7 @@ _Retrieves and applies DRS recommendations with priorities 1 and 2._
 
 ```powershell
 $drs = Get-DrsRecommendation -Cluster Cluster
+Invoke-DrsRecommendation -DrsRecommendation $drs -RunAsync
 ```
 _Retrieves the DRS recommendations from the Cluster cluster and applies them. The command returns without waiting for the task to complete._
 
@@ -540,7 +550,7 @@ This cmdlet moves a vCenter Server cluster to the location that is specified by 
 **Parameters:**
 
 - -Cluster [Cluster[]] (Required) Specifies the clusters you want to move to another location.
-- -Destination [VIContainer] (Required) Specifies the folder or datacenter where you want to move the clusters. If a datacenter is specified for the Destination parameter, the cluster is moved to its "hostFolder" folder. The "hostFolder" is a system folder and is guaranteed to exist.
+- -Destination [VIContainer] (Required) Specifies the folder or datacenter where you want to move the clusters. If a datacenter is specified for the Destination parameter, the cluster is moved to its "hostFolder" folder. The "hostFolder" is a system folder and is guaranteed to exist.   Note: You cannot move clusters from one datacenter to another. You can only move clusters between folders and to datacenter level.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -606,16 +616,22 @@ _Moves the "vmFolder" folder into another folder of the same type named "destina
 
 ```powershell
 $myDatastore1 = Get-Datastore -Name 'MyDatastore1'
+$myDisk = Get-VM -Name MyVm1 | Get-HardDisk
+Move-HardDisk -HardDisk $myDisk -Datastore $myDatastore1
 ```
 _Moves the hard disk of a specified virtual machine to another datastore._
 
 ```powershell
 $myDisk = Get-VM -Name 'MyVM1' | Get-HardDisk
+$myDatastore1 = Get-Datastore -Name 'MyDatastore1'
+Move-HardDisk -HardDisk $myDisk -Datastore $myDatastore1 -StorageFormat 'EagerZeroedThick'
 ```
 _Moves the hard disk of a specified virtual machine to another datastore and changes the storage format of the hard disk to EagerZeroedThick._
 
 ```powershell
 $myDisk = Get-VM -Name 'MyVM1' | Get-HardDisk
+$myDatastoreCluster = Get-DatastoreCluster -Name 'MyDatastoreCluster'
+Move-HardDisk -HardDisk $myDisk -Datastore $myDatastoreCluster
 ```
 _Moves the hard disk of the 'MyVM1' virtual machine to the 'MyDatastoreCluster' datastore cluster._
 
@@ -637,6 +653,8 @@ This cmdlet moves a vCenter Server inventory object or template to the location 
 
 ```powershell
 $vm = Get-VM -Name VM*
+
+Move-Inventory -Item $vm -Destination Folder
 ```
 _Moves the virtual machines whose names start with VM to the Folder folder._
 
@@ -676,7 +694,7 @@ This cmdlet creates a new cluster with the provided inputs in the location that 
 
 - -DrsAutomationLevel [DrsAutomationLevel] (Optional) Specifies a DRS automation level. The valid values are FullyAutomated, Manual, and PartiallyAutomated.
 - -DrsEnabled [SwitchParameter] (Optional) If specified, enables VMware DRS.
-- -DrsMode [DrsMode] (Optional) This parameter is deprecated and scheduled for removal. Use the DrsAutomationLevel parameter instead.
+- -DrsMode [DrsMode] (Optional) This parameter is deprecated and scheduled for removal. Use the DrsAutomationLevel parameter instead.   Specifies a DRS mode. The valid values are FullyAutomated, Manual, and PartiallyAutomated.
 - -EVCMode [String] (Optional) Specifies the VMware EVC mode of the newly created cluster. If not specified or set to $null, EVC is deactivated.
 - -HAAdmissionControlEnabled [SwitchParameter] (Optional) Indicates that virtual machines cannot be powered on if they violate availability constraints.
 - -HAEnabled [SwitchParameter] (Optional) If specified, enables VMware HA.
@@ -686,7 +704,7 @@ This cmdlet creates a new cluster with the provided inputs in the location that 
 - -Location [VIContainer] (Required) Specifies the location where you want to place the new cluster. If a data center is specified for the Location parameter, the cluster is created in its "hostFolder" folder. The "hostFolder" is a system folder and is guaranteed to exist.
 - -Name [String] (Required) Specifies the name of the new cluster.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:
+- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:   InHostDataStore - stores the swapfile in the datastore that is specified by the VMSwapfileDatastoreID property of the virtual machine host. If the VMSwapfileDatastoreID property is not set or indicates a datastore with unsufficient free space, store the swapfile in the same directory as the virtual machine. This setting might degrade the vMotion performance.   WithVM - stores the swapfile in the same directory as the virtual machine.
 - -VsanDiskClaimMode [VsanDiskClaimMode] (Optional) Specifies the mode by which disks are claimed by vSAN. If not specified and VsanEnabled is specified, the assumed value is Manual.
 - -VsanEnabled [SwitchParameter] (Optional) Indicates that the vSAN feature is enabled on this cluster.
 - -VsanEsaEnabled [SwitchParameter] (Optional) Indicates that the vSAN ESA feature is enabled on this cluster. This feature is supported from vSphere 8.0.
@@ -726,6 +744,7 @@ _Creates a new cluster named "MyCluster" in the "MyDatacenter" data center with 
 
 ```powershell
 New-CnsContainerCluster -ClusterFlavor Vanilla -KubernetesClusterId 'k8_cls_1' -ClusterType Kubernetes
+ -VSphereUser 'administrator@vsphere.local'
 ```
 _Creates a Cloud Native Storage (CNS) container cluster with Vanilla as a cluster flavor, 'k8_cls_1' as a cluster ID, Kubernetes as a cluster type, and 'administrator@vsphere.local' as a vSphere user._
 
@@ -745,6 +764,8 @@ This cmdlet creates a new datacenter in the location that is specified by the Lo
 
 ```powershell
 $folder = Get-Folder -NoRecursion | New-Folder -Name Folder
+
+New-Datacenter -Location $folder -Name Datacenter | fl
 ```
 _Gets the inventory root folder and create a new folder called Folder in it. Creates a new datacenter called Datacenter in the Folder folder. The result is pipelined to the fl command to retrieve a flat view of the new datacenter properties._
 
@@ -828,7 +849,7 @@ This cmdlet creates a new hard disk on the specified virtual machine or datastor
 
 **Parameters:**
 
-- -AdvancedOption [AdvancedOption[]] (Optional) Specifies advanced options for creating hard disks. Accepts only SdrsVMDiskAntiAffinityRule objects. You can define an anti-affinity Storage Distributed Resource Scheduler (SDRS) rule for the disk by specifying a SdrsVMDiskAntiAffinityRule object to the AdvancedOption parameter and this will override any existing SdrsVMDiskAntiAffinityRule for the virtual machine.
+- -AdvancedOption [AdvancedOption[]] (Optional) Specifies advanced options for creating hard disks. Accepts only SdrsVMDiskAntiAffinityRule objects. You can define an anti-affinity Storage Distributed Resource Scheduler (SDRS) rule for the disk by specifying a SdrsVMDiskAntiAffinityRule object to the AdvancedOption parameter and this will override any existing SdrsVMDiskAntiAffinityRule for the virtual machine.   The SdrsVMDiskAntiAffinityRule defines a Storage DRS intra-VM anti-affinity rule (VM disk anti-affinity rule). It is only applicable when creating a virtual machine or hard disk on a datastore cluster. An instance of the object is created by invoking its constructor. There are two constructors - "public SdrsVMDiskAntiAffinityRule(param string[] diskIdentifier)" and "public SdrsVMDiskAntiAffinityRule(param HardDisk[] disk)". For the first constructor, "diskIdentifier" can be either the disk key or the index of the disk in the disk array. The specified disks (and the disk to which the rule is applied) are placed in an anti-affinity rule on a DatastoreCluster. Only one such rule is supported per virtual machine. You can pass the instance to the AdvancedOption parameter of the New-VM or New-HardDisk cmdlets.
 - -CapacityGB [Decimal] (Optional) Specifies the capacity of the new virtual disk in gigabytes (GB). You need to specify this parameter when you create hard disks of type Flat.
 - -CapacityKB [Int64] (Optional) This parameter is obsolete. Use the CapacityGB parameter instead. Specifies the capacity of the new virtual disk in kilobytes (KB). You need to specify this parameter when you create hard disks of type Flat.
 - -Controller [ScsiController] (Optional) Specifies a SCSI controller to which you want to attach the new hard disk.
@@ -850,11 +871,15 @@ This cmdlet creates a new hard disk on the specified virtual machine or datastor
 
 ```powershell
 $vm = Get-VM VM
+
+$vm | New-HardDisk -CapacityGB 100 -Persistence persistent
 ```
 _Adds a new hard disk to the VM virtual machine in a persistent mode with capacity of 100 GB._
 
 ```powershell
 $deviceName = ($vmhost | Get-ScsiLun | Where {$_.CanonicalName -match "naa"})[0].ConsoleDeviceName
+
+New-HardDisk -VM $vm -DiskType RawPhysical -DeviceName $deviceName
 ```
 _Obtains a valid device name for Raw Disk Mapping. Then the command creates an RDM hard disk for the specified virtual machine with the obtained device name._
 
@@ -891,6 +916,8 @@ This cmdlet creates a new resource pool with the provided inputs on the location
 
 ```powershell
 $resourcepool1 = Get-ResourcePool -Location Cluster -Name ResourcePool1
+
+New-ResourcePool -Location $resourcepool1 -Name ResourcePool2 -CpuExpandableReservation $true -CpuReservationMhz 500 -CpuSharesLevel high -MemExpandableReservation $true -MemReservationGB 5 -MemSharesLevel high
 ```
 _Creates a new resource pool named ResourcePool2 in the cluster's root resource pool ResourcePool1._
 
@@ -921,6 +948,8 @@ This function creates a new inventory drive that is mapped to a location in a da
 
 ```powershell
 $cluster =  New-Cluster -Name Cluster -Location Datacenter
+
+Remove-Cluster $cluster -Confirm:$false
 ```
 _Creates and then removes, without asking for user confirmation, the Custer cluster on the Datacenter datacenter._
 
@@ -978,6 +1007,8 @@ _Removes the "MyClusterGroup" DRS cluster group from the environment._
 
 ```powershell
 $rules = Get-DrsRule -Cluster $cluster -Name "*Rule1*"
+
+Remove-DrsRule $rules -Confirm:$false
 ```
 _Removes the DRS rules for the $cluster cluster, whose names contain "Rule1"._
 
@@ -1028,6 +1059,7 @@ _Removes the hard disks of the virtual machine stored in the $vm variable._
 
 ```powershell
 $hdd = Get-HardDisk -VM 'MyVM' -Name 'Hard disk 4'
+Remove-HardDisk -HardDisk $hdd
 ```
 _Removes the 'Hard disk 4' hard disk of the 'MyVM' virtual machine._
 
@@ -1082,6 +1114,7 @@ _Removes the resource pool named ResourcePool._
 
 ```powershell
 $cluster = Get-TrustedCluster mycluster
+Remove-TrustedClusterAttestationServiceInfo -TrustedCluster mycluster -AttestationServiceInfo $cluster.AttestationServiceInfo
 ```
 _Removes the attestation services information configured in the trusted mycluster cluster._
 
@@ -1099,6 +1132,7 @@ _Removes the attestation services information configured in the trusted mycluste
 
 ```powershell
 $cluster = Get-TrustedCluster mycluster
+Remove-TrustedClusterKeyProviderServiceInfo -TrustedCluster mycluster -KeyProviderServiceInfo $cluster.KeyProviderServiceInfo
 ```
 _Removes the key provider services information configured in the trusted mycluster cluster._
 
@@ -1120,7 +1154,7 @@ This cmdlet modifies the configuration of a cluster. HAEnabled is automatically 
 - -DepotOverride [String[]] (Optional) Specifies a depot address from where the cluster can fetch metadata and resources for the vSphere Lifecycle Manager operations.
 - -DrsAutomationLevel [DrsAutomationLevel] (Optional) Specifies a DRS automation level. The valid values are FullyAutomated, Manual, and PartiallyAutomated.
 - -DrsEnabled [Boolean] (Optional) If specified, enables VMware DRS.
-- -DrsMode [DrsMode] (Optional) This parameter is deprecated and scheduled for removal. Use the DrsAutomationLevel parameter instead.
+- -DrsMode [DrsMode] (Optional) This parameter is deprecated and scheduled for removal. Use the DrsAutomationLevel parameter instead.   Specifies a DRS mode. The valid values are FullyAutomated, Manual, and PartiallyAutomated.
 - -EVCMode [String] (Optional) Specifies the EVC mode of the newly created cluster. If not specified or set to $null, EVC is deactivated.
 - -FirmwareAddon [Package] (Optional) Specifies a package from a hardware support manager that the hosts on a cluster should comply with. This parameter has been renamed from "Package". A PowerShell alias "Package" for this parameter has been added for backward compatibility of PowerShell scripts.
 - -HAAdmissionControlEnabled [Boolean] (Optional) Indicates that the virtual machines in the cluster will not start if they violate availability constraints.
@@ -1131,11 +1165,11 @@ This cmdlet modifies the configuration of a cluster. HAEnabled is automatically 
 - -Name [String] (Optional) Specifies a new name for the cluster.
 - -Profile [VMHostProfile] (Optional) Specifies a host profile you want to associate with the cluster. If the value of this parameter is $null, the current profile association is removed.
 - -Remediate [SwitchParameter] (Required) Indicates that you want to remediate the cluster's hosts to the target state.
-- -RemovedComponent [String[]] (Optional) Specifies a list of components that you want to remove from the base image.
+- -RemovedComponent [String[]] (Optional) Specifies a list of components that you want to remove from the base image.   Calling the commandlet with a new value for this parameter overrides any previously configured value. It does not add new components to the list of removed ones. To reset the list of removed components provide an empty array to this parameter.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -VendorAddOn [AddOn] (Optional) Specifies the ESXi vendor add-on that the cluster's hosts should comply with.
-- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:
+- -VMSwapfilePolicy [VMSwapfilePolicy] (Optional) Specifies the swapfile placement policy. The following values are valid:   InHostDataStore - stores the swapfile in the datastore specified by the VMSwapfileDatastoreID property of the virtual machine host. If the VMSwapfileDatastoreID property is not set or indicates a datastore with insufficient free space, the swapfile is stored in the same directory as the virtual machine. This setting might degrade the vMotion performance.     WithVM - stores the swapfile in the same directory as the virtual machine.
 - -VsanDiskClaimMode [VsanDiskClaimMode] (Optional) Specifies the mode by which disks are claimed by vSAN.
 - -VsanEnabled [Boolean] (Optional) Specifies whether the vSAN feature is enabled on this cluster.
 - -VsanEsaEnabled [Boolean] (Optional) Indicates that the vSAN ESA feature is enabled on this cluster. This feature is supported from vSphere 8.0.
@@ -1195,11 +1229,13 @@ This cmdlet adds or removes either virtual machines or VM hosts to or from the s
 
 ```powershell
 $vm = Get-VM "MyVM"
+Get-DrsClusterGroup "MyClusterGroup" | Set-DrsClusterGroup -VM $vm -Add
 ```
 _Adds the "MyVM" virtual machine to the "MyClusterGroup" DRS cluster group by using a pipeline._
 
 ```powershell
 $vmhost = Get-VMHost "MyVMHost"
+Get-DrsClusterGroup "MyClusterGroup" | Set-DrsClusterGroup -VMHost $vmhost -Remove
 ```
 _Removes the "MyVMHost" VM host from the "MyClusterGroup" DRS cluster group by using a pipeline._
 
@@ -1222,6 +1258,8 @@ This cmdlet modifies an existing DRS rule. Each rule defines the virtual machine
 
 ```powershell
 $vm = Get-VM DrsRuleVM1*
+
+Set-DrsRule -Rule $affinityRule -VM $vm -Enabled $true;
 ```
 _Updates the list of virtual machines that might be referenced by the DRS rule stored in the $affinityRule  variable and enables the rule._
 
@@ -1263,9 +1301,9 @@ This cmdlet modifies the properties of the specified virtual hard disk. You can 
 - -HostPassword [SecureString] (Optional) Specifies the password you want to use for authenticating with the host.
 - -HostUser [String] (Optional) Specifies the user name you want to use for authenticating with the host.
 - -Inflate [SwitchParameter] (Optional) Indicates that you want to inflate the hard disk.
-- -Partition [String] (Optional) Specifies the partitions you want to resize. On Windows, you can specify which partition you want to resize by using the Partition parameter. If you do not specify a partition, the last partition of the disk is resized. On Linux, you can expand only the last partition.
+- -Partition [String] (Optional) Specifies the partitions you want to resize. On Windows, you can specify which partition you want to resize by using the Partition parameter. If you do not specify a partition, the last partition of the disk is resized. On Linux, you can expand only the last partition.   Resizing guest partitions is supported only for Windows OS and for ext3 partitions on RHEL 5. It is achieved by scripts, provided with the VMware PowerCLI installation. You can modify these scripts or add new ones to support operating systems different than Windows and RHEL 5, and more specific disk resizing scenarios. The scripts are located in the "Scripts" folder in the PowerCLI installation directory and their names have the following format:   GuestDiskExpansion_<OS_Identifier>   <OS_Identifier> is the guest family or the guest ID (as returned by Get-VMGuest).   If no partition is specified, the last partition of the hard disk is resized.
 - -Persistence [String] (Optional) Specifies the disk persistence mode. The valid values are Persistent, NonPersistent, IndependentPersistent, IndependentNonPersistent, and Undoable. This parameter is supported only when the disk type is rawVirtual or flat. The NonPersistent and Undoable values are deprecated and scheduled for removal. These values do not work with snapshots and are not supported on ESXi 3.5 and later.
-- -ResizeGuestPartition [SwitchParameter] (Optional) Note: This functionality is deprecated and is not functional on the currently supported guest operating systems. Resizing guest disks works only on Windows XP Service Pack 3 and Red Hat Enterprise Linux 5.
+- -ResizeGuestPartition [SwitchParameter] (Optional) Note: This functionality is deprecated and is not functional on the currently supported guest operating systems. Resizing guest disks works only on Windows XP Service Pack 3 and Red Hat Enterprise Linux 5.   Indicates that you want to resize the guest partition of the disk. To use this feature, VMware Tools must run on the virtual machine. On Windows, you can specify which partition you want to resize by using the Partition parameter. If you don't specify a partition, the last partition of the disk is resized. On Linux, you can expand only the last partition.   Resizing guest partitions is supported only for Windows OS and for ext3 partitions on RHEL 5. It is achieved by scripts, provided with the VMware PowerCLI installation. You can modify these scripts or add new ones to support operating systems different than Windows and RHEL 5, and more specific disk resizing scenarios. The scripts are located in the "Scripts" folder in the PowerCLI installation directory and their names have the following format:   GuestDiskExpansion_<OS_Identifier>   <OS_Identifier> is the guest family or the guest ID (as returned by Get-VMGuest).
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -StorageFormat [VirtualDiskStorageFormat] (Optional) Specifies the storage format of the relocated hard disk. This parameter is applicable only when moving a virtual machine disk to a different datastore by using the Datastore parameter. This parameter accepts Thin, Thick, and EagerZeroedThick values.
 - -ToolsWaitSecs [Int32] (Optional) Specifies the time in seconds to wait for a response from VMware Tools. If a non-positive value is provided, the system waits an infinitely long time.
@@ -1346,7 +1384,7 @@ _Enables the Trust Authority cluster mycluster._
 **Parameters:**
 
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -State [TrustedState] (Required) Specifies the state in which you want to update the specified trusted clusters.
+- -State [TrustedState] (Required) Specifies the state in which you want to update the specified trusted clusters.   If you specify Enabled, the cmdlet will push all the ServiceInfos, including the AttestationServiceInfos and the KeyProviderServiceInfos configured in the vCenter Server system, to the specified trusted clusters. However, if there are no AttestationServiceInfos configured in the vCenter Server system, the cmdlet will fail. If you specify Disabled, the cmdlet will clear all the ServiceInfos configured in the specified trusted clusters.   Note: In vCenter Server 7.0 Update 1 and later, a warning message appears if the given trusted cluster is unhealthy in the TrustedClusterAppliedStatus. This cmdlet remediates it automatically.
 - -TrustedCluster [TrustedCluster[]] (Required) Specifies the trusted clusters you want to update.
 - -Remediate [SwitchParameter] (Required) Indicates that you want to remediate the given trusted cluster to make the applied status healthy. Note: This parameter is only available for the vCenter Server system 7.0 Update 1 and later.
 

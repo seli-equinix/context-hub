@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Virtual switches, distributed switches, p
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,networking,Add-VDSwitchPhysicalNetworkAdapter, Add-VirtualSwitchPhysicalNetworkAdapter, Export-VDPortGroup, Export-VDSwitch, Get-NicTeamingPolicy, Get-VDPort, Get-VDPortgroup, Get-VDPortgroupOverridePolicy, Get-VDSwitch, Get-VDSwitchPrivateVlan, Get-VirtualNetwork, Get-VirtualPortGroup, Get-VirtualSwitch, New-VDPortgroup, New-VDSwitch, New-VDSwitchPrivateVlan, New-VirtualPortGroup, New-VirtualSwitch, Remove-VDPortGroup, Remove-VDSwitch, Remove-VDSwitchPhysicalNetworkAdapter, Remove-VDSwitchPrivateVlan, Remove-VirtualPortGroup, Remove-VirtualSwitch, Remove-VirtualSwitchPhysicalNetworkAdapter, Set-NicTeamingPolicy, Set-VDPort, Set-VDPortgroup, Set-VDPortgroupOverridePolicy, Set-VDSwitch, Set-VirtualPortGroup, Set-VirtualSwitch"
@@ -32,11 +32,15 @@ Virtual switches, distributed switches, port groups, VLAN, traffic shaping. Modu
 
 ```powershell
 $vmhostNetworkAdapter = Get-VMHost "MyVMHost" | Get-VMHostNetworkAdapter -Physical -Name vmnic2
+Get-VDSwitch "MyVDSwitch" | Add-VDSwitchPhysicalNetworkAdapter -VMHostPhysicalNic $vmhostNetworkAdapter
 ```
 _Retrieves the specified physical network adapter from the specified host and adds it to the specified vSphere distributed switch._
 
 ```powershell
 $myVMHost = Get-VMHost "MyVMHost"
+$physicalNic = Get-VMHostNetworkAdapter -VMHost $myVMHost -Name "vmnic0"
+$virtualNic = Get-VMHostNetworkAdapter -VMHost $myVMHost -Name "vmk0"
+Get-VDSwitch -Name "MyVDSwitch" | Add-VDSwitchPhysicalNetworkAdapter -VMHostPhysicalNic $physicalNic -VMHostVirtualNic $virtualNic -VirtualNicPortgroup 'MyVDPortGroup'
 ```
 _Migrates a host physical network adapter and a virtual network adapter to a vSphere distributed switch._
 
@@ -58,11 +62,17 @@ This cmdlet adds a host physical NIC to a standard virtual switch. If VMHost vir
 
 ```powershell
 $myVMHostNetworkAdapter = Get-VMhost "MyVMHost" | Get-VMHostNetworkAdapter -Physical -Name vmnic2
+Get-VirtualSwitch "MyVirtualSwitch" | Add-VirtualSwitchPhysicalNetworkAdapter -VMHostPhysicalNic $myVMHostNetworkAdapter
 ```
 _Adds a VMHost physical network adapter to the specified distributed switch._
 
 ```powershell
 $myVMHost = Get-VMHost 'MyVMHost'
+$myVDSwitch = Get-VDSwitch 'MyVDSwitch'
+$physicalNic = Get-VMHostNetworkAdapter -VMHost $myVMHost -VirtualSwitch $myVDSwitch -Name 'vmnic0'
+$virtualNic = Get-VMHostNetworkAdapter -VMHost $myVMHost -VirtualSwitch $myVDSwitch -Name 'vmk0'
+$myStandardSwitch = Get-VirtualSwitch -VMHost $myVMHost -Name 'vSwitch0'
+Add-VirtualSwitchPhysicalNetworkAdapter -VirtualSwitch $myStandardSwitch -VMHostPhysicalNic $physicalNic -VMHostVirtualNic $virtualNic
 ```
 _Migrates VMHost physical and virtual network adapters from a distributed virtual switch to a standard virtual switch._
 
@@ -91,6 +101,7 @@ _Exports the configuration of the specified port group to the specified file._
 
 ```powershell
 $myPortGroup = Get-VDPortGroup -Name 'MyVDPortGroup'
+Export-VDPortGroup -VDPortGroup $myPortGroup -Destination 'C:\MyVDSwitchesBackup\MyVDPortGroupBackup.zip' -Force
 ```
 _Exports the configuration of the specified port group to the specified file. If the MyVDSwitchesBackup directory does not exist, it is created. If the MyVDPortGroupBackup.zip file already exists in the specified location, it is overwritten._
 
@@ -184,7 +195,7 @@ _Retrieves all connected virtual distributed ports of a vSphere distributed swit
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the distributed port groups that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the distributed port groups that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the distributed port groups that you want to retrieve.
 - -NetworkAdapter [NetworkAdapter[]] (Optional) Specifies a virtual machine network adapter to retrieve the distributed port group to which the network adapter is connected.
 - -RelatedObject [VDPortgroupRelatedObjectBase[]] (Required) Specifies an object to retrieve one or more distributed port groups that are related to the object. This parameter accepts ExternalNetwork, OrgNetwork, NetworkPool, and OMResource objects.
@@ -232,7 +243,7 @@ _Retrieves the overriding policy settings of a distributed port group named "MyV
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the vSphere distributed switches that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the vSphere distributed switches that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [FolderContainer[]] (Optional) Specifies vCenter Server container objects that you want to search for vSphere distributed switches. This parameter accepts Datacenter and Folder objects.
 - -Name [String[]] (Optional) Specifies the names of the vSphere distributed switches that you want to retrieve.
 - -RelatedObject [VDSwitchRelatedObjectBase[]] (Required) Specifies an object to retrieve one or more vSphere distributed switches that are related to the object. This parameter accepts NetworkPool and OMResource objects.
@@ -324,12 +335,12 @@ This cmdlet retrieves the available port groups of hosts, virtual machines, and 
 
 - -Datacenter [Datacenter[]] (Optional) Filters the port groups of the virtual switches connected to hosts in the specified datacenters.
 - -Distributed [SwitchParameter] (Optional) Indicates that you want to retrieve the port groups for DistributedSwitch objects. This parameter is obsolete. To retrieve distributed port groups, use the Get-VDPortgroup cmdlet instead.
-- -Id [String[]] (Required) Specifies the IDs of the port groups you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the port groups you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the port groups you want to retrieve.
-- -RelatedObject [VirtualPortGroupRelatedObjectBase[]] (Required) Specifies objects to retrieve one or more VirtualPortGroup objects that are related to them. This parameter accepts vCloud NetworkPool, vCloud ExternalNetwork, and vCloud OrgNetwork objects.
+- -RelatedObject [VirtualPortGroupRelatedObjectBase[]] (Required) Specifies objects to retrieve one or more VirtualPortGroup objects that are related to them. This parameter accepts vCloud NetworkPool, vCloud ExternalNetwork, and vCloud OrgNetwork objects.   Note: In vCloud Director 5.1 environments, you cannot retrieve a distributed port group from an organization network backed by the distributed port group.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Standard [SwitchParameter] (Optional) Indicates that you want to retrieve the port groups for VirtualSwitch objects.
-- -Tag [Tag[]] (Optional) Returns only the virtual port groups that are associated with any of the specified tags.
+- -Tag [Tag[]] (Optional) Returns only the virtual port groups that are associated with any of the specified tags.   Note: This parameter is compatible only with standard virtual port groups. For distributed port groups, you should use the Get-VDPortgroup cmdlet.
 - -VirtualSwitch [VirtualSwitchBase[]] (Optional) Specifies the virtual switches for which you want to retrieve their port groups.
 - -VM [VirtualMachine[]] (Optional) Specifies the virtual machines whose port groups you want to retrieve.
 - -VMHost [VMHost[]] (Optional) Specifies the hosts whose port groups you want to retrieve. The position of this parameter is deprecated and will be changed in a future release. To avoid errors when you run existing scripts on future PowerCLI versions, specify the parameter by name.
@@ -343,11 +354,13 @@ _Retrieves all port groups named "VM Network"._
 
 ```powershell
 $myVMHost = Get-VMHost -Name "MyVMHost"
+Get-VirtualPortGroup -Name "VM Network" -VMHost $myVmHost
 ```
 _Retrieves the port group named "VM Network" on the specified host._
 
 ```powershell
 $myVM = Get-VM -Name "MyVM"
+Get-VirtualPortGroup -VM $myVM
 ```
 _Retrieves all port groups to which the specified virtual machine is connected._
 
@@ -361,9 +374,9 @@ This cmdlet retrieves the virtual switches associated with a virtual machine hos
 
 - -Datacenter [Datacenter[]] (Optional) Filters the virtual switches connected to hosts in the specified datacenters.
 - -Distributed [SwitchParameter] (Optional) Indicates that you want to retrieve only DistributedSwitch objects. This parameter is obsolete. To retrieve distributed switches, use the Get-VDSwitch cmdlet instead.
-- -Id [String[]] (Required) Specifies the IDs of the virtual switches you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the virtual switches you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the virtual switches you want to retrieve. Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release. The position of this parameter is deprecated and will be changed in a future release. To avoid errors when you run existing scripts on future PowerCLI versions, specify the parameter by name.
-- -RelatedObject [VirtualSwitchRelatedObjectBase[]] (Required) Specifies objects to retrieve one or more VirtualSwitch objects that are related to them. This parameter accepts vCloud NetworkPool objects.
+- -RelatedObject [VirtualSwitchRelatedObjectBase[]] (Required) Specifies objects to retrieve one or more VirtualSwitch objects that are related to them. This parameter accepts vCloud NetworkPool objects.   Note: In vCloud Director 5.1 environments, you cannot retrieve a distributed switch from a network pool backed by the distributed switch.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Standard [SwitchParameter] (Optional) Indicates that you want to retrieve only VirtualSwitch objects.
 - -VM [VirtualMachine[]] (Optional) Specifies the virtual machines whose virtual switches you want to retrieve.
@@ -396,13 +409,13 @@ This cmdlet creates distributed port groups. You can create a new distributed po
 
 **Parameters:**
 
-- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. Only .zip files created with the Export-VDPortgroup cmdlet are supported.
-- -KeepIdentifiers [SwitchParameter] (Optional) Indicates that the original vSphere distributed port group identifiers will be preserved.
+- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. Only .zip files created with the Export-VDPortgroup cmdlet are supported.   Note: This parameter is supported only on vSphere 5.1 and later.
+- -KeepIdentifiers [SwitchParameter] (Optional) Indicates that the original vSphere distributed port group identifiers will be preserved.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -Name [String] (Required) Specifies the name of the new distributed port group that you want to create.
 - -Notes [String] (Optional) Specifies a description for the new distributed port group that you want to create.
 - -NumPorts [Int32] (Optional) Specifies the number of ports that the distributed port group will have. If you do not set this parameter, the number of ports for the new distributed port group is set to 128 ports.
 - -PortBinding [DistributedPortGroupPortBinding] (Optional) Specifies the port binding setting for the distributed port group that you want to create. This parameter accepts Static, Dynamic, and Ephemeral values. Note: Dynamic port binding is deprecated. For better performance, static port binding is recommended.
-- -ReferencePortgroup [VDPortgroup] (Required) Specifies a reference distributed port group. The properties of the new distributed port group will be cloned from the reference distributed port group.
+- -ReferencePortgroup [VDPortgroup] (Required) Specifies a reference distributed port group. The properties of the new distributed port group will be cloned from the reference distributed port group.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VDSwitch [VDSwitch] (Required) Specifies the vSphere distributed switch on which you want to create the new distributed port group.
@@ -418,6 +431,7 @@ _Creates a new distributed port group on the specified vSphere distributed switc
 
 ```powershell
 $myReferncePortroup = Get-VDPortgroup -Name "MyReferencePortGroup"
+Get-VDSwitch -Name "MyVDSwitch" | New-VDPortgroup -Name "MyVDPortGroup" -ReferencePortgroup $myReferncePortroup
 ```
 _Creates a new distributed port group on the specified vSphere distributed switch by cloning the configuration of the distributed port group named "MyReferencePortGroup"._
 
@@ -434,19 +448,19 @@ This cmdlet creates vSphere distributed switches. You can create a new vSphere d
 
 **Parameters:**
 
-- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. Only .zip files created with the Export-VDSwitch cmdlet are supported.
+- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. Only .zip files created with the Export-VDSwitch cmdlet are supported.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -ContactDetails [String] (Optional) Specifies the contact details of the vSphere distributed switch administrator.
 - -ContactName [String] (Optional) Specifies the name of the vSphere distributed switch administrator.
-- -KeepIdentifiers [SwitchParameter] (Optional) Indicates that the original vSphere distributed switch and port group identifiers will be preserved. You cannot specify this parameter, when the Name parameter is specified.
+- -KeepIdentifiers [SwitchParameter] (Optional) Indicates that the original vSphere distributed switch and port group identifiers will be preserved. You cannot specify this parameter, when the Name parameter is specified.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -LinkDiscoveryProtocol [LinkDiscoveryProtocol] (Optional) Specifies the discovery protocol type of the vSphere distributed switch that you want to create. This parameter accepts CDP and LLDP values. If you do not set a value for this parameter, the default server setting is used.
 - -LinkDiscoveryProtocolOperation [LinkDiscoveryOperation] (Optional) Specifies the link discovery protocol operation for the vSphere distributed switch that you want to create. This parameter accepts Advertise, Listen, Both, and Disabled values. If you do not set a value for this parameter, the default server setting is used.
-- -Location [VIContainer] (Required) Specifies the location where you want to create the vSphere distributed switch. This parameter accepts Datacenter and Folder objects.
+- -Location [VIContainer] (Required) Specifies the location where you want to create the vSphere distributed switch. This parameter accepts Datacenter and Folder objects.   Note: You cannot create distributed port groups with identical names in the same location. If you want to import or clone a vSphere distributed switch with its distributed port groups, you need to specify a location that does not contain identically named distributed port groups.
 - -MaxPorts [Int32] (Optional) Specifies the maximum number of ports allowed on the vSphere distributed switch that you want to create.
 - -Mtu [Int32] (Optional) Specifies the maximum MTU size for the vSphere distributed switch that you want to create. Valid values are positive integers only.
 - -Name [String] (Required) Specifies a name for the new vSphere distributed switch that you want to create. You cannot specify this parameter, when the KeepIdentifiers parameter is specified.
 - -Notes [String] (Optional) Specifies a description for the vSphere distributed switch that you want to create.
 - -NumUplinkPorts [Int32] (Optional) Specifies the number of uplink ports on the vSphere distributed switch that you want to create.
-- -ReferenceVDSwitch [VDSwitch] (Required) Specifies a reference vSphere distributed switch. The properties of the new vSphere distributed switch will be cloned from the reference vSphere distributed switch.
+- -ReferenceVDSwitch [VDSwitch] (Required) Specifies a reference vSphere distributed switch. The properties of the new vSphere distributed switch will be cloned from the reference vSphere distributed switch.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Version [String] (Optional) Specifies the version of the vSphere distributed switch that you want to create. This parameter accepts 4.0, 4.1.0, 5.0.0, 5.1.0, 5.5.0, 6.0.0, and 6.5.0 values. You cannot specify a version that is incompatible with the version of the vCenter Server system you are connected to.
@@ -456,16 +470,19 @@ This cmdlet creates vSphere distributed switches. You can create a new vSphere d
 
 ```powershell
 $myDatacenter = Get-Datacenter -Name "MyDatacenter"
+New-VDSwitch -Name "MyVDSwitch" -Location $myDatacenter -LinkDiscoveryProtocol "LLDP" -LinkDiscoveryProtocolOperation "Listen" -MaxPorts 256 -Version "5.0.0"
 ```
 _Creates a new vSphere distributed switch with the specified name, version, maximum number of ports, and link discovery protocol settings in the specified datacenter._
 
 ```powershell
 $myFolder = Get-Folder -Name "MyFolder"
+Get-VDSwitch -Name "MyReferenceSwitch" | New-VDSwitch -Name "MyVDSwitch" -Location $myFolder -WithoutPortGroups
 ```
 _Creates a new vSphere distributed switch by cloning the configuration of the existing vSphere distributed switch named "MyReferenceSwitch". The new vSphere distributed switch is created without cloning the existing port groups and is stored in the specified folder._
 
 ```powershell
 $myFolder = Get-Folder -Name "MyFolder"
+New-VDSwitch -Name "MyVDSwitch" -Location $myFolder -WithoutPortGroups -BackupPath "c:\MyDistributedSwitchProfile.zip"
 ```
 _Creates a new vSphere distributed switch by importing the specified backup profile._
 
@@ -499,12 +516,14 @@ This cmdlet creates a new port group on the  host using the provided parameters.
 - -Name [String] (Required) Specifies a name for the new port group.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VirtualSwitch [VirtualSwitch] (Required) Specifies the virtual switch for which you want to create a new port group.
-- -VLanId [Int32] (Optional) Specifies the VLAN ID for ports using this port group. The following values are valid:
+- -VLanId [Int32] (Optional) Specifies the VLAN ID for ports using this port group. The following values are valid:   0 - specifies that you do not want to associate the port group with a VLAN. 1 to 4094 - specifies a VLAN ID for the port group. 4095 - specifies that the port group should use trunk mode, which allows the guest operating system to manage its own VLAN tags.
 
 **Examples:**
 
 ```powershell
 $vswitch =  New-VirtualSwitch -VMHost 10.23.114.234 -Name VSwitch
+
+$vportgroup =  New-VirtualPortGroup -VirtualSwitch $vswitch  -Name VPortGroup
 ```
 _Creates a virtual port group named VPortGroup on the virtual switch VSwitch._
 
@@ -519,7 +538,7 @@ This cmdlet creates a new virtual switch on the host that is specified by the VM
 - -Mtu [Int32] (Optional) Specifies the maximum transmission unit (MTU) associated with the specified virtual switch (in bytes). The MTU value is always greater than 0.
 - -Name [String] (Required) Specifies a name for the new virtual switch.
 - -Nic [PhysicalNic[]] (Optional) Specifies the physical network interface cards you want to add to the Active NICs of the new virtual switch. This parameter accepts both objects and strings.
-- -NumPorts [Int32] (Optional) Specifies the virtual switch port number. The value is rounded to the closest exact power of two that is greater than the given number (for example, if the user specifies 67, this number is rounded to 128). Note that the port number displayed in the vSphere Client might differ from the value that you specified for the NumPorts parameter.
+- -NumPorts [Int32] (Optional) Specifies the virtual switch port number. The value is rounded to the closest exact power of two that is greater than the given number (for example, if the user specifies 67, this number is rounded to 128). Note that the port number displayed in the vSphere Client might differ from the value that you specified for the NumPorts parameter.   Note: In ESX 5.5 or later, standard virtual switches are always elastic, so the NumPorts parameter is no longer applicable and its value is ignored.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHost [VMHost] (Required) Specifies the host on which you want to create the new virtual switch.
 
@@ -532,6 +551,10 @@ _Creates a new virtual switch named VSwitch on the virtual machine host with IP 
 
 ```powershell
 $network = Get-VMHostNetwork -VMHost 10.23.112.234
+
+$phNic = $network.PhysicalNic[0].DeviceName
+
+$vswitch = New-VirtualSwitch -VMHost 10.23.112.234 -Name VSwitch -Nic $phNic
 ```
 _Creates a new virtual switch named VSwitch on the virtual machine host with IP address 10.23.112.234 with a physical network adapter._
 
@@ -618,6 +641,10 @@ _Removes the private VLAN configuration entries with specified primary identitie
 
 ```powershell
 $vswitch =  New-VirtualSwitch -VMHost 10.23.112.234 -Name VirtualSwitch
+
+$vportgroup =  New-VirtualPortGroup -VirtualSwitch $vswitch -Name VPortGroup
+
+Remove-VirtualPortGroup -VirtualPortGroup $vportgroup
 ```
 _Creates a new virtual switch named VirtualSwitch and a virtual ports group VPortGroup for this switch. Then removes the virtual ports group._
 
@@ -634,6 +661,8 @@ _Creates a new virtual switch named VirtualSwitch and a virtual ports group VPor
 
 ```powershell
 $vswitch =  New-VirtualSwitch -VMHost 10.23.122.145 -Name VirtualSwitch
+
+Remove-VirtualSwitch -VirtualSwitch $vswitch
 ```
 _Creates a new virtual switch named VirtualSwitch on the host with an IP address 10.23.122.145. Then removes the virtual switch._
 
@@ -669,11 +698,11 @@ This cmdlet modifies the specified NIC teaming policy. You can change the load b
 - -InheritLoadBalancingPolicy [Boolean] (Optional) Indicates that the value of the LoadBalancingPolicy parameter is inherited from the virtual switch.
 - -InheritNetworkFailoverDetectionPolicy [Boolean] (Optional) Indicates that the value of the NetworkFailoverDetectionPolicy parameter is inherited from the virtual switch.
 - -InheritNotifySwitches [Boolean] (Optional) Indicates that the value of the NotifySwitches parameter is inherited from the virtual switch.
-- -LoadBalancingPolicy [LoadBalancingPolicy] (Optional) Determines how network traffic is distributed between the network adapters assigned to a switch. The following values are valid:
+- -LoadBalancingPolicy [LoadBalancingPolicy] (Optional) Determines how network traffic is distributed between the network adapters assigned to a switch. The following values are valid:   LoadBalanceIP - Route based on IP hash. Choose an uplink based on a hash of the source and destination IP addresses of each packet. For non-IP packets, whatever is at those offsets is used to compute the hash.   LoadBalanceSrcMac - Route based on source MAC hash. Choose an uplink based on a hash of the source Ethernet.     LoadBalanceSrcId - Route based on the originating port ID. Choose an uplink based on the virtual port where the traffic entered the virtual switch.  ExplicitFailover - Always use the highest order uplink from the list of Active adapters that passes failover detection criteria.
 - -MakeNicActive [PhysicalNic[]] (Optional) Specifies the adapters you want to continue to use when the network adapter connectivity is available and active.
 - -MakeNicStandby [PhysicalNic[]] (Optional) Specifies the adapters you want to use if one of the active adapter's connectivity is unavailable.
 - -MakeNicUnused [PhysicalNic[]] (Optional) Specifies the adapters you do not want to use.
-- -NetworkFailoverDetectionPolicy [NetworkFailoverDetectionPolicy] (Optional) Specifies how to reroute traffic in the event of an adapter failure. The following values are valid:
+- -NetworkFailoverDetectionPolicy [NetworkFailoverDetectionPolicy] (Optional) Specifies how to reroute traffic in the event of an adapter failure. The following values are valid:   LinkStatus - Relies solely on the link status that the network adapter provides. This option detects failures, such as cable pulls and physical switch power failures, but not configuration errors, such as a physical switch port being blocked by spanning tree or misconfigured to the wrong VLAN or cable pulls on the other side of a physical switch.   BeaconProbing - Sends out and listens for beacon probes on all NICs in the team and uses this information, in addition to link status, to determine link failure. This option detects many of the failures mentioned above that are not detected by link status alone.
 - -NotifySwitches [Boolean] (Optional) Indicates that whenever a virtual NIC is connected to the virtual switch or whenever that virtual NIC's traffic is routed over a different physical NIC in the team because of a failover event, a notification is sent over the network to update the lookup tables on the physical switches.
 - -VirtualPortGroupPolicy [NicTeamingVirtualPortGroupPolicy[]] (Required) Specifies the virtual port group policy to configure.
 - -VirtualSwitchPolicy [NicTeamingVirtualSwitchPolicy[]] (Required) Specifies the virtual switch policy to configure.
@@ -682,6 +711,8 @@ This cmdlet modifies the specified NIC teaming policy. You can change the load b
 
 ```powershell
 $policy = Get-VirtualSwitch -VMHost (Get-VMHost *.128) -Name vSwitch1 | Get-NicTeamingPolicy
+
+$policy | Set-NicTeamingPolicy -LoadBalancingPolicy LoadBalanceSrcMac
 ```
 _Configures the NicTeaming policy  of the vSwitch1 virtual switch._
 
@@ -699,6 +730,7 @@ _Configures the NicTeaming policy  of the vSwitch1 virtual switch._
 
 ```powershell
 $myVDPort = Get-VDPort -Key "Port0" -VDSwtich "MyVDSwitch"
+Set-VDPort -VDPort $myVDPort -Name "MyUpdatedPortName" -Description "MyUpdatedVDPortDescription"
 ```
 _Updates the name and the description of a specified virtual distributed port inside a vSphere distributed switch named "MyVDSwitch"._
 
@@ -710,14 +742,14 @@ This cmdlet modifies the configuration of distributed port groups. You can set t
 
 **Parameters:**
 
-- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. You can import only .zip files created with the Export-VDPortgroup cmdlet.
+- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. You can import only .zip files created with the Export-VDPortgroup cmdlet.   Note: This parameter is only supported on vSphere 5.1 and later.
 - -DisableVlan [SwitchParameter] (Optional) Sets the VLAN type of the distributed port group to None. This parameter is obsolete. Use the corresponding parameter from the Set-VDVlanConfiguration cmdlet instead.
 - -Name [String] (Optional) Specifies a new name for the distributed port group that you want to configure.
 - -Notes [String] (Optional) Specifies a new description for the distributed port group that you want to configure.
 - -NumPorts [Int32] (Optional) Specifies a new number of ports on the distributed port group that you want to configure.
-- -PortBinding [DistributedPortGroupPortBinding] (Optional) Specifies a new port binding setting for the distributed port group that you want to configure. This parameter accepts Static, Dynamic, and Ephemeral values.
+- -PortBinding [DistributedPortGroupPortBinding] (Optional) Specifies a new port binding setting for the distributed port group that you want to configure. This parameter accepts Static, Dynamic, and Ephemeral values.   Note: Dynamic port binding is deprecated. For better performance, static port binding is recommended.
 - -PrivateVlanId [Int32] (Optional) Specifies the secondary VLAN ID of a vSphere distributed switch's private VLAN configuration entry. This parameter is obsolete. Use the corresponding parameter from the Set-VDVlanConfiguration cmdlet instead.
-- -RollbackConfiguration [SwitchParameter] (Required) Indicates that you want to rollback the distributed port group to its last valid configuration.
+- -RollbackConfiguration [SwitchParameter] (Required) Indicates that you want to rollback the distributed port group to its last valid configuration.   Note: Rollback is available only on vSphere 5.1 and later.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VDPortgroup [VDPortgroup[]] (Required) Specifies the distributed port group that you want to configure.
@@ -738,6 +770,7 @@ _Changes the VLAN trunk range of all distributed port groups named "MyVDPortGrou
 
 ```powershell
 $myVDPortgroup = Get-VDPortgroup -Name "MyVDPortGroup" -VDSwitch "MyVDSwitch"
+Set-VDPortgroup -VDPortgroup $myVDPortgroup -DisableVlan
 ```
 _Sets the VLAN type of the specified distributed port group to None._
 
@@ -766,6 +799,9 @@ _Retrieves a distributed port group named "MyVDPortgroup" and updates its overri
 
 ```powershell
 Get-VDSwitch "MyVDSwitch" |
+Get-VDPortgroup | Get-VDPortgroupOverridePolicy |
+Set-VDPortgroupOverridePolicy -ResetPortConfigAtDisconnect $true
+-TrafficShapingOverrideAllowed $true
 ```
 _Retrieves all port groups inside a distributed switch named "MyVDSwitch" and updates their overriding policies with the options to override the traffic shaping setting at port level, and to reset the distributed port network settings back to the port group settings._
 
@@ -777,7 +813,7 @@ This cmdlet modifies the configuration of vSphere distributed switches. You can 
 
 **Parameters:**
 
-- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. You can import only .zip files created with the Export-VDSwitch cmdlet.
+- -BackupPath [String] (Required) Specifies the full file path to the .zip file containing the backup configuration that you want to import. You can import only .zip files created with the Export-VDSwitch cmdlet.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -ContactDetails [String] (Optional) Specifies new contact details of the vSphere distributed switch administrator.
 - -ContactName [String] (Optional) Specifies a new name for the vSphere distributed switch administrator.
 - -LinkDiscoveryProtocol [LinkDiscoveryProtocol] (Optional) Specifies the link discovery protocol for the vSphere distributed switch that you want to configure. This parameter accepts CDP and LLDP values.
@@ -787,12 +823,12 @@ This cmdlet modifies the configuration of vSphere distributed switches. You can 
 - -Name [String] (Optional) Specifies a new name for the vSphere distributed switch that you want to configure.
 - -Notes [String] (Optional) Specifies a new description for the vSphere distributed switch that you want to configure.
 - -NumUplinkPorts [Int32] (Optional) Specifies the number of uplink ports on the vSphere distributed switch that you want to configure.
-- -RollBackConfiguration [SwitchParameter] (Required) Indicates that you want to rollback the configuration of the vSphere distributed switch to an earlier state.
+- -RollBackConfiguration [SwitchParameter] (Required) Indicates that you want to rollback the configuration of the vSphere distributed switch to an earlier state.   Note: This parameter is supported only on vSphere 5.1 and later.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VDSwitch [VDSwitch[]] (Required) Specifies the vSphere distributed switch that you want to configure.
 - -Version [String] (Optional) Specifies a new version for the vSphere distributed switch that you want to configure. This parameter accepts 4.0, 4.1.0, 5.0.0, 5.1.0, 5.5.0, and 6.0.0 values. You cannot specify a version that is incompatible with the version of the vCenter Server system you are connected to.
-- -WithoutPortGroups [SwitchParameter] (Optional) Indicates that the specified backup configuration is imported without its port groups.
+- -WithoutPortGroups [SwitchParameter] (Optional) Indicates that the specified backup configuration is imported without its port groups.   Note: This parameter is supported only on vSphere 5.1 and later.
 
 **Examples:**
 
@@ -803,11 +839,13 @@ _Modifies the maximum number of ports, the number of uplink ports, and the maxim
 
 ```powershell
 $myVDSwitches = Get-VDSwitch -Name MyVDSwitch*
+Set-VDSwitch -VDSwitch $myVDSwitches -Version '5.1.0'
 ```
 _Changes the version of all vSphere distributed switches whose names start with "MyVDSwitch"._
 
 ```powershell
 $myVDSwitch = Get-VDSwitch -Name "MyVDSwitch"
+Set-VDSwitch -VDSwitch $myVDSwitch -LinkDiscoveryProtocol LLDP -LinkDiscoveryProtocolOperation Listen
 ```
 _Enables link discovery protocol on the specified vSphere distributed switch, sets it to LLDP and changes the link discovery protocol operation to listen._
 
@@ -819,12 +857,16 @@ _Enables link discovery protocol on the specified vSphere distributed switch, se
 
 - -Name [String] (Optional) Specifies a new name for the virtual port group.
 - -VirtualPortGroup [VirtualPortGroup[]] (Required) Specifies the virtual port group whose properties you want to change.
-- -VLanId [Int32] (Optional) Specifies the VLAN ID for ports using this port group. The following values are valid:
+- -VLanId [Int32] (Optional) Specifies the VLAN ID for ports using this port group. The following values are valid:   0 - specifies that you do not want to associate the port group with a VLAN.   1 to 4094 - specifies a VLAN ID for the port group.   4095 - specifies that the port group should use trunk mode, which allows the guest operating system to manage its own VLAN tags.
 
 **Examples:**
 
 ```powershell
 $vswitch =  New-VirtualSwitch -VMHost 10.23.112.36 -Name VSwitch
+
+$vportgroup1 =  New-VirtualPortGroup -VirtualSwitch $vswitch -Name VPortGroup1
+
+$vportgroup2 = Set-VirtualPortGroup -VirtualPortGroup $vportgroup1 -VLanId 1
 ```
 _Creates a new virtual switch named VSwitch on the virtual machine host with IP address 10.23.112.36. Creates a new virtual port group for the new switch named VPortGroup1. Sets the VLAN ID for the ports using the VPortGroup1 group._
 
@@ -838,7 +880,7 @@ This cmdlet modifies the properties of the specified virtual switch. The server 
 
 - -Mtu [Int32] (Optional) Specifies the maximum transmission unit (MTU) associated with the specified virtual switch (in bytes). The MTU value must be greater than 0.
 - -Nic [String[]] (Optional) Specifies new network interface cards for the virtual switch. The old NICs are replaced by the specified ones.
-- -NumPorts [Int32] (Optional) Specifies the VirtualSwitch port number. The value is rounded to the closest exact power of two, greater than the provided number (for example, if the user specifies 67, this number is rounded to 128). The ESX host to which the virtual switch belongs, must be restarted for the change to take effect. Note that the port number displayed in the vSphere Client might differ from the value that you specified for the NumPorts parameter.
+- -NumPorts [Int32] (Optional) Specifies the VirtualSwitch port number. The value is rounded to the closest exact power of two, greater than the provided number (for example, if the user specifies 67, this number is rounded to 128). The ESX host to which the virtual switch belongs, must be restarted for the change to take effect. Note that the port number displayed in the vSphere Client might differ from the value that you specified for the NumPorts parameter.   Note: In ESX 5.5 or later, standard virtual switches are always elastic, so the NumPorts parameter is no longer applicable and its value is ignored.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VirtualSwitch [VirtualSwitch[]] (Required) Specifies the virtual switch you want to configure.
 
@@ -846,11 +888,19 @@ This cmdlet modifies the properties of the specified virtual switch. The server 
 
 ```powershell
 $vswitch = New-VirtualSwitch -Host 10.23.115.67 -Name VSwitch
+
+Set-VirtualSwitch -VirtualSwitch $vswitch -MTU 500
 ```
 _Creates a new virtual switch named VSwitch on the virtual machine host on IP address 10.23.115.67. Then sets the virtual switch MTU to 500._
 
 ```powershell
 $vswitch = New-VirtualSwitch -VMHost 10.23.115.67
+
+$networkAdapters = Get-VMHostNetworkAdapter -VMHost 10.23.115.67 -Physical
+
+$phNic = $networkAdapters[0]
+
+$vSwitch | Set-VirtualSwitch -Nic $phNic
 ```
 _Creates a new virtual switch named VSwitch on the virtual machine host on IP address 10.23.115.67. Then assigns to it a network adapter._
 

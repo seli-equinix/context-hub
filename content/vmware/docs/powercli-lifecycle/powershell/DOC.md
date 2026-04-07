@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Image management, firmware, host patching
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,lifecycle,Get-LcmImage, New-LcmOfflineDepot, Update-Tools"
@@ -25,10 +25,10 @@ This cmdlet retrieves the vSphere Lifecycle Manager images available on a vCente
 **Parameters:**
 
 - -Category [LcmImageCategory[]] (Optional) Specifies the categories of the vSphere Lifecycle Manager images you want to retrieve.
-- -Id [String[]] (Required) Specifies the IDs of the vSphere Lifecycle Manager images you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the vSphere Lifecycle Manager images you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the vSphere Lifecycle Manager images you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
-- -Type [LcmImageType] (Optional) Specifies the type of the vSphere Lifecycle Manager images you want to retrieve.
+- -Type [LcmImageType] (Optional) Specifies the type of the vSphere Lifecycle Manager images you want to retrieve.   Note: LcmImageType is a flag enumeration. If you want to pass multiple image types, you might use "-bor" to group them in a single value (e.g., [LcmImageType]::BaseImage -bor [LcmImageType]::VendorAddOn).
 - -Version [String[]] (Optional) Specifies the versions of the vSphere Lifecycle Manager images you want to retrieve.
 
 **Examples:**
@@ -81,7 +81,7 @@ This cmdlet upgrades the VMware Tools on the specified virtual machine guest OS.
 **Parameters:**
 
 - -Guest [VMGuest[]] (Optional) Specifies the guest operating systems on which you want to update VMware Tools.
-- -NoReboot [SwitchParameter] (Optional) Indicates that you do not want to reboot the system after updating VMware Tools. This parameter is supported only for Windows operating systems. NoReboot passes the following set of options to the VMware Tools installer on the guest OS:
+- -NoReboot [SwitchParameter] (Optional) Indicates that you do not want to reboot the system after updating VMware Tools. This parameter is supported only for Windows operating systems. NoReboot passes the following set of options to the VMware Tools installer on the guest OS:   /s /v"/qn REBOOT=ReallySuppress"   However, the virtual machine might still reboot after updating VMware Tools, depending on the currently installed VMware Tools version, the VMware Tools version to which you want to upgrade, and the vCenter Center/ESX versions.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VM [VirtualMachine[]] (Optional) Specifies a list of the virtual machines whose VMware Tools you want to upgrade.

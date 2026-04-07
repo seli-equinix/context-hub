@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Roles, permissions, privileges, key provi
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,security-permissions,Add-AttestationServiceInfo, Add-EntityDefaultKeyProvider, Add-KeyManagementServer, Add-KeyProviderServiceInfo, Add-TrustAuthorityKeyProviderServer, Add-TrustAuthorityKeyProviderServerCertificate, Complete-VIOAuth2ClientSecretRotation, Export-KeyProvider, Export-Tpm2CACertificate, Export-Tpm2EndorsementKey, Export-TrustAuthorityKeyProviderClientCertificate, Export-TrustAuthorityServicesInfo, Export-TrustedPrincipal, Get-AttestationServiceInfo, Get-KeyManagementServer, Get-KeyProvider, Get-KeyProviderServiceInfo, Get-SecurityInfo, Get-SecurityPolicy, Get-Tpm2EndorsementKey, Get-TrustAuthorityAttestationService, Get-TrustAuthorityKeyProvider, Get-TrustAuthorityKeyProviderClientCertificate, Get-TrustAuthorityKeyProviderClientCertificateCSR, Get-TrustAuthorityKeyProviderServer, Get-TrustAuthorityKeyProviderServerCertificate, Get-TrustAuthorityKeyProviderService, Get-TrustAuthorityPrincipal, Get-TrustAuthorityServicesStatus, Get-TrustAuthorityTpm2AttestationSettings, Get-TrustAuthorityTpm2CACertificate, Get-TrustAuthorityTpm2EndorsementKey, Get-TrustedPrincipal, Get-VDSecurityPolicy, Get-VIAccount, Get-VIOAuth2Client, Get-VIPermission, Get-VIPrivilege, Get-VIPrivilegeReport, Get-VIRole, Get-VTpm, Get-VTpmCertificate, Get-VTpmCSR, Import-KeyProvider, Import-TrustAuthorityServicesInfo, New-TrustAuthorityKeyProvider, New-TrustAuthorityKeyProviderClientCertificate, New-TrustAuthorityKeyProviderClientCertificateCSR, New-TrustAuthorityPrincipal, New-TrustAuthorityTpm2CACertificate, New-TrustAuthorityTpm2EndorsementKey, New-VIOAuth2Client, New-VIPermission, New-VIRole, New-VISamlSecurityContext, New-VTpm, Register-KeyProvider, Remove-AttestationServiceInfo, Remove-EntityDefaultKeyProvider, Remove-KeyManagementServer, Remove-KeyProviderServiceInfo, Remove-TrustAuthorityKeyProvider, Remove-TrustAuthorityKeyProviderServer, Remove-TrustAuthorityKeyProviderServerCertificate, Remove-TrustAuthorityPrincipal, Remove-TrustAuthorityTpm2CACertificate, Remove-TrustAuthorityTpm2EndorsementKey, Remove-VIOAuth2Client, Remove-VIPermission, Remove-VIRole, Remove-VTpm, Set-KeyManagementServer, Set-KeyProvider, Set-SecurityPolicy, Set-TrustAuthorityKeyProvider, Set-TrustAuthorityKeyProviderClientCertificate, Set-TrustAuthorityKeyProviderServerCertificate, Set-TrustAuthorityTpm2AttestationSettings, Set-VDSecurityPolicy, Set-VIOAuth2Client, Set-VIPermission, Set-VIRole, Set-VTpm, Start-VIOAuth2ClientSecretRotation, Unregister-KeyProvider"
@@ -23,23 +23,25 @@ Roles, permissions, privileges, key providers, TPM, Trust Authority. Module: VMw
 **Parameters:**
 
 - -AttestationService [TrustAuthorityAttestationService[]] (Required) Specifies the Trust Authority attestation services that you want to retrieve from the Trust Authority system.
-- -FilePath [String] (Optional) Specifies a file that stores the X509Chain data you want to use to connect to the Trust Authority attestation service.
+- -FilePath [String] (Optional) Specifies a file that stores the X509Chain data you want to use to connect to the Trust Authority attestation service.   Either this parameter or the TrustedCA should be specified.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -ServiceAddress [String] (Required) Specifies the service address that you want to retrieve from the service address in the Trust Authority attestation service in the Trust Authority system.
 - -ServiceGroup [String] (Required) Specifies the service group that you want to retrieve from the service group in the Trust Authority attestation service in the Trust Authority system.
 - -ServicePort [Int32] (Optional) Specifies the number of the service port which is retrieved from the service port in the Trust Authority attestation service in the Trust Authority system.
 - -TAClusterId [String] (Required) Specifies the Trust Authority cluster ID which you want to retrieve from the Trust Authority cluster ID in the running Trust Authority attestation service in the Trust Authority system.
-- -TrustedCA [X509Chain] (Optional) Specifies the Trusted Certificate Authority which you want to retrieve from the Trusted Certificate Authority in the running Trust Authority attestation service in the Trust Authority system.
+- -TrustedCA [X509Chain] (Optional) Specifies the Trusted Certificate Authority which you want to retrieve from the Trusted Certificate Authority in the running Trust Authority attestation service in the Trust Authority system.   Either this parameter or the FilePath should be specified.
 
 **Examples:**
 
 ```powershell
 $attestService = Get-TrustAuthorityAttestationService -Server trustAuthoritySystem
+Add-AttestationServiceInfo -AttesattionService $attestService -Server workloadSystem
 ```
 _Adds the attestation service information to the workload vCenter Server system by specifying the TrustAuthorityAttesationService objects retrieved from the Trust Authority system._
 
 ```powershell
 $attestService = Get-TrustAuthorityAttestationService -Server trustAuthoritySystem | select -First 1
+Add-AttestationServiceInfo -ServiceAddress $attestService.ServiceAddress -ServiceGroup $attestService.ServiceGroup -TAClusterId $attestService.TrustAuthorityClusterId -TrustedCA $attestService.TrustedCA -ServicePort $attestService.ServicePort -Server workloadSystem
 ```
 _Adds the attestation service information to the workload vCenter Server system by specifying detailed information of the TrustAuthorityAttesationService running in the Trust Authority system._
 
@@ -57,6 +59,7 @@ _Adds the attestation service information to the workload vCenter Server system 
 
 ```powershell
 $cluster  = Get-Cluster -name "MyCluster"
+Add-EntityDefaultKeyProvider -KeyProvider (Get-KeyProvider)[0] -Entity $cluster
 ```
 _Adds the first key provider to entity "MyCluster" as default key provider._
 
@@ -91,24 +94,26 @@ _Adds the key management server named 'KMS' to the 'KeyProvider' key provider th
 
 **Parameters:**
 
-- -FilePath [String] (Optional) Specifies a file that stores the X509Chain data that you want to use to connect to the Trust Authority key provider service.
+- -FilePath [String] (Optional) Specifies a file that stores the X509Chain data that you want to use to connect to the Trust Authority key provider service.   Either this parameter or the TrustedCA should be specified.
 - -KeyProviderService [TrustAuthorityKeyProviderService[]] (Required) Specifies the Trust Authority key provider services that you want to retrieve from the Trust Authority System.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-CIServer cmdlet.
 - -ServiceAddress [String] (Required) Specifies the service address which you want to retrieve from the service address in the Trust Authority key provider service in the Trust Authority system.
 - -ServiceGroup [String] (Required) Specifies the service group which you want to retrieve from the service group in the Trust Authority key provider service in the Trust Authority system.
 - -ServicePort [Int32] (Optional) Specifies the number of the service port which you want to retrieve from the service port in the Trust Authority key provider service in the Trust Authority system.
 - -TAClusterId [String] (Required) Specifies the Trust Authority cluster ID which you want to retrieve from the Trust Authority cluster ID in the running Trust Authority key provider service in the Trust Authority system.
-- -TrustedCA [X509Chain] (Optional) Specifies the Trusted Certificate Authority that you want to retrieve from the Trusted Certificate Authority in the running Trust Authority key provider service in the Trust Authority system.
+- -TrustedCA [X509Chain] (Optional) Specifies the Trusted Certificate Authority that you want to retrieve from the Trusted Certificate Authority in the running Trust Authority key provider service in the Trust Authority system.   Either this parameter or the FilePath should be specified.
 
 **Examples:**
 
 ```powershell
 $kmxService = Get-TrustAuthorityKeyProviderService -Server trustAuthoritySystem
+Add-KeyProviderServiceInfo -KeyProviderService $kmxService -Server workloadSystem
 ```
 _Adds the key provider service information to the workload vCenter Server system by specifying the TrustAuthorityKeyProviderService objects that you want to retrieve from the Trust Authority system._
 
 ```powershell
 $kmxService = Get-TrustAuthorityKeyProviderService -Server trustAuthoritySystem | select -First 1
+Add-AttestationServiceInfo -ServiceAddress $kmxService.ServiceAddress -ServiceGroup $kmxService.ServiceGroup -TAClusterId $kmxService.TrustAuthorityClusterId -TrustedCA $kmxService.TrustedCA -ServicePort $kmxService.ServicePort -Server workloadSystem
 ```
 _Adds the key provider service information to the workload vCenter Server system by specifying detailed information of the Trust Authority key provider service that runs in the Trust Authority system._
 
@@ -129,6 +134,7 @@ _Adds the key provider service information to the workload vCenter Server system
 
 ```powershell
 $kp = Get-TrustAuthorityKeyProvider -Name myProvider -TrustAuthorityCluster myCluster
+Add-TrustAuthorityKeyProviderServer -KeyProvider $kp -Address 1.1.1.1
 ```
 _Adds a new Trust Authority key provider server with address 1.1.1.1 to the Trust Authority key provider named myProvider._
 
@@ -149,11 +155,15 @@ _Adds a new Trust Authority key provider server with address 1.1.1.1 to the Trus
 
 ```powershell
 $kps = Get-TrustAuthorityKeyProviderServer -KeyProvider myProvider | select -First 1
+$serverCertificate = Get-TrustAuthorityKeyProviderServerCertificate -KeyProviderServer $kps
+Add-TrustAuthorityKeyProviderServerCertificate -ServerCertificate $serverCertificate
 ```
 _Adds the $serverCertificate certificate which you can retrieve from the first Trust Authority key Provider server in the Trust Authority key provider named myProvider._
 
 ```powershell
 $kps = Get-TrustAuthorityKeyProviderServer -KeyProvider myProvider | select -First 1
+$serverCertificate = Get-TrustAuthorityKeyProviderServerCertificate -KeyProviderServer $kps
+Add-TrustAuthorityKeyProviderServerCertificate -KeyProvider myProvider -Certificate $serverCertificate.Certificate
 ```
 _Adds the certificate which you want to retrieve from the $serverCertificate certificate to be trusted by the Trust Authority key provider myProvider._
 
@@ -214,11 +224,13 @@ _Exports the 'mykp' key provider configuration to the specified file c:\myfile._
 
 ```powershell
 $tpm2Ek = Get-Tpm2Endorsementkey -VMHost myHost
+Export-Tpm2CACertificate -Tpm2EndorsementKey $tpm2Ek -FilePath c:\myfile.zip
 ```
 _Exports the CA certificate from the certificate in the $tpm2EK TPM 2.0 endorsement key that you can retrieve from the myHost host to the c:\myfile.zip file._
 
 ```powershell
 $tpm2Ek = Get-Tpm2Endorsementkey -VMHost myHost
+Export-Tpm2CACertificate -Certificate $tpm2Ek.Certificate -FilePath c:\myfile.zip
 ```
 _Exports the CA certificate from the specified $tpm2EK.Certificate certificate to the c:\myfile.zip file._
 
@@ -237,6 +249,7 @@ _Exports the CA certificate from the specified $tpm2EK.Certificate certificate t
 
 ```powershell
 Connect-VIServer -Server 1.1.1.1 -User myroot -Password mypassword
+Export-Tpm2EndorsementKey -VMHost 1.1.1.1 -Server 1.1.1.1 -FilePath c:\mypath
 ```
 _Exports the TPM 2.0 endorsement key from the TPM 2.0 chip in the 1.1.1.1 host to the c:\mypath file._
 
@@ -302,7 +315,7 @@ _Exports the trusted principal from the connected workload vCenter Server system
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the attestation service information you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the attestation service information you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -ServiceAddress [String[]] (Optional) Specifies the service addresses of the attestation service information you want to retrieve.
 - -ServiceGroup [String[]] (Optional) Specifies the service groups of the attestation service information you want to retrieve.
@@ -376,7 +389,7 @@ _Retrieves all key providers of the NativeKeyProvider and the TrustedKeyProvider
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the key provider service information you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the key provider service information you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -ServiceAddress [String[]] (Optional) Specifies the service addresses of the key provider service information you want to retrieve.
 - -ServiceGroup [String[]] (Optional) Specifies the service groups of the key provider service information you want to retrieve.
@@ -415,6 +428,7 @@ _Retrieves security information of all disks of 'MyVM' virtual machine._
 
 ```powershell
 $vmHosts = Get-VMHost
+Get-SecurityInfo -Entity $vmHosts
 ```
 _Retrieves security information of all the VMHosts available on the connected servers._
 
@@ -454,16 +468,19 @@ _Retrieves the security policy of a virtual switch port group named "MyPortgroup
 
 ```powershell
 Connect-VIServer -Server $esxiAddress -User myroot -Password mypassword
+Get-Tpm2EndorsementKey -VMHost $esxiAddress -Server $esxiAddress
 ```
 _Retrieves the TPM 2.0 endorsement key information from the TPM 2.0 chip of the specified host when connected directly to this host._
 
 ```powershell
 Connect-VIServer -Server $vCenterAddress -User myroot -Password mypassword
+Get-Tpm2EndorsementKey -VMHost $esxiAddress
 ```
 _Retrieves the TPM 2.0 endorsement key information from the TPM 2.0 chip of the specified host in the connected vCenter._
 
 ```powershell
 Connect-VIServer -Server $vCenterAddress -User myroot -Password mypassword
+Get-Tpm2EndorsementKey -VMHostTPM myTpm
 ```
 _Retrieves the TPM 2.0 endorsement key information from the TPM 2.0 chip corresponding to the specified TPM._
 
@@ -483,6 +500,7 @@ _Retrieves the TPM 2.0 endorsement key information from the TPM 2.0 chip corresp
 
 ```powershell
 Set-TrustAuthorityCluster -TrustAuthorityCluster mycluster -State Enabled
+Get-TrustAuthorityAttestationService -TrustAuthorityCluster mycluster
 ```
 _Retrieves the Trust Authority attestation services from the mycluster Trust Authority cluster after you enable it._
 
@@ -576,6 +594,7 @@ _Retrieves the Trust Authority key provider server with name myKmsName from the 
 
 ```powershell
 $kmsServer = Get-TrustAuthorityKeyProviderServer -KeyProvider myProvider
+Get-TrustAuthorityKeyProviderServerCertificate -KeyProviderServer $kmsServer
 ```
 _Retrieves the certificates from the Trust Authority key provider server in the Trust Authority key provider myProvider._
 
@@ -600,6 +619,7 @@ _Retrieves the certificates that are trusted by the Trust Authority key provider
 
 ```powershell
 Set-TrustAuthorityCluster -TrustAuthorityCluster mycluster -State Enabled
+Get-TrustAuthorityKeyProviderService -TrustAuthorityCluster mycluster
 ```
 _Retrieves the Trust Authority key provider services from the Trust Authority mycluster cluster after you enable it._
 
@@ -610,7 +630,7 @@ _Retrieves the Trust Authority key provider services from the Trust Authority my
 **Parameters:**
 
 - -Domain [String] (Optional) Specifies the domain of the Trust Authority principals you want to retrieve. It only works together with the Name parameter.
-- -Id [String[]] (Required) Specifies the IDs of the Trust Authority principals you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the Trust Authority principals you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Issuer [String[]] (Optional) Specifies the issuers of the Trust Authority principals you want to retrieve.
 - -Name [String[]] (Optional) Specifies the names of the Trust Authority principals you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
@@ -661,7 +681,7 @@ _Retrieves the Trust Authority TPM 2.0 attestation settings from the Trust Autho
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the Trust Authority TPM 2.0 CA certificates you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the Trust Authority TPM 2.0 CA certificates you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the Trust Authority TPM 2.0 CA certificates you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -TrustAuthorityCluster [TrustAuthorityCluster[]] (Required) Specifies the Trust Authority clusters from which you want to retrieve the Trust Authority TPM 2.0 CA certificates.
@@ -679,7 +699,7 @@ _Retrieves the Trust Authority TPM 2.0 CA certificates from the Trust Authority 
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the Trust Authority TPM 2.0 endorsement keys you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the Trust Authority TPM 2.0 endorsement keys you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the Trust Authority TPM 2.0 endorsement keys you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -TrustAuthorityCluster [TrustAuthorityCluster[]] (Required) Specifies the Trust Authority clusters from which you want to retrieve the Trust Authority TPM 2.0 endorsement keys.
@@ -741,7 +761,7 @@ This cmdlet retrieves the accounts from the ESX/ESXi or vCenter Server. The Grou
 
 - -Domain [String] (Optional) Specifies AD domains to search for accounts.
 - -Group [SwitchParameter] (Optional) Specifies that you want to retrieve only group accounts.
-- -Id [String[]] (Optional) Specifies the IDs of the accounts you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the accounts you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the accounts you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -User [SwitchParameter] (Optional) Specifies that you want to retrieve only user accounts.
@@ -811,7 +831,7 @@ _Retrieves the permissions of the Administrator user on the provided datacenters
 **Parameters:**
 
 - -Group [PrivilegeGroup[]] (Required) Specifies the privilege group whose items you want to retrieve.
-- -Id [String[]] (Optional) Specifies the IDs of the privileges you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the privileges you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the privileges you want to retrieve.
 - -PrivilegeGroup [SwitchParameter] (Optional) Indicates that you want to retrieve only the privilege groups and not the privilege items in them.
 - -PrivilegeItem [SwitchParameter] (Optional) Indicates that you want to retrieve only the privilege items and not the privilege groups.
@@ -845,6 +865,26 @@ This cmdlet records the privilege checks that occur for the specified sessions d
 
 ```powershell
 PS C:\> $scriptBlock = {
+   #Try to limit the content of the script block only to the cmdlet calls you need to record
+   $myVM = Get-VM myVM
+   Start-VM $myVm -Confirm:$false
+}
+PS C:\> $privReport = Get-VIPrivilegeReport -ScriptBlock $scriptBlock
+PS C:\> $entity = @{l="VIObject";e={Get-VIObjectByVIView -MORef $_.EntityMoRef -Server $_.Server}}
+PS C:\> $privReport | Select-Object EntityId, $entity, Principal, Privilege | Format-Table -AutoSize
+
+EntityId                       Entity                     Principal                   Privilege
+--------                       ------                     ---------                   ---------
+vim.Datacenter-datacenter-3    Datacenter                 administrator@vsphere.local System.View
+vim.Datastore-datastore-12     Storage1                   administrator@vsphere.local System.Read
+vim.ComputeResource-domain-s10 192.168.1.1                administrator@vsphere.local System.Read
+vim.ComputeResource-domain-s10 192.168.1.1                administrator@vsphere.local System.View
+vim.Folder-group-d1            Datacenters                administrator@vsphere.local System.View
+vim.Folder-group-v1015         vCLS                       administrator@vsphere.local System.View
+vim.Folder-group-v8            Discovered virtual machine administrator@vsphere.local System.View
+vim.VirtualMachine-vm-1011     myVM                       administrator@vsphere.local System.Read
+vim.VirtualMachine-vm-1011     myVM                       administrator@vsphere.local System.View
+vim.VirtualMachine-vm-1011     myVM                       administrator@vsphere.local VirtualMachine.Interact.PowerOn
 ```
 _First, retrieves privilege checks from the connected vCenter Server systems. Then, enhances the report with the VIObjects retrieved from the EntityMoRef property of the retrieved PrivilegeCheck objects, when there is an equivalent high-level object available in PowerCLI._
 
@@ -854,7 +894,7 @@ _First, retrieves privilege checks from the connected vCenter Server systems. Th
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the roles you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the roles you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the roles you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -881,6 +921,7 @@ This cmdlet retrieves the virtual TPM (vTPM) devices available on the given virt
 
 ```powershell
 $vm = Get-VM "MyVM"
+Get-VTpm -VM $vm
 ```
 _Retrieves the vTPM device of the virtual machine named "MyVM"._
 
@@ -987,7 +1028,7 @@ _Imports the Trust Authority services information in the c:\mypath file to the c
 - -KmipServerPassword [SecureString] (Optional) Specifies the password of the first KMIP server in the Trust Authority key provider.
 - -KmipServerPort [Int32] (Optional) Specifies the port number of the first KMIP server in the Trust Authority key provider.
 - -KmipServerUsername [String] (Optional) Specifies the user name of the first KMIP server in the Trust Authority key provider.
-- -MasterKeyId [String] (Required) This parameter is deprecated and scheduled for removal. Use the PrimaryKeyId parameter instead.
+- -MasterKeyId [String] (Required) This parameter is deprecated and scheduled for removal. Use the PrimaryKeyId parameter instead.   Specifies the primary key ID of the Trust Authority key provider that you want to use from the KMIP servers.
 - -Name [String] (Required) Specifies the name of the Trust Authority key provider.
 - -ProxyAddress [String] (Optional) Specifies the proxy address of the Trust Authority key provider that you want to use to connect to the KMIP servers.
 - -ProxyPort [Int32] (Optional) Specifies the proxy port number of the Trust Authority key provider that you use to connect to the KMIP servers. It works with the ProxyAddress parameter.
@@ -1056,16 +1097,20 @@ _Creates the client certificate CSR for the Trust Authority key provider mykp._
 
 ```powershell
 $trustedPrincipal = Get-TrustedPrincipal -Server workloadSystem
+New-TrustAuthorityPrincipal -TrustAuthorityCluster mycluster -TrustedPrincipal $trustedPrincipal -Server trustAuthoritySystem
 ```
 _Creates the Trust Authority principal in the Trust Authority cluster mycluster from the trusted principal object $trustedPrincipal. You can retrieve the trusted principal object from the connected workload vCenter Server system workloadSystem._
 
 ```powershell
 Export-TrustedPrincipal -Server workloadSystem -FilePath c:\mypath
+New-TrustAuthorityPrincipal -TrustAuthorityCluster mycluster -FilePath c:\mypath -Server trustAuthoritySystem
 ```
 _Exports the trusted principal object from the connected workload vCenter Server system workloadSystem to the c:\mypath file. Creates the Trust Authority principal in the Trust Authority cluster mycluster from the c:\mypath file._
 
 ```powershell
 $trustedPrincipal = Get-TrustedPrincipal -Server workloadSystem
+New-TrustAuthorityPrincipal -TrustAuthorityCluster mycluster -Name $trustedPrincipal.Name
+ -Domain $trustedPrincipal.Domain -Issuer $trustedPrincipal.Issuer -CertificateChain $trustedPrincipal.CertificateChain -Type $trustedPrincipal.Type -Server trustAuthoritySystem
 ```
 _Creates a Trust Authority principal in the Trust Authority cluster mycluster from each property of the trusted principal object. You can retrieve the Trusted principal object from the connected workload vCenter Server system workloadSystem._
 
@@ -1101,7 +1146,7 @@ _Creates a new Trust Authority TPM 2.0 CA certificate in the Trust Authority clu
 
 **Parameters:**
 
-- -Certificate [X509Certificate2] (Optional) Specifies the certificate of the TPM 2.0 device from a workload virtual machine host server that you want to use to create a Trust Authority TPM 2.0 endorsement key object in Trust Autority vCenter Server system.
+- -Certificate [X509Certificate2] (Optional) Specifies the certificate of the TPM 2.0 device from a workload virtual machine host server that you want to use to create a Trust Authority TPM 2.0 endorsement key object in Trust Autority vCenter Server system.   If both the Certificate and PublicKey parameters are specified, the Certificate parameter is first validated with the preconfigured CA certificates. Then the PublicKey parameter is validated with the Certificate.
 - -CertificateFile [String] (Optional) Specifies the certificate file where you can find the TPM 2.0 device's certificate.
 - -FilePath [String] (Required) Specifies the file where you can find the TPM 2.0 endorsement key.
 - -Name [String] (Required) Specifies the name of the new Trust Authority TPM 2.0 endorsement key that you want to create.
@@ -1115,16 +1160,23 @@ _Creates a new Trust Authority TPM 2.0 CA certificate in the Trust Authority clu
 
 ```powershell
 Connect-VIServer -Server 1.1.1.1 -User root -Password mypasswd
+$tpm2Ek = Get-Tpm2EndorsementKey -Server 1.1.1.1 -VMHost 1.1.1.1
+New-TrustAuthorityTpm2EndorsementKey -TrustAuthorityCluster mycluster -Tpm2EndorsementKey $tpm2Ek -Server trustAuthoritySystem
 ```
 _Creates a Trust Authority TPM 2.0 endorsement key in the Trust Authority cluster mycluster from the TPM 2.0 endorsement key object $tpm2Ek. You can retrieve the TPM 2.0 endorsement key object from the connected workload virtual machine host server 1.1.1.1._
 
 ```powershell
 Connect-VIServer -Server 1.1.1.1 -User root -Password mypasswd
+Export-Tpm2EndorsementKey -Server 1.1.1.1 -FilePath c:\mypath -VMHost 1.1.1.1
+New-TrustAuthorityTpm2EndorsementKey -TrustAuthorityCluster mycluster -FilePath c:\mypath -Server trustAuthoritySystem
 ```
 _Creates a Trust Authority TPM 2.0 endorsement key in the Trust Authority cluster mycluster from the c:\mypath file. You can export the TPM 2.0 endorsement key object from the connected workload virtual machine host server 1.1.1.1._
 
 ```powershell
 Connect-VIServer -Server 1.1.1.1 -User root -Password mypasswd
+$tpm2Ek = Get-Tpm2EndorsementKey -Server 1.1.1.1 -VMHost 1.1.1.1
+New-TrustAuthorityTpm2EndorsementKey -TrustAuthorityCluster mycluster -Name mytpm2Ek
+ -Certificate $tpm2Ek.Certificate -PublicKey $tpm2Ek.PublicKey -Server trustAuthoritySystem
 ```
 _Creates a Trust Authority TPM 2.0 endorsement key with the mytpm2Ek name in the Trust Authority cluster mycluster from each property of the Tpm2EndorsementKey object. You can retrieve the TPM 2.0 endorsement key object from the connected workload virtual machine host server 1.1.1.1._
 
@@ -1138,36 +1190,64 @@ Creates a new OAuth2 client registration with the vCenter Identity Broker. The V
 
 - -AccessTokenTimeToLiveMinutes [Int32] (Optional) How long in minutes new access tokens issued to this client should live.
 - -ClientId [String] (Required) OAuth 2.0 Client identifier that the client uses to identify itself during the OAuth 2.0 exchanges. The client ID must contain only alphanumeric (A-Z, a-z, 0-9), period (.), underscore (_), hyphen (-) and at sign (@) characters.
-- -GrantTypes [String[]] (Required) Specifies a list of OAuth 2.0 Access Grant Types that are enabled in this OAuth 2.0 Client.
-- -Name [String] (Optional) Specifies the user-friendly name that you set for this OAuth 2.0 client.
-- -PkceEnforced [Boolean] (Optional) Specifies whether PKCE is enforced for the OAuth2 client. If not specified, the value is 'false'.
+- -GrantTypes [String[]] (Required) Specifies a list of OAuth 2.0 Access Grant Types that are enabled in this OAuth 2.0 Client.   Possible values are: password , client_credentials , refresh_token , authorization_code , token , id_token
+- -Name [String] (Optional) Specifies the user-friendly name that you set for this OAuth 2.0 client.   This parameter is available only for vCenter instances of version 8.0 Update 3 and later.
+- -PkceEnforced [Boolean] (Optional) Specifies whether PKCE is enforced for the OAuth2 client. If not specified, the value is 'false'.   This parameter is available only for vCenter instances of version 8.0 Update 3 and later.
 - -PostLogoutRedirectUris [String[]] (Optional) Specifies a list of absolute URLs to the OAuth2 Relaying Party. When a logout occurs, the Auth2 Relaying Party might request that the User Agent of the End-User is redirected to one of these absolute URLs. These URLs must contain the https scheme and can also have a port, path, and some query parameters. However, the URLs may also contain the http scheme, provided that the Client Type is confidential. To skip the check for a particular URL section, you can substitute a wildcard character with any string.
-- -PublicClient [Boolean] (Optional) Specifies whether the OAuth 2.0 client is public or not. A public client is one that does not have a secret. If not specified, the value is 'false'.
+- -PublicClient [Boolean] (Optional) Specifies whether the OAuth 2.0 client is public or not. A public client is one that does not have a secret. If not specified, the value is 'false'.   This parameter is available only for vCenter instances of version 8.0 Update 3 and later.
 - -RedirectUris [String[]] (Optional) Specifies a list of absolute URIs of application endpoints that are allowed to receive the authorization code and access token.  The redirect URI sent by the application as part of the Authorization Code Grant Oauth 2.0 flow is verified against this list.  A Wildcard can be substituted for any string to skip the check for a particular URL section. The field is required if GrantTypes parameter contain an "authorization_code" grant type.
 - -RefreshTokenIdleTimeToLiveMinutes [Int32] (Optional) Specifies how long in minutes new refresh tokens issued to this client should live.  Only applicable and mandatory if the GrantTypes parameter includes "refresh_token".
 - -RefreshTokenTimeToLiveMinutes [Int32] (Optional) Specifies how long in minutes new refresh tokens issued to this client can be idle. Only applicable and mandatory if GrantTypes includes "refresh_token". Its value should be less than the refresh token TTL value (specified by the parameter RefreshTokenIdleTimeToLiveMinutes).
-- -RuleSetNames [String[]] (Optional) Specifies a list of built in rule set names to associate this client with.  Each ruleset, allows the client to call a specific set of tenant APIs.
-- -Scope [String[]] (Required) Specifies a list of access request scopes that are allowed by this OAuth 2.0 Client.
-- -Secret [SecureString] (Optional) Specifies the OAuth 2.0 Client secret.
-- -SecretTimeToLiveInMinutes [Int32] (Optional) Specifies after what time in minutes the secret must be rotated.
+- -RuleSetNames [String[]] (Optional) Specifies a list of built in rule set names to associate this client with.  Each ruleset, allows the client to call a specific set of tenant APIs.   Possible values are: TENANT_ADMIN , IDP_AND_DIRECTORY_ADMIN , READ_ONLY_TENANT_ADMIN   TENANT_ADMIN - Allows the client to call all the tenant APIs.   READ_ONLY_TENANT_ADMIN - Allows the client to call all the tenant read only APIs (i.e., APIs that do not make any changes).   IDP_AND_DIRECTORY_ADMIN - Allows the client to call all the tenant Identity Providers and Directories APIs.
+- -Scope [String[]] (Required) Specifies a list of access request scopes that are allowed by this OAuth 2.0 Client.   Available scope options are: admin, user, profile, email, openid, group   admin - Admin Level Access   user - User Level Access   profile - Access to the User's profile (FirstName, LastName, Display Name, Image)   email - Access to the User's Email   openid - Access to an OpenID token for the User   group - Access to the User's groups
+- -Secret [SecureString] (Optional) Specifies the OAuth 2.0 Client secret.   If secret string is not provided, an auto-generated secret will be returned.   For additional security, the stored secret will not be returned by the Get-VIOAuth2Client.   Public clients will not have any secret auto generated for them while confidential clients will always have a client secret.
+- -SecretTimeToLiveInMinutes [Int32] (Optional) Specifies after what time in minutes the secret must be rotated.   This parameter is available only for vCenter instances of version 8.0 Update 3 and later.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
 **Examples:**
 
 ```powershell
 PS C:\> New-VIOAuth2Client `
+    -ClientId "my-public-oauth-client" `
+    -Name "My Public OAuth2 Client" `
+    -Scope @("openid", "profile", "user", "group") `
+    -GrantTypes @("authorization_code", "refresh_token", "password") `
+    -RedirectUris @("http://127.0.0.1:8877/authcode") `
+    -RefreshTokenTimeToLiveMinutes 43200 `
+    -RefreshTokenIdleTimeToLiveMinutes 43200 `
+    -PkceEnforced $true `
+    -PublicClient $true
 ```
 _Creates a registration for a public OAuth 2.0 client with the specified client ID, scopes, grant types, and redirect URL. The OAuth2 client must implement the Proof Key for Code Exchange (PKCE) protocol to be registered._
 
 ```powershell
 PS C:\> New-VIOAuth2Client `
+    -ClientId "my-oauth-client" `
+    -Name "My OAuth2 Client" `
+    -Secret "<my-random-secure-secret>" `
+    -Scope @("openid", "profile", "user", "group") `
+    -GrantTypes @("authorization_code", "refresh_token", "password") `
+    -RedirectUris @("http://127.0.0.1:8877/authcode") `
+    -RefreshTokenTimeToLiveMinutes 43200 `
+    -RefreshTokenIdleTimeToLiveMinutes 43200 `
+    -PkceEnforced $true
 ```
 _Creates a registration for a public OAuth 2.0 client with the specified client ID, scopes, grant types, and redirect URL. The OAuth2 client must implement the Proof Key for Code Exchange (PKCE) protocol to be registered._
 
 ```powershell
 PS C:\> New-VIOAuth2Client `
+    -ClientId "powercli-native" `
+    -Name "PowerCLI Client" `
+    -Scope @("openid") `
+    -GrantTypes @("authorization_code", "refresh_token") `
+    -RedirectUris @("http://localhost:8844/authcode", "http://127.0.0.1:8844/authcode") `
+    -AccessTokenTimeToLiveMinutes 30 `
+    -RefreshTokenTimeToLiveMinutes 43200 `
+    -RefreshTokenIdleTimeToLiveMinutes 43200 `
+    -PkceEnforced $true `
+    -Secret "powercli-public-secret"
 ```
-_If the user needs to use PowerCLI to authenticate using OAuth2, PowerCLI must be registered as an OAuth2 public client._
+_If the user needs to use PowerCLI to authenticate using OAuth2, PowerCLI must be registered as an OAuth2 public client.   This example creates a registration for a typical PowerCLI client with the following parameters: - Scope - the value us set to openid   - GrantTypes - the value is set to authorization_code and refresh_token   - RedirectUris - the value is set to a URL on localhost and a free port using the HTTP URL schema.   - Secret - this value is set to "powercli-public-secret"   - PkceEnforced - the value is set to true_
 
 ### `New-VIPermission`
 
@@ -1187,6 +1267,8 @@ This cmdlet creates new permissions on the specified inventory objects for the p
 
 ```powershell
 New-VIRole -Name Role -Server $server -Privilege (Get-VIPrivilege -PrivilegeGroup)
+
+$permission = New-VIPermission -Role Role -Principal Administrator -Entity (Get-Datacenter)
 ```
 _Creates a permission on the provided server for a role with the specified privileges._
 
@@ -1222,6 +1304,7 @@ _Creates a new role with the provided group privileges._
 
 ```powershell
 $oauthCtx = New-VcsOAuthSecurityContext -ApiToken "a3f35067-80b5-44f0-a0bc-e19f2bc17fb7"
+$samlCtx = New-VISamlSecurityContext -VCenterServer "Server" -OAuthSecurityContext $oauthCtx
 ```
 _Creates an SAML2 security context object by authenticating the user with an OAuth2 security context from the VMware Cloud Services authentication server. This SAML2 security context can be used to authenticate the user to any vCenter Server services running in the VMware Cloud on AWS._
 
@@ -1257,6 +1340,7 @@ _Adds a new vTPM device to the virtual machine named "MyVM"._
 
 ```powershell
 $kp = Get-KeyProvider | Where-Object {$_.Type -eq 'TrustedKeyProvider'}
+Register-KeyProvider -KeyProvider $kp
 ```
 _Registers all trusted key providers in the connected workload vCenter Server system._
 
@@ -1274,6 +1358,7 @@ _Registers all trusted key providers in the connected workload vCenter Server sy
 
 ```powershell
 $attest = Get-AttestationServiceInfo
+Remove-AttestationServiceInfo -AttestationServiceInfo $attest
 ```
 _Removes the attestation services information configured in the connected workload vCenter Server system._
 
@@ -1290,6 +1375,7 @@ _Removes the attestation services information configured in the connected worklo
 
 ```powershell
 $cluster = Get-Cluster -Name "MyCluster"
+Remove-EntityDefaultKeyProvider -Entity $cluster
 ```
 _Removes the default key provider from the "MyCluster" entity._
 
@@ -1321,6 +1407,7 @@ _Removes the $kms key management server without asking for confirmation._
 
 ```powershell
 $kmxd = Get-KeyProviderServiceInfo
+Remove-KeyProviderServiceInfo -KeyProviderServiceInfo $kmxd
 ```
 _Removes the key provider services information configured in the connected workload vCenter Server system._
 
@@ -1353,6 +1440,7 @@ _Removes the Trust Authority key provider mykp from the connected Trust Authorit
 
 ```powershell
 $kmipServer = Get-TrustAuthorityKeyProviderServer -KeyProvider mykp | select -Last 1
+Remove-TrustAuthorityKeyProviderServer -KeyProviderServer $kmipServer
 ```
 _Removes the last Trust Authority key provider server from the mykp Trust Authority key provider._
 
@@ -1368,6 +1456,7 @@ _Removes the last Trust Authority key provider server from the mykp Trust Author
 
 ```powershell
 $servercert = Get-TrustAuthorityKeyProviderServerCertificate -KeyProvider mykp | select -First 1
+Remove-TrustAuthorityKeyProviderServerCertificate -ServerCertificate $servercert
 ```
 _Removes the first trusted server certificate from the mykp Trust Authority key provider._
 
@@ -1383,6 +1472,7 @@ _Removes the first trusted server certificate from the mykp Trust Authority key 
 
 ```powershell
 $principals = Get-TrustAuthorityPrincipal -TrustAuthorityCluster mycluster
+Remove-TrustAuthorityPrincipal -TrustAuthorityPrincipal $principals
 ```
 _Removes the Trust Authority principals from the mycluster Trust Authority cluster._
 
@@ -1398,6 +1488,7 @@ _Removes the Trust Authority principals from the mycluster Trust Authority clust
 
 ```powershell
 $cacerts = Get-TrustAuthorityTpm2CACertificate -TrustAuthorityCluster mycluster
+Remove-TrustAuthorityTpm2CACertificate -Tpm2CACertificate $cacerts
 ```
 _Removes the Trust Authority TPM 2.0 CA certificates from the mycluster Trust Authority cluster._
 
@@ -1413,6 +1504,7 @@ _Removes the Trust Authority TPM 2.0 CA certificates from the mycluster Trust Au
 
 ```powershell
 $tpm2Eks = Get-TrustAuthorityTpm2EndorsementKey -TrustAuthorityCluster mycluster
+Remove-TrustAuthorityTpm2EndorsementKey -Tpm2EndorsementKey $tpm2Eks
 ```
 _Removes the Trust Authority TPM 2.0 endorsement keys from the Trust Authority cluster mycluster._
 
@@ -1484,11 +1576,13 @@ _Removes the roles with names that start with  "Customer"._
 
 ```powershell
 $myVm = Get-VM MyVM
+Get-VTpm -VM $myVm | Remove-VTpm
 ```
 _Removes the vTPM device from the virtual machine named 'MyVM'._
 
 ```powershell
 $vtpm = Get-VTpm -VM "MyVM"
+Remove-VTpm -VTpm $vtpm
 ```
 _Removes the vTPM device from the virtual machine named "MyVM"._
 
@@ -1594,7 +1688,7 @@ _Retrieves a virtual port group named "MyVirtualPortGroup" and updates the secur
 - -KeyProvider [TrustAuthorityKeyProvider] (Required) Specifies the Trust Authority key provider that you want to modify.
 - -KmipServerPassword [SecureString] (Required) Specifies the new password that you can use to connect to the KMIP servers from the Trust Authority key provider.
 - -KmipServerUsername [String] (Optional) Specifies the new user name that you can use to connect to the KMIP servers from the Trust Authority key provider.
-- -MasterKeyId [String] (Optional) This parameter is deprecated and scheduled for removal. Use the PrimaryKeyId parameter instead.
+- -MasterKeyId [String] (Optional) This parameter is deprecated and scheduled for removal. Use the PrimaryKeyId parameter instead.   Specifies the new primary key ID of the Trust Authority key provider that you want to use from the KMIP servers.
 - -ProxyAddress [String] (Optional) Specifies the new proxy address of the Trust Authority key provider that you can use to connect to the KMIP servers.
 - -ProxyPort [Int32] (Optional) Specifies the new porxy port number of the Trust Authority key provider that you can use to connect to the KMIP servers. This parameter works with the ProxyAddress parameter.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is given to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
@@ -1650,6 +1744,8 @@ _Updates the client certificate of the Trust Authority key provider mykp with th
 
 ```powershell
 $kmipServers = Get-TrustAuthorityKeyProvider -Name "myprovider" -TrustAuthorityCluster "mycluster" | Get-TrustAuthorityKeyProviderServer
+$serverCerts= Get-TrustAuthorityKeyProviderServerCertificate -KeyProviderServer $kmipServers
+Set-TrustAuthorityKeyProviderServerCertificate -KeyProvider "myprovider" -TrustAuthorityCluster "mycluster" -Certificate $serverCerts.Certificate
 ```
 _Indicates that the Trust Authority key provider myprovider can trust the certificates of the Trust Authority key provider servers in it._
 
@@ -1669,6 +1765,7 @@ _Indicates that the Trust Authority key provider myprovider can trust the certif
 
 ```powershell
 $tpm2Settings = Get-TrustAuthorityTpm2AttestationSettings -TrustAuthorityCluster mycluster
+Set-TrustAuthorityTpm2AttestationSettings -Tpm2AttestationSettings $tpm2Settings -RequireCertificateValidation -RequireEndorsementKey
 ```
 _Modifies the Trust Authority TPM 2.0 attestation settings in the Trust Authority Cluster mycluster. The CertificateValidation and EndorsementKey parameters are required._
 
@@ -1709,24 +1806,25 @@ Updates the configuration of the OAuth2 client registered with the VMware Identi
 **Parameters:**
 
 - -AccessTokenTimeToLiveMinutes [Int32] (Optional) How long in minutes new access tokens issued to this client should live.
-- -GrantTypes [String[]] (Optional) A list of OAuth 2.0 Access Grant Types that are enabled in this OAuth 2.0 Client.
+- -GrantTypes [String[]] (Optional) A list of OAuth 2.0 Access Grant Types that are enabled in this OAuth 2.0 Client.   Possible values are: password , client_credentials , refresh_token , authorization_code , token , id_token
 - -Name [String] (Optional) The user-friendly name that you set for this OAuth 2.0 client.
 - -OAuth2Client [OAuth2Client[]] (Optional) Specifies the OAuth 2 clients whose configuration you want to modify.
-- -PkceEnforced [Boolean] (Optional) Indicates whether PKCE is enforced for the OAuth2 client.
+- -PkceEnforced [Boolean] (Optional) Indicates whether PKCE is enforced for the OAuth2 client.   This parameter is available only for vCenter instances of version 8.0 Update 3 and later.
 - -PostLogoutRedirectUris [String[]] (Optional) The OAuth2 Relaying Party provides a list of absolute URLs with the PostLogoutRedirectUris parameter. When a logout occurs, the Auth2 Relaying Party might request that the User Agent of the End-User is redirected to one of these absolute URLs. These URLs must contain the https scheme and can also have a port, path, and some query parameters. However, the URLs may also contain the http scheme, provided that the Client Type is confidential. To skip the check for a particular URL section, you can substitute a wildcard character with any string.
 - -RedirectUris [String[]] (Optional) Specifies a list of absolute URIs of application endpoints that are allowed to receive the authorization code and access token. The redirect URI sent by the application as part of the Authorization Code Grant Oauth 2.0 flow is verified against this list. The "*" character can be used as a wildcard character to be substituted for any string to skip the check for a particular URL section. The field is required if GrantTypes parameter contain an "authorization_code" grant type.
 - -RefreshTokenIdleTimeToLiveMinutes [Int32] (Optional) Specifies how long in minutes new refresh tokens issued to this client should live. Only applicable and mandatory if the GrantTypes parameter includes ?refresh_token?.
 - -RefreshTokenTimeToLiveMinutes [Int32] (Optional) How long in minutes new refresh tokens issued to this client can be idle. Only applicable and mandatory if GrantTypes includes ?refresh_token?. Its value should be less than the refresh token TTL value (specified by the parameter RefreshTokenIdleTimeToLiveMinutes).
-- -RuleSetNames [String[]] (Optional) Specifies a list of built-in rule set names to associate this client with. Each ruleset, allows the client to call a specific set of tenant APIs.
-- -Scope [String[]] (Optional) A list of access request scopes that are allowed by this OAuth 2.0 Client.
+- -RuleSetNames [String[]] (Optional) Specifies a list of built-in rule set names to associate this client with. Each ruleset, allows the client to call a specific set of tenant APIs.   Possible values are: TENANT_ADMIN , IDP_AND_DIRECTORY_ADMIN , READ_ONLY_TENANT_ADMIN   TENANT_ADMIN - Allows the client to call all the tenant APIs.   READ_ONLY_TENANT_ADMIN - Allows the client to call all the tenant read only APIs (i.e., APIs that do not make any changes).   IDP_AND_DIRECTORY_ADMIN - Allows the client to call all the tenant Identity Providers and Directories APIs.
+- -Scope [String[]] (Optional) A list of access request scopes that are allowed by this OAuth 2.0 Client.   Available scope options are: admin, user, profile, email, openid, group   admin - Admin Level Access   user - User Level Access   profile - Access to a User's profile (FirstName, LastName, Display Name, Image)   email - Access to a User's Email   openid - Access to an OpenID token for the User   group - Access to the User's groups
 - -Secret [SecureString] (Optional) Specifies the OAuth 2.0 Client secret. For additional security, the stored secret will not be returned by the Get-VIOAuth2Client and this command output.
-- -SecretTimeToLiveInMinutes [Int32] (Optional) Specifies after what time in minutes the secret must be rotated.
+- -SecretTimeToLiveInMinutes [Int32] (Optional) Specifies after what time in minutes the secret must be rotated.   This parameter is available only for vCenter instances of version 8.0 Update 3 and later.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
 **Examples:**
 
 ```powershell
 PS C:\> $x = Get-VIOAuth2Client -Id "my-client"
+PS C:\> Set-VIOAuth2Client -OAuth2Client $x -AccessTokenTimeToLiveMinutes 31
 ```
 _Changes the -AccessTokenTimeToLiveMinutes configuration setting of the OAuth 2.0 client with ID "my-client" to 31. This change indicates that the registered OAuth 2.0 client will have its access tokens valid for 31 minutes._
 
@@ -1812,6 +1910,8 @@ Initiates a rotation of the secret of an OAuth 2 client. While the rotation proc
 
 ```powershell
 PS C:\> Get-VIOAuth2Client -Id "my-client-id" | Start-VIOAuth2ClientSecretRotation `
+    -SecondarySecret "my-secondary-secret" `
+    -PrimarySecretAutoRetireDurationInMinutes 100
 ```
 _Initiates a rotation of the secret for the OAuth 2 client with client ID "my-client-id". For the next 100 minutes the current client secret and the new secret "my-secondary-secret" will be valid for this client. After 100 minutes or if you manually complete the rotation process using the Complete-VIOAuth2ClientSecretRotation command, the only valid client secret will be "my-secondary-secret"._
 

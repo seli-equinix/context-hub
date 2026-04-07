@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Alarm definitions, triggers, actions for 
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,alarms,Get-AlarmAction, Get-AlarmActionTrigger, Get-AlarmDefinition, Get-AlarmTrigger, Get-AlarmTriggerArgumentAttributeName, New-AlarmAction, New-AlarmActionTrigger, New-AlarmDefinition, New-AlarmTrigger, New-AlarmTriggerArgument, Remove-AlarmAction, Remove-AlarmActionTrigger, Remove-AlarmDefinition, Set-AlarmDefinition"
@@ -61,7 +61,7 @@ _Retrieves the action triggers for the actions of the first returned alarm._
 
 - -Enabled [Boolean] (Optional) Indicates that you want to retrieve only the enabled alarm definitions.
 - -Entity [VIObject[]] (Optional) Filters the alarm definitions by the entities to which they are defined. This parameter accepts InventoryItem, Datastore, and DatastoreCluster objects.
-- -Id [String[]] (Optional) Specifies the IDs of the alarms you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the alarms you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the alarms you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -109,6 +109,11 @@ _Retrieves alarm triggers of type Event._
 
 ```powershell
 Get-AlarmTriggerArgumentAttributeName
+Disk Name
+Disk Percentage Used
+Disk Percentage Threshold
+Cluster Name
+Disk Vendor Name
 ```
 _Fetches the list of attribute names of the alarm trigger argument for the "vsan.health.ssd.endurance" event type._
 
@@ -264,6 +269,12 @@ _Creates a local AlarmTriggerArgument object with the Cluster Name attribute equ
 
 ```powershell
 New-AlarmTriggerArgument
+
+cmdlet New-AlarmTriggerArgument at command pipeline position 1
+Supply values for the following parameters:
+AttributeName: host.name
+Operator: equals
+Value: "host-123"
 ```
 _Creates a local AlarmTriggerArgument object with a host name equal to "host-123"._
 
@@ -355,5 +366,9 @@ _Changes the name, description, and the Enabled flag of the selected alarms._
 
 ```powershell
 $trigger = New-AlarmTrigger -StatePath "runtime.powerState" -Value "poweredOff" -EntityStatus Red -EntityType "VirtualMachine" -StateAlarmOperator Equal
+
+$action = New-AlarmAction -Snmp
+
+Get-AlarmDefinition -Name 'alarm' | Set-AlarmDefinition -Trigger $trigger -Action $action -ReportingFrequencyMinutes 20 -ReportingTolerancePercentage 10
 ```
 _Changes the triggers, actions, reporting frequency minutes, and reporting tolerance percentage of the selected alarm._

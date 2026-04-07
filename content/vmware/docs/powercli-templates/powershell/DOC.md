@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — VM template management — create templat
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,templates,Get-Template, Move-Template, New-Template, Remove-Template, Set-Template"
@@ -25,7 +25,7 @@ This cmdlet retrieves the virtual machine templates available on a vCenter Serve
 **Parameters:**
 
 - -Datastore [StorageResource[]] (Optional) Filters templates by the datastores or datastore clusters that they are stored on.
-- -Id [String[]] (Required) Specifies the IDs of the virtual machine templates you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the virtual machine templates you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies the vSphere container objects (such as folders, datacenters, and VMHosts) you want to search for templates.
 - -Name [String[]] (Optional) Specifies the names of the virtual machine templates you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -85,16 +85,21 @@ This cmdlet creates a new template based on the specified virtual machine. You c
 
 ```powershell
 $myVM = Get-VM -Name "MyVM1"
+$drsCluster=Get-DatastoreCluster "MyDatastoreCluster"
+New-Template -VM $myVM -Name "MyTemplate" -Datastore $drsCluster -Location Datacenter2
 ```
 _Creates a template named MyTemplate from the MyVM1 virtual machine and stores it in the MyDatastoreCluster datastore cluster in the Datacenter2 datacenter._
 
 ```powershell
 $myFolder = Get-Folder -Name "MyFolder1"
+New-Template -Name "MyTemplate1" -TemplateFilePath "[Storage1] templatefolder/template.vmtx" -Location $myFolder -VMHost (Get-VMHost)
 ```
 _Registers the existing MyTemplate1 template to a vCenter Server inventory folder by using the specified template file._
 
 ```powershell
 $myTemplate = Get-Template -Name "MyTemplate1"
+$myDs = Get-Datastore -Name "MyDatastore1"
+New-Template -Template $myTemplate -Name "MyTemplate2" -Datastore $myDs -Location "Datacenter2"
 ```
 _Creates the MyTemplate2 template by cloning an existing template and stores the new template in the specified datastore in the Datacenter2 datacenter._
 

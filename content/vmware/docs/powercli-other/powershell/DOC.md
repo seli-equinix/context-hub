@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Additional VMware PowerCLI cmdlets"
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,other,Add-PassthroughDevice, Dismount-Tools, Get-AdvancedSetting, Get-CDDrive, Get-CisCommand, Get-CisService, Get-FloppyDrive, Get-KmipClientCertificate, Get-NetworkAdapter, Get-PassthroughDevice, Get-ScsiController, Get-ScsiLun, Get-ScsiLunPath, Get-Snapshot, Get-UsbDevice, Get-VAIOFilter, Get-VApp, Get-VasaProvider, Get-VDBlockedPolicy, Get-VDUplinkLacpPolicy, Get-VDUplinkTeamingPolicy, Mount-Tools, Move-VApp, New-AdvancedSetting, New-CDDrive, New-CnsKubernetesEntityMetadata, New-CnsKubernetesEntityReference, New-FloppyDrive, New-KmipClientCertificate, New-NetworkAdapter, New-ScsiController, New-Snapshot, New-VAIOFilter, New-VApp, New-VasaProvider, Remove-AdvancedSetting, Remove-CDDrive, Remove-FloppyDrive, Remove-NetworkAdapter, Remove-PassthroughDevice, Remove-Snapshot, Remove-UsbDevice, Remove-VAIOFilter, Remove-VApp, Remove-VasaProvider, Set-AdvancedSetting, Set-CDDrive, Set-FloppyDrive, Set-NetworkAdapter, Set-ScsiController, Set-ScsiLun, Set-ScsiLunPath, Set-Snapshot, Set-VAIOFilter, Set-VApp, Set-VDBlockedPolicy, Set-VDUplinkLacpPolicy, Set-VDUplinkTeamingPolicy, Set-VDVlanConfiguration, Start-VApp, Stop-VApp, TabExpansion2, Wait-Tools"
@@ -32,6 +32,8 @@ This cmdlet attaches pass-through devices to the specified virtual machine. Note
 
 ```powershell
 $scsiDeviceList = Get-PassthroughDevice -VMHost Host -Type Scsi
+
+Add-PassthroughDevice -VM $vm -PassthroughDevice $scsiDeviceList[0]
 ```
 _Adds the first SCSI passthrough device of the Host host to the $vm virtual machine._
 
@@ -98,7 +100,7 @@ This cmdlet returns a set of virtual CD drives  that belong to the virtual machi
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the CD drives you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the CD drives you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the CD drives you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Snapshot [Snapshot[]] (Optional) Specifies the snapshots from which you want to retrieve virtual CD drives.
@@ -142,6 +144,28 @@ _Retrieves the binding for the specified service._
 
 ```powershell
 # Connect to the vSphere Automation SDK API
+Connect-CisServer -Server $serverAddress -User $user -Password $pass
+
+# Get the service for VM management
+$vmService = Get-CisService com.vmware.vcenter.VM
+
+# Create a VM creation specification
+$createSpec = $vmService.Help.create.spec.Create()
+
+# Fill in the creation details
+$createSpec.name = "ExampleVM"
+$createSpec.guest_OS = "WINDOWS_7_64"
+
+# Create a placement specification
+$createSpec.placement = $vmService.Help.create.spec.placement.Create()
+
+# Fill in the placement details
+$createSpec.placement.folder = (Get-Folder vm).ExtensionData.MoRef.Value
+$createSpec.placement.host = (Get-VMHost)[0].ExtensionData.MoRef.Value
+$createSpec.placement.datastore = (Get-Datastore)[0].ExtensionData.MoRef.Value
+
+# Call the create method passing the specification
+$vmService.create( $createSpec )
 ```
 _Connects to a vSphere Automation SDK server, retrieves the service for virtual machine management, and  creates a virtual machine, based on the provided creation details by passing the specification to the create method._
 
@@ -153,7 +177,7 @@ This cmdlet retrieves the virtual floppy drives available on a vCenter Server sy
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the floppy drives you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the floppy drives you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the floppy drives you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Snapshot [Snapshot[]] (Optional) Specifies the snapshots from which you want to retrieve virtual CD drives.
@@ -200,7 +224,7 @@ This cmdlet retrieves the virtual network adapters  available on a vCenter Serve
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the network adapters you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the network adapters you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the network adapters you want to retrieve.
 - -RelatedObject [NetworkAdapterRelatedObjectBase[]] (Required) Specify an object to retrieve one or more network adapters that are related to the object. This parameter accepts standard and distributed port groups.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
@@ -217,6 +241,7 @@ _Retrieves the network adapters added to the the MyVM virtual machine._
 
 ```powershell
 $myVDPortgroup = Get-VDPortGroup -Name "MyVDPortGroup"
+$myNetworkAdapters = Get-NetworkAdapter -RelatedObject $myVDPortgroup
 ```
 _Retrieves all network adapters connected to the specified port group and stores them in the myNetworkAdapters variable._
 
@@ -226,7 +251,7 @@ _Retrieves all network adapters connected to the specified port group and stores
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the pass-through devices you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the pass-through devices you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the pass-through devices you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Template [Template[]] (Optional) Specifies the virtual machine templates for which you want to retrieve the pass-through devices.
@@ -248,7 +273,7 @@ _Retrieves the SCSI passthrough devices of the Host host._
 **Parameters:**
 
 - -HardDisk [HardDisk[]] (Optional) Filters the SCSI controllers by the hard disks they belong to.
-- -Id [String[]] (Optional) Specifies the IDs of the SCSI controllers you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the SCSI controllers you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the SCSI controllers you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Snapshot [Snapshot[]] (Optional) Filters the SCSI controllers by the snapshots they belong to.
@@ -269,6 +294,8 @@ _Retrieves the SCSI controllers of a virtual machine snapshot._
 
 ```powershell
 $disk = Get-VM VM | Get-HardDisk | Select -First 2
+
+Get-ScsiController -HardDisk $disk
 ```
 _Retrieves the SCSI controllers of the first two hard disks of a virtual machine._
 
@@ -283,9 +310,9 @@ This cmdlet retrieves the SCSI devices available on the vCenter Server system. E
 - -CanonicalName [String[]] (Optional) Specifies the canonical name of the SCSI devices you want to retrieve. An example of a SCSI canonical name for Windows is "vmhba0:0:0:0".
 - -Datastore [Datastore[]] (Required) Specifies the datastores for which you want to retrieve the SCSI devices. This parameter is supported only for VMFS volumes.
 - -Hba [Hba[]] (Required) Specifies the storage adapters for which you want to retrieve the SCSI devices.
-- -Id [String[]] (Required) Specifies the IDs of the SCSI devices that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the SCSI devices that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Key [String[]] (Optional) Specifies the linkable identifiers of the SCSI devices you want to retrieve.
-- -LunType [String[]] (Optional) Specifies the type of the SCSI devices you want to retrieve. The following types are valid:
+- -LunType [String[]] (Optional) Specifies the type of the SCSI devices you want to retrieve. The following types are valid:   cdrom communications disk enclosure mediaChanger opticalDevice printer processor scanner storageArrayController tape unknown worm
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VmHost [VMHost[]] (Required) Specifies the hosts from which you want to retrieve the virtual SCSI devices.
 
@@ -303,6 +330,8 @@ _Retrieves the SCSI devices with canonical names that starts with "naa." on the 
 
 ```powershell
 $hba = Get-VMHost | Get-VMHostHba -Type ParallelScsi
+
+Get-ScsiLun -Hba $hba -LunType disk
 ```
 _Retrieves the SCSI devices of "disk" type for the specified HBA devices._
 
@@ -319,6 +348,8 @@ _Retrieves the SCSI devices of "disk" type for the specified HBA devices._
 
 ```powershell
 $scsilun = Get-ScsiLun -VMHost 10.23.123.100 -LunType disk
+
+Get-ScsiLunPath $scsilun
 ```
 _Retrieves the vmhba path to the specified SCSI device._
 
@@ -330,7 +361,7 @@ This cmdlet returns information about the snapshots that correspond to the filte
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the snapshots you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the snapshots you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the snapshots you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VM [VirtualMachine[]] (Required) Specifies the virtual machines whose snapshots you want to retrieve. The position of this parameter is deprecated and will be changed in a future release. To avoid errors when you run existing scripts on future PowerCLI versions, specify the parameter by name.
@@ -350,7 +381,7 @@ This cmdlet retrieves the USB devices available on a vCenter Server system. The 
 
 **Parameters:**
 
-- -Id [String[]] (Optional) Specifies the IDs of the USB devices you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the USB devices you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the USB devices you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Snapshot [Snapshot[]] (Optional) Specifies the virtual machine snapshots whose virtual USB you want to retrieve. Supported only on vCenter Server 4.1 and ESX 4.1 and later.
@@ -373,7 +404,7 @@ This cmdlet returns a list of VAIOFilter objects filtered by the specified param
 **Parameters:**
 
 - -Cluster [Cluster[]] (Optional) Specifies the clusters on which to search for VAIO filters.
-- -Id [String[]] (Required) Filters the VAIO filters by ID.
+- -Id [String[]] (Required) Filters the VAIO filters by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the name of the VAIO filter you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -400,7 +431,7 @@ _Retrieves all VAIO filters with ID "MyVAIOFilterId"._
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the vApps that you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the vApps that you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies Folder, Cluster, Datacenter, VMHost, and ResourcePool objects you want to search for vApps.
 - -Name [String[]] (Optional) Specifies the names of the vApps that you want to retrieve.
 - -NoRecursion [SwitchParameter] (Optional) Indicates that you want to deactivate the recursive behavior of the command.
@@ -495,7 +526,7 @@ _Retrieves the uplink teaming policy of all ports inside a distributed port grou
 
 **Parameters:**
 
-- -Id [String[]] (Required) Filters the retrieved providers by ID.
+- -Id [String[]] (Required) Filters the retrieved providers by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Filters the retrieved providers by name.
 - -Refresh [SwitchParameter] (Optional) Synchronizes the providers before retrieving data. The operation is synchronous.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is given to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
@@ -563,11 +594,15 @@ This cmdlet moves the specified vApps to a new location. If the destination is a
 
 ```powershell
 $vmHost = Get-VMHost -Name "MyVMHost1"
+$myDestinationRP = New-ResourcePool -Name "vApp ResourcePool" -Location $vmHost
+Move-VApp -VApp (Get-Vapp -Name "MyVApp1" -Location $vmHost) -Destination $myDestinationRP
 ```
 _Moves a vApp from a host to a resource pool from the same host._
 
 ```powershell
 $vmHost = Get-VMHost -Name "MyVMHost1"
+$myDestinationVApp = New-VApp -Name "MyvApp1" -Location $vmHost
+(Get-Vapp -Name "MyvApp2" -Location (Get-ResourcePool -Name "MyResourcePool1") | Move-VApp -Destination $myDestinationVApp
 ```
 _Moves a vApp from a resource pool to another vApp._
 
@@ -733,11 +768,15 @@ _Create a virtual network adapter with the specified parameters._
 
 ```powershell
 $myVm = Get-VM -Name MyVM
+$MyVDPortgroup = Get-VDPortgroup -Name MyVDPortGroup
+New-NetworkAdapter -VM $myVM -Portgroup $MyVDPortgroup
 ```
 _Adds a new network adapter to the specified virtual machine and connects it to the specified distributed port group._
 
 ```powershell
 $myVM = Get-VM -Name MyVM
+$MyVDSwitch = Get-VDSwitch -Name MyVDSwitch
+New-NetworkAdapter -VM $myVM -DistributedSwitch $MyVDSwitch -PortId 100
 ```
 _Adds a new network adapter to the specified virtual machine and connects it to the specified port on the specified vSphere distributed switch._
 
@@ -760,6 +799,7 @@ _Creates a new 10GB hard disk and a new SCSI controller with default values for 
 
 ```powershell
 $disk = Get-HardDisk -VM VM | Select -First 2
+$disk | New-ScsiController -BusSharingMode Physical -Type VirtualLsiLogicSAS
 ```
 _Creates for the first two hard disks of VM a new SCSI controller of VirtualLsiLogicSAS type and with Physical bus sharing mode._
 
@@ -897,7 +937,7 @@ _Registers a VASA provider by using the "MyCredential" credential and forcing th
 
 **Parameters:**
 
-- -AdvancedSetting [AdvancedSetting[]] (Required) Specifies the advanced settings you want to remove.
+- -AdvancedSetting [AdvancedSetting[]] (Required) Specifies the advanced settings you want to remove.   Note: You can only remove advanced settings from virtual machines in ESXi or vCenter Server environments version 5.5 or later.
 
 **Examples:**
 
@@ -918,6 +958,8 @@ _Removes the advanced settings of the cluster named Cluster._
 
 ```powershell
 $cd = Get-CDDrive -VM $vm
+
+Remove-CDDrive -CD $cd
 ```
 _Removes all CD drives for the specified virtual machines and templates._
 
@@ -933,6 +975,8 @@ _Removes all CD drives for the specified virtual machines and templates._
 
 ```powershell
 $floppy = Get-FloppyDrive -VM VM
+
+Remove-FloppyDrive -Floppy $floppy
 ```
 _Removes the floppy drive of the virtual machine named VM._
 
@@ -948,6 +992,8 @@ _Removes the floppy drive of the virtual machine named VM._
 
 ```powershell
 $nic = Get-NetworkAdapter -VM VM
+
+Remove-NetworkAdapter -NetworkAdapter $nic
 ```
 _Removes the network adapter of the VM virtual machine._
 
@@ -1096,6 +1142,8 @@ This cmdlet updates a virtual CD drive. If an ISO location is provided, sets the
 
 ```powershell
 $cd = New-CDDrive -VM VM -ISOPath "[sof-20666-esx:storage1] ISO\testISO.iso"
+
+Set-CDDrive -CD $cd -NoMedia
 ```
 _Creates a CD drive on the VM virtual machine and attaches testISO.iso, previously uploaded. Then disconnects the ISO._
 
@@ -1180,6 +1228,8 @@ _Configures the bus sharing mode of the SCSI controllers of a virtual machine to
 
 ```powershell
 $scsiController = Get-HardDisk -VM VM | Select -First 1 | Get-ScsiController
+
+Set-ScsiController -ScsiController $scsiController -Type VirtualLsiLogic
 ```
 _Changes the type of the SCSI controller of the first hard disk of the VM virtual machine to VirtualLsiLogic._
 
@@ -1196,7 +1246,7 @@ _Changes the type of the SCSI controller of the first hard disk of the VM virtua
 - -IsLocal [Boolean] (Optional) Marks the SCSI disk as local or remote. If the value is $true, the SCSI disk is local. If the value is $false, the SCSI disk is remote.
 - -IsLocatorLedOn [Boolean] (Optional) Turns the LED locator of a SCSI disk on or off.
 - -IsSsd [Boolean] (Optional) Marks the SCSI disk as an SSD or HDD. If the value is $true, the SCSI disk is an SSD type. If the value is $false, the SCSI disk is an HDD type.
-- -MultipathPolicy [ScsiLunMultipathPolicy] (Optional) Specifies the policy that the logical unit must use when choosing a path. The following values are valid:
+- -MultipathPolicy [ScsiLunMultipathPolicy] (Optional) Specifies the policy that the logical unit must use when choosing a path. The following values are valid:   Fixed - uses the preferred path whenever possible. RoundRobin - load balance. MostRecentlyUsed - uses the most recently used path. Unknown - supported only when connected to vCenter Server 4.1/ESX 4.1.   Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release.
 - -NoBlocksSwitch [SwitchParameter] (Optional) This parameter is deprecated and scheduled for removal. Indicates that switching based on blocks is deactivated. Not supported on vCenter Server 4.x.
 - -NoCommandsSwitch [SwitchParameter] (Optional) This parameter is deprecated and scheduled for removal. Indicates that switching based on commands is deactivated. Not supported on vCenter Server 4.x.
 - -PreferredPath [ScsiLunPath] (Optional) Specifies the preferred path to access the SCSI logical unit. Passing values to this parameter through a pipeline is deprecated and will be deactivated in a future release.
@@ -1206,6 +1256,8 @@ _Changes the type of the SCSI controller of the first hard disk of the VM virtua
 
 ```powershell
 $scsilun = Get-ScsiLun -VMHost 10.23.123.100 -LunType disk
+
+Set-ScsiLun -ScsiLun $scsilun -CommandsToSwitchPath 100
 ```
 _Configures the SCSI LUN device of the virtual machine host so that the maximum number of I/O requests that you want to issue before the system tries to select a different path is 100._
 
@@ -1223,6 +1275,10 @@ _Configures the SCSI LUN device of the virtual machine host so that the maximum 
 
 ```powershell
 $scsilun = Get-ScsiLun -VMHost 10.23.123.100 -LunType disk
+
+$scsipath = Get-ScsiLunPath -ScsiLun $scsilun
+
+Set-ScsiLunPath -ScsiLunPath $scsipath -Preferred $true
 ```
 _Sets the specified SCSI Lun path as preferred._
 
@@ -1300,6 +1356,7 @@ _Modifies the CpuSharesLevel and MemSharesLevel properties of the MyTestVApp1 vi
 
 ```powershell
 $myvApp = Get-VApp -Location MyDatacenter1
+Set-VApp -VApp $myvApp -CpuExpandableReservation:$true -CpuLimitMhz 4000 -MemExpandableReservation:$true -MemLimitGB 2
 ```
 _Modifies the properties of the vApps available on the MyDatacenter1 datacenter._
 
@@ -1362,7 +1419,7 @@ This cmdlet modifies the uplink teaming policy for distributed ports at switch, 
 **Parameters:**
 
 - -ActiveUplinkPort [String[]] (Optional) Specifies the active uplink ports used for load balancing for a corresponding vSphere distributed switch.
-- -EnableFailback [Boolean] (Optional) Specifies whether to use failback when restoring links. If, for example, the explicit link order is (vmnic9, vmnic0), and vmnic9 goes down, vmnic0 is activated. However, when vmnic9 comes back up, if EnableFailback is set to $true, vmnic9 is restored as specified in the explicit order. If EnableFailback is set to $false, vmnic0 continues to be used and vmnic9 remains on standby.
+- -EnableFailback [Boolean] (Optional) Specifies whether to use failback when restoring links. If, for example, the explicit link order is (vmnic9, vmnic0), and vmnic9 goes down, vmnic0 is activated. However, when vmnic9 comes back up, if EnableFailback is set to $true, vmnic9 is restored as specified in the explicit order. If EnableFailback is set to $false, vmnic0 continues to be used and vmnic9 remains on standby.   This parameter replaces the obsolete ObsoleteParameterDisableFailback parameter, which is an alias fort the Failback parameter. Note that passing $false to the obsolete Failback parameter is equivalent to passing $true to the new EnableFailback parameter and the reverse.
 - -FailbackInherited [Boolean] (Optional) Specifies whether the Failback setting is inherited from a parent object, such as a distributed port group or switch.
 - -FailoverDetectionPolicy [NetworkFailoverDetectionPolicy] (Optional) Specifies the method to use for failover detection for the corresponding distributed port, port group, or switch. The value can be LinkStatus or BeaconProbing.
 - -FailoverDetectionPolicyInherited [Boolean] (Optional) Specifies whether the FailoverDetectionPolicy setting is inherited from a parent object, such as a distributed port group or switch.
@@ -1380,6 +1437,8 @@ This cmdlet modifies the uplink teaming policy for distributed ports at switch, 
 
 ```powershell
 $activePortsList = "Port0"
+$standbyPortsList = "Port1", "Port2"
+Get-VDSwitch "MyVDSwitch" | Get-VDPortgroup | Get-VDUplinkTeamingPolicy | Set-VDUplinkTeamingPolicy -ActiveUplinkPort $activePortsList -StandbyUplinkPort $standbyPortsList
 ```
 _Retrieves all distributed port groups from a vSphere distributed switch named "MyVDSwitch" and updates their teaming policies with information about the active and standby uplinks that will be used when the adapter connectivity is up or down._
 

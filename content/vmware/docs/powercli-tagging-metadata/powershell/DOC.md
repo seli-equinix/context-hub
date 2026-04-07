@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Tags, tag categories, custom attributes, 
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,tagging-metadata,Get-Annotation, Get-CustomAttribute, Get-Tag, Get-TagAssignment, Get-TagCategory, New-CustomAttribute, New-Tag, New-TagAssignment, New-TagCategory, Remove-CustomAttribute, Remove-Tag, Remove-TagAssignment, Remove-TagCategory, Set-Annotation, Set-CustomAttribute, Set-Tag, Set-TagCategory"
@@ -38,6 +38,7 @@ _Retrieves the annotation of the PhysicalLocation custom attribute for Cluster._
 
 ```powershell
 $vm = Get-VM -Name $vmname
+Get-Annotation -Entity $vm -CustomAttribute Description
 ```
 _Retrieves the annotation of the Description custom attribute for the $vm virtual machine._
 
@@ -50,7 +51,7 @@ This cmdlet retrieves custom attributes. A custom attribute is a user-defined de
 **Parameters:**
 
 - -Global [SwitchParameter] (Optional) Indicates that only global custom attributes are retrieved. A global custom attribute can be applied both to hosts and virtual machines.
-- -Id [String[]] (Optional) Specifies the IDs of the custom attributes you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the custom attributes you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the names of the custom attributes you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -TargetType [CustomAttributeTargetType[]] (Optional) Specifies a target type to filter the custom attributes by the type of objects to which they can be applied. The valid values are VirtualMachine, ResourcePool, Folder, VMHost, Cluster, Datacenter, and $null. If the value is $null, the custom attribute is global and applies to all target types.
@@ -81,7 +82,7 @@ This cmdlet retrieves the tags available on a vCenter Server system. This cmdlet
 **Parameters:**
 
 - -Category [TagCategory[]] (Optional) Filters the tags by category.
-- -Id [String[]] (Required) Filters the tags by ID.
+- -Id [String[]] (Required) Filters the tags by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Filters the tags by name.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -119,6 +120,7 @@ _Retrieves all tag assignments for the current vCenter Server instances._
 
 ```powershell
 $datastore = Get-DataStore MyDatastore
+Get-TagAssignment -Entity $datastore -Category MyCategory
 ```
 _Retrieves all tag assignments for the $datastore entity that have tags from the "MyCategory" category._
 
@@ -133,7 +135,7 @@ _Retrieves all assignments of the specified tag._
 
 **Parameters:**
 
-- -Id [String[]] (Required) Filters the tag categories by ID.
+- -Id [String[]] (Required) Filters the tag categories by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Filters the tag categories by name.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -199,6 +201,7 @@ This cmdlet assigns the specified tag to the specified entity.
 
 ```powershell
 $myTag = Get-Tag "MyTag"
+Get-VM "*MyVM*" | New-TagAssignment -Tag $myTag
 ```
 _Assigns the "MyTag" tag to all virtual machines whose name contains the " MyVM " wildcard pattern._
 
@@ -208,9 +211,9 @@ _Assigns the "MyTag" tag to all virtual machines whose name contains the " MyVM 
 
 **Parameters:**
 
-- -Cardinality [Cardinality] (Optional) Specifies the cardinality of the tag category. If not specified, the default value is "Single".
+- -Cardinality [Cardinality] (Optional) Specifies the cardinality of the tag category. If not specified, the default value is "Single".   "Single" means that only a single tag from this category can be assigned to a specific object at a time. "Multiple" means that more than one tag from this category can be assigned to a specific object at a time.
 - -Description [String] (Optional) Specifies the description of the new tag category.
-- -EntityType [String[]] (Optional) Defines the type of objects to which the tags in this category will be applicable. If you do not specify this parameter or specify "All" as a value, the tags in this category will be applicable to all valid entity types.
+- -EntityType [String[]] (Optional) Defines the type of objects to which the tags in this category will be applicable. If you do not specify this parameter or specify "All" as a value, the tags in this category will be applicable to all valid entity types.   This parameter accepts both PowerCLI type names and vSphere API type names. The valid PowerCLI type names are: Cluster, Datacenter, Datastore, DatastoreCluster, DistributedPortGroup, DistributedSwitch, Folder, ResourcePool, VApp, VirtualMachine, VM, VMHost, ContentLibrary, ContentLibraryItem, Network, HostNetwork, OpaqueNetwork.   For non-PowerCLI types, a namespace prefix is required. Example: 'urn:vim25:VirtualMachine'
 - -Name [String] (Required) Specifies the name of the new tag category.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 
@@ -257,6 +260,7 @@ _Removes the CompanyID and Owner custom attributes from the server stored in the
 
 ```powershell
 $tagCategory = Get-TagCategory "MyTagCategory"
+Get-Tag -Name "MyTag1", "MyTag2" -Category $tagCategory | Remove-Tag
 ```
 _Retrieves the tags named "MyTag1" and "MyTag2" from the specified tag category named "MyTagCategory" and then removes the tags from the vCenter Server system._
 
@@ -274,6 +278,8 @@ This cmdlet removes the specified tag assignment. The cmdlet removes the assignm
 
 ```powershell
 $myVM = Get-VM myvm
+$myTagAssignment = Get-TagAssignment $myVM
+Remove-TagAssignment $myTagAssignment
 ```
 _Removes all connections to tags from the specified virtual machine entity._
 
@@ -368,8 +374,8 @@ This cmdlet modifies the specified tag categories. The cardinality of a tag cate
 
 **Parameters:**
 
-- -AddEntityType [String[]] (Optional) Adds the specified entity types to the list of types that tags in this category are applicable to. If you specify "All" as a value, the tags will be applicable to all entity types.
-- -Cardinality [Cardinality] (Optional) Specifies the cardinality of the tag category. If not specified, the default value is "Single".
+- -AddEntityType [String[]] (Optional) Adds the specified entity types to the list of types that tags in this category are applicable to. If you specify "All" as a value, the tags will be applicable to all entity types.   This parameter accepts both PowerCLI type names and vSphere API type names. The valid PowerCLI type names are: Cluster, Datacenter, Datastore, DatastoreCluster, DistributedPortGroup, DistributedSwitch, Folder, ResourcePool, VApp, VirtualPortGroup, VirtualMachine, VM, VMHost.   For non-PowerCLI types, a namespace prefix is required. Example: 'urn:vim25:VirtualMachine'
+- -Cardinality [Cardinality] (Optional) Specifies the cardinality of the tag category. If not specified, the default value is "Single".   "Single" means that only a single tag from this category can be assigned to a specific object at a time. "Multiple" means that more than one tag from this category can be assigned to a specific object at a time.   The only value that is accepted for this parameter is "Multiple".
 - -Category [TagCategory[]] (Required) Specifies the tag categories that you want to configure.
 - -Description [String] (Optional) Specifies the new description to set to the tag categories.
 - -Name [String] (Optional) Specifies the name to which the specified tag categories will be renamed.
@@ -384,5 +390,6 @@ _Retrieves a tag category named "MyTagCategory" and updates its name and descrip
 
 ```powershell
 $myTagCategory = Get-TagCategory "MyTagCategory"
+Set-TagCategory -Category $myTagCategory -Cardinality Multiple -AddEntityType "VirtualMachine"
 ```
 _Retrieves a tag category named "MyTagCategory" and updates it by allowing more than one of its tags to be assigned to a specific object at a time, as well as adding "VirtualMachine" to the set of applicable entity types._

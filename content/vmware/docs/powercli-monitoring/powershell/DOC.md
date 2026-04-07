@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Performance stats, events, tasks, logs"
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,monitoring,Get-EventType, Get-Log, Get-LogType, Get-Metric, Get-Stat, Get-StatInterval, Get-StatType, Get-VIEvent, New-StatInterval, Remove-StatInterval, Set-StatInterval"
@@ -60,11 +60,17 @@ This cmdlet retrieves entries from vSphere logs. Returns portions of the log fil
 
 ```powershell
 $keys = Get-LogType
+
+Get-Log -Key $keys[0]
 ```
 _Obtain the available keys. Obtains the first log file from the currently connected vCenter Server system._
 
 ```powershell
 $vmhost = Get-VMHost Host
+
+$keyList = Get-LogType -VMHost $vmhost
+
+$vmhost | Get-Log -Key $keyList[0] -StartLineNum 1 -NumLines 100
 ```
 _Retrieve the first one hundred log lines for the specified host and key._
 
@@ -88,6 +94,8 @@ This cmdlet retrieves information about the log types available on a virtual mac
 
 ```powershell
 $vmhost = Get-VMHost -State "Connected"
+
+Get-Logtype -VMHost $vmhost
 ```
 _Gets information about the available logs on the virtual machine hosts whose state is Connected._
 
@@ -154,7 +162,7 @@ _Prints the disk statistics for the specified time interval for the first virtua
 ```powershell
 Get-Stat -Entity $MyVMHost -Cpu -Instance 0
 ```
-_Retrieves the CPU statistics for the first processor of a multiprocessor host._
+_Retrieves the CPU statistics for the first processor of a multiprocessor host.   Note: This command can only work with a direct ESX connection._
 
 ```powershell
 Get-VMHost -Name "MyVMHost" | Get-Stat -Network -IntervalSecs 20
@@ -211,7 +219,7 @@ This cmdlet retrieves information about the events on a vCenter Server system. A
 
 - -Entity [VIObject[]] (Optional) Specifies objects (such as virtual machine, virtual machine host, resource pool, and so on) for which you want to collect events.
 - -Finish [DateTime] (Optional) Specifies the end date of the events you want to retrieve. The valid formats are dd/mm/yyyy and mm/dd/yyyy, depending on the local machine regional settings.
-- -MaxSamples [Int32] (Optional) Specifies the maximum number of retrieved events. When you do not filter events by time period, the maximum number of retrieved events is set to 100 by default.
+- -MaxSamples [Int32] (Optional) Specifies the maximum number of retrieved events. When you do not filter events by time period, the maximum number of retrieved events is set to 100 by default.   Note: This parameter is ignored when the Start and Finish parameters are specified and all events from the specified period are retrieved.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -Start [DateTime] (Optional) Specifies the start date of the events you want to retrieve. The valid formats are dd/mm/yyyy and mm/dd/yyyy, depending on the local machine regional settings.
 - -Types [EventCategory[]] (Optional) Specifies the type of the events you want to collect. The valid values are Error, Info, and Warning.
@@ -226,6 +234,10 @@ _Retrieves a list of the last fifteen error events on the MyVM1 virtual machine 
 
 ```powershell
 Connect-VIServer -Server 10.23.113.41
+
+$events = Get-VIEvent -MaxSamples 100
+
+foreach ($event in $events) {if  ($event.fullFormattedMessage -match "User (.*)@\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b logged in") {Write-Host ("User " + $matches[1] + " logged in at:" + $event.createdTime)} }
 ```
 _Gathers information for the users that have logged in._
 

@@ -4,7 +4,7 @@ description: "VMware PowerCLI 13.3 — Datastores, vSAN, SPBM storage policies, 
 metadata:
   languages: "powershell"
   versions: "13.3.0"
-  revision: 2
+  revision: 3
   updated-on: "2026-04-06"
   source: community
   tags: "vmware,powercli,vsphere,storage,Add-VsanFileServiceOvf, Add-VsanObjectToRepairQueue, Add-VsanStoragePoolDisk, Copy-DatastoreItem, Copy-VDisk, Export-SpbmStoragePolicy, Get-CnsVolume, Get-Datastore, Get-DatastoreCluster, Get-SpbmCapability, Get-SpbmCompatibleStorage, Get-SpbmEntityConfiguration, Get-SpbmFaultDomain, Get-SpbmPointInTimeReplica, Get-SpbmReplicationGroup, Get-SpbmReplicationPair, Get-SpbmStoragePolicy, Get-SpbmView, Get-VasaStorageArray, Get-VDisk, Get-VsanClusterConfiguration, Get-VsanClusterPowerState, Get-VsanComponent, Get-VsanDirectDisk, Get-VsanDisk, Get-VsanDiskGroup, Get-VsanEnterMaintenanceModeReport, Get-VsanEsaEligibleDisk, Get-VsanEvacuationPlan, Get-VsanFaultDomain, Get-VsanFileServiceDomain, Get-VsanFileServiceOvfInfo, Get-VsanFileShare, Get-VsanFileShareSnapshot, Get-VsanHCIMeshDatastore, Get-VsanHCIMeshDatastoreSource, Get-VsanIscsiInitiatorGroup, Get-VsanIscsiInitiatorGroupTargetAssociation, Get-VsanIscsiLun, Get-VsanIscsiTarget, Get-VsanObject, Get-VsanPerformanceContributor, Get-VsanResyncingComponent, Get-VsanResyncingOverview, Get-VsanRuntimeInfo, Get-VsanSpaceUsage, Get-VsanStat, Get-VsanStoragePoolDisk, Get-VsanView, Get-VsanWipeDiskStatus, Get-VvolStorageContainer, Import-SpbmStoragePolicy, Move-Datastore, Move-VDisk, New-CnsVolume, New-CnsVolumeAttachment, New-CnsVolumeMetadata, New-Datastore, New-DatastoreCluster, New-DatastoreDrive, New-RemoteVsanServerClusterConfig, New-SpbmRule, New-SpbmRuleSet, New-SpbmStoragePolicy, New-VDisk, New-VsanDirectDisk, New-VsanDisk, New-VsanDiskGroup, New-VsanFaultDomain, New-VsanFileServerIpConfig, New-VsanFileServiceDomain, New-VsanFileShare, New-VsanFileShareNetworkPermission, New-VsanFileShareSnapshot, New-VsanHCIMeshDatastoreSource, New-VsanHealthCheckThreshold, New-VsanIscsiInitiatorGroup, New-VsanIscsiInitiatorGroupTargetAssociation, New-VsanIscsiLun, New-VsanIscsiTarget, Remove-CnsVolume, Remove-CnsVolumeAttachment, Remove-Datastore, Remove-DatastoreCluster, Remove-SpbmStoragePolicy, Remove-VDisk, Remove-VsanDirectDisk, Remove-VsanDisk, Remove-VsanDiskGroup, Remove-VsanFaultDomain, Remove-VsanFileServiceDomain, Remove-VsanFileShare, Remove-VsanFileShareSnapshot, Remove-VsanHCIMeshDatastoreSource, Remove-VsanIscsiInitiatorGroup, Remove-VsanIscsiInitiatorGroupTargetAssociation, Remove-VsanIscsiLun, Remove-VsanIscsiTarget, Remove-VsanStoragePoolDisk, Set-CnsVolume, Set-Datastore, Set-DatastoreCluster, Set-SpbmEntityConfiguration, Set-SpbmStoragePolicy, Set-VDisk, Set-VsanClusterConfiguration, Set-VsanFaultDomain, Set-VsanFileServiceDomain, Set-VsanFileShare, Set-VsanIscsiInitiatorGroup, Set-VsanIscsiLun, Set-VsanIscsiTarget, Start-SpbmReplicationFailover, Start-SpbmReplicationPrepareFailover, Start-SpbmReplicationPromote, Start-SpbmReplicationReverse, Start-SpbmReplicationTestFailover, Start-VsanCluster, Start-VsanClusterDiskUpdate, Start-VsanClusterRebalance, Start-VsanEncryptionConfiguration, Start-VsanRelayoutObjects, Start-VsanWipeDisk, Stop-SpbmReplicationTestFailover, Stop-VsanCluster, Stop-VsanClusterRebalance, Stop-VsanWipeDisk, Sync-SpbmReplicationGroup, Test-VsanClusterHealth, Test-VsanNetworkPerformance, Test-VsanStoragePerformance, Update-VsanHclDatabase"
@@ -165,7 +165,7 @@ _Exports a storage policy to a file in C:\policies\. If the C:\policies\ directo
 ```powershell
 Export-SpbmStoragePolicy -StoragePolicy $policy -FilePath C:\policy.xml -Force
 ```
-_Exports a storage policy to the policy.xml file in C:\. If a file with the same name already exists in this location, the file is overwritten._
+_Exports a storage policy to the policy.xml file in C:\. If a file with the same name already exists in this location, the file is overwritten.   Note: If you do not use the Force parameter, the command returns an error about the existing file._
 
 ## Get
 
@@ -203,7 +203,7 @@ This cmdlet retrieves the datastores available on a vCenter Server system. Retur
 
 **Parameters:**
 
-- -Id [String[]] (Required) Specifies the IDs of the datastores you want to retrieve.
+- -Id [String[]] (Required) Specifies the IDs of the datastores you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIObject[]] (Optional) Specifies vSphere container objects that you want to search for datastores. This parameter accepts Datacenter, Folder, and DatastoreCluster objects.
 - -Name [String[]] (Optional) Specifies the names of the datastores you want to retrieve.
 - -Refresh [SwitchParameter] (Optional) Indicates that the cmdlet first refreshes the storage system information and then retrieves the specified datastores.
@@ -225,6 +225,8 @@ _Retrieves the datastores from the MyDatacenter datacenter that have names start
 
 ```powershell
 $vm1 = Get-VM -Name myVM1
+$vm2 = Get-VM -Name myVM2
+Get-Datastore -RelatedObject $vm1, $vm2
 ```
 _Retrieves the datastores for a specified array of virtual machines._
 
@@ -235,7 +237,7 @@ _Retrieves the datastores for a specified array of virtual machines._
 **Parameters:**
 
 - -Datastore [Datastore[]] (Optional) Filters the datastore clusters by the datastores located in them.
-- -Id [String[]] (Optional) Specifies the IDs of the datastore clusters you want to retrieve.
+- -Id [String[]] (Optional) Specifies the IDs of the datastore clusters you want to retrieve.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Location [VIContainer[]] (Optional) Specifies the datacenters and folders from which you want to retrieve datastore clusters.
 - -Name [String[]] (Optional) Specifies the names of the datastore clusters you want to retrieve.
 - -RelatedObject [DatastoreClusterRelatedObjectBase[]] (Required) Specifies objects to retrieve one or more DatastoreCluster objects that are related to them. This parameter accepts OMResource objects.
@@ -471,7 +473,7 @@ _Retrieves replication pairs for which the source replication group is in the $s
 **Parameters:**
 
 - -Capability [SpbmCapability[]] (Optional) Filters the storage policies by capability schema.
-- -Id [String[]] (Optional) Filters the storage policies by ID.
+- -Id [String[]] (Optional) Filters the storage policies by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Filters the storage policies by name.
 - -Namespace [String[]] (Optional) Filters the storage policies by namespace.
 - -Requirement [SwitchParameter] (Optional) Specifies the policy category. Policy category can be either "requirement" or "resource". If nothing specified, retrieves both.
@@ -522,6 +524,8 @@ _Retrieves the SPBM view object of a SPBM managed object with a "ManagedObjectId
 
 ```powershell
 $serviceInstanceView = Get-SpbmView -Id "PbmServiceInstance-ServiceInstance"
+$spbmServiceContent = $serviceInstanceView.PbmRetrieveServiceContent()
+Get-SpbmView -Id $spbmServiceContent.ProfileManager
 ```
 _Retrieves the SPBM view object of the ProfileManager singleton managed object._
 
@@ -554,7 +558,7 @@ _Retrieves the VDisk with Id 'VDiskId'._
 
 **Parameters:**
 
-- -Id [String[]] (Required) Retrieves all storage arrays with an ID set to "MyArrayId".
+- -Id [String[]] (Required) Retrieves all storage arrays with an ID set to "MyArrayId".   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Lun [ScsiLun[]] (Optional) Filters the retrieved storage arrays by LUN. If not specified, all storage arrays are retrieved. You can retrieve LUN objects by using the Get-ScsiLun cmdlet.
 - -Name [String[]] (Optional) Filters the retrieved storage arrays by name.
 - -Refresh [SwitchParameter] (Optional) Synchronizes the storage arrays before retrieving data. The operation is synchronous.
@@ -681,7 +685,7 @@ This cmdlet retrieves the host disks that belong to a vSAN disk group. The cmdle
 **Parameters:**
 
 - -CanonicalName [String[]] (Optional) Specifies the canonical names of the retrieved disks.
-- -Id [String[]] (Required) Specifies the IDs of the retrieved disks.
+- -Id [String[]] (Required) Specifies the IDs of the retrieved disks.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHost [VMHost[]] (Required) Specifies the hosts that the retrieved disks are attached to.
 - -VsanDiskGroup [VsanDiskGroup[]] (Optional) Specifies the vSAN disk groups that the disks are part of.
@@ -713,7 +717,7 @@ This cmdlet retrieves vSAN disk groups in a cluster or a host, by ID, name, or t
 
 - -Cluster [Cluster[]] (Optional) Specifies the clusters that the retrieved groups are on.
 - -DiskCanonicalName [String[]] (Optional) Specifies the canonical names of disks that are part of the retrieved groups.
-- -Id [String[]] (Required) Specifies the IDs of disks that are part of the retrieved groups.
+- -Id [String[]] (Required) Specifies the IDs of disks that are part of the retrieved groups.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Specifies the name of the vSAN disk group you want to retrieve.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is provided or $null value is passed to this parameter, the command runs on the default servers. For more information about default servers, see the description of Connect-VIServer.
 - -VMHost [VMHost[]] (Required) Specifies the hosts that the retrieved groups are on.
@@ -786,6 +790,7 @@ _Retrieves vSAN ESA eligible disks by a specified cluster._
 
 ```powershell
 $disk = Get-scsilun -VMHost (get-vmhost 10.78.193.26)
+Get-VsanEsaEligibleDisk -ScsiLun $disk
 ```
 _Validates and retrieves vSAN ESA eligible disks by a range of ScsiLun data objects._
 
@@ -945,6 +950,7 @@ This cmdlet retrieves vSAN HCI Mesh datastores based on the specified filters. Y
 
 ```powershell
 $ds = Get-VsanHCIMeshDatastoreSource -VCHost ('10.161.94.0')
+Get-VsanHCIMeshDatastore -VsanHCIMeshDatastoresource $ds
 ```
 _Retrieves a vSAN HCI Mesh datastore from the specified HCI Mesh datastore source._
 
@@ -1106,6 +1112,7 @@ _Retrieves information of the vSAN objects in the specified clusters. The vSAN o
 
 ```powershell
 $cluster = get-cluster
+Get-VsanPerformanceContributor -StartTime 2023-08-28T05:17:00 -Entity "HostDomClient" -EndTime 2023-08-28T06:17:00 -MetricId "LatencyWrite" -Cluster $cluster
 ```
 _Retrieves the vSAN performance entities given the time constraints, the "HostDomClient" entity type, and the "LatencyWrite" metric._
 
@@ -1194,7 +1201,7 @@ _Retrieves space usage details of the $cluster vSAN cluster and what-if usable f
 
 **Parameters:**
 
-- -Name [String[]] (Optional) Specifies the performance metrics you want to retrieve. If not specified, all the metrics are returned. The value is in the format 'ViewName.MetricName'.
+- -Name [String[]] (Optional) Specifies the performance metrics you want to retrieve. If not specified, all the metrics are returned. The value is in the format 'ViewName.MetricName'.   ViewName is applicable to different entity types: Cluster: Backend, VMConsumption, Capacity VMHost: Backend, VMConsumption, HostNetwork, HostIscsi VirtualMachine: Performance HardDisk: VirtualDisk, Vscsi VsanDisk: Performance VsanDiskGroup: Performance VsanStoragePoolDisk: Performance VsanIscsiTarget: Performance VsanIscsiLun: Performance HostVirtualNic: Performance PhysicalNic: Performance VsanFileShare: Performance
 - -Entity [VIObjectCore[]] (Optional) Specifies the entity for which you want to retrieve vSAN performance metrics. OBN is supported for the Cluster, VMHost, VirtualMachine, VsanIscsiTarget, and VsanStoragePoolDisk (vSphere 8.0 and later) entity types.
 - -StartTime [DateTime] (Optional) Specifies the client local time from which you want to retrieve statistics. The returned samples do not include the sample at StartTime.
 - -EndTime [DateTime] (Optional) Specifies the client local time up to which you want to retrieve statistics. If the specified value is later than current server time, the value is replaced by the current server time. The returned samples include the sample at EndTime.
@@ -1205,6 +1212,7 @@ _Retrieves space usage details of the $cluster vSAN cluster and what-if usable f
 
 ```powershell
 $diskGroups = Get-VsanDiskGroup -Cluster "vsan-cluster"
+Get-VsanStat -Entity $diskGroups
 ```
 _Retrieves all vSAN performance samples for vSAN disk groups of the "vsan-cluster" cluster._
 
@@ -1215,6 +1223,7 @@ _Retrieves vSAN performance samples for backend read throughput of the "vsan-clu
 
 ```powershell
 $cluster = Get-Cluster -Name "vsan-cluster"
+Get-VsanStat -Entity $cluster -Name VMConsumption.ReadIops -StartTime $startTime -EndTime $endTime
 ```
 _Retrieves the read IOPS stats relevant to the VM consumption view of the "vsan-cluster" cluster in the $startTime to $endTime local time range._
 
@@ -1295,7 +1304,7 @@ This cmdlet retrieves the list of vVol storage containers that are reported by t
 
 **Parameters:**
 
-- -Id [String[]] (Required) Retrieves the vVol storage containers by ID.
+- -Id [String[]] (Required) Retrieves the vVol storage containers by ID.   Note: When a list of values is specified for the Id parameter, the returned objects would have an ID that matches exactly one of the string values in that list.
 - -Name [String[]] (Optional) Filters the retrieved vVol storage containers by name.
 - -Server [VIServer[]] (Optional) Specifies the vCenter Server systems on which you want to run the cmdlet. If no value is given to this parameter, the command runs on the default servers. For more information about default servers, see the description of the Connect-VIServer cmdlet.
 - -StorageArray [VasaStorageArray[]] (Optional) Filters the retrieved storage containers by array. You can retrieve the provider objects by using the Get-VasaStorageArray cmdlet.
@@ -1361,6 +1370,7 @@ _Moves the MyDatastore datastore to the specified folder._
 
 ```powershell
 $myDatastoreCluster = Get-DatastoreCluster -Name "MyDatatoreCluster"
+Get-Datastore "MyDatastore1", "MyDatastore2" | Move-Datastore -Destination $myDatastoreCluster
 ```
 _Moves two datastores to a specified datastore cluster._
 
@@ -1545,6 +1555,7 @@ Creates a local object of type RemoteVsanServerClusterConfig that you use to mou
 
 ```powershell
 $serverConfig = New-RemoteVsanServerClusterConfig -cluster $clusterServer -networktopology "Symmetric"
+Set-VsanClusterConfiguration -configuration $clusterClient -mountremotedatastore $datastore -remoteVsanServerClusterConfig $serverconfig
 ```
 _Creates a local RemoteVsanServerClusterConfig with the Symmetric network topology type and the $clusterServer server cluster for the mounted remote vSAN datastore. Mounts the $datastore datastore from the $clusterServer cluster as a remote datastore on the $clusterClient cluster with the $serverconfig object._
 
@@ -1638,6 +1649,8 @@ _Creates a new storage policy named "MyPolicy" with a rule set containing rule o
 
 ```powershell
 $c = Get-SpbmCapability -Name IOFILTERS*
+$cr = New-SpbmRule -Capability $c[0] -Value 10
+$p = New-SpbmStoragePolicy -Name policy1 -AnyOfRuleSets (New-SpbmRuleSet -Name ruleset1 -AllOfRules @($rule1, $rule2)) -CommonRule ($cr)
 ```
 _Creates a storage policy with one rule set and one VAIOFilter common rule._
 
@@ -1790,6 +1803,8 @@ This cmdlet creates a file service domain in the vSAN cluster.
 
 ```powershell
 New-VsanFileServiceDomain -Name "myDomain" -Cluster $cluster
+ -VsanFileServerIpConfig $ipconfig1, $ipconfig2 -DnsServerAddress "10.172.199.240"
+ -DnsSuffix "vmware.com"
 ```
 _Creates a new vSAN file service domain named "myDomain" in the $cluster vSAN cluster with  "10.172.199.240" as its DNS server address and "vmware.com" as its DNS suffix.  The domains's IP pool are $ipconfig1 and $ipconfig2._
 
@@ -2212,6 +2227,7 @@ This cmdlet removes a vSAN HCI Mesh datastore source with the specified informat
 
 ```powershell
 $ds = Get-VsanHCIMeshDatastoreSource -VCHost ('10.186.46.61')
+Remove-VsanHCIMeshDatastoreSource -User 'administrator@vsphere.local' -VsanHCIMeshDatastoreSource $ds -Password 'IDRJ*tvu:k5g8MjO'
 ```
 _Removes the specified vSAN HCI Mesh datastore source from the specified vCenter Server._
 
@@ -2296,6 +2312,7 @@ _Removes the $target iSCSI target without asking for confirmation._
 
 ```powershell
 $disks =get-vsanstoragepooldisk -VMHost (Get-VMHost 10.192.201.50)
+Remove-VsanStoragePoolDisk -VsanStoragePoolDisk $disks -VsanDataMigrationMode nodatamigration -Purpose "test" -Confirm:$false
 ```
 _Removes vSAN storage pool disks from the specified host without confirmation._
 
@@ -2328,7 +2345,7 @@ This cmdlet modifies the properties of the specified datastore. You can use the 
 
 - -CongestionThresholdMillisecond [Int32] (Optional) Specifies the latency period beyond which the storage array is considered congested. The range of this value is between 10 to 100 milliseconds.
 - -Datastore [Datastore[]] (Required) Specifies the datastore whose properties you want to change.
-- -EvacuateAutomatically [SwitchParameter] (Optional) Specifies whether you want to automatically migrate all virtual machines to another datastore if the value of MaintenanceMode is $true. When the Storage DRS automation level is  set to Fully Automated, you do not need to specify the EvacuateAutomatically parameter because Storage DRS will migrate all virtual machines automatically.
+- -EvacuateAutomatically [SwitchParameter] (Optional) Specifies whether you want to automatically migrate all virtual machines to another datastore if the value of MaintenanceMode is $true. When the Storage DRS automation level is  set to Fully Automated, you do not need to specify the EvacuateAutomatically parameter because Storage DRS will migrate all virtual machines automatically.   If EvacuateAutomatically is specified, the SDRS placement and migration recommendations are automatically applied. If SDRS generates cluster DRS faults, an error report is displayed and the operation is cancelled. The report contains information about each datastore cluster DRS fault.   If EvacuateAutomatically is not specified, an error report is displayed and the operation is cancelled. The error report contains information about each SDRS recommendation. If SDRS generates cluster DRS faults, an error report is displayed and the operation is cancelled. The error report contains information about each fault.   If EvacuateAutomatically is explicitly set to false, the cmdlet blocks execution without displaying an error message. If SDRS generates datastore cluster DRS faults, the cmdlet stops responding and an error report is displayed. The report contains information about each cluster DRS fault.
 - -MaintenanceMode [Boolean] (Required) Specifies whether you want to put the datastore in maintenance mode. The operation completes when no virtual machines are present and no provisioning processes are running on the datastore.
 - -Name [String] (Optional) Specifies a new name for the datastore. Do not use slash (/), backslash (\), and percent (%) characters in datastore names.
 - -RunAsync [SwitchParameter] (Optional) Indicates that the command returns immediately without waiting for the task to complete. In this mode, the output of the cmdlet is a Task object. For more information about the RunAsync parameter run "help About_RunAsync" in the VMware PowerCLI console.
@@ -2514,7 +2531,7 @@ _Inflates the $vDisk VDisk object._
 - -StoragePolicy [SpbmStoragePolicy] (Optional) Specifies the storage policy. This parameter is applicable in the context of enabling the vSAN performance service. The vSAN performance history database is stored as a vSAN object. The policy controls the availability, space consumption, and performance of that object. If the object becomes unavailable, the performance history for that cluster is also unavailable.
 - -StoragePolicyForIscsiTargetService [SpbmStoragePolicy] (Optional) Specifies the storage policy for the iSCSI target service. When you enable the iSCSI target service, vSAN creates a home object that stores metadata for the iSCSI target service. The storage policy for the home object should have a number of failures to tolerate.
 - -StretchedClusterEnabled [Boolean] (Optional) Activates or deactivates a stretched cluster configuration.
-- -WitnessHost [VMHost] (Optional) Specifies the witness host virtual machine in case StretchedClusterEnabled is enabled. It can also be a vSphere virtual appliance called witness appliance.
+- -WitnessHost [VMHost] (Optional) Specifies the witness host virtual machine in case StretchedClusterEnabled is enabled. It can also be a vSphere virtual appliance called witness appliance.   Requirements for the witness host: - Must not be part of any vSAN-enabled cluster.   - Must have at least one VMkernel adapter with vSAN traffic enabled.   - The adapter must be connected to all hosts in the stretched cluster.     In vSAN versions earlier than 6.6, this parameter is only applicable when enabling stretched cluster. If StretchedClusterEnabled is not specified or is false, this parameter is ignored.  In vSAN 6.7 or later, this parameter can be specified to update the witness host in a stretched cluster.
 - -WitnessHostCacheDisk [String] (Optional) Specifies ? cache disk canonical name for the disk group that you want to create on the witness host. This parameter accepts ScsiLun or VMHostDisk objects through argument transformation.
 - -WitnessHostCapacityDisk [String[]] (Optional) Specifies the capacity disk canonical names for the disk group that you want to create on the witness host. This parameter accepts ScsiLun or VMHostDisk objects through argument transformation.
 - -WitnessHostStoragePoolDisk [String[]] (Optional) Specifies the disk canonical names for the storage pool that you want to create on the witness host. This parameter accepts ScsiLun or VMHostDisk objects through argument transformation. This parameter is available starting from vSphere 8.0.
@@ -2580,6 +2597,7 @@ This cmdlet modifies the settings of the given vSAN file service domains.
 
 ```powershell
 Set-VsanFileServiceDomain -VsanFileServiceDomain $domain -DnsServerAddress "10.172.199.240"
+ -DnsSuffix "vmware.com" -FileServerIpConfig $ipconfig1, $ipconfig2
 ```
 _Adds $ipconfig1 and $ipconfig2 to the $domain file service IP pool, sets the DNS server address to  "10.172.199.240", and the DNS suffix to "vmware.com"_
 
