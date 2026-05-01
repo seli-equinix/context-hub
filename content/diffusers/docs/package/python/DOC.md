@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "diffusers,hugging-face,diffusion,generative-ai,images,video,audio"
+  tags: "diffusers,hugging-face,diffusion,generative-ai,images,video,audio,pipe,DiffusionPipeline,from_pretrained,torch,login,image,DPMSolverMultistepScheduler,StableDiffusionPipeline,enable_model_cpu_offload,reset_device_map,Fine-Tuning,Memory-Constrained,Version-Sensitive,from_config,save,save_pretrained,shows"
 ---
 
 # diffusers Python Package Guide

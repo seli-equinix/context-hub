@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "clickhouse,python,database,analytics,http,pandas,pyarrow,polars,sqlalchemy"
+  tags: "clickhouse,python,database,analytics,http,pandas,pyarrow,polars,sqlalchemy,client,result,query,clickhouse_connect,connect,DataFrame,insert,close,get_client,insert_df_arrow,command,get_async_client,query_df,query_df_arrow,asyncio,create_insert_context,environ,insert_df,main,named_results,query_arrow,AsyncClient,Version-Sensitive,data_insert,example.clickhouse.cloud"
 ---
 
 # clickhouse-connect Python Package Guide

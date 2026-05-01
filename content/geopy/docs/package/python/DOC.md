@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "geopy,python,geocoding,reverse-geocoding,location,distance,nominatim"
+  tags: "geopy,python,geocoding,reverse-geocoding,location,distance,nominatim,geocoder,import,geocode,AioHTTPAdapter,asyncio,AsyncRateLimiter,GeocoderServiceError,GeocoderTimedOut,GoogleV3,geodesic,main,RateLimiter,great_circle,reverse,run,Version-Sensitive,environ,example.com,gather,retried,supports"
 ---
 
 # geopy Python Package Guide

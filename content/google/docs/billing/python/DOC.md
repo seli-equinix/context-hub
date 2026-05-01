@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud-billing,google-cloud,gcp,billing,cloud-catalog,pricing,python"
+  tags: "google-cloud-billing,google-cloud,gcp,billing,cloud-catalog,pricing,python,billing_v1,client,CloudBillingClient,CloudCatalogClient,get_project_billing_info,ListSkusRequest,datetime,update_project_billing_info,Credentials,ProjectBillingInfo,list_project_billing_info,list_skus,service_account,timedelta,timezone,Version-Sensitive,from_service_account_file,headings,list_billing_accounts,list_services,now"
 ---
 
 # google-cloud-billing Python Package Guide

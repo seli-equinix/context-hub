@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "localstack,aws,python,boto3,testing,docker,cloud-emulator"
+  tags: "localstack,aws,python,boto3,testing,docker,cloud-emulator,sqs,client,Version-Sensitive,create_bucket,create_queue,list_buckets,receive_message,send_message"
 ---
 
 # LocalStack Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "12.0.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "hubspot,crm,marketing,contacts,automation"
+  tags: "hubspot,crm,marketing,contacts,automation,ApiException,properties,requests,basic_api,response,headers,create,SimplePublicObjectInputForCreate,results,getenv,json,example.com,inputs,all_contacts,PublicObjectSearchRequest,get_page,get_by_id,SimplePublicObjectInput,raise_for_status,read,associations_api,get,get_all,update,client"
 ---
 
 # HubSpot Python SDK Coding Guidelines

@@ -6,7 +6,7 @@ metadata:
   versions: "0.84.0"
   updated-on: "2026-03-05"
   source: maintainer
-  tags: "anthropic,sdk,llm,ai,claude"
+  tags: "anthropic,sdk,llm,ai,claude,messages,client,create,20250514,models,stream,AsyncAnthropic,AnthropicBedrock,AnthropicVertex,DEPRECATED_MODELS,Path,asyncio,get_weather,main,with_options,batches,count_tokens,files,get_final_message,items,list,run,upload"
 ---
 
 

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,cloud,tpu,gcp,python,ml,infrastructure,queued-resources"
+  tags: "google,cloud,tpu,gcp,python,ml,infrastructure,queued-resources,tpu_v2,client,environ,TpuClient,operation,QueuedResource,Node,result,tpu_v1,default,NetworkConfig,update_node,NodeSpec,create_node,node_path,stop_node,FieldMask,Spot,delete_node,list_accelerator_types,list_runtime_versions,queued_resource_path,Version-Sensitive,create_queued_resource,delete_queued_resource"
 ---
 
 # Google Cloud TPU Python Client

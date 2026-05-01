@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pyyaml,yaml,serialization,configuration,python"
+  tags: "pyyaml,yaml,serialization,configuration,python,loader,safe_load,load,config,SafeLoader,safe_dump,EnvLoader,config_path,Path,SafeDumper,env_constructor,safe_dump_all,safe_load_all,CSafeDumper as SafeDumper,CSafeLoader as SafeLoader,One-Argument,Version-Sensitive,add_constructor,construct_scalar,environ,read_text,write_text"
 ---
 
 # PyYAML Python Package Guide

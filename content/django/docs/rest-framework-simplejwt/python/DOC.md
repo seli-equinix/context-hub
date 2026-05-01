@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-rest-framework,jwt,authentication,tokens"
+  tags: "django,django-rest-framework,jwt,authentication,tokens,token,blacklist,path,RefreshToken,as_view,TokenObtainPairView,TokenVerifyView,for_user,settings,MyTokenObtainPairSerializer,get_token,simplejwt,timedelta,APIView,AuthenticationFailed,Content-Type,IsAuthenticated,Response,TokenBlacklistView,TokenObtainPairSerializer,TokenObtainSlidingView,TokenRefreshSlidingView,TokenRefreshView,get,MeView"
 ---
 
 # Django REST Framework Simple JWT for Python

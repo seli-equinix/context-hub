@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,service-catalog,portfolios,provisioning,cloudformation"
+  tags: "aws,service-catalog,portfolios,provisioning,cloudformation,client,console,log,send"
 ---
 
 # AWS Service Catalog SDK for JavaScript

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "redis,python,cache,key-value,pubsub,asyncio,cluster"
+  tags: "redis,python,cache,key-value,pubsub,asyncio,cluster,client,pipe,get,Sentinel,message,redis.example.com,set,ssl,from_url,multi,RedisCluster,UsernamePasswordCredentialProvider,aclose,environ,execute,main,ping,pipeline,ttl,Version-Sensitive,expire,hgetall,hset,incr,listen"
 ---
 
 # redis Python Package Guide

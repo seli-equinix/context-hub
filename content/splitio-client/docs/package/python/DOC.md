@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "split,harness,feature-flags,experimentation,python,sdk"
+  tags: "split,harness,feature-flags,experimentation,python,sdk,client,factory,block_until_ready,destroy,manager,track,get_factory,get_treatment,Multi-Process,Version-Sensitive,environ,get_treatment_with_config"
 ---
 
 # Split Python SDK Package Guide

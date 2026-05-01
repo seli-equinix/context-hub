@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "camelot,pdf,table-extraction,pandas,dataframe,etl"
+  tags: "camelot,pdf,table-extraction,pandas,dataframe,etl,tables,read_pdf,export,plot,Command-Line,Version-Sensitive,head,to_csv"
 ---
 
 # Camelot Python Package Guide

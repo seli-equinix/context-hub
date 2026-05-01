@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "hydra,configuration,cli,omegaconf,experiments,python"
+  tags: "hydra,configuration,cli,omegaconf,experiments,python,main,hydra.main,run,DictConfig,dataclass,trainer,AppConfig,ConfigStore,DBConfig,initialize,compose,field,instantiate,to_yaml,Version-Sensitive,functools.wraps,instance,selection,store"
 ---
 
 # Hydra Python Package Guide

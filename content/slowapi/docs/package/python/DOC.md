@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "slowapi,python,fastapi,starlette,rate-limiting,redis"
+  tags: "slowapi,python,fastapi,starlette,rate-limiting,redis,app,limiter,limit,Request,get,get_remote_address,app.get,dict,limiter.limit,RateLimitExceeded,Response,_rate_limit_exceeded_handler,search,PlainTextResponse,SlowAPIMiddleware,add_exception_handler,shared_limit,shared_search_limit,homepage,login,metrics,Forwarded-For,add_middleware,add_route,advanced_search"
 ---
 
 # SlowAPI Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cartopy,python,gis,maps,matplotlib,projection,crs,geospatial"
+  tags: "cartopy,python,gis,maps,matplotlib,projection,crs,geospatial,plt,ccrs,axes,coastlines,PlateCarree,add_feature,config,figure,show,set_extent,shapereader,attributes,deg2rad,gridlines,linspace,reader,LambertConformal,Mercator,Version-Sensitive,colorbar,contourf,cos,meshgrid,natural_earth,numpy as np"
 ---
 
 # Cartopy Python Package Guide

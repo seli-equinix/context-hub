@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-waffle,django,feature-flags,rollouts,switches,experiments,python"
+  tags: "django-waffle,django,feature-flags,rollouts,switches,experiments,python,waffle,checkout,flag,waffle_flag,HttpResponse,sample_is_active,waffle_switch,TemplateView,WaffleFlagMixin,client,flag_is_active,override_flag,switch_is_active,NewCheckoutView,Version-Sensitive,get,is_active_for_user,test_checkout_uses_new_flow"
 ---
 
 # django-waffle 5.0.0 Python Package Guide

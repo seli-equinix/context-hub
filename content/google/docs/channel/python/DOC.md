@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,cloud-channel,reseller,subscriptions,customers,entitlements,python"
+  tags: "google,google-cloud,cloud-channel,reseller,subscriptions,customers,entitlements,python,channel_v1,client,Customer,CloudChannelServiceClient,ListCustomersRequest,environ,CreateCustomerRequest,ListEntitlementsRequest,ListPurchasableSkusRequest,create_customer,CloudChannelServiceAsyncClient,PostalAddress,asyncio,list_customers,list_purchasable_skus,main,GetCustomerRequest,Version-Sensitive,get_customer,list_entitlements,run"
 ---
 
 # google-cloud-channel Python Package Guide

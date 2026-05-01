@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cloudpickle,python,serialization,pickle,distributed-computing"
+  tags: "cloudpickle,python,serialization,pickle,distributed-computing,dumps,loads,load,register_pickle_by_value,my_worker_code,name,dump,path,unregister_pickle_by_value,build_name,make_record,open,Requires-Python,Version-Sensitive,body,upper"
 ---
 
 # cloudpickle Python Package Guide

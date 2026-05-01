@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,express,express-session,cookies,node,authentication,types,definitelytyped"
+  tags: "typescript,express,express-session,cookies,node,authentication,types,definitelytyped,session,app,res,save,destroy,json,status,get,post,regenerate,touch,1.18.2,Version-Sensitive,clearCookie,exposes"
 ---
 
 # express-session TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,javascript,smithy,sdk,client,commands,middleware"
+  tags: "aws,javascript,smithy,sdk,client,commands,middleware,endpoint,PingCommand,ExampleClient,error,send,console,destroy,ping,HttpResponse,ServiceException,log,3.374.0,context,isInstance,middlewareStack,ExampleAwsClient,listTables,names,resolveMiddlewareWithContext"
 ---
 
 # `@aws-sdk/smithy-client`

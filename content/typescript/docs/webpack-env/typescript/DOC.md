@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,webpack,hmr,hot-module-replacement,types"
+  tags: "typescript,webpack,hmr,hot-module-replacement,types,hot,context,require,renderApp,next,accept,HotModuleReplacementPlugin,Version-Sensitive,body,console,dispose,ensure,keys,log,replaceChildren"
 ---
 
 # webpack-env TypeScript Guide

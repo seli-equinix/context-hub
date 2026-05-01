@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,compute-optimizer,javascript,nodejs,ec2,autoscaling,ebs,lambda,recommendations"
+  tags: "aws,compute-optimizer,javascript,nodejs,ec2,autoscaling,ebs,lambda,recommendations,client,error,console,send,log,push"
 ---
 
 # `@aws-sdk/client-compute-optimizer`

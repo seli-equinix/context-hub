@@ -6,7 +6,7 @@ metadata:
   versions: "3.0.17"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "chromadb,embeddings,vector-db,ai,search"
+  tags: "chromadb,embeddings,vector-db,ai,search,collection,documents,client,ids,query,metadatas,console,add,log,chroma,error,string,count,get,createCollection,distances,dotenv,map,update,all,delete,number,slice,getOrCreateCollection,newDocs"
 ---
 
 # ChromaDB JavaScript/TypeScript SDK - v3.0.17

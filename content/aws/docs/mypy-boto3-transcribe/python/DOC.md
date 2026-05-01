@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,transcribe,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,transcribe,boto3,type-stubs,mypy,pyright,python,client,stubs,session,TranscribeServiceClient,lite,waiter,TYPE_CHECKING,TranscriptionJobCompletedWaiter,StartTranscriptionJobRequestRequestTypeDef,job,Version-Sensitive,get_transcription_job,get_waiter,make_client,resource,start_transcription_job,wait"
 ---
 
 # mypy-boto3-transcribe Python Package Guide

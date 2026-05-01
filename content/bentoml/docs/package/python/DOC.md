@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "bentoml,python,serving,inference,mlops,deployment"
+  tags: "bentoml,python,serving,inference,mlops,deployment,service,bentoml.service,bentoml.api,Summarizer,BaseModel,PredictResponse,PredictRequest,decorated,prompt,text,GPUService,TextService,Version-Sensitive,__init__,dict,health,predict,summarize,upper"
 ---
 
 # BentoML Python Package Guide

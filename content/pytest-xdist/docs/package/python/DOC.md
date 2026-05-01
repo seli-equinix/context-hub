@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest,pytest-xdist,python,testing,parallelism,ci"
+  tags: "pytest,pytest-xdist,python,testing,parallelism,ci,xdist,fixture,config,data_file,json,mark,produce_expensive_data,pytest.fixture,xdist_group,FileLock,Path,dict,getenv,getini,ini,logging,pytest.mark.xdist_group,tmp_path_factory,toml,Worker-Aware,basicConfig,database_name,dumps,environ,exists"
 ---
 
 # pytest-xdist Python Package Guide

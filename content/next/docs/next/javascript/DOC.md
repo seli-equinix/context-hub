@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "next,nextjs,javascript,react,app-router,ssr"
+  tags: "next,nextjs,javascript,react,app-router,ssr,const,posts,json,metadata,16.1.6,Counter,HomePage,localhost,type,Response,request,Avatar,RootLayout,SettingsPage,Version-Sensitive,latest,push,stringify"
 ---
 
 # Next.js JavaScript Guide

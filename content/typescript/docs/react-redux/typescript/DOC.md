@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react-redux,react,redux,provider,hooks,connect,types,definitelytyped"
+  tags: "typescript,react-redux,react,redux,provider,hooks,connect,types,definitelytyped,store,useAppSelector,useAppDispatch,ReactDOM,CounterButton,CounterSummary,createRoot,document,getElementById"
 ---
 
 # React Redux TypeScript Guide

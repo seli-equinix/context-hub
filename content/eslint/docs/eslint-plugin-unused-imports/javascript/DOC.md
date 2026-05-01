@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,linting,imports,javascript,typescript"
+  tags: "eslint,linting,imports,javascript,typescript,default"
 ---
 
 # eslint-plugin-unused-imports

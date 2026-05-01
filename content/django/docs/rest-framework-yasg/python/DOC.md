@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "drf-yasg,django,django-rest-framework,swagger,openapi,schema"
+  tags: "drf-yasg,django,django-rest-framework,swagger,openapi,schema,yasg,serializers,swagger_auto_schema,path,schema_view,swagger_serializer_method,EmailField,Info,IntegerField,Response,SerializerMethodField,UserFilterSerializer,UserSerializer,get_schema_view,list,permissions,re_path,viewsets,with_ui,BooleanField,InternalView,Parameter,ReportSerializer,UserViewSet,Version-Sensitive"
 ---
 
 # drf-yasg Python Package Guide

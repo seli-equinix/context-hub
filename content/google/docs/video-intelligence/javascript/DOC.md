@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,video-intelligence,video,annotation,javascript,nodejs"
+  tags: "google-cloud,gcp,video-intelligence,video,annotation,javascript,nodejs,const,client,google,videoIntelligence,operation,VideoIntelligenceServiceClient,annotateVideo,console,annotationResults,promise,log,6.2.1,endSeconds,startSeconds,toFixed,readFile"
 ---
 
 # `@google-cloud/video-intelligence` JavaScript Package Guide

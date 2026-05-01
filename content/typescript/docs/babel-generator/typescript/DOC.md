@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,babel,babel-generator,ast,codegen,types,definitelytyped"
+  tags: "typescript,babel,babel-generator,ast,codegen,types,definitelytyped,generator,generate,declarations,console,log,answer,7.27.0,API,directly,7.28.5,Version-Sensitive,body,instance,license,preserve"
 ---
 
 # babel-generator TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "flask,python,web,wsgi,jinja,werkzeug"
+  tags: "flask,python,web,wsgi,jinja,werkzeug,app,client,request,config,get,session,jsonify,create_app,app.get,pytest,abort,current_app,extension,payload,secrets,user,fixture,hello,login,post,pytest.fixture,Blueprint,aggregate,app.post,args"
 ---
 
 # Flask Python Package Guide

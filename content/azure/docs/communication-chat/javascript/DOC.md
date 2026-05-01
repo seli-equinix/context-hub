@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,communication-services,chat,javascript,messaging,realtime"
+  tags: "azure,communication-services,chat,javascript,messaging,realtime,chatClient,threadClient,console,log,getChatThreadClient,listMessages,response,1.6.0,startRealtimeNotifications,listParticipants,sendMessage,addParticipants,createChatThread,deleteChatThread,deleteMessage,getProperties,getThreadClient,json,removeParticipant,sendTypingNotification,updateMessage,updateTopic"
 ---
 
 # Azure Communication Services Chat SDK For JavaScript

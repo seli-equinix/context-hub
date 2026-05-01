@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,pypi,aws,sagemaker,boto3,mypy,typing,stubs"
+  tags: "python,pypi,aws,sagemaker,boto3,mypy,typing,stubs,client,session,SageMakerClient,page,names,paginator,waiter,Config,TYPE_CHECKING,response,ListTrainingJobsPaginator,TrainingJobCompletedOrStoppedWaiter,item,list,Dev-Only,Version-Sensitive,describe_training_job,extend,get_paginator,get_waiter,list_domains,paginate,recent_training_jobs,resource,training_job_status"
 ---
 
 # mypy-boto3-sagemaker Python Package Guide

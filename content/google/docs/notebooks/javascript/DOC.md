@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,notebooks,vertex-ai-workbench,jupyter,javascript,nodejs"
+  tags: "google-cloud,gcp,notebooks,vertex-ai-workbench,jupyter,javascript,nodejs,const,client,google,NotebookServiceClient,ManagedNotebookServiceClient,operation,promise,listInstancesAsync,4.2.1,console,getRuntime,listRuntimesAsync,log,createInstance,getInstance,startInstance,startOperation,stopInstance,stopOperation,Version-Sensitive,first"
 ---
 
 # `@google-cloud/notebooks` JavaScript Package Guide

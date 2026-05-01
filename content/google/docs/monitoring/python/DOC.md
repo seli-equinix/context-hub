@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,monitoring,observability,metrics,alerting,slo"
+  tags: "google,google-cloud,monitoring,observability,metrics,alerting,slo,monitoring_v3,client,query,MetricServiceClient,labels,time,common_project_path,now,AlertPolicyServiceClient,NotificationChannelServiceClient,datetime,QueryServiceClient,Timestamp,end,list_time_series,points,start,timezone,ClientOptions,Credentials,FromDatetime,ServiceMonitoringServiceClient,UptimeCheckServiceClient,as_dataframe,create_time_series"
 ---
 
 # Google Cloud Monitoring Python Client Library

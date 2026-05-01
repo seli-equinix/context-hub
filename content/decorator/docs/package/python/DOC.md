@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "decorator,python,decorators,dispatch,contextmanager,metaprogramming"
+  tags: "decorator,python,decorators,dispatch,contextmanager,metaprogramming,signature,caller,decorate,add,dispatch_on,inspect,time,render,perf_counter,logged,multiply,register,render.register,retry,debug,debug_call,decorator as deco,getsource,log_runtime,logging,printsum,traced_call,warn_slow,Version-Sensitive,dispatch_info"
 ---
 
 # decorator Python Package Guide

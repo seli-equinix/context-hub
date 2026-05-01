@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-rest-framework,openapi,swagger,redoc,schema"
+  tags: "django,django-rest-framework,openapi,swagger,redoc,schema,spectacular,serializers,path,extend_schema,OpenApiAuthenticationExtension,WidgetSerializer,as_view,CharField,OpenApiParameter,SpectacularAPIView,extend_schema_field,extend_schema_serializer,instead,viewsets,AppConfig,REST_FRAMEWORK,Response,SerializerMethodField,SpectacularRedocView,SpectacularSwaggerView,ViewSet,Widget,all,ready,API-Key"
 ---
 
 # drf-spectacular Python Package Guide

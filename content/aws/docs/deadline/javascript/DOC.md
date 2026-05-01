@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,deadline,deadline-cloud,javascript,nodejs,rendering,job-scheduling"
+  tags: "aws,deadline,deadline-cloud,javascript,nodejs,rendering,job-scheduling,client,send,console,log,3.1007.0,Deadline-Specific"
 ---
 
 # `@aws-sdk/client-deadline`

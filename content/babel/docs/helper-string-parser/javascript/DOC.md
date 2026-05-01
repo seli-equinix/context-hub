@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,parser,strings,unicode"
+  tags: "babel,build,parser,strings,unicode,console,log,7.27.1,String,fromCodePoint"
 ---
 
 # @babel/helper-string-parser

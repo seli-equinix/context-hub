@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,cloud-build,cicd,builds,triggers,gcp,python"
+  tags: "google-cloud,cloud-build,cicd,builds,triggers,gcp,python,cloudbuild_v1,Build,reference,client,CloudBuildClient,result,StorageSource,operation,environ,BuildStep,Source,create_build,ApprovalResult,approve_build,BuildOptions,getenv,get_build,list_builds"
 ---
 
 # google-cloud-build Python Package Guide

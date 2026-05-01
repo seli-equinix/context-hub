@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "invoke,python,cli,tasks,automation,shell"
+  tags: "invoke,python,cli,tasks,automation,shell,task,docs,toml,test,Collection,greet,message,build,check,true,integration,lint,Version-Sensitive,deploy,upper"
 ---
 
 # Invoke Python Package Guide

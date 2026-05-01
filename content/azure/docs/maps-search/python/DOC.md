@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,maps,search,geocoding,reverse-geocoding,location,python"
+  tags: "azure,maps,search,geocoding,reverse-geocoding,location,python,client,MapsSearchClient,result,AzureKeyCredential,geometry,get,item,get_geocoding,DefaultAzureCredential,AzureSASCredential,HttpResponseError,environ,get_geocoding_batch,get_polygon,BoundaryResultType,Resolution,get_reverse_geocoding,get_reverse_geocoding_batch,Version-Sensitive,accounts,list_sas"
 ---
 
 # Azure Maps Search Python Package Guide

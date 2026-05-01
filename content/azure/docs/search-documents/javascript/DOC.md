@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-ai-search,search,indexing,rbac,javascript"
+  tags: "azure,azure-ai-search,search,indexing,rbac,javascript,client,searchClient,mergeDocuments,results,uploadDocuments,console,log,mergeOrUploadDocuments,deleteDocuments,getDocument,indexClient,Pull-Based,createOrUpdateIndex,map"
 ---
 
 # @azure/search-documents JavaScript Package Guide

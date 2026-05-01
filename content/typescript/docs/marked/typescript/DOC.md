@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,marked,markdown,html,types,definitelytyped"
+  tags: "typescript,marked,markdown,html,types,definitelytyped,parse,console,log,parser,href,sanitize,text,document,headings,parseInline,string,6.0.0,DOMPurify,Version-Sensitive,push,querySelector,startsWith,toLowerCase"
 ---
 
 # Marked TypeScript Guide

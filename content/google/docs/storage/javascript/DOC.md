@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,cloud-storage,storage,buckets,objects,javascript,nodejs"
+  tags: "google-cloud,gcp,cloud-storage,storage,buckets,objects,javascript,nodejs,const,bucket,file,google,console,log,source,upload,save,JSON,createBucket,7.19.0,Date,copy,createReadStream,createWriteStream,getFiles,getMetadata,move,now,setMetadata,End-To,stringify"
 ---
 
 # `@google-cloud/storage` JavaScript Package Guide

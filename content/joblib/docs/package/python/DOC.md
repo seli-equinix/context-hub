@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "joblib,python,parallelism,caching,persistence,numpy"
+  tags: "joblib,python,parallelism,caching,persistence,numpy,cache,Memory,Parallel,delayed,load,dump,parallel_config,score_item,Path,return,build_features,list,memory.cache,data_path,expires_after,Version-Sensitive,fetch_snapshot,transform,upper"
 ---
 
 # Joblib Python Package Guide

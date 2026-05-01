@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "unsloth,python,llm,fine-tuning,inference,lora,trl,transformers"
+  tags: "unsloth,python,llm,fine-tuning,inference,lora,trl,transformers,model,tokenizer,FastLanguageModel,trainer,is_bfloat16_supported,SFTConfig,SFTTrainer,save_pretrained,train,apply_chat_template,get_chat_template,get_peft_model,load_dataset,save_pretrained_gguf,save_pretrained_merged,Version-Sensitive,batch_decode,for_inference,from_pretrained,generate,push_to_hub_merged"
 ---
 
 # Unsloth Python Package Guide

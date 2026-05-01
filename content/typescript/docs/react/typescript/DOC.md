@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,jsx,hooks,refs,types,definitelytyped"
+  tags: "typescript,react,jsx,hooks,refs,types,definitelytyped,const,return,formData,Comment,TextInput,SessionProvider,get,optimisticComments,useSession,CommentComposer,Panel,Version-Sensitive,map"
 ---
 
 # React TypeScript Guide

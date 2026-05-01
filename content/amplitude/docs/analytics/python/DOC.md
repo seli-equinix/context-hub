@@ -6,7 +6,7 @@ metadata:
   versions: "1.2.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "amplitude,analytics,events,tracking,product"
+  tags: "amplitude,analytics,events,tracking,product,client,identify_obj,example.com,BaseEvent,EventOptions,identify,event_properties,track,time,self,request,response,set,amplitude_client,app,revenue,shutdown,requests,add,environ,flush,json,thread,get,platform"
 ---
 
 # Amplitude Analytics - Python SDK

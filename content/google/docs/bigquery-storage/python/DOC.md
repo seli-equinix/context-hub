@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,bigquery,bigquery-storage,google-cloud,gcp,python,analytics,storage-api"
+  tags: "google,bigquery,bigquery-storage,google-cloud,gcp,python,analytics,storage-api,bigquery_storage_v1,client,table,rows,storage,types,schema,streams,arrow_table,pyarrow,BigQueryReadClient,ReadRowsStream,environ,reader,to_dataframe,row,to_arrow,AppendRowsRequest,AppendRowsStream,BigQueryWriteClient,ReadSession,append_rows_stream,create_read_session,read_rows,serialize"
 ---
 
 # google-cloud-bigquery-storage Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "apache-airflow,airflow,google-cloud,gcp,bigquery,gcs,dag"
+  tags: "apache-airflow,airflow,google-cloud,gcp,bigquery,gcs,dag,pendulum,BigQueryInsertJobOperator,GCSListObjectsOperator,LocalFilesystemToGCSOperator,annotations,datetime,BigQueryHook,GCSHook"
 ---
 
 # Apache Airflow Google Provider Python Guide

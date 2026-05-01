@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "gensim,python,nlp,embeddings,word2vec,lda,topic-modeling"
+  tags: "gensim,python,nlp,embeddings,word2vec,lda,topic-modeling,model,dictionary,corpus,vectors,doc2bow,load,save,LdaModel,api,available,index,most_similar,tfidf,MatrixSimilarity,TfidfModel,bow_corpus,info,Bag-Of,SaveLoad,TF-IDF,Version-Sensitive,filter_extremes,get_document_topics,print_topics"
 ---
 
 # Gensim Python Package Guide

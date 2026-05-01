@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "keras,python,deep-learning,machine-learning,tensorflow,jax,pytorch,openvino"
+  tags: "keras,python,deep-learning,machine-learning,tensorflow,jax,pytorch,openvino,model,layers,models,ops,save,random,compile,evaluate,fit,predict,x_train,Sequential,TFSMLayer,callbacks,export,load_model,saving,Dense,Input,environ,Backend-Agnostic,Dropout,EarlyStopping,ModelCheckpoint,MyLayer"
 ---
 
 # Keras Python Package Guide

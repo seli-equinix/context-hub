@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,firestore,gcp,nosql,database,python,async"
+  tags: "google,google-cloud,firestore,gcp,nosql,database,python,async,transaction,Client,batch,query,collection,snapshot,FieldFilter,bulk,city_ref,set,update,get,Increment,bulk_writer,ref,stream,AsyncClient,Credentials,increment_counter,service_account,to_dict,ArrayUnion,Auto-Generated,High-Volume,Non-Transactional"
 ---
 
 # google-cloud-firestore Python Package Guide

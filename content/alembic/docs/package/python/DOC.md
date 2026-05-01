@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "alembic,sqlalchemy,migrations,database,schema"
+  tags: "alembic,sqlalchemy,migrations,database,schema,upgrade,config,command,connection,ini,Base,batch_op,downgrade,engine,Column,DeclarativeBase,MetaData,add_column,attributes,context,database_url,drop_column,replace,set_main_option,stamp,DateTime,Integer,Version-Sensitive,batch_alter_table,begin"
 ---
 
 # alembic Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,pug,templates,node,types,definitelytyped"
+  tags: "typescript,pug,templates,node,types,definitelytyped,render,app,cwd,process,renderFile,res,set,compileFile,console,get,log,renderProfile"
 ---
 
 # Pug TypeScript Guide

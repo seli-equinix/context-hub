@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,javascript,linting,promises,async,npm"
+  tags: "eslint,javascript,linting,promises,async,npm,default,configs,7.2.1,Version-Sensitive"
 ---
 
 # eslint-plugin-promise JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,amazon-translate,translate,translation,i18n,javascript,nodejs"
+  tags: "aws,amazon-translate,translate,translation,i18n,javascript,nodejs,client,send,console,log,Buffer"
 ---
 
 # Amazon Translate SDK for JavaScript v3 Guide

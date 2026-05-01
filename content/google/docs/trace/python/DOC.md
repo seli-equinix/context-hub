@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,cloud-trace,trace,tracing,observability,gcp"
+  tags: "google,cloud-trace,trace,tracing,observability,gcp,trace_v1,client,trace_v2,TraceServiceClient,datetime,Timestamp,to_timestamp,batch_write_spans,now,timedelta,timezone,get_trace,list_traces,Credentials,FromDatetime,Span,page,pages,service_account,Version-Sensitive,from_service_account_file"
 ---
 
 # Google Cloud Trace Python Client Library

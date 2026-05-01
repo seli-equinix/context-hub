@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,eventarc,google-cloud,events,cloudevents,cloud-run,pubsub"
+  tags: "google,eventarc,google-cloud,events,cloudevents,cloud-run,pubsub,eventarc_v1,client,EventarcClient,operation,result,Trigger,ClientOptions,EventFilter,list_triggers,CloudRun,Destination,Version-Sensitive,create_trigger,delete_trigger,list_providers"
 ---
 
 # Google Cloud Eventarc Python Client Library

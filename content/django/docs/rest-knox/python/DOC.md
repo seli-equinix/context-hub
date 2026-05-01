@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,drf,authentication,token,api,security,knox"
+  tags: "django,drf,authentication,token,api,security,knox,login,user,LoginView,path,include,self,as_view,permissions,serializer,timedelta,MeView,Response,TokenAuthentication,APIView,AuthTokenSerializer,LoginView as KnoxLoginView,get_post_response_data,post,Content-Type,CustomLoginView,LogoutAllView,LogoutView,Version-Sensitive,format_expiry_datetime,get"
 ---
 
 # django-rest-knox Python Package Guide

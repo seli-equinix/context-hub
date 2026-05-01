@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "slack,slack-sdk,python,chat,web-api,oauth,webhooks,socket-mode"
+  tags: "slack,slack-sdk,python,chat,web-api,oauth,webhooks,socket-mode,client,WebClient,environ,app,AsyncWebClient,request,SocketModeClient,response,webhook,WebhookClient,RateLimitErrorRetryHandler,asyncio,files_upload_v2,process,Event,Flask,SignatureVerifier,SlackApiError,SocketModeRequest,SocketModeResponse,abort,append,chat_postMessage,info,main"
 ---
 
 # Slack Python SDK Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "groq,llm,inference,chat,streaming,audio"
+  tags: "groq,llm,inference,chat,streaming,audio,completions,create,AsyncGroq,choices,APIConnectionError,APIStatusError,Path,asyncio,environ,main,transcriptions,translations,Version-Sensitive,run"
 ---
 
 # groq Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,macie,macie2,s3,security,data-classification,javascript,nodejs"
+  tags: "aws,macie,macie2,s3,security,data-classification,javascript,nodejs,client,send,console,log,terminalStates,dir"
 ---
 
 # `@aws-sdk/client-macie2`

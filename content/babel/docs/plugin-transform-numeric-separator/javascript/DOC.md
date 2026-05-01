@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,numeric-separator,bigint"
+  tags: "babel,build,transpile,numeric-separator,bigint,console,log"
 ---
 
 # @babel/plugin-transform-numeric-separator

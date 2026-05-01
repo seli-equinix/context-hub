@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,sqs,mypy,typing,stubs,python"
+  tags: "aws,boto3,sqs,mypy,typing,stubs,python,session,client,SQSClient,resource,Queue,SQSServiceResource,annotations,lite,paginator,queues,response,TYPE_CHECKING,page,ListQueuesPaginator,SendMessageRequestTypeDef,get,send_message,ReceiveMessageRequestTypeDef,ServiceResourceQueuesCollection,message,result,Runtime-Safe,Version-Sensitive,all,get_paginator"
 ---
 
 # mypy-boto3-sqs Python Package Guide

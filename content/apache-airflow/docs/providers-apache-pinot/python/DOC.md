@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,pinot,apache-pinot,sql,dag,python"
+  tags: "airflow,apache-airflow,pinot,apache-pinot,sql,dag,python,PinotAdminHook,task,hook,PinotDbApiHook,datetime,SQLExecuteQueryOperator,total_row,upload_segment,create_segment,ensure_pinot_objects,summarize_trips,add_schema,add_table,connect,get_conn,get_first,get_records,pinotdb"
 ---
 
 # apache-airflow-providers-apache-pinot

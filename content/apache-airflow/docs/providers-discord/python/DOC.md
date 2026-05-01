@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,discord,python,webhooks,notifications"
+  tags: "airflow,apache-airflow,discord,python,webhooks,notifications,DAG,task,DiscordWebhookOperator,DiscordNotifier,DiscordWebhookHook,hook,datetime,DiscordEmbed,EmptyOperator,execute,notify_row_count"
 ---
 
 # apache-airflow-providers-discord

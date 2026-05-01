@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-maps,management,arm,provisioning,python"
+  tags: "azure,azure-maps,management,arm,provisioning,python,accounts,AzureMapsManagementClient,DefaultAzureCredential,environ,start,AzureCliCredential,datetime,expiry,list_sas,AccountSasParameters,MapsKeySpecification,create_or_update,delete,isoformat,list_keys,regenerate_keys,timedelta,timezone,update,Data-Plane,Version-Sensitive,get,list_by_resource_group,now"
 ---
 
 # Azure Maps Management SDK for Python

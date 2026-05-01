@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "cypress,testing,e2e,browser,automation,javascript"
+  tags: "cypress,testing,e2e,browser,automation,javascript,env,get,task,visit,login,request,contains,example.com,origin,otp,session,intercept,wait,path,Commands,createOrder,getCart,url,End-To,Node-Side,add,existsSync,join,readFileSync,trim"
 ---
 
 # Cypress JavaScript Guide

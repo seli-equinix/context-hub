@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "kedro,python,data-engineering,data-science,pipelines,mlops"
+  tags: "kedro,python,data-engineering,data-science,pipelines,mlops,catalog,pipeline,orders,run,datasets,CSVDataset,load,session,DataCatalog,enriched,node,settings,Path,add_total_price,KedroSession,OmegaConfigLoader,bootstrap_project,conf_loader,create,names,find_pipelines,save,Version-Sensitive,copy,create_pipeline"
 ---
 
 # Kedro Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,exasol,sql,database,python,dag"
+  tags: "airflow,exasol,sql,database,python,dag,ExasolHook,hook,task,row,SQLExecuteQueryOperator,datetime,pyexasol,export_to_file,get_first,get_uri,connect,get_records,read_summary,export_events,ping_exasol"
 ---
 
 # apache-airflow-providers-exasol

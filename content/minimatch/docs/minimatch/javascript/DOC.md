@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "javascript,glob,pattern-matching,paths,regex"
+  tags: "javascript,glob,pattern-matching,paths,regex,minimatch,console,log,path,match,test,filter,changedFiles,files,join,hasMagic,some"
 ---
 
 # minimatch for JavaScript

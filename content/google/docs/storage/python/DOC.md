@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,cloud,storage,gcs,bucket,blob,signed-url"
+  tags: "google,cloud,storage,gcs,bucket,blob,signed-url,client,transfer_manager,Credentials,Path,download_as_bytes,download_as_text,list_blobs,reload,service_account,timedelta,upload_from_filename,Version-Sensitive,create_bucket,delete,download_to_filename,from_service_account_file,generate_signed_url,upload_from_string,upload_many_from_filenames"
 ---
 
 # Google Cloud Storage Python Client

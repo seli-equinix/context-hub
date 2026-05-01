@@ -7,7 +7,7 @@ metadata:
   revision: 3
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,opensearch,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,opensearch,type-stubs,mypy,pyright,python,client,stubs,OpenSearchServiceClient,response,paginator,Session,TYPE_CHECKING,item,application_ids,list,lite,page,return,Config,DescribeDomainResponseTypeDef,DomainStateType,ListApplicationsPaginator,get,Enum-Like,Version-Sensitive,describe_domain,extend,get_domain_arn,get_paginator,list_application_ids"
 ---
 
 # mypy-boto3-opensearch Python Package Guide

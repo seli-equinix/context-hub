@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,cloud-tasks,queues,jobs,http"
+  tags: "google,cloud-tasks,queues,jobs,http,const,client,CloudTasksClient,JSON,createTask,6.2.1,queuePath,Buffer,Content-Type,console,stringify,getQueue,listTasks,log,now,pauseQueue,resumeQueue,Date,Math,Version-Sensitive,floor,taskPath"
 ---
 
 # Google Cloud Tasks Node.js Client

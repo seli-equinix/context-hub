@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "salt,python,configuration-management,orchestration,remote-execution,states"
+  tags: "salt,python,configuration-management,orchestration,remote-execution,states,client,LocalClient,cmd,Version-Sensitive"
 ---
 
 # Salt Python Package Guide

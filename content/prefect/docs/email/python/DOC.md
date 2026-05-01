@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,email,python,smtp,blocks,notifications"
+  tags: "prefect,email,python,smtp,blocks,notifications,environ,EmailServerCredentials,flow,email_credentials,load,email_send_message,example.com,save,get,send_failure_notice,send_inline_email"
 ---
 
 # Prefect Email Python Package Guide

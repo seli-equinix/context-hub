@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "weaviate,weaviate-client,vector-database,semantic-search,rag,embeddings"
+  tags: "weaviate,weaviate-client,vector-database,semantic-search,rag,embeddings,client,batch,query,collections,config,connect_to_local,properties,AdditionalConfig,Timeout,environ,insert,Auth,Vectors,close,data,OpenAI-Api,near_text,Filter,Property,api_key,connect,failed_objects,is_ready,WeaviateClient,by_property"
 ---
 
 # weaviate-client Python Package Guide

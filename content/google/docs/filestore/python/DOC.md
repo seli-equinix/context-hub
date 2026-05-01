@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,filestore,gcp,nfs,storage,python,admin"
+  tags: "google,google-cloud,filestore,gcp,nfs,storage,python,admin,filestore_v1,client,CloudFilestoreManagerClient,operation,NetworkConfig,instance_path,FileShareConfig,result,Backup,Instance,backup_path,Credentials,list_instances,restore_instance,service_account,create_backup,create_instance,delete_instance,from_service_account_file,get_instance"
 ---
 
 # google-cloud-filestore Python Package Guide

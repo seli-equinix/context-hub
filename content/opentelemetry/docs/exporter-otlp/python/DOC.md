@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,otel,otlp,observability,tracing,metrics,logging,collector"
+  tags: "opentelemetry,otel,otlp,observability,tracing,metrics,logging,collector,Resource,provider,trace,create,TracerProvider,BatchSpanProcessor,OTLPSpanExporter,MeterProvider,add,OTLPMetricExporter,PeriodicExportingMetricReader,add_span_processor,meter,requests_counter,set_tracer_provider,tracer,Auto-Instrumentation,Version-Sensitive,create_counter,get_meter,get_tracer,set_meter_provider,start_as_current_span"
 ---
 
 # opentelemetry-exporter-otlp Python Package Guide

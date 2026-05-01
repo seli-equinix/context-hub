@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "feast,python,feature-store,ml,mlops,features,serving"
+  tags: "feast,python,feature-store,ml,mlops,features,serving,store,FeatureStore,Field,datetime,Float32,get_online_features,now,Entity,FeatureService,FeatureView,FileSource,Int64,timedelta,timezone,DataFrame,Version-Sensitive,from_dict,get_feature_service,get_historical_features,materialize_incremental,pandas as pd"
 ---
 
 # feast Python Package Guide

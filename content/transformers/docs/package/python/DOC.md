@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "transformers,hugging-face,python,ml,llm,nlp,vision,audio,pytorch"
+  tags: "transformers,hugging-face,python,ml,llm,nlp,vision,audio,pytorch,model,from_pretrained,tokenizer,AutoTokenizer,torch,AutoModelForSequenceClassification,pipeline,tokenized,AutoModel,AutoModelForCausalLM,save_pretrained,batch,dataset,load_dataset,preprocess,train,trainer,Version-Sensitive,argmax,environ,id2label,inference_mode,logits,map"
 ---
 
 # Hugging Face Transformers Python Package Guide

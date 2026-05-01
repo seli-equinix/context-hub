@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,authorization,rbac,iam,role-assignments,role-definitions,python"
+  tags: "azure,authorization,rbac,iam,role-assignments,role-definitions,python,AuthorizationManagementClient,DefaultAzureCredential,list,environ,permissions,RoleAssignmentCreateParameters,list_for_scope,role_assignments,create,list_for_resource,list_for_resource_group,delete,role_definitions,uuid,Version-Sensitive,uuid4"
 ---
 
 # azure-mgmt-authorization Python Package Guide

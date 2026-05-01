@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tortoise-orm,python,orm,async,database,sqlite,postgresql,mysql"
+  tags: "tortoise-orm,python,orm,async,database,sqlite,postgresql,mysql,Tortoise,fields,Event,Model,create,filter,init,get,127.0.0.1,CharField,IntField,Team,generate_schemas,in_transaction,participants,run_async,shutdown,EventOut,Tournament,startup,DoesNotExist,ForeignKeyField,ManyToManyField,RawSQL,User"
 ---
 
 # Tortoise ORM Python Package Guide

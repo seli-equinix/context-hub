@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,bigtable,google-cloud,gcp,nosql,grpc"
+  tags: "google,bigtable,google-cloud,gcp,nosql,grpc,client,table,data,instance,row,asyncio,column_family_id,BigtableDataClientAsync,main,row_filters,CellsColumnLimitFilter,datetime,decode,get_table,run,cells,column_family,create,exists,read_row,value,MaxVersionsGCRule,ReadRowsQuery,RowMutationEntry,SetCell"
 ---
 
 # Google Cloud Bigtable Python Client Library

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "python,resources,importlib,packaging,files"
+  tags: "python,resources,importlib,packaging,files,importlib_resources,as_file,pkg_resources,read_text,entry,config,open,iterdir,read,resource_filename,root,schema_path,Version-Sensitive,is_dir,is_file,resource_listdir,resource_stream,resource_string"
 ---
 
 # importlib-resources Python Package Guide

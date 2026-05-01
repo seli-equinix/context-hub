@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "stripe,payments,billing,api,webhooks,checkout"
+  tags: "stripe,payments,billing,api,webhooks,checkout,StripeClient,customers,retrieve,HttpResponse,create,list,HTTPXClient,Webhook,auto_paging_iter,environ,AIOHTTPClient,Customer,charges,csrf_exempt,example.com,get,headers,PycurlClient,Request-Id,RequestsClient,Stripe-Signature,UrllibClient,Version-Sensitive,construct_event,payment_intents"
 ---
 
 # Stripe Python Package Guide

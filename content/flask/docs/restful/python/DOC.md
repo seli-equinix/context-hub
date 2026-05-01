@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "flask,rest,api,python,flask-restful"
+  tags: "flask,rest,api,python,flask-restful,fields,app,Resource,get,reqparse,add_resource,request,TODOS,Url,abort,args,marshal_with,parser,HTTPException,post,Blueprint,Config,Health,Nested,Ping,TodoItem,TodoList,UserAlreadyExists,add_argument,payload"
 ---
 
 # Flask-RESTful Python Package Guide

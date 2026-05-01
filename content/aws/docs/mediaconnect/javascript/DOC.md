@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,mediaconnect,javascript,nodejs,video,live-streaming,media"
+  tags: "aws,mediaconnect,javascript,nodejs,video,live-streaming,media,client,console,send,log,Date,now,3.1007.0"
 ---
 
 # `@aws-sdk/client-mediaconnect`

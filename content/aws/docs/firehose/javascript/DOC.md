@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,firehose,data-firehose,streaming,javascript,nodejs"
+  tags: "aws,firehose,data-firehose,streaming,javascript,nodejs,console,log,JSON,payloads,send,encode,encoder,map,stringify"
 ---
 
 # `@aws-sdk/client-firehose`

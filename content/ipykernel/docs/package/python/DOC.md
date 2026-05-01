@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ipykernel,jupyter,ipython,kernel,notebook,python"
+  tags: "ipykernel,jupyter,ipython,kernel,notebook,python,kernelspec,install,embed_kernel,info,get_connection_info,main,Version-Sensitive"
 ---
 
 # ipykernel Python Package Guide

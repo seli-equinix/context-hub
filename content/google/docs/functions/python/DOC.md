@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,functions,cloud-functions,gcp,serverless"
+  tags: "google,google-cloud,functions,cloud-functions,gcp,serverless,client,functions_v2,operation,reference,functions_v1,result,FieldMask,FunctionServiceClient,function_path,pages,StorageSource,environment_variables,update_function,BuildConfig,CloudFunctionsServiceClient,Credentials,Function,ServiceConfig,common_location_path,environ,generate_upload_url,get,get_function,service_account,Source"
 ---
 
 # Google Cloud Functions Python Client

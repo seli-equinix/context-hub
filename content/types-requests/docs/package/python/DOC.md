@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,typing,stubs,requests,mypy,pyright"
+  tags: "python,typing,stubs,requests,mypy,pyright,response,json,cast,Session,get,headers,raise_for_status,request,TypedDict,UserRecord,environ,post,user,update"
 ---
 
 # types-requests

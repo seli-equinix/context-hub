@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "apache-airflow,airflow,datadog,python,metrics,events,sensors,hooks"
+  tags: "apache-airflow,airflow,datadog,python,metrics,events,sensors,hooks,DAG,DatadogHook,DatadogSensor,datetime,hook,task,query_metric,post_event,publish_and_query,publish_metric,response,send_metric,get"
 ---
 
 # Apache Airflow Datadog Provider Guide

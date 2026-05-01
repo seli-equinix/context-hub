@@ -6,7 +6,7 @@ metadata:
   versions: "4.17.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "weaviate,vector-db,search,embeddings,ai"
+  tags: "weaviate,vector-db,search,embeddings,ai,articles,DataType,properties,query,client,Filter,collections,Property,batch,by_property,objects,get,Collection,Configure,data,datetime,near_text,MetadataQuery,List,Metrics,create,Auth,Tenant,insert,Generative"
 ---
 
 # Weaviate Python SDK (v4)

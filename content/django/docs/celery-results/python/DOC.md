@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,celery,results,result-backend,orm,cache,python"
+  tags: "django,celery,results,result-backend,orm,cache,python,result,app,TaskResult,get,shared_task,AsyncResult,environ,fetch_report,objects,GroupResult,ready,self,Version-Sensitive,app as celery_app,autodiscover_tasks,config_from_object,delay,filter,send_webhook,setdefault,update_state"
 ---
 
 # `django-celery-results` for Python

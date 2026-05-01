@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,service-bus,messaging,amqp,queues,topics,subscriptions,sessions"
+  tags: "azure,service-bus,messaging,amqp,queues,topics,subscriptions,sessions,client,ServiceBusClient,environ,receiver,sender,ServiceBusMessage,credential,DefaultAzureCredential,batch,from_connection_string,ServiceBusAdministrationClient,send_messages,complete_message,receive_messages,add_message,close,get_queue_receiver,get_queue_sender,ServiceBusSubQueue,abandon_message,admin,create_message_batch,main,Version-Sensitive,get_queue"
 ---
 
 # Azure Service Bus Python Client Library

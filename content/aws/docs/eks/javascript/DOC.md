@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,eks,kubernetes,containers,cluster"
+  tags: "aws,eks,kubernetes,containers,cluster,console,log,send,EKS-Specific"
 ---
 
 # AWS EKS SDK for JavaScript (v3)

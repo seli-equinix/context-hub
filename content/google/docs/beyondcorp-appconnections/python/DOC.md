@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,beyondcorp,appconnections,python,gcp,adc,zero-trust"
+  tags: "google-cloud,beyondcorp,appconnections,python,gcp,adc,zero-trust,client,beyondcorp_appconnections_v1,environ,AppConnection,AppConnectionsServiceClient,operation,names,app_connection_path,get_app_connection,result,delete_app_connection,list_app_connections,ClientOptions,create_app_connection,field_mask_pb2,update_app_connection,AppConnectionsServiceAsyncClient,ApplicationEndpoint,FieldMask,Long-Running,Version-Sensitive,from_service_account_file,update_display_name"
 ---
 
 # google-cloud-beyondcorp-appconnections Python Package Guide

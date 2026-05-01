@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,certificate-manager,tls,ssl,load-balancing,dns,python"
+  tags: "google-cloud,gcp,certificate-manager,tls,ssl,load-balancing,dns,python,certificate_manager_v1,client,environ,CertificateManagerClient,operation,get,result,Credentials,cert_file,create_certificate,entry_operation,key_file,map_operation,read,service_account,Version-Sensitive,create_certificate_map,create_certificate_map_entry,create_dns_authorization,from_service_account_file,list_certificates"
 ---
 
 # google-cloud-certificate-manager Python Package Guide

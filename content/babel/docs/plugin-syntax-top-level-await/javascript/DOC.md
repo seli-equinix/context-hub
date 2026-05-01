@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,esm,syntax,top-level-await"
+  tags: "babel,build,javascript,esm,syntax,top-level-await,json,7.14.5,response,payload,console,log"
 ---
 
 # @babel/plugin-syntax-top-level-await

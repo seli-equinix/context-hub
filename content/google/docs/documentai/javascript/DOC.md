@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,documentai,gcp,ocr,forms,javascript,nodejs"
+  tags: "google-cloud,documentai,gcp,ocr,forms,javascript,nodejs,const,client,google,DocumentProcessorServiceClient,batchProcessDocuments,processors,console,processDocument,operation,9.5.0,listProcessors,log,Buffer,readFile,Version-Sensitive,map,promise"
 ---
 
 # `@google-cloud/documentai` JavaScript Package Guide

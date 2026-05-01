@@ -6,7 +6,7 @@ metadata:
   versions: "2.0.2"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "kafka,streaming,messaging,queue,events"
+  tags: "kafka,streaming,messaging,queue,events,python,consumer,KafkaConsumer,producer,KafkaProducer,admin,KafkaAdminClient,future,order,return,json,send,value,time,KafkaError,self,get,TopicPartition,headers,topics,messages,close,commit,data,getenv"
 ---
 
 # kafka-python - Apache Kafka Client for Python

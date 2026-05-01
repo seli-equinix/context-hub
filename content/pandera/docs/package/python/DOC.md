@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pandera,python,data-validation,pandas,polars,pyspark,ibis,dataframe"
+  tags: "pandera,python,data-validation,pandas,polars,pyspark,ibis,dataframe,validate,DataFrameSchema,Series,Column,pa.check_types,transactions_schema,Transactions,config_context,pandas as pd,str,Field,ValidationDepth,check_input,check_output,pa.check_input,pa.check_output,Config,Version-Sensitive,assign,dict,keep_positive_amounts,list,loc,normalize_country,pa.check_io"
 ---
 
 # Pandera Python Package Guide

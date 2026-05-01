@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "jmespath,json,query,python,filtering"
+  tags: "jmespath,json,query,python,filtering,expression,search,functions,people,compile,bar,Options,tags,Values,value,CustomFunctions,collections,instances,reservations,Version-Sensitive,_func_reverse,functions.signature,loads,signature"
 ---
 
 # jmespath Python Package Guide

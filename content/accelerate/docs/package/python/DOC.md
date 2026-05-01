@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "accelerate,huggingface,pytorch,distributed-training,mixed-precision,fsdp,deepspeed"
+  tags: "accelerate,huggingface,pytorch,distributed-training,mixed-precision,fsdp,deepspeed,accelerator,model,optimizer,loss,main,backward,torch,prepare,train,batch,gather_for_metrics,step,end_training,notebook_launcher,save_state,scheduler,DataLoader,Linear,TensorDataset,accumulate,parameters,save_model,training_function,zero_grad,AdamW"
 ---
 
 # accelerate Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,backup,javascript,nodejs,recovery,backup-vault,restore"
+  tags: "aws,backup,javascript,nodejs,recovery,backup-vault,restore,client,send,console,log,doneStates"
 ---
 
 # AWS Backup SDK for JavaScript (v3)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,documentdb,docdb,javascript,nodejs,mongodb,db-cluster,db-instance"
+  tags: "aws,documentdb,docdb,javascript,nodejs,mongodb,db-cluster,db-instance,client,send,console,log,Date,now"
 ---
 
 # `@aws-sdk/client-docdb`

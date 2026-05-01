@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,qs,querystring,urlencoded,npm,types"
+  tags: "typescript,qs,querystring,urlencoded,npm,types,filter,value,parse,tag,console,log,Array,isArray,stringify,filters,ids,find"
 ---
 
 # qs TypeScript Guide

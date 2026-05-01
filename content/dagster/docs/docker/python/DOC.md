@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,docker,python,containers,pipes,orchestration"
+  tags: "dagster,docker,python,containers,pipes,orchestration,PipesDockerClient,run,environ,client,docker_pipes_client,open_dagster_pipes,docker_asset,main,Definitions,create,dagster as dg,dg.asset,from_env,get_extra,getenv,info,log,report_asset_materialization"
 ---
 
 # `dagster-docker` for Python

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "fast-xml-parser,xml,javascript,typescript,parser,builder,validation"
+  tags: "fast-xml-parser,xml,javascript,typescript,parser,builder,validation,XMLParser,console,log,item,parse,XMLValidator,root,catalog,validate,book,child,_id,error,isArray,CDATA,_qty,_version,build,getMetaDataSymbol,Array,_currency,addEntity,types"
 ---
 
 # fast-xml-parser for JavaScript / TypeScript

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,source-context,gcp,protobuf,git,gerrit"
+  tags: "google,google-cloud,source-context,gcp,protobuf,git,gerrit,SourceContext,GitSourceContext,GerritSourceContext,labels,Version-Sensitive"
 ---
 
 # google-cloud-source-context Python Package Guide

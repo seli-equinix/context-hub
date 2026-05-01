@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "langchain-core,langchain,python,llm,runnables,prompts,tools,langsmith"
+  tags: "langchain-core,langchain,python,llm,runnables,prompts,tools,langsmith,prompt,RunnableLambda,ChatPromptTemplate,invoke,tool,text,chain,prompt_value,RunnableParallel,lookup_order,upper,ChatOpenAI,analysis,mock_model,to_messages,uppercase,Fan-Out,Version-Sensitive"
 ---
 
 # langchain-core Python Package Guide

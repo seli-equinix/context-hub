@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nbdev,python,jupyter,notebooks,quarto,packaging,documentation"
+  tags: "nbdev,python,jupyter,notebooks,quarto,packaging,documentation,say_hello,ini,show_doc,Version-Sensitive,example.com"
 ---
 
 # nbdev Python Package Guide

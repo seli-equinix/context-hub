@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,talent,jobs,recruiting,search,javascript"
+  tags: "google,google-cloud,talent,jobs,recruiting,search,javascript,const,console,jobClient,searchJobs,JobServiceClient,companyClient,completeQuery,createCompany,log,CompanyServiceClient,completionClient,createJob,7.1.1"
 ---
 
 # Google Cloud Talent Solution Node.js Client

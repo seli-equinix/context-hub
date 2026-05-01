@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,translate,boto3,type-stubs,mypy,pyright,pylance,python"
+  tags: "aws,translate,boto3,type-stubs,mypy,pyright,pylance,python,client,TranslateClient,session,stubs,paginator,response,TYPE_CHECKING,BrevityType,lite,page,ListTerminologiesPaginator,TermTypeDef,get_client,item,translate_text,Version-Sensitive,build_term,dict,get,get_paginator,paginate,set_brevity"
 ---
 
 # mypy-boto3-translate Python Package Guide

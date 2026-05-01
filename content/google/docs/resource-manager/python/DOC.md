@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,gcp,google-cloud,resource-manager,projects,folders,organizations,tags,python"
+  tags: "google,gcp,google-cloud,resource-manager,projects,folders,organizations,tags,python,resourcemanager_v3,client,ProjectsClient,operation,result,TagBindingsClient,search_projects,list_projects,Credentials,create_project,delete_op,delete_project,move_project,service_account,undelete_op,undelete_project,FoldersClient,OrganizationsClient,TagKeysClient,TagValuesClient,Version-Sensitive,common_project_path,from_service_account_file,get_project,list_effective_tags"
 ---
 
 # Google Cloud Resource Manager Python Client Library

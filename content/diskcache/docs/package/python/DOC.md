@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "diskcache,python,caching,sqlite,persistence,memoization"
+  tags: "diskcache,python,caching,sqlite,persistence,memoization,cache,user,FanoutCache,close,expire,get,set,getenv,load_profile,cache.memoize,clear,memoize"
 ---
 
 # diskcache Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "msgpack,messagepack,python,serialization,binary,streaming"
+  tags: "msgpack,messagepack,python,serialization,binary,streaming,bytes,datetime,unpackb,packb,Packer,restored,Unpacker,pack,uuid,buffer,timezone,unpack,BytesIO,ExtType,decode_custom,encode_custom,reset,File-Like,Version-Sensitive,feed,now,seek,uuid4"
 ---
 
 # msgpack Python Package Guide

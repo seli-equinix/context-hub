@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "antd,ant-design,react,ui,components,design-system"
+  tags: "antd,ant-design,react,ui,components,design-system,App,Form,locale,message,const,dayjs,ant,launchDate,render,root,useApp,modal,notification,success,YYYY-MM,console,example.com,log,6.3.2,DeleteButton,LaunchForm,LocalizedDatePicker,ProfileForm,ProjectTable,Promise"
 ---
 
 # Ant Design JavaScript Package Guide

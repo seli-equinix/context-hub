@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dash,plotly,python,web,callbacks,data-visualization,flask"
+  tags: "dash,plotly,python,web,callbacks,data-visualization,flask,app,html,callback,Div,page,Input,dcc,Output,run,ctx,Button,PreventUpdate,diskcache,no_update,Celery,environ,page_container,CeleryManager,DiskcacheManager,asyncio,page_registry,register_page,values,Cache,DataFrame"
 ---
 
 # Dash Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "8.1.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "google,bigquery,data-warehouse,sql,analytics"
+  tags: "google,bigquery,data-warehouse,sql,analytics,const,console,log,query,job,rows,dataset,table,error,bucket,forEach,errors,storage,createQueryJob,example.com,getQueryResults,exists,JSON,tables,createDataset,datasets,getMetadata,jobs,limit,start_date"
 ---
 
 # BigQuery API Coding Guidelines (JavaScript/TypeScript)

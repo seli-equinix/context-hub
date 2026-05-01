@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "nanoid,ids,uuid,random,javascript,typescript"
+  tags: "nanoid,ids,uuid,random,javascript,typescript,5.1.6,console,log,crypto,example.com,getRandomValues"
 ---
 
 # Nano ID for JavaScript

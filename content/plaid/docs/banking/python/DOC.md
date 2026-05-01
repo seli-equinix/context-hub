@@ -6,7 +6,7 @@ metadata:
   versions: "37.1.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "plaid,banking,fintech,payments,financial-data"
+  tags: "plaid,banking,fintech,payments,financial-data,response,request,client,get,webhook,error,account,item,plaid_api,jsonify,liabilities,datetime,transaction,Configuration,app,environ,to_dict,all_transactions,balances,mortgage,ApiClient,PlaidApi,Products,TransactionsSyncRequest,AccountsGetRequest"
 ---
 
 # Plaid API Coding Guidelines (Python)

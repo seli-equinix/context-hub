@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "gevent,greenlet,python,concurrency,networking,event-loop"
+  tags: "gevent,greenlet,python,concurrency,networking,event-loop,queue,joinall,spawn,monkey,sleep,work,config,return,pool,task_done,WSGIServer,fetch,join,patch_all,put,seen,app,consumer,fetch_one,get,producer,response,urlopen,Content-Length,Content-Type"
 ---
 
 # gevent Python Package Guide

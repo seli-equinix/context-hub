@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,key-vault,keys,kms,cryptography,javascript"
+  tags: "azure,key-vault,keys,kms,cryptography,javascript,client,console,log,getKey,4.10.0,cryptoClient,RSA-OAEP,decrypt,deletePoller,encrypt,keyClient,pollUntilDone,recoverPoller,beginDeleteKey,beginRecoverDeletedKey,createEcKey,createRsaKey,getDeletedKey,listPropertiesOfKeyVersions,listPropertiesOfKeys,purgeDeletedKey,updateKeyProperties"
 ---
 
 # Azure Key Vault Keys JavaScript Client

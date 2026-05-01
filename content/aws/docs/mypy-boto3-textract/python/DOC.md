@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,textract,boto3,mypy-boto3-textract,boto3-stubs,typing,type-checking"
+  tags: "aws,textract,boto3,mypy-boto3-textract,boto3-stubs,typing,type-checking,client,session,TextractClient,stubs,response,TYPE_CHECKING,lite,paginator,get,resource,block,page,FeatureTypeType,ListAdaptersPaginator,adapter,Version-Sensitive,analyze_document,detect_document_text,get_paginator,paginate,start_document_analysis"
 ---
 
 # mypy-boto3-textract Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "beautifulsoup4,bs4,html,xml,parsing,scraping"
+  tags: "beautifulsoup4,bs4,html,xml,parsing,scraping,soup,BeautifulSoup,get_text,span,featured,find,SoupStrainer,select,select_one,css,find_all,diagnose,first_item,insert_after,link,node,Requires-Python,Version-Sensitive,new_tag"
 ---
 
 # Beautiful Soup 4 Python Package Guide

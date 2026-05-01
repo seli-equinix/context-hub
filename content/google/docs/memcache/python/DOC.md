@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,memorystore,memcached,gcp,python,admin"
+  tags: "google-cloud,memorystore,memcached,gcp,python,admin,client,memcache_v1,operation,CloudMemcacheClient,result,Instance,FieldMask,schedule_time,create_instance,datetime,set,update_parameters,Credentials,Timestamp,apply_parameters,delete_instance,get,list_instances,reschedule_maintenance,service_account,timezone,update_instance,CloudMemcacheAsyncClient,FromDatetime,MemcacheParameters"
 ---
 
 # google-cloud-memcache Python Package Guide

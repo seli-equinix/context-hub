@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,http-errors,node,http,express,errors,types,definitelytyped"
+  tags: "typescript,http-errors,node,http,express,errors,types,definitelytyped,createHttpError,status,isHttpError,res,app,json,2.0.5,NotFound,Unauthorized,set,get,toHttpResponse,userNotFound"
 ---
 
 # http-errors TypeScript Guide

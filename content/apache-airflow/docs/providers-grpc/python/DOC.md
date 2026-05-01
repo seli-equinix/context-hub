@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,grpc,protobuf,operators,hooks"
+  tags: "airflow,apache-airflow,grpc,protobuf,operators,hooks,DAG,GrpcHook,GrpcOperator,task,helloworld_pb2,helloworld_pb2_grpc,datetime,hook,HelloRequest,fetch_greeting,run,the generated protobuf stub class in DAG code"
 ---
 
 # Apache Airflow gRPC Provider Guide

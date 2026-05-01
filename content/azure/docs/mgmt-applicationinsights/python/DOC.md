@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,application-insights,monitoring,arm,workbooks,synthetics,python"
+  tags: "azure,application-insights,monitoring,arm,workbooks,synthetics,python,client,ApplicationInsightsManagementClient,components,get,deleted_workbooks,ApplicationInsightsComponent,DefaultAzureCredential,web_tests,create_or_update,environ,list_by_resource_group,preview_client,AzureCliCredential,close,component_current_billing_features,component_quota_status,list_by_subscription,web_test_locations,Version-Sensitive,Workspace-Based,list,list_by_component,revisions_list"
 ---
 
 # Azure Application Insights Management SDK for Python

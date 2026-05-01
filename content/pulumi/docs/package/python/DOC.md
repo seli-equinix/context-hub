@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pulumi,python,iac,infrastructure,cloud,devops"
+  tags: "pulumi,python,iac,infrastructure,cloud,devops,Output,config,export,get,all,format,network,apply,self,ServiceEndpoint,StackReference,args,from_input,get_stack,__init__,get_output,register_outputs,require,require_secret,Input,Version-Sensitive,annotations,get_project,get_secret"
 ---
 
 # Pulumi Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "xarray,python,numpy,pandas,dask,zarr,netcdf,scientific-computing"
+  tags: "xarray,python,numpy,pandas,dask,zarr,netcdf,scientific-computing,open_dataset,open_zarr,set_options,DataArray,xarray as xr,Dataset,array,mean,open_mfdataset,sel,temperature,date_range,isel,numpy as np,pandas as pd,Version-Sensitive,resample,to_dataframe,to_netcdf,to_zarr"
 ---
 
 # xarray Python Package Guide

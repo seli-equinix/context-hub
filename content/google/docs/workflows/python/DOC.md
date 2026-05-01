@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,workflows,orchestration,serverless,python"
+  tags: "google,google-cloud,workflows,orchestration,serverless,python,client,workflows_v1,executions_v1,environ,WorkflowsClient,ExecutionsClient,executions,get,Execution,json,operation,Workflow,result,service_account,user_env_vars,workflow_path,FieldMask,UpdateWorkflowRequest,common_location_path,list_executions,workflows_client,Credentials,create_workflow,delete_workflow,dumps"
 ---
 
 # Google Cloud Workflows Python Client

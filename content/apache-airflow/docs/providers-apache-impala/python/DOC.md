@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,impala,sql,dag,python"
+  tags: "airflow,apache-airflow,impala,sql,dag,python,ImpalaHook,task,SQLExecuteQueryOperator,hook,analytics,cursor,datetime,conn,customers,example.com,get_uri,DB-API,close,execute,fetch_recent_counts,get_conn,list,connect,dbapi,fetchall,tuple"
 ---
 
 # apache-airflow-providers-apache-impala

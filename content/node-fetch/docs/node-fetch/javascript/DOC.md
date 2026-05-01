@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "node-fetch,fetch,http-client,http,nodejs"
+  tags: "node-fetch,fetch,http-client,http,nodejs,response,headers,https,form,json,console,error,text,Agent,example.com,log,params,set,stream,controller,pipeline,Content-Type,HTTPResponseError,append,raw,Set-Cookie,abort,clone,stringify"
 ---
 
 # node-fetch (JavaScript)

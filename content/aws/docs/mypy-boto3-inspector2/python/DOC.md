@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,inspector2,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,inspector2,type-stubs,mypy,pyright,python,client,Inspector2Client,stubs,session,response,finding,lite,paginator,TYPE_CHECKING,Config,cast,get,list_findings,page,return,ListFindingsPaginator,ListFindingsResponseTypeDef,list,Version-Sensitive,enable_deep_inspection,get_critical_titles,get_paginator,list_finding_arns,paginate,update_ec2_deep_inspection_configuration"
 ---
 
 # mypy-boto3-inspector2 Python Package Guide

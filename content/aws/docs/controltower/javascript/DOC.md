@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,controltower,javascript,nodejs,governance,landing-zone,organizations"
+  tags: "aws,controltower,javascript,nodejs,governance,landing-zone,organizations,env,send,console,log"
 ---
 
 # `@aws-sdk/client-controltower`

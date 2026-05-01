@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "gatsby,javascript,react,graphql,ssg,meta-framework"
+  tags: "gatsby,javascript,react,graphql,ssg,meta-framework,query,Head,require,5.16.1,AboutPage,console,docsPages,log,DocPage,HomePage,SettingsPage,SiteHeader,SiteInfoPage,forEach,resolve"
 ---
 
 # Gatsby JavaScript Guide

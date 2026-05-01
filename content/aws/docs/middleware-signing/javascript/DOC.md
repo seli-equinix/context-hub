@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,javascript,aws-sdk,smithy,middleware,signing,sigv4,credentials"
+  tags: "aws,javascript,aws-sdk,smithy,middleware,signing,sigv4,credentials,ExampleAwsClient,3.972.7,middlewareStack"
 ---
 
 # `@aws-sdk/middleware-signing`

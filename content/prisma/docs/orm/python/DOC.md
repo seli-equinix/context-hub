@@ -6,7 +6,7 @@ metadata:
   versions: "0.15.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "prisma,orm,database,python,migrations"
+  tags: "prisma,orm,database,python,migrations,user,find_many,prisma.io,String,post,default,create,transaction,count,update,unique,asyncio,main,connect,disconnect,group_by,Category,relation,updatedAt,PostCategory,localhost,run,UserCreateInput,UserWhereInput,VarChar"
 ---
 
 # Prisma Client Python

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "apache-airflow,airflow,apache-beam,beam,dataflow,dag,pipelines"
+  tags: "apache-airflow,airflow,apache-beam,beam,dataflow,dag,pipelines,run,BeamRunPythonPipelineOperator,PipelineOptions,pair,Map,Pipeline,pendulum,CombinePerKey,FlatMap,ReadFromText,WriteToText,annotations,apache_beam as beam,datetime"
 ---
 
 # Apache Airflow Apache Beam Provider Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,automl,vertex-ai,ml,prediction,python"
+  tags: "google,google-cloud,automl,vertex-ai,ml,prediction,python,automl_v1,automl_v1beta1,TablesClient,operation,environ,PredictionServiceClient,automl_client,AutoMlClient,ExamplePayload,Image,Model,prediction_client,result,ClientOptions,PredictRequest,TextClassificationModelMetadata,import_data,predict,tables_client,CreateModelRequest,GcsSource,ImportDataRequest,InputConfig,ListDatasetsRequest,ListTableSpecsRequest"
 ---
 
 # Google Cloud AutoML Python Package Guide

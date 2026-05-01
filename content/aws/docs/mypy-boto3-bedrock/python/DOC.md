@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,bedrock,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,bedrock,boto3,type-stubs,mypy,pyright,python,client,BedrockClient,session,paginator,stubs,page,get,response,TYPE_CHECKING,model,summary,ListCustomModelsPaginator,get_paginator,getenv,list_foundation_models,paginate,Version-Sensitive,iter_custom_model_pages,make_bedrock_client"
 ---
 
 # mypy-boto3-bedrock Python Package Guide

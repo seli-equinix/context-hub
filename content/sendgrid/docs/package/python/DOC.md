@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sendgrid,twilio,email,transactional-email,templates,delivery"
+  tags: "sendgrid,twilio,email,transactional-email,templates,delivery,SendGridAPIClient,Mail,example.com,send,environ,base64,post,Version-Sensitive,b64encode,bounces,get,read"
 ---
 
 # SendGrid Python Package Guide

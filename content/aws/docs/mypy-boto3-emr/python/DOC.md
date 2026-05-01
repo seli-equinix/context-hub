@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,emr,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,emr,type-stubs,mypy,pyright,python,client,Session,stubs,cluster,EMRClient,paginator,waiter,TYPE_CHECKING,lite,cast,list_clusters,response,ClusterRunningWaiter,ClusterStateTypeType,ListClustersPaginator,get,get_paginator,get_waiter,page,Version-Sensitive,is_active_state,paginate,wait"
 ---
 
 # mypy-boto3-emr Python Package Guide

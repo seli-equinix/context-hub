@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "rq,redis,valkey,queue,background-jobs,worker,scheduler"
+  tags: "rq,redis,valkey,queue,background-jobs,worker,scheduler,job,fetch_status,enqueue,Retry,cron,from_url,SimpleWorker,response,high,low,requests,results,latest_result,return_value,work,Repeat,datetime,fetch,get,raise_for_status,timedelta,Version-Sensitive,enqueue_at,enqueue_in,example.cache.local"
 ---
 
 # RQ Python Package Guide

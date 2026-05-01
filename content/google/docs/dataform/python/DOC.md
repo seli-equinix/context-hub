@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,dataform,bigquery,gcp,sql,workflow,python"
+  tags: "google,dataform,bigquery,gcp,sql,workflow,python,dataform_v1,client,environ,DataformClient,query_compilation_result_actions,Credentials,create_compilation_result,create_workflow_invocation,get_workflow_invocation,query_workflow_invocation_actions,service_account,cancel_workflow_invocation,from_service_account_file,get_workspace,list_repositories"
 ---
 
 # Google Cloud Dataform Python Client

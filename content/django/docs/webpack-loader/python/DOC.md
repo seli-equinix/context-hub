@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,webpack,staticfiles,templates,frontend,assets"
+  tags: "django,webpack,staticfiles,templates,frontend,assets,path,json,WEBPACK_LOADER,config,response,ExternalWebpackLoader,WebpackLoader,requests,resolve,Version-Sensitive,get,load_assets,raise_for_status"
 ---
 
 # django-webpack-loader Python Package Guide

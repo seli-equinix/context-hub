@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "rpds-py,rpds,python,immutable,persistent-data-structures"
+  tags: "rpds-py,rpds,python,immutable,persistent-data-structures,stack,jobs,HashTrieMap,HashTrieSet,Queue,features,List,config3,push_front,enqueue,update,List as RPDSList,config,config2,discard,insert,Built-Ins,dequeue,drop_first,get"
 ---
 
 # rpds-py Python Package Guide

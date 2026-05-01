@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,prettier,javascript,linting,formatting,npm"
+  tags: "eslint,prettier,javascript,linting,formatting,npm,default"
 ---
 
 # eslint-plugin-prettier JavaScript Guide

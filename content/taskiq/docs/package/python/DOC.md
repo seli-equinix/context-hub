@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "taskiq,python,async,background-jobs,workers,scheduler,queues"
+  tags: "taskiq,python,async,background-jobs,workers,scheduler,queues,broker,task,add,InMemoryBroker,TaskiqDepends,kiq,startup,AioPikaBroker,RedisAsyncResultBackend,broker.task,Context,wait_result,LabelScheduleSource,TaskiqScheduler,asyncio,environ,get_prefix,localhost,main,pytest,run,shutdown,with_result_backend,Version-Sensitive,format_name"
 ---
 
 # Taskiq Python Package Guide

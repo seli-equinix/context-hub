@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: community
-  tags: "cloudflare,workers,edge,python,d1,r2,kv,durable-objects,queues"
+  tags: "cloudflare,workers,edge,python,d1,r2,kv,durable-objects,queues,request,Response,on_fetch,self,BUCKET,json,obj,prepare,get,results,msg,put,storage,time,DurableObject,Worker,batch,list,COUNTER,MY_QUEUE,WorkerEntrypoint,bytes,delete,example.com,head"
 ---
 
 # Cloudflare Workers Runtime Coding Guidelines (Python)

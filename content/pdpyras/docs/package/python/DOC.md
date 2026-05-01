@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pagerduty,api,incidents,events,python,requests"
+  tags: "pagerduty,api,incidents,events,python,requests,pdpyras,session,environ,APISession,service,user,ChangeEventsAPISession,EventsAPISession,retry,acknowledge,resolve,changes,iter_all,submit,trigger,find,list_all,persist,rget,rput,updated,Version-Sensitive,param"
 ---
 
 # pdpyras Python Package Guide

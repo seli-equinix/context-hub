@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,ftp,file-transfer,dag,python"
+  tags: "airflow,apache-airflow,ftp,file-transfer,dag,python,client,FTPHook,task,hook,get_conn,Path,datetime,output_path,cwd,nlst,open,quit,fetch_orders,ftp.example.com,local_path,retrbinary,upload_ack,mkdir,parent,storbinary,time"
 ---
 
 # Apache Airflow Providers FTP Guide

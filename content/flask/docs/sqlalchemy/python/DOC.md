@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,sqlalchemy,orm,database,python,web"
+  tags: "flask,sqlalchemy,orm,database,python,web,app,session,Mapped,mapped_column,config,create_all,engine,Author,select,query,Flask-SQLAlchemy,init_app,version,Book,add,app_context,engines,Base,String,relationship,Blueprint,DeclarativeBase,ForeignKey,User,commit"
 ---
 
 # Flask-SQLAlchemy Python Guide

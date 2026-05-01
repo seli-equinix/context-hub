@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,html-minifier-terser,html,minify,build,types,definitelytyped"
+  tags: "typescript,html-minifier-terser,html,minify,build,types,definitelytyped,htmlMinifierTerser,console,log"
 ---
 
 # html-minifier-terser TypeScript Guide

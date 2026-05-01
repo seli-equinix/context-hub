@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,mediaconvert,boto3,python,typing,stubs,mypy,pyright,transcoding"
+  tags: "aws,mediaconvert,boto3,python,typing,stubs,mypy,pyright,transcoding,client,MediaConvertClient,Session,paginator,lite,queue,ListQueuesPaginator,TYPE_CHECKING,AacAudioDescriptionBroadcasterMixType,Config,get_client,page,Version-Sensitive,build_job_request,get_paginator,paginate"
 ---
 
 # mypy-boto3-mediaconvert Python Package Guide

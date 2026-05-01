@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,google,gcp,pubsub,messaging,events,javascript,nodejs"
+  tags: "google-cloud,google,gcp,pubsub,messaging,events,javascript,nodejs,const,message,topic,subscription,reference,data,error,Buffer,publishMessage,console,5.3.0,log,JSON,ack,createSubscription,createTopic,nack,Version-Sensitive,close,stringify,toString"
 ---
 
 # `@google-cloud/pubsub` JavaScript Package Guide

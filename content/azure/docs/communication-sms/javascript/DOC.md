@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,communication-services,sms,javascript,messaging"
+  tags: "azure,communication-services,sms,javascript,messaging,send,client,console,log,results,smsClient,1.2.0,failed,createSmsClient,error,filter,map"
 ---
 
 # Azure Communication Services SMS SDK For JavaScript

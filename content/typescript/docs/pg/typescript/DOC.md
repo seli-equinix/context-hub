@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,postgresql,pg,nodejs,sql,types,definitelytyped"
+  tags: "typescript,postgresql,pg,nodejs,sql,types,definitelytyped,client,query,error,pool,console,rows,connect,log,127.0.0.1,release"
 ---
 
 # pg TypeScript Guide

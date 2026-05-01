@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,luxon,date,time,timezone,intl,types,definitelytyped"
+  tags: "typescript,luxon,date,time,timezone,intl,types,definitelytyped,DateTime,console,log,start,toISO,Interval,createdAt,Duration,fromISO,end,deadline,plus,setZone,meeting,toUTC,fromObject,toFormat,toLocaleString,backToDate,contains,formatDeadline,fromDateTimes,fromJSDate,impossible,parisMeeting"
 ---
 
 # Luxon TypeScript Guide

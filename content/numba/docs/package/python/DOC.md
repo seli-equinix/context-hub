@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "numba,jit,numpy,performance,parallel,cuda,llvm"
+  tags: "numba,jit,numpy,performance,parallel,cuda,llvm,njit,out,prange,shape,matrix,vectorize,numpy as np,sum_of_squares,Version-Sensitive,arange,clipped_add,column_sums,empty,l2_norms,zeros"
 ---
 
 # Numba Python Package Guide

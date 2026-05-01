@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,clonedeep,types,definitelytyped,npm"
+  tags: "typescript,lodash,clonedeep,types,definitelytyped,npm,items,console,log,4.5.9,CartItem,Version-Sensitive,push"
 ---
 
 # lodash.clonedeep TypeScript Guide

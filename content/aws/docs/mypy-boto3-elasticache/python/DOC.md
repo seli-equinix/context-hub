@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,elasticache,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,elasticache,type-stubs,mypy,pyright,python,client,stubs,Session,ElastiCacheClient,cluster,paginator,waiter,TYPE_CHECKING,response,AZModeType,TagTypeDef,annotations,lite,page,CacheClusterAvailableWaiter,DescribeCacheClustersPaginator,describe_cache_clusters,get,list,resource,Version-Sensitive,get_paginator,get_waiter,normalize_inputs,paginate"
 ---
 
 # mypy-boto3-elasticache Python Package Guide

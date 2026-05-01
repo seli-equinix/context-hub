@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,estree,ast,types,definitelytyped,npm"
+  tags: "typescript,estree,ast,types,definitelytyped,npm,names,string,Rich-Harris,collectIdentifiers,describeExpression,emptyModule,getTokenCount,push,unknown"
 ---
 
 # ESTree TypeScript Guide

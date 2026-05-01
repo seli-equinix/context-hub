@@ -2,6 +2,7 @@
 name: package
 description: "XlsxWriter Python package guide for creating Excel .xlsx files with worksheets, formats, charts, and dataframe exports"
 metadata:
+  tags: "workbook,worksheet,xlsxwriter,write,close,datetime,add_format,add_worksheet,chart,DataFrame,FileCreateError,set_column,add_table,autofilter,write_column,write_datetime,write_row,write_string,ExcelWriter,Version-Sensitive,add_chart,add_series,autofit,insert_chart,pandas as pd"
   languages: "python"
   versions: "3.2.9"
   revision: 1

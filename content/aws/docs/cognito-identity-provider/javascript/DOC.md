@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,cognito,authentication,user-pools,javascript,nodejs,browser"
+  tags: "aws,cognito,authentication,user-pools,javascript,nodejs,browser,client,send,example.com,console,log,Cognito-Specific"
 ---
 
 # `@aws-sdk/client-cognito-identity-provider`

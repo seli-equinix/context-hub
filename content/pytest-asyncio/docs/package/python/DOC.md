@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest,pytest-asyncio,python,asyncio,testing"
+  tags: "pytest,pytest-asyncio,python,asyncio,testing,loop,mark,pytest.mark.asyncio,FakeClient,client,pytest_asyncio,get_running_loop,pytest_asyncio.fixture,resource,toml,aclose,fetch_status,get_value,is_running,pytest.fixture,__init__,sleep,test_client_fixture,test_current_loop,test_get_value,test_uses_module_loop"
 ---
 
 # pytest-asyncio Python Package Guide

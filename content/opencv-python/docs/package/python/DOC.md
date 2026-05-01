@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opencv,opencv-python,cv2,computer-vision,image-processing,video"
+  tags: "opencv,opencv-python,cv2,computer-vision,image-processing,video,imshow,cap,cv2 as cv,getBuildInformation,cascade,read,imread,imwrite,cvtColor,release,Path,destroyAllWindows,isOpened,waitKey,Built-In,CascadeClassifier,Per-Pixel,Version-Sensitive,VideoCapture,empty,resize,split"
 ---
 
 # opencv-python Python Package Guide

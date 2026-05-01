@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,request,http,nodejs,types,definitelytyped"
+  tags: "typescript,request,http,nodejs,types,definitelytyped,jar,console,log,get,cookie,defaults,api,example.com,post,setCookie"
 ---
 
 # request TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "javascript,uuid,utility,identifiers,npm"
+  tags: "javascript,uuid,utility,identifiers,npm,13.0.0,Version-Sensitive,assertUuidV4,console,createJob,crypto,customerUuid,getRandomValues,log"
 ---
 
 # uuid JavaScript Guide

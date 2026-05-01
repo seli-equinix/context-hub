@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,resource-graph,management,query,kql,subscriptions"
+  tags: "azure,resource-graph,management,query,kql,subscriptions,client,DefaultAzureCredential,ResourceGraphClient,QueryRequest,resources,QueryRequestOptions,row,ResultFormat,environ,close,graph_query,list,results,item,GraphQueryResource,strip,Version-Sensitive,create_or_update,extend,get,list_by_subscription"
 ---
 
 # Azure Resource Graph Management SDK for Python

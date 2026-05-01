@@ -7,7 +7,7 @@ metadata:
   revision: 3
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,ecr,boto3,mypy,pyright,typing,type-stubs"
+  tags: "aws,ecr,boto3,mypy,pyright,typing,type-stubs,client,ECRClient,Session,stubs,repository,paginator,waiter,get,lite,when,TYPE_CHECKING,describe_repositories,images,response,DescribeImagesRequestRequestTypeDef,DescribeRepositoriesPaginator,ImageScanCompleteWaiter,TagStatusType,created,detail,page,wait,Dev-Only,create_repository,describe_images"
 ---
 
 # mypy-boto3-ecr Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,boto3,rds,typing,stubs,mypy,pyright"
+  tags: "aws,boto3,rds,typing,stubs,mypy,pyright,Session,client,RDSClient,config,page,paginator,TYPE_CHECKING,lite,waiter,get,response,ActivityStreamModeType,DBInstanceAvailableWaiter,DBInstanceAvailableWaiterName,DescribeDBInstancesPaginator,FilterTypeDef,describe_db_instances,get_paginator,get_waiter,Version-Sensitive,dict,ini,paginate,wait"
 ---
 
 # mypy-boto3-rds Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,packaging,metadata,entry-points,importlib"
+  tags: "python,packaging,metadata,entry-points,importlib,importlib_metadata,distribution,version,entry_points,files,path,PackageNotFoundError,packages_distributions,requires,dist_meta,mapping,pkg_resources,load,get,get_dist_version,json,EntryPoint,Version-Sensitive,iter_entry_points,locate,metadata as importlib_metadata,packages to owning distributions"
 ---
 
 # importlib-metadata Python Package Guide

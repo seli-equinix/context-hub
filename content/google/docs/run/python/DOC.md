@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,cloud-run,serverless,containers,jobs,google-cloud"
+  tags: "google,cloud-run,serverless,containers,jobs,google-cloud,run_v2,client,environ,ServicesClient,result,executions,get,JobsClient,tasks,EnvVar,env,list_services,operation,service_path,Container,ExecutionsClient,FieldMask,Service,ServicesAsyncClient,TasksClient,field_mask_pb2,get_service,run_job,ExecutionTemplate,Job"
 ---
 
 # Google Cloud Run Python Client

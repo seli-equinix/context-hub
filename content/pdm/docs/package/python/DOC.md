@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pdm,python,packaging,dependency-management,pyproject,lockfile,publishing"
+  tags: "pdm,python,packaging,dependency-management,pyproject,lockfile,publishing,toml,private.example.com,Version-Sensitive,psycopg"
 ---
 
 # PDM Python Package Guide

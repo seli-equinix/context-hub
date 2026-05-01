@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "vue,javascript,ui,components,reactivity,composition-api"
+  tags: "vue,javascript,ui,components,reactivity,composition-api,app,query,submit,mount,console,log,provide,click,component,Version-Sensitive,directive,submit.prevent,trim"
 ---
 
 # Vue Guide (JavaScript)

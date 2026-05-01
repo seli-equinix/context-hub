@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,cloud-run,serverless,jobs,javascript,nodejs"
+  tags: "google-cloud,gcp,cloud-run,serverless,jobs,javascript,nodejs,const,google,client,ServicesClient,ExecutionsClient,JobsClient,TasksClient,operation,promise,console,log,runJob,3.2.0,createOperation,createService,getService,runOperation,createJob,listExecutionsAsync,listServicesAsync,listTasksAsync"
 ---
 
 # `@google-cloud/run` JavaScript Package Guide

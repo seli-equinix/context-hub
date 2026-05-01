@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,natural-language,nlp,sentiment,entities,moderation,text-classification"
+  tags: "google,google-cloud,natural-language,nlp,sentiment,entities,moderation,text-classification,language_v2,Document,client,LanguageServiceClient,annotate_text,moderate_text,classify_text,ClientOptions,Credentials,Features,analyze_entities,analyze_sentiment,service_account,AnnotateTextRequest,Version-Sensitive,from_service_account_file"
 ---
 
 # Google Cloud Natural Language Python Client

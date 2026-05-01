@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "vite,javascript,build,dev-server,bundler,frontend"
+  tags: "vite,javascript,build,dev-server,bundler,frontend,server,app,process,createServer,cwd,http,7.3.1,listen,previewServer,printUrls,JSON,Version-Sensitive,apiBaseUrl,close,console,document,exit,log,querySelector,stringify"
 ---
 
 # Vite JavaScript Guide

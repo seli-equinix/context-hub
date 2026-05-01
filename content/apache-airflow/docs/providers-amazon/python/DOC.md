@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,aws,s3,athena,secrets-manager,dag"
+  tags: "airflow,apache-airflow,aws,s3,athena,secrets-manager,dag,task,AthenaOperator,S3Hook,pendulum,S3CreateObjectOperator,S3KeySensor,read_manifest,BaseHook,Variable,annotations,datetime,get,hook,read_key,get_connection"
 ---
 
 # Apache Airflow Providers Amazon Guide

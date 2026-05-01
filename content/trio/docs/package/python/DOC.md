@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "trio,async,structured-concurrency,concurrency,testing"
+  tags: "trio,async,structured-concurrency,concurrency,testing,main,nursery,run,sleep,send_channel,start_soon,stream,clone,fail_after,open_nursery,start,time,MockClock,cancel,cancel_scope,move_on_after,run_sync,send,to_thread,worker,blocking_lookup,consumer,decode,fetch_with_timeout,open_memory_channel"
 ---
 
 # Trio Python Package Guide

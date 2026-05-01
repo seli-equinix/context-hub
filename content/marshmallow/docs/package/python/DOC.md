@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "marshmallow,python,serialization,validation,schema,json"
+  tags: "marshmallow,python,serialization,validation,schema,json,fields,data,String,load,UserSchema,post_load,DateTime,Email,validate,ValidationError,EXCLUDE,User,dataclass,AuthorSchema,CategorySchema,Integer,Method,Nested,example.com,obj,pre_load,validates_schema,Pluck,ProfileSchema,UTC"
 ---
 
 # marshmallow Python Package Guide

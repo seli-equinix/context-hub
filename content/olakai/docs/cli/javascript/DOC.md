@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-10"
   source: maintainer
-  tags: "olakai,cli,agents,workflows,kpis,configuration"
+  tags: "olakai,cli,agents,workflows,kpis,configuration,list,variables,Agent-Workflow,sessions"
 ---
 
 # Olakai CLI

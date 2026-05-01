@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,boto3,route53resolver,dns,mypy,pyright,stubs,python"
+  tags: "aws,boto3,route53resolver,dns,mypy,pyright,stubs,python,client,Session,Route53ResolverClient,endpoint,paginator,rule,TagTypeDef,Config,TYPE_CHECKING,create_resolver_endpoint,lite,page,ListResolverRulesPaginator,associate_resolver_rule,get,response,tag_resource,annotations,list,Runtime-Safe,Version-Sensitive,get_paginator,list_resolver_endpoints,paginate"
 ---
 
 # mypy-boto3-route53resolver Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "solara,python,web,ui,jupyter,ipywidgets,reactive"
+  tags: "solara,python,web,ui,jupyter,ipywidgets,reactive,value,server,Page,use_reactive,solara.component,use_state,Home,Route,enterprise,use_thread,Button,Counter,Error,Forwarded-Proto,Markdown,Success,Text,increment,time,Info,InputText,Link,Script-Name,SliderInt,Version-Sensitive"
 ---
 
 # Solara Python Package Guide

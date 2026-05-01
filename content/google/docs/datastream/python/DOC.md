@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,datastream,gcp,cdc,bigquery,cloud-storage,python"
+  tags: "google,google-cloud,datastream,gcp,cdc,bigquery,cloud-storage,python,datastream_v1,client,Stream,operation,result,environ,duration_pb2,BigQueryDestinationConfig,ConnectionProfile,create_connection_profile,field_mask_pb2,update_stream,ClientOptions,DestinationConfig,Duration,FieldMask,GcsDestinationConfig,GcsProfile,MysqlSourceConfig,MysqlTable,fetch_static_ips,pause_operation,resume_operation,AppendOnly,AvroFileFormat"
 ---
 
 # Google Cloud Datastream Python Client

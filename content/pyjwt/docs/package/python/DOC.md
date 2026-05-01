@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyjwt,jwt,jws,jwk,jwks,authentication,security,python"
+  tags: "pyjwt,jwt,jws,jwk,jwks,authentication,security,python,decode,when,datetime,PyJWKClient,UTC,encode,now,dataclass,get_unverified_header,jwks_client,list,timedelta,High-Value,JwtConfig,get_signing_key_from_jwt,name differ"
 ---
 
 # PyJWT Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "packaging,pypi,pep440,requirements,wheels,metadata"
+  tags: "packaging,pypi,pep440,requirements,wheels,metadata,Version,SpecifierSet,Requirement,lock,spec,marker,packages,InvalidRequirement,canonicalize_name,InvalidSpecifier,Package,Pylock,canonicalize_version,default_environment,matches,parse,parse_wheel_filename,requests,sys_tags,InvalidVersion,NormalizedName,PackageWheel,filter,list,parse_email"
 ---
 
 # packaging Python Package Guide

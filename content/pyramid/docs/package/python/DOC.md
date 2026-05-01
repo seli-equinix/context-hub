@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyramid,web,framework,wsgi,routing,python"
+  tags: "pyramid,web,framework,wsgi,routing,python,config,request,view_config,Configurator,Response,settings,make_wsgi_app,scan,SignedCookieSessionFactory,healthcheck,server,add_route,api_status,created,serve,HTTPForbidden,add_view,check_csrf_token,dashboard,has_permission,hello_world,info,make_server,submit,Decorator-Based"
 ---
 
 # Pyramid Python Package Guide

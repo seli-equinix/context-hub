@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "passlib,passwords,hashing,security,python"
+  tags: "passlib,passwords,hashing,security,python,hash,CryptContext,verify,pbkdf2_sha256,user,password_context,verify_and_update,hash_password,ini,authenticate_user,from_path,from_string,save,verify_password"
 ---
 
 # Passlib Python Package Guide

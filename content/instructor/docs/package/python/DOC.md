@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "instructor,llm,structured-outputs,pydantic,openai,anthropic,gemini,validation"
+  tags: "instructor,llm,structured-outputs,pydantic,openai,anthropic,gemini,validation,BaseModel,from_openai,environ,main,print,completions,create,UserInfo,AsyncOpenAI,Customer,Person,TicketDraft,asyncio,create_iterable,create_partial,field_validator,request,Version-Sensitive,age_must_be_positive,classmethod,example.com,run"
 ---
 
 # instructor Python Package Guide

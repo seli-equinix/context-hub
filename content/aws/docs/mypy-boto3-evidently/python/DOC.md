@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,boto3,evidently,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,evidently,type-stubs,mypy,pyright,python,project,client,CloudWatchEvidentlyClient,Session,stubs,paginator,evaluate_feature,lite,response,EvaluationRequestTypeDef,page,put_project_events,TYPE_CHECKING,datetime,ChangeDirectionEnumType,ListProjectsPaginator,json,timezone,CloudWatch-Evidently,Type-Checking,Version-Sensitive,dumps,get,get_paginator,get_project"
 ---
 
 # mypy-boto3-evidently Python Package Guide

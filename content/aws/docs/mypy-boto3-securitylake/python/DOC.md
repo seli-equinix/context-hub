@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,securitylake,boto3,mypy-boto3-securitylake,boto3-stubs,typing,type-checking"
+  tags: "aws,securitylake,boto3,mypy-boto3-securitylake,boto3-stubs,typing,type-checking,client,session,stubs,SecurityLakeClient,lite,list_subscribers,response,TYPE_CHECKING,subscriber,Config,page,subscribers,AccessTypeType,data_lake,get,list_data_lakes,AwsIdentityTypeDef,ListSubscribersPaginator,resource,Version-Sensitive,get_paginator,normalize_access_type,paginate"
 ---
 
 # mypy-boto3-securitylake Python Package Guide

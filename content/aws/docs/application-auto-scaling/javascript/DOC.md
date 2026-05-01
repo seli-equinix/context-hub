@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,application-auto-scaling,autoscaling,ecs,dynamodb,javascript,nodejs"
+  tags: "aws,application-auto-scaling,autoscaling,ecs,dynamodb,javascript,nodejs,client,applicationAutoScaling,send,console,log,3.1007.0,MON-FRI"
 ---
 
 # AWS Application Auto Scaling SDK for JavaScript v3 Guide

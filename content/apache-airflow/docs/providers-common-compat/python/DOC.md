@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,providers,compatibility,operators,triggers,python"
+  tags: "airflow,apache-airflow,providers,compatibility,operators,triggers,python,self,AIRFLOW_V_3_0_PLUS,BaseHook,BaseOperator,__init__,Context,TriggerDagRunOperator,Variable,DemoHook,EchoOperator,annotations,execute,get,get_base_url,get_connection,info,log"
 ---
 
 # Apache Airflow Common Compat Provider Guide

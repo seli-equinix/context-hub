@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,resumable-media,uploads,downloads,requests,google-auth,http,streaming"
+  tags: "google,resumable-media,uploads,downloads,requests,google-auth,http,streaming,media,upload,reference,response,download,MultipartUpload,RawDownload,ResumableUpload,ChunkedDownload,raise_for_status,transmit,AuthorizedSession,SimpleUpload,consume,consume_next_chunk,initiate,transmit_next_chunk,default,BytesIO,Version-Sensitive"
 ---
 
 # Google Resumable Media Python Library

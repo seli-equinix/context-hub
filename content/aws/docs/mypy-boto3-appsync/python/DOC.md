@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,appsync,boto3,type-stubs,mypy,pyright,autocomplete,graphql"
+  tags: "aws,appsync,boto3,type-stubs,mypy,pyright,autocomplete,graphql,client,stubs,AppSyncClient,session,paginator,api,lite,TYPE_CHECKING,list_graphql_apis,page,ApiCacheStatusType,CognitoUserPoolConfigTypeDef,Config,ListGraphqlApisPaginator,get,get_appsync_client,get_paginator,response,Version-Sensitive,paginate"
 ---
 
 # mypy-boto3-appsync Python Package Guide

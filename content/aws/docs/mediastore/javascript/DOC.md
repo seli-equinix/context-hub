@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,mediastore,javascript,nodejs,media,storage,video"
+  tags: "aws,mediastore,javascript,nodejs,media,storage,video,client,send,console,log,JSON,parse,3.1007.0,stringify"
 ---
 
 # `@aws-sdk/client-mediastore`

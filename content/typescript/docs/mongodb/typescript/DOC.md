@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,mongodb,nodejs,types,definitelytyped,database"
+  tags: "typescript,mongodb,nodejs,types,definitelytyped,database,client,users,connect,todos,4.0.7,example.com,findOne,projects,console,insertOne,log,openTodos,Version-Sensitive,close,find,map,updateOne"
 ---
 
 # MongoDB TypeScript Guide

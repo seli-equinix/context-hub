@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "langchain-community,langchain,python,integrations,document-loaders,vectorstores,tools"
+  tags: "langchain-community,langchain,python,integrations,document-loaders,vectorstores,tools,FAISS,loader,TextLoader,tool,DuckDuckGoSearchRun,as_retriever,load,page_content,retriever,vector_store,OpenAIEmbeddings,invoke,from_texts,similarity_search"
 ---
 
 # langchain-community Python Package Guide

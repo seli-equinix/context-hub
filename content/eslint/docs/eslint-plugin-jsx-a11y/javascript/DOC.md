@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,accessibility,jsx,react,linting,javascript,npm"
+  tags: "eslint,accessibility,jsx,react,linting,javascript,npm,settings"
 ---
 
 # eslint-plugin-jsx-a11y JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,airbyte,elt,operators,sensors"
+  tags: "airflow,apache-airflow,airbyte,elt,operators,sensors,DAG,AirbyteTriggerSyncOperator,AirbyteJobSensor,pendulum,annotations,datetime,environ"
 ---
 
 # Apache Airflow Providers Airbyte Guide

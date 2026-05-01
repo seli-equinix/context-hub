@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "paramiko,ssh,sftp,python,security,automation"
+  tags: "paramiko,ssh,sftp,python,security,automation,client,SSHClient,host,connect,load_system_host_keys,get,stdout,Path,config,exec_command,stderr,read,AutoAddPolicy,from_path,home,identity_files,listdir,PKey,put,GSS-API,SSHConfig,Version-Sensitive,channel,environ,load_host_keys"
 ---
 
 # Paramiko Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,scheduler,gcp,cron,jobs,http,pubsub,app-engine"
+  tags: "google-cloud,scheduler,gcp,cron,jobs,http,pubsub,app-engine,scheduler_v1,client,Job,CloudSchedulerClient,Duration,json,AppEngineHttpTarget,Content-Type,FieldMask,create_job,update_job,HttpTarget,OidcToken,PubsubTarget,RetryConfig,list_jobs,pause_job,resume_job,run_job,CloudSchedulerAsyncClient,Content-Length,User-Agent,Version-Sensitive,delete_job,dumps"
 ---
 
 # google-cloud-scheduler Python Package Guide

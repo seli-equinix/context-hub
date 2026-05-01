@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "influxdb,time-series,flux,python,database,observability"
+  tags: "influxdb,time-series,flux,python,database,observability,client,InfluxDBClient,record,write_api,records,Point,query_api,SYNCHRONOUS,datetime,environ,write,InfluxDBClientAsync,asyncio,close,delete_api,from_env_properties,ini,load_dotenv,main,timedelta,timezone,Version-Sensitive,from_config_file,get_time,head"
 ---
 
 # influxdb-client Python Package Guide

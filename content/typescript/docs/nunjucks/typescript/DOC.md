@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,nunjucks,templates,node,express,types,definitelytyped"
+  tags: "typescript,nunjucks,templates,node,express,types,definitelytyped,env,Environment,render,app,process,renderString,configure,addFilter,path,res,FileSystemLoader,addGlobal,cwd,get,join,renderWelcomeEmail"
 ---
 
 # Nunjucks TypeScript Guide

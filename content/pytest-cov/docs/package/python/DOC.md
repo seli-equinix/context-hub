@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-cov,pytest,coverage,testing,python,ci"
+  tags: "pytest-cov,pytest,coverage,testing,python,ci,toml,true,Opt-Out"
 ---
 
 # pytest-cov Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,eventbridge,javascript,nodejs,events,event-bus,rules"
+  tags: "aws,eventbridge,javascript,nodejs,events,event-bus,rules,client,send,JSON,stringify,targetIds,console,log,push"
 ---
 
 # `@aws-sdk/client-eventbridge`

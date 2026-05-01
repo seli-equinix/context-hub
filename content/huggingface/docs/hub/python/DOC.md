@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "huggingface-hub,huggingface,hub,models,datasets,spaces,ml"
+  tags: "huggingface-hub,huggingface,hub,models,datasets,spaces,ml,HfApi,login,HfFileSystem,hf_hub_download,snapshot_download,api,repo_exists,upload_file,upload_folder,interpreter_login,model_info,notebook_login,Version-Sensitive,create_repo,list_models,open"
 ---
 
 # huggingface-hub Python Package Guide

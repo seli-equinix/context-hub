@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pytest,testing,fixtures,parametrize,plugin"
+  tags: "pytest,testing,fixtures,parametrize,plugin,fixture,lazy_fixture,one,mark,pytest.fixture,pytest.mark.parametrize,database_url,postgres_url,sqlite_url,FixtureManager,Version-Sensitive,getfixtureclosure,test_database_url,test_parametrized_fixture,test_user,test_value"
 ---
 
 # pytest-lazy-fixture Python Package Guide

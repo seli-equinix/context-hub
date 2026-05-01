@@ -6,7 +6,7 @@ metadata:
   versions: "1.15.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "qdrant,vector-search,embeddings,similarity,ai"
+  tags: "qdrant,vector-search,embeddings,similarity,ai,client,Filter,FieldCondition,MatchValue,payload,PointStruct,Distance,search,vector,QdrantClient,VectorParams,Range,count,ContextPair,upsert,query,create_collection,recommend,AsyncQdrantClient,scroll,create_payload_index,main,OptimizersConfigDiff,QueryRequest,query_points"
 ---
 
 # Qdrant Python Client v1.15.1

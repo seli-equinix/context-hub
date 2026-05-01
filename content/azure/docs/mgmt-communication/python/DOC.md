@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,communication,arm,management,email,python,pypi"
+  tags: "azure,communication,arm,management,email,python,pypi,domains,CommunicationServiceManagementClient,DefaultAzureCredential,sender_usernames,AzureCliCredential,communication_services,create_or_update,delete,email_services,environ,get,Version-Sensitive,list_by_domains,list_by_email_service_resource,list_by_resource_group,list_by_subscription"
 ---
 
 # Azure Communication Services Management SDK for Python

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-10"
   source: maintainer
-  tags: "olakai,ai-analytics,governance,agents,kpi,roi,monitoring"
+  tags: "olakai,ai-analytics,governance,agents,kpi,roi,monitoring,OlakaiEventParams,chat,create,olakai_config,app,choices,completions,time,olakai_monitor,doc,getenv,request,run,FastAPI,Flask,OlakaiBlockedError,args,company.com,details,olakai_report,uuid,Depends,get,jsonify,startup"
 ---
 
 # Olakai Python SDK

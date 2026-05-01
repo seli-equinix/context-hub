@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "copier,python,scaffolding,templates,jinja,code-generation"
+  tags: "copier,python,scaffolding,templates,jinja,code-generation,run_copy,run_recopy,run_update,Version-Sensitive,example.com"
 ---
 
 # Copier Python Package Guide

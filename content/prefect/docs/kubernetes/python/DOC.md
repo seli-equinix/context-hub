@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "prefect,kubernetes,python,workflow,orchestration,workers,deployment"
+  tags: "prefect,kubernetes,python,workflow,orchestration,workers,deployment,flow,deploy,sync_customers"
 ---
 
 # Prefect Kubernetes Python Package Guide

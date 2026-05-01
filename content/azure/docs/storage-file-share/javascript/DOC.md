@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,storage,file-share,javascript,files,smb,entra-id"
+  tags: "azure,storage,file-share,javascript,files,smb,entra-id,ShareServiceClient,serviceClient,createShareServiceClient,download,fileClient,ShareFileClient,shareClient,directoryClient,12.30.0,Buffer,chunks,console,create,fromConnectionString,getDirectoryClient,getShareClient,log,uploadRange,content,createIfNotExists,getFileClient,concat,isBuffer,listFilesAndDirectories,push"
 ---
 
 # Azure Files JavaScript Client

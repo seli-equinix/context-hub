@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "luigi,python,pipeline,workflow,scheduler,batch,orchestration"
+  tags: "luigi,python,pipeline,workflow,scheduler,batch,orchestration,run,date,self,output,LocalTarget,requires,SumNumbers,DateParameter,json,FetchNumbers,Path,build,input,row,DailyReport,UpstreamExport,Version-Sensitive,annotations,datetime as dt,dump,false,ini,load"
 ---
 
 # Luigi Python Package Guide

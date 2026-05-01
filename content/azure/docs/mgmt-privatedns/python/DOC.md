@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,private-dns,dns,arm,management,virtual-network-links,python"
+  tags: "azure,private-dns,dns,arm,management,virtual-network-links,python,record_sets,virtual_network_links,private_zones,DefaultAzureCredential,begin_create_or_update,list,PrivateDnsManagementClient,begin_delete,begin_update,delete,Version-Sensitive,create_or_update,environ,get,list_by_resource_group,update"
 ---
 
 # Azure Private DNS Management SDK for Python

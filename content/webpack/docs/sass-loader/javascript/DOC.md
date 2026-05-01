@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,sass,scss,loader,css"
+  tags: "webpack,build,sass,scss,loader,css,path,resolve,debug,relative,JSON,stringify,warn"
 ---
 
 # sass-loader

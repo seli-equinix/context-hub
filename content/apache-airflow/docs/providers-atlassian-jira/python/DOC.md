@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,jira,atlassian,hooks,operators,sensors,notifications"
+  tags: "airflow,apache-airflow,jira,atlassian,hooks,operators,sensors,notifications,DAG,task,JiraHook,JiraOperator,create_issue,issue,JiraTicketSensor,datetime,pendulum,send_jira_notification,annotations,example.com,BashOperator,dict,get_issue_status,issue_add_comment,set_issue_status,update_issue"
 ---
 
 # Apache Airflow Atlassian Jira Provider Guide

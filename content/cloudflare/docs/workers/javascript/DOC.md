@@ -6,7 +6,7 @@ metadata:
   versions: "5.2.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "cloudflare,workers,edge,kv,r2"
+  tags: "cloudflare,workers,edge,kv,r2,client,console,log,zones,create,list,page,get,records,database,delete,namespaces,accounts,buckets,projects,scripts,cache,headers,loadBalancers,purge,userSchemas,values,allZones,certificates,push"
 ---
 
 # Cloudflare API Coding Guidelines (JavaScript/TypeScript)

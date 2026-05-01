@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "javascript,semver,versioning,npm,cli"
+  tags: "javascript,semver,versioning,npm,cli,console,log,coerce,range,inc,satisfies,compare,compareBuild,parse,clean,sort,RELEASE_TYPES,maxSatisfying,minVersion,rsort,test,includes"
 ---
 
 # semver for JavaScript

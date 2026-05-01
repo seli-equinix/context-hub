@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pip,python,packaging,pypi,requirements,virtualenv"
+  tags: "pip,python,packaging,pypi,requirements,virtualenv,example.com,subprocess,run,sys,Version-Sensitive"
 ---
 
 # pip Python Package Guide

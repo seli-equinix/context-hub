@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,gcp,cloud-asset-inventory,python,iam,inventory,search,export"
+  tags: "google-cloud,gcp,cloud-asset-inventory,python,iam,inventory,search,export,asset_v1,client,AssetServiceClient,list_assets,search_all_resources,export_assets,operation,result,AssetServiceAsyncClient,ClientOptions,SearchAllResourcesRequest,main,ExportAssetsRequest,ListAssetsRequest"
 ---
 
 # google-cloud-asset Python Package Guide

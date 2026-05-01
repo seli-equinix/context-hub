@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,flask-dance,oauth,oauth2,oauth1,authentication,social-login"
+  tags: "flask,flask-dance,oauth,oauth2,oauth1,authentication,social-login,app,github,token,response,Dance,config,session,redirect,get,client,json,make_github_blueprint,oauth_authorized,profile,url_for,create_app,oauth_error,register_blueprint,MemoryStorage,SQLAlchemyStorage,current_app,logout,OAuth2ConsumerBlueprint,SQLAlchemy,app.get"
 ---
 
 # Flask-Dance for Flask Apps

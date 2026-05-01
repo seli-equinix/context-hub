@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,guardduty,javascript,nodejs,security,findings,threat-detection"
+  tags: "aws,guardduty,javascript,nodejs,security,findings,threat-detection,send,return,console,log,error,DOC-EXAMPLE"
 ---
 
 # `@aws-sdk/client-guardduty`

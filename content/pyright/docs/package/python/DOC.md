@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyright,python,typing,type-checking,static-analysis,linting"
+  tags: "pyright,python,typing,type-checking,static-analysis,linting,toml,Version-Sensitive,Wrapper-Specific"
 ---
 
 # Pyright Python Package Guide

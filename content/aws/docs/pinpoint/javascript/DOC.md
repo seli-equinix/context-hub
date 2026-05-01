@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,pinpoint,messaging,sms,endpoints,analytics,javascript"
+  tags: "aws,pinpoint,messaging,sms,endpoints,analytics,javascript,send,console,log,Date,Pinpoint-Specific,now"
 ---
 
 # AWS Pinpoint SDK for JavaScript (v3)

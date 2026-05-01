@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,iam-identity-center,sso-admin,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,iam-identity-center,sso-admin,boto3,type-stubs,mypy,pyright,python,SSOAdminClient,sso_admin,Session,client,instance,stubs,status,lite,page,paginator,TYPE_CHECKING,assignment,put_inline_policy_to_permission_set,CreatePermissionSetRequestTypeDef,ListPermissionSetsPaginator,PermissionsBoundaryTypeDef,PrincipalTypeType,ProvisionTargetTypeType,TargetTypeType,details,instances,json,permission_set,result,Dev-Only"
 ---
 
 # `mypy-boto3-sso-admin` Python Package Guide

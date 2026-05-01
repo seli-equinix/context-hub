@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,env,dotenv,defineplugin,javascript"
+  tags: "webpack,build,env,dotenv,defineplugin,javascript,path,console,log,resolve"
 ---
 
 # dotenv-webpack

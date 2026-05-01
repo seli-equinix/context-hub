@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-ai-search,search,indexing,query,rbac,python"
+  tags: "azure,azure-ai-search,search,indexing,query,rbac,python,environ,client,SearchClient,AzureKeyCredential,DefaultAzureCredential,doc,search_client,upload_documents,SearchIndexClient,main,merge_documents,merge_or_upload_documents,AzureAuthorityHosts,asyncio,create_index,delete_documents,index_client,run,Pull-Based,Version-Sensitive,Wi-Fi"
 ---
 
 # azure-search-documents Python Package Guide

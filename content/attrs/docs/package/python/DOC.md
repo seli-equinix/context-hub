@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "attrs,python,dataclass,validation,serialization"
+  tags: "attrs,python,dataclass,validation,serialization,field,define,frozen,list,Factory,unless,User,asdict,evolve,should,Config,__attrs_post_init__,example.com,filters,Point,Post-Initialization,Rectangle,Version-Sensitive,exclude,include,resolve_types"
 ---
 
 # attrs Python Package Guide

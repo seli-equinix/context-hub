@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "docker,containers,python,engine,registry,images"
+  tags: "docker,containers,python,engine,registry,images,client,container,from_env,version,run,close,DockerClient,decode,api,build,chunk,output,ping,push,reload,remove,APIClient,ImageNotFound,TLSConfig,host,logs,pull,Version-Sensitive,exec_run,get"
 ---
 
 # Docker SDK for Python Package Guide

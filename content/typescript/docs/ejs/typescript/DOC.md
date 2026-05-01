@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,ejs,templates,node,html,views,types,definitelytyped"
+  tags: "typescript,ejs,templates,node,html,views,types,definitelytyped,path,render,compile,join,renderFile,cwd,process,total,Version-Sensitive,renderReceipt,toFixed"
 ---
 
 # EJS TypeScript Guide

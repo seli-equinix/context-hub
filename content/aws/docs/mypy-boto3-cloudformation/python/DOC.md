@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,boto3,cloudformation,mypy,pyright,pylance,types,stubs"
+  tags: "aws,boto3,cloudformation,mypy,pyright,pylance,types,stubs,Session,client,stack,lite,resource,CloudFormationClient,page,paginator,waiter,TYPE_CHECKING,get,response,AccountFilterTypeType,AccountGateResultTypeDef,CloudFormationServiceResource,ListStacksPaginator,StackCreateCompleteWaiter,result,summary,Version-Sensitive,all,describe_stacks,get_paginator,get_waiter,paginate"
 ---
 
 # mypy-boto3-cloudformation Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,jimp,images,nodejs,types,definitelytyped"
+  tags: "typescript,jimp,images,nodejs,types,definitelytyped,image,read,console,getBase64,getBuffer,log,fromBuffer,fromDisk,fromUrl,getHeight,getWidth,resize,dataUrl,Version-Sensitive,slice,write"
 ---
 
 # Jimp TypeScript Guide

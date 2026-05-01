@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,haystack,search,indexing,elasticsearch,solr,whoosh"
+  tags: "django,haystack,search,indexing,elasticsearch,solr,whoosh,indexes,Note,SearchQuerySet,path,environ,get,get_model,self,CharField,include,DateTimeField,NoteIndex,Version-Sensitive,filter,index_queryset,names,objects,search_notes"
 ---
 
 # Django Haystack Python Package Guide

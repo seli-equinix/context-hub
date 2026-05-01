@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,ssm,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,ssm,boto3,type-stubs,mypy,pyright,python,client,stubs,SSMClient,session,waiter,lite,response,paginator,parameter,CommandExecutedWaiter,TYPE_CHECKING,list,names,page,DescribeParametersPaginator,GetParameterResultTypeDef,ParameterStringFilterTypeDef,command,get,get_parameter,AWS-RunShellScript,Version-Sensitive,append,dict,get_paginator"
 ---
 
 # mypy-boto3-ssm Python Package Guide

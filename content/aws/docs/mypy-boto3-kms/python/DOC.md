@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mypy-boto3-kms,boto3,kms,aws,python,type-stubs,typing"
+  tags: "mypy-boto3-kms,boto3,kms,aws,python,type-stubs,typing,client,KMSClient,stubs,Session,alias,lite,response,aliases,get,page,paginator,AlgorithmSpecType,AliasListEntryTypeDef,TYPE_CHECKING,cast,metadata,item,paginate,Runtime-Optional,Version-Sensitive,alias_name,describe_key,encrypt,encrypt_blob,get_paginator"
 ---
 
 # mypy-boto3-kms Python Package Guide

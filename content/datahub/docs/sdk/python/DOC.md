@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-10"
   source: maintainer
-  tags: "datahub,metadata,data-catalog,lineage,data-quality,search,governance"
+  tags: "datahub,metadata,data-catalog,lineage,data-quality,search,governance,dataset,client,entities,assertions,field,get_urns,create,set_description,update,Container,DataHubClient,upsert,DatabaseKey,Document,add_lineage,delete,get,set_custom_properties,DatasetUrn,add_tag,add_term,from_env,get_lineage,set_domain,set_owners"
 ---
 
 # DataHub Python SDK

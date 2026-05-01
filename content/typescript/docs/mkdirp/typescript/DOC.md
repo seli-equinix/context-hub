@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,mkdirp,node,filesystem,directories,types,npm"
+  tags: "typescript,mkdirp,node,filesystem,directories,types,npm,manual,native,stream,2.0.0,sync,JSON,end,stringify,write"
 ---
 
 # mkdirp TypeScript Guide

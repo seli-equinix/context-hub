@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,polly,javascript,nodejs,text-to-speech,ssml,speech-marks,lexicons"
+  tags: "aws,polly,javascript,nodejs,text-to-speech,ssml,speech-marks,lexicons,send,AudioStream,console,log,3.1007.0,JSON,jsonLines,Buffer,Version-Sensitive,parse,transformToByteArray,transformToString,trim"
 ---
 
 # `@aws-sdk/client-polly`

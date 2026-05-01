@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "pycparser,c,parser,ast,codegen,python"
+  tags: "pycparser,c,parser,ast,codegen,python,c_ast,CParser,parse,parse_file,self,names,c_generator,collector,generator,list,visit,FunctionCollector,ParamAdder,append,environ,params,show,CGenerator,Decl,IdentifierType,ParamList,TypeDecl,__init__,generic_visit,get"
 ---
 
 # pycparser Python Package Guide

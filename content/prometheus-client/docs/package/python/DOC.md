@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "prometheus,monitoring,metrics,instrumentation,observability,python"
+  tags: "prometheus,monitoring,metrics,instrumentation,observability,python,prometheus_client,Counter,Gauge,multiprocess,client,REQUESTS,CollectorRegistry,labels,start_http_server,Summary,server,time,Histogram,REGISTRY,Response,app,Enum,Info,generate_latest,CONTENT_TYPE_LATEST,FastAPI,inc,make_asgi_app,push_to_gateway,thread"
 ---
 
 # prometheus-client Python Package Guide

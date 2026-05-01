@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,organizations,javascript,nodejs,accounts,ou,scp,governance"
+  tags: "aws,organizations,javascript,nodejs,accounts,ou,scp,governance,send,console,log,policies,roots,push,map,ous"
 ---
 
 # `@aws-sdk/client-organizations`

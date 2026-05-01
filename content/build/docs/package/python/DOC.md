@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,packaging,pypa,build,wheel,sdist,pyproject"
+  tags: "python,packaging,pypa,build,wheel,sdist,pyproject,builder,ProjectBuilder,Path,env,install,toml,dist_dir,DefaultIsolatedEnv,metadata_path,Version-Sensitive,check_dependencies,from_isolated_env,get_requires_for_build,mkdir"
 ---
 
 # build Python Package Guide

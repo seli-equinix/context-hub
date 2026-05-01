@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aiofiles,asyncio,python,files,io,tempfile,threadpool"
+  tags: "aiofiles,asyncio,python,files,io,tempfile,threadpool,open,read,text,write,outfile,infile,ThreadPoolExecutor,file_pool,flush,line,stdout,load_text,read_with_custom_pool,replace,run,NamedTemporaryFile,Version-Sensitive,build_temp_payload,copy_file,first_nonempty_line,move_into_place,rewrite_file,rstrip,shutdown,strip"
 ---
 
 # aiofiles Python Package Guide

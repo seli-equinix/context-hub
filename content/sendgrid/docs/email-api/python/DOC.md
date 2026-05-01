@@ -6,7 +6,7 @@ metadata:
   versions: "6.12.5"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "sendgrid,email,transactional,templates,delivery"
+  tags: "sendgrid,email,transactional,templates,delivery,message,self,Mail,SendGridAPIClient,example.com,get,to_email,Personalization,send,Content,environ,Attachment,MimeType,_ensure_append,api_keys,bounces,keys,personalization1,personalization2,sendgrid_client,Bcc,Client,add_content,add_personalization,add_to"
 ---
 
 # SendGrid API Coding Guidelines (Python)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,for-of,iteration"
+  tags: "babel,build,transpile,for-of,iteration,console,log,_arr,_items"
 ---
 
 # @babel/plugin-transform-for-of

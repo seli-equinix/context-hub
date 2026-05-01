@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,sqoop,hadoop,etl,dag,python"
+  tags: "airflow,apache-airflow,sqoop,hadoop,etl,dag,python,SqoopOperator,task,SqoopHook,datetime,hook,data_interval_start,import_table,operator,to_date_string,Free-Form,backfill_reference_data,daily"
 ---
 
 # apache-airflow-providers-apache-sqoop

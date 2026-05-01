@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pytest,pytest-mock,mock,testing,fixtures"
+  tags: "pytest,pytest-mock,mock,testing,fixtures,mocker,patch,spy,hello,mocked,handler,stop,greeter,object,remove,MockerFixture,Path,assert_called_once_with,calc,double,fetch_name,Calculator,emit,ini,listdir,pytest.mark.asyncio,resetall,stub,Version-Sensitive,assert_awaited_once"
 ---
 
 # pytest-mock Python Package Guide

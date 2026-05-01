@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "pyasn1-modules,pyasn1,asn1,x509,cms,ldap,snmp"
+  tags: "pyasn1-modules,pyasn1,asn1,x509,cms,ldap,snmp,pem,rfc5280,native_certificate,Certificate,decode as der_decode,readPemFromFile,encode as der_encode,encode as to_native,readPemBlocksFromFile,Re-Encode,readBase64FromFile,readBase64fromText"
 ---
 
 # pyasn1-modules Python Package Guide

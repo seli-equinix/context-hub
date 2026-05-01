@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "commitizen,python,git,conventional-commits,semver,changelog,release"
+  tags: "commitizen,python,git,conventional-commits,semver,changelog,release,toml,Version-Sensitive"
 ---
 
 # Commitizen Python Package Guide

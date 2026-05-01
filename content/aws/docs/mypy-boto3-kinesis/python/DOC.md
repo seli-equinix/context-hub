@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,kinesis,boto3,python,typing,stubs,mypy,pyright"
+  tags: "aws,kinesis,boto3,python,typing,stubs,mypy,pyright,client,Session,KinesisClient,TYPE_CHECKING,page,lite,paginator,response,summary,waiter,ListStreamsPaginator,StreamExistsWaiter,describe_stream_summary,record,PutRecordOutputTypeDef,StreamStatusType,json,result,Version-Sensitive,dumps,get,get_paginator,get_waiter,paginate,put_record"
 ---
 
 # mypy-boto3-kinesis Python Package Guide

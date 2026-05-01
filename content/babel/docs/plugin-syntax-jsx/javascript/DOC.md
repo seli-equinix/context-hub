@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,jsx,syntax,parser"
+  tags: "babel,build,javascript,jsx,syntax,parser,7.28.6,console,log"
 ---
 
 # @babel/plugin-syntax-jsx

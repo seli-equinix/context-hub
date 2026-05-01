@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,cloud-debugger,debug-agent,gcp,javascript,nodejs,observability"
+  tags: "google-cloud,cloud-debugger,debug-agent,gcp,javascript,nodejs,observability,google,app,json,9.0.1,res,console,get,listen,log"
 ---
 
 # `@google-cloud/debug-agent` JavaScript Package Guide

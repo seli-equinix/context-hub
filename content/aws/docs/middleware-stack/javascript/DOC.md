@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,javascript,aws-sdk,middleware,smithy,client"
+  tags: "aws,javascript,aws-sdk,middleware,smithy,client,stack,add,middlewareStack,resolve,addRelativeTo,console,remove,clone,cloned,identifyOnResolve,JSON,baseStack,combined,concat,extraStack,identify,removeByTag,3.374.0,Date,log,now,send,stringify,parse"
 ---
 
 # `@aws-sdk/middleware-stack`

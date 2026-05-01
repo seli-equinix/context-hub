@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "neptune,python,experiment-tracking,mlops,metadata,logging,runs"
+  tags: "neptune,python,experiment-tracking,mlops,metadata,logging,runs,run,init_run,stop,Version-Sensitive"
 ---
 
 # Neptune Python Package Guide

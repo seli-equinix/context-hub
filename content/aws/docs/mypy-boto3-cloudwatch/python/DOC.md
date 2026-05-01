@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,cloudwatch,mypy,pyright,type-stubs,python"
+  tags: "aws,boto3,cloudwatch,mypy,pyright,type-stubs,python,Session,client,CloudWatchClient,resource,stubs,paginator,waiter,StandardUnitType,TYPE_CHECKING,datetime,lite,Alarm,MetricDatumTypeDef,PutMetricDataInputTypeDef,UTC,page,result,AlarmExistsWaiter,GetMetricDataPaginator,MetricDataQueryTypeDef,alarms,describe_alarms,now,put_metric_data,timedelta"
 ---
 
 # mypy-boto3-cloudwatch Python Package Guide

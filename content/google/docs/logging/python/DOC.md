@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud-logging,google-cloud,logging,gcp,observability,python"
+  tags: "google-cloud-logging,google-cloud,logging,gcp,observability,python,client,logger,CloudLoggingHandler,StructuredLogHandler,batch,close,log,setup_logging,log_struct,log_text,Resource,info,addHandler,getLogger,setLevel,Requires-Python,Version-Sensitive,error,list_entries,warning"
 ---
 
 # google-cloud-logging Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-ai-search,management,arm,api-keys,python"
+  tags: "azure,azure-ai-search,management,arm,api-keys,python,environ,SearchManagementClient,DefaultAzureCredential,services,poller,Sku,admin_keys,delete,begin_create_or_update,begin_upgrade,create,result,update,SearchServiceUpdate,query_keys,SearchService,get,regenerate,Version-Sensitive,check_name_availability,list_by_resource_group,list_by_search_service"
 ---
 
 # azure-mgmt-search Python Package Guide

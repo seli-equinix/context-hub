@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,cors,http,middleware,csrf,security"
+  tags: "django,cors,http,middleware,csrf,security,check_request_enabled,AppConfig,MyAppConfig,connect,cors_allow_public_api,default_headers,default_methods,Version-Sensitive,path,ready,startswith"
 ---
 
 # django-cors-headers for Django

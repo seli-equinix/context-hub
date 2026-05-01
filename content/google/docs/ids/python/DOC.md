@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,cloud-ids,ids,security,packet-mirroring,network,python"
+  tags: "google-cloud,cloud-ids,ids,security,packet-mirroring,network,python,ids_v1,client,environ,Endpoint,IDSClient,operation,result,common_location_path,endpoint_path,ClientOptions,Credentials,create_endpoint,delete_endpoint,service_account,uuid,CreateEndpointRequest,ListEndpointsRequest,from_service_account_file,get_endpoint,list_endpoints,uuid4"
 ---
 
 # google-cloud-ids Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,lex,lex-v2,chatbot,conversational-ai,javascript,nodejs"
+  tags: "aws,lex,lex-v2,chatbot,conversational-ai,javascript,nodejs,client,send,console,log,lexTarget"
 ---
 
 # Amazon Lex V2 Runtime SDK for JavaScript v3 Guide

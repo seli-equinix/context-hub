@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "yapf,formatter,python,code-style,linting,clang-format"
+  tags: "yapf,formatter,python,code-style,linting,clang-format,toml,FormatCode,FormatFile,add,true,Version-Sensitive,ini"
 ---
 
 # YAPF Python Package Guide

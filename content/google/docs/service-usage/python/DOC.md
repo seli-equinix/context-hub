@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,service-usage,api-enablement,iam,operations"
+  tags: "google,google-cloud,service-usage,api-enablement,iam,operations,service_usage_v1,client,ServiceUsageClient,operation,batch_enable_services,disable_service,enable_service,result,get_service,ServiceUsageAsyncClient,list_services,BatchEnableServicesRequest,DisableServiceRequest,EnableServiceRequest,GetServiceRequest,ListServicesRequest,Version-Sensitive"
 ---
 
 # Google Cloud Service Usage Python Client Library

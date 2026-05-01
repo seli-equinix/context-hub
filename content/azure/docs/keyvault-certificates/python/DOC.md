@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,keyvault,certificates,python,security,cloud"
+  tags: "azure,keyvault,certificates,python,security,cloud,client,CertificateClient,DefaultAzureCredential,result,delete_poller,CertificatePolicy,begin_delete_certificate,begin_create_certificate,get_certificate,get_certificate_version,list_properties_of_certificates,Path,begin_recover_deleted_certificate,create_poller,get_default,import_certificate,list_properties_of_certificate_versions,purge_deleted_certificate,recover_poller,wait,Version-Sensitive,create_certificate,environ,update_certificate_properties"
 ---
 
 # azure-keyvault-certificates Python Package Guide

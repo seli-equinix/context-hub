@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,webpack-cli,build,bundler,javascript"
+  tags: "webpack,webpack-cli,build,bundler,javascript,path,resolve,6.0.1"
 ---
 
 # webpack-cli for JavaScript

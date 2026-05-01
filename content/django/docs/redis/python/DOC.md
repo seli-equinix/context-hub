@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,redis,cache,sessions,sentinel,python,pypi"
+  tags: "django,redis,cache,sessions,sentinel,python,pypi,OPTIONS,set,get_redis_connection,lock,redis_client,delete_pattern,ttl,iter_keys,redis.internal,expire,incr,keys,pttl,Version-Sensitive,delete,get,get_or_set,hget,hset,persist,sadd,smembers"
 ---
 
 # django-redis Python Package Guide

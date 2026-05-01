@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,transfer,transfer-family,sftp,ftps,as2,javascript,nodejs"
+  tags: "aws,transfer,transfer-family,sftp,ftps,as2,javascript,nodejs,client,send,console,log,example"
 ---
 
 # AWS Transfer Family SDK for JavaScript (v3)

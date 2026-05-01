@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud-media-translation,google-cloud,media-translation,translation,speech,streaming,gcp,javascript,nodejs"
+  tags: "google-cloud-media-translation,google-cloud,media-translation,translation,speech,streaming,gcp,javascript,nodejs,stream,google,client,const,v1beta1,error,console,5.2.1,SpeechTranslationServiceClient,streamingTranslateSpeech,end,log,write,createReadStream,destroy"
 ---
 
 # `@google-cloud/media-translation` JavaScript Package Guide

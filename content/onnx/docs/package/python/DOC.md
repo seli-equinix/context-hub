@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "onnx,python,ml,model-format,protobuf,shape-inference"
+  tags: "onnx,python,ml,model-format,protobuf,shape-inference,model,checker,helper,hub,load,shape_inference,TensorProto,check_model,numpy_helper,array,save_model,make_tensor_value_info,SerializeToString,Version-Sensitive,from_array,infer_shapes,infer_shapes_path,load_external_data_for_model,make_graph,make_model,make_node,make_opsetid,make_tensor,numpy as np,to_array"
 ---
 
 # onnx Python Package Guide

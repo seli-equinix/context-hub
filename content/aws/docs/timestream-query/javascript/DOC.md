@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,timestream,javascript,nodejs,time-series,sql,query"
+  tags: "aws,timestream,javascript,nodejs,time-series,sql,query,timestreamQuery,send,console,Rows,log,pages,3.1007.0,map,return,Data,columnNames,Object,Using-API,dir,flatMap,fromEntries,push"
 ---
 
 # `@aws-sdk/client-timestream-query`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "fiona,python,gis,geospatial,vector,gdal,geojson"
+  tags: "fiona,python,gis,geospatial,vector,gdal,geojson,src,geometry,open,drivers,profile,filter,CRS,Env,properties,shape,AWSSession,Feature,archive,dst,mapping,boto3,write,ZipMemoryFile,from_dict,to_centroid,writerecords,In-Memory,Session,Version-Sensitive,from_epsg"
 ---
 
 # Fiona Python Package Guide

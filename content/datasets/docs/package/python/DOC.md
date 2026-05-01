@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "datasets,huggingface,data,ml,arrow,streaming"
+  tags: "datasets,huggingface,data,ml,arrow,streaming,dataset,load_dataset,map,row,IterableDataset,load_dataset_builder,batch,save_to_disk,AutoTokenizer,filter,load_from_disk,reloaded,remove_columns,tokenize,with_format,Version-Sensitive,cleanup_cache_files,from_dict,from_list,from_pretrained,push_to_hub,rename_column,train_test_split"
 ---
 
 # Hugging Face Datasets Python Package Guide

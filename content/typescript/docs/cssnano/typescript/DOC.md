@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,cssnano,postcss,css,minification,types,definitelytyped,npm"
+  tags: "typescript,cssnano,postcss,css,minification,types,definitelytyped,npm,processor,process,cwd,any,Version-Sensitive,createCssnanoOptions,the runtime package directly"
 ---
 
 # cssnano TypeScript Guide

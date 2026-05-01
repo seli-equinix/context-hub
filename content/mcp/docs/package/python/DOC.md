@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mcp,model-context-protocol,python,fastmcp,server,client,stdio,streamable-http,oauth"
+  tags: "mcp,model-context-protocol,python,fastmcp,server,client,stdio,streamable-http,oauth,tool,session,run,add,ClientSession,StdioServerParameters,mcp.tool,prompt,initialize,asyncio,main,mcp.prompt,mcp.resource,resource,stdio_client,Version-Sensitive,app_config,call_tool,list_tools,multiply,summarize_topic"
 ---
 
 # mcp Python Package Guide

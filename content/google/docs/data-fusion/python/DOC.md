@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,data-fusion,gcp,etl,instances,python"
+  tags: "google,data-fusion,gcp,etl,instances,python,data_fusion_v1,client,DataFusionClient,Instance,result,getenv,list_available_versions,environ,operation,update_instance,FieldMask,available_versions,create_instance,delete_instance,restart_instance,CreateInstanceRequest,NetworkConfig,UpdateInstanceRequest,get_instance,list_instances"
 ---
 
 # Google Cloud Data Fusion Python Client

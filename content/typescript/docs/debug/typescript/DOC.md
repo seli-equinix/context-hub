@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,debug,logging,npm,types,definitelytyped"
+  tags: "typescript,debug,logging,npm,types,definitelytyped,enable,extend,authLog,disable,destroy,runJob,4.1.12"
 ---
 
 # debug TypeScript Guide

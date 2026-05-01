@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,batch,jobs,compute,scheduler"
+  tags: "google,google-cloud,batch,jobs,compute,scheduler,batch_v1,client,Runnable,cancel_job,delete_job,AllocationPolicy,BatchServiceClient,create_job,Job,LogsPolicy,cancel_op,create_script_job,delete_op,get_job,list_jobs,result,ComputeResource,Container,CreateJobRequest,InstancePolicy,InstancePolicyOrTemplate,Script,TaskGroup,TaskSpec,Version-Sensitive"
 ---
 
 # Google Cloud Batch Python Client

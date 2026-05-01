@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,aws-sdk,javascript,base64,encoding,decoding,bytes,uint8array"
+  tags: "aws,aws-sdk,javascript,base64,encoding,decoding,bytes,uint8array,console,log,input,replace,3.374.0,Math,ceil"
 ---
 
 # `@aws-sdk/util-base64`

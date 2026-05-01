@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "catboost,machine-learning,gradient-boosting,classification,regression,ranking"
+  tags: "catboost,machine-learning,gradient-boosting,classification,regression,ranking,Pool,model,CatBoostClassifier,FeaturesData,fit,save_model,CatBoostRegressor,DataFrame,array,loaded,predict,Version-Sensitive,load_model,numpy as np,pandas as pd,predict_proba"
 ---
 
 # CatBoost Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,keyvault,certificates,javascript,security,cloud"
+  tags: "azure,keyvault,certificates,javascript,security,cloud,client,console,log,pollUntilDone,4.10.0,beginCreateCertificate,getCertificate,poller,beginDeleteCertificate,beginRecoverDeletedCertificate,createPoller,deletePoller,getCertificateVersion,importCertificate,purgeDeletedCertificate,recoverPoller,Self-Signed,getDeletedCertificate,listPropertiesOfCertificateVersions,listPropertiesOfCertificates"
 ---
 
 # Azure Key Vault Certificates JavaScript Client

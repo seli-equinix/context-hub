@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,workspaces,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,workspaces,type-stubs,mypy,pyright,python,client,Session,stubs,WorkSpacesClient,paginator,describe_workspaces,page,workspace,lite,DescribeWorkspacesPaginator,TYPE_CHECKING,get,response,DescribeWorkspacesRequestTypeDef,RebootRequestTypeDef,WorkspaceStateType,Version-Sensitive,example.com,get_paginator,get_waiter,is_terminal,paginate"
 ---
 
 # mypy-boto3-workspaces Python Package Guide

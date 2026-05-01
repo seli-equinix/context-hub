@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,logic-apps,management,arm,workflows,triggers,integration-accounts,python"
+  tags: "azure,logic-apps,management,arm,workflows,triggers,integration-accounts,python,environ,LogicManagementClient,DefaultAzureCredential,Workflow,request,list_callback_url,json,response,workflow_runs,workflow_triggers,AzureCliCredential,GetCallbackUrlParameters,datetime,create_or_update,get,list,list_by_resource_group,timedelta,timezone,Content-Type,IntegrationServiceEnvironmentManagedApisOperations,Version-Sensitive,begin_put,cancel,dumps"
 ---
 
 # Azure Logic Apps Management SDK for Python

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gke,backup,restore,kubernetes,gcp,adc"
+  tags: "google-cloud,gke,backup,restore,kubernetes,gcp,adc,gke_backup_v1,client,BackupForGKEClient,operation,BackupPlan,RestoreConfig,result,environ,BackupConfig,RestorePlan,create_backup_plan,RetentionPolicy,Schedule,create_backup,create_restore,create_restore_plan,list_backup_plans,list_backups"
 ---
 
 # Google Cloud Backup for GKE Python Client

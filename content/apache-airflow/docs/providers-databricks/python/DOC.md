@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,databricks,jobs,dag,python"
+  tags: "airflow,databricks,jobs,dag,python,DatabricksRunNowOperator,datetime,annotations,One-Time"
 ---
 
 # apache-airflow-providers-databricks

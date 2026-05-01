@@ -6,7 +6,7 @@ metadata:
   versions: "2.0.56"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "zendesk,support,helpdesk,tickets,customer-service"
+  tags: "zendesk,support,helpdesk,tickets,customer-service,ticket,zenpy_client,Zenpy,return,users,User,organizations,Organization,search,tags,Group,create,getenv,groups,comments,example.com,results,update,Comment,agents,result,upload,views,attachments,load_dotenv"
 ---
 
 # Zendesk API - Python SDK (zenpy)

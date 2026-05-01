@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,mypy,typing,stubs,forecast,python"
+  tags: "aws,boto3,mypy,typing,stubs,forecast,python,client,session,cast,ForecastServiceClient,paginator,config,page,predictor,TYPE_CHECKING,get,response,Any,ListPredictorsPaginator,list_predictors,Version-Sensitive,dict,get_forecast_client,get_paginator,lite,paginate"
 ---
 
 # mypy-boto3-forecast Python Package Guide

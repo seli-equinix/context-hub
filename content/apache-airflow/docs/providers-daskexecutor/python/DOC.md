@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,dask,executor,distributed-tasks"
+  tags: "airflow,apache-airflow,dask,executor,distributed-tasks,DAG,DaskExecutor,PythonOperator,emit,datetime,ini,path"
 ---
 
 # Apache Airflow Providers DaskExecutor Guide

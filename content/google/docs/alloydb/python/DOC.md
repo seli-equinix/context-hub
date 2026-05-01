@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,alloydb,gcp,database,postgresql,admin"
+  tags: "google-cloud,alloydb,gcp,database,postgresql,admin,alloydb_v1,client,AlloyDBAdminClient,execute_sql,Cluster,get_connection_info,ClientOptions,operation,result,uuid,CreateClusterRequest,ExecuteSqlRequest,GetConnectionInfoRequest,ListClustersRequest,ListInstancesRequest,Version-Sensitive,create_cluster,environ,list_clusters,list_instances,uuid4"
 ---
 
 # google-cloud-alloydb Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "croniter,cron,python,scheduling,datetime,timezones"
+  tags: "croniter,cron,python,scheduling,datetime,timezones,ZoneInfo,schedule,get_next,croniter_range,next_run,get_prev,is_valid,match,now,CroniterBadCronError,CroniterBadDateError,Day-Of,all_next,daily,timedelta,annually,get_current,hourly,match_range,methods,midnight,monthly,weekly,yearly"
 ---
 
 # croniter Python Package Guide

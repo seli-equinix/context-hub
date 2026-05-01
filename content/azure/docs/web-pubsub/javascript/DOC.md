@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,web-pubsub,realtime,websocket,javascript"
+  tags: "azure,web-pubsub,realtime,websocket,javascript,group,webPubSub,app,getClientAccessToken,1.2.0,res,sendToGroup,sendToUser,get,json,sendToAll"
 ---
 
 # Azure Web PubSub JavaScript Service SDK

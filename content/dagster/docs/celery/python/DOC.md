@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,celery,python,executor,distributed-execution,workflow-orchestration"
+  tags: "dagster,celery,python,executor,distributed-execution,workflow-orchestration,job,celery_executor,localhost,Definitions,celery_job,environ,ping,your Dagster code and its dependencies,your code"
 ---
 
 # `dagster-celery` for Python

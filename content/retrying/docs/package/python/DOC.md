@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "retrying,retry,retries,python,decorators,backoff,polling"
+  tags: "retrying,retry,retries,python,decorators,backoff,polling,response,requests,get,report,raise_for_status,Requires-Python,report_store,retry_if_connection_error,retry_if_none,Version-Sensitive,fetch_json,fetch_text,get_status,json,load_report"
 ---
 
 # retrying Python Package Guide

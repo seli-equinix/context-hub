@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,guardduty,boto3,python,typing,mypy,pyright,stubs"
+  tags: "aws,guardduty,boto3,python,typing,mypy,pyright,stubs,client,Session,GuardDutyClient,lite,page,paginator,ListFindingsPaginator,TYPE_CHECKING,annotations,get,list_detectors,AcceptAdministratorInvitationRequestTypeDef,finding_ids,list_findings,Version-Sensitive,get_guardduty_client,get_paginator,paginate,resource,submit_accept_request"
 ---
 
 # mypy-boto3-guardduty Python Package Guide

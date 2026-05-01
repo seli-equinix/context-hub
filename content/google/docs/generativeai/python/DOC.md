@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,gemini,generative-ai,llm,python,pypi,legacy"
+  tags: "google,gemini,generative-ai,llm,python,pypi,legacy,genai,model,configure,generate_content,GenerativeModel,chat,environ,models,start_chat,GenerationConfig,create,send_message,CountryInfo,get_current_weather,Multi-Turn,New-SDK,Version-Sensitive,chats,count_tokens,delete_file,embed_content,get_file,list_files,typing_extensions as typing,upload_file"
 ---
 
 # google-generativeai Python Package Guide

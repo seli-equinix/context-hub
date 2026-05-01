@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "pycodestyle,python,lint,pep8,style,cli"
+  tags: "pycodestyle,python,lint,pep8,style,cli,ini,StyleGuide,checker,check_files,unittest,self,TestCodeFormat,assertEqual,check_all,test_conformance"
 ---
 
 # pycodestyle Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "polyfactory,python,testing,factories,mock-data,pydantic,sqlalchemy"
+  tags: "polyfactory,python,testing,factories,mock-data,pydantic,sqlalchemy,build,DataclassFactory,UserFactory,User,dataclass,ModelFactory,Require,SQLAlchemyFactory,adds,batch,coverage,AttrsFactory,AuthorFactory,BaseFactory,BaseModel,Customer,CustomerFactory,Field,Optional,Payment,PaymentFactory,Session,TypedDictFactory,create_factory,create_sync"
 ---
 
 # polyfactory Python Package Guide

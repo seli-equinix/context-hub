@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,flask-babel,i18n,l10n,translations,gettext,localization"
+  tags: "flask,flask-babel,i18n,l10n,translations,gettext,localization,Babel,request,timezone,config,flash,form,init_app,refresh,datetime,force_locale,format_currency,format_datetime,format_decimal,now,Blueprint,StringField,attributes,invite,ngettext,redirect,select_locale,select_timezone,url_for,Locale-Aware,ProfileForm"
 ---
 
 # Flask-Babel for Flask Apps

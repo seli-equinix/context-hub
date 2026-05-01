@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tabula-py,pdf,tables,pandas,java,csv,json"
+  tags: "tabula-py,pdf,tables,pandas,java,csv,json,tabula,read_pdf,convert_into,Version-Sensitive,convert_into_by_batch,environment_info,head,read_csv,read_pdf_with_template"
 ---
 
 # tabula-py Python Package Guide

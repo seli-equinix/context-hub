@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,discoveryengine,vertex-ai-search,agent-builder,search,rag,recommendations"
+  tags: "google,discoveryengine,vertex-ai-search,agent-builder,search,rag,recommendations,SearchServiceClient,AnswerQueryRequest,ConversationalSearchServiceClient,DocumentServiceClient,SearchRequest,answer_client,answer_query,discoveryengine_v1 as discoveryengine,document_client,search_client,search_lite,AnswerGenerationSpec,ClientOptions,branch_path,environ,ModelSpec,Query,Version-Sensitive,derived_struct_data,get,getenv,list_documents,serving_config_path,session_path"
 ---
 
 # Google Cloud Discovery Engine Python Client

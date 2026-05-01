@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "jinja2,templating,html,python,sandbox"
+  tags: "jinja2,templating,html,python,sandbox,template,env,Environment,StrictUndefined,render,value,select_autoescape,tests,from_string,FileSystemLoader,PackageLoader,SandboxedEnvironment,awaitable_name,filters,forms,initials,NativeEnvironment,globals,input,part,Markup,get_template,is_even,render_async,Version-Sensitive"
 ---
 
 # Jinja2 Python Package Guide

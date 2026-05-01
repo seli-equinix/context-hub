@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,elasticsearch,logging,sql,dag,python"
+  tags: "airflow,elasticsearch,logging,sql,dag,python,task,ElasticsearchSQLHook,hook,datetime,ElasticsearchPythonHook,SQLExecuteQueryOperator,es.example.com,show_tables,environ,conn,search_logs,execute_sql,get_conn,search"
 ---
 
 # apache-airflow-providers-elasticsearch

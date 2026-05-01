@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "firebase,firebase-admin,python,authentication,messaging,firestore,realtime-database,storage"
+  tags: "firebase,firebase-admin,python,authentication,messaging,firestore,realtime-database,storage,firebase_admin,reference,auth,client,bucket,initialize_app,functions,credentials,queue,blob,config,verify_id_token,Certificate,doc,doc_ref,remote_config,send_each_for_multicast,set,template,users_ref,Notification,asyncio,child,create_user,decoded"
 ---
 
 # Firebase Admin Python SDK

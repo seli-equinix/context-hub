@@ -6,7 +6,7 @@ metadata:
   versions: "2.45.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "datadog,monitoring,metrics,observability,apm"
+  tags: "datadog,monitoring,metrics,observability,apm,Configuration,ApiClient,api_instance,time,MonitorsApi,Monitor,monitors_api,DashboardsApi,Dashboard,MetricsApi,data,datetime,Series,dashboards_api,List,now,EventsApi,HostsApi,EventCreateRequest,client,DowntimesApi,MetricsPayload,MonitorType,TagsApi,list_monitors"
 ---
 
 # Datadog API Client for Python

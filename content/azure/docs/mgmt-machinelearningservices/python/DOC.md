@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-machine-learning,arm,management,workspaces,compute,python"
+  tags: "azure,azure-machine-learning,arm,management,workspaces,compute,python,AzureMachineLearningWorkspaces,environ,DefaultAzureCredential,Workspace,machine_learning_compute,begin_create_or_update,AzureCliCredential,list_keys,MachineLearningComputeOperations,begin_delete,get,list,list_by_subscription,private_link_resources,quotas,timedelta,virtual_machine_sizes,Version-Sensitive,list_by_resource_group,list_by_workspace"
 ---
 
 # Azure Machine Learning Services Management SDK for Python

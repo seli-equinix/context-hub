@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,ssm,systems-manager,javascript,nodejs,parameter-store,run-command"
+  tags: "aws,ssm,systems-manager,javascript,nodejs,parameter-store,run-command,send,console,log,AWS-RunShellScript,SSM-Specific"
 ---
 
 # `@aws-sdk/client-ssm`

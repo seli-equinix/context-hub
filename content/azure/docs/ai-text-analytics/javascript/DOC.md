@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,language,text-analytics,nlp,sentiment,entities,pii"
+  tags: "azure,language,text-analytics,nlp,sentiment,entities,pii,error,console,textAnalyticsClient,log,analyzeSentiment,detectLanguage,example.com.,extractKeyPhrases,recognizeEntities,recognizePiiEntities"
 ---
 
 # @azure/ai-text-analytics JavaScript Package Guide

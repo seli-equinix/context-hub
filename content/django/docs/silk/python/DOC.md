@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-silk,django,python,profiling,performance,sql,debugging,middleware"
+  tags: "django-silk,django,python,profiling,performance,sql,debugging,middleware,silk,silk_profile,can_view_silk,include,path,record_selected_requests,should_profile_request,Version-Sensitive,build_checkout,create_invoice"
 ---
 
 # django-silk Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-treebeard,trees,orm,models,admin"
+  tags: "django,django-treebeard,trees,orm,models,admin,Category,root,MP_Node,fix_tree,fiction,move,add_child,history,scifi,TreeAdmin,movenodeform_factory,CategoryAdmin,CharField,Sci-Fi,SlugField,Version-Sensitive,__str__,add_root,admin.register,dump_bulk,find_problems,get_ancestors,get_depth,get_descendants,get_root_nodes"
 ---
 
 # django-treebeard 5.0.5 Python Package Guide

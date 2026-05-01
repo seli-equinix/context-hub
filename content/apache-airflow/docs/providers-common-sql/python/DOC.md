@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,sql,database,data-quality,dag,python"
+  tags: "airflow,sql,database,data-quality,dag,python,hook,datetime,GenericTransfer,SQLExecuteQueryOperator,SQLInsertRowsOperator,PostgresHook,get_df,get_df_by_chunks,db.example.com,pandas as pd,task.sql"
 ---
 
 # apache-airflow-providers-common-sql

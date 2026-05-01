@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,ecs,boto3,python,typing,mypy,pyright,stubs"
+  tags: "aws,ecs,boto3,python,typing,mypy,pyright,stubs,Session,client,ECSClient,resource,paginator,cluster,lite,page,response,AwsVpcConfigurationTypeDef,ECSServiceResource,LaunchTypeType,TYPE_CHECKING,get,Version-Sensitive,describe_clusters,directly,get_ecs_client,get_paginator,paginate"
 ---
 
 # mypy-boto3-ecs Python Package Guide

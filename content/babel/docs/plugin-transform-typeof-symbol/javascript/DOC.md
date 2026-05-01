@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,transpile,symbol,typeof"
+  tags: "babel,build,javascript,transpile,symbol,typeof,console,log,7.27.1"
 ---
 
 # @babel/plugin-transform-typeof-symbol

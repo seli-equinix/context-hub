@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,kafka,apache-kafka,python,dag,streaming"
+  tags: "airflow,kafka,apache-kafka,python,dag,streaming,message,json,offset,topic,value,datetime,key,payload,ConsumeFromTopicOperator,ProduceToTopicOperator,AwaitMessageSensor,AwaitMessageTriggerFunctionSensor,KafkaAdminClientHook,annotations,hook,is_paid_event,build_messages,dumps,loads,on_event,process_message,create_orders_topic,create_topic,get,path for a delivery callback"
 ---
 
 # apache-airflow-providers-apache-kafka

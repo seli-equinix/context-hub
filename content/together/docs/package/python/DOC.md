@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "together,python,llm,chat,embeddings,images,rerank,fine-tuning"
+  tags: "together,python,llm,chat,embeddings,images,rerank,fine-tuning,create,completions,choices,AsyncTogether,Instruct-Turbo,Meta-Llama,upload,data,files,generate,asyncio,fine_tuning,main,Llama-Rank,Version-Sensitive,run"
 ---
 
 # together Python Package Guide

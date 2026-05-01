@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,key-vault,arm,management,vaults,javascript"
+  tags: "azure,key-vault,arm,management,vaults,javascript,keyVaultClient,console,log,4.0.0,beginCreateOrUpdateAndWait,update,get,listByResourceGroup,listBySubscription,checkNameAvailability"
 ---
 
 # Azure Key Vault Management Client For JavaScript

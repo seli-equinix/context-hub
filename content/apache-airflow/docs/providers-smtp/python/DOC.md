@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,smtp,email,python,dag,notifications"
+  tags: "airflow,smtp,email,python,dag,notifications,task,SmtpHook,EmailOperator,example.com,send_smtp_notification,datetime,hook,EmptyOperator,send_email_smtp,send_summary_email,smtp.example.com"
 ---
 
 # apache-airflow-providers-smtp

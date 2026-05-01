@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "prefect,redis,python,workflow,orchestration,blocks,cache"
+  tags: "prefect,redis,python,workflow,orchestration,blocks,cache,client,RedisDatabase,redis_block,flow,getenv,load,save,set,close,get,get_client,task,environ,read_status,redis_cache_demo,write_status,ping"
 ---
 
 # Prefect Redis Python Package Guide

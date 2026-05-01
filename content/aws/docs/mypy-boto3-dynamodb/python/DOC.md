@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,dynamodb,boto3,mypy-boto3-dynamodb,boto3-stubs,typing,type-checking"
+  tags: "aws,dynamodb,boto3,mypy-boto3-dynamodb,boto3-stubs,typing,type-checking,session,client,resource,stubs,DynamoDBClient,lite,TYPE_CHECKING,Table,table_exists,list_tables,response,ApproximateCreationDateTimePrecisionType,ArchivalSummaryTypeDef,DynamoDBServiceResource,QueryPaginator,TableExistsWaiter,Version-Sensitive,accepts_precision,get_paginator,get_waiter,handle_summary,wait"
 ---
 
 # mypy-boto3-dynamodb Python Package Guide

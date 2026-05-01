@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,dns,arm,management,dns-zones,record-sets,python"
+  tags: "azure,dns,arm,management,dns-zones,record-sets,python,client,zones,credential,models,DnsManagementClient,record_sets,DefaultAzureCredential,get,AzureCliCredential,RecordSet,create_or_update,delete,environ,main,ARecord,asyncio,close,list_by_resource_group,update,CnameRecord,Version-Sensitive,Zone,begin_delete,list_all_by_dns_zone,run"
 ---
 
 # Azure DNS Management SDK for Python

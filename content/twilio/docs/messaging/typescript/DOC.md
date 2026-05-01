@@ -6,7 +6,7 @@ metadata:
   versions: "5.10.3"
   updated-on: "2025-09-25"
   source: maintainer
-  tags: "twilio,sdk,sms,voice,communications"
+  tags: "twilio,sdk,sms,voice,communications,client,console,message,twiml,messages,log,error,create,calls,VoiceResponse,status,list,account,res,response,type,MessagingResponse,toString,validateRequest,dial,each,headers,page,validateExpressRequest,validateRequestWithBody"
 ---
 # Twilio Node.js Coding Guidelines
 

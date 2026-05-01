@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,sql,azure-sql,management,database,javascript"
+  tags: "azure,arm,sql,azure-sql,management,database,javascript,sqlClient,console,log,databases,servers,firewallRules,beginCreateOrUpdateAndWait,get,10.0.0,listByServer,createOrUpdate,listByResourceGroup"
 ---
 
 # Azure SQL Management Client For JavaScript

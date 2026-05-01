@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,transpile,let,const"
+  tags: "babel,build,javascript,transpile,let,const,console,log,callbacks,push"
 ---
 
 # @babel/plugin-transform-block-scoping

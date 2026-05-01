@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,google-cloud,network-services,networking,load-balancing,mesh,wasm,python"
+  tags: "google,gcp,google-cloud,network-services,networking,load-balancing,mesh,wasm,python,client,network_services_v1,NetworkServicesClient,operation,Gateway,environ,result,common_location_path,versions,gateway_path,WasmPlugin,get,http_route_path,wasm_plugin_path,ClientOptions,FieldMask,create_gateway,get_http_route,get_wasm_plugin,keys,GetWasmPluginRequest,VersionDetails,create_wasm_plugin,delete_gateway,from_service_account_json"
 ---
 
 # google-cloud-network-services Python Package Guide

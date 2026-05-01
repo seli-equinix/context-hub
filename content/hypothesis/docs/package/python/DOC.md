@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "hypothesis,property-based-testing,testing,pytest,fuzzing,python"
+  tags: "hypothesis,property-based-testing,testing,pytest,fuzzing,python,given,settings,example,integers,items,list,strategies as st,seed,User,data,lists,text,add,values,RuleBasedStateMachine,draw,from_type,register_type_strategy,set,HealthCheck,SetMachine,__init__,builds,counts,dataclass"
 ---
 
 # Hypothesis Python Package Guide

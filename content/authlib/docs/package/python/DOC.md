@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,authlib,oauth2,openid-connect,jwt,jose,authentication"
+  tags: "python,authlib,oauth2,openid-connect,jwt,jose,authentication,token,OAuth,client,google,app,environ,request,OAuth2Session,Flask,AsyncOAuth2Client,FastAPI,get,redirect,session,response,auth_google,claims,register,time,app.get,authorize_access_token,authorize_redirect,decoded,fetch_token,SessionMiddleware"
 ---
 
 # Authlib Python Package Guide

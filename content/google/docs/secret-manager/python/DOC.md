@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,secret-manager,gcp,secrets,iam,adc,python"
+  tags: "google-cloud,secret-manager,gcp,secrets,iam,adc,python,secretmanager,client,SecretManagerServiceClient,checksum,return,data,google_crc32c,secretmanager_v1,secret_version_path,value,access_secret_version,add_secret_version,create_secret,decode,disable_secret_version,hexdigest,list,secret_path,update,Version-Sensitive,access_secret_value,encode,list_secret_names,list_secrets"
 ---
 
 # google-cloud-secret-manager Python Package Guide

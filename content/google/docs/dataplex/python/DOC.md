@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,dataplex,gcp,python,data-governance,data-quality,catalog"
+  tags: "google,google-cloud,dataplex,gcp,python,data-governance,data-quality,catalog,dataplex_v1,client,environ,result,CatalogServiceClient,DataQualityRule,DataScanServiceClient,DataplexServiceClient,operation,DataSource,getenv,DataQualitySpec,DataScan,create_lake,get_entry,run_data_scan,Credentials,GetDataScanJobRequest,Lake,SearchEntriesRequest,create_data_scan,service_account,GetEntryRequest,NonNullExpectation,RegexExpectation"
 ---
 
 # Google Cloud Dataplex Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,monitoring,observability,metrics,alerting,javascript,nodejs"
+  tags: "google-cloud,gcp,monitoring,observability,metrics,alerting,javascript,nodejs,const,google,client,console,MetricServiceClient,log,AlertPolicyServiceClient,NotificationChannelServiceClient,listAlertPolicies,listTimeSeries,5.3.1,Date,Math,floor,now,createTimeSeries,listNotificationChannelDescriptors"
 ---
 
 # `@google-cloud/monitoring` JavaScript Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "2.15.13"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "livekit,realtime,webrtc,video,audio"
+  tags: "livekit,realtime,webrtc,video,audio,room,localParticipant,error,console,log,publication,devices,remoteParticipant,publishTrack,track,videoTrack,attach,setCameraEnabled,Event-Driven,MediaDeviceFailure,appendChild,body,get,getFailure,getLocalDevices,getTrackPublication,remoteParticipants,restartTrack,setMicrophoneEnabled,setMuted"
 ---
 
 # LiveKit Client SDK Coding Guidelines (JavaScript/TypeScript)

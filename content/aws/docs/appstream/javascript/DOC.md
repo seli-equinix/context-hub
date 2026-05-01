@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,appstream,workspaces-applications,streaming,iam"
+  tags: "aws,appstream,workspaces-applications,streaming,iam,client,send,console,log,example.com,JSON,error,stringify"
 ---
 
 # AWS AppStream SDK for JavaScript (v3)

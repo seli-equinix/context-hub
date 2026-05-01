@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,imports,sorting,javascript,linting,npm"
+  tags: "eslint,imports,sorting,javascript,linting,npm,groups,default,12.1.1"
 ---
 
 # eslint-plugin-simple-import-sort

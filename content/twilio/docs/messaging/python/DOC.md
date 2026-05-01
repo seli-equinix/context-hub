@@ -6,7 +6,7 @@ metadata:
   versions: "9.8.4"
   updated-on: "2025-09-25"
   source: maintainer
-  tags: "twilio,sdk,sms,voice,communications"
+  tags: "twilio,sdk,sms,voice,communications,Client,message,response,request,messages,create,get,logging,TwilioRestException,VoiceResponse,headers,list,say,Flask,gather,self,services,session,AsyncTwilioHttpClient,MessagingResponse,ProxyHttpClient,RequestValidator,TwilioHttpClient,app,asyncio"
 ---
 # Twilio Python Library Coding Guidelines
 

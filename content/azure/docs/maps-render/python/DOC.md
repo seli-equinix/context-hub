@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-maps,maps,render,geospatial,tiles,static-maps"
+  tags: "azure,azure-maps,maps,render,geospatial,tiles,static-maps,client,MapsRenderClient,AzureKeyCredential,environ,TilesetID,name,get_map_tile,AzureSasCredential,DefaultAzureCredential,Iterator,asyncio,get_map_attribution,get_map_static_image,get_map_tileset,main,Version-Sensitive,casing,get_copyright_for_world,run"
 ---
 
 # Azure Maps Render Python Client Library

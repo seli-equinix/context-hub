@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,leaflet,maps,browser,geojson,types,definitelytyped"
+  tags: "typescript,leaflet,maps,browser,geojson,types,definitelytyped,map,LatLngExpression,marker,polyline,fitBounds,toFixed,document,getBounds,getElementById,lat,lng,mountMap,setLatLng,unmountMap"
 ---
 
 # Leaflet TypeScript Guide

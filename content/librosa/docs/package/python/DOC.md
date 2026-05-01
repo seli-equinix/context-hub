@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "librosa,python,audio,music,dsp,signal-processing,feature-extraction"
+  tags: "librosa,python,audio,music,dsp,signal-processing,feature-extraction,load,example,stream,beat,feature,beat_track,rms,util,beat_times,frames_to_time,melspectrogram,show_versions,SoundFile,Version-Sensitive,power_to_db,soundfile as sf"
 ---
 
 # librosa Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,celery,background-jobs,legacy,redis,worker"
+  tags: "flask,celery,background-jobs,legacy,redis,worker,config,task,single_instance,Flask-Celery,add_together,result,get,celery.task,create_app,Flask-Redis,delay,environ,host,init_app,time,AsyncResult,Version-Sensitive,sleep,sleep_one_second,update"
 ---
 
 # Flask-Celery-Helper for Flask Apps

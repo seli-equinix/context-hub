@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,redis,cache,arm,management,python"
+  tags: "azure,redis,cache,arm,management,python,RedisManagementClient,result,DefaultAzureCredential,RedisCreateParameters,begin_flush_cache,ExportRDBParameters,RedisFirewallRule,RedisRebootParameters,RedisUpdateParameters,begin_export_data,begin_update,firewall_rules,AzureCliCredential,RedisRegenerateKeyParameters,Sku,begin_create,begin_reboot,create_or_update,environ,list,poller,FirewallRulesOperations,Version-Sensitive,get,list_by_resource_group"
 ---
 
 # Azure Cache for Redis Management SDK for Python

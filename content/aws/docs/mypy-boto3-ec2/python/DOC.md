@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,ec2,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,ec2,boto3,type-stubs,mypy,pyright,python,client,Session,EC2Client,stubs,resource,instance,TYPE_CHECKING,lite,get,paginator,reservation,waiter,describe_instances,page,response,DescribeInstancesPaginator,EC2ServiceResource,FilterTypeDef,InstanceRunningWaiter,InstanceTypeType,Version-Sensitive,get_paginator,get_waiter,list,make_client"
 ---
 
 # mypy-boto3-ec2 Python Package Guide

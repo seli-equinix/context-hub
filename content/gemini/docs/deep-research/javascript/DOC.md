@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-09"
   source: community
-  tags: "gemini,google,deep-research,research,interactions,agent"
+  tags: "gemini,google,deep-research,research,interactions,agent,outputs,create,console,get,log,now,Date,warn,writeFile"
 ---
 
 # Gemini Deep Research API (JavaScript/TypeScript)

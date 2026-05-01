@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-pagerduty,pagerduty,python,alerts,incident-response,data-orchestration"
+  tags: "dagster,dagster-pagerduty,pagerduty,python,alerts,incident-response,data-orchestration,PagerDutyService,Definitions,environ,EventV2_create,dagster as dg,alerting_job,notify_ops_team,pagerduty_alert,dg.asset,dg.job,dg.op,get"
 ---
 
 # dagster-pagerduty Python Package Guide

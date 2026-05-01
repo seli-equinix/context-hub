@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "fire,python,cli,command-line,repl,google"
+  tags: "fire,python,cli,command-line,repl,google,hello,add,completion,greet,version,member,Calculator,asyncio,fetch_message,mul,status,Classes,Version-Sensitive,__init__,attribute,sleep"
 ---
 
 # Fire Python Package Guide

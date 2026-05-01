@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nodeenv,nodejs,npm,python,virtualenv,cli"
+  tags: "nodeenv,nodejs,npm,python,virtualenv,cli,ini,subprocess,3.6.2,5.6.3,8.57.1,Requires-Python,Version-Sensitive,run"
 ---
 
 # nodeenv Python Package Guide

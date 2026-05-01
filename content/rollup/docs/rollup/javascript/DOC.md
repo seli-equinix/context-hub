@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "rollup,bundler,build,javascript,cli,node-api"
+  tags: "rollup,bundler,build,javascript,cli,node-api,bundle,console,process,close,log,watcher,result,4.59.0,error,generate,greet,write,exit"
 ---
 
 # rollup for JavaScript

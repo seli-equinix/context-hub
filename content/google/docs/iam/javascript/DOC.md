@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,iam,gcp,service-accounts,credentials,deny-policies,javascript,nodejs"
+  tags: "google-cloud,iam,gcp,service-accounts,credentials,deny-policies,javascript,nodejs,const,client,google,IAMCredentialsClient,IAMClient,policies,serviceAccounts,PoliciesClient,generateAccessToken,operation,signJwt,generateIdToken,2.3.1,JSON,createServiceAccount,promise,push,Short-Lived,createPolicy,listPoliciesAsync,listServiceAccountsAsync,stringify"
 ---
 
 # `@google-cloud/iam` JavaScript Package Guide

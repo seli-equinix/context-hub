@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "deepspeed,pytorch,distributed-training,zero,inference"
+  tags: "deepspeed,pytorch,distributed-training,zero,inference,model,torch,backward,model_engine,parser,engine,initialize,step,AdamW,argparse,init_inference,parameters,ArgumentParser,add_config_arguments,build_parser,save_checkpoint,Multi-Node,Version-Sensitive,ZeRO-Offload,add_argument,inference_mode,main,optim,parse_args"
 ---
 
 # DeepSpeed Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-virtualized,virtualization,list,table,types,definitelytyped"
+  tags: "typescript,react,react-virtualized,virtualization,list,table,types,definitelytyped,rows,TodoRow,ArticleRow,UserRow,ArticleList,RemoteTodoList,TodoList,UsersTable"
 ---
 
 # react-virtualized TypeScript Guide

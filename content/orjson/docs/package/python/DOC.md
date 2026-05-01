@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "orjson,python,json,serialization,deserialization,dataclass,datetime,numpy"
+  tags: "orjson,python,json,serialization,deserialization,dataclass,datetime,numpy,dumps,default,obj,loads,dataclasses,UTC,UUID,Fragment,Decimal,User,Event,dataclasses.dataclass,ndarray,Version-Sensitive,array,numpy as np,strftime,tolist"
 ---
 
 # orjson Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "13.4.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "hubspot,crm,marketing,contacts,automation"
+  tags: "hubspot,crm,marketing,contacts,automation,error,console,hubspotClient,log,basicApi,create,results,axios,example.com,Client,getById,getPage,read,allContacts,associationsApi,headers,update,coreApi,doSearch,oauth,searchApi,batchApi,contactIds,getAll,post"
 ---
 
 # HubSpot JavaScript/Node.js SDK Coding Guidelines

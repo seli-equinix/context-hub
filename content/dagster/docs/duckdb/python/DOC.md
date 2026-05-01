@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,duckdb,python,database,assets,io-manager"
+  tags: "dagster,duckdb,python,database,assets,io-manager,asset,orders,DuckDBResource,DataFrame,conn,dg.asset,environ,return,DuckDBPandasIOManager,create_orders_table,dagster as dg,execute,AssetIn,Definitions,get_connection,order_count,order_ids,row,Out,build_orders,dg.op,get,list,pandas as pd"
 ---
 
 # dagster-duckdb

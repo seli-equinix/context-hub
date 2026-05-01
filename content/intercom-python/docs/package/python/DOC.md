@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "intercom,crm,customer-support,api,legacy"
+  tags: "intercom,crm,customer-support,api,legacy,importlib,inspect,item,import_module,public,Version-Sensitive,environ,getsource,startswith"
 ---
 
 # intercom-python Python Package Guide

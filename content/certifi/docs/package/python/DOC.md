@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "certifi,python,tls,ssl,certificates,ca-bundle"
+  tags: "certifi,python,tls,ssl,certificates,ca-bundle,contents,where,requests,response,Version-Sensitive,create_default_context,get,raise_for_status"
 ---
 
 # certifi Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,typing,annotated,constraints,metadata,validation"
+  tags: "python,typing,annotated,constraints,metadata,validation,sys,Len,doc,Timezone,Interval,MultipleOf,datetime,List,Predicate,GroupedMetadata,LowerCase,MaxLen,MinLen,Unit,expanded,get_args,get_origin,Decimal,IsDigits,IsFinite,dataclass,expanded_metadata,return,Predicate-Based,SignupRequest"
 ---
 
 # annotated-types Python Package Guide

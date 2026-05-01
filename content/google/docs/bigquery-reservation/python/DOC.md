@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,gcp,bigquery,reservations,capacity-commitments,slots,python"
+  tags: "google,google-cloud,gcp,bigquery,reservations,capacity-commitments,slots,python,bigquery_reservation_v1,client,environ,Reservation,ReservationServiceClient,get,Assignment,common_location_path,CapacityCommitment,reservation_path,Credentials,field_mask_pb2,search_all_assignments,service_account,FieldMask,Version-Sensitive,create_assignment,create_capacity_commitment,create_reservation,from_service_account_file,list_capacity_commitments,list_reservations,move_assignment,update_reservation"
 ---
 
 # google-cloud-bigquery-reservation Python Package Guide

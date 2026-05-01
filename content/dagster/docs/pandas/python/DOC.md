@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-pandas,python,pandas,dataframe,data-validation,data-orchestration"
+  tags: "dagster,dagster-pandas,python,pandas,dataframe,data-validation,data-orchestration,Out,PandasColumn,Definitions,dagster as dg,dg.op,orders_job,read_csv,count_orders,environ,load_orders,pandas as pd,Built-In,datetime_column,dg.job,integer_column,load_raw_orders,string_column"
 ---
 
 # dagster-pandas Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,appengine,logging,cloud-logging,protobuf,python"
+  tags: "google,appengine,logging,cloud-logging,protobuf,python,RequestLog,line,datetime,started,Duration,Timestamp,timezone,FromDatetime,dict,now,summarize_request"
 ---
 
 # google-cloud-appengine-logging Python Package Guide

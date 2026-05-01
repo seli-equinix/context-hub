@@ -6,7 +6,7 @@ metadata:
   versions: "4.0.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "intercom,messaging,customer,chat,support"
+  tags: "intercom,messaging,customer,chat,support,client,contacts,create,conversations,body,data,results,getenv,time,events,event,find,ApiError,list,tag,asyncio,companies,AsyncIntercom,notes,request,update,subject,tags,admins,reply"
 ---
 
 # Intercom Python SDK (v4.0.0)

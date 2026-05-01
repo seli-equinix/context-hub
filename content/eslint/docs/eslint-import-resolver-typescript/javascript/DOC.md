@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "javascript,typescript,eslint,linting,imports,resolver"
+  tags: "javascript,typescript,eslint,linting,imports,resolver,settings,default,types,4.4.4"
 ---
 
 # eslint-import-resolver-typescript JavaScript Guide

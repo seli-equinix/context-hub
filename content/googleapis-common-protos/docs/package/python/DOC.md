@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,protobuf,grpc,googleapis,proto"
+  tags: "google,protobuf,grpc,googleapis,proto,protos,status_pb2,date_pb2,operations_pb2,add,detail,error_details_pb2,name,Status,any_pb2,decimal_pb2,details,httpbody_pb2,Any,BadRequest,Date,Decimal,HttpBody,Operation,Pack,Version-Sensitive,append,errors,field_violations,googleapis_common_protos"
 ---
 
 # googleapis-common-protos Python Package Guide

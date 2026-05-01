@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,supertest,testing,node,http,express,superagent,types,definitelytyped"
+  tags: "typescript,supertest,testing,node,http,express,superagent,types,definitelytyped,app,request,res,json,get,agent,req,server,post,status,cookie,header,Content-Type,Version-Sensitive,close,example.com,listen"
 ---
 
 # SuperTest TypeScript Guide

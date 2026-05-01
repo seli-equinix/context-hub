@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,identity,azure-identity,python,authentication,entra-id,managed-identity,workload-identity"
+  tags: "azure,identity,azure-identity,python,authentication,entra-id,managed-identity,workload-identity,credential,DefaultAzureCredential,client,ManagedIdentityCredential,ClientSecretCredential,get_token,SecretClient,queue,response,AzureAuthorityHosts,BlobServiceClient,QueueServiceClient,SubscriptionClient,container,get,get_secret,requests,subscriptions,Non-SDK,Version-Sensitive,close,json,list,list_containers,list_queues"
 ---
 
 # Azure Identity Python Package Guide

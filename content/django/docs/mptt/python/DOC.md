@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-mptt,mptt,trees,hierarchy,orm"
+  tags: "django,django-mptt,mptt,trees,hierarchy,orm,admin,Category,objects,models,root,forms,MPTTModel,create,fiction,transaction,DraggableMPTTAdmin,TreeForeignKey,delay_mptt_updates,disable_mptt_updates,form,rebuild,MoveNodeForm,TreeNodeChoiceField,atomic,CategoryAdmin,MPTTMeta,MPTTModelAdmin,admin.register,all,get_children"
 ---
 
 # django-mptt Python Package Guide

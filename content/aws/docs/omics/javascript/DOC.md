@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,omics,healthomics,genomics,javascript,nodejs"
+  tags: "aws,omics,healthomics,genomics,javascript,nodejs,env,send,console,log,JSON,a reference genome from S3,parse,read sets from S3"
 ---
 
 # `@aws-sdk/client-omics`

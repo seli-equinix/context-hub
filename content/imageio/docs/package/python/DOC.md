@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "imageio,images,video,numpy,io,tiff,gif,scientific-imaging"
+  tags: "imageio,images,video,numpy,io,tiff,gif,scientific-imaging,iio,image,imread,BytesIO,imiter,immeta,imopen,improps,read,resource,imwrite,properties,Version-Sensitive,numpy as np,zeros"
 ---
 
 # imageio Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,classes,inheritance"
+  tags: "babel,build,transpile,classes,inheritance,Counter,AppError,code,output,methods,syntax,Super,extends,properties,apply,call,console,declarations,expressions,fields,log,rewriting,transforms"
 ---
 
 # @babel/plugin-transform-classes

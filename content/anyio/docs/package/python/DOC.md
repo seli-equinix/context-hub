@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "anyio,python,asyncio,trio,async,concurrency,structured-concurrency,pytest,threads"
+  tags: "anyio,python,asyncio,trio,async,concurrency,structured-concurrency,pytest,threads,main,run,send,sleep,worker,to_thread,create_memory_object_stream,create_task_group,run_sync,start_soon,consumer,move_on_after,producer,resource,started,task_status,uvloop,ObjectReceiveStream,ObjectSendStream,TaskStatus,blocking_call,fail_after,start,start_service,time"
 ---
 
 # anyio Python Package Guide

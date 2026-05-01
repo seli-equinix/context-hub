@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-json-logger,logging,json,structured-logging,python,orjson,msgspec"
+  tags: "python-json-logger,logging,json,structured-logging,python,orjson,msgspec,logger,JsonFormatter,handler,StreamHandler,setFormatter,getLogger,addHandler,info,setLevel,version,MsgspecFormatter,OrjsonFormatter,config,dictConfig,Decimal,encode_value,exception,name are different"
 ---
 
 # python-json-logger Python Package Guide

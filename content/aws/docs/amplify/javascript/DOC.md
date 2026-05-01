@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,amplify,hosting,javascript,nodejs,deployments,domains"
+  tags: "aws,amplify,hosting,javascript,nodejs,deployments,domains,client,send,console,log"
 ---
 
 # AWS Amplify SDK for JavaScript (v3)

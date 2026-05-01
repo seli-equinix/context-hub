@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pydantic-settings,python,configuration,environment,settings,secrets,cli"
+  tags: "pydantic-settings,python,configuration,environment,settings,secrets,cli,BaseSettings,SettingsConfigDict,SecretStr,AliasChoices,BaseModel,Field,password,DatabaseSettings,settings_customise_sources,Version-Sensitive,classmethod,get_secret_value,model_dump,tuple"
 ---
 
 # pydantic-settings Python Package Guide

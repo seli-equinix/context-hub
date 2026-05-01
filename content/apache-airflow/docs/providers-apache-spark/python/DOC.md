@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,spark,apache-spark,dag,python"
+  tags: "airflow,spark,apache-spark,dag,python,SparkSubmitOperator,datetime,row,SparkSession,rows,appName,builder,createDataFrame,groupBy,stop"
 ---
 
 # apache-airflow-providers-apache-spark

@@ -6,7 +6,7 @@ metadata:
   versions: "5.1.6"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "clerk,auth,authentication,user-management,session"
+  tags: "clerk,auth,authentication,user-management,session,load,window,console,server,protect,error,log,document,html,getElementById,addEventListener,classList,add,app,getToken,users,addListener,mountSignIn,res,headers,get,json,mountUserButton,remove,response"
 ---
 
 # Clerk JavaScript SDK Coding Guidelines

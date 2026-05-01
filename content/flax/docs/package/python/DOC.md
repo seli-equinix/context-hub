@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flax,jax,nnx,linen,deep-learning,neural-networks"
+  tags: "flax,jax,nnx,linen,deep-learning,neural-networks,model,state,self,jnp,optimizer,Rngs,optax,update,init,ones,variables,Linear,Regressor,checkpointer,MLP,__call__,__init__,linear1,linear2,loss_fn,nn.compact,ocp,restore,save,train_step"
 ---
 
 # Flax Python Package Guide

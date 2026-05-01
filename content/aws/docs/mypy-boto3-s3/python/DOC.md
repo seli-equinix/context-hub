@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,s3,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,s3,boto3,type-stubs,mypy,pyright,python,client,session,stubs,S3Client,resource,Bucket,S3ServiceResource,lite,paginator,response,waiter,TYPE_CHECKING,page,BucketLocationConstraintType,GetObjectOutputTypeDef,ListObjectsV2Paginator,ObjectExistsWaiter,ObjectSummary,item,Version-Sensitive,create_bucket,filter,get,get_object,get_paginator"
 ---
 
 # mypy-boto3-s3 Python Package Guide

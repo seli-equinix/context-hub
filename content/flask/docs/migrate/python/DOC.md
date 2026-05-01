@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,sqlalchemy,alembic,migrations,database"
+  tags: "flask,sqlalchemy,alembic,migrations,database,Migrate,upgrade,Flask-Migrate,config,Flask-SQLAlchemy,init_app,Column,create_app,downgrade,migrate.configure,String,User,Version-Sensitive,configure_alembic,environ,from_mapping,localhost,set_main_option"
 ---
 
 # Flask-Migrate Python Package Guide

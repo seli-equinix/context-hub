@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure communication services,sms,python,messaging"
+  tags: "azure,azure communication services,sms,python,messaging,SmsClient,send,environ,results,client,sms_client,DefaultAzureCredential,from_connection_string,reference,Version-Sensitive,close,send_sms"
 ---
 
 # azure-communication-sms Python Package Guide

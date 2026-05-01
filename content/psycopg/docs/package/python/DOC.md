@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "psycopg,postgresql,database,sql,async,connection-pool"
+  tags: "psycopg,postgresql,database,sql,async,connection-pool,cur,conn,pool,cursor,execute,connect,connection,transaction,user,dict_row,conninfo,fetchone,AsyncConnection,example.com,Identifier,asyncio,class_row,dataclass,db.example.com,environ,main,AsyncConnectionPool,ConnectionPool,UserRecord,run"
 ---
 
 # Psycopg Python Package Guide

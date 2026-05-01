@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,key-vault,arm,management,rbac,azure-identity"
+  tags: "azure,key-vault,arm,management,rbac,azure-identity,client,vaults,KeyVaultManagementClient,DefaultAzureCredential,result,environ,main,asyncio,begin_create_or_update,begin_purge_deleted,poller,delete,list_by_resource_group,list_by_subscription,purge_poller,update,Version-Sensitive,check_name_availability,close,get,list_deleted,run"
 ---
 
 # Azure Key Vault Management SDK for Python

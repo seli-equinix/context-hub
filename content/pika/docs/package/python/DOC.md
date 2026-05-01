@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pika,rabbitmq,amqp,messaging,queues,python"
+  tags: "pika,rabbitmq,amqp,messaging,queues,python,channel,connection,BlockingConnection,body,URLParameters,ssl,json,localhost,handle_message,payload,ConnectionParameters,PlainCredentials,basic_ack,context,queue_declare,SSLOptions,basic_consume,basic_get,basic_qos,client_properties,close,confirm_delivery,decode,start_consuming,time"
 ---
 
 # Pika Python Package Guide

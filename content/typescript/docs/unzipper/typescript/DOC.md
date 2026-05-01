@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,unzipper,zip,archive,node,streams,types,definitelytyped"
+  tags: "typescript,unzipper,zip,archive,node,streams,types,definitelytyped,entry,Parse,Extract,error,file,files,Open,buffer,manifest,pipe,stream,autodrain,console,raw,0.10.11,JSON,find,log,toString"
 ---
 
 # unzipper TypeScript Guide

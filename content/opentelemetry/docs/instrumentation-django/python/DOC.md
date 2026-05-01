@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,django,observability,tracing,otlp,instrumentation"
+  tags: "opentelemetry,django,observability,tracing,otlp,instrumentation,DjangoInstrumentor,response_hook,span,request_hook,trace,get_wsgi_application,getenv,headers,provider,set_attribute,BatchSpanProcessor,OTLPSpanExporter,Resource,TracerProvider,Django-Specific,Request-ID,Version-Sensitive,Zero-Code,add_span_processor,create,get,set_tracer_provider"
 ---
 
 # OpenTelemetry Django Instrumentation for Python

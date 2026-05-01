@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,google-cloud,vpc-access,serverless-vpc-access,networking,python"
+  tags: "google,gcp,google-cloud,vpc-access,serverless-vpc-access,networking,python,client,vpcaccess_v1,environ,Connector,VpcAccessServiceClient,operation,common_location_path,result,connector_path,create_connector,get_connector,State,delete_connector,list_connectors,Subnet,from_service_account_file"
 ---
 
 # google-cloud-vpc-access Python Package Guide

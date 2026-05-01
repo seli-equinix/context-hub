@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,vmware-engine,gcp,virtualization,private-cloud,python"
+  tags: "google,google-cloud,vmware-engine,gcp,virtualization,private-cloud,python,vmwareengine_v1,client,operation,VmwareEngineClient,environ,Credentials,GetOperationRequest,ListLocationsRequest,PrivateCloud,create_private_cloud,list_vmware_engine_networks,service_account,CreatePrivateCloudRequest,ManagementCluster,NetworkConfig,NodeTypeConfig,Version-Sensitive,fork,from_service_account_file,get_operation,getenv,list_clusters,list_locations,result"
 ---
 
 # google-cloud-vmwareengine Python Package Guide

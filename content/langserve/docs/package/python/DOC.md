@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "langserve,langchain,fastapi,runnable,api,python"
+  tags: "langserve,langchain,fastapi,runnable,api,python,app,config,add_routes,configurable,RemoteRunnable,remote,shout,JokeInput,RunnableLambda,TypedDict,invoke,stream,Request,batch,data,get,CORSMiddleware,attach_request_config,make_joke,text,Per-Request,Version-Sensitive,add_middleware,headers,upper"
 ---
 
 # langserve Python Package Guide

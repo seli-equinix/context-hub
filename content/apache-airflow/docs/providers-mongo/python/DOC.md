@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,mongodb,mongo,pymongo,dags"
+  tags: "airflow,apache-airflow,mongodb,mongo,pymongo,dags,DAG,MongoHook,collection,client,MongoSensor,task,pendulum,get_conn,hook,annotations,close,datetime,write_and_read,find_one,insert_one,update_one"
 ---
 
 # Apache Airflow Providers Mongo Guide

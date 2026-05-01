@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,qbusiness,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,qbusiness,boto3,type-stubs,mypy,pyright,python,client,QBusinessClient,Session,stubs,get,response,app,lite,ChatSyncInputTypeDef,list_applications,paginator,result,search_relevant_content,source,TYPE_CHECKING,batch_put_document,chat_sync,item,start_data_source_sync_job,APISchemaTypeType,BatchPutDocumentRequestTypeDef,ChatSyncOutputTypeDef,ListApplicationsPaginator,ListApplicationsResponseTypeDef,page"
 ---
 
 # mypy-boto3-qbusiness Python Package Guide

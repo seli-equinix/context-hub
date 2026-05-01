@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,aws,boto3,bedrock,bedrock-runtime,mypy,typing,stubs"
+  tags: "python,aws,boto3,bedrock,bedrock-runtime,mypy,typing,stubs,client,session,BedrockRuntimeClient,paginator,response,json,lite,converse,invoke_model,AsyncInvokeStatusType,InvokeModelResponseTypeDef,item,page,AsyncInvokeSummaryTypeDef,ListAsyncInvokesPaginator,resource,Version-Sensitive,dumps,get,get_paginator,loads,paginate"
 ---
 
 # mypy-boto3-bedrock-runtime Python Package Guide

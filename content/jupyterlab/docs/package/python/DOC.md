@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "jupyterlab,jupyter,notebook,python,ide,extensions"
+  tags: "jupyterlab,jupyter,notebook,python,ide,extensions,Version-Sensitive"
 ---
 
 # JupyterLab Python Package Guide

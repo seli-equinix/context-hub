@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,gcp,dataproc,metastore,hive,python"
+  tags: "google,google-cloud,gcp,dataproc,metastore,hive,python,metastore_v1,client,operation,DataprocMetastoreClient,result,Service,Backup,MetadataImport,DatabaseDump,Credentials,HiveMetastoreConfig,QueryMetadataRequest,list_services,query_metadata,service_account,CreateBackupRequest,CreateMetadataImportRequest,CreateServiceRequest,RestoreServiceRequest,create_backup,create_metadata_import,create_service,environ,from_service_account_file,getenv"
 ---
 
 # google-cloud-dataproc-metastore Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "6.0.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "zendesk,support,helpdesk,tickets,customer-service"
+  tags: "zendesk,support,helpdesk,tickets,customer-service,console,log,error,users,forEach,organizations,query,list,groups,search,create,result,tags,update,comments,show,brands,join,macros,views,agents,createClient,example.com,results,upload"
 ---
 
 # Zendesk API - JavaScript/Node.js SDK (node-zendesk)

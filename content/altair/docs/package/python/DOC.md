@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "altair,vega-lite,visualization,charts,jupyter,data-viz"
+  tags: "altair,vega-lite,visualization,charts,jupyter,data-viz,alt,chart,data,when,cars,renderers,enable,save,altair as alt,DataFrame,base,mark_bar,mark_point,value,condition,to_dict,to_url,Version-Sensitive,data_transformers,pandas as pd,reset_index,selection_interval,show"
 ---
 
 # Altair Python Package Guide

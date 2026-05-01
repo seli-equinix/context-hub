@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-monitor,monitor,management,arm,alerts,metrics,observability"
+  tags: "azure,azure-monitor,monitor,management,arm,alerts,metrics,observability,MonitorManagementClient,activity_logs,list,operation,timedelta,data_collection_rules,datetime,AzureCliCredential,DefaultAzureCredential,diagnostic_settings,end_time,scheduled_query_rules,environ,list_by_resource_group,metric_alerts,start_time,strftime,timezone,Version-Sensitive,create_or_update,get,now"
 ---
 
 # Azure Monitor Management SDK for Python

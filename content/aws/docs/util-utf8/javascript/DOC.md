@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,aws-sdk,utf8,encoding,bytes,uint8array,typedarray"
+  tags: "aws,aws-sdk,utf8,encoding,bytes,uint8array,typedarray,console,log,JSON,error,3.374.0,parse,smithy,stringify"
 ---
 
 # `@aws-sdk/util-utf8` JavaScript Guide

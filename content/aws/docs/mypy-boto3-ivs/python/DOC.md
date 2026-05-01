@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,ivs,boto3,mypy,typing,stubs,python,streaming"
+  tags: "aws,ivs,boto3,mypy,typing,stubs,python,streaming,client,IVSClient,TYPE_CHECKING,Session,page,paginator,response,get,lite,ChannelLatencyModeType,ListStreamsPaginator,annotations,channel,stream,get_paginator,list_channels,Runtime-Safe,Version-Sensitive,create_channel,make_client,paginate,resource"
 ---
 
 # mypy-boto3-ivs Python Package Guide

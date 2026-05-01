@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,uuid,types,definitelytyped,npm"
+  tags: "typescript,uuid,types,definitelytyped,npm,11.0.0,Version-Sensitive,assertUuidV4,console,createUser,log"
 ---
 
 # UUID TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.flatten,flatten,arrays,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.flatten,flatten,arrays,types,definitelytyped,npm,string,map,articles,console,log,HeaderRule,tasks,4.4.9,Route,groups,number,Article,Category,HeaderRuleInput,Service,Task,TaskGroup,categories,filter,services,visibleTasks,Version-Sensitive"
 ---
 
 # lodash.flatten TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,transfer,transfer-family,boto3,mypy-boto3-transfer,boto3-stubs,typing,type-checking"
+  tags: "aws,transfer,transfer-family,boto3,mypy-boto3-transfer,boto3-stubs,typing,type-checking,client,TransferClient,TYPE_CHECKING,server,stubs,Session,user,waiter,lite,paginator,annotations,page,response,Config,AgreementStatusTypeType,As2AsyncMdnConnectorConfigOutputTypeDef,ListUsersPaginator,ServerOnlineWaiter,get,get_paginator,get_waiter,Runtime-Safe,Version-Sensitive,list_servers,paginate"
 ---
 
 # mypy-boto3-transfer Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,codecommit,git,repositories,pull-requests,javascript"
+  tags: "aws,codecommit,git,repositories,pull-requests,javascript,send,console,log,error,encoder,CodeCommit-Specific,High-Value,encode,example.com"
 ---
 
 # `@aws-sdk/client-codecommit`

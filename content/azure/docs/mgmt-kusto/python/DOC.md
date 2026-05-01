@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,kusto,data-explorer,management,arm,python"
+  tags: "azure,kusto,data-explorer,management,arm,python,client,clusters,environ,result,databases,KustoManagementClient,begin_create_or_update,Cluster,datetime,poller,timedelta,DatabasePrincipalAssignment,DefaultAzureCredential,ReadWriteDatabase,data_connections,AzureSku,EventHubDataConnection,close,cluster_principal_assignments,database_principal_assignments,get,list_by_cluster,timezone,Version-Sensitive,begin_start"
 ---
 
 # Azure Data Explorer Management SDK for Python

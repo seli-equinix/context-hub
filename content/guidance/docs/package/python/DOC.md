@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "guidance,llm,prompting,structured-output,openai,transformers,llamacpp"
+  tags: "guidance,llm,prompting,structured-output,openai,transformers,llamacpp,result,gen,json,select,assistant,environ,getenv,summarize,system,user,Version-Sensitive,json as gen_json"
 ---
 
 # guidance Python Package Guide

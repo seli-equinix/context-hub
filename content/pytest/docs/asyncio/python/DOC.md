@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-asyncio,pytest,asyncio,testing,python"
+  tags: "pytest-asyncio,pytest,asyncio,testing,python,fixture,loop,pytest_asyncio,get_running_loop,mark,pytest.mark.asyncio,pytest_asyncio.fixture,client,current_loop,seeded_db,get,is_running,test_fetch,toml,Version-Sensitive,close,fetch_all,makes,pytest.fixture,seed,sleep,test_query,test_remember_loop,test_same_loop_again,test_sleep"
 ---
 
 # pytest-asyncio Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "django,python,web,framework,orm,templates,admin"
+  tags: "django,python,web,framework,orm,templates,admin,models,views,index,path,Question,getenv,HttpResponse,get_asgi_application,get_wsgi_application,include,render,site,CharField,DateTimeField,Version-Sensitive,__str__,environ,register"
 ---
 
 # Django Python Package Guide

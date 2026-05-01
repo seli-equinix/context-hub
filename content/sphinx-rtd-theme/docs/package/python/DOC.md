@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "sphinx,readthedocs,theme,docs,python"
+  tags: "sphinx,readthedocs,theme,docs,python,Version-Sensitive"
 ---
 
 # sphinx-rtd-theme Python Package Guide

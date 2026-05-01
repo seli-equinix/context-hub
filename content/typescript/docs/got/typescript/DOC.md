@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,got,http,request,types,definitelytyped"
+  tags: "typescript,got,http,request,types,definitelytyped,api,JSON,9.6.12,when,extend,Version-Sensitive,delete,stringify"
 ---
 
 # got TypeScript Guide

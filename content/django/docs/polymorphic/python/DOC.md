@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,orm,polymorphism,model-inheritance,admin,querysets,typing"
+  tags: "django,orm,polymorphism,model-inheritance,admin,querysets,typing,Project,models,objects,PolymorphicManager,PolymorphicModel,ArtProject,ResearchProject,register,CharField,ContentType,admin.register,get_queryset,non_polymorphic,self,TimeOrderedManager,filter,instance_of,not_instance_of,ArtProjectAdmin,ProjectAdmin,ResearchProjectAdmin,Version-Sensitive,all,get_for_model,most_recent"
 ---
 
 # django-polymorphic Python Package Guide

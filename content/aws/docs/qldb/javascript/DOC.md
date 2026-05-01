@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,qldb,aws-sdk,javascript,nodejs,ledger"
+  tags: "aws,qldb,aws-sdk,javascript,nodejs,ledger,client,send,3.918.0,console,log,Version-Sensitive"
 ---
 
 # `@aws-sdk/client-qldb` JavaScript Package Guide

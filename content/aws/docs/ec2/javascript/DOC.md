@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,ec2,javascript,nodejs,browser,compute,instances"
+  tags: "aws,ec2,javascript,nodejs,browser,compute,instances,send,console,log"
 ---
 
 # `@aws-sdk/client-ec2`

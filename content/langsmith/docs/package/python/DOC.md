@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "langsmith,python,llm,observability,tracing,evaluation,testing"
+  tags: "langsmith,python,llm,observability,tracing,evaluation,testing,client,pytest,traceable,question,tracing_context,RunTree,run,OpenAI,answer_question,chat_pipeline,create,text,normalize,patch,post,wrap_openai,Version-Sensitive,choices,completions,create_dataset,create_examples,dict,end,pytest.mark.langsmith,strip"
 ---
 
 # LangSmith Python Package Guide

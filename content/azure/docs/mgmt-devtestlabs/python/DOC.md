@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,devtestlabs,arm,management,virtual-machines,schedules,python"
+  tags: "azure,devtestlabs,arm,management,virtual-machines,schedules,python,client,virtual_machines,result,labs,list,virtual_machine_schedules,get,notification_channels,DefaultAzureCredential,DevTestLabsClient,GalleryImageReference,LabVirtualMachine,NotificationSettings,Schedule,begin_create_or_update,example.com,gallery_images,get_rdp_file_contents,virtual_networks,vm_poller,begin_claim,begin_execute,begin_resize,begin_restart,begin_start"
 ---
 
 # Azure DevTest Labs Management SDK for Python

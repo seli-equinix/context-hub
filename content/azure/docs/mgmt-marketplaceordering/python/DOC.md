@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,marketplace,management,marketplaceordering,virtual-machine,agreements"
+  tags: "azure,marketplace,management,marketplaceordering,virtual-machine,agreements,environ,MarketplaceOrderingAgreements,DefaultAzureCredential,get,marketplace_agreements,cancel,list,sign,get_agreement,AzureCliCredential,Version-Sensitive"
 ---
 
 # azure-mgmt-marketplaceordering Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,python,models,orm,managers,tracking"
+  tags: "django,python,models,orm,managers,tracking,SplitField,published,Choices,SoftDeletableModel,FieldTracker,MonitorField,STATUS,StatusModel,TimeStampedModel,delete,CharField,InheritanceManager,objects,tracker,StatusField,Article,Customer,QueryManager,Place,select_subclasses,BooleanField,Order,all,changed,get"
 ---
 
 # django-model-utils Python Package Guide

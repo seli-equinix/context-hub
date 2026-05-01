@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "fastapi-mail,fastapi,email,smtp,jinja2,attachments,python"
+  tags: "fastapi-mail,fastapi,email,smtp,jinja2,attachments,python,MessageSchema,FastMail,MessageType,mail,example.com,app,send_message,EmailStr,BackgroundTasks,env_bool,BaseModel,ConnectionConfig,EmailRequest,environ,value,UploadFile,app.post,dict,getenv,list,outbox,post,File,Form,Path"
 ---
 
 # FastAPI-Mail Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "bokeh,python,visualization,plotting,dashboard,jupyter,server"
+  tags: "bokeh,python,visualization,plotting,dashboard,jupyter,server,figure,show,source,ColumnDataSource,line,column,curdoc,json_item,output_notebook,service,slider,components,output_file,Div,HoverTool,json,on_change,row,update,Version-Sensitive,dumps,patch,stream,vbar"
 ---
 
 # Bokeh Python Package Guide

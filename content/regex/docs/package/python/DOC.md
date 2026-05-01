@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "regex,regular-expressions,pattern-matching,text-processing,unicode"
+  tags: "regex,regular-expressions,pattern-matching,text-processing,unicode,match,findall,pattern,search,captures,compile,fullmatch,group,Drop-In,Version-Sensitive,detach_string,ends,regex as re,starts"
 ---
 
 # regex Python Package Guide

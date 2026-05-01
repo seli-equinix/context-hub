@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,sts,boto3,mypy,pyright,type-stubs,python"
+  tags: "aws,sts,boto3,mypy,pyright,type-stubs,python,client,STSClient,Session,identity,stubs,lite,response,STSServiceName,get_caller_identity,GetCallerIdentityResponseTypeDef,TYPE_CHECKING,assume_role,creds,Version-Sensitive,get_client,normalize_service_name,resource"
 ---
 
 # `mypy-boto3-sts` Python Package Guide

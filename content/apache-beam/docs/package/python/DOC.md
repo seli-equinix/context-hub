@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "apache-beam,beam,python,data-processing,etl,streaming,batch,dataflow"
+  tags: "apache-beam,beam,python,data-processing,etl,streaming,batch,dataflow,Map,Pipeline,PipelineOptions,setup,Create,apache_beam as beam,setuptools,CombinePerKey,FlatMap,ReadFromText,WriteToText,Non-Python,Version-Sensitive,find_packages"
 ---
 
 # Apache Beam Python Package Guide

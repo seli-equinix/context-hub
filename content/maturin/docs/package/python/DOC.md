@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "maturin,rust,python,packaging,wheels,pyo3,cffi,uniffi"
+  tags: "maturin,rust,python,packaging,wheels,pyo3,cffi,uniffi,toml,Cross-Compilation,Version-Sensitive"
 ---
 
 # maturin Python Package Guide

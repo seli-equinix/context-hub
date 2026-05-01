@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "great-expectations,gx,data-quality,validation,expectations,checkpoints,pandas,spark"
+  tags: "great-expectations,gx,data-quality,validation,expectations,checkpoints,pandas,spark,great_expectations,get_context,batch,suite,checkpoint,great_expectations as gx,add_or_update,batch_definition,data_asset,data_source,suites,ValidationDefinition,data_sources,run,validate,ExpectColumnValuesToBeBetween,ExpectationSuite,add_expectation,checkpoint_result,pandas_default,read_csv,validation_definitions,ExpectColumnValuesToNotBeNull,Version-Sensitive,add_batch_definition_whole_dataframe"
 ---
 
 # Great Expectations Python Package Guide

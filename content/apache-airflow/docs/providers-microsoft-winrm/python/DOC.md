@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,winrm,windows,powershell,remote-execution,python"
+  tags: "airflow,winrm,windows,powershell,remote-execution,python,hook,WinRMOperator,DAG,WinRMHook,pendulum,task,datetime,run,list,operator,timedelta,annotations,list_services,Get-Service,Select-Object,Start-Process,Start-Sleep,Write-Output,test_connection"
 ---
 
 # Apache Airflow Providers Microsoft WinRM Guide

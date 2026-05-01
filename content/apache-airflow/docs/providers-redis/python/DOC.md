@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,redis,apache-airflow,python,dag,hooks,pubsub"
+  tags: "airflow,redis,apache-airflow,python,dag,hooks,pubsub,RedisHook,task,RedisPublishOperator,client,datetime,hook,value,get,get_conn,ping,set,write_and_read,decode,redis.example.com"
 ---
 
 # Apache Airflow Redis Provider Guide

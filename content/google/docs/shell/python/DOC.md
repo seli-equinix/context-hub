@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,cloud-shell,gcp,ssh,shell,remote-development"
+  tags: "google,cloud-shell,gcp,ssh,shell,remote-development,client,credentials,shell_v1,default,auth,operation,CloudShellServiceClient,environment_path,Path,result,start_environment,Request,expire_time,add_public_key,authorize_environment,datetime,home,get_environment,refresh,remove_public_key,timedelta,timestamp_pb2,timezone,FromDatetime,Timestamp"
 ---
 
 # Google Cloud Shell Python Client

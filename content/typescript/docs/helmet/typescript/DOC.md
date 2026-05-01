@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,helmet,express,security,middleware,types"
+  tags: "typescript,helmet,express,security,middleware,types,app,json,res,get,4.0.0,createSecurityHeaders,listen,send"
 ---
 
 # Helmet TypeScript Guide

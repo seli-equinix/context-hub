@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "rimraf,javascript,node,filesystem,cli,deletion"
+  tags: "rimraf,javascript,node,filesystem,cli,deletion,controller,console,log,6.1.3,abort"
 ---
 
 # rimraf Guide for JavaScript

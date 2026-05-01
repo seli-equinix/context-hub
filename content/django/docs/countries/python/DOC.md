@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-countries,django,countries,forms,flags,drf,django-filter,localization"
+  tags: "django-countries,django,countries,forms,flags,drf,django-filter,localization,CountryField,admin,filter,Person,CountryFilter,models,flag,countries_context,django_filters,objects,serializers,Meta,CountryFieldMixin,CountrySelectWidget,formfield,COUNTRIES_OVERRIDE,CharField,render,G8Countries,PersonAdmin,ProfileForm,admin.register,country_map,gettext_lazy as _,register"
 ---
 
 # django-countries Python Package Guide

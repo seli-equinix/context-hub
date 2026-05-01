@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,javascript,typescript,sdk,types,middleware,credentials"
+  tags: "aws,javascript,typescript,sdk,types,middleware,credentials,send,smithy,HttpRequest,add,console,isInstance,log,AbortSignal,HttpResponse,headers,middlewareStack,timeout"
 ---
 
 # `@aws-sdk/types`

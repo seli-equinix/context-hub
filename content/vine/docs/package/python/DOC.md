@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "vine,python,promise,deferred,callbacks,celery"
+  tags: "vine,python,promise,deferred,callbacks,celery,barrier,maybe_promise,throw,ready,result,transform,wrap,done,order,step,exc_info,handle_error,handle_success,joined,load_order,notify,text,uppercase,Version-Sensitive,cancel,sys,upper"
 ---
 
 # vine Python Package Guide

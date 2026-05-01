@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,dataproc,spark,hadoop,javascript,nodejs"
+  tags: "google-cloud,gcp,dataproc,spark,hadoop,javascript,nodejs,const,google,client,operation,JobControllerClient,ClusterControllerClient,console,log,promise,6.3.0,createCluster,getJob,listClustersAsync,submitJobAsOperation"
 ---
 
 # `@google-cloud/dataproc` JavaScript Package Guide

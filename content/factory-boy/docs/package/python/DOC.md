@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "factory-boy,factory,factories,testing,fixtures,django,sqlalchemy,mongoengine"
+  tags: "factory-boy,factory,factories,testing,fixtures,django,sqlalchemy,mongoengine,Meta,UserFactory,when,create,User,Sequence,add,build,models,random,stub,Session,SubFactory,CountryFactory,Iterator,LazyAttribute,Password,SelfAttribute,dataclass,factory.post_generation,groups,ORM-Specific,PersonFactory,Version-Sensitive,build_batch"
 ---
 
 # factory-boy Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,health-check,monitoring,ops,readiness,liveness"
+  tags: "django,health-check,monitoring,ops,readiness,liveness,check,path,HealthCheckView,as_view,RedisClient,HealthCheck,ServiceUnavailable,dataclasses,Redis as RedisClient,api_base_url,from_url,run,Built-In,ExternalAPIHealthCheck,Forwarded-Proto,Version-Sensitive,dataclasses.dataclass,field,startswith"
 ---
 
 # django-health-check for Django

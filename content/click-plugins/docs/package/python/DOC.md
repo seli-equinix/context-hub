@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "click,plugins,cli,entry-points,setuptools,python"
+  tags: "click,plugins,cli,entry-points,setuptools,python,command,group,hello,ctx,toml,with_plugins,echo,iter_entry_points,obj,option,jobs_opt,pkg_resources,version,click.command,click.group,click.option,click.pass_context,IntRange,Version-Sensitive,cli.command,ensure_object,get"
 ---
 
 # click-plugins Python Package Guide

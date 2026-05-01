@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,athena,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,athena,boto3,type-stubs,mypy,pyright,python,client,stubs,session,AthenaClient,lite,paginator,response,Config,TYPE_CHECKING,page,ListQueryExecutionsPaginator,QueryExecutionStateType,resource,start_query_execution,Version-Sensitive,get,get_client,get_paginator,is_terminal,make_athena_client,paginate"
 ---
 
 # mypy-boto3-athena Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,fs-extra,nodejs,filesystem,types,definitelytyped"
+  tags: "typescript,fs-extra,nodejs,filesystem,types,definitelytyped,copy,cwd,process,ensureDir,outputFile,pathExists,readJson,remove,writeJson,backupFileWithCallback,readFile"
 ---
 
 # fs-extra TypeScript Guide

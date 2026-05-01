@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,class-fields,javascript"
+  tags: "babel,build,transpile,class-fields,javascript,properties,fields,methods,field,Example,features,Counter,console,log"
 ---
 
 # @babel/plugin-transform-class-properties

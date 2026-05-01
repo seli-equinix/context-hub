@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,transpile,object-literals,es2015"
+  tags: "babel,build,javascript,transpile,object-literals,es2015,console,log"
 ---
 
 # @babel/plugin-transform-shorthand-properties

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,os-login,ssh,compute-engine,iam,linux"
+  tags: "google,gcp,os-login,ssh,compute-engine,iam,linux,oslogin_v1,client,OsLoginServiceClient,environ,datetime,Path,expires_at,get_login_profile,timedelta,timezone,SshPublicKey,create_ssh_public_key,import_ssh_public_key,ssh_public_keys,update_ssh_public_key,GetLoginProfileRequest,field_mask_pb2,fork,home,now,timestamp,values,CreateSshPublicKeyRequest,DeletePosixAccountRequest,DeleteSshPublicKeyRequest"
 ---
 
 # Google Cloud OS Login Python Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,jdbc,sql,java,python,dag,database"
+  tags: "airflow,jdbc,sql,java,python,dag,database,JdbcHook,SQLExecuteQueryOperator,task,hook,datetime,get_sqlalchemy_engine,row,read_summary,connect,get_first,jaydebeapi"
 ---
 
 # apache-airflow-providers-jdbc

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "faker,python,test-data,fixtures,mocking,localization"
+  tags: "faker,python,test-data,fixtures,mocking,localization,fake,name,fixture,seed,email,profile,unique,address,pytest,company,DynamicProvider,seed_instance,BaseProvider,OrderedDict,PlanProvider,add_provider,department,faker_seed,plan_code,self,user_name,uuid4,Multi-Locale,Version-Sensitive,clear"
 ---
 
 # Faker Python Package Guide

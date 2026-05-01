@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,spanner,database,sql,gcp,transactions,nodejs"
+  tags: "google,spanner,database,sql,gcp,transactions,nodejs,const,instance,singerId,int,rows,row,run,transaction,delta,operation,8.6.0,map,table,close,commit,console,log,promise,toJSON,Read-Write,Version-Sensitive,getTransaction,rollback,runUpdate,updateSchema"
 ---
 
 # `@google-cloud/spanner` JavaScript Package Guide

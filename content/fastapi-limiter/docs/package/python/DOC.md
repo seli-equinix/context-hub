@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "fastapi,rate-limiting,pyrate-limiter,websocket,middleware,python"
+  tags: "fastapi,rate-limiting,pyrate-limiter,websocket,middleware,python,Rate,app,Limiter,Duration,Depends,RateLimiter,get,Request,app.get,dict,FastAPILimiter,RateLimiterMiddleware,Response,WebSocketRateLimiter,status,Forwarded-For,HTTPException,api,getenv,headers,init,profile,rate_limit_callback,reports,search"
 ---
 
 # fastapi-limiter Python Package Guide

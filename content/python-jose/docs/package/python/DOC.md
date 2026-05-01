@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-jose,jwt,jws,jwe,jwk,python,security"
+  tags: "python-jose,jwt,jws,jwe,jwk,python,security,jose,ALGORITHMS,decode,claims,environ,datetime,timezone,encode,json,now,timedelta,ExpiredSignatureError,JWTClaimsError,JWTError,construct,encrypt,header,decrypt,encrypted,get,get_unverified_claims,get_unverified_header,loads,JWEError"
 ---
 
 # python-jose Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,neptune,javascript,nodejs,graph-database,db-cluster,db-instance"
+  tags: "aws,neptune,javascript,nodejs,graph-database,db-cluster,db-instance,client,console,log,send"
 ---
 
 # Amazon Neptune SDK for JavaScript (v3)

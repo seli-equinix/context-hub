@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,mediaconvert,javascript,nodejs,video,transcoding,s3"
+  tags: "aws,mediaconvert,javascript,nodejs,video,transcoding,s3,client,console,send,log,3.1007.0"
 ---
 
 # `@aws-sdk/client-mediaconvert`

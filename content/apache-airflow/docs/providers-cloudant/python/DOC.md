@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,cloudant,ibm-cloudant,nosql,dag,python"
+  tags: "airflow,apache-airflow,cloudant,ibm-cloudant,nosql,dag,python,CloudantHook,service,Document,get_conn,pagination,task,annotations,environ,put_document,row,rows,db_info,get_database_information,post_all_docs,post_document,BulkDocs,PagerType,get,pendulum,post_bulk_docs,write_and_list,datetime,iterate_matches,new_pagination,upsert_status"
 ---
 
 # Apache Airflow Cloudant Provider Guide

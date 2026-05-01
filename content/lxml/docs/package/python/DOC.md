@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "lxml,python,xml,html,xpath,xslt,elementtree"
+  tags: "lxml,python,xml,html,xpath,xslt,elementtree,etree,root,parse,doc,elem,fromstring,href,schema,tree,xml_bytes,iterparse,CSSSelector,clear,tostring,Element,SubElement,Version-Sensitive,XMLParser,XMLSchema,assertValid,decode,findtext,get,getroot"
 ---
 
 # lxml Python Package Guide

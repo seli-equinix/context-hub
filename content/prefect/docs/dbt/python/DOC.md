@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,dbt,python,workflow,orchestration,analytics,blocks"
+  tags: "prefect,dbt,python,workflow,orchestration,analytics,blocks,flow,PrefectDbtRunner,PrefectDbtSettings,DbtCloudCredentials,DbtCloudJob,invoke,run,run_dbt_cloud_job,runner,environ,load,EventLevel,asyncio,run_dbt_build,run_dbt_job_flow,run_dbt_models,DbtRunner,run_dbt_without_failing_flow"
 ---
 
 # Prefect dbt Python Package Guide

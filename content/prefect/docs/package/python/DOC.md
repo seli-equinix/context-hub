@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "prefect,python,workflow,orchestration,pipelines,scheduling,automation"
+  tags: "prefect,python,workflow,orchestration,pipelines,scheduling,automation,flow,get,serve,sync_customers,Secret,task,INPUTS,Variable,deploy,dict,fetch_customer,list,return,timedelta,Version-Sensitive,load"
 ---
 
 # Prefect Python Package Guide

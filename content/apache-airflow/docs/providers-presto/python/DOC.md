@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,presto,sql,dag,python"
+  tags: "airflow,apache-airflow,presto,sql,dag,python,PrestoHook,task,cursor,datetime,analytics,hook,insert_rows,SQLExecuteQueryOperator,conn,daily_counts,execute,fetchall,get_conn,read_recent_orders,write_audit_rows,DB-API,get_pandas_df"
 ---
 
 # apache-airflow-providers-presto

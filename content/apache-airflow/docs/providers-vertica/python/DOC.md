@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,vertica,sql,database,dag,python"
+  tags: "airflow,vertica,sql,database,dag,python,VerticaHook,hook,task,SQLExecuteQueryOperator,datetime,row,get_first,get_records,read_summary"
 ---
 
 # apache-airflow-providers-vertica

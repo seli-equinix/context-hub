@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "databases,python,asyncio,sqlalchemy,postgresql,mysql,sqlite"
+  tags: "databases,python,asyncio,sqlalchemy,postgresql,mysql,sqlite,database,transaction,app,notes,execute,localhost,metadata,_mapping,connect,disconnect,shutdown,startup,Column,FastAPI,app.on_event,db.example.com,fetch_all,fetch_one,fetch_val,on_event,return,rollback,String,Table,Version-Sensitive"
 ---
 
 # databases Python Package Guide

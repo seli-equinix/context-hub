@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,salesforce,soql,crm,hooks,dag"
+  tags: "airflow,apache-airflow,salesforce,soql,crm,hooks,dag,task,client,SalesforceHook,get_conn,create,hook,list,query,record,pendulum,created,example.com,fetch_accounts,get,Lead,annotations,create_and_update_lead,datetime,result,return,dict,update"
 ---
 
 # Apache Airflow Salesforce Provider Guide

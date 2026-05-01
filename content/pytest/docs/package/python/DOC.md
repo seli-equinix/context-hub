@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest,testing,python,fixtures,assertions,plugins"
+  tags: "pytest,testing,python,fixtures,assertions,plugins,toml,fixture,output,Path,monkeypatch,name,raises,home,conn,logging,mark,normalize,pytest.fixture,raw,xfail,inc,parametrize,pytest.mark.parametrize,sqlite3,strip,Built-In,Version-Sensitive,auth_headers,base_url,close"
 ---
 
 # pytest Python Package Guide

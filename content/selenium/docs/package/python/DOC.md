@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "selenium,python,webdriver,browser-automation,testing,e2e"
+  tags: "selenium,python,webdriver,browser-automation,testing,e2e,driver,options,Chrome,WebDriverWait,get,quit,Firefox,add_argument,until,click,switch_to,ActionChains,Remote,find_element,text_box,wait,window,add_cookie,expected_conditions as EC,frame,submit,submit_button,visibility_of_element_located,Version-Sensitive,clear"
 ---
 
 # Selenium Python Package Guide

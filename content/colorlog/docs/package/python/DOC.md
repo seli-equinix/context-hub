@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "colorlog,python,logging,ansi,terminal"
+  tags: "colorlog,python,logging,ansi,terminal,logger,handler,ColoredFormatter,StreamHandler,log,getLogger,addHandler,config,dictConfig,setFormatter,setLevel,debug,error,info,critical,warning"
 ---
 
 # colorlog Python Package Guide

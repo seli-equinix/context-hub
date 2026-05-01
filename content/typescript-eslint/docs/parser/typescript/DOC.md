@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,eslint,typescript-eslint,parser,linting"
+  tags: "typescript,eslint,typescript-eslint,parser,linting,default,console,log,answer,cwd,process"
 ---
 
 # @typescript-eslint/parser

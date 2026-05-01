@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "apache-airflow,airflow,papermill,jupyter,notebook,dag"
+  tags: "apache-airflow,airflow,papermill,jupyter,notebook,dag,PapermillOperator,task,pendulum,scrapbook,annotations,datetime,inspect_notebook,account.blob.core.windows.net,read_notebook,scrapbook as sb,scraps"
 ---
 
 # Apache Airflow Papermill Provider Python Guide

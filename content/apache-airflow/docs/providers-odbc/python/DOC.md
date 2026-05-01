@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,odbc,pyodbc,sql,dag,python"
+  tags: "airflow,odbc,pyodbc,sql,dag,python,OdbcHook,hook,task,SQLExecuteQueryOperator,cursor,datetime,connect,row,conn,execute,get_conn,list,read_rows,fetchall,return,tuple"
 ---
 
 # apache-airflow-providers-odbc

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,google-cloud-datacatalog,data-catalog,metadata,governance"
+  tags: "google-cloud,google-cloud-datacatalog,data-catalog,metadata,governance,datacatalog_v1,client,DataCatalogClient,lookup_entry,Credentials,PolicyTagManagerClient,Tag,bigquery,fields,search_catalog,ClientOptions,PolicyTagManagerSerializationClient,SearchCatalogRequest,create_tag,get_entry,service_account,CreateTagRequest,DataCatalogAsyncClient,LookupEntryRequest,Scope,Version-Sensitive,append,from_service_account_file,include_project_ids,list_tags"
 ---
 
 # google-cloud-datacatalog Python Package Guide

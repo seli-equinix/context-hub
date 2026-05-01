@@ -6,7 +6,7 @@ metadata:
   versions: "2.43.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "sentry,monitoring,error-tracking,performance,tracing"
+  tags: "sentry,monitoring,error-tracking,performance,tracing,sentry_sdk,scope,sentry.io,o0.ingest.sentry.io,init,event,error,request,app,transaction,span,logging,set_tag,trace,get,set_data,capture_exception,eat_slice,slices,start_transaction,info,sentry_sdk.trace,task,FastAPI,Flask"
 ---
 
 # Sentry Python SDK (2.43.0)

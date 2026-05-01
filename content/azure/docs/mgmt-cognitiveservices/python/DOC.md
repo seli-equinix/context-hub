@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,ai-services,cognitive-services,openai,arm,management,azure-identity"
+  tags: "azure,ai-services,cognitive-services,openai,arm,management,azure-identity,accounts,CognitiveServicesManagementClient,DefaultAzureCredential,LOCATION,begin_create,deployments,list_models,loc,lower,skus,AzureCliCredential,environ,list,projects,resource_skus,begin_create_or_update,begin_update,Version-Sensitive,list_keys,regenerate_key"
 ---
 
 # Azure Cognitive Services Management SDK for Python

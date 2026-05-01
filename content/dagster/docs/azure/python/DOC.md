@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,azure,python,blob-storage,adls2,data-orchestration"
+  tags: "dagster,azure,python,blob-storage,adls2,data-orchestration,asset,file_client,upload_blob,azure_blob_storage_resource,configured,Definitions,adls2_resource,blob_client,blob_service_client,dagster as dg,dg.asset,environ,file_system_client,get_blob_client,service_client,write_marker_file,append_data,create_file,flush_data,get_file_client,get_file_system_client"
 ---
 
 # dagster-azure Python Package Guide

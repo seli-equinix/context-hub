@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask-restx,flask,rest,api,swagger,openapi"
+  tags: "flask-restx,flask,rest,api,swagger,openapi,app,fields,payload,model,Resource,doc,item,reqparse,route,TODOS,namespace,ns.route,parser,String,expect,get,init_app,response,Nested,config,marshal_with,BadRequest,Blueprint,Boolean,Integer"
 ---
 
 # Flask-RESTX Python Package Guide

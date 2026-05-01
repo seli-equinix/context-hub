@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "mui,material-ui,react,ui,components,emotion"
+  tags: "mui,material-ui,react,ui,components,emotion,theme,const,App,spacing,event,fontsource,AppProviders,CheckoutButton,SaveButton,StatusCard,document,getElementById,preventDefault"
 ---
 
 # Material UI Guide (JavaScript)

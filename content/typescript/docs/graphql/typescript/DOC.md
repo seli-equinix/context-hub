@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,graphql,graphql-js,types,definitelytyped,schema,validation"
+  tags: "typescript,graphql,graphql-js,types,definitelytyped,schema,validation,errors,error,console,14.5.0,GraphQLError,log,JSON,Version-Sensitive,describeResolver,logErrors,map,stringify"
 ---
 
 # GraphQL TypeScript Guide

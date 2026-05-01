@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,marketplace,marketplace-catalog,javascript,nodejs"
+  tags: "aws,marketplace,marketplace-catalog,javascript,nodejs,const,marketplaceCatalog,console,send,log,JSON,error,Object,Version,entityIds,entries,parse,RevisionId,dir,map,stringify"
 ---
 
 # `@aws-sdk/client-marketplace-catalog`

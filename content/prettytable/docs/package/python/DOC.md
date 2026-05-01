@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prettytable,python,table,terminal,html,csv"
+  tags: "prettytable,python,table,terminal,html,csv,add_rows,cur,ColorTable,TableStyle,add_row,get_formatted_string,get_string,Path,Themes,conn,cursor,execute,from_csv,from_db_cursor,get_html_string,get_json_string,sqlite3,DB-API,Format-Selected,Version-Sensitive,connect,executemany,get_mediawiki_string,set_style"
 ---
 
 # PrettyTable Python Package Guide

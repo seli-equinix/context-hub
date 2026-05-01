@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,codedeploy,deployments,devops,ci-cd"
+  tags: "aws,codedeploy,deployments,devops,ci-cd,client,console,log,send,CodeDeploy-Specific,handler"
 ---
 
 # AWS CodeDeploy SDK for JavaScript (v3)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "gradio,python,ui,chatbot,ml,fastapi,mcp"
+  tags: "gradio,python,ui,chatbot,ml,fastapi,mcp,launch,demo,gradio as gr,message,text,Blocks,Interface,ChatInterface,queue,Textbox,list,time,item,letter,lower,run,word,Button,Request,check_login,classify_text,click,count_uploads,current_user,generate"
 ---
 
 # Gradio Python Package Guide

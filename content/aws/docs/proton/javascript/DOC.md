@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,proton,javascript,nodejs,infrastructure,platform-engineering"
+  tags: "aws,proton,javascript,nodejs,infrastructure,platform-engineering,send,console,log"
 ---
 
 # AWS Proton SDK for JavaScript

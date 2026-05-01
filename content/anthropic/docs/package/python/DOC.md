@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "anthropic,claude,llm,api,sdk,python"
+  tags: "anthropic,claude,llm,api,sdk,python,client,messages,create,stream,httpx,AsyncAnthropic,package,response,main,with_streaming_response,AnthropicBedrock,AnthropicVertex,DefaultAioHttpClient,DefaultHttpxClient,asyncio,headers,list,with_options,HTTPTransport,Timeout,Version-Sensitive,beta_tool,count_tokens,get,get_final_message"
 ---
 
 # anthropic Python Package Guide

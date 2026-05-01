@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "itsdangerous,pallets,python,signing,tokens,security"
+  tags: "itsdangerous,pallets,python,signing,tokens,security,serializer,BadSignature,URLSafeTimedSerializer,data,payload,SignatureExpired,signer,URLSafeSerializer,hashlib,loads,dumps,Optional,sign,version,URL-Safe,Version-Sensitive,environ,load_reset_token,unsign,urandom"
 ---
 
 # itsdangerous Python Package Guide

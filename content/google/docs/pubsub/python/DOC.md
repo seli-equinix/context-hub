@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,gcp,pubsub,messaging,events,queues"
+  tags: "google,gcp,pubsub,messaging,events,queues,pubsub_v1,publisher,subscriber,topic_path,subscription_path,message,publish,SubscriberClient,PublisherClient,result,streaming_pull_future,AlreadyExists,ack,ack_with_response,callback,data,json,subscribe,TimeoutError,ack_future,create_subscription,create_topic,decode,future,nack"
 ---
 
 # Google Cloud Pub/Sub Python Client

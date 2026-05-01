@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-storage,queue,storage,python"
+  tags: "azure,azure-storage,queue,storage,python,QueueClient,QueueServiceClient,DefaultAzureCredential,messages,service,logging,environ,from_connection_string,logger,receive_messages,send_message,AzureNamedKeyCredential,ResourceExistsError,asyncio,main,peek_messages,sys,StreamHandler,Version-Sensitive,addHandler,by_page,create_queue,delete_message,getLogger,get_queue_client"
 ---
 
 # azure-storage-queue Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,vision,gcp,ocr,images,python"
+  tags: "google-cloud,vision,gcp,ocr,images,python,client,ImageAnnotatorClient,Feature,Image,read,document_text_detection,result,async_batch_annotate_images,batch_annotate_images,label_detection,operation,responses,AnnotateImageRequest,Version-Sensitive"
 ---
 
 # google-cloud-vision Python Package Guide

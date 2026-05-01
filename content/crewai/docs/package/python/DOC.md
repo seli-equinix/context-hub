@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "crewai,agents,llm,workflow,automation,python"
+  tags: "crewai,agents,llm,workflow,automation,python,Task,crew,Agent,Process,researcher,research_task,environ,Flow,kickoff,list,start,CrewBase,listen,notes,BaseModel,Field,ReportState,ResearchFlow,SerperDevTool,agents_config,fetch,get,summarize,tasks_config,LatestAiDevelopment"
 ---
 
 # CrewAI Python Package Guide

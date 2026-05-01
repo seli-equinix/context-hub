@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,restify,node,http,server,types,definitelytyped"
+  tags: "typescript,restify,node,http,server,types,definitelytyped,plugins,createServer,res,bodyParser,headerValue,queryParser,send,get,listen,Array,BadRequestError,Version-Sensitive,acceptParser,console,errors,headers,isArray,log,post"
 ---
 
 # Restify TypeScript Guide

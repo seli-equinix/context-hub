@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "lightgbm,gradient-boosting,machine-learning,scikit-learn,python"
+  tags: "lightgbm,gradient-boosting,machine-learning,scikit-learn,python,lgb,model,Dataset,lightgbm as lgb,booster,predict,fit,train,early_stopping,LGBMClassifier,LGBMRegressor,loaded,save_model,Installation-Guide,Parameters-Tuning,Python-API,Python-Intro,Version-Sensitive,booster_,log_evaluation,predict_proba"
 ---
 
 # LightGBM Python Package Guide

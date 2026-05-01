@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,memorystore,redis,javascript,nodejs,admin-sdk"
+  tags: "google-cloud,gcp,memorystore,redis,javascript,nodejs,admin-sdk,const,client,google,operation,CloudRedisClient,promise,admin,5.2.1,console,getInstance,log,createInstance,deleteInstance,exportInstance,importInstance,updateInstance,listInstancesAsync,Version-Sensitive,connect,getInstanceAuthString,ping"
 ---
 
 # `@google-cloud/redis` JavaScript Package Guide

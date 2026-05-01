@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,dataflow,templates,apache-beam,javascript,nodejs"
+  tags: "google-cloud,gcp,dataflow,templates,apache-beam,javascript,nodejs,const,v1beta3,google,jobsClient,JobsV1Beta3Client,console,getJob,log,FlexTemplatesServiceClient,MessagesV1Beta3Client,MetricsV1Beta3Client,TemplatesServiceClient,flexTemplatesClient,messagesClient,metricsClient,templatesClient,updateJob,4.1.1,Date,launchFlexTemplate,listJobsAsync,now,getJobMetrics,launchTemplate,listJobMessagesAsync"
 ---
 
 # `@google-cloud/dataflow` JavaScript Package Guide

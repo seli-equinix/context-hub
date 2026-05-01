@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,aks,kubernetes,containers,arm,management"
+  tags: "azure,aks,kubernetes,containers,arm,management,managed_clusters,DefaultAzureCredential,result,AzureCliCredential,ContainerServiceClient,base64,list,get,kubeconfigs,poller,begin_create_or_update,environ,get_upgrade_profile,kubeconfig_yaml,run_command,Version-Sensitive,b64decode,list_by_resource_group,list_cluster_admin_credentials,list_cluster_user_credentials"
 ---
 
 # Azure Kubernetes Service Management SDK for Python

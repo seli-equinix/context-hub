@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,eventbridge,pipes,boto3,typing,mypy,pyright,python"
+  tags: "aws,eventbridge,pipes,boto3,typing,mypy,pyright,python,client,pipe,stubs,session,EventBridgePipesClient,config,paginator,TYPE_CHECKING,lite,page,create_pipe,describe_pipe,environ,item,response,AssignPublicIpType,AwsVpcConfigurationOutputTypeDef,ListPipesPaginator,get,status,stop_pipe,Version-Sensitive,delete_pipe,get_paginator,list"
 ---
 
 # mypy-boto3-pipes Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "langchain,python,agents,llm,rag,langgraph,langsmith"
+  tags: "langchain,python,agents,llm,rag,langgraph,langsmith,model,agent,init_chat_model,create_agent,invoke,get_weather,result,Version-Sensitive"
 ---
 
 # LangChain Python Package Guide

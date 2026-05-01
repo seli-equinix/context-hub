@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,app-engine,appengine,google-cloud,deployment,traffic-splitting,python"
+  tags: "google,app-engine,appengine,google-cloud,deployment,traffic-splitting,python,appengine_admin_v1,operation,environ,versions_client,Application,VersionsClient,ApplicationsClient,ServicesClient,Version,applications_client,result,services_client,TrafficSplit,ZipInfo,create_version,Service,create_application,field_mask_pb2,CreateApplicationRequest,CreateVersionRequest,FieldMask,UpdateServiceRequest,Version-Sensitive,get_application,get_version"
 ---
 
 # Google Cloud App Engine Admin Python Client

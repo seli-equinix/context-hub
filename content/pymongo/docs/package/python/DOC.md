@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "mongodb,pymongo,bson,gridfs,python,database"
+  tags: "mongodb,pymongo,bson,gridfs,python,database,client,MongoClient,users,AsyncMongoClient,admin,example.com,session,ConnectionFailure,command,doc,server_api,bucket,close,environ,orders,quote_plus,OperationFailure,ReadConcern,SearchIndexModel,ServerApi,WriteConcern,coll,create_index,find,find_one"
 ---
 
 # PyMongo Python Package Guide

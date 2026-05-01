@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,smart-open,streaming,files,s3"
+  tags: "python,smart-open,streaming,files,s3,smart_open,open,fin,client,fout,write,boto3,line,read,getenv,rstrip,environ,readline,session"
 ---
 
 # smart-open Python Package Guide

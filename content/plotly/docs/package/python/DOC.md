@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "plotly,python,visualization,charts,dash,jupyter"
+  tags: "plotly,python,visualization,charts,dash,jupyter,fig,show,update_layout,Figure,add_trace,write_image,Bar,make_subplots,update_traces,write_html,Scatter,Version-Sensitive,add_hline,line,to_html"
 ---
 
 # Plotly Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aiobotocore,aws,botocore,aiohttp,asyncio,python,sdk"
+  tags: "aiobotocore,aws,botocore,aiohttp,asyncio,python,sdk,session,get_session,create_client,response,AioConfig,AsyncExitStack,main,run,stream,_exit_stack,dynamodb,identity,page,sqs,sts,AioSession,HttpxSession,__aexit__,get,get_object,head_bucket,item,list_queues,list_tables,paginator"
 ---
 
 # aiobotocore Python Package Guide

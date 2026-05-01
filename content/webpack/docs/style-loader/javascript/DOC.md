@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,css,loader,styles"
+  tags: "webpack,build,css,loader,styles,document,path,require,panelStyles,body,querySelector,resolve,unuse,4.0.0,append,createElement,names"
 ---
 
 # style-loader

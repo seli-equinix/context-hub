@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-color,color-picker,ui,types,definitelytyped"
+  tags: "typescript,react,react-color,color-picker,ui,types,definitelytyped,ColorResult,onChange,props,const,BrandColorField,BrandColorPicker,OverlayColorField,ThemeSwatchPicker,Version-Sensitive"
 ---
 
 # react-color TypeScript Guide

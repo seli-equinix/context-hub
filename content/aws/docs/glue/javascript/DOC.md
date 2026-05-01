@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,glue,javascript,nodejs,data-catalog,crawlers,etl"
+  tags: "aws,glue,javascript,nodejs,data-catalog,crawlers,etl,send,console,log,terminalStates,Glue-Specific"
 ---
 
 # `@aws-sdk/client-glue`

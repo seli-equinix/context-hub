@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-snowflake,python,snowflake,sql,assets,data-warehouse"
+  tags: "dagster,dagster-snowflake,python,snowflake,sql,assets,data-warehouse,EnvVar,DataFrame,raw_orders,SnowflakeResource,orders,Definitions,dg.asset,SnowflakePandasIOManager,cursor,dagster as dg,top_customers,SourceAsset,cleaned_orders,conn,execute,get_connection,pandas as pd,drop_duplicates,high_value_orders,list"
 ---
 
 # dagster-snowflake Python Package Guide

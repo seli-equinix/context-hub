@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-08"
   source: community
-  tags: "testing,visual-ai,playwright,automation"
+  tags: "testing,visual-ai,playwright,automation,eyes,test,page,check,applitools,locator,loader,close,getByTestId,goto,open,waitFor"
 ---
 # Context: Applitools Eyes Playwright SDK - Expert Integration Guide
 

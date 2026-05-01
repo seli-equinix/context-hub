@@ -6,7 +6,7 @@ metadata:
   versions: "6.1.2"
   updated-on: "2025-10-26"
   source: maintainer
-  tags: "pinecone,sdk,vector-db,ai,search"
+  tags: "pinecone,sdk,vector-db,ai,search,index,const,namespace,query,values,upsert,console,log,vectors,error,createIndex,all,describeIndexStats,update,Sparse-Dense,deleteMany,inference,tenant1,Auto-Embedding,Object,Promise,configureIndex,denseVector,embed,fetch"
 ---
 # Pinecone JavaScript/TypeScript SDK Coding Guidelines
 

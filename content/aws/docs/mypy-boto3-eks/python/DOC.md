@@ -7,7 +7,7 @@ metadata:
   revision: 3
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,eks,mypy,python,stubs,types"
+  tags: "aws,boto3,eks,mypy,python,stubs,types,client,cluster,Session,EKSClient,page,request,TYPE_CHECKING,paginator,response,waiter,describe_cluster,ClusterActiveWaiter,ListClustersPaginator,cast,list_clusters,AMITypesType,Config,get,lite,resource,Control-Plane,Dev-Only,Release-Pinned,Version-Sensitive,get_paginator"
 ---
 
 # mypy-boto3-eks Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,commonjs,modules,javascript,build"
+  tags: "babel,commonjs,modules,javascript,build,source,7.28.6,console,log,result,startsWith"
 ---
 
 `@babel/plugin-transform-modules-commonjs` rewrites `import` and `export` syntax into CommonJS output. Use it when your source is written as ES modules but your runtime, test environment, or published build still needs `require(...)` and `exports`.

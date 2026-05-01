@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "litestar,python,asgi,api,web,openapi,async"
+  tags: "litestar,python,asgi,api,web,openapi,async,get,User,dict,handler,data,post,client,Provide,dataclass,login,resource,Body,Annotated,Request,create_user,jwt_auth,retrieve_user_handler,Any,AsyncTestClient,Controller,DTOConfig,DTOData,DataclassDTO,JWTAuth,OpenAPIConfig"
 ---
 
 # `litestar` for Python

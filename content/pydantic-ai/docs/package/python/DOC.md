@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pydantic-ai,python,agents,llm,pydantic,tools,structured-output"
+  tags: "pydantic-ai,python,agents,llm,pydantic,tools,structured-output,agent,run_sync,slim,run,RunContext,SupportDeps,AsyncOpenAI,BaseModel,City,OpenAIProvider,OpenAIResponsesModel,TestModel,agent.tool,dataclass,first,agent.tool_plain,all_messages,current_tier,environ"
 ---
 
 # pydantic-ai Python Package Guide

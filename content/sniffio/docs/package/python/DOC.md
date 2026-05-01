@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sniffio,python,asyncio,trio,curio,async,contextvars"
+  tags: "sniffio,python,asyncio,trio,curio,async,contextvars,current_async_library,thread_local,current_async_library_cvar,AsyncLibraryNotFoundError,main,set,sleep,run,Requires-Python,mark_runtime,reset,Version-Sensitive,get_current_library,sleep_for"
 ---
 
 # sniffio Python Package Guide

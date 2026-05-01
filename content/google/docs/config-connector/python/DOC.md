@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,config-connector,gke,kubernetes,python,infrastructure"
+  tags: "google,google-cloud,config-connector,gke,kubernetes,python,infrastructure,container_v1,client,ClusterManagerClient,environ,ConfigConnectorConfig,get_cluster,set_addons_config,Add-On,AddonsConfig,goog"
 ---
 
 # Config Connector Guide For Python Teams

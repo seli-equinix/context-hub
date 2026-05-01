@@ -6,7 +6,7 @@ metadata:
   versions: "7.3.0"
   updated-on: "2025-10-26"
   source: maintainer
-  tags: "pinecone,sdk,vector-db,ai,search"
+  tags: "pinecone,sdk,vector-db,ai,search,index,vectors,query,describe_index,upsert,sparse,ServerlessSpec,inference,embed,metadata,dense,create_index,asyncio,records,embedding,ThreadPoolExecutor,delete,executor,query_embedding,result,update,PineconeGRPC as Pinecone,Sparse-Dense,describe_index_stats,get"
 ---
 # Pinecone Python SDK Coding Guidelines
 

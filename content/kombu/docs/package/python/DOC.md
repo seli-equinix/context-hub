@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "kombu,messaging,amqp,rabbitmq,redis,sqs,queues"
+  tags: "kombu,messaging,amqp,rabbitmq,redis,sqs,queues,Connection,conn,Exchange,channel,localhost,Queue,message,producer,publish,transport_options,SimpleQueue,connect,simple_queue,Consumer,ack,broker_url,close,drain_events,ssl,ensure,handle_message,heartbeat_check,pool,pooled_conn,reject"
 ---
 
 # kombu Python Package Guide

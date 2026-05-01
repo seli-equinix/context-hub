@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,mediapackage,javascript,nodejs,streaming,video,hls,dash,cmaf"
+  tags: "aws,mediapackage,javascript,nodejs,streaming,video,hls,dash,cmaf,client,env,send,log,console,HlsManifests,3.1007.0"
 ---
 
 # `@aws-sdk/client-mediapackage`

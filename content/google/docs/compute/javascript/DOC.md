@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud-compute,gcp,google-cloud,compute-engine,vm,javascript,nodejs"
+  tags: "google-cloud-compute,gcp,google-cloud,compute-engine,vm,javascript,nodejs,const,google,client,InstancesClient,ImagesClient,ZoneOperationsClient,errors,instances,6.8.0,delete,getFromFamily,insert,operationsClient,start,stop,get,listAsync,map,push,wait"
 ---
 
 # `@google-cloud/compute` JavaScript Package Guide

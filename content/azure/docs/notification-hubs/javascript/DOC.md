@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,notification-hubs,push-notifications,javascript,apns,fcm,installations"
+  tags: "azure,notification-hubs,push-notifications,javascript,apns,fcm,installations,context,2.0.2,JSON,stringify,console,log"
 ---
 
 # Azure Notification Hubs JavaScript SDK

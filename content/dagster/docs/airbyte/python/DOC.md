@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,airbyte,dagster-airbyte,python,data-orchestration,etl,assets"
+  tags: "dagster,airbyte,dagster-airbyte,python,data-orchestration,etl,assets,EnvVar,AirbyteCloudWorkspace,Definitions,airbyte_assets,Self-Managed,build_airbyte_assets_definitions,load_airbyte_asset_specs,AirbyteWorkspace,dagster as dg,airbyte_connection_assets,sync_and_poll"
 ---
 
 # dagster-airbyte Python Package Guide

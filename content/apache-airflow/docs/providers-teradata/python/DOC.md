@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,teradata,sql,database,dag,python"
+  tags: "airflow,teradata,sql,database,dag,python,TeradataOperator,datetime,TeradataHook,hook,cursor,example.com,list,task,conn,execute,get_conn,read_summary,Utility-Based,fetchall,td.example.com,tuple"
 ---
 
 # apache-airflow-providers-teradata

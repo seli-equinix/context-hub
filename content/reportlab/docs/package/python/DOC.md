@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "reportlab,pdf,documents,platypus,graphics,charts,python"
+  tags: "reportlab,pdf,documents,platypus,graphics,charts,python,canvas,rl_config,buffer,BytesIO,drawString,save,showPage,styles,Paragraph,Spacer,Path,SimpleDocTemplate,TTFSearchPath,TTFont,Table,build,doc,getSampleStyleSheet,getvalue,letter,pdfmetrics,Inter-Regular,Version-Sensitive,append,build_pdf_bytes"
 ---
 
 # ReportLab Python Package Guide

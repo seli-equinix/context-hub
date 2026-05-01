@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,samba,smb,file-share,gcs,python"
+  tags: "airflow,apache-airflow,samba,smb,file-share,gcs,python,hook,GCSToSambaOperator,SambaHook,task,DAG,datetime,list,open_file,push_from_local,inspect_and_upload,listdir,makedirs,read,stream,time"
 ---
 
 # Apache Airflow Samba Provider Guide

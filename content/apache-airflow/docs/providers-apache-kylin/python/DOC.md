@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,kylin,apache-kylin,olap,dag,python"
+  tags: "airflow,apache-airflow,kylin,apache-kylin,olap,dag,python,task,KylinCubeOperator,datetime,hook,KylinHook,SQLExecuteQueryOperator,get_job_status,print_job_status,this provider,kylin.example.com"
 ---
 
 # apache-airflow-providers-apache-kylin

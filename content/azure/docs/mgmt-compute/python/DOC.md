@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,compute,virtual-machines,vmss,disks,arm,python"
+  tags: "azure,compute,virtual-machines,vmss,disks,arm,python,DefaultAzureCredential,virtual_machines,ComputeManagementClient,Disk,VirtualMachine,list,CreationData,GrantAccessData,begin_create_or_update,begin_deallocate,instance_view,resource_skus,Version-Sensitive,begin_grant_access,begin_revoke_access,begin_start,environ,get"
 ---
 
 # Azure Compute Management SDK for Python

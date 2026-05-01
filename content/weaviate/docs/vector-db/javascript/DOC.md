@@ -6,7 +6,7 @@ metadata:
   versions: "3.9.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "weaviate,vector-db,search,embeddings,ai"
+  tags: "weaviate,vector-db,search,embeddings,ai,articles,console,log,client,collections,byProperty,data,filter,query,get,configure,nearText,create,error,number,metrics,errors,fetchObjects,generate,insert,insertMany,uuids,aggregate,overAll,tenants"
 ---
 
 # Weaviate TypeScript/JavaScript SDK (v3)

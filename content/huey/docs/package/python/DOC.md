@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "huey,python,task-queue,background-jobs,scheduling,redis,django"
+  tags: "huey,python,task-queue,background-jobs,scheduling,redis,django,task,RedisHuey,result,send_email,example.com,on_commit_task,RetryTask,SqliteHuey,crontab,datetime,db_task,getenv,huey.task,signal,SIGNAL_ERROR,call_local,get,huey.periodic_task,lock_task,monkey,periodic_task,schedule,timedelta,Version-Sensitive,environ"
 ---
 
 # Huey Python Package Guide

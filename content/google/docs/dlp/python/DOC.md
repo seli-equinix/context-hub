@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud-dlp,google cloud,dlp,sensitive data protection,pii,python"
+  tags: "google-cloud-dlp,google cloud,dlp,sensitive data protection,pii,python,client,dlp_v2,DlpServiceClient,inspect_content,async_client,deidentify_content,environ,example.com,redact_image,reidentify_content,De-Identify,DlpServiceAsyncClient,Re-Identify,Version-Sensitive,example.com.,getenv,read,write"
 ---
 
 # google-cloud-dlp Python Package Guide

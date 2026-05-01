@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "billiard,python,multiprocessing,processes,pool,celery"
+  tags: "billiard,python,multiprocessing,processes,pool,celery,process,worker,start,join,freeze_support,result_queue,Queue,get_context,square,close,ctx,imap_unordered,map,the process primitives you need,Requires-Python,Version-Sensitive,get,put"
 ---
 
 # billiard Python Package Guide

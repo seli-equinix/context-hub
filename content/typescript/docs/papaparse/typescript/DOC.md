@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,papaparse,csv,parsing,serialization,types,definitelytyped"
+  tags: "typescript,papaparse,csv,parsing,serialization,types,definitelytyped,Papa,string,const,console,log,example.com,UserRow,unparse,parser,ParseError,abort,error"
 ---
 
 # Papa Parse TypeScript Guide

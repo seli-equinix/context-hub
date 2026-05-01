@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,firestore,gcp,nosql,database,javascript,nodejs"
+  tags: "google,google-cloud,firestore,gcp,nosql,database,javascript,nodejs,doc,console,collection,reference,snapshot,FieldValue,batch,cityRef,set,bulkWriter,update,get,log,transaction,data,increment,8.3.0,arrayUnion,commit,serverTimestamp,High-Volume,Non-Transactional,Version-Sensitive,close,collectionGroup"
 ---
 
 # Google Cloud Firestore Node.js Client

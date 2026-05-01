@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,backup,recovery-services,management,vault,python"
+  tags: "azure,backup,recovery-services,management,vault,python,list,get,parts,backups,protected_items,trigger,RecoveryServicesBackupClient,environ,AzureCliCredential,DefaultAzureCredential,backup_policies,datetime,index,protection_policies,backup_item_names,backup_jobs,backup_operation_statuses,backup_protected_items,recovery_points,resource_id,timedelta,timezone,Azure-AsyncOperation,On-Demand,now"
 ---
 
 # Azure Recovery Services Backup Management SDK for Python

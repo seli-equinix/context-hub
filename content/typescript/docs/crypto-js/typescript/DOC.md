@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,crypto-js,crypto,hashing,aes,pbkdf2,types,definitelytyped,npm"
+  tags: "typescript,crypto-js,crypto,hashing,aes,pbkdf2,types,definitelytyped,npm,CryptoJS,string,key,toString,Hex,WordArray,decrypt,bytes,encrypt,SHA256,env,parse,salt,4.2.2,HmacSHA256,JSON,random,Version-Sensitive,decryptText,decryptToken,deriveAes256Key,encryptText,encryptToken,hmacSha256Hex,sha256Base64"
 ---
 
 # crypto-js TypeScript Guide

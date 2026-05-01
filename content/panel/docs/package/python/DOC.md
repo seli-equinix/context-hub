@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "panel,holoviz,bokeh,dashboard,widgets,jupyter,python"
+  tags: "panel,holoviz,bokeh,dashboard,widgets,jupyter,python,extension,app,serve,panel as pn,bind,template,Column,depends,pn.depends,servable,IntSlider,append,describe,main,make_app,scaled_message,FastListTemplate,FloatSlider,Markdown,Row,Select,TextInput,Version-Sensitive,pane"
 ---
 
 # panel Python Package Guide

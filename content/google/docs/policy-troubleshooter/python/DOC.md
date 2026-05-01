@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,iam,policy-troubleshooter,policy-intelligence,python,access"
+  tags: "google,google-cloud,iam,policy-troubleshooter,policy-intelligence,python,access,policytroubleshooter_v1,client,IamCheckerClient,environ,main,AccessTuple,TroubleshootIamPolicyRequest,troubleshoot_iam_policy,asyncio,IamCheckerAsyncClient,example.com,from_service_account_json,items,memberships,run"
 ---
 
 # google-cloud-policy-troubleshooter Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,ram,javascript,nodejs,resource-sharing,organizations"
+  tags: "aws,ram,javascript,nodejs,resource-sharing,organizations,const,send,client,shares,console,log,all,OTHER-ACCOUNTS,Promise,RAM-Specific,push"
 ---
 
 # `@aws-sdk/client-ram`

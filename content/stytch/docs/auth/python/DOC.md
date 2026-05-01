@@ -6,7 +6,7 @@ metadata:
   versions: "13.28.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "stytch,auth,authentication,passwordless,otp"
+  tags: "stytch,auth,authentication,passwordless,otp,response,email,authenticate,example.com,request,session,getenv,magic_links,get,StytchError,secret,sessions,app,Client,acme.com,otps,jsonify,login_or_create,organizations,login,passwords,sso,users,FastAPI,dashboard"
 ---
 
 # Stytch Python SDK - Authentication Guide

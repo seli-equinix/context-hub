@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,sonarjs,linting,javascript,node,npm"
+  tags: "eslint,sonarjs,linting,javascript,node,npm,default,4.0.2,Version-Sensitive"
 ---
 
 # eslint-plugin-sonarjs

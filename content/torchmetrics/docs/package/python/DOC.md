@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "torchmetrics,pytorch,lightning,metrics,evaluation,ml"
+  tags: "torchmetrics,pytorch,lightning,metrics,evaluation,ml,self,torch,metric,tensor,when,MulticlassAccuracy,compute,update,reset,MetricCollection,__init__,add_state,functional,log,train_acc,val_acc,sum,values,MulticlassF1Score,multiclass_accuracy,net,Classifier,Linear,RunningMean,Version-Sensitive"
 ---
 
 # torchmetrics Python Package Guide

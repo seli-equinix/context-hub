@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pyarrow,apache-arrow,columnar,parquet,dataset,pandas"
+  tags: "pyarrow,apache-arrow,columnar,parquet,dataset,pandas,table,pyarrow as pa,schema,array,field,read_table,S3FileSystem,filter,from_pandas,int64,string,to_table,DataFrame,FileSystem,LocalFileSystem,Version-Sensitive,bool_,csv,fill_null,float64,from_uri,greater,pandas as pd,record_batch,sum"
 ---
 
 # pyarrow Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "psutil,python,process,system,monitoring,metrics"
+  tags: "psutil,python,process,system,monitoring,metrics,proc,cpu_percent,info,process_iter,Popen,memory_info,oneshot,status,time,name,net_connections,virtual_memory,is_running,net_io_counters,wait,Version-Sensitive,boot_time,cpu_count,disk_io_counters,disk_usage,exe,heap_info,heap_trim,open_files,sleep"
 ---
 
 # psutil Python Package Guide

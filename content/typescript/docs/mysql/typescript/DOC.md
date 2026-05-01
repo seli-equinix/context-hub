@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,mysql,nodejs,sql,types,definitelytyped"
+  tags: "typescript,mysql,nodejs,sql,types,definitelytyped,connection,query,end,pool,console,createConnection,log,field,string,createPool,rollback,beginTransaction,commit,format,rows,FieldInfo,UserRow,getConnection,release,2.15.27,buffer,connect,example.com,geometry"
 ---
 
 # MySQL TypeScript Guide

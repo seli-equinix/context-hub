@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-09"
   source: community
-  tags: "gemini,google,deep-research,research,interactions,agent"
+  tags: "gemini,google,deep-research,research,interactions,agent,genai,time,create,outputs,get,Client,deep_research,Path,sleep,environ"
 ---
 
 # Gemini Deep Research API (Python)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,policy,governance,arm,management,python"
+  tags: "azure,policy,governance,arm,management,python,version,PolicyClient,create,list,policy_definitions,environ,PolicyAssignment,data_policy_manifests,policy_assignments,AzureCliCredential,DefaultAzureCredential,PolicyDefinition,create_or_update,list_built_in,policy_definition_versions,policy_set_definition_versions,policy_set_definitions,Built-In,Version-Sensitive,get_built_in,get_by_id"
 ---
 
 # azure-mgmt-resource-policy Python Package Guide

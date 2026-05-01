@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "deprecated,python,warnings,decorators,sphinx"
+  tags: "deprecated,python,warnings,decorators,sphinx,deprecated_params,old_api,print_value,versionadded,versionchanged,APIV2Warning,better_print,render,sphinx_deprecated,OldFormatter,Printer,deprecated as sphinx_deprecated,fetch_data,run_report,simplefilter,successor,warns"
 ---
 
 # Deprecated Python Package Guide

@@ -2,6 +2,7 @@
 name: package
 description: "openpyxl package guide for Python Excel workbooks: install, load/save flags, streaming modes, formulas, styles, and common pitfalls"
 metadata:
+  tags: "Workbook,save,load_workbook,append,Image,Font,PatternFill,File-Type,Version-Sensitive,add_image,calculate_dimension,close,create_sheet,iter_rows,reset_dimensions"
   languages: "python"
   versions: "3.1.5"
   revision: 1

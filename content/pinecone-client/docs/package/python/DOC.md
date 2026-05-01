@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pinecone,pinecone-client,vector-database,embeddings,rag,python"
+  tags: "pinecone,pinecone-client,vector-database,embeddings,rag,python,index,search,query,environ,asyncio,upsert,delete,PineconeAsyncio,ServerlessSpec,has_index,idx,main,upsert_records,IndexAsyncio,PineconeGRPC as Pinecone,Version-Sensitive,create_index,create_index_for_model,fetch,run"
 ---
 
 # pinecone-client Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,nodejs,javascript,linting,npm"
+  tags: "eslint,nodejs,javascript,linting,npm,configs,default,17.24.0,Version-Sensitive"
 ---
 
 # eslint-plugin-n JavaScript Guide

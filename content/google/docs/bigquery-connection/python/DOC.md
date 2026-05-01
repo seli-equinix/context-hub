@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,bigquery,connection,gcp,cloud-sql,iam,federated-query,python"
+  tags: "google,bigquery,connection,gcp,cloud-sql,iam,federated-query,python,client,bigquery_connection_v1,environ,ConnectionServiceClient,get,bq_connection,CloudSqlProperties,common_location_path,connection_path,get_connection,CreateConnectionRequest,create_connection,field_mask_pb2,iam_policy_pb2,CloudResourceProperties,CloudSqlCredential,FieldMask,GetIamPolicyRequest,ListConnectionsRequest,UpdateConnectionRequest,bigquery_connection_v1 as bq_connection,delete_connection,get_iam_policy,list_connections,update_connection"
 ---
 
 # Google Cloud BigQuery Connection Python Client

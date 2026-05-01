@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,arm,resource-manager,management,resource-groups,tags"
+  tags: "azure,arm,resource-manager,management,resource-groups,tags,ResourceManagementClient,DefaultAzureCredential,deployments,resources,resource_groups,AzureCliCredential,environ,result,AZURE_US_GOV_CLOUD,AzureAuthorityHosts,delete_poller,list,provider_resource_types,Version-Sensitive,begin_create_or_update,begin_delete,create_or_update,get,get_by_id"
 ---
 
 # Azure Resource Manager SDK for Python

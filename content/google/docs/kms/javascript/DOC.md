@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,kms,cloud-kms,encryption,gcp,javascript,nodejs,adc"
+  tags: "google-cloud,kms,cloud-kms,encryption,gcp,javascript,nodejs,adc,const,client,google,decrypt,encrypt,cryptoKeyPath,5.4.0,keyRings,versions,ciphertext,createCryptoKey,createKeyRing,getCryptoKey,keyRingPath,listCryptoKeyVersions,listKeyRings,locationPath,Buffer,map,plaintext,toString,Version-Sensitive"
 ---
 
 # `@google-cloud/kms` JavaScript Package Guide

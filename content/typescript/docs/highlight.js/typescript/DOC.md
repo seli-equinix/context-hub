@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,highlight.js,syntax-highlighting,types,definitelytyped"
+  tags: "typescript,highlight.js,syntax-highlighting,types,definitelytyped,highlight,hljs,console,log,registerLanguage,10.1.0,configure,highlightAll,highlightAuto,highlightElement,Auto-Detect,items,listLanguages,prefix,reduce"
 ---
 
 # highlight.js TypeScript Guide

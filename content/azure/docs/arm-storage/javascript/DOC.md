@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,storage,arm,management,storage-accounts,javascript"
+  tags: "azure,storage,arm,management,storage-accounts,javascript,storageClient,console,log,storageAccounts,19.1.0,beginCreateAndWait,beginDeleteAndWait,getProperties,listByResourceGroup,update,checkNameAvailability,listKeys,regenerateKey"
 ---
 
 # Azure Storage Management Client For JavaScript

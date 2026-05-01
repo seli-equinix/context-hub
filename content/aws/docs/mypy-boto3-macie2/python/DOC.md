@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,macie2,boto3,typing,stubs,mypy,pyright,python"
+  tags: "aws,macie2,boto3,typing,stubs,mypy,pyright,python,client,Session,Macie2Client,macie,paginator,waiter,response,Config,TYPE_CHECKING,page,DescribeBucketsPaginator,lite,BucketCriteriaForJobTypeDef,FindingRevealedWaiter,FindingStatusType,item,Version-Sensitive,dict,get,get_macie_session,get_paginator,get_waiter,make_client,paginate,wait"
 ---
 
 # mypy-boto3-macie2 Python Package Guide

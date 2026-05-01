@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "cbor2,cbor,python,serialization,binary"
+  tags: "cbor2,cbor,python,serialization,binary,value,decoded,dumps,datetime,Point,loads,timezone,encode,dataclass,encoder,object_hook,tag_hook,load,date,default_encoder,dump,CBORTag,Command-Line,get"
 ---
 
 # cbor2 Python Package Guide

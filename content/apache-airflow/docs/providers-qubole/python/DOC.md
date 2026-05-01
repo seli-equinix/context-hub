@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,qubole,dag,operators,sensors,checks"
+  tags: "airflow,apache-airflow,qubole,dag,operators,sensors,checks,datetime,QuboleOperator,task,QuboleHook,QuboleCheckOperator,QuboleValueCheckOperator,hook,execute,submit_with_hook"
 ---
 
 # Apache Airflow Qubole Provider Guide

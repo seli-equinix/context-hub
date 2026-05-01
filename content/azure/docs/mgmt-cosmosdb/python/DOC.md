@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,cosmosdb,arm,management,python"
+  tags: "azure,cosmosdb,arm,management,python,DefaultAzureCredential,sql_resources,CosmosDBManagementClient,models,database_accounts,poller,result,environ,get,list_keys,ContainerPartitionKey,SqlContainerCreateUpdateParameters,SqlContainerResource,SqlDatabaseCreateUpdateParameters,SqlDatabaseResource,Version-Sensitive,begin_create_or_update,begin_create_update_sql_container,begin_create_update_sql_database,begin_migrate_sql_database_to_autoscale,list,list_sql_containers,list_sql_databases"
 ---
 
 # azure-mgmt-cosmosdb Python Package Guide

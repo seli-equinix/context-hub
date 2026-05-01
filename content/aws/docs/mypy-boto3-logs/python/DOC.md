@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,cloudwatch-logs,boto3,python,typing,stubs,mypy,pyright"
+  tags: "aws,cloudwatch-logs,boto3,python,typing,stubs,mypy,pyright,logs,client,Session,CloudWatchLogsClient,event,page,describe_log_groups,group,response,paginator,TYPE_CHECKING,cast,filter_log_events,get,DescribeLogGroupsPaginator,FilteredLogEventTypeDef,Sequence,lite,Version-Sensitive,extract_messages,get_paginator,list,paginate,return"
 ---
 
 # mypy-boto3-logs Python Package Guide

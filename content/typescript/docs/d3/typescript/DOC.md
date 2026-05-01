@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,d3,visualization,svg,types,definitelytyped,npm"
+  tags: "typescript,d3,visualization,svg,types,definitelytyped,npm,Sample,Point,console,log,7.4.3,max,rows,scaleLinear,bin,csvParse,extent,scaleTime"
 ---
 
 # D3 TypeScript Guide

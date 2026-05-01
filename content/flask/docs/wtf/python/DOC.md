@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,flask-wtf,wtforms,forms,csrf,file-upload,recaptcha"
+  tags: "flask,flask-wtf,wtforms,forms,csrf,file-upload,recaptcha,form,WTF,app,email,FlaskForm,config,CSRFProtect,SubmitField,submit,upload,login,url_for,Blueprint,FileAllowed,FileRequired,hidden_tag,password,redirect,render_template,session,validate_on_submit,DataRequired,RecaptchaField,photo,protect"
 ---
 
 # Flask-WTF Python Package Guide

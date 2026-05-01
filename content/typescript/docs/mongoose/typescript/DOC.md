@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,mongoose,mongodb,types,definitelytyped,schemas"
+  tags: "typescript,mongoose,mongodb,types,definitelytyped,schemas,ObjectId,connect,TodoModel,UserModel,create,InventoryModel,PostModel,console,example.com,log,todos,5.11.97,find,findOne,map,updateOne"
 ---
 
 # Mongoose TypeScript Guide

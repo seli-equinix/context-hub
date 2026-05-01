@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "python,asyncio,timeout,async,compatibility"
+  tags: "python,asyncio,timeout,async,compatibility,main,timeout_at,when,sleep,time,loop,expired,run,reschedule,sys,wait_for,Time-Limit,get_running_loop"
 ---
 
 # async-timeout Python Package Guide

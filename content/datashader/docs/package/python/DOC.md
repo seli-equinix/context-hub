@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "datashader,python,visualization,rasterization,pandas,dask,xarray,holoviz"
+  tags: "datashader,python,visualization,rasterization,pandas,dask,xarray,holoviz,img,canvas,count,points,shade,line,quadmesh,raster,datashader as ds,to_pil,transfer_functions as tf,DataFrame,count_cat,dynspread,max,mean,sum,DataArray,Version-Sensitive,pandas as pd,read_parquet,set_background,xarray as xr"
 ---
 
 # Datashader Python Package Guide

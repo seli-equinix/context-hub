@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,acr,container-registry,oci,javascript"
+  tags: "azure,acr,container-registry,oci,javascript,repository,client,tag,getRepository,console,log,1.1.2,listRepositoryNames,listTagProperties,getProperties,getTag,listManifestProperties"
 ---
 
 # Azure Container Registry JavaScript Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,psrp,powershell,windows,remote-execution"
+  tags: "airflow,apache-airflow,psrp,powershell,windows,remote-execution,DAG,PsrpOperator,datetime,hook,PsrpHook,task,invoke_cmdlet,Password,inspect_remote_host,invoke_powershell,show_payload,test_connection,ConvertTo-Json,Get-Date,Get-Process,Get-Service,GetType,PSVersion,Select-Object,ToString,Where-Object"
 ---
 
 # Apache Airflow Microsoft PSRP Provider Guide

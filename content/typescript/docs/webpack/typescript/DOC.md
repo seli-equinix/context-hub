@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,webpack,webpack-cli,bundler,configuration,types,definitelytyped"
+  tags: "typescript,webpack,webpack-cli,bundler,configuration,types,definitelytyped,RuleSetRule,path,compiler,return,resolve,stats,WebpackPluginInstance,makeTypescriptRules,DefinePlugin,JSON,close,console,cwd,log,makeConfig,process,run,stringify,toString"
 ---
 
 # webpack TypeScript Guide

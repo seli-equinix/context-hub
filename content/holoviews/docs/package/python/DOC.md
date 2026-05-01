@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "holoviews,holoviz,python,visualization,plotting,jupyter,bokeh,matplotlib,plotly"
+  tags: "holoviews,holoviz,python,visualization,plotting,jupyter,bokeh,matplotlib,plotly,opts,extension,DynamicMap,Curve,overlay,save,Scatter,defaults,holoviews as hv,Points,linspace,numpy as np,sin,sine_curve,DataFrame,Version-Sensitive,pandas as pd,redim,values"
 ---
 
 # HoloViews Python Package Guide

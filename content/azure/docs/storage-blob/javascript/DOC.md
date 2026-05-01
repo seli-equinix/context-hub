@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,storage,blob,blob-storage,javascript,nodejs,azure-storage,entra-id"
+  tags: "azure,storage,blob,blob-storage,javascript,nodejs,azure-storage,entra-id,BlobServiceClient,serviceClient,containerClient,createBlobServiceClient,blobClient,upload,12.31.0,console,log,blockBlobClient,buffer,downloadToBuffer,getContainerClient,createIfNotExists,fromConnectionString,JSON,byteLength,deleteIfExists,getBlobClient,getBlockBlobClient,listBlobsByHierarchy,listBlobsFlat,stringify,toString"
 ---
 
 # Azure Blob Storage JavaScript Client

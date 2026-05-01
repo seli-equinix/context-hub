@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,nodemailer,email,smtp,types,definitelytyped"
+  tags: "typescript,nodemailer,email,smtp,types,definitelytyped,env,transporter,example.com,sendMail,console,log,Buffer,verify,TypeScript-Specific,close,isIdle"
 ---
 
 # Nodemailer TypeScript Guide

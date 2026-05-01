@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "vitest,testing,unit-test,mocking,vite"
+  tags: "vitest,testing,unit-test,mocking,vite,sum,document,mock,toBe,hoisted,random,math,restoreAllMocks,unstubAllEnvs,doMock,mocked,querySelector,resetAllMocks,resolves,spyOn,stubEnv,Promise,clearAllMocks,resolve,toEqual"
 ---
 
 # Vitest for JavaScript

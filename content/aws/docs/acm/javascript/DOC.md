@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,acm,javascript,nodejs,tls,certificates,ssl"
+  tags: "aws,acm,javascript,nodejs,tls,certificates,ssl,client,send,console,log,DomainValidationOptions"
 ---
 
 # `@aws-sdk/client-acm`

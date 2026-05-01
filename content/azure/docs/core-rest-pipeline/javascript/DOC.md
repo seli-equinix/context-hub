@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,core-rest-pipeline,javascript,http,pipeline,policies,retry,auth,transport"
+  tags: "azure,core-rest-pipeline,javascript,http,pipeline,policies,retry,auth,transport,url,error,log,console,headers,set,1.23.0,sendRequest,addPolicy,searchParams,get,toString"
 ---
 
 # @azure/core-rest-pipeline JavaScript Guide

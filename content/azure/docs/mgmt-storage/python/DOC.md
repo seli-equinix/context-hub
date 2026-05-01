@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,storage,arm,management,storage-accounts,provisioning"
+  tags: "azure,storage,arm,management,storage-accounts,provisioning,StorageManagementClient,storage_accounts,DefaultAzureCredential,result,AzureCliCredential,poller,StorageAccountCheckNameAvailabilityParameters,begin_create,environ,list,update,StorageTaskAssignmentsOperations,Version-Sensitive,check_name_availability,get_properties,list_by_resource_group,list_keys,storage_task_assignments"
 ---
 
 # Azure Storage Management SDK for Python

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,babel,babel-template,ast,codegen,types,definitelytyped"
+  tags: "typescript,babel,babel-template,ast,codegen,types,definitelytyped,template,statement,expression,program,console,log,statements,7.4.4,Version-Sensitive"
 ---
 
 # babel-template TypeScript Guide

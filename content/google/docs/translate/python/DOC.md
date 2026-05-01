@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud-translate,gcp,translation,i18n,python,google-cloud"
+  tags: "google-cloud-translate,gcp,translation,i18n,python,google-cloud,client,translate,translate_v3,language,TranslationServiceClient,languages,result,translate_v2 as translate,Credentials,ClientOptions,detect_language,service_account,translate_text,Version-Sensitive,from_service_account_file,get,get_languages,get_supported_languages,glossary_translations"
 ---
 
 # google-cloud-translate Python Package Guide

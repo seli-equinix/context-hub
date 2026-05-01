@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "llama-index,rag,agents,retrieval,vector-index,python"
+  tags: "llama-index,rag,agents,retrieval,vector-index,python,index,Settings,SimpleDirectoryReader,VectorStoreIndex,storage_context,OpenAI,StorageContext,from_documents,query,Ollama,as_query_engine,chromadb,ChromaVectorStore,HuggingFaceEmbedding,OpenAIEmbedding,SentenceSplitter,client,from_defaults,load_index_from_storage,query_engine,restored_index,PersistentClient,Version-Sensitive,environ,get_or_create_collection"
 ---
 
 # LlamaIndex Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "freezegun,python,testing,time,mocking,datetime,pytest,unittest"
+  tags: "freezegun,python,testing,time,mocking,datetime,pytest,unittest,freeze_time,now,date,tick,frozen_time,timedelta,freezer,start,monotonic,move_to,asyncio,sleep,today,configure,dynamic_now,perf_counter,self,stop,utcnow,BillingTests,Version-Sensitive,assertEqual,decorator,gmtime,localtime"
 ---
 
 # freezegun Python Package Guide

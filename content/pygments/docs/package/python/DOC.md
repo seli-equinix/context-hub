@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pygments,python,syntax-highlighting,lexer,formatter,html,cli"
+  tags: "pygments,python,syntax-highlighting,lexer,formatter,html,cli,highlight,HtmlFormatter,get_lexer_by_name,styles,name,guess_lexer,TerminalFormatter,PythonLexer,Terminal256Formatter,get_style_defs,ClassNotFound,TextLexer,get_all_styles,get_lexer_for_filename,Version-Sensitive,colorize,greet,to_html"
 ---
 
 # Pygments Python Package Guide

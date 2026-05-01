@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,yargs,cli,arguments,types"
+  tags: "typescript,yargs,cli,arguments,types,option,console,log,17.0.35"
 ---
 
 # yargs TypeScript Guide

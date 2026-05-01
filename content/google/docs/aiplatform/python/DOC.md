@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,vertex-ai,ml,genai,pipelines,prediction"
+  tags: "google,vertex-ai,ml,genai,pipelines,prediction,aiplatform,endpoint,job,aiplatform_v1,init,getenv,JobServiceClient,ModelServiceClient,PipelineJob,Version-Sensitive,environ,log_metrics,log_params,predict,run,start_run"
 ---
 
 # Google Cloud Vertex AI Python Package Guide

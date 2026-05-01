@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,recommender,active-assist,gcp,optimization,python"
+  tags: "google,google-cloud,recommender,active-assist,gcp,optimization,python,client,recommender_v1,environ,RecommenderClient,Credentials,list_recommendations,recommender_path,service_account,MarkRecommendationDismissedRequest,Version-Sensitive,from_service_account_file,get_recommendation,insight_type_path,list_insights,mark_insight_accepted,mark_recommendation_claimed,mark_recommendation_dismissed,mark_recommendation_failed,mark_recommendation_succeeded,recommendation_path"
 ---
 
 # Google Cloud Recommender Python Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nbconvert,jupyter,notebook,export,html,pdf,cli"
+  tags: "nbconvert,jupyter,notebook,export,html,pdf,cli,exporter,HTMLExporter,TagRemovePreprocessor,Config,resources,ExecutePreprocessor,nbformat,from_filename,open,Path,name,notebook_path,write,from_notebook_node,preprocess,read,Version-Sensitive,get,register_preprocessor"
 ---
 
 # nbconvert Python Package Guide

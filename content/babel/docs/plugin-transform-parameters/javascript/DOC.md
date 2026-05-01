@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,parameters,default-parameters,rest-parameters"
+  tags: "babel,build,transpile,parameters,default-parameters,rest-parameters,7.27.7,arguments,tail,values,console,log,map"
 ---
 
 # @babel/plugin-transform-parameters

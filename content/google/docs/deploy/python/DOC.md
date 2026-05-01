@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,cloud-deploy,gcp,cicd,deployments,rollouts,adc,python"
+  tags: "google-cloud,cloud-deploy,gcp,cicd,deployments,rollouts,adc,python,client,deploy_v1,CloudDeployClient,Release,operation,result,return,rollout_path,advance_rollout,approve_rollout,list,promote_release,release_path,create_release,delivery_pipeline_path,names,CloudDeployAsyncClient,list_delivery_pipelines,list_releases,list_targets,pages,Version-Sensitive,get_release,get_release_and_rollout,get_rollout"
 ---
 
 # google-cloud-deploy Python Package Guide

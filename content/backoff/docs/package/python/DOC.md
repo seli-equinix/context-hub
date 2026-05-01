@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "backoff,retry,retries,python,asyncio,http,resilience"
+  tags: "backoff,retry,retries,python,asyncio,http,resilience,requests,response,on_exception,backoff.on_exception,get,logging,on_predicate,details,on_backoff,aiohttp,backoff.on_predicate,client,job,Retry-After,current_max_time,fatal_http_error,fetch_text,getLogger,raise_for_status,session,text,ClientSession,StreamHandler,Version-Sensitive,fetch"
 ---
 
 # backoff Python Package Guide

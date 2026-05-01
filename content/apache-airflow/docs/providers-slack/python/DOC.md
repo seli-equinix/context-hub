@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "apache-airflow,airflow,slack,python,operators,hooks,notifications"
+  tags: "apache-airflow,airflow,slack,python,operators,hooks,notifications,DAG,datetime,hook,task,SlackAPIPostOperator,SlackHook,SlackWebhookOperator,SlackWebhookHook,client,send,notify_failure,notify_row_count,chat_postMessage"
 ---
 
 # Apache Airflow Slack Provider Guide

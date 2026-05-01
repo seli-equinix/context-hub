@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "torchvision,pytorch,computer-vision,images,transforms,datasets,models"
+  tags: "torchvision,pytorch,computer-vision,images,transforms,datasets,models,torch,weights,device,DataLoader,ResNet50_Weights,cuda,inference_mode,probs,resnet50,CIFAR10,Compose,Image,ResNet18_Weights,decode_image,is_available,read_file,resnet18,Linear,Normalize,RandomHorizontalFlip,RandomResizedCrop,ToDtype,ToImage,Version-Sensitive,argmax"
 ---
 
 # torchvision Python Package Guide

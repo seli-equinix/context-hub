@@ -6,7 +6,7 @@ metadata:
   versions: "2.6.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "notion,api,workspace,pages,databases"
+  tags: "notion,api,workspace,pages,databases,response,query,block,blocks,Client,create,list,children,environ,task,users,database,AsyncClient,retrieve,update,APIResponseError,all_results,comments,data_sources,example.com,search,RequestTimeoutError,append,async_collect_paginated_api,async_example"
 ---
 
 # Notion API Python SDK Coding Guidelines

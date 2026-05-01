@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "postgresql,python,database,sql,db-api,psycopg2"
+  tags: "postgresql,python,database,sql,db-api,psycopg2,cur,conn,execute,cursor,example.com,connect,environ,extras,pool,rollback,rows,close,execute_values,RealDictCursor,ThreadedConnectionPool,get,Identifier,Json,commit,errorcodes,errors,fetchone,Version-Sensitive,fetchall,getconn"
 ---
 
 # psycopg2-binary Python Package Guide

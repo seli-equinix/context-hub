@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "feedparser,rss,atom,feeds,xml,http,syndication"
+  tags: "feedparser,rss,atom,feeds,xml,http,syndication,parsed,feed,entry,parse,headers,response,get,BytesIO,requests,entries,datetime,calendar,raise_for_status,setdefault,timezone,Last-Modified,User-Agent,Version-Sensitive,fromtimestamp,timegm"
 ---
 
 # feedparser Python Package Guide

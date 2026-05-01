@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,dynamodb,javascript,nodejs,browser,nosql"
+  tags: "aws,dynamodb,javascript,nodejs,browser,nosql,send,console,log,keys,DynamoDB-Specific,Low-Level,Object,example.com"
 ---
 
 # `@aws-sdk/client-dynamodb`

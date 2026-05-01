@@ -6,7 +6,7 @@ metadata:
   versions: "5.9.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "redis,database,cache,key-value,pubsub"
+  tags: "redis,database,cache,key-value,pubsub,client,const,console,log,set,error,range,connect,subscriber,name,results,get,JSON,keys,all,exists,age,publisher,dotenv,localhost,type,info,time,call,limit"
 ---
 
 # Redis JavaScript Client (node-redis) - Complete Integration Guide

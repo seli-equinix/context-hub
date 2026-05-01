@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-common,python,legacy,authentication,management"
+  tags: "azure,azure-common,python,legacy,authentication,management,cloud,ServicePrincipalCredentials,AzureHttpError,get_azure_cli_credentials,AzureMissingResourceHttpError,CloudError,get_client_from_cli_profile,ResourceManagementClient,SubscriptionClient,Version-Sensitive,get_cli_active_cloud"
 ---
 
 # azure-common Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,aws,codebuild,boto3,typing,mypy,stub"
+  tags: "python,aws,codebuild,boto3,typing,mypy,stub,client,CodeBuildClient,project,stubs,response,paginator,session,projects,ListBuildsForProjectPaginator,StartBuildInputTypeDef,TYPE_CHECKING,page,Version-Sensitive,batch_get_projects,get,get_paginator,list_projects,paginate,start_build"
 ---
 
 # mypy-boto3-codebuild Python Package Guide

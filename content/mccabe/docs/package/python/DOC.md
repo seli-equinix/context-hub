@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "mccabe,python,flake8,linting,complexity,cyclomatic-complexity"
+  tags: "mccabe,python,flake8,linting,complexity,cyclomatic-complexity,McCabeChecker,get_code_complexity,Path,get_module_complexity,run,ast,ini,legacy_branching_code"
 ---
 
 # mccabe Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tornado,python,asyncio,web,http,websocket,server"
+  tags: "tornado,python,asyncio,web,http,websocket,server,self,process,write,Application,escape,get,run,AsyncHTTPClient,authenticated,httpserver,json_decode,BaseHandler,IOLoop,check_origin,client,httpclient,main,make_app,post,set_status,value,websocket_connect,AccountHandler,EchoHandler,EchoSocket"
 ---
 
 # Tornado Python Package Guide

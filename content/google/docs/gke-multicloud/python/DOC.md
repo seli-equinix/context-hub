@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gke,multicloud,anthos,kubernetes,attached-clusters,aws,azure,adc"
+  tags: "google-cloud,gke,multicloud,anthos,kubernetes,attached-clusters,aws,azure,adc,gke_multicloud_v1,client,ClientOptions,environ,AttachedClustersClient,AwsClustersClient,AzureClustersClient,Multi-Cloud,operation,get_attached_server_config,import_attached_cluster,list_attached_clusters,result,GenerateAttachedClusterAgentTokenRequest,GenerateAttachedClusterInstallManifestRequest,GenerateAwsAccessTokenRequest,GenerateAzureAccessTokenRequest,ImportAttachedClusterRequest,Version-Sensitive,from_service_account_file,generate_attached_cluster_agent_token,generate_attached_cluster_install_manifest,generate_aws_access_token,generate_azure_access_token,get_attached_cluster"
 ---
 
 # google-cloud-gke-multicloud Python Package Guide

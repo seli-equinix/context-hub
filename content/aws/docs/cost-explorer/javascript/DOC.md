@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,cost-explorer,billing,cost-management,javascript,nodejs"
+  tags: "aws,cost-explorer,billing,cost-management,javascript,nodejs,costExplorer,Date,start,values,console,now,send,map,table,pages,UTC,flatMap,getUTCFullYear,getUTCMonth,push,toISOString,dir,getUTCDate,log,setUTCDate"
 ---
 
 # `@aws-sdk/client-cost-explorer`

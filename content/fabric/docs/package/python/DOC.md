@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "fabric,python,ssh,remote-execution,deployment,invoke,paramiko"
+  tags: "fabric,python,ssh,remote-execution,deployment,invoke,paramiko,run,task,Connection,deploy,group,ThreadingGroup,stdout,strip,logs,ping,results,Version-Sensitive,items"
 ---
 
 # Fabric Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "folium,maps,leaflet,geojson,visualization,gis"
+  tags: "folium,maps,leaflet,geojson,visualization,gis,Map,LayerControl,Search,MarkerCluster,FeatureGroup,Marker,Choropleth,GeoJsonTooltip,DataFrame,PolyLine,TileLayer,Version-Sensitive,environ,pandas as pd"
 ---
 
 # Folium Python Package Guide

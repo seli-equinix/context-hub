@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "tailwindcss,css,postcss,vite,javascript,npm"
+  tags: "tailwindcss,css,postcss,vite,javascript,npm,import,path,console,log,dirname,resolve,sky"
 ---
 
 # tailwindcss JavaScript Guide

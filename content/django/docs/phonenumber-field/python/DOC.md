@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-phonenumber-field,django,phone,phonenumbers,validation,forms,drf"
+  tags: "django-phonenumber-field,django,phone,phonenumbers,validation,forms,drf,field,PhoneNumberField,phone_number,number,SplitPhoneNumberField,PhoneNumber,models,Contact,RegionalPhoneNumberWidget,is_valid,serializers,ContactForm,get,objects,CharField,ContactSerializer,SignupForm,Version-Sensitive,create,from_string"
 ---
 
 # django-phonenumber-field 8.4.0 Python Package Guide

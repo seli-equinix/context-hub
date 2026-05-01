@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-environ,django,environment,settings,configuration,secrets,12factor"
+  tags: "django-environ,django,environment,settings,configuration,secrets,12factor,env,environ,str,127.0.0.1,read_env,cache,localhost,Path,bool,channels,list,FileAwareEnv,int,json,dict,email_url,search_url,URL-Based,Version-Sensitive,db_url,smtp.example.com,unicode"
 ---
 
 # django-environ Python Package Guide

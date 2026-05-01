@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,redshift,boto3,python,typing,stubs,mypy,pyright"
+  tags: "aws,redshift,boto3,python,typing,stubs,mypy,pyright,client,RedshiftClient,Session,cluster,paginator,waiter,page,get,TYPE_CHECKING,describe_clusters,response,AcceptReservedNodeExchangeInputMessageTypeDef,ActionTypeType,ClusterAvailableWaiter,DescribeClustersPaginator,annotations,lite,Version-Sensitive,build_exchange_request,get_paginator,get_waiter,paginate,resource,wait"
 ---
 
 # mypy-boto3-redshift Python Package Guide

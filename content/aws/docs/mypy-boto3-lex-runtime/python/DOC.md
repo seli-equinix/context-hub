@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,lex,lex-runtime,boto3,mypy,pyright,type-checking,stubs"
+  tags: "aws,lex,lex-runtime,boto3,mypy,pyright,type-checking,stubs,client,LexRuntimeServiceClient,session,response,lite,post_text,put_session,TYPE_CHECKING,ActiveContextTimeToLiveTypeDef,ConfirmationStatusType,get,get_session,Version-Sensitive,build_ttl,normalize_status"
 ---
 
 # mypy-boto3-lex-runtime Python Package Guide

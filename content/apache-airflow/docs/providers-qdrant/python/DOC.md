@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "apache-airflow,airflow,qdrant,vector-database,embeddings,python"
+  tags: "apache-airflow,airflow,qdrant,vector-database,embeddings,python,client,QdrantIngestOperator,QdrantHook,DAG,models,task,QdrantClient,datetime,get_conn,ensure_collection,query_collection,FieldCondition,Filter,MatchValue,VectorParams,collection_exists,create_collection,list,query_points,return,upload_collection"
 ---
 
 # Apache Airflow Qdrant Provider Guide

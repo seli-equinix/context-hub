@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,vertex-ai,vertexai,gemini,generative-ai,javascript,nodejs"
+  tags: "google-cloud,vertex-ai,vertexai,gemini,generative-ai,javascript,nodejs,model,parts,google,getGenerativeModel,candidates,preview,generateContent,generateContentStream,1.10.0,chat,startChat,write,Multi-Turn,find,sendMessage,stdout"
 ---
 
 # `@google-cloud/vertexai` JavaScript Package Guide

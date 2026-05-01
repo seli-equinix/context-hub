@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "resolve,module-resolution,nodejs,require,cli"
+  tags: "resolve,module-resolution,nodejs,require,cli,console,sync,log,path,error,cwd,dirname,process"
 ---
 
 # resolve JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cattrs,python,serialization,dataclasses,attrs"
+  tags: "cattrs,python,serialization,dataclasses,attrs,converter,structure,value,dataclass,datetime,json,Decimal,User,unstructure,list,dict,dumps,Address,Event,Invoice,Settings,define,register_structure_hook,register_unstructure_hook,Non-Primitive,Version-Sensitive,example.com,fromisoformat,isoformat,loads"
 ---
 
 # cattrs Python Package Guide

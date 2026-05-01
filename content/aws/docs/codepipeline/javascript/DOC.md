@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,codepipeline,javascript,nodejs,cicd,deployments"
+  tags: "aws,codepipeline,javascript,nodejs,cicd,deployments,send,console,log,CodePipeline-Specific,JSON,stringify"
 ---
 
 # `@aws-sdk/client-codepipeline`

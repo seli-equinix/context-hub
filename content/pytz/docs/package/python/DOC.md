@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,pytz,datetime,timezone,dst,iana,zoneinfo"
+  tags: "python,pytz,datetime,timezone,dst,iana,zoneinfo,localize,eastern,isoformat,later,normalize,astimezone,now,pacific,start,created_at,fixed,local_dt,timedelta,tokyo_dt,utc_dt,Version-Sensitive,get_timezone"
 ---
 
 # pytz Python Package Guide

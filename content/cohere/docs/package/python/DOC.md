@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cohere,python,llm,chat,embeddings,rerank"
+  tags: "cohere,python,llm,chat,embeddings,rerank,ClientV2,environ,AsyncClientV2,content,documents,main,ClassifyExample,embed,EmbedInput,asyncio,classify,float_,Version-Sensitive,classifications,run"
 ---
 
 # Cohere Python Package Guide

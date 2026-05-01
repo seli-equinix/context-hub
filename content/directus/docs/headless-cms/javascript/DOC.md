@@ -6,7 +6,7 @@ metadata:
   versions: "20.1.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "directus,headless-cms,api,content,backend"
+  tags: "directus,headless-cms,api,content,backend,client,request,console,error,Article,log,result,formData,query,example.com,items,stats,append,login,Author,connect,Type-Safe,read,subscribe,Custom-Header,disconnect,logout,refresh,unsubscribe"
 ---
 
 # Directus JavaScript/TypeScript SDK Coding Guidelines

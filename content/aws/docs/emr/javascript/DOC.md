@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,emr,javascript,nodejs,spark,hadoop,clusters"
+  tags: "aws,emr,javascript,nodejs,spark,hadoop,clusters,log,send,console,3.1007.0"
 ---
 
 # AWS EMR SDK for JavaScript (v3)

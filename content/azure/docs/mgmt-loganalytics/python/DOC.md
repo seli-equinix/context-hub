@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,log-analytics,azure-monitor,management,arm,workspaces,tables,query-packs"
+  tags: "azure,log-analytics,azure-monitor,management,arm,workspaces,tables,query-packs,LogAnalyticsManagementClient,purge,DefaultAzureCredential,update,Table,Workspace,get,result,begin_create_or_update,environ,list_by_workspace,query_packs,shared_keys,workspace_purge,AzureCliCredential,WorkspacePatch,WorkspacePurgeBody,WorkspacePurgeBodyFilters,WorkspaceSku,available_service_tiers,begin_delete,delete_poller,list_by_resource_group,High-Value,Version-Sensitive"
 ---
 
 # Azure Log Analytics Management SDK for Python

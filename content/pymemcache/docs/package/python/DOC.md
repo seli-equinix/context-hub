@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pymemcache,memcached,python,cache,client,pooling,sharding"
+  tags: "pymemcache,memcached,python,cache,client,pooling,sharding,value,close,get,set,user,HashClient,PooledClient,decode,encode,json,decr,getenv,incr,json_deserializer,json_serializer,delete,delete_many,dumps,get_many,loads,set_many,touch"
 ---
 
 # pymemcache Python Package Guide

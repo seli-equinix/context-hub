@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,arm,management,python,pypi"
+  tags: "azure,arm,management,python,pypi,DefaultAzureCredential,parts,is_valid_resource_id,resource_id,ARMPolling,ResourceManagementClient,parse_resource_id,environ,poller,Long-Running,Version-Sensitive,begin_delete,resource_groups,result"
 ---
 
 # azure-mgmt-core Python Package Guide

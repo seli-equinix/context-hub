@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typeshed,pyyaml,yaml,typing,mypy,pyright,python"
+  tags: "typeshed,pyyaml,yaml,typing,mypy,pyright,python,safe_load,TypedDict,config,AppConfig,Path,cast,Stub-Only,Version-Sensitive,annotations,safe_dump"
 ---
 
 # types-PyYAML Python Package Guide

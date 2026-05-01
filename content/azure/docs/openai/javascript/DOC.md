@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,openai,llm,javascript,azure-openai"
+  tags: "azure,openai,llm,javascript,azure-openai,completions,create,embeddings,console,log,write,choices,data,stdout,Version-Sensitive"
 ---
 
 # @azure/openai JavaScript Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "launchdarkly,feature-flags,feature-management,experimentation,python,sdk"
+  tags: "launchdarkly,feature-flags,feature-management,experimentation,python,sdk,ldclient,client,Context,Config,flag,set_config,builder,environ,get,Files,data_source,flush,state,variation,TestData,all_flags_state,close,track,variation_detail,Version-Sensitive,create_multi,is_initialized,new_data_source,post_fork,to_json_dict"
 ---
 
 # LaunchDarkly Python Server-side SDK

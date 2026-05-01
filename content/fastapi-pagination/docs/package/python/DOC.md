@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "fastapi,pagination,python,sqlalchemy,api"
+  tags: "fastapi,pagination,python,sqlalchemy,api,app,paginate,UserOut,fastapi_pagination,add_pagination,Page,BaseModel,example.com,session,get,ConfigDict,LimitOffsetPage,Query,User,app.get,list_users,CursorPage,Depends,select,Base,CustomizedPage,Mapped,get_session,mapped_column,CustomPage"
 ---
 
 # fastapi-pagination Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,relay,arm,management,hybrid-connections,wcf-relay,python"
+  tags: "azure,relay,arm,management,hybrid-connections,wcf-relay,python,namespaces,RelayAPI,hybrid_connections,poller,wcf_relays,AzureCliCredential,DefaultAzureCredential,begin_create_or_update,create_or_update,create_or_update_authorization_rule,environ,list,list_by_namespace,list_keys,regenerate_keys,result,Version-Sensitive,check_name_availability"
 ---
 
 # Azure Relay Management SDK for Python

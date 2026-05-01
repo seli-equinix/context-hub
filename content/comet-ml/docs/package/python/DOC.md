@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "comet-ml,comet,python,mlops,experiment-tracking,observability"
+  tags: "comet-ml,comet,python,mlops,experiment-tracking,observability,experiment,comet_ml,API,start,environ,OfflineExperiment,log_parameter,log_metric,Version-Sensitive,get,ini,log_metrics,names,set_name"
 ---
 
 # comet-ml Python Package Guide

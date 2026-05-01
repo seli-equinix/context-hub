@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "referencing,jsonschema,refs,json,python"
+  tags: "referencing,jsonschema,refs,json,python,Registry,DRAFT202012,Resource,contents,from_contents,to_cached_resource,combine,path,uri,NoSuchResource,project_registry,resolver,retrieve_from_disk,Version-Sensitive,is_file,read_text,removeprefix"
 ---
 
 # referencing Python Package Guide

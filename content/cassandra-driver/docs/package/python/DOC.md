@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cassandra,datastax,astra,cql,database,python"
+  tags: "cassandra,datastax,astra,cql,database,python,cluster,session,connect,row,PlainTextAuthProvider,environ,execute,ConsistencyLevel,ssl,DCAwareRoundRobinPolicy,SimpleStatement,execute_async,TokenAwarePolicy,dict_factory,future,tuple_factory,Pure-Python,Self-Managed,Version-Sensitive,create_default_context,prepare,result,shutdown"
 ---
 
 # cassandra-driver Python Package Guide

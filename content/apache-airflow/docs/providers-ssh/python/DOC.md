@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,ssh,remote-execution,operators,tunnels,python"
+  tags: "airflow,apache-airflow,ssh,remote-execution,operators,tunnels,python,DAG,SSHHook,SSHRemoteJobOperator,task,SSHOperator,datetime,hook,tunnel,get_tunnel,probe_private_postgres,start,verify_host,get_conn,ssh.example.com,stop,test_connection"
 ---
 
 # Apache Airflow SSH Provider Guide

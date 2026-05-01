@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,wafv2,waf,mypy,pyright,type-stubs,python"
+  tags: "aws,boto3,wafv2,waf,mypy,pyright,type-stubs,python,client,Session,WAFV2Client,stubs,page,acl,ip_set,lite,current,get,list_web_acls,TYPE_CHECKING,annotations,get_ip_set,item,kwargs,resource,update_ip_set,APIKeySummaryTypeDef,ActionValueType,Config,Iterator,response,result,Version-Sensitive"
 ---
 
 # `mypy-boto3-wafv2`

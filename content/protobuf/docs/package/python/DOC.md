@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "protobuf,protocol-buffers,serialization,codegen,json"
+  tags: "protobuf,protocol-buffers,serialization,codegen,json,user_pb2,7.34.0,User,copy,name,parsed,roles,MessageToDict,CopyFrom,ParseDict,SerializeToString,example.com,Generated-Code,IsInitialized,ParseFromString,Version-Sensitive,append"
 ---
 
 # protobuf Python Package Guide

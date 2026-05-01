@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "apache-airflow,airflow,tableau,python,operators,hooks,sensors"
+  tags: "apache-airflow,airflow,tableau,python,operators,hooks,sensors,TableauHook,DAG,hook,TableauOperator,pendulum,TableauJobStatusSensor,task,MY-TABLEAU,annotations,datetime,list,return,fetch_workbooks,dict,example.com,get_all,get_job_status,get_refresh_status"
 ---
 
 # Apache Airflow Tableau Provider Guide

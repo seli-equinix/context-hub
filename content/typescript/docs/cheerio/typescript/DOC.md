@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,cheerio,html,xml,scraping,dom,types"
+  tags: "typescript,cheerio,html,xml,scraping,dom,types,load,console,log,loadDocument"
 ---
 
 # Cheerio TypeScript Guide

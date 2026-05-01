@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "structlog,logging,structured-logging,json,observability,python"
+  tags: "structlog,logging,structured-logging,json,observability,python,log,stdlib,processors,get_logger,ConsoleRenderer,info,logger,bind,configure,exception,bind_contextvars,user_log,JSONRenderer,WriteLoggerFactory,ainfo,asyncio,clear_contextvars,get_active,main,recreate_defaults,sys,BytesLoggerFactory,TimeStamper,Version-Sensitive,basicConfig"
 ---
 
 # structlog Python Package Guide

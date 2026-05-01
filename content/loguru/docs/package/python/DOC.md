@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "loguru,python,logging,structured-logging,observability"
+  tags: "loguru,python,logging,structured-logging,observability,logger,add,info,remove,extra,format,sys,bind,configure,exception,opt,patch,record,contextualize,datetime,basicConfig,catch,complete,configure_logging,dictConfig,expensive_value,logger.catch,request_logger,str,timezone"
 ---
 
 # Loguru Python Package Guide

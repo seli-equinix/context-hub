@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,api-gateway,api-management,openapi,gateway"
+  tags: "google-cloud,gcp,api-gateway,api-management,openapi,gateway,client,apigateway_v1,environ,ApiGatewayServiceClient,operation,result,common_location_path,ApiConfig,auth,api_config_path,gateway_path,Path,api_path,list_apis,spec_path,Api,ApiGatewayServiceAsyncClient,create_api,create_gateway,default,field_mask_pb2,read_bytes,FieldMask,File,OpenApiDocument"
 ---
 
 # google-cloud-api-gateway Python Package Guide

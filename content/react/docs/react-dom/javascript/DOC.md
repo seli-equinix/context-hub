@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "react,react-dom,dom,hydration,ssr,portal"
+  tags: "react,react-dom,dom,hydration,ssr,portal,error,root,app,const,res,console,express,document,getElementById,Modal,items,Server-Rendered,TodoList,end,get,listen,log,map,setHeader,static,unmount,write"
 ---
 
 # React DOM JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,autoscaling,mypy,typing,python"
+  tags: "aws,boto3,autoscaling,mypy,typing,python,client,Session,AutoScalingClient,response,group,page,stubs,TYPE_CHECKING,paginator,DescribeAutoScalingGroupsAnswerTypeDef,DescribeAutoScalingGroupsPaginator,LaunchTemplateSpecificationTypeDef,MetricStatisticTypeType,describe_auto_scaling_groups,Enum-Like,Exact-Match,Service-Specific,Version-Sensitive,get_paginator,make_client,paginate,update_auto_scaling_group"
 ---
 
 # mypy-boto3-autoscaling Python Package Guide

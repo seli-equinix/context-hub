@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,tailwindcss,linting,javascript,css,npm"
+  tags: "eslint,tailwindcss,linting,javascript,css,npm,configs,default,helper,helpers,names,lists,ordering,strings,3.18.2"
 ---
 
 # eslint-plugin-tailwindcss JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,postgres,postgresql,sql,dag,python"
+  tags: "airflow,postgres,postgresql,sql,dag,python,PostgresHook,task,hook,datetime,SQLExecuteQueryOperator,row,copy_expert,run,get_first,get_records,load_csv,read_summary,db.example.com"
 ---
 
 # apache-airflow-providers-postgres

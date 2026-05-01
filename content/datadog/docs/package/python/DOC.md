@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "datadog,monitoring,metrics,dogstatsd,observability"
+  tags: "datadog,monitoring,metrics,dogstatsd,observability,client,api,initialize,ThreadStats,statsd,stats,increment,flush,gauge,start,Event,Version-Sensitive,create,histogram,timer"
 ---
 
 # Datadog Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,dataproc,gcp,python,spark,hadoop,serverless"
+  tags: "google,dataproc,gcp,python,spark,hadoop,serverless,dataproc_v1,ClientOptions,JobControllerClient,operation,BatchControllerClient,ClusterControllerClient,result,batch_client,cluster_client,regional_client_options,job_client,service_account,Credentials,create_cluster,submit_job_as_operation,Version-Sensitive,create_batch,environ,from_service_account_file,getenv,list_batches,list_clusters"
 ---
 
 # Google Cloud Dataproc Python Package Guide

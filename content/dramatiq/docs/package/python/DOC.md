@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dramatiq,python,background-jobs,task-queue,rabbitmq,redis,workers"
+  tags: "dramatiq,python,background-jobs,task-queue,rabbitmq,redis,workers,broker,actor,worker,dramatiq.actor,set_broker,RedisBroker,Results,add,StubBroker,AsyncIO,join,localhost,message,send,send_email,RabbitmqBroker,getenv,RedisBackend,ValidationError,add_middleware,host,remind_user,send_with_options,start,user_facing_job"
 ---
 
 # Dramatiq Python Package Guide

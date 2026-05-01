@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,sns,notifications,pubsub,messaging,javascript"
+  tags: "aws,sns,notifications,pubsub,messaging,javascript,send,JSON,stringify,console,log,SNS-Specific"
 ---
 
 # AWS SNS SDK for JavaScript (v3)

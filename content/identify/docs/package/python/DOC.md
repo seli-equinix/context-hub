@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "identify,python,files,pre-commit,automation"
+  tags: "identify,python,files,pre-commit,automation,tags_from_path,tags_from_filename,Path,python_files,set,append,list"
 ---
 
 # identify Python Package Guide

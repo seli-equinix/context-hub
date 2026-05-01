@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mako,python,templates,templating,html,web"
+  tags: "mako,python,templates,templating,html,web,template,lookup,TemplateLookup,render,exceptions,user,get_template,text_error_template,RichTraceback,Version-Sensitive,html_error_template"
 ---
 
 # Mako Python Package Guide

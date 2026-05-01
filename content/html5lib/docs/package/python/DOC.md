@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "html5lib,html,parser,dom,serialization"
+  tags: "html5lib,html,parser,dom,serialization,document,parse,parseFragment,serialize,getTreeWalker,getroot,Requires-Python,Version-Sensitive,childNodes"
 ---
 
 # html5lib Python Package Guide

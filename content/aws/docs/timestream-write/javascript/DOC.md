@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,timestream,javascript,nodejs,time-series,metrics"
+  tags: "aws,timestream,javascript,nodejs,time-series,metrics,timestreamWrite,send,console,log,3.1007.0,Batch-Load,Date,Multi-Measure,Single-Measure,Using-API,now"
 ---
 
 # `@aws-sdk/client-timestream-write`

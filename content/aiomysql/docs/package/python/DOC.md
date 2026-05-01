@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aiomysql,mysql,mariadb,asyncio,database,sql"
+  tags: "aiomysql,mysql,mariadb,asyncio,database,sql,conn,cur,pool,row,cursor,main,execute,run,acquire,close,commit,environ,ssl,engine,users,wait_closed,SSCursor,connect,ensure_closed,fetchone,Column,create_engine,executemany,fetchall,get"
 ---
 
 # aiomysql Python Package Guide

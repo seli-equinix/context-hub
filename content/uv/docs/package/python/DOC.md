@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "uv,python,packaging,virtualenv,dependency-management,cli"
+  tags: "uv,python,packaging,virtualenv,dependency-management,cli,toml,true,Version-Sensitive"
 ---
 
 # uv Python Package Guide

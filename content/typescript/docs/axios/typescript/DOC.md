@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,axios,http,client,api,types,definitelytyped,npm"
+  tags: "typescript,axios,http,client,api,types,definitelytyped,npm,apiClient,isAxiosError,0.14.4,Content-Type,create,Version-Sensitive,delete"
 ---
 
 # Axios TypeScript Guide

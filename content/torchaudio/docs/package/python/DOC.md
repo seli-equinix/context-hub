@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "torchaudio,pytorch,audio,speech,ml,asr"
+  tags: "torchaudio,pytorch,audio,speech,ml,asr,torch,bundle,transforms,load,save,dataset,Resample,device,__version__,datasets,functional,labels,MelSpectrogram,cuda,YESNO,get_labels,get_model,is_available,startswith,Version-Sensitive,clamp,inference_mode"
 ---
 
 # torchaudio Python Package Guide

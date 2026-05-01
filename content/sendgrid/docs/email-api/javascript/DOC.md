@@ -6,7 +6,7 @@ metadata:
   versions: "8.1.6"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "sendgrid,email,transactional,templates,delivery"
+  tags: "sendgrid,email,transactional,templates,delivery,error,sgMail,client,example.org,console,send,setApiKey,log,request,example.com,customClient,User-Agent,provides,sendMultiple,setClient,setDefaultHeader,setDefaultRequest,sgClient1,sgClient2,setDataResidency,setSubstitutionWrappers,setTimeout"
 ---
 
 # SendGrid Node.js API Coding Guidelines (JavaScript/TypeScript)

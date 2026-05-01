@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,gcp,vm-migration,migrate-to-virtual-machines,compute,python"
+  tags: "google,google-cloud,gcp,vm-migration,migrate-to-virtual-machines,compute,python,client,vmmigration_v1,VmMigrationClient,operation,migrating_vm_path,uuid,common_location_path,environ,result,source_path,uuid4,TargetProject,create_clone_job,create_cutover_job,create_target_project,list_migrating_vms,CloneJob,CutoverJob,Version-Sensitive,finalize_migration,get_migrating_vm,get_source,list_clone_jobs,list_sources,list_target_projects"
 ---
 
 # Google Cloud VM Migration Python Client

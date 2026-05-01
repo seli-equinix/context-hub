@@ -6,7 +6,7 @@ metadata:
   versions: "4.11.2"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "deepgram,speech,transcription,tts,audio"
+  tags: "deepgram,speech,transcription,tts,audio,error,string,agent,see,console,dgConnection,listen,log,data,prerecorded,DeepgramError,speak,live,transcribeUrl,DeepgramApiError,flush,transcribeFile,DeepgramUnknownError,DeepgramVersionError,configure,deprecated,read,send,analyzeText,createReadStream"
 ---
 
 # Deepgram JavaScript SDK Coding Guidelines

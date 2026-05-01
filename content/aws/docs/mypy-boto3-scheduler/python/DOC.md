@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,scheduler,eventbridge,boto3,typing,stubs,mypy,python"
+  tags: "aws,scheduler,eventbridge,boto3,typing,stubs,mypy,python,client,current,EventBridgeSchedulerClient,schedule,get,page,paginator,create_schedule,session,update_schedule,json,lite,TYPE_CHECKING,cast,ActionAfterCompletionType,Config,FlexibleTimeWindowModeType,ListSchedulesPaginator,dumps,Version-Sensitive,create_schedule_group,get_paginator,get_schedule,paginate"
 ---
 
 # mypy-boto3-scheduler Python Package Guide

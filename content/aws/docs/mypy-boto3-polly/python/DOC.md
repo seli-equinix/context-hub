@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,polly,boto3,python,typing,stubs,mypy,pyright,text-to-speech"
+  tags: "aws,polly,boto3,python,typing,stubs,mypy,pyright,text-to-speech,client,Session,PollyClient,describe_voices,page,paginator,voice,synthesize_speech,VoiceIdType,lite,response,task,DescribeVoicesPaginator,EngineType,OutputFormatType,TYPE_CHECKING,get,Config,DescribeVoicesInputTypeDef,LanguageCodeType,StartSpeechSynthesisTaskInputTypeDef,SynthesizeSpeechInputTypeDef,paginate,result,start_speech_synthesis_task"
 ---
 
 # mypy-boto3-polly Python Package Guide

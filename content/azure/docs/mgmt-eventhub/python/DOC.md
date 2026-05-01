@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,eventhubs,arm,management,namespaces,provisioning,python"
+  tags: "azure,eventhubs,arm,management,namespaces,provisioning,python,EventHubManagementClient,event_hubs,poller,result,AzureCliCredential,DefaultAzureCredential,begin_create_or_update,environ,get,Version-Sensitive,check_name_availability,create_or_update,create_or_update_authorization_rule,list_by_namespace,list_by_resource_group,list_keys"
 ---
 
 # Azure Event Hubs Management SDK for Python

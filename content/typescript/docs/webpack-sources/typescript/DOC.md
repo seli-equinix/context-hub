@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,webpack,webpack-sources,source-map,build-tools,types,definitelytyped"
+  tags: "typescript,webpack,webpack-sources,source-map,build-tools,types,definitelytyped,source,webpackSources,answer,sourceAndMap,console,log,CachedSource,OriginalSource,ReplaceSource,asset,cached,code,output,ConcatSource,RawSource,patched,SourceMapSource,replace,insert,toString,2.3.1,3.3.3,getCachedData,indexOf"
 ---
 
 # webpack-sources TypeScript Guide

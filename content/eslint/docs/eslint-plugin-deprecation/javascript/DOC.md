@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,deprecation,typescript,javascript,linting,npm"
+  tags: "eslint,deprecation,typescript,javascript,linting,npm,deprecated,createLegacyClient,3.0.0,Version-Sensitive"
 ---
 
 # eslint-plugin-deprecation

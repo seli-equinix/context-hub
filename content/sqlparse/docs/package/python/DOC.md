@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sqlparse,sql,parser,formatter,python,linting"
+  tags: "sqlparse,sql,parser,formatter,python,linting,token,statement,parse,split,TokenList,format,get_name,get_real_name,tokens,IdentifierList,identifier,get_identifiers,get_type,token_first,Requires-Python,Version-Sensitive,example.com,flatten,get_alias,match,token_next,within"
 ---
 
 # sqlparse Python Package Guide

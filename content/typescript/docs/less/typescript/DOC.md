@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,less,css,stylesheets,build-tools,types,definitelytyped"
+  tags: "typescript,less,css,stylesheets,build-tools,types,definitelytyped,import,error,render,console,log,brand,pluginManager,Version-Sensitive,addPreProcessor,extract,join,missing"
 ---
 
 # less TypeScript Guide

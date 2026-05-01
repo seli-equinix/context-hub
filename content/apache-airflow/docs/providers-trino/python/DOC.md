@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,trino,sql,dag,python"
+  tags: "airflow,apache-airflow,trino,sql,dag,python,SQLExecuteQueryOperator,TrinoHook,task,hook,pendulum,row,annotations,datetime,get_first,get_records,summarize"
 ---
 
 # Apache Airflow Trino Provider Guide

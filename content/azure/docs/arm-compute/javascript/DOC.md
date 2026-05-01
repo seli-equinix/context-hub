@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,compute,virtual-machines,disks,vmss,javascript"
+  tags: "azure,arm,compute,virtual-machines,disks,vmss,javascript,computeClient,console,log,virtualMachines,23.3.0,instanceView,beginDeallocateAndWait,beginCreateOrUpdateAndWait,get,list,beginGrantAccessAndWait,beginRevokeAccessAndWait,beginStartAndWait"
 ---
 
 # Azure Compute Management Client For JavaScript

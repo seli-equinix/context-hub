@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,bedrock,javascript,nodejs,genai,foundation-models,llm,control-plane"
+  tags: "aws,bedrock,javascript,nodejs,genai,foundation-models,llm,control-plane,client,outputModalities,send,value,console,outputs,log,includes,toLowerCase,Bedrock-Specific,table"
 ---
 
 # `@aws-sdk/client-bedrock`

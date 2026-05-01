@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "textual,python,tui,terminal-ui,async,css,widgets"
+  tags: "textual,python,tui,terminal-ui,async,css,widgets,app,self,Static,reactive,work,Input,query_one,run,update,ComposeResult,compose,Greeting,Button,Label,pilot,GreetingApp,Screen,Vertical,call_from_thread,on_input_changed,pytest,run_test,value,Binding,Footer"
 ---
 
 # Textual Python Package Guide

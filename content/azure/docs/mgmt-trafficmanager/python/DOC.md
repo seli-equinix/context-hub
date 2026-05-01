@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,traffic-manager,arm,dns,management,load-balancing,python"
+  tags: "azure,traffic-manager,arm,dns,management,load-balancing,python,endpoints,profiles,TrafficManagerManagementClient,create_or_update,AzureCliCredential,DefaultAzureCredential,check_traffic_manager_name_availability_v2,delete,environ,geographic_hierarchies,get,update,Version-Sensitive,get_default,list_by_resource_group"
 ---
 
 # Azure Traffic Manager Management SDK for Python

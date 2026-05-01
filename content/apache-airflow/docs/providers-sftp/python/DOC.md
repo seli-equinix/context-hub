@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,sftp,ssh,file-transfer,dag,python"
+  tags: "airflow,sftp,ssh,file-transfer,dag,python,SFTPHook,task,SFTPOperator,datetime,hook,fetch_orders,list_directory,retrieve_file,store_file,upload_ack,sftp.example.com"
 ---
 
 # apache-airflow-providers-sftp

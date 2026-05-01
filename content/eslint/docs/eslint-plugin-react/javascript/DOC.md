@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,react,linting,javascript,npm"
+  tags: "eslint,react,linting,javascript,npm,flat,7.37.5,Version-Sensitive"
 ---
 
 # eslint-plugin-react JavaScript Guide

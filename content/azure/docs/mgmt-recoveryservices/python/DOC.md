@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,recovery-services,management,arm,backup,site-recovery,python"
+  tags: "azure,recovery-services,management,arm,backup,site-recovery,python,DefaultAzureCredential,RecoveryServicesClient,vaults,environ,desired_tags,begin_create_or_update,begin_delete,begin_update,private_link_resources,recovery_services,usages,Version-Sensitive,check_name_availability,get,list,list_by_resource_group,list_by_subscription_id,list_by_vaults"
 ---
 
 # Azure Recovery Services Management SDK for Python

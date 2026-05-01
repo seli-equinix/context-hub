@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "shortuuid,python,uuid,identifiers,tokens"
+  tags: "shortuuid,python,uuid,identifiers,tokens,ids,decode,random,encode,uuid4,getenv"
 ---
 
 # shortuuid Python Package Guide

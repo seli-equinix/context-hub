@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "fastapi,python,asgi,api,openapi,web,async"
+  tags: "fastapi,python,asgi,api,openapi,web,async,app,settings,lifespan,Annotated,Depends,response,get,BaseSettings,OAuth2PasswordBearer,TestClient,app.get,router,APIRouter,BackgroundTasks,json,lru_cache,state,uvicorn,BaseModel,CORSMiddleware,HTTPException,ItemIn,app.on_event,asynccontextmanager,background_tasks"
 ---
 
 # FastAPI Python Package Guide

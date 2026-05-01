@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "jsonschema,json-schema,validation,python,schemas,referencing"
+  tags: "jsonschema,json-schema,validation,python,schemas,referencing,Draft202012Validator,validator,validate,properties,instance,ErrorTree,META_SCHEMA,Registry,items,iter_errors,tree,is_valid,subschema,DRAFT202012,ValidationError,check_schema,extend_with_default,set_defaults,validators,Non-JSON,Version-Sensitive,create_resource,example.com,extend,setdefault"
 ---
 
 # jsonschema Python Package Guide

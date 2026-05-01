@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,template-literals,es2015"
+  tags: "babel,build,transpile,template-literals,es2015,7.27.1,strings,Object,freeze,slice,console,defineProperties,log"
 ---
 
 # @babel/plugin-transform-template-literals

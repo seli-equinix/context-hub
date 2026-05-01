@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,app-configuration,configuration,entra-id,async,snapshots"
+  tags: "azure,app-configuration,configuration,entra-id,async,snapshots,client,AzureAppConfigurationClient,get_configuration_setting,main,ConfigurationSetting,DefaultAzureCredential,environ,from_connection_string,set_configuration_setting,add_configuration_setting,datetime,list_configuration_settings,list_revisions,ConfigurationSettingsFilter,MatchConditions,asyncio,close,list_labels,poller,set_read_only,timedelta,timezone,Point-In,Read-Only,Version-Sensitive"
 ---
 
 # azure-appconfiguration Python Package Guide

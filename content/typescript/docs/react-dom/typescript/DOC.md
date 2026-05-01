@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-dom,dom,ssr,types,definitelytyped"
+  tags: "typescript,react,react-dom,dom,ssr,types,definitelytyped,error,render,app,res,root,console,document,Modal,createElement,end,get,getElementById,log,setHeader"
 ---
 
 # React DOM TypeScript Guide

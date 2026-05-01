@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,s3,javascript,nodejs,browser-uploads,presigned-posts"
+  tags: "aws,s3,javascript,nodejs,browser-uploads,presigned-posts,const,Content-Type,formData,3.1007.0,presignResponse,append,json,Object,crypto,entries,randomUUID,stringify"
 ---
 
 # `@aws-sdk/s3-presigned-post`

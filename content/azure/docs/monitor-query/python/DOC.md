@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-monitor,log-analytics,logs,observability,python"
+  tags: "azure,azure-monitor,log-analytics,logs,observability,python,client,timedelta,LogsQueryClient,LogsQueryStatus,credential,query_workspace,DefaultAzureCredential,LogsBatchQuery,query_resource,tables,query_batch,close,environ"
 ---
 
 # azure-monitor-query Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,airbnb,react,javascript,linting,npm"
+  tags: "eslint,airbnb,react,javascript,linting,npm,19.0.4,Version-Sensitive"
 ---
 
 # eslint-config-airbnb JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pdoc,python,documentation,docstrings,api-docs"
+  tags: "pdoc,python,documentation,docstrings,api-docs,add,Path,cleanly,path matters"
 ---
 
 # pdoc Python Package Guide

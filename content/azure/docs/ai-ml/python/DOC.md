@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-machine-learning,azure-ai-ml,mlops,jobs,pipelines,models,endpoints"
+  tags: "azure,azure-machine-learning,azure-ai-ml,mlops,jobs,pipelines,models,endpoints,MLClient,ml_client,DefaultAzureCredential,command,pipeline,Input,create_or_update,Model,begin_create_or_update,load_component,from_config,train_pipeline,AssetTypes,online_endpoints,stream,uuid,Version-Sensitive,invoke,uuid4"
 ---
 
 # Azure Machine Learning Python SDK

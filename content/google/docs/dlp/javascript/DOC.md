@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,dlp,sensitive-data-protection,pii,redaction,javascript"
+  tags: "google-cloud,dlp,sensitive-data-protection,pii,redaction,javascript,const,client,google,DlpServiceClient,console,inspectContent,log,redactImage,createDlpJob,6.5.0,deidentifyContent,example.com,De-Identify,Storage-Backed,Version-Sensitive,getDlpJob,readFileSync,writeFileSync"
 ---
 
 # Google Cloud Sensitive Data Protection Node.js Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,python,data-orchestration,assets,pipelines,schedules,sensors"
+  tags: "dagster,python,data-orchestration,assets,pipelines,schedules,sensors,api,Definitions,defs,job,list,raw_events,return,EnvVar,dg.asset,ApiResource,dagster as dg,event_count,hello,ApiConfig,RunRequest,WarehouseResource,daily_schedule,define_asset_job,dg.schedule,fetch,schedule,Version-Sensitive,test_defs_loadable,validate_loadable"
 ---
 
 # Dagster Python Package Guide

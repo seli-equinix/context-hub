@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ujson,json,serialization,parsing,python,c-extension"
+  tags: "ujson,json,serialization,parsing,python,c-extension,dumps,loads,data,User,dump,path,version,asdict,dataclass,example.com,load,open,to_jsonable,Version-Sensitive,parameters"
 ---
 
 # ujson Python Package Guide

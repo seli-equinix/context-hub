@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,marshmallow,serialization,validation,sqlalchemy,uploads"
+  tags: "flask,marshmallow,serialization,validation,sqlalchemy,uploads,app,fields,request,config,Flask-SQLAlchemy,init_app,URLFor,user_schema,version,File,dump,example.com,files,user_detail,Author,Column,FileSize,FileType,Hyperlinks,UploadSchema,UserSchema,app.get,create_app,get,user_list"
 ---
 
 # flask-marshmallow Python Package Guide

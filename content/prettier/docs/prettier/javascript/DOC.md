@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "javascript,prettier,formatting,code-style,cli"
+  tags: "javascript,prettier,formatting,code-style,cli,format,check,resolveConfig,getFileInfo,clearConfigCache"
 ---
 
 # Prettier JavaScript Guide

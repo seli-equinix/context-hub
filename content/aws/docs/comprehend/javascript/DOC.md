@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,comprehend,javascript,nodejs,nlp,sentiment,pii"
+  tags: "aws,comprehend,javascript,nodejs,nlp,sentiment,pii,client,send,console,log,error,example.com"
 ---
 
 # `@aws-sdk/client-comprehend`

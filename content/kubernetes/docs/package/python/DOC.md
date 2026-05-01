@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "kubernetes,k8s,python,cluster,containers,watch,custom-resources"
+  tags: "kubernetes,k8s,python,cluster,containers,watch,custom-resources,client,config,core,stream,load_kube_config,CoreV1Api,event,utils,ApiClient,ApiException,Configuration,CustomObjectsApi,widget,AppsV1Api,V1ObjectMeta,apps,custom,list_namespaced_pod,load_incluster_config,read_namespaced_pod,V1Container,V1ContainerPort,V1Deployment,V1DeploymentSpec,V1LabelSelector"
 ---
 
 # Kubernetes Python Client Package Guide

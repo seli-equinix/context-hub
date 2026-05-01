@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "uvicorn,asgi,python,server,fastapi,starlette,websockets"
+  tags: "uvicorn,asgi,python,server,fastapi,starlette,websockets,app,main,run,asyncio,create_app,health,scope,Config,app.get,get,serve"
 ---
 
 # `uvicorn` Python package

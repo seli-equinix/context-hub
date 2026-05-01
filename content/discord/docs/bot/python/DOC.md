@@ -6,7 +6,7 @@ metadata:
   versions: "2.6.4"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "discord,bot,slash-commands,gateway,sdk"
+  tags: "discord,bot,slash-commands,gateway,sdk,ctx,send,message,command,commands,channel,embed,response,bot.command,send_message,button,app_commands,view,color,Intents,member,tree,bot.event,client,select,MyView,fruit,guild,return,content"
 ---
 
 # Discord.py Python SDK Coding Guidelines

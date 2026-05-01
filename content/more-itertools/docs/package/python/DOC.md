@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "more-itertools,itertools,iterators,iterables,python,utilities"
+  tags: "more-itertools,itertools,iterators,iterables,python,utilities,chunked,windowed,bucket,tokens,sliding_window,batched,peekable,seekable,sliced,grouped,mit,odds,spy,count,islice,item,prepend,Version-Sensitive,more_itertools as mit,peek,seek,tee"
 ---
 
 # more-itertools Python Package Guide

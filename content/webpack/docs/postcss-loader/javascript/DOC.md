@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,postcss,css,loader,build"
+  tags: "webpack,postcss,css,loader,build,path,import,runs,resolve"
 ---
 
 # postcss-loader for JavaScript

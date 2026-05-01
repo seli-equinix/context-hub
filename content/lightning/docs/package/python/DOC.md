@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "lightning,pytorch,deep-learning,training,trainer,distributed"
+  tags: "lightning,pytorch,deep-learning,training,trainer,distributed,self,model,torch,DataLoader,MNIST,logits,test,LightningModule,__init__,fit,log,Classifier,getenv,loss_fn,make_loader,prepare_data,seed_everything,setup,Linear,ModelCheckpoint,TensorDataset,lightning as L,load_from_checkpoint,predict,random_split"
 ---
 
 # Lightning Python Package Guide

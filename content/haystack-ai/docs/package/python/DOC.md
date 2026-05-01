@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "haystack,rag,agents,llm,pipelines,retrieval"
+  tags: "haystack,rag,agents,llm,pipelines,retrieval,Secret,component,rag_pipeline,ChatMessage,Pipeline,Document,InMemoryDocumentStore,OpenAIChatGenerator,InMemoryBM25Retriever,add_component,document_store,run,connect,from_env_var,from_token,from_user,ChatPromptBuilder,from_system,result,Version-Sensitive,WelcomeTextGenerator,component.output_types,dumps,loads,output_types"
 ---
 
 # Haystack AI Python Package Guide

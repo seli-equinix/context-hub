@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,acm,boto3,python,typing,type-stubs,mypy,pyright"
+  tags: "aws,acm,boto3,python,typing,type-stubs,mypy,pyright,stubs,ACMClient,client,Session,paginator,waiter,lite,cert,TYPE_CHECKING,list_certificates,page,response,CertificateStatusType,CertificateValidatedWaiter,ListCertificatesPaginator,RequestCertificateRequestTypeDef,TagTypeDef,ValidationMethodType,Version-Sensitive,get,get_paginator,get_waiter,list,paginate,wait"
 ---
 
 # `mypy-boto3-acm` Python Package Guide

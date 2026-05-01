@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,management,mysql,postgresql,database"
+  tags: "azure,arm,management,mysql,postgresql,database,DefaultAzureCredential,PostgreSQLManagementClient,result,servers,poller,environ,MySQLManagementClient,ServerForUpdate,databases,begin_create_or_update,begin_update,configurations,Configuration,FirewallRule,firewall_rules,list_by_resource_group,Version-Sensitive,begin_restart,begin_start,begin_stop"
 ---
 
 # Azure RDBMS Management SDK For Python

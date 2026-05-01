@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "starlette,python,asgi,web,async,websockets,middleware,testing"
+  tags: "starlette,python,asgi,web,async,websockets,middleware,testing,request,client,lifespan,JSONResponse,Route,headers,state,CORSMiddleware,TestClient,PlainTextResponse,form,uvicorn,websocket,httpx,AppState,AuthenticationMiddleware,Config,dashboard,requires,AsyncClient,AsyncIterator,BasicAuthBackend,CommaSeparatedStrings,Secret,TypedDict"
 ---
 
 # Starlette Python Package Guide

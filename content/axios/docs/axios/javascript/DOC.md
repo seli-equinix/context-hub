@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "axios,http,client,requests,node,browser"
+  tags: "axios,http,client,requests,node,browser,api,response,request,error,data,headers,create,get,JSON,controller,example.com,isAxiosError,reject,Promise,abort,post,1.13.6,Content-Type,Date,Request-Id,Version-Sensitive,createWriteStream,delete,now,pipe"
 ---
 
 # Axios JavaScript Guide

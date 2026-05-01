@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,memorystore,redis,gcp,python,admin-sdk"
+  tags: "google-cloud,memorystore,redis,gcp,python,admin-sdk,client,redis_v1,CloudRedisClient,operation,Instance,instance_path,admin,result,common_location_path,list_instances,get_instance,CloudRedisAsyncClient,asyncio,failover_instance,field_mask_pb2,main,update_instance,FieldMask,Version-Sensitive,create_instance,delete_instance,export_instance,fork,get_instance_auth_string,run"
 ---
 
 # google-cloud-redis Python Package Guide

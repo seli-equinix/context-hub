@@ -6,7 +6,7 @@ metadata:
   versions: "5.0.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "auth0,identity,oauth,oidc,authentication"
+  tags: "auth0,identity,oauth,oidc,authentication,users,log,console,example.com,getAll,logs,clients,connections,create,get,userInfo,Username-Password,allUsers,organizations,controller,verifyEmail,changePassword,database,getUserInfo,jobs,passwordGrant,tickets,update,Custom-Header,Math"
 ---
 
 # Auth0 JavaScript/Node.js SDK Coding Guidelines

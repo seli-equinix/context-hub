@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,tar,node,archive,filesystem,types,npm"
+  tags: "typescript,tar,node,archive,filesystem,types,npm,path,entries,console,log,push,startsWith"
 ---
 
 # tar TypeScript Guide

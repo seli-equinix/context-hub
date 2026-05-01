@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,workflow-orchestration,dag,scheduler,etl,data-pipelines"
+  tags: "airflow,apache-airflow,workflow-orchestration,dag,scheduler,etl,data-pipelines,task,Connection,hello_airflow,localhost,Variable,json,emit,get,stats,dict,extract,pendulum,summarize,Content-Type,Version-Sensitive,annotations,datetime,db.example.com,load,once"
 ---
 
 # Apache Airflow Python Package Guide

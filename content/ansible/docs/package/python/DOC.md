@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ansible,automation,devops,playbooks,inventory,ssh,vault"
+  tags: "ansible,automation,devops,playbooks,inventory,ssh,vault,yaml,Version-Sensitive,ini"
 ---
 
 # Ansible Python Package Guide

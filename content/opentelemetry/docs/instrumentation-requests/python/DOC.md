@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,requests,tracing,metrics,observability,http"
+  tags: "opentelemetry,requests,tracing,metrics,observability,http,RequestsInstrumentor,headers,span,get,session,trace,ConsoleSpanExporter,provider,request_hook,response_hook,BatchSpanProcessor,Resource,TracerProvider,create,is_recording,post,set_attribute,Auto-Instrumentation,Request-ID,Version-Sensitive,add_span_processor,set_tracer_provider,uninstrument_session"
 ---
 
 # opentelemetry-instrumentation-requests Python Package Guide

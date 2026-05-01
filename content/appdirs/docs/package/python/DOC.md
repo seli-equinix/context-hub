@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "appdirs,python,filesystem,xdg,windows,macos,linux"
+  tags: "appdirs,python,filesystem,xdg,windows,macos,linux,Path,user_cache_dir,user_data_dir,mkdir,user_config_dir,user_log_dir,config_dir,json,site_config_dir,user_state_dir,write_text,cache_dir,data_dir,log_dir,state_dir,config_path,cursor_path,raw_value,Unix-Like,dumps,split"
 ---
 
 # appdirs Python Package Guide

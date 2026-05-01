@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,mssql,sql-server,python,dag,sql"
+  tags: "airflow,mssql,sql-server,python,dag,sql,MsSqlHook,task,hook,events,row,dbo,SQLExecuteQueryOperator,datetime,get_first,get_records,read_summary,ping_mssql,sqlserver.example.com"
 ---
 
 # apache-airflow-providers-microsoft-mssql

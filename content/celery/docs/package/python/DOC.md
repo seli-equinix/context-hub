@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "celery,python,task-queue,workers,async,redis,rabbitmq,django"
+  tags: "celery,python,task-queue,workers,async,redis,rabbitmq,django,task,app,result,fetch_remote,delay,conf,get,shared_task,apply_async,localhost,BaseModel,JobOut,environ,AsyncResult,JobIn,app.task,config_from_object,redis.example.com,update,Production-Oriented,Version-Sensitive,autodiscover_tasks,forget,rabbitmq.example.com,run_job"
 ---
 
 # Celery Python Package Guide

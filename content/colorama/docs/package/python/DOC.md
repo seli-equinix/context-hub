@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "colorama,python,terminal,ansi,windows,console"
+  tags: "colorama,python,terminal,ansi,windows,console,just_fix_windows_console,Fore,init,Style,sys,Back,Cursor,033,AnsiToWin32,main,FORWARD,Version-Sensitive"
 ---
 
 # colorama Python Package Guide

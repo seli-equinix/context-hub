@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,assets,copy,plugin"
+  tags: "webpack,build,assets,copy,plugin,path,require,content,resolve,relative,join,map,toString,data,dirname,graph,includes,posix,readFile"
 ---
 
 # copy-webpack-plugin

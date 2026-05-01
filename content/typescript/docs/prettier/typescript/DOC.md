@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,prettier,formatting,code-style,types,definitelytyped"
+  tags: "typescript,prettier,formatting,code-style,types,definitelytyped,format,check,resolveConfig,3.0.0"
 ---
 
 # Prettier TypeScript Guide

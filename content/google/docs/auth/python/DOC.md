@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-auth,authentication,oauth2,adc,service-account,workload-identity,id-token"
+  tags: "google,google-auth,authentication,oauth2,adc,service-account,workload-identity,id-token,auth,credentials,AuthorizedSession,project,response,default,json,session,get,service_account,Request,bucket,id_token,impersonated_credentials,raise_for_status,from_service_account_file,with_quota_project,with_subject,Version-Sensitive,example.com,fetch_id_token,from_authorized_user_file,load_credentials_from_file,names differ,refresh"
 ---
 
 # Google Auth Python Library

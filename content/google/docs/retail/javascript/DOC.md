@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,retail,ecommerce,search,recommendations,javascript"
+  tags: "google,google-cloud,retail,ecommerce,search,recommendations,javascript,const,console,importProducts,log,predict,predictionClient,productClient,searchClient,userEventClient,writeUserEvent,4.3.0,PredictionServiceClient,ProductServiceClient,SearchServiceClient,UserEventServiceClient,operation,Version-Sensitive,promise"
 ---
 
 # Google Cloud Retail Node.js Client

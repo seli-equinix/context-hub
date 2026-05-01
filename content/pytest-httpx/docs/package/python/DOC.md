@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-httpx,pytest,httpx,testing,mocking,python"
+  tags: "pytest-httpx,pytest,httpx,testing,mocking,python,httpx_mock,response,client,json,add_response,mark,get,headers,pytest.mark.httpx_mock,stream,ANY,IteratorStream,ReadTimeout,add_exception,get_request,handler,raises,AsyncClient,Version-Sensitive,add_callback,get_requests,iter_raw,markers,post,pytest.mark.asyncio"
 ---
 
 # pytest-httpx Python Package Guide

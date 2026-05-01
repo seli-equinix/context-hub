@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,classnames,css,react,types,definitelytyped,npm"
+  tags: "typescript,classnames,css,react,types,definitelytyped,npm,bind,strings,2.3.4,TypeScript config,Badge,Version-Sensitive,actually,fragments,getAlertClassName,getButtonClassName,getModuleButtonClassName,name,names,token"
 ---
 
 # classnames TypeScript Guide

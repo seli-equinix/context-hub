@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyparsing,python,parsing,peg,text-processing,parser-combinators"
+  tags: "pyparsing,python,parsing,peg,text-processing,parser-combinators,ParserElement,pyparsing as pp,parse_string,Word,DelimitedList,Forward,Suppress,integer,result,number,ppc,assignment,config,inline_literals_using,set_default_whitespace_chars,show_best_practices,title_case_word,toks,Group,QuotedString,enable_left_recursion,enable_packrat,run_tests,search_string,set_parse_action"
 ---
 
 # pyparsing Python Package Guide

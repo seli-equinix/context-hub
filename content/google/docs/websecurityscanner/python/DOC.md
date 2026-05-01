@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,web-security-scanner,security-command-center,vulnerability-scanning,google-cloud-websecurityscanner,python"
+  tags: "google-cloud,web-security-scanner,security-command-center,vulnerability-scanning,google-cloud-websecurityscanner,python,websecurityscanner_v1,client,WebSecurityScannerClient,ScanConfig,environ,CreateScanConfigRequest,FieldMask,StartScanRunRequest,list_finding_type_stats,Credentials,ListScanConfigsRequest,get_scan_run,list_findings,list_scan_configs,service_account,time,update_scan_config,Finding-Type,Identity-Aware,Static-IP,UpdateScanConfigRequest,create_scan_config,from_service_account_file,get_finding,get_scan_config"
 ---
 
 # google-cloud-websecurityscanner Python Package Guide

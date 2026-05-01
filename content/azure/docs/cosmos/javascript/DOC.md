@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,cosmos,cosmos-db,nosql,javascript,database"
+  tags: "azure,cosmos,cosmos-db,nosql,javascript,database,item,container,status,tenantId,console,log,query,createIfNotExists,items,upsert,4.9.1,create,containers,cosmosClient,databases"
 ---
 
 # Azure Cosmos DB JavaScript Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,socket.io,websocket,realtime,node,events,types"
+  tags: "typescript,socket.io,websocket,realtime,node,events,types,socket,admin,emit,join,console,httpServer,log,Version-Sensitive,listen"
 ---
 
 # Socket.IO TypeScript Guide

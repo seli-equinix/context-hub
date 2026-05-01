@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,postgres,postgresql,python,storage,orchestration"
+  tags: "dagster,postgres,postgresql,python,storage,orchestration,PostgresEventLogStorage,PostgresRunStorage,PostgresScheduleStorage,environ,per"
 ---
 
 # dagster-postgres

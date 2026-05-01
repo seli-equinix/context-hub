@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,botocore,python,sdk,cloud"
+  tags: "aws,boto3,botocore,python,sdk,cloud,session,client,Config,sts,ClientError,identity,response,creds,resource,waiter,ec2,page,paginator,assumed,base_session,ddb,get,item,paginate,Hand-Written,Version-Sensitive,all,assume_role,buckets,create_bucket"
 ---
 
 # boto3 Python Package Guide

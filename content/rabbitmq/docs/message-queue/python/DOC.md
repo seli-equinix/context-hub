@@ -6,7 +6,7 @@ metadata:
   versions: "1.3.2"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "rabbitmq,queue,amqp,messaging,async"
+  tags: "rabbitmq,queue,amqp,messaging,async,channel,pika,connection,self,message,body,localhost,ConnectionParameters,BlockingConnection,close,queue_declare,callback,sys,basic_consume,time,basic_publish,argv,start_consuming,decode,BasicProperties,basic_ack,exchange_declare,headers,host,signal"
 ---
 
 # RabbitMQ Pika Coding Guidelines (Python)

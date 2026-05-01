@@ -6,7 +6,7 @@ metadata:
   versions: "4.40.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "braintree,gateway,payments,paypal,subscriptions"
+  tags: "braintree,gateway,payments,paypal,subscriptions,transaction,customer,subscription,webhook_notification,request,submit_for_settlement,client_token,sale,create,Flask,app,jsonify,payment_method,example.com,getenv,dispute,JsonResponse,POST,find,form,app.route,generate,get,route,Configuration"
 ---
 
 # Braintree Python SDK Context

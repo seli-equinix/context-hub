@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,hive,hiveserver2,metastore,dag,python"
+  tags: "airflow,apache-airflow,hive,hiveserver2,metastore,dag,python,task,HiveOperator,datetime,HivePartitionSensor,HiveMetastoreHook,HiveServer2Hook,analytics,events,hook,daily,print_latest_partition,read_counts,get_records,max_partition"
 ---
 
 # apache-airflow-providers-apache-hive

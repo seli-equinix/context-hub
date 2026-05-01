@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,event-hubs,eventhubs,messaging,streaming,amqp,javascript"
+  tags: "azure,event-hubs,eventhubs,messaging,streaming,amqp,javascript,process,connectionString,consumer,events,context,error,producer,batch,6.0.3,close,includes,subscribe,console,subscription,tryAdd,containerClient,blobServiceClient,createBatch,exit,log,createIfNotExists,createProducerClient,getContainerClient,sendBatch,updateCheckpoint"
 ---
 
 # Azure Event Hubs JavaScript Client

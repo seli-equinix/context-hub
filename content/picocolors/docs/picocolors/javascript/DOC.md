@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "picocolors,cli,terminal,ansi,colors"
+  tags: "picocolors,cli,terminal,ansi,colors,console,log,createColors,bold,green,red,cyan,underline,warn,yellow,blue,error,info,italic,return,fail"
 ---
 
 # picocolors for JavaScript

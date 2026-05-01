@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,security-command-center,security-center,findings,google-cloud-securitycenter,python"
+  tags: "google-cloud,security-command-center,security-center,findings,google-cloud-securitycenter,python,client,securitycenter_v1,docs,securitycenter_v2,SecurityCenterClient,list_findings,ListFindingsRequest,get_finding,main,ClientOptions,SecurityCenterAsyncClient,asyncio,GetFindingRequest,run"
 ---
 
 # google-cloud-securitycenter Python Package Guide

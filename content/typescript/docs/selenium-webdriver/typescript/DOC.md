@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,selenium,webdriver,browser-automation,testing,types,definitelytyped"
+  tags: "typescript,selenium,webdriver,browser-automation,testing,types,definitelytyped,driver,until,message,wait,elementLocated,button,findElement,input,click,css,elementIsVisible,get,name,quit,sendKeys,textBox,WebFormPage,clear,getText,titleContains,urlContains"
 ---
 
 # Selenium WebDriver TypeScript Guide

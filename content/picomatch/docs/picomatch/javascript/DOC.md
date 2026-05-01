@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "picomatch,glob,matching,paths,files,regex"
+  tags: "picomatch,glob,matching,paths,files,regex,console,log,isMatch,test,4.0.3,matchBase,sourceFileRe,makeRe,scan"
 ---
 
 # picomatch for JavaScript

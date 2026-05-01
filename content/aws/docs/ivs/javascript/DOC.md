@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,ivs,live-streaming,video,javascript"
+  tags: "aws,ivs,live-streaming,video,javascript,client,console,log,send,JSON,Low-Latency,stringify"
 ---
 
 # `@aws-sdk/client-ivs`

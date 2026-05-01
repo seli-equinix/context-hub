@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pdf2image,pdf,poppler,pillow,image,conversion"
+  tags: "pdf2image,pdf,poppler,pillow,image,conversion,convert_from_path,convert_from_bytes,pdfinfo_from_path,info,tempfile,TemporaryDirectory,Version-Sensitive,save"
 ---
 
 # pdf2image Python Package Guide

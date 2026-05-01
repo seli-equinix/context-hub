@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "redux,state,store,reducer,middleware,javascript"
+  tags: "redux,state,store,reducer,middleware,javascript,return,dispatch,increment,actions,add,getState,console,log,subscribe,reduxjs,replaceReducer,storeAPI"
 ---
 
 # Redux Core Guide

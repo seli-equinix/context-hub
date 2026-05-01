@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "geopandas,geospatial,gis,shapely,pyogrio,geoparquet,postgis"
+  tags: "geopandas,geospatial,gis,shapely,pyogrio,geoparquet,postgis,gpd,gdf,overlay,to_crs,parcels,read_file,set_crs,geopandas as gpd,schools,roads,sjoin,sjoin_nearest,DataFrame,GeoDataFrame,GeoSeries,create_engine,estimate_utm_crs,read_parquet,read_postgis,to_parquet,to_postgis,Version-Sensitive,fillna,host,list_layers"
 ---
 
 # GeoPandas Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "3.6.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "binance,trading,crypto,exchange,api"
+  tags: "binance,trading,crypto,exchange,api,error,console,log,client,websocketStreamClient,ticker,trades,account,JSON,parse,time,depth,newOrder,trade,balances,klines,winston,bookTicker,exchangeInfo,headers,kline,aggTrade,aggTrades,allOrders,format"
 ---
 
 # Binance API JavaScript/TypeScript Coding Guidelines

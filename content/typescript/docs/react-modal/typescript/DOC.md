@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-modal,modal,accessibility,ui,types,definitelytyped"
+  tags: "typescript,react,react-modal,modal,accessibility,ui,types,definitelytyped,setAppElement,document,event,const,AppModalA11ySetup,DrawerLikeModal,RenameProjectDialog,StyledDialog,getElementById,preventDefault"
 ---
 
 # react-modal TypeScript Guide

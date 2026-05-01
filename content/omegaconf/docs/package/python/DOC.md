@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "omegaconf,config,yaml,dataclass,interpolation,python"
+  tags: "omegaconf,config,yaml,dataclass,interpolation,python,cfg,create,structured,merge,load,AppConfig,to_container,MISSING,from_dotlist,unsafe_merge,MySQLConfig,Settings,open_dict,select,update,Version-Sensitive,clear_resolver,from_cli,has_resolver,register_new_resolver,save,set_struct,to_object"
 ---
 
 # OmegaConf Python Package Guide

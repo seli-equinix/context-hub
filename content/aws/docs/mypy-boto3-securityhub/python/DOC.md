@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,security-hub,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,security-hub,boto3,type-stubs,mypy,pyright,python,securityhub,client,session,SecurityHubClient,paginator,page,stubs,GetFindingsPaginator,TYPE_CHECKING,describe_hub,enable_security_hub,finding,subscription,GetEnabledStandardsPaginator,get,get_paginator,hub,lite,paginate,Version-Sensitive,make_client"
 ---
 
 # mypy-boto3-securityhub Python Package Guide

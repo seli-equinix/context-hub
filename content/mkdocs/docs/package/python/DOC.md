@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mkdocs,python,documentation,static-site,markdown"
+  tags: "mkdocs,python,documentation,static-site,markdown,Python-Markdown"
 ---
 
 # MkDocs Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,firehose,boto3,type-stubs,mypy,pyright"
+  tags: "aws,firehose,boto3,type-stubs,mypy,pyright,session,stubs,client,FirehoseClient,response,RecordTypeDef,TYPE_CHECKING,lite,AmazonOpenSearchServerlessS3BackupModeType,json,put_record_batch,Version-Sensitive,dumps"
 ---
 
 # mypy-boto3-firehose Python Package Guide

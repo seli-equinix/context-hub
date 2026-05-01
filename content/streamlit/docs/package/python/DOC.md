@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "streamlit,python,web,ui,dashboard,data-app,chat"
+  tags: "streamlit,python,web,ui,dashboard,data-app,chat,toml,secrets,streamlit as st,run,navigation,connection,rerun,write,Page,form,st.cache_resource,title,button,fragment,messages,cache_data,chat_input,chat_message,home,message,st.cache_data,st.fragment,text_input,DataFrame,conn"
 ---
 
 # Streamlit Python Package Guide

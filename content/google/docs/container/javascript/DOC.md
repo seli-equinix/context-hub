@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gke,kubernetes,container,gcp,adc,javascript,nodejs"
+  tags: "google-cloud,gke,kubernetes,container,gcp,adc,javascript,nodejs,const,client,google,ClusterManagerClient,console,log,createCluster,getServerConfig,deleteCluster,getCluster,listClusters,6.7.0,Control-Plane,getOperation"
 ---
 
 # `@google-cloud/container` JavaScript Package Guide

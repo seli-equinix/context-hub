@@ -6,7 +6,7 @@ metadata:
   versions: "0.0.30"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "directus,headless-cms,api,content,backend"
+  tags: "directus,headless-cms,api,content,backend,asyncio,main,collection,run,items,item,Article,DirectusUser,example.com,Agg,message,name,stat,getenv,result,AggregationOperators,Optional,BaseModel,aiofiles,created_article,current_user,get,httpx,subscribe,uploaded_file"
 ---
 
 # Directus Python SDK Coding Guidelines

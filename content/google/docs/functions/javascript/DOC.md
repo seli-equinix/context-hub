@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,cloud-functions,gcp,functions,serverless,javascript,nodejs"
+  tags: "google-cloud,cloud-functions,gcp,functions,serverless,javascript,nodejs,const,client,google,operation,FunctionServiceClient,promise,updateFunction,getFunction,CloudFunctionsServiceClient,callFunction,console,createFunction,deleteFunction,log,4.2.1,generateUploadUrl,listRuntimesAsync,listFunctionsAsync,Content-Type,JSON,Version-Sensitive,readFile,stringify"
 ---
 
 # `@google-cloud/functions` JavaScript Package Guide

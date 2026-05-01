@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,acr,container-registry,oci,artifacts,python"
+  tags: "azure,acr,container-registry,oci,artifacts,python,client,ContainerRegistryClient,DefaultAzureCredential,reference,credential,environ,list_repository_names,asyncio,download_blob,list_tag_properties,main,stream,Version-Sensitive,chunks,close,get_repository_properties,get_tag_properties,list_manifest_properties,run,write"
 ---
 
 # azure-containerregistry Python Package Guide

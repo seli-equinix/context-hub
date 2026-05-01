@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,storybook,javascript,linting,stories,ui,npm"
+  tags: "eslint,storybook,javascript,linting,stories,ui,npm,default,configs,10.2.17,Version-Sensitive"
 ---
 
 # eslint-plugin-storybook JavaScript Guide

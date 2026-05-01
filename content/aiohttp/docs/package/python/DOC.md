@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aiohttp,python,asyncio,http,web,websocket,client,server"
+  tags: "aiohttp,python,asyncio,http,web,websocket,client,server,app,resp,session,ClientSession,get,Application,json,ssl,data,raise_for_status,AppKey,WebSocketResponse,cleanup_ctx,headers,hello,main,routes,BasicAuth,add_routes,background,health,json_response,read,run_app,text"
 ---
 
 # aiohttp Python Package Guide

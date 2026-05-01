@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-slugify,slugify,unicode,transliteration,urls,text-processing"
+  tags: "python-slugify,slugify,unicode,transliteration,urls,text-processing,Version-Sensitive"
 ---
 
 # python-slugify Python Package Guide

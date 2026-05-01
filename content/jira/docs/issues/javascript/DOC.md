@@ -6,7 +6,7 @@ metadata:
   versions: "5.2.2"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "jira,issues,atlassian,project-management,agile"
+  tags: "jira,issues,atlassian,project-management,agile,console,log,fields,sprint,error,board,Issue,forEach,jql,all,labels,transitions,projects,attachment,permissions,issueSearch,results,searchForIssuesUsingJql,createIssue,Promise,filters,getIssue,webhooks,allIssues,batch"
 ---
 
 # Jira JavaScript/TypeScript SDK Coding Guidelines

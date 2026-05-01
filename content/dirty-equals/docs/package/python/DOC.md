@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dirty-equals,python,testing,pytest,assertions,matchers"
+  tags: "dirty-equals,python,testing,pytest,assertions,matchers,equals,assert,IsPositiveInt,IsStr,datetime,timezone,IsNow,IsPartialDict,IsJson,settings,IsStrictDict,DirtyEquals,IsApprox,IsInt,IsList,Contains,HasLen,IsEven,IsInstance,example,now,IsDatetime,Version-Sensitive,example.com,test_user_payload"
 ---
 
 # dirty-equals Python Package Guide

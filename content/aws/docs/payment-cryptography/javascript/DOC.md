@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,payment-cryptography,javascript,nodejs,control-plane,keys,aliases,cryptography"
+  tags: "aws,payment-cryptography,javascript,nodejs,control-plane,keys,aliases,cryptography,client,send,console,log,or export parameters,push"
 ---
 
 # `@aws-sdk/client-payment-cryptography`

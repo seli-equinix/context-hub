@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,cloudwatch,javascript,nodejs,browser,monitoring,metrics,alarms"
+  tags: "aws,cloudwatch,javascript,nodejs,browser,monitoring,metrics,alarms,client,send,log,JSON,console,endTime,CloudWatch-Specific,getTime,stringify"
 ---
 
 # `@aws-sdk/client-cloudwatch`

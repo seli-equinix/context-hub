@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,google-cloud-network-management,gcp,network-management,connectivity-tests,vpc-flow-logs,python"
+  tags: "google-cloud,google-cloud-network-management,gcp,network-management,connectivity-tests,vpc-flow-logs,python,network_management_v1,client,result,ReachabilityServiceClient,VpcFlowLogsConfig,VpcFlowLogsServiceClient,operation,create_connectivity_test,pages,Endpoint,rerun_connectivity_test,ConnectivityTest,FieldMask,create_subnet_flow_logs_config,create_vpc_flow_logs_config,rerun_operation,show_effective_flow_logs_configs,update_operation,update_vpc_flow_logs_config,Organization-Level,RerunConnectivityTestRequest,ShowEffectiveFlowLogsConfigsRequest,connectivity_test_path,environ,from_service_account_file"
 ---
 
 # google-cloud-network-management Python Package Guide

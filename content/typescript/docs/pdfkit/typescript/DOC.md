@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,pdfkit,pdf,documents,npm,types,definitelytyped"
+  tags: "typescript,pdfkit,pdf,documents,npm,types,definitelytyped,doc,text,end,font,image,PdfDocument,pipe,fontSize,registerFont,addPage,Inter-Regular,Version-Sensitive,moveDown"
 ---
 
 # pdfkit TypeScript Guide

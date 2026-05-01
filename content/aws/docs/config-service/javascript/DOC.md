@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,config,compliance,governance,javascript,nodejs"
+  tags: "aws,config,compliance,governance,javascript,nodejs,client,send,JSON,console,log,parse,stringify"
 ---
 
 # `@aws-sdk/client-config-service`

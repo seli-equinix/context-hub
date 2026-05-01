@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,scheduler,gcp,cron,jobs,http,pubsub,app-engine"
+  tags: "google-cloud,scheduler,gcp,cron,jobs,http,pubsub,app-engine,const,client,google,CloudSchedulerClient,5.3.1,updateJob,createJob,Buffer,Content-Type,JSON,listJobs,stringify,console,getJob,log,pauseJob,resumeJob,runJob,Content-Length,User-Agent,Version-Sensitive,YOUR_PROJECT_ID.iam.gserviceaccount.com,deleteJob"
 ---
 
 # Google Cloud Scheduler Node.js Client

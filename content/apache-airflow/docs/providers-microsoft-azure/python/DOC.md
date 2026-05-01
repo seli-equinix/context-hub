@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,azure,blob-storage,data-factory,key-vault,secrets"
+  tags: "airflow,apache-airflow,azure,blob-storage,data-factory,key-vault,secrets,DAG,task,WasbHook,pendulum,blob_client,upload_and_read,BaseHook,Variable,annotations,datetime,get,hook,service_client,download_blob,get_blob_client,get_conn,get_connection,upload_blob"
 ---
 
 # Apache Airflow Providers Microsoft Azure Guide

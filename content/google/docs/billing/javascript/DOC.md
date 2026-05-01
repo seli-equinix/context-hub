@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud-billing,google-cloud,gcp,billing,cloud-catalog,pricing,javascript,nodejs"
+  tags: "google-cloud-billing,google-cloud,gcp,billing,cloud-catalog,pricing,javascript,nodejs,const,client,google,CloudBillingClient,projects,services,CloudCatalogClient,accounts,updateProjectBillingInfo,getProjectBillingInfo,push,skus,5.1.1,listBillingAccountsAsync,listProjectBillingInfoAsync,listSkusAsync,listServicesAsync"
 ---
 
 # `@google-cloud/billing` JavaScript Package Guide

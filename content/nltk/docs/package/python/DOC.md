@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nltk,nlp,tokenization,tagging,wordnet,corpora,text-processing"
+  tags: "nltk,nlp,tokenization,tagging,wordnet,corpora,text-processing,download,data,word_tokenize,first,pos_tag,tag,path,stopwords,WordNetLemmatizer,lemmatize,sent_tokenize,startswith,synsets,FreqDist,fdist,lemmatizer,to_wordnet_pos,wordnet as wn,Version-Sensitive,append,definition,fileids,find,hypernyms,lemma_names"
 ---
 
 # nltk Python Package Guide

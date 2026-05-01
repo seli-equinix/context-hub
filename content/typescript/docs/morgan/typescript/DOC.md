@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,morgan,express,node,http,middleware,logging,types,definitelytyped"
+  tags: "typescript,morgan,express,node,http,middleware,logging,types,definitelytyped,app,res,format,tokens,token,status,url,json,method,value,get,write,Array,Version-Sensitive,compile,headers,isArray,stdout,stringify"
 ---
 
 # Morgan TypeScript Guide

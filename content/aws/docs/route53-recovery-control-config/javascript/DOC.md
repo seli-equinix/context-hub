@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs"
+  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs,arcConfig,console,log,send"
 ---
 
 # `@aws-sdk/client-route53-recovery-control-config`

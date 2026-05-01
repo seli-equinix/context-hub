@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "weasyprint,python,pdf,html,css,rendering"
+  tags: "weasyprint,python,pdf,html,css,rendering,write_pdf,render,document,FontConfiguration,Path,URLFetcher,template,fetch,font,pages,request_headers,AuthFetcher,Environment,FileSystemLoader,__init__,env,first_page,Template-Driven,Version-Sensitive,copy,get_template"
 ---
 
 # WeasyPrint Python Package Guide

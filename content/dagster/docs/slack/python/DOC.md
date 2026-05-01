@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,dagster-slack,python,slack,notifications,sensors,data-orchestration"
+  tags: "dagster,dagster-slack,python,slack,notifications,sensors,data-orchestration,SlackResource,Definitions,dagster as dg,environ,get_client,EnvVar,dg.asset,get,important_asset,make_slack_on_run_failure_sensor,notify_slack,post_run_summary"
 ---
 
 # dagster-slack Python Package Guide

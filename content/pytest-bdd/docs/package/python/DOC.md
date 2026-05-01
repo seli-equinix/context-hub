@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-bdd,pytest,bdd,gherkin,testing,python"
+  tags: "pytest-bdd,pytest,bdd,gherkin,testing,python,article,parsers,scenario,discount,parse,scenarios,given,when,cart_total,ini,publish_article,users,pytest.mark.parametrize,Version-Sensitive,app_client,assert_status,cfparse,draft_article,pytest.fixture,test_publishing_article"
 ---
 
 # pytest-bdd Python Package Guide

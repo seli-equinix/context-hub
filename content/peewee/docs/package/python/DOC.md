@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "peewee,python,orm,sqlite,postgresql,mysql,database"
+  tags: "peewee,python,orm,sqlite,postgresql,mysql,database,Entry,Blog,User,BaseModel,CharField,Model,create,datetime,username,asyncio,select,SqliteDatabase,connect,migrate,Meta,atomic,created_at,database_proxy,DatabaseProxy,db_url,migrator,prefetch,AsyncSqliteDatabase,Note,PostgresqlDatabase"
 ---
 
 # Peewee Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,budgets,javascript,nodejs,billing,cost-management,cost-control"
+  tags: "aws,budgets,javascript,nodejs,billing,cost-management,cost-control,send,Date,console,log,now,example.com,UTC,getUTCFullYear,getUTCMonth"
 ---
 
 # `@aws-sdk/client-budgets`

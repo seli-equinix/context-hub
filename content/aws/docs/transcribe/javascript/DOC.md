@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,transcribe,javascript,nodejs,speech-to-text,audio,s3"
+  tags: "aws,transcribe,javascript,nodejs,speech-to-text,audio,s3,send,console,log,transcriptResponse,3.1007.0,Date,now,argv,json,transcripts"
 ---
 
 # `@aws-sdk/client-transcribe`

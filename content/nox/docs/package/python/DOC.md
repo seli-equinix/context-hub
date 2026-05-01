@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nox,python,testing,automation,ci,virtualenv"
+  tags: "nox,python,testing,automation,ci,virtualenv,session,install,tests,run,project,nox.session,env,lint,load_toml,nox.parametrize,parametrize,Version-Sensitive,dependency_groups,integration,python_versions"
 ---
 
 # Nox Python Package Guide

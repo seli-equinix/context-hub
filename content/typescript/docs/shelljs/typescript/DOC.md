@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,shelljs,nodejs,build-scripts,shell,types,definitelytyped"
+  tags: "typescript,shelljs,nodejs,build-scripts,shell,types,definitelytyped,exec,env,config,stdout,echo,which,cat,mkdir,sed,console,exit,log,reset,set,trim,write"
 ---
 
 # shelljs TypeScript Guide

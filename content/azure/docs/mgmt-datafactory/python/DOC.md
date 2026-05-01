@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,data-factory,arm,management,pipelines,etl"
+  tags: "azure,data-factory,arm,management,pipelines,etl,Factory,DataFactoryManagementClient,create_or_update,factories,activity_runs,datasets,datetime,get,integration_runtimes,pipeline_runs,time,AzureCliCredential,DefaultAzureCredential,environ,poller,result,timedelta,timezone,RunFilterParameters,create_run,linked_services,now,Version-Sensitive,begin_start,cancel"
 ---
 
 # Azure Data Factory Management SDK for Python

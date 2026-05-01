@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "supervisor,process-manager,unix,daemon,xml-rpc,supervisord,supervisorctl"
+  tags: "supervisor,process-manager,unix,daemon,xml-rpc,supervisord,supervisorctl,tmp,127.0.0.1,ini,sock,0700,ServerProxy,getAllProcessInfo,getState,getSupervisorVersion,startProcess,stopProcess,Version-Sensitive,make_main_rpcinterface"
 ---
 
 # Supervisor Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.isequal,deep-equality,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.isequal,deep-equality,types,definitelytyped,npm,console,log,LineItem,Version-Sensitive"
 ---
 
 # lodash.isequal TypeScript Guide

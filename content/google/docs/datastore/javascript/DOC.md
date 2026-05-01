@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,datastore,firestore-datastore-mode,nosql,query,transaction"
+  tags: "google,datastore,firestore-datastore-mode,nosql,query,transaction,const,key,save,get,10.1.0,console,entities,commit,createQuery,delete,log,Version-Sensitive,map,rollback,run,runQuery"
 ---
 
 # Google Cloud Datastore Node.js Client

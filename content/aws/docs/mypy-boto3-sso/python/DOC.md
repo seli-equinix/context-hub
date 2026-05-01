@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,sso,iam-identity-center,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,sso,iam-identity-center,boto3,type-stubs,mypy,pyright,python,client,Session,SSOClient,environ,stubs,paginator,page,get_role_credentials,role_credentials,TYPE_CHECKING,get,getenv,lite,logout,roles,typed_account,AccountInfoTypeDef,GetRoleCredentialsResponseTypeDef,ListAccountRolesPaginator,ListAccountsPaginator,ListAccountsRequestPaginateTypeDef,RoleInfoTypeDef,account_session,creds_response,get_paginator"
 ---
 
 # mypy-boto3-sso Python Package Guide

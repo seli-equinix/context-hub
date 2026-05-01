@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,node-fetch,fetch,http,types,definitelytyped"
+  tags: "typescript,node-fetch,fetch,http,types,definitelytyped,response,https,body,controller,json,error,headers,abort,console,2.6.13,log,params,Agent,buffer,isRedirect,raw,redirect,stringify,textConverted,2.6.12,Content-Type,Node-Specific,URL-Encoded,append,formData"
 ---
 
 # node-fetch TypeScript Guide

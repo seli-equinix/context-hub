@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "asyncpg,postgresql,postgres,asyncio,database,sql"
+  tags: "asyncpg,postgresql,postgres,asyncio,database,sql,conn,json,connect,pool,ssl,transaction,fetchval,127.0.0.1,Connection,fetchrow,acquire,example.com,execute,create_pool,set_type_codec,DB-API,cursor,init_connection,list,main,Version-Sensitive,close,create_default_context,get_user,init_pool"
 ---
 
 # asyncpg Python Package Guide

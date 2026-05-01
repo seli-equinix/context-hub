@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,authentication,accounts,social-login,oauth,oidc,mfa"
+  tags: "django,authentication,accounts,social-login,oauth,oidc,mfa,allauth,request,path,AccountAdapter,DefaultAccountAdapter,dashboard,include,login_required,render,ABC-DEF,Forwarded-For,Version-Sensitive,get_host,is_open_for_signup"
 ---
 
 # django-allauth Python Package Guide

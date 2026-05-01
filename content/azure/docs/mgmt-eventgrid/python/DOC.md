@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,event-grid,management,arm,topics,event-subscriptions,namespaces"
+  tags: "azure,event-grid,management,arm,topics,event-subscriptions,namespaces,Topic,EventGridManagementClient,begin_create_or_update,AzureCliCredential,DefaultAzureCredential,environ,event_subscriptions,publisher,send,topic_event_subscriptions,AzureKeyCredential,CloudEvent,EventGridPublisherClient,get_full_url,list_by_resource,list_by_subscription,list_shared_access_keys"
 ---
 
 # Azure Event Grid Management SDK for Python

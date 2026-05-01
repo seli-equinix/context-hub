@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,private-ca,pki,tls,x509,certificates,python"
+  tags: "google-cloud,gcp,private-ca,pki,tls,x509,certificates,python,privateca_v1,client,environ,CertificateAuthorityServiceClient,operation,get,Certificate,KeyUsage,ca_pool_path,result,CertificateAuthority,X509Parameters,duration_pb2,certificate_path,common_location_path,create_certificate,read,CaOptions,CaPool,CertificateConfig,Credentials,Duration,KeyUsageOptions,certificate_authority_path,expr_pb2"
 ---
 
 # google-cloud-private-ca Python Package Guide

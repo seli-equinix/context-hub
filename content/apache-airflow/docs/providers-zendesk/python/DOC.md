@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,zendesk,tickets,support,hooks,dag"
+  tags: "airflow,apache-airflow,zendesk,tickets,support,hooks,dag,task,client,ZendeskHook,hook,get_conn,list,pendulum,search,read_ticket,annotations,datetime,dict,find_open_ticket_ids,return,example.com"
 ---
 
 # Apache Airflow Zendesk Provider Guide

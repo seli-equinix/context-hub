@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,prismjs,syntax-highlighting,types,definitelytyped"
+  tags: "typescript,prismjs,syntax-highlighting,types,definitelytyped,Prism,languages,highlight,add,console,log,insertBefore,1.26.6,extend,highlightAll,highlightElement,hooks,tokenize,classes,items,push,reduce"
 ---
 
 # PrismJS TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,sqs,queues,messaging,javascript"
+  tags: "aws,sqs,queues,messaging,javascript,send,console,log,JSON,stringify,SQS-Specific"
 ---
 
 # AWS SQS SDK for JavaScript (v3)

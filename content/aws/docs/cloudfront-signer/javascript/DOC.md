@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,cloudfront,javascript,nodejs,cdn,signed-urls,signed-cookies"
+  tags: "aws,cloudfront,javascript,nodejs,cdn,signed-urls,signed-cookies,const,Date,downloadUrl,CLOUDFRONT_PRIVATE_KEY,now,3.1005.0,Set-Cookie,console,cookie,log,searchParams,set,Object,entries,replace,res,toString"
 ---
 
 # `@aws-sdk/cloudfront-signer`

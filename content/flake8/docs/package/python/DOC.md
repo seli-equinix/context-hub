@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flake8,python,linting,pyflakes,pycodestyle,mccabe,ci"
+  tags: "flake8,python,linting,pyflakes,pycodestyle,mccabe,ci,ini,style_guide,Version-Sensitive,check_files,get_style_guide,legacy as flake8"
 ---
 
 # flake8 7.3.0 Python Package Guide

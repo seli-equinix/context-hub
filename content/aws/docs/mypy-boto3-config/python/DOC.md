@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,config,boto3,python,typing,stubs,mypy,pyright"
+  tags: "aws,config,boto3,python,typing,stubs,mypy,pyright,client,Session,ConfigServiceClient,paginator,recorder,rule,ConfigRuleTypeDef,ListConfigurationRecordersPaginator,TYPE_CHECKING,cast,lite,page,response,ComplianceTypeType,describe_config_rules,get,resource,Version-Sensitive,get_paginator,paginate"
 ---
 
 # mypy-boto3-config Python Package Guide

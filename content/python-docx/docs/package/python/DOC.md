@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-docx,docx,word,office,document-generation"
+  tags: "python-docx,docx,word,office,document-generation,document,paragraph,save,header,add_paragraph,paragraphs,Inches,table,row,BytesIO,add_run,buf,WD_SECTION,add_comment,add_picture,rows,sections,Version-Sensitive,add_heading,add_row,add_section,add_table,getvalue,high,iter_inner_content"
 ---
 
 # python-docx Python Package Guide

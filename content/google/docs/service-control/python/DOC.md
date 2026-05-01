@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,service-control,service-infrastructure,quota,telemetry"
+  tags: "google-cloud,gcp,service-control,service-infrastructure,quota,telemetry,servicecontrol_v1,report,check,client,environ,datetime,ServiceControllerClient,end_time,now,uuid,QuotaControllerClient,Timestamp,default,start_time,timezone,allocate_quota,auth,FromDatetime,Operation,uuid4,QuotaOperation,AllocateQuotaRequest,CheckRequest,ReportRequest,Version-Sensitive"
 ---
 
 # google-cloud-service-control Python Package Guide

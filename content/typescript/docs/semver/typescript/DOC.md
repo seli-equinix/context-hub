@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,semver,versioning,npm,types"
+  tags: "typescript,semver,versioning,npm,types,coerce,console,log,range,string,prerelease,clean,inc,parse,satisfies,test,bump,maxSatisfying,releases,Non-Standard,filter,minVersion,parseVersion,rsort"
 ---
 
 # semver TypeScript Guide

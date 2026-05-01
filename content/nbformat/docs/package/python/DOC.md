@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nbformat,jupyter,notebook,ipynb,validation,jsonschema"
+  tags: "nbformat,jupyter,notebook,ipynb,validation,jsonschema,validate,read,write,cells,notary,NotebookNotary,from_dict,new_markdown_cell,Path,ValidationError,convert,new_code_cell,new_notebook,sign,Version-Sensitive,append,check_signature,mark_cells,reads,writes"
 ---
 
 # nbformat Python Package Guide

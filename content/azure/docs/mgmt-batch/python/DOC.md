@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,batch,arm,management,python,compute"
+  tags: "azure,batch,arm,management,python,compute,environ,batch_account,location,DefaultAzureCredential,BatchManagementClient,application_package,AutoStorageBaseProperties,BatchAccountUpdateParameters,list,BatchAccountCreateParameters,begin_create,begin_delete,update,Auto-Storage,Version-Sensitive,get,get_keys,get_quotas,list_supported_virtual_machine_skus,synchronize_auto_storage_keys"
 ---
 
 # Azure Batch Management SDK for Python

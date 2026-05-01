@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cairosvg,svg,graphics,rendering,png,pdf,postscript,cli"
+  tags: "cairosvg,svg,graphics,rendering,png,pdf,postscript,cli,output,svg2png,font,svg2pdf,BytesIO,2x.png,Version-Sensitive,getvalue,svg2ps,svg2svg"
 ---
 
 # CairoSVG Python Package Guide

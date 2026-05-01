@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "zustand,state,react,store,javascript"
+  tags: "zustand,state,react,store,javascript,useCounterStore,counterStore,useUserStore,todos,getState,response,subscribe,Counter,console,log,positionStore,setState,JSON,UserProfile,crypto,map,randomUUID,stringify,useSessionStore,useTodoStore,useZooStore"
 ---
 
 # Zustand State Management Guide (JavaScript/TypeScript)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "posthog,analytics,feature-flags,experiments,error-tracking,python"
+  tags: "posthog,analytics,feature-flags,experiments,error-tracking,python,capture,identify_context,feature_enabled,new_context,scoped,shutdown,get_feature_flag,set_context_session,tag,POSTHOG-DISTINCT,Version-Sensitive,capture_exception,disable_connection_reuse,enable_keep_alive,environ,example.com,get_feature_flag_payload,getenv,group_identify,process_order,set_socket_options"
 ---
 
 # PostHog Python SDK

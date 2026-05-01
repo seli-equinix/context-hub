@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "responses,requests,http,mocking,testing,pytest"
+  tags: "responses,requests,http,mocking,testing,pytest,json,get,matchers,resp,assert,activate,responses.activate,RequestsMock,calls,add,callback,json_params_matcher,post,query_param_matcher,registries,third,payload,query_string_matcher,rsps,Content-Type,Version-Sensitive,_add_from_file,add_callback,add_passthru,dumps"
 ---
 
 # responses Python Package Guide

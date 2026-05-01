@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tokenizers,huggingface,nlp,bpe,wordpiece,tokenization"
+  tags: "tokenizers,huggingface,nlp,bpe,wordpiece,tokenization,tokenizer,models,pre_tokenizers,from_pretrained,trainers,ByteLevel,save,BpeTrainer,decoders,normalizers,processors,train,TemplateProcessing,Whitespace,enable_padding,encode,token_to_id,train_from_iterator,Unigram,batch_iterator,decode,encode_batch,from_file,Hub-Hosted,Model-Specific"
 ---
 
 # tokenizers Python Package Guide

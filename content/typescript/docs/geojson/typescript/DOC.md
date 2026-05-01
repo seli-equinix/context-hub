@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,geojson,spatial,types,definitelytyped,npm"
+  tags: "typescript,geojson,spatial,types,definitelytyped,npm,Feature,coordinates,JSON,7946.0.16,cities,makeFeature,Array,Version-Sensitive,console,isArray,join,log,parse,summarize"
 ---
 
 # GeoJSON TypeScript Guide

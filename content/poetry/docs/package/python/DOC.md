@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "poetry,python,packaging,dependencies,virtualenv,pyproject,publishing"
+  tags: "poetry,python,packaging,dependencies,virtualenv,pyproject,publishing,toml,false,Version-Sensitive"
 ---
 
 # Poetry Python Package Guide

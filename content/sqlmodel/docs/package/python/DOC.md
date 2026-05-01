@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sqlmodel,python,sqlalchemy,pydantic,fastapi,orm,sqlite"
+  tags: "sqlmodel,python,sqlalchemy,pydantic,fastapi,orm,sqlite,session,Hero,Field,db_hero,app,add,select,DATABASE_URL,Relationship,commit,create_engine,list,refresh,Depends,HeroBase,HeroPublic,create_all,exec,get_session,metadata,get,HTTPException,HeroCreate,HeroUpdate,Query"
 ---
 
 # SQLModel Python Package Guide

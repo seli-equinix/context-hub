@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,opentelemetry,otel,tracing,observability,otlp"
+  tags: "flask,opentelemetry,otel,tracing,observability,otlp,app,span,FlaskInstrumentor,trace,Resource,healthz,trace_provider,create,request_hook,response_hook,BatchSpanProcessor,OTLPSpanExporter,SERVICE_NAME,TracerProvider,environ,get,is_recording,set_attribute,Version-Sensitive,Zero-Code,add_span_processor,app.get,run,set_tracer_provider"
 ---
 
 # OpenTelemetry Flask Instrumentation

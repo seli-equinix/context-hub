@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,jsonwebtoken,jwt,auth,nodejs,types,definitelytyped"
+  tags: "typescript,jsonwebtoken,jwt,auth,nodejs,types,definitelytyped,verify,SessionClaims,decode,sign,jwtSecret,console,env,jwtAudience,jwtIssuer,log,publicKeys,readAccessToken,9.0.10,get,inspectToken,issueAccessToken,readTokenBody,tryReadAccessToken,verifyWithKeyLookup"
 ---
 
 # jsonwebtoken TypeScript Guide

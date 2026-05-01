@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,three,webgl,3d,browser,types,definitelytyped"
+  tags: "typescript,three,webgl,3d,browser,types,definitelytyped,renderer,scene,document,add,position,render,addObject,copy,getElementById,placeAt,renderScene,setSize"
 ---
 
 # Three TypeScript Guide

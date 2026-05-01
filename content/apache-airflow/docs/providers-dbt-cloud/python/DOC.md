@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,dbt,dbt-cloud,operators,sensors,elt"
+  tags: "airflow,apache-airflow,dbt,dbt-cloud,operators,sensors,elt,DAG,DbtCloudRunJobOperator,DbtCloudHook,DbtCloudJobRunSensor,pendulum,annotations,datetime,environ"
 ---
 
 # Apache Airflow dbt Cloud Provider Guide

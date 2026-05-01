@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,iot,python,mypy,typing,stubs"
+  tags: "aws,boto3,iot,python,mypy,typing,stubs,client,IoTClient,Session,TYPE_CHECKING,annotations,paginator,page,thing,certificate,get,lite,Version-Sensitive,describe_certificate,describe_thing,get_paginator,paginate"
 ---
 
 # mypy-boto3-iot Python Package Guide

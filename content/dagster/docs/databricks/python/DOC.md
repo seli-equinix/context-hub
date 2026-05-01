@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-databricks,python,databricks,pipes,orchestration,jobs"
+  tags: "dagster,dagster-databricks,python,databricks,pipes,orchestration,jobs,WorkspaceClient,pipes_databricks,PipesDatabricksClient,Definitions,environ,run,spark_python_task,dagster as dg,databricks_asset,Databricks-Side,SubmitTask,clusters,dg.asset,from_dict,get_extra,info,list,log,report_asset_materialization"
 ---
 
 # dagster-databricks Python Package Guide

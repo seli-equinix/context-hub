@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,connect,javascript,nodejs,contact-center,ccp,metrics"
+  tags: "aws,connect,javascript,nodejs,contact-center,ccp,metrics,client,console,log,send,3.1007.0,Connect-Specific,example.com"
 ---
 
 # `@aws-sdk/client-connect`

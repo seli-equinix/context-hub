@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,service-bus,messaging,amqp,javascript,topics,subscriptions,entra-id"
+  tags: "azure,service-bus,messaging,amqp,javascript,topics,subscriptions,entra-id,client,process,receiver,close,subscription,console,sender,7.9.5,completeMessage,error,log,abandonMessage,admin,createReceiver,createSender,subscribe,receiveMessages,sendMessages,createServiceBusClient,exit,getSubscription,getTopic"
 ---
 
 # Azure Service Bus JavaScript Client

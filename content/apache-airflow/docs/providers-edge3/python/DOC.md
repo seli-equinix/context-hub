@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,edge,edge-worker,executor,distributed-execution,dag"
+  tags: "airflow,apache-airflow,edge,edge-worker,executor,distributed-execution,dag,task,pendulum,read_local_sensor,report,annotations,datetime"
 ---
 
 # Apache Airflow Edge3 Provider Guide

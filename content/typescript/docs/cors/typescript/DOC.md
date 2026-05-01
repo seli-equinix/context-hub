@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,cors,express,node,http,middleware,types,definitelytyped"
+  tags: "typescript,cors,express,node,http,middleware,types,definitelytyped,app,options,allowedOrigins,json,res,2.8.19,value,Access-Control,Content-Range,Content-Type,Request-Aware,Request-Headers,createCorsMiddleware,delete,get,listen,trim"
 ---
 
 # cors TypeScript Guide

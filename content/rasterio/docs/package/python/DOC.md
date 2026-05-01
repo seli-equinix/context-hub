@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "rasterio,python,gdal,gis,raster,geotiff,geospatial"
+  tags: "rasterio,python,gdal,gis,raster,geotiff,geospatial,src,profile,open,read,data,mask,MemoryFile,dst,update,Env,band,reproject,write,copy,response,shape,warp,calculate_default_transform,Resampling,Window,mean,memfile,requests,Version-Sensitive,get"
 ---
 
 # Rasterio Python Package Guide

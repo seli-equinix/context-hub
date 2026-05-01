@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,trace,distributed-tracing,observability,javascript,nodejs"
+  tags: "google-cloud,gcp,trace,distributed-tracing,observability,javascript,nodejs,traceAgent,google,start,tracer,app,rootSpan,endSpan,get,8.0.0,chargeSpan,createChildSpan,res,runInRootSpan,send,validationSpan,Version-Sensitive,addLabel,console,listen,log"
 ---
 
 # `@google-cloud/trace-agent` JavaScript Package Guide

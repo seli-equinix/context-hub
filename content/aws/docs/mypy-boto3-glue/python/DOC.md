@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,glue,boto3,stubs,typing,mypy,pyright"
+  tags: "aws,glue,boto3,stubs,typing,mypy,pyright,session,client,GlueClient,annotations,paginator,response,Config,database,TYPE_CHECKING,lite,AdditionalOptionKeysType,GetDatabasesPaginator,NotificationPropertyTypeDef,get,get_databases,page,resource,Version-Sensitive,dict,get_paginator,make_glue_client,paginate"
 ---
 
 # mypy-boto3-glue Python Package Guide

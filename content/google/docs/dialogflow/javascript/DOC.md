@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,dialogflow,dialogflow-es,gcp,nlp,chatbot,javascript,nodejs"
+  tags: "google-cloud,dialogflow,dialogflow-es,gcp,nlp,chatbot,javascript,nodejs,const,google,SessionsClient,client,contexts,7.5.0,ContextsClient,console,detectIntent,Version-Sensitive,listContexts,log,map"
 ---
 
 # `@google-cloud/dialogflow` JavaScript Package Guide

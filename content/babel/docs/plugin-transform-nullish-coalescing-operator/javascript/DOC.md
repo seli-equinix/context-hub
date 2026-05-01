@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,nullish-coalescing,javascript"
+  tags: "babel,build,transpile,nullish-coalescing,javascript,7.28.6,console,log"
 ---
 
 # @babel/plugin-transform-nullish-coalescing-operator

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,health,javascript,nodejs,operations,events"
+  tags: "aws,health,javascript,nodejs,operations,events,console,error,log,send"
 ---
 
 # `@aws-sdk/client-health`

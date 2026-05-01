@@ -6,7 +6,7 @@ metadata:
   versions: "5.3.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "notion,api,workspace,pages,databases"
+  tags: "notion,api,workspace,pages,databases,console,log,error,query,blocks,notionhq,create,children,list,retrieve,allResults,comments,update,dataSources,example.com,request,search,users,append,concat,delete"
 ---
 
 # Notion API JavaScript/TypeScript SDK Coding Guidelines

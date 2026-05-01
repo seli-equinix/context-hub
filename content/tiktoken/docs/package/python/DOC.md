@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "openai,tiktoken,python,tokens,tokenizer,bpe,llm"
+  tags: "openai,tiktoken,python,tokens,tokenizer,bpe,llm,enc,get_encoding,encoding_for_model,encode,Encoding,decode_single_token_bytes,count_tokens,decode,encode_batch,encode_ordinary,list,list_encoding_names,return,Version-Sensitive,count_many"
 ---
 
 # tiktoken Python Package Guide

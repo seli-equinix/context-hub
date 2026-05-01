@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "time-machine,python,testing,datetime,time,pytest,mocking"
+  tags: "time-machine,python,testing,datetime,time,pytest,mocking,time_machine,timezone,machine,travel,traveller,time_machine.travel,escape_hatch,move_to,start,stop,timedelta,date,datetime as dt,mark,now,pytest.mark.time_machine,shift,Version-Sensitive,is_travelling,test_expiry,test_marker_example,test_report_timestamp,today,tzset"
 ---
 
 # time-machine Python Package Guide

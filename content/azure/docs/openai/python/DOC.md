@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "azure,openai,llm,python,azure-openai"
+  tags: "azure,openai,llm,python,azure-openai,environ,responses,create,embeddings,DefaultAzureCredential,YOUR-RESOURCE,data,get_bearer_token_provider,Version-Sensitive,add"
 ---
 
 # Azure OpenAI Python Package Guide

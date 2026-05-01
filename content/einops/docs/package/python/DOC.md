@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "einops,tensors,numpy,pytorch,jax,tensorflow,array-api"
+  tags: "einops,tensors,numpy,pytorch,jax,tensorflow,array-api,einsum,rearrange,randn,random,reduce,repeat,pack,unpack,numpy as np,shape,parse_shape,Sequential,LayerNorm,Version-Sensitive"
 ---
 
 # einops Python Package Guide

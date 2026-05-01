@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,apigatewayv2,api-gateway,http-api,websocket,javascript,nodejs"
+  tags: "aws,apigatewayv2,api-gateway,http-api,websocket,javascript,nodejs,client,send,console,log"
 ---
 
 # `@aws-sdk/client-apigatewayv2`

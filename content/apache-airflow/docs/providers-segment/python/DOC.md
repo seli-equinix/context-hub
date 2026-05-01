@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,segment,analytics,customer-data,dag"
+  tags: "airflow,apache-airflow,segment,analytics,customer-data,dag,task,pendulum,SegmentIdentifyUserOperator,hook,SegmentHook,annotations,datetime,example.com,track,identify,send_invoice_paid_event"
 ---
 
 # apache-airflow-providers-segment

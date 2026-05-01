@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-monitor,application-insights,opentelemetry,observability,python"
+  tags: "azure,azure-monitor,application-insights,opentelemetry,observability,python,configure_azure_monitor,trace,logging,metrics,span,logger,tracer,add,environ,meter,SpanKind,get_tracer,start_as_current_span,ManagedIdentityCredential,Resource,counter,create_counter,getLogger,get_meter,getenv,info,jobs_counter,set_attribute,Version-Sensitive,basicConfig"
 ---
 
 # azure-monitor-opentelemetry Python Package Guide

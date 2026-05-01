@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,key-vault,secrets,azure-keyvault-secrets,azure-identity,javascript"
+  tags: "azure,key-vault,secrets,azure-keyvault-secrets,azure-identity,javascript,client,console,log,getSecret,setSecret,4.10.0,Date,updateSecretProperties,beginDeleteSecret,beginRecoverDeletedSecret,deletePoller,listPropertiesOfSecretVersions,listPropertiesOfSecrets,pollUntilDone,recoverPoller,backupSecret,now,purgeDeletedSecret,restoreSecretBackup"
 ---
 
 # Azure Key Vault Secrets JavaScript Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,body-parser,express,http,middleware,types,definitelytyped"
+  tags: "typescript,body-parser,express,http,middleware,types,definitelytyped,bodyParser,json,res,app,text,urlencoded,raw,post,status,1.19.6,URL-Encoded,Version-Sensitive,console,headers,log"
 ---
 
 # body-parser TypeScript Guide

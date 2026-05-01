@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "hvplot,holoviz,plotting,pandas,xarray,polars,bokeh,panel"
+  tags: "hvplot,holoviz,plotting,pandas,xarray,polars,bokeh,panel,DataFrame,pandas as pd,line,extension,scatter,explorer,idf,interactive,widgets,hist,panel as pn,servable,show,DataArray,Select,Version-Sensitive,image,polars as pl,save,xarray as xr"
 ---
 
 # hvPlot Python Package Guide

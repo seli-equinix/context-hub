@@ -6,7 +6,7 @@ metadata:
   versions: "0.78.0"
   updated-on: "2026-03-05"
   source: maintainer
-  tags: "anthropic,sdk,llm,ai,claude"
+  tags: "anthropic,sdk,llm,ai,claude,messages,content,create,log,console,stream,files,results,allMessageBatches,batches,upload,abort,controller,countTokens,createReadStream,finalMessage,list,push,some"
 ---
 
 # Anthropic JavaScript/TypeScript SDK Coding Guidelines

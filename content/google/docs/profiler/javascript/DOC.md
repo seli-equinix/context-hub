@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,profiler,performance,observability,javascript,nodejs"
+  tags: "google-cloud,gcp,profiler,performance,observability,javascript,nodejs,google,start,error,app,console,6.0.4,log,res,Version-Sensitive,get,listen,send"
 ---
 
 # `@google-cloud/profiler` JavaScript Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,imports,linting,javascript,typescript"
+  tags: "eslint,imports,linting,javascript,typescript,config,default,settings,tseslint,blocks,ordering and autofix it"
 ---
 
 # eslint-plugin-import

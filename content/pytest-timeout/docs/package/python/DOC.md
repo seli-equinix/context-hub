@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest,testing,timeout,python,ci"
+  tags: "pytest,testing,timeout,python,ci,mark,pytest.mark.timeout,ini,toml,Version-Sensitive,_exit,test_fast_path,test_intentionally_long,test_might_deadlock,test_only_the_function_body_is_timed"
 ---
 
 # pytest-timeout Python Package Guide

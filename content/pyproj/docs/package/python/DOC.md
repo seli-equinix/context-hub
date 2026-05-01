@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyproj,proj,gis,geospatial,crs,coordinate-transformations,geodesic"
+  tags: "pyproj,proj,gis,geospatial,crs,coordinate-transformations,geodesic,Geod,Transformer,network,datadir,transform,from_epsg,show_versions,web_mercator,AreaOfInterest,from_crs,get_transform_grid_list,query_utm_crs_info,set_data_dir,to_wkt,utm_candidates,Version-Sensitive,fwd,geometry_area_perimeter,geometry_length,get_data_dir,inv,is_network_enabled,polygon_area_perimeter,set_network_enabled,set_use_global_context"
 ---
 
 # pyproj Python Package Guide

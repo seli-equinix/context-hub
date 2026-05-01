@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,route-optimization,fleet-routing,logistics,gcp,python"
+  tags: "google,google-cloud,route-optimization,fleet-routing,logistics,gcp,python,optimization_v1,client,timedelta,FleetRoutingClient,OptimizeToursRequest,environ,optimize_tours,batch_optimize_tours,datetime,operation,BatchOptimizeToursRequest,timezone,Credentials,result,service_account,AsyncModelConfig,InputConfig,OutputConfig,astimezone,from_service_account_file"
 ---
 
 # Google Cloud Optimization Python Package Guide

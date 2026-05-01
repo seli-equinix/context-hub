@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,loader,assets,text"
+  tags: "webpack,build,loader,assets,text,path,document,append,body,createElement,getElementById,resolve"
 ---
 
 # raw-loader

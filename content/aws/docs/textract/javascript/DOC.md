@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,textract,javascript,nodejs,ocr,documents,forms,tables"
+  tags: "aws,textract,javascript,nodejs,ocr,documents,forms,tables,filter,lines,send,3.1007.0,allBlocks,console,log,join,High-Value,Textract-Specific,push"
 ---
 
 # `@aws-sdk/client-textract`

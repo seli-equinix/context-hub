@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,speech,speech-to-text,transcription,audio,cloud"
+  tags: "google,speech,speech-to-text,transcription,audio,cloud,client,SpeechClient,cloud_speech,result,RecognitionConfig,results,alternatives,operation,requests,RecognitionAudio,AutoDetectDecodingConfig,client_options,recognize,Iterable,StreamingRecognizeRequest,batch_recognize,environ,long_running_recognize,streaming_recognize,BatchRecognizeFileMetadata,BatchRecognizeRequest,ClientOptions,InlineOutputConfig,RecognitionOutputConfig,RecognizeRequest"
 ---
 
 # Google Cloud Speech-to-Text Python Client Library

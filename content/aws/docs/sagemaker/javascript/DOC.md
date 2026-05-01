@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,sagemaker,machine-learning,training,endpoints"
+  tags: "aws,sagemaker,machine-learning,training,endpoints,client,send,console,log,AmazonSageMaker-ExecutionRole,SageMaker-Specific"
 ---
 
 # Amazon SageMaker SDK for JavaScript (v3)

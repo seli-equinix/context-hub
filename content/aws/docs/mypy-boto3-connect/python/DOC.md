@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,connect,boto3,python,typing,mypy,pyright,stubs"
+  tags: "aws,connect,boto3,python,typing,mypy,pyright,stubs,client,Session,ConnectClient,paginator,lite,TYPE_CHECKING,page,response,Config,user,ListUsersPaginator,Version-Sensitive,describe_user,get,get_connect_client,get_paginator,paginate"
 ---
 
 # mypy-boto3-connect Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,s3,presigned-url,signing,javascript"
+  tags: "aws,s3,presigned-url,signing,javascript,console,log,Content-Type"
 ---
 
 # `@aws-sdk/s3-request-presigner`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,container-instances,aci,arm,containers,python"
+  tags: "azure,container-instances,aci,arm,containers,python,environ,container_groups,ImageRegistryCredential,location,DefaultAzureCredential,ContainerInstanceManagementClient,begin_create_or_update,Resource,begin_delete,begin_restart,begin_start,execute_command,list_logs,stop,update,ContainerExecRequest,attach,ContainersOperations,Version-Sensitive,get,list_by_resource_group,list_cached_images,list_capabilities,list_usage"
 ---
 
 # Azure Container Instances Management SDK for Python

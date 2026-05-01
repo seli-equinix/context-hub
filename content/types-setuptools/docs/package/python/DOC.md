@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "python,setuptools,typing,typeshed,packaging,stubs"
+  tags: "python,setuptools,typing,typeshed,packaging,stubs,setup,find_namespace_packages,Command,run,Extension,LintCommand,finalize_options,find_packages,initialize_options,Version-Sensitive"
 ---
 
 # types-setuptools Python Package Guide

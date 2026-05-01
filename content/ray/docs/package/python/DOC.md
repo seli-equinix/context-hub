@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ray,python,distributed-computing,parallelism,actors,tasks,clusters"
+  tags: "ray,python,distributed-computing,parallelism,actors,tasks,clusters,remote,init,get,ray.remote,counter,increment,options,transform,put,read_key,shutdown,square,table,Version-Sensitive,__init__"
 ---
 
 # Ray Python Package Guide

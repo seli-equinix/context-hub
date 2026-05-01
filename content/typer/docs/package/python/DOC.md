@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "typer,python,cli,click,terminal,developer-tools"
+  tags: "typer,python,cli,click,terminal,developer-tools,app,Annotated,config,main,command,Option,echo,run,Path,app.command,version,Argument,greet,runner,Exit,confirm,obj,toml,Abort,CliRunner,callback,get_app_dir,hello,init,invoke"
 ---
 
 # Typer Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,stylus,css,preprocessor,node,types,definitelytyped"
+  tags: "typescript,stylus,css,preprocessor,node,types,definitelytyped,import,middleware,app,express,process,cwd,console,log,Version-Sensitive,get,listen,renderStylus,static"
 ---
 
 # Stylus TypeScript Guide

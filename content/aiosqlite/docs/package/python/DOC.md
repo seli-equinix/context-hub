@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aiosqlite,sqlite,asyncio,database,python"
+  tags: "aiosqlite,sqlite,asyncio,database,python,connect,sqlite3,main,execute,row,cursor,commit,close,sha1_hex,value,backup,example.com,execute_fetchall,fetchone,hashlib,open_db,run,source,Requires-Python,Version-Sensitive,create_function,encode,fetchall,gather,interrupt"
 ---
 
 # aiosqlite Python Package Guide

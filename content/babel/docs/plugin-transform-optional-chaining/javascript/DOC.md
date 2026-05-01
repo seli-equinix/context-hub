@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,optional-chaining,javascript"
+  tags: "babel,build,transpile,optional-chaining,javascript,7.28.6,console,log"
 ---
 
 # @babel/plugin-transform-optional-chaining

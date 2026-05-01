@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,prometheus,metrics,observability,monitoring"
+  tags: "opentelemetry,prometheus,metrics,observability,monitoring,PrometheusMetricReader,Resource,add,start_http_server,MeterProvider,latency,meter,SERVICE_NAME,request_counter,Auto-Instrumented,Version-Sensitive,Zero-Code,create,create_counter,create_histogram,get_meter,record,set_meter_provider"
 ---
 
 # opentelemetry-exporter-prometheus Python Package Guide

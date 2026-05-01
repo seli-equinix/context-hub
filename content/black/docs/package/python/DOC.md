@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "black,python,formatter,code-style,pre-commit,pyproject"
+  tags: "black,python,formatter,code-style,pre-commit,pyproject,toml,Version-Sensitive"
 ---
 
 # Black Python Package Guide

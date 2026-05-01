@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "commander,cli,node,javascript,arguments,options"
+  tags: "commander,cli,node,javascript,arguments,options,program,command,name,parse,config,argument,console,error,install,log,process,parseAsync,opts,requiredOption,search,14.0.3,Number,Promise,cache,endsWith,exit,isNaN,parseInt,resolve"
 ---
 
 # Commander.js Guide for JavaScript CLIs

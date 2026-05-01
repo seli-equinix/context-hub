@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pillow,pil,images,imaging,python"
+  tags: "pillow,pil,images,imaging,python,Image,img,open,save,features,convert,Path,frame,card,copy,preview,arr,base,draw,overlay,region,thumbnail,ImageDraw,ImageSequence,check_module,fromarray,resized,rgb,text,warnings"
 ---
 
 # Pillow Python Package Guide

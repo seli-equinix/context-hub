@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sanic,python,web,async,asgi,http,websocket"
+  tags: "sanic,python,web,async,asgi,http,websocket,app,json,get,html,app.get,status,users,middleware,args,files,health,add_task,docs,payload,ping,text,Blueprint,app.post,create_app,get_user,post,redirect,test_client,time,upload"
 ---
 
 # Sanic Python Package Guide

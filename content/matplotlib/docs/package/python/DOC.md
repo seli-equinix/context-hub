@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "matplotlib,python,plotting,visualization,figures"
+  tags: "matplotlib,python,plotting,visualization,figures,plt,fig,plot,axes,rcParams,savefig,subplots,set_title,tight_layout,show,set,sin,Version-Sensitive,legend,linspace,matplotlib as mpl,numpy as np,render_series,set_xlabel,set_ylabel,style"
 ---
 
 # matplotlib Python Package Guide

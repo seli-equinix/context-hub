@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "rich,python,terminal,cli,logging,progress,markdown"
+  tags: "rich,python,terminal,cli,logging,progress,markdown,Console,print,table,install,log,RichHandler,Prompt,add_column,ask,export_html,pretty,traceback,track,BarColumn,Confirm,IntPrompt,TextColumn,TimeRemainingColumn,add_row,inspect,sleep,Version-Sensitive,add_task,advance,basicConfig"
 ---
 
 # Rich Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "chalk,cli,terminal,ansi,node,javascript"
+  tags: "chalk,cli,terminal,ansi,node,javascript,console,log,hex,green,red,stderr,bold,chalkStderr,5.6.2,blue,error,write,foregroundColorNames,modifierNames,underline,warn,fullColor,includes,noColor,visible,yellow,ansi256,bgAnsi256,bgHex,bgRed"
 ---
 
 # Chalk Guide for JavaScript CLIs

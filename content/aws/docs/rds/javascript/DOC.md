@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,rds,javascript,nodejs,browser,database,aurora,postgres,mysql"
+  tags: "aws,rds,javascript,nodejs,browser,database,aurora,postgres,mysql,client,send,console,log,Date,Multi-AZ,RDS-Specific,now"
 ---
 
 # `@aws-sdk/client-rds`

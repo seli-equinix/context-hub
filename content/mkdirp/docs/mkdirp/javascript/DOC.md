@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "mkdirp,node,filesystem,directories,cli,javascript,npm"
+  tags: "mkdirp,node,filesystem,directories,cli,javascript,npm,manual,native,log,mkdir,sync,3.0.1,stream,console,JSON,end,stringify,write"
 ---
 
 # mkdirp JavaScript Guide

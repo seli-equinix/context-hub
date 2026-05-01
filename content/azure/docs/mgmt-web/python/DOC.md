@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,app-service,azure-mgmt-web,management,web-apps,app-service-plan"
+  tags: "azure,app-service,azure-mgmt-web,management,web-apps,app-service-plan,client,web_apps,credential,WebSiteManagementClient,settings,DefaultAzureCredential,Site,begin_create_or_update,poller,app_service_plans,result,AppServicePlan,environ,SiteConfig,StringDictionary,main,properties,update_application_settings,AzureCliCredential,list_by_resource_group,run,SiteConfigResource,SiteSourceControl,SkuDescription,asyncio"
 ---
 
 # Azure App Service Management SDK for Python

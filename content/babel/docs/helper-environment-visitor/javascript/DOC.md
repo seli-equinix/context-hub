@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,ast,traverse,plugin"
+  tags: "babel,build,ast,traverse,plugin,path,visitors,members,merge,thisPath,thisLocations,console,log,Example,push,replaceTopLevelThis,replaceWith,skip"
 ---
 
 # @babel/helper-environment-visitor

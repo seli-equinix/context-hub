@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,dingtalk,dingding,python,notifications,operators,hooks"
+  tags: "airflow,apache-airflow,dingtalk,dingding,python,notifications,operators,hooks,DAG,DingdingOperator,DingdingHook,datetime,EmptyOperator,context,dingding_failure_callback"
 ---
 
 # Apache Airflow DingTalk Provider Guide

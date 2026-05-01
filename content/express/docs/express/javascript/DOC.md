@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "express,nodejs,web,framework,http,routing,middleware"
+  tags: "express,nodejs,web,framework,http,routing,middleware,app,res,json,status,get,users,error,static,urlencoded,path,router,comments,set,5.2.1,post,Content-Type,console,disable,listen,process,Powered-By,cwd,join,log,param"
 ---
 
 # Express 5 Guide for JavaScript Apps

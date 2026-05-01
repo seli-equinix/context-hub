@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,babel,babel-core,compiler,ast,types,definitelytyped"
+  tags: "typescript,babel,babel-core,compiler,ast,types,definitelytyped,console,log,partial,transformSync,loadPartialConfig,traverse,7.20.5,createConfigItem,identifier,parseSync,renameIdentifier,transformFromAstSync,Version-Sensitive,hasFilesystemConfig,isIdentifier"
 ---
 
 # Babel Core TypeScript Guide

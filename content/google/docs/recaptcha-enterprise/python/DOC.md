@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,recaptcha-enterprise,security,fraud-detection"
+  tags: "google,google-cloud,recaptcha-enterprise,security,fraud-detection,recaptchaenterprise_v1,client,RecaptchaEnterpriseServiceClient,reference,AnnotateAssessmentRequest,Assessment,ClientOptions,Key,asyncio,create_assessment,WebKeySettings,get_metrics,main,CreateAssessmentRequest,CreateKeyRequest,Event,RecaptchaEnterpriseServiceAsyncClient,Version-Sensitive,annotate_assessment,annotate_fraudulent_assessment,create_key,create_score_key,get_key,pages,run"
 ---
 
 # Google Cloud reCAPTCHA Enterprise Python Client

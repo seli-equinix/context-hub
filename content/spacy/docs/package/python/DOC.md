@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "spacy,nlp,python,tokenization,ner,lemmatization,transformers"
+  tags: "spacy,nlp,python,tokenization,ner,lemmatization,transformers,load,blank,pipe,add_pipe,Matcher,add,memory_zone,DocBin,Language,to_disk,meta,ruler,Built-In,Language.component,Language.factory,Long-Running,Rule-Based,Version-Sensitive,add_patterns,select_pipes"
 ---
 
 # spacy Python Package Guide

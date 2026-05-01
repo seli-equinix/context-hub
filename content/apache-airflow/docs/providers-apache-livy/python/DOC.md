@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,livy,spark,python,dag"
+  tags: "airflow,apache-airflow,livy,spark,python,dag,batch,LivyOperator,LivySensor,hook,task,LivyHook,datetime,livy.example.com,logs,get,get_batch,get_batch_logs,get_batch_state,xcom_pull,Requested-By,dict,inspect_batch"
 ---
 
 # Apache Airflow Apache Livy Provider Guide

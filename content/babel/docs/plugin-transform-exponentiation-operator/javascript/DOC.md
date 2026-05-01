@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,exponentiation,es2016"
+  tags: "babel,build,transpile,exponentiation,es2016,Math,pow,obj,_obj,console,log"
 ---
 
 # @babel/plugin-transform-exponentiation-operator

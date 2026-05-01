@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,chai,testing,assertions,types"
+  tags: "typescript,chai,testing,assertions,types,assert,Assertion,input,length,addProperty,exists,isTrue,property,strictEqual,trim"
 ---
 
 # Chai TypeScript Guide

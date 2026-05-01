@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,stepfunctions,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,stepfunctions,boto3,type-stubs,mypy,pyright,python,client,SFNClient,Session,stubs,paginator,lite,page,execution,Config,TYPE_CHECKING,response,start_execution,ListExecutionsPaginator,StartExecutionInputTypeDef,StartExecutionOutputTypeDef,StateMachineTypeType,json,upstream,Version-Sensitive,dumps,get,get_paginator,make_client,paginate"
 ---
 
 # mypy-boto3-stepfunctions Python Package Guide

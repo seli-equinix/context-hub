@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,fsx,boto3,typing,mypy,pyright,stubs,python"
+  tags: "aws,fsx,boto3,typing,mypy,pyright,stubs,python,Session,client,FSxClient,response,file_system,lite,page,paginator,DescribeFileSystemsPaginator,describe_file_systems,get,item,Config,DescribeFileSystemsResponseTypeDef,FileSystemTypeType,TYPE_CHECKING,Version-Sensitive,get_fsx_client,get_paginator,paginate"
 ---
 
 # mypy-boto3-fsx Python Package Guide

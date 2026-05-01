@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "optuna,python,hyperparameter-optimization,ml,study,pruning,samplers"
+  tags: "optuna,python,hyperparameter-optimization,ml,study,pruning,samplers,objective,trial,optimize,create_study,JournalStorage,JournalFileBackend,TPESampler,suggest_float,SuccessiveHalvingPruner,TrialPruned,report,should_prune,127.0.0.1,Version-Sensitive,collect,environ,pruners,suggest_int,trials_dataframe"
 ---
 
 # Optuna Python Package Guide

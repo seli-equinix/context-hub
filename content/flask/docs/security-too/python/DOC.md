@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,authentication,authorization,security,roles,mfa"
+  tags: "flask,authentication,authorization,security,roles,mfa,app,Flask-Security,session,auth_required,SQLAlchemy,admin,current_user,Role,User,config,environ,user_datastore,Flask-Login,app.get,example.com,get,permissions_required,roles_required,Flask-SQLAlchemy,FsModels,flask_wtf,jsonify,set_db_info,update,Authentication-Token"
 ---
 
 # Flask-Security-Too Python Package Guide

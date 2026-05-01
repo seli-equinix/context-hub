@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "hatch,python,packaging,pyproject,build,publish,virtualenv"
+  tags: "hatch,python,packaging,pyproject,build,publish,virtualenv,toml,Version-Sensitive"
 ---
 
 # Hatch Python Package Guide

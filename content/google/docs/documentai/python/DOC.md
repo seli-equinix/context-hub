@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,documentai,ocr,gcp,python,client"
+  tags: "google-cloud,documentai,ocr,gcp,python,client,ClientOptions,DocumentProcessorServiceClient,result,batch_process_documents,operation,pages,process_document,DocumentOutputConfig,ProcessRequest,RawDocument,list_processors,processor_path,read,BatchDocumentsInputConfig,BatchProcessRequest,GcsDocument,GcsDocuments,GcsOutputConfig,Version-Sensitive,common_location_path"
 ---
 
 # google-cloud-documentai Python Package Guide

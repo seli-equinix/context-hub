@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,telegram,python,notifications,dag"
+  tags: "airflow,apache-airflow,telegram,python,notifications,dag,task,TelegramHook,TelegramOperator,datetime,Variable,hook,send_message,get,notify_summary,step"
 ---
 
 # apache-airflow-providers-telegram

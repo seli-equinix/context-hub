@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,redshift,javascript,nodejs,browser,data-warehouse,analytics"
+  tags: "aws,redshift,javascript,nodejs,browser,data-warehouse,analytics,console,log,send,Redshift-Specific"
 ---
 
 # `@aws-sdk/client-redshift`

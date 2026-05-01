@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,route53,dns,mypy,pyright,stubs,python"
+  tags: "aws,boto3,route53,dns,mypy,pyright,stubs,python,client,Route53Client,TYPE_CHECKING,Session,paginator,response,waiter,record,annotations,lite,zone,change_resource_record_sets,page,ListResourceRecordSetsPaginator,ListResourceRecordSetsRequestTypeDef,RRTypeType,ResourceRecordSetsChangedWaiter,get,get_paginator,get_waiter,Runtime-Safe,Version-Sensitive,list_hosted_zones,paginate,wait"
 ---
 
 # mypy-boto3-route53 Python Package Guide

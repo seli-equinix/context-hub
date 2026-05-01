@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,dynamic-import,syntax"
+  tags: "babel,build,javascript,dynamic-import,syntax,7.8.3,7.8.0,document,console,log,querySelector"
 ---
 
 # @babel/plugin-syntax-dynamic-import

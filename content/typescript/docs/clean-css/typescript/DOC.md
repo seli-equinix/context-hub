@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,clean-css,css,minification,types,definitelytyped,npm"
+  tags: "typescript,clean-css,css,minification,types,definitelytyped,npm,import,CleanCSS,console,log,minify,error,sourceMap,minifier,Version-Sensitive,process,toString"
 ---
 
 # clean-css TypeScript Guide

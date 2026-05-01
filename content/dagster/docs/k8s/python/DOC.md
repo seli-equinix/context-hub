@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,kubernetes,k8s,python,orchestration,executor"
+  tags: "dagster,kubernetes,k8s,python,orchestration,executor,k8s_job_executor,job,work,dagster as dg,dg.job,dg.op,emit_message,k8s_steps_job,Definitions,Version-Sensitive,tuned_job"
 ---
 
 # dagster-k8s

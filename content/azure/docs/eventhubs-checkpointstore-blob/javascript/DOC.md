@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,event-hubs,eventhubs,checkpoint-store,blob-storage,javascript,nodejs"
+  tags: "azure,event-hubs,eventhubs,checkpoint-store,blob-storage,javascript,nodejs,process,EventHubConsumerClient,consumer,containerClient,context,BlobServiceClient,events,2.0.0,error,updateCheckpoint,createIfNotExists,subscribe,6.0.3,close,console,getContainerClient,subscription,exit,fromConnectionString,log"
 ---
 
 # Azure Event Hubs Blob Checkpoint Store For JavaScript

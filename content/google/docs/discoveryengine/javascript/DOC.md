@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,discoveryengine,vertex-ai-search,agent-builder,search,rag,javascript,nodejs"
+  tags: "google,google-cloud,discoveryengine,vertex-ai-search,agent-builder,search,rag,javascript,nodejs,const,answerClient,answerQuery,console,documentClient,searchClient,2.5.3,log,ConversationalSearchServiceClient,DocumentServiceClient,SearchServiceClient,listDocumentsAsync,Version-Sensitive,branchPath,servingConfigPath,sessionPath"
 ---
 
 # `@google-cloud/discoveryengine` JavaScript Package Guide

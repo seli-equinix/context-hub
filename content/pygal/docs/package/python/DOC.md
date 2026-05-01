@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pygal,python,charts,svg,plotting,visualization"
+  tags: "pygal,python,charts,svg,plotting,visualization,chart,add,render,Line,sales,render_to_file,Config,world,worldmap,Bar,Flask,render_to_png,Style,app,traffic_chart,StackedBar,Version-Sensitive,app.get,get,render_data_uri,render_django_response,render_response"
 ---
 
 # pygal Python Package Guide

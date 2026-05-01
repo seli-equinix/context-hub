@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,color,color-convert,conversion,colors,commonjs,definitelytyped,npm"
+  tags: "typescript,color,color-convert,conversion,colors,commonjs,definitelytyped,npm,rgb,const,hex,types,console,hsl,log,raw,cmyk,keyword,lab,2.0.4,rgbToHex,rgbToHslObject"
 ---
 
 # color-convert TypeScript Guide

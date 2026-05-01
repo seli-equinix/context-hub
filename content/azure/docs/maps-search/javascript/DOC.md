@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-maps,search,geocoding,reverse-geocoding,javascript"
+  tags: "azure,azure-maps,search,geocoding,reverse-geocoding,javascript,client,const,1.0.0,console,log,getGeocoding,getGeocodingBatch,getReverseGeocoding"
 ---
 
 # @azure/maps-search JavaScript Package Guide

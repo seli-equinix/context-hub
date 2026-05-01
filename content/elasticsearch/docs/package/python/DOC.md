@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "elasticsearch,search,elastic,python,async,bulk"
+  tags: "elasticsearch,search,elastic,python,async,bulk,client,helpers,index,environ,body,AsyncElasticsearch,hit,options,scan,streaming_bulk,main,reindex,asyncio,close,exists,indices,info,parallel_bulk,secure_client,Version-Sensitive,create,delete,get,run,update"
 ---
 
 # Elasticsearch Python Package Guide

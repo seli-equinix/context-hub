@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mongoengine,mongodb,odm,pymongo,nosql"
+  tags: "mongoengine,mongodb,odm,pymongo,nosql,StringField,connect,Document,published,meta,mongomock,post,save,objects,IntField,clean,disconnect,localhost,datetime,User,ValidationError,ensure_indexes,timezone,AuditEvent,Event,Product,Version-Sensitive,YourDocument,now"
 ---
 
 # MongoEngine Python Package Guide

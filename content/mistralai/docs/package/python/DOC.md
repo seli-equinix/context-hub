@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mistral,mistralai,llm,chat,embeddings,ocr,agents"
+  tags: "mistral,mistralai,llm,chat,embeddings,ocr,agents,response,environ,upload,choices,stream,create,files,process,vectors,complete,Version-Sensitive,model_dump,pages,rename"
 ---
 
 # mistralai Python Package Guide

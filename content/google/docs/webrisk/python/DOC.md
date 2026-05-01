@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,webrisk,safebrowsing,security,malware,phishing,python"
+  tags: "google,google-cloud,webrisk,safebrowsing,security,malware,phishing,python,webrisk_v1,client,WebRiskServiceClient,search_hashes,search_uris,compute_threat_list_diff,create_submission,ClientOptions,Credentials,Submission,hex,service_account,sha256,ComputeThreatListDiffRequest,Constraints,Version-Sensitive,bytes,from_service_account_file,fromhex,hash_"
 ---
 
 # Google Cloud Web Risk Python Client

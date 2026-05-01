@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "nextjs,eslint,javascript,react,linting,flat-config"
+  tags: "nextjs,eslint,javascript,react,linting,flat-config,next,16.1.6,Version-Sensitive"
 ---
 
 # eslint-config-next JavaScript Guide

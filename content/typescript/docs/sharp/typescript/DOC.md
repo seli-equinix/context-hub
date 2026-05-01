@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,sharp,images,node,image-processing,types"
+  tags: "typescript,sharp,images,node,image-processing,types,console,log,OverlayOptions"
 ---
 
 # sharp TypeScript Guide

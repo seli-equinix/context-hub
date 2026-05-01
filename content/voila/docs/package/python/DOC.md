@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "voila,jupyter,ipywidgets,notebook,dashboard,webapp"
+  tags: "voila,jupyter,ipywidgets,notebook,dashboard,webapp,upstream,render,name,out,widgets,display,Output,Text,Version-Sensitive,clear_output,ipywidgets as widgets,observe,utils,wait_for_request"
 ---
 
 # voila Python Package Guide

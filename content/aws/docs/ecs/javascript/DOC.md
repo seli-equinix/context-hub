@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,ecs,javascript,nodejs,containers,fargate"
+  tags: "aws,ecs,javascript,nodejs,containers,fargate,log,console,send,services,tasks,ECS-Specific,map"
 ---
 
 # `@aws-sdk/client-ecs`

@@ -6,7 +6,7 @@ metadata:
   versions: "2.9.6"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "razorpay,payments,india,checkout,upi"
+  tags: "razorpay,payments,india,checkout,upi,error,console,log,res,orders,fetch,json,status,refund,refunds,all,app,create,customers,crypto,invoices,subscriptions,transfer,express,plans,Date,cancel,headers,now,post"
 ---
 
 # Razorpay Node.js Coding Guidelines

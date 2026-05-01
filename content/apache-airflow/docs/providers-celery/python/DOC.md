@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,celery,executor,workers,flower,distributed-tasks"
+  tags: "airflow,apache-airflow,celery,executor,workers,flower,distributed-tasks,task,celery_demo,dag,localhost,emit,stats,dict,extract,pendulum,summarize,annotations,datetime"
 ---
 
 # Apache Airflow Providers Celery Guide

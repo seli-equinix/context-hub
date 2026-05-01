@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dateparser,python,date,time,parsing,localization"
+  tags: "dateparser,python,date,time,parsing,localization,datetime,parsed,parse,timezone,DateDataParser,data,isoformat,search_dates,get_date_data,parsed_dt,parser"
 ---
 
 # dateparser Python Package Guide

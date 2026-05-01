@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,shield,javascript,nodejs,security,ddos,shield-advanced"
+  tags: "aws,shield,javascript,nodejs,security,ddos,shield-advanced,send,Date,console,log,example.com,now"
 ---
 
 # `@aws-sdk/client-shield`

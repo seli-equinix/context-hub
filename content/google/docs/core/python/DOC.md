@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud-core,gcp,google-cloud,auth,adc,project,client"
+  tags: "google-cloud-core,gcp,google-cloud,auth,adc,project,client,ClientWithProject,Credentials,_http,environment_vars,close,service_account,request,AuthorizedSession,ClientOptions,from_service_account_file,Version-Sensitive"
 ---
 
 # google-cloud-core Python Package Guide

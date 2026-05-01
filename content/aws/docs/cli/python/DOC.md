@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,awscli,cli,python,cloud,devops"
+  tags: "aws,awscli,cli,python,cloud,devops,json,credentials,config,subprocess,ini,run,First-Time,Instances,Reservations,Stacks,Users,Version-Sensitive,caller_identity,loads"
 ---
 
 # awscli Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dynaconf,python,configuration,settings,envvars,django,flask"
+  tags: "dynaconf,python,configuration,settings,envvars,django,flask,toml,env,Validator,format,validators,FlaskDynaconf,DjangoDynaconf,get,json,merge,validate,Version-Sensitive,from_env"
 ---
 
 # Dynaconf Python Package Guide

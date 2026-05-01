@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pre-commit,git,hooks,linting,formatting,ci"
+  tags: "pre-commit,git,hooks,linting,formatting,ci,Version-Sensitive"
 ---
 
 # pre-commit Python Package Guide

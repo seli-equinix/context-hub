@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,lambda,boto3,typing,stubs,mypy,pyright"
+  tags: "aws,lambda,boto3,typing,stubs,mypy,pyright,client,session,LambdaClient,TYPE_CHECKING,lite,waiter,lambda_client,response,config,page,ApplicationLogLevelType,FunctionActiveWaiter,FunctionConfigurationTypeDef,InvocationTypeType,ListFunctionsPaginator,dict,get,invoke,pages,Version-Sensitive,get_paginator,get_waiter,paginate,summarize_config,tuple"
 ---
 
 # mypy-boto3-lambda Python Package Guide

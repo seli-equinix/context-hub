@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,chalk,terminal,cli,ansi,types"
+  tags: "typescript,chalk,terminal,cli,ansi,types,log,console,bold,green,error,red,2.2.4,bgHex,bgYellow,black,blue,hex,logResult,redBright,rgb,underline"
 ---
 
 # Chalk TypeScript Guide

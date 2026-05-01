@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,support,case-management,troubleshooting,operations"
+  tags: "aws,support,case-management,troubleshooting,operations,client,console,send,log,dir,On-Ramp,example.com"
 ---
 
 # AWS Support SDK for JavaScript

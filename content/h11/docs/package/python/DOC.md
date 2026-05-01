@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "h11,http,http1.1,protocol,sans-io,networking"
+  tags: "h11,http,http1.1,protocol,sans-io,networking,conn,headers,send,EndOfMessage,Connection,Request,body,sock,Data,Response,next_event,socket,Content-Length,decode,receive_data,ctx,name,recv,sendall,ssl,start_next_cycle,value,Content-Type,Higher-Level,Keep-Alive"
 ---
 
 # h11 Python Package Guide

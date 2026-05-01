@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,workspace,addons,gmail,calendar,docs,python"
+  tags: "google,workspace,addons,gmail,calendar,docs,python,client,gsuiteaddons_v1,GSuiteAddOnsClient,environ,json,install_deployment,create_deployment,get_authorization,get_install_status,replace_deployment,uninstall_deployment,Credentials,Path,delete_deployment,get_deployment,list_deployments,service_account,Version-Sensitive,from_service_account_file,loads"
 ---
 
 # Google Workspace Add-ons Python Client

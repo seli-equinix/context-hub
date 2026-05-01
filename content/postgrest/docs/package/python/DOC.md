@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "postgrest,python,postgres,rest,api"
+  tags: "postgrest,python,postgres,rest,api,client,from_,auth,environ,schema,AsyncPostgrestClient,SyncPostgrestClient,APIError,aclose,analytics,getenv,asyncio,main,rpc,run"
 ---
 
 # PostgREST Python Package Guide

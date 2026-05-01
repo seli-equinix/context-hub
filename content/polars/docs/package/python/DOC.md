@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "polars,dataframe,lazyframe,columnar,parquet,sql"
+  tags: "polars,dataframe,lazyframe,columnar,parquet,sql,polars as pl,col,Config,scan_parquet,filter,with_columns,group_by,scan_csv,read_csv,set_default_credential_provider,show_versions,date,orders,pl_df,Version-Sensitive,from_pandas,len,pandas as pd,str,to_pandas,to_uppercase,write_parquet"
 ---
 
 # polars Python Package Guide

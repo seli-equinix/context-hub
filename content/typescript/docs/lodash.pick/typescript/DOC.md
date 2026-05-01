@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.pick,pick,object-shaping,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.pick,pick,object-shaping,types,definitelytyped,npm,string,console,log,4.4.9,AppConfig,example.com,Version-Sensitive"
 ---
 
 # lodash.pick TypeScript Guide

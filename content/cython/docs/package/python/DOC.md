@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cython,python,c-extension,build,compiler"
+  tags: "cython,python,c-extension,build,compiler,cythonize,primes,int,setup,install,Extension,numpy,toml,values,pyximport,return,Version-Sensitive,cython.ccall,cython.locals,get_include,sum_to_n"
 ---
 
 # Cython Python Package Guide

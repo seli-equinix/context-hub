@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,iam,boto3,python,typing,type-stubs,mypy,pyright"
+  tags: "aws,iam,boto3,python,typing,type-stubs,mypy,pyright,Session,stubs,client,IAMClient,resource,paginator,waiter,TYPE_CHECKING,lite,user,page,response,AcceptDelegationRequestRequestTypeDef,AccessAdvisorUsageGranularityTypeType,IAMServiceResource,ListUsersPaginator,RoleExistsWaiter,get_paginator,get_waiter,iam_resource,Version-Sensitive,build_request,get,get_role,normalize_granularity"
 ---
 
 # `mypy-boto3-iam` Python Package Guide

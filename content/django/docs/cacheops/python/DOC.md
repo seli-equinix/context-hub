@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,cacheops,redis,caching,orm,queryset"
+  tags: "django,cacheops,redis,caching,orm,queryset,cache,7.2,cached,objects,filter,get,cached_as,posts,cached_view_as,count,invalidate_model,values,base_qs,invalidate_obj,no_invalidation,CacheMiss,_load,invalidate_all,localhost,render,set,update,Requires-Python,Version-Sensitive,expensive_value"
 ---
 
 # django-cacheops Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,eslint,typescript-eslint,linting,plugin"
+  tags: "typescript,eslint,typescript-eslint,linting,plugin,configs,default,8.57.0"
 ---
 
 # @typescript-eslint/eslint-plugin

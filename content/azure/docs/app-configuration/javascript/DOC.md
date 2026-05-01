@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,app-configuration,configuration,javascript,entra-id"
+  tags: "azure,app-configuration,configuration,javascript,entra-id,appConfigClient,console,log,1.11.0,addConfigurationSetting,setConfigurationSetting,listConfigurationSettings,listRevisions,deleteConfigurationSetting,getConfigurationSetting"
 ---
 
 # Azure App Configuration JavaScript Client

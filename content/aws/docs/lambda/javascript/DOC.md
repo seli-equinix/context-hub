@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,lambda,serverless,functions,cloud"
+  tags: "aws,lambda,serverless,functions,cloud,client,send,log,JSON,console,encode,decode,decoder,encoder,parse,stringify,Lambda-Specific"
 ---
 
 # AWS Lambda SDK for JavaScript (v3)

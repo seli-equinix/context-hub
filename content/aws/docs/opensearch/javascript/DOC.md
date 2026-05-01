@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,opensearch,javascript,nodejs,browser,search,managed-service,control-plane"
+  tags: "aws,opensearch,javascript,nodejs,browser,search,managed-service,control-plane,client,console,log,send"
 ---
 
 # `@aws-sdk/client-opensearch`

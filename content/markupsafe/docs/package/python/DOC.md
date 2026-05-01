@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "markupsafe,python,html,escaping,security,templating"
+  tags: "markupsafe,python,html,escaping,security,templating,Markup,escape,value,__html__,soft_str,escape_silent,format,version,metadata,template,UserLink,striptags,unescape,__init__"
 ---
 
 # MarkupSafe Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,identity,azure-identity,javascript,authentication,entra-id,managed-identity,workload-identity"
+  tags: "azure,identity,azure-identity,javascript,authentication,entra-id,managed-identity,workload-identity,credential,client,console,log,listContainers,4.13.0,getToken,response,Non-SDK,json"
 ---
 
 # Azure Identity JavaScript Package Guide

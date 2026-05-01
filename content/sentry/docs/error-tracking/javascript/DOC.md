@@ -6,7 +6,7 @@ metadata:
   versions: "10.23.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "sentry,monitoring,error-tracking,performance,tracing"
+  tags: "sentry,monitoring,error-tracking,performance,tracing,sentry.io,scope,init,o0.ingest.sentry.io,name,span,startSpan,app,res,setTag,captureException,withScope,message,1.2.3,captureMessage,example.com,replayIntegration,setUser,Client,Custom-Header,addBreadcrumb,console,end,get,getGlobalScope"
 ---
 
 # Sentry JavaScript SDK (10.23.0)

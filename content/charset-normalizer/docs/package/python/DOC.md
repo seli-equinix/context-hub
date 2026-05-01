@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "python,encoding,unicode,text,charset,normalization,chardet"
+  tags: "python,encoding,unicode,text,charset,normalization,chardet,best,normalizer,from_bytes,is_binary,from_fp,from_path,output,detect,matches,result,Version-Sensitive,in the bundler configuration,set_logging_handler,utils"
 ---
 
 # charset-normalizer Python Package Guide

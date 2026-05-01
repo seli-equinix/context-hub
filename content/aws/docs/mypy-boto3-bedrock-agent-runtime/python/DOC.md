@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,bedrock,boto3,mypy,pyright,python,stubs,agents"
+  tags: "aws,bedrock,boto3,mypy,pyright,python,stubs,agents,client,session,AgentsforBedrockRuntimeClient,response,invoke_agent,paginator,retrieve_and_generate,chunk,environ,getenv,event,lite,TYPE_CHECKING,get,result,RetrievePaginator,RetrieveRequestPaginateTypeDef,page,uuid4,Version-Sensitive,get_paginator,make_client,paginate,resource"
 ---
 
 # mypy-boto3-bedrock-agent-runtime Python Package Guide

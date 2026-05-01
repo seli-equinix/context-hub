@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,sass,scss,css,build-tools,types"
+  tags: "typescript,sass,scss,css,build-tools,types,compile,1.45.0,compileAppStyles,compileString,console,log,readCss,JSON,Version-Sensitive,compileAndRead,compileFile,compileTheme,forward,stringify"
 ---
 
 # Sass TypeScript Guide

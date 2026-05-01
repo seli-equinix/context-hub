@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,iot-events,javascript,nodejs,iot,detectors,alarms"
+  tags: "aws,iot-events,javascript,nodejs,iot,detectors,alarms,client,send,console,log,attributes"
 ---
 
 # `@aws-sdk/client-iot-events`

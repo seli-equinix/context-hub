@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,asana,tasks,projects,hooks,operators"
+  tags: "airflow,apache-airflow,asana,tasks,projects,hooks,operators,task,project,hook,DAG,AsanaHook,create_task,list,update_task,pendulum,annotations,create_asana_task,environ,find_task,item,created,datetime,find_recent_project_tasks,get,mark_task_complete,return,create_project,delete_project,dict,find_project,update_project"
 ---
 
 # Apache Airflow Asana Provider Guide

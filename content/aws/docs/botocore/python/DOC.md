@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,botocore,python,sdk,credentials,retries,paginators,testing"
+  tags: "aws,botocore,python,sdk,credentials,retries,paginators,testing,session,response,get_session,ClientError,client,create_client,Config,Stubber,sts,iam,paginator,page,can_paginate,ec2,get_caller_identity,identity,instance,user,NoCredentialsError,head_bucket,reservation,Version-Sensitive,add_client_error,add_response,describe_instances"
 ---
 
 # botocore Python Package Guide

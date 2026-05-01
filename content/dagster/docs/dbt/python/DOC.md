@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,dbt,dagster-dbt,python,data-orchestration,assets,etl"
+  tags: "dagster,dbt,dagster-dbt,python,data-orchestration,assets,etl,DbtCliResource,dbt_assets,cli,invocation,run_results,stream,Path,environ,get,jaffle_shop_dbt_assets,Definitions,dagster as dg,daily_dbt_assets,get_artifact,info,jaffle_shop_with_artifacts,log,parents,prod_dbt_assets"
 ---
 
 # dagster-dbt Python Package Guide

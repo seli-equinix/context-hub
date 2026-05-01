@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,license-manager,license-configuration,compliance,operations"
+  tags: "aws,license-manager,license-configuration,compliance,operations,client,send,console,dir,log"
 ---
 
 # AWS License Manager SDK for JavaScript

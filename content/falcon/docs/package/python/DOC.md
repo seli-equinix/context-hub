@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "falcon,python,web,api,framework,asgi,wsgi"
+  tags: "falcon,python,web,api,framework,asgi,wsgi,app,req,media,get_media,add_route,on_get,json,ItemResource,ThingsResource,testing,on_post,update,AuthMiddleware,HealthResource,ProfileResource,client,get_param_as_int,media_handlers,partial,reference,HTTPUnauthorized,JSONHandler,TestClient,Version-Sensitive,get_header"
 ---
 
 # Falcon Python Package Guide

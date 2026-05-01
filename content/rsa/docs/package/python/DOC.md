@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "rsa,python,cryptography,signing,encryption,pem"
+  tags: "rsa,python,cryptography,signing,encryption,pem,public_key,Python-RSA,private_key,public_file,verify,encrypt,private_file,read,sign,decrypt,load_pkcs1,plaintext,PrivateKey,PublicKey,decode,load_pkcs1_openssl_pem,newkeys,save_pkcs1,write,Version-Sensitive,compute_hash,sign_hash"
 ---
 
 # rsa Python Package Guide

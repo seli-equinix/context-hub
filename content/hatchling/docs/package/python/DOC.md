@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,packaging,build-backend,pep517,pyproject,hatchling"
+  tags: "python,packaging,build-backend,pep517,pyproject,hatchling,metadata,toml,true,BuildHookInterface,MetadataHookInterface,build_data,CustomBuildHook,CustomMetadataHook,Version-Sensitive,initialize,update"
 ---
 
 # Hatchling Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,terser,minify,build,source-maps,types,npm"
+  tags: "typescript,terser,minify,build,source-maps,types,npm,add,JSON,stringify,Version-Sensitive,console,log,makeTerserOptions,parse"
 ---
 
 # Terser TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,vision,gcp,ocr,images,javascript"
+  tags: "google-cloud,vision,gcp,ocr,images,javascript,const,client,google,console,ImageAnnotatorClient,log,documentTextDetection,textDetection,asyncBatchAnnotateImages,batchAnnotateImages,operation,promise,5.3.4,labelDetection,readFileSync"
 ---
 
 # Google Cloud Vision Node.js Client

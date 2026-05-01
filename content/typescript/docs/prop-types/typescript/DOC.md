@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,prop-types,react,validation,types,definitelytyped"
+  tags: "typescript,prop-types,react,validation,types,definitelytyped,PropTypes,string,checkPropTypes,oneOf,shape,arrayOf,exact,15.7.15,Banner,Message,instanceOf,resetWarningCache"
 ---
 
 # prop-types TypeScript Guide

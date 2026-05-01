@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pendulum,python,datetime,timezones,duration,interval,testing"
+  tags: "pendulum,python,datetime,timezones,duration,interval,testing,start,end,parse,local,now,set,add,in_timezone,travel,diff_for_humans,from_format,set_locale,to_iso8601_string,travel_back,travel_to,paris,retagged,Version-Sensitive,YYYY-MM,format,from_timestamp,in_hours,in_words,instance,range"
 ---
 
 # Pendulum Python Package Guide

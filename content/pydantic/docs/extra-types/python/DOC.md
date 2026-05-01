@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "pydantic,pydantic-extra-types,python,validation,types,phone-numbers,countries,timezones"
+  tags: "pydantic,pydantic-extra-types,python,validation,types,phone-numbers,countries,timezones,BaseModel,PhoneNumber,TimeZoneName,phonenumbers,Color,CountryAlpha2,PaymentCardNumber,Annotated,Coordinate,PhoneNumberValidator,TypeAdapter,model_validate,accent_color,CardInput,Contact,Signup,Union,Warehouse,as_hex,Version-Sensitive"
 ---
 
 # pydantic-extra-types Python Package Guide

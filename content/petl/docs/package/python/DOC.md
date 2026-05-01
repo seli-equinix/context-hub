@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "petl,python,etl,csv,excel,sql,pandas,data"
+  tags: "petl,python,etl,csv,excel,sql,pandas,data,table,petl as etl,convert,fromcsv,look,tocsv,cut,users,fromdataframe,fromdb,join,sqlite3,todataframe,DB-API,Version-Sensitive,connect,pandas as pd,read_csv"
 ---
 
 # petl Python Package Guide

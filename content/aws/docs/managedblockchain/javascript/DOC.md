@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,managedblockchain,javascript,nodejs,ethereum,hyperledger-fabric"
+  tags: "aws,managedblockchain,javascript,nodejs,ethereum,hyperledger-fabric,client,log,console,send,JSON-RPC"
 ---
 
 # `@aws-sdk/client-managedblockchain`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "singer,etl,elt,tap,target,json-schema,state"
+  tags: "singer,etl,elt,tap,target,json-schema,state,metadata,config,record,transform,write_record,get_standard_metadata,discover,parse_args,set_bookmark,to_map,write_schema,write_state,get_bookmark,get_logger,main,user_schema,utils,clear_offset,clear_version,example.com,get_version,handle_top_exception,set_version,singer.utils.handle_top_exception,sync"
 ---
 
 # singer-python Python Package Guide

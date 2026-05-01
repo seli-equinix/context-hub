@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,jwt,authentication,authorization,cookies,api"
+  tags: "flask,jwt,authentication,authorization,cookies,api,app,refresh,jsonify,jwt_required,get,JWTManager,app.post,current_user,data,login,logout,post,config,jwt_payload,request,get_jwt,redis_client,app.get,create_refresh_token,environ,get_json,profile,set_access_cookies,timedelta,unset_jwt_cookies"
 ---
 
 # Flask-JWT-Extended Python Guide

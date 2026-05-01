@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,contact-center-insights,ccai,conversation-analysis,javascript,nodejs"
+  tags: "google-cloud,gcp,contact-center-insights,ccai,conversation-analysis,javascript,nodejs,const,client,google,ContactCenterInsightsClient,names,operation,promise,createConversation,uploadConversation,4.1.1,createAnalysis,deployIssueModel,getSettings,listAnalysesAsync,listConversationsAsync,push,updateSettings,On-Demand,Transcript-Only"
 ---
 
 # `@google-cloud/contact-center-insights` JavaScript Package Guide

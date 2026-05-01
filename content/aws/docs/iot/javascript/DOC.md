@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,iot,javascript,nodejs,iot-core,certificates,things,policies"
+  tags: "aws,iot,javascript,nodejs,iot-core,certificates,things,policies,client,send,console,log,Data-ATS,JSON,stringify"
 ---
 
 # `@aws-sdk/client-iot`

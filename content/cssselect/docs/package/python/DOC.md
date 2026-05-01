@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cssselect,python,css,xpath,selectors,html,xml"
+  tags: "cssselect,python,css,xpath,selectors,html,xml,GenericTranslator,translator,HTMLTranslator,css_to_xpath,document,parse,ExpressionError,SelectorSyntaxError,etree,fromstring,get,link,selector_to_xpath"
 ---
 
 # cssselect Python Package Guide

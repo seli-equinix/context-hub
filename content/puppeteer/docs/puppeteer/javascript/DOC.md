@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "puppeteer,javascript,browser,automation,testing,scraping,npm"
+  tags: "puppeteer,javascript,browser,automation,testing,scraping,npm,page,launch,goto,close,newPage,card,waitForSelector,type,click,setViewport,title,waitForNavigation,Promise,all,cards,connect,elements,input,map,pdf,querySelector,screenshot,button,console,log"
 ---
 
 # Puppeteer Guide

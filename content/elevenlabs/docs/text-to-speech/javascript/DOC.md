@@ -6,7 +6,7 @@ metadata:
   versions: "1.59.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "elevenlabs,text-to-speech,tts,audio,voice"
+  tags: "elevenlabs,text-to-speech,tts,audio,voice,convert,textToSpeech,voices,stream,readFileSync,console,get,log,search,webhooks,Ultra-Low,audioIsolation,constructEvent,convertWithTimestamps,createPreviews,speechToSpeech,speechToText,textToSoundEffects,textToVoice"
 ---
 
 # ElevenLabs JS Library Coding Guidelines (JavaScript/TypeScript)

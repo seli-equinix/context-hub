@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "numpy,python,array,ndarray,numerical,scientific-computing,linear-algebra,random"
+  tags: "numpy,python,array,ndarray,numerical,scientific-computing,linear-algebra,random,arr,copy,asarray,grid,shape,arange,numpy as np,view,matrix,seed,default_rng,reshape,rng,sum,linspace,Any,Version-Sensitive,integers,linalg,matmul,norm,normal,normalize,ones,rand"
 ---
 
 # NumPy Python Package Guide

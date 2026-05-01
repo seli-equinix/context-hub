@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "shapely,geometry,geospatial,gis,geos,spatial"
+  tags: "shapely,geometry,geospatial,gis,geos,spatial,Point,geometries,geom,Polygon,box,parcel,STRtree,contains,well,buffer,equals,intersection,make_valid,mapping,matches,shape,tolist,tree,LineString,array,clipped,from_wkt,hits,is_valid,mask"
 ---
 
 # Shapely Python Package Guide

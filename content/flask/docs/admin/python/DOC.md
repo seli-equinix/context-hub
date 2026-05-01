@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask-admin,flask,admin,sqlalchemy,wtforms,crud"
+  tags: "flask-admin,flask,admin,sqlalchemy,wtforms,crud,app,ModelView,BaseView,config,Bootstrap4Theme,add_view,expose,self,SecureForm,User,Column,UserAdmin,csp_nonce,current_user,inaccessible_callback,init_app,render,AnalyticsView,Flask-BabelEx,ReportsView,boto3,client,index,is_accessible,redirect"
 ---
 
 # Flask-Admin Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "0.12.2"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "airtable,database,low-code,spreadsheet,api"
+  tags: "airtable,database,low-code,spreadsheet,api,record,console,table,records,log,get,error,base,select,create,update,product,tasksTable,forEach,toISOString,find,contactsTable,deletedRecords,destroy,example.com,map,recordIds,productsTable,configure,replace"
 ---
 
 # Airtable JavaScript SDK (airtable.js) - Version 0.12.2

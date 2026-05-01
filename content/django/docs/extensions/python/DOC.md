@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-extensions,management-commands,shell,debugging,orm"
+  tags: "django,django-extensions,management-commands,shell,debugging,orm,models,TimeStampedModel,TitleSlugDescriptionModel,daily,hourly,run,Session,timezone,Article,TextField,Version-Sensitive,derived,filter,now,objects"
 ---
 
 # django-extensions Python Package Guide

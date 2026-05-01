@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,api-gateway,javascript,nodejs,rest-api,openapi"
+  tags: "aws,api-gateway,javascript,nodejs,rest-api,openapi,apiGateway,send,console,log"
 ---
 
 # `@aws-sdk/client-api-gateway`

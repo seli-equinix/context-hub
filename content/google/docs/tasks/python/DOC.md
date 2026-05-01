@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,cloud-tasks,queues,async,jobs,http"
+  tags: "google,cloud-tasks,queues,async,jobs,http,client,tasks_v2,CloudTasksClient,json,Task,create_task,queue_path,datetime,schedule_time,Content-Type,Credentials,purge_queue,service_account,HttpRequest,dumps,from_service_account_file,get_queue,list_tasks,now,pause_queue,resume_queue,timestamp_pb2,AppEngineHttpRequest,CloudTasksAsyncClient,FromDatetime"
 ---
 
 # Google Cloud Tasks Python Client

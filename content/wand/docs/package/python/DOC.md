@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "wand,imagemagick,image-processing,python,graphics"
+  tags: "wand,imagemagick,image-processing,python,graphics,img,Image,limits,sequence,formats,frame,ping,MAGICK_VERSION,PolicyError,ResourceLimitError,VERSION,auto_orient,resize,save,strip,Multi-Frame,Version-Sensitive,make_blob,negate,png_bytes_to_jpeg,read_user_png,tuple"
 ---
 
 # Wand Python Package Guide

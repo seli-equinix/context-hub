@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-pptx,powerpoint,pptx,presentation,office,document-generation"
+  tags: "python-pptx,powerpoint,pptx,presentation,office,document-generation,prs,Inches,table,save,shapes,cell,placeholders,slide_layouts,slides,add_slide,buffer,chart_data,text_frame,add_chart,add_table,BytesIO,CategoryChartData,XL_CHART_TYPE,Version-Sensitive,add_paragraph,add_picture,add_series,seek"
 ---
 
 # python-pptx Python Package Guide

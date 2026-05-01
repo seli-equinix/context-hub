@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cfgv,python,configuration,validation"
+  tags: "cfgv,python,configuration,validation,NoAdditionalKeys,Map,json,Required,validate,Optional,load_from_filename,Array,Conditional,RequiredRecurse,apply_defaults,check_one_of,remove_defaults,InvalidConfigError,OptionalRecurse,functools,ConditionalRecurse,NotIn,OptionalNoDefault,WarnAdditionalKeys,check_and,check_array,partial"
 ---
 
 # cfgv Python Package Guide

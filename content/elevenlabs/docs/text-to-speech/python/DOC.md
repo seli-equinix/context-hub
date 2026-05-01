@@ -6,7 +6,7 @@ metadata:
   versions: "2.18.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "elevenlabs,text-to-speech,tts,audio,voice"
+  tags: "elevenlabs,text-to-speech,tts,audio,voice,Optional,play,stream,voices,Sequence,AsyncElevenLabs,Iterator,convert,text_to_speech,create,models,save,asyncio,ElevenLabsEnvironment,Union,ivc,List,convert_with_timestamps,generate_speech,load_dotenv,print_models,run,search,BadRequestError,ForbiddenError"
 ---
 
 # ElevenLabs Python SDK Coding Guidelines

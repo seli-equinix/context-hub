@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,express,node,http,middleware,types,definitelytyped"
+  tags: "typescript,express,node,http,middleware,types,definitelytyped,res,app,req,json,static,email,get,header,status,Router,post,urlencoded,Version-Sensitive,raw,text,toLowerCase"
 ---
 
 # Express TypeScript Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "2.30.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "amplitude,analytics,events,tracking,product"
+  tags: "amplitude,analytics,events,tracking,product,identify,init,track,console,log,set,error,window,example.com,add,localStorage,Date,Revenue,groupIdentify,response,flush,ngZone,now,setOnce,append,createInstance,debug,defaultInstance,devInstance,initAmplitude"
 ---
 
 # Amplitude Analytics - JavaScript SDK (@amplitude/analytics-browser)

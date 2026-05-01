@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,topojson,geojson,cartography,types,definitelytyped,npm"
+  tags: "typescript,topojson,geojson,cartography,types,definitelytyped,npm,Topology,objects,console,const,log,string,1.0.5,JSON,Object,keys,parse,Version-Sensitive,hasObject,listObjectNames"
 ---
 
 # TopoJSON Specification TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "cryptography,python,encryption,fernet,aead,x509,openssl"
+  tags: "cryptography,python,encryption,fernet,aead,x509,openssl,key,serialization,decrypt,generate_key,NameOID,base64,hashes,ring,rsa,AESGCM,MultiFernet,NameAttribute,derive,encode,encrypt,kdf,AES-GCM,DNSName,InvalidToken,PBKDF2HMAC,SHA256,csr,environ,generate_private_key,load_pem_private_key"
 ---
 
 # cryptography Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "django-filter,django,drf,queryset,filters,forms,api"
+  tags: "django-filter,django,drf,queryset,filters,forms,api,django_filters,FilterSet,Product,ProductFilter,Meta,NumberFilter,models,DjangoFilterBackend,generics,BooleanFilter,FilterView,ProductSerializer,all,objects,render,CharFilter,ProductAPIFilter,ProductListAPI,UnknownFieldBehavior,DateFilter,ProductListView,Version-Sensitive,body,product_list,rest_framework as filters"
 ---
 
 # django-filter Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "twisted,python,async,networking,reactor,deferred,protocols"
+  tags: "twisted,python,async,networking,reactor,deferred,protocols,task,asyncio,main,Agent,install,protocol,react,defer,endpoints,endpoint,run,asyncioreactor,config,fromCoroutine,request,settings,Client,clientFromString,failure,threads,transport,Echo,Headers,WindowsSelectorEventLoopPolicy,blocking_read"
 ---
 
 # Twisted Python Package Guide

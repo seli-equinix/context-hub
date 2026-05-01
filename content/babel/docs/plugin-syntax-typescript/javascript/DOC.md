@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,typescript,parser,syntax,build"
+  tags: "babel,typescript,parser,syntax,build,7.28.6,console,log"
 ---
 
 # @babel/plugin-syntax-typescript

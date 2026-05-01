@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-auth,httplib2,google-api-python-client,authentication,http"
+  tags: "google,google-auth,httplib2,google-api-python-client,authentication,http,auth,credentials,google_auth_httplib2,default,AuthorizedHttp,authed_http,service,file,request,response,refresh,files,get,json,bucket,build,close,environ,service_account,urlencode,Version-Sensitive,from_service_account_file,loads"
 ---
 
 # google-auth-httplib2 Python Package Guide

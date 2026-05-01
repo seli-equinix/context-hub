@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,hashicorp,vault,secrets,dag,python"
+  tags: "airflow,hashicorp,vault,secrets,dag,python,secret,VaultHook,hook,task,api_key,read_secret,BaseHook,Variable,create_or_update_secret,datetime,get,get_secret,write_secret,annotations,get_connection,relay.example.com"
 ---
 
 # apache-airflow-providers-hashicorp

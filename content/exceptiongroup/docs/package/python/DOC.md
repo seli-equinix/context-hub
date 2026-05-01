@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "exceptiongroup,python,exceptions,pep-654,compatibility"
+  tags: "exceptiongroup,python,exceptions,pep-654,compatibility,catch,BaseExceptionGroup,errors,payload,suppress,append,format_exception,handle_runtime_errors,handle_value_errors,contextlib,get,validate_user"
 ---
 
 # exceptiongroup Python Package Guide

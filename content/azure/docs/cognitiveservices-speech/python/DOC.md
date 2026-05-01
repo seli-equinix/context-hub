@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,speech,speech-to-text,text-to-speech,translation,language-identification,pronunciation"
+  tags: "azure,speech,speech-to-text,text-to-speech,translation,language-identification,pronunciation,speechsdk,recognizer,audio,assessment,make_speech_config,recognize_once_async,AudioConfig,SpeechRecognizer,getenv,translation_config,synthesizer,SpeechConfig,connect,AudioOutputConfig,PronunciationAssessmentConfig,SourceLanguageRecognizer,SpeechSynthesizer,environ,recognized,speak_text_async,stop_cb,translations,AutoDetectSourceLanguageConfig,SpeechTranslationConfig,TranslationRecognizer"
 ---
 
 # Azure Cognitive Services Speech SDK for Python

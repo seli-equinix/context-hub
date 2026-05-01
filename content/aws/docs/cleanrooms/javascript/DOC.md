@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,cleanrooms,javascript,nodejs,sql,analytics,collaboration"
+  tags: "aws,cleanrooms,javascript,nodejs,sql,analytics,collaboration,client,table,send,console,log"
 ---
 
 # AWS Clean Rooms SDK for JavaScript (v3)

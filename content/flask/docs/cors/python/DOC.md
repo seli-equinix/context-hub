@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,flask,cors,http,web,security"
+  tags: "python,flask,cors,http,web,security,app,cross_origin,jsonify,Content-Type,public,config,Blueprint,app.get,get,ping,Access-Control,Allow-Private,Cross-Origin,Preflight-Friendly,Route-Level,Version-Sensitive,app.post,create_app,issue_token,post,update"
 ---
 
 # flask-cors Python Package Guide

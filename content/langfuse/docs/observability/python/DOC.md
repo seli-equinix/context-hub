@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-10"
   source: community
-  tags: "langfuse,observability,tracing,llm,evaluation,prompts"
+  tags: "langfuse,observability,tracing,llm,evaluation,prompts,observe,span,get_client,openai,generation,propagate_attributes,CallbackHandler,end,output,call,expected_output,child,completions,start_as_current_observation,trace,create,item,prompt,result,shutdown,update_current_trace,dataset,flush,my_task,start_observation"
 ---
 
 

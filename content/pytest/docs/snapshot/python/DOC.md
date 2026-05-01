@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-snapshot,pytest,python,testing,snapshots"
+  tags: "pytest-snapshot,pytest,python,testing,snapshots,snapshot,assert_match,assert_match_dir,json,render_user,dumps,make_payload,Version-Sensitive,test_generated_site,test_payload,test_render_user,test_reports"
 ---
 
 # pytest-snapshot Python Package Guide

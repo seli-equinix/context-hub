@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,storage,queue,azure-storage,javascript,entra-id"
+  tags: "azure,storage,queue,azure-storage,javascript,entra-id,QueueServiceClient,queueClient,serviceClient,12.29.0,JSON,console,log,fromConnectionString,stringify,peekMessages,receiveMessages,receivedMessageItems,sendMessage,updateMessage,createIfNotExists,deleteMessage,getQueueClient,listQueues"
 ---
 
 # Azure Storage Queue JavaScript Client

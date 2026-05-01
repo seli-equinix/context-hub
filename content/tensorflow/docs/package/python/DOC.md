@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "tensorflow,machine-learning,deep-learning,keras,tf.data,gpu"
+  tags: "tensorflow,machine-learning,deep-learning,keras,tf.data,gpu,model,tensorflow as tf,config,dataset,function,tf.function,layers,models,Sequential,export,gpus,list_physical_devices,normal,random,Variable,from_tensor_slices,save,saved_model,Dense,Doubler,GradientTape,constant,fit,grads,load"
 ---
 
 # TensorFlow Python Package Guide

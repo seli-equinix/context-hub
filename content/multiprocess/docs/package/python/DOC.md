@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "multiprocess,python,parallelism,processes,pool,dill"
+  tags: "multiprocess,python,parallelism,processes,pool,dill,Process,proc,Queue,manager,counter,numbers,start,Array,Value,main,shared_list,freeze_support,join,list,set_start_method,worker,get,map,square,append_item,apply_async,bump,result,Dill-Backed,TimeoutError"
 ---
 
 # multiprocess Python Package Guide

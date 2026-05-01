@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,storage,data-lake,adls,adls-gen2,filesystem,files,acl"
+  tags: "azure,storage,data-lake,adls,adls-gen2,filesystem,files,acl,DataLakeServiceClient,DefaultAzureCredential,service,directory,file_system,file_client,get_file_system_client,ResourceExistsError,environ,flush_data,get_directory_client,get_file_client,append_data,from_connection_string,get_paths,main,upload_data,acl_info,asyncio,create_file,download,get_access_control,Version-Sensitive,create_directory,create_file_system"
 ---
 
 # Azure Storage Data Lake Client Library For Python

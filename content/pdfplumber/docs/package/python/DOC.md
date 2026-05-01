@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pdfplumber,pdf,pdfminer,text-extraction,tables,python"
+  tags: "pdfplumber,pdf,pdfminer,text-extraction,tables,python,page,open,pages,extract_text,image,word,match,response,crop,requests,words,BytesIO,body,debug_tablefinder,first_page,get,to_image,Version-Sensitive,close,compile,filter,raise_for_status,save"
 ---
 
 # pdfplumber Python Package Guide

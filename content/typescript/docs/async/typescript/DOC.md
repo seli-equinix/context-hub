@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,async,node,callbacks,promises,types,definitelytyped"
+  tags: "typescript,async,node,callbacks,promises,types,definitelytyped,email,mapLimit,auto,error,parallel,forEachOf,example.com,loaded,EmailCheck,EmailJob,UserJob,UserRecord,UserSummary,console,JSON,Version-Sensitive,endsWith,example.org,loadConfigs,log,parse"
 ---
 
 # Async TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "papermill,jupyter,notebooks,pipeline,parameters,automation"
+  tags: "papermill,jupyter,notebooks,pipeline,parameters,automation,execute_notebook,papermill as pm,Version-Sensitive,inspect_notebook"
 ---
 
 # papermill Python Package Guide

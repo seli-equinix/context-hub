@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,mypy,pyright,typing,stubs,personalize,python"
+  tags: "aws,boto3,mypy,pyright,typing,stubs,personalize,python,client,Session,PersonalizeClient,paginator,page,summary,lite,response,TYPE_CHECKING,ListDatasetGroupsPaginator,get,list_dataset_groups,Version-Sensitive,get_paginator,paginate"
 ---
 
 # mypy-boto3-personalize Python Package Guide

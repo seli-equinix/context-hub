@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pluggy,python,plugins,hooks,extension-points"
+  tags: "pluggy,python,plugins,hooks,extension-points,hook,document,PluginManager,render,hookimpl,register,Spec,path,add_hookspecs,hookspec,text,HookimplMarker,HookspecMarker,check_pending,load_setuptools_entrypoints,transform,upper,load_config,SuffixPlugin,UpperPlugin,YamlPlugin,unblock,OldPlugin,Plugin,Result"
 ---
 
 # pluggy Python Package Guide

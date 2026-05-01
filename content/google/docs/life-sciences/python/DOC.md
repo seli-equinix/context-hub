@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,life-sciences,genomics,pipelines,batch,migration"
+  tags: "google,google-cloud,life-sciences,genomics,pipelines,batch,migration,client,lifesciences_v2beta,operation,WorkflowsServiceV2BetaClient,run_pipeline,result,Action,Pipeline,Resources,RunPipelineRequest,ServiceAccount,Version-Sensitive,VirtualMachine,YOUR_PROJECT_ID.iam.gserviceaccount.com,cancel_operation,get_operation,list_locations,list_operations"
 ---
 
 # Google Cloud Life Sciences Python Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,recommendations-ai,recommendationengine,ecommerce,personalization"
+  tags: "google,google-cloud,recommendations-ai,recommendationengine,ecommerce,personalization,recommendationengine_v1beta1,reference,CatalogItem,PredictionServiceClient,CatalogServiceClient,UserEvent,UserEventServiceClient,catalog_client,catalog items,getenv,predict,result,user_event_client,CategoryHierarchy,ClientOptions,import_catalog_items,prediction_client,UserInfo,list_catalog_items,operation,write_user_event,CatalogInlineSource,ImportCatalogItemsRequest,InputConfig,PredictRequest"
 ---
 
 # Google Cloud Recommendations AI Python Client

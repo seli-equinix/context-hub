@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,email,validation,dns,unicode"
+  tags: "python,email,validation,dns,unicode,validate_email,EmailNotValidError,example.org,caching_resolver,localhost,normalize_login_email,normalize_signup_email,validate_batch_email,ツ.life"
 ---
 
 # email-validator for Python

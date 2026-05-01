@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "tqdm,python,progress-bar,cli,asyncio,pandas,jupyter"
+  tags: "tqdm,python,progress-bar,cli,asyncio,pandas,jupyter,bar,trange,sleep,fetch,gather,run,stream_rows,thread_map,tqdm_asyncio,update,DataFrame,Version-Sensitive,close,pandas as pd,set_description,set_postfix,write"
 ---
 
 # `tqdm` Python Package Guide

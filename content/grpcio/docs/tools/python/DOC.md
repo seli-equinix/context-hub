@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "grpcio-tools,grpc,protobuf,protoc,python,codegen"
+  tags: "grpcio-tools,grpc,protobuf,protoc,python,codegen,server,helloworld_pb2,helloworld_pb2_grpc,Greeter,HelloReply,HelloRequest,SayHello,stub,futures,serve,GreeterStub,ThreadPoolExecutor,add_GreeterServicer_to_server,add_insecure_port,environ,get,insecure_channel,secure_channel,start,wait_for_termination"
 ---
 
 # grpcio-tools Python Package Guide

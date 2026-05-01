@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,tslib,compiler,helpers,tsconfig,runtime"
+  tags: "typescript,tslib,compiler,helpers,tsconfig,runtime,__assign,tslib_1,types,1.6.1,config,inheritance"
 ---
 
 # tslib TypeScript Guide

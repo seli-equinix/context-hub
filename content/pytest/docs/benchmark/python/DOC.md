@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-benchmark,pytest,benchmark,performance,testing"
+  tags: "pytest-benchmark,pytest,benchmark,performance,testing,pedantic,json,setup,teardown,value,warmup,parse_payload,target,list,result,append_item,build_index,encode_record,extra_info,sort_items,test_parse_payload,toml,Project-Level,Version-Sensitive,append,clear,hex,loads,mark,pytest.mark.benchmark"
 ---
 
 # pytest-benchmark Python Package Guide

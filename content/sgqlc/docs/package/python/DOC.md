@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sgqlc,graphql,python,codegen,http,client"
+  tags: "sgqlc,graphql,python,codegen,http,client,schema,data,repository,HTTPEndpoint,owner,name,environ,Operation,login,nodes,get,issues,viewer,Hello-World,description,number,title,a generated operation instead of rebuilding it"
 ---
 
 # sgqlc for Python

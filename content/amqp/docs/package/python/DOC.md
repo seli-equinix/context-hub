@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "amqp,rabbitmq,messaging,broker,python"
+  tags: "amqp,rabbitmq,messaging,broker,python,channel,connection,connect,environ,Message,json,ssl,getenv,basic_get,context,basic_ack,basic_consume,drain_events,heartbeat_tick,socket,basic_publish,delivery_info,exchange_declare,handle_message,loads,queue_declare,Version-Sensitive,basic_cancel,close,create_default_context"
 ---
 
 # amqp Python Package Guide

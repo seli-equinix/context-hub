@@ -6,7 +6,7 @@ metadata:
   versions: "7.0.1"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "redis,database,cache,key-value,pubsub"
+  tags: "redis,database,cache,key-value,pubsub,pipe,set,message,client,time,localhost,return,data,get,results,info,redis_mgr,keys,pipeline,call,execute,cluster,fields,json,operations,getenv,zadd,close,ARGV,asyncio"
 ---
 
 # Redis Python Client (redis-py) - Complete Integration Guide

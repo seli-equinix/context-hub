@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,datasync,boto3,python,typing,stubs,mypy,pyright"
+  tags: "aws,datasync,boto3,python,typing,stubs,mypy,pyright,client,Session,DataSyncClient,task,get,lite,page,paginator,response,ListTasksPaginator,describe_task_execution,details,location,start_task_execution,PlatformTypeDef,TYPE_CHECKING,cast,start,Version-Sensitive,dict,get_paginator,list_locations,paginate,resource"
 ---
 
 # mypy-boto3-datasync Python Package Guide

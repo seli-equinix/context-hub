@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,ws,websocket,node,types,definitelytyped"
+  tags: "typescript,ws,websocket,node,types,definitelytyped,data,server,error,Buffer,console,duplex,toString,body,Array,JSON,clients,concat,isArray,ping,send,stringify,8.18.1,forEach,listen,log,pipe,terminate,write"
 ---
 
 # ws TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,security-command-center,security-center,findings,@google-cloud/security-center,javascript,nodejs"
+  tags: "google-cloud,security-command-center,security-center,findings,@google-cloud/security-center,javascript,nodejs,const,client,google,SecurityCenterClient,console,createSource,listFindings,listSources,log,9.2.1"
 ---
 
 # `@google-cloud/security-center` JavaScript Package Guide

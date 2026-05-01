@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,object-rest-spread,javascript"
+  tags: "babel,build,transpile,object-rest-spread,javascript,Object,assign,console,log"
 ---
 
 # @babel/plugin-transform-object-rest-spread

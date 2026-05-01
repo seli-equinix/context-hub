@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "isort,python,imports,formatting,linter,pre-commit"
+  tags: "isort,python,imports,formatting,linter,pre-commit,file,code,api,toml,check_code,place_module,Version-Sensitive,requests"
 ---
 
 # isort Python Package Guide

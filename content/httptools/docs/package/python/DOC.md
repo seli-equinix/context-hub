@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "httptools,http,http1,url-parser,async,python"
+  tags: "httptools,http,http1,url-parser,async,python,body,parser,url,decode,feed_data,HttpRequestParser,headers,on_body,on_message_complete,body_parts,parse_url,Protocol,RequestProtocol,append,on_header,on_message_begin,on_url,Content-Length,Content-Type,Version-Sensitive,__init__,extend"
 ---
 
 # httptools Python Package Guide

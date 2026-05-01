@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "jest,testing,javascript,unit-testing,mocking,snapshots"
+  tags: "jest,testing,javascript,unit-testing,mocking,snapshots,spyOn,Date,document,now,type,nowSpy,30.3.0,mockRestore,querySelector,rejects,resolves,restoreAllMocks,toEqual,toThrow"
 ---
 
 # Jest for JavaScript

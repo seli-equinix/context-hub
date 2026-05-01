@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,javascript,linting,node,cli,npm"
+  tags: "eslint,javascript,linting,node,cli,npm,console,formatter,log,format,lintText,loadFormatter,10.0.3,Version-Sensitive,lintFiles,outputFixes"
 ---
 
 # ESLint JavaScript Guide

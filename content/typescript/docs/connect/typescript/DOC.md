@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,connect,node,http,middleware,types,definitelytyped"
+  tags: "typescript,connect,node,http,middleware,types,definitelytyped,res,app,listen,end,createServer,https,handle,console,log,setHeader,headers,readFileSync,JSON,Version-Sensitive,stringify"
 ---
 
 # connect TypeScript Guide

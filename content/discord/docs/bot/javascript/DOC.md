@@ -6,7 +6,7 @@ metadata:
   versions: "14.24.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "discord,bot,slash-commands,gateway,sdk"
+  tags: "discord,bot,slash-commands,gateway,sdk,interaction,client,message,reply,option,channel,console,error,log,setName,command,commands,addComponents,dotenv,messages,setColor,thread,send,data,fetch,file,filter,choice,login,options"
 ---
 
 # Discord.js JavaScript/TypeScript SDK Coding Guidelines

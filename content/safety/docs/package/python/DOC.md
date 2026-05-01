@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "safety,security,vulnerability-scanning,license-compliance,python,cli,dependencies"
+  tags: "safety,security,vulnerability-scanning,license-compliance,python,cli,dependencies,Version-Sensitive"
 ---
 
 # Safety Python Package Guide

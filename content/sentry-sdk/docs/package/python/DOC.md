@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sentry,observability,error-monitoring,tracing,profiling,logging"
+  tags: "sentry,observability,error-monitoring,tracing,profiling,logging,sentry_sdk,sdk,event,init,traces_sampler,before_send,o0.ingest.sentry.io,get,name,ctx,sentry_logger,transaction_context,SamplingContext,asyncio,getenv,hint,main,Version-Sensitive,capture_exception,capture_message,endswith,environ,error,info,logger as sentry_logger"
 ---
 
 # sentry-sdk Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "docling,python,documents,pdf,ocr,conversion,cli"
+  tags: "docling,python,documents,pdf,ocr,conversion,cli,DocumentConverter,converter,document,output,convert,path,export_to_markdown,AcceleratorDevice,AcceleratorOptions,DoclingParseV2DocumentBackend,InputFormat,PdfFormatOption,StandardPdfPipeline,Version-Sensitive,with_suffix,write_text"
 ---
 
 # docling Python Package Guide

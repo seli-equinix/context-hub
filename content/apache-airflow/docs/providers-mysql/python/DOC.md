@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,mysql,python,dags,sql,orchestration"
+  tags: "airflow,mysql,python,dags,sql,orchestration,MySqlHook,hook,cursor,task,conn,get_conn,run,datetime,mysql_provider_example,row,close,commit,create_table,dag,fetch_recent,get_first,get_records,insert_event,DB-API,annotations,execute,list,ping_mysql,tuple"
 ---
 
 # Apache Airflow MySQL Provider Python Guide

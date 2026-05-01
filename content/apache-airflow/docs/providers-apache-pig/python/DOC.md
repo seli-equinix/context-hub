@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,pig,pig-latin,hadoop,dag,python"
+  tags: "airflow,apache-airflow,pig,pig-latin,hadoop,dag,python,PigOperator,task,PigCliHook,hook,datetime,preview_rows,run_cli,File-Backed"
 ---
 
 # apache-airflow-providers-apache-pig

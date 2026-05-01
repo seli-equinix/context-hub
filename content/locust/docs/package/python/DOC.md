@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "locust,python,load-testing,performance,http,distributed"
+  tags: "locust,python,load-testing,performance,http,distributed,task,response,client,HttpUser,get,between,on_start,health,search,smoke,tag,failure,ApiUser,Flask-Login,Requires-Python,TaggedUser,Version-Sensitive,WebsiteUser,index,item,lower,post,profile,raise_for_status,text"
 ---
 
 # Locust Python Package Guide

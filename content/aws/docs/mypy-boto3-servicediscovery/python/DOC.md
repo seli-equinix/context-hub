@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,cloud-map,servicediscovery,boto3,mypy,pyright,type-stubs,python"
+  tags: "aws,cloud-map,servicediscovery,boto3,mypy,pyright,type-stubs,python,client,ServiceDiscoveryClient,Session,service,stubs,namespace,response,create_service,get,paginator,register_instance,discover_instances,lite,create_http_namespace,TYPE_CHECKING,annotations,attrs,instance,page,CreateHttpNamespaceRequestTypeDef,HealthStatusFilterType,ListServicesPaginator,RegisterInstanceRequestTypeDef,namespace_response,service_response"
 ---
 
 # `mypy-boto3-servicediscovery` Python Package Guide

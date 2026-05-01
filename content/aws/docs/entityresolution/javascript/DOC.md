@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,entityresolution,javascript,nodejs,identity,matching,glue,s3"
+  tags: "aws,entityresolution,javascript,nodejs,identity,matching,glue,s3,client,console,log,send,output,outputSourceConfig,example.com,inputSourceConfig"
 ---
 
 # `@aws-sdk/client-entityresolution`

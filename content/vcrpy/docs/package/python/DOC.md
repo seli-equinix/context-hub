@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "vcrpy,python,testing,http,requests,httpx,aiohttp,cassettes"
+  tags: "vcrpy,python,testing,http,requests,httpx,aiohttp,cassettes,VCR,cassette,response,get,raise_for_status,Path,VCRTestCase,drop_healthcheck,ensure_suffix,json,my_vcr,self,use_cassette,One-Off,TestStatusAPI,Version-Sensitive,assertEqual,endswith,rewind,test_github_status,test_list_users,test_status,uri,vcr.use_cassette"
 ---
 
 # VCR.py Python Package Guide

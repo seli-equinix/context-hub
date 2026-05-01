@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "networkx,python,graphs,algorithms,graphml,json,backends"
+  tags: "networkx,python,graphs,algorithms,graphml,json,backends,graph,edges,networkx as nx,nodes,DiGraph,read_graphml,from_pandas_edgelist,node_link_data,write_graphml,DataFrame,MultiDiGraph,MultiGraph,based,Version-Sensitive,dumps,loads,node_link_graph,pandas as pd,path_graph,shortest_path,shortest_path_length"
 ---
 
 # NetworkX Python Package Guide

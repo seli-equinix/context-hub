@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tenacity,retry,retries,backoff,async,resilience"
+  tags: "tenacity,retry,retries,backoff,async,resilience,stop_after_attempt,wait_fixed,retry_if_result,AsyncRetrying,logging,Retrying,retry_if_exception_type,TryAgain,payload,result,wait_random_exponential,TransientError,retry_state,retry_with,stop_after_delay,TemporaryAPIError,before_sleep_log,fetch_data,return_last_value,wait_random,Per-Call,Version-Sensitive,call_with_logs,eventually_returns_none,fetch_json"
 ---
 
 # Tenacity Python Package Guide

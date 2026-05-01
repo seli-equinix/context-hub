@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,pinpoint,typing,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,pinpoint,typing,type-stubs,mypy,pyright,python,stubs,client,session,PinpointClient,response,TYPE_CHECKING,lite,Config,ActionType,ChannelTypeType,GetAppResponseTypeDef,MessageRequestTypeDef,SendMessagesResponseTypeDef,example.com,get,result,send_messages,Version-Sensitive,dict,get_app"
 ---
 
 # mypy-boto3-pinpoint Python Package Guide

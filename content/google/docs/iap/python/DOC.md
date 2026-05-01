@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,cloud,iap,identity-aware-proxy,python,auth"
+  tags: "google,cloud,iap,identity-aware-proxy,python,auth,client,iap_v1,requests,IdentityAwareProxyAdminServiceClient,environ,programmatic_clients,get_iap_settings,response,update_iap_settings,Request,id_token,Proxy-Authorization,TunnelDestGroup,UpdateIapSettingsRequest,Version-Sensitive,append,create_tunnel_dest_group,fetch_id_token,from_service_account_json,get,list_tunnel_dest_groups,raise_for_status"
 ---
 
 # Google Cloud IAP Python Client

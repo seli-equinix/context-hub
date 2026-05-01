@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,jira,atlassian,issues,hooks,operators"
+  tags: "airflow,apache-airflow,jira,atlassian,issues,hooks,operators,issue,task,DAG,create_issue,JiraHook,hook,pendulum,JiraOperator,get_conn,annotations,datetime,update_issue,add_comment,transition_issue"
 ---
 
 # Apache Airflow Jira Provider Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,notebooks,jupyter,workbench,ml"
+  tags: "google,google-cloud,notebooks,jupyter,workbench,ml,client,notebooks_v1,NotebookServiceClient,operation,notebooks_v2,ManagedNotebookServiceClient,list_instances,result,create_instance,Instance,Runtime,create_runtime,get_instance,list_runtimes,start_instance,stop_instance,Version-Sensitive"
 ---
 
 # Google Cloud Notebooks Python Client

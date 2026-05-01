@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,weaviate,vector-database,embeddings,dag,python"
+  tags: "airflow,apache-airflow,weaviate,vector-database,embeddings,dag,python,hook,WeaviateHook,task,DataType,Property,WeaviateIngestOperator,create_collection,pendulum,Configure,WeaviateDocumentIngestOperator,list,weaviate_hook_example,weaviate_ingest_example,annotations,datetime,drop_collection,ignore,list_object_uuids,Document-Derived,Vectorizer,batch_data,delete_collections,get_all_objects,return,text2vec_openai"
 ---
 
 # apache-airflow-providers-weaviate

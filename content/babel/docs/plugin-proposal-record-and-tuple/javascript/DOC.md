@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,record-and-tuple,syntax,proposal"
+  tags: "babel,build,javascript,record-and-tuple,syntax,proposal,7.27.1,console,log"
 ---
 
 # @babel/plugin-proposal-record-and-tuple

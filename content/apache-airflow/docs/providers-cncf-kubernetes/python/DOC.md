@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,kubernetes,cncf,python,dag,operator"
+  tags: "airflow,kubernetes,cncf,python,dag,operator,KubernetesPodOperator,datetime,environ,k8s,get,expanduser,path,V1Container,V1ObjectMeta,V1Pod,V1PodSpec,models as k8s"
 ---
 
 # apache-airflow-providers-cncf-kubernetes

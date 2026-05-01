@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,boto3-stubs,typing,mypy,pyright,python"
+  tags: "aws,boto3,boto3-stubs,typing,mypy,pyright,python,stubs,session,client,sts,TYPE_CHECKING,page,paginator,S3Client,STSClient,resource,ListObjectsV2Paginator,S3ServiceResource,get_caller_identity,identity,item,Dev-Only,Version-Sensitive,all,buckets,get,get_paginator,paginate"
 ---
 
 # boto3-stubs Python Package Guide

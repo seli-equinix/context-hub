@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,dataflow,gcp,apache-beam,pipelines,templates"
+  tags: "google,dataflow,gcp,apache-beam,pipelines,templates,client,dataflow_v1beta3,beam,JobsV1Beta3Client,get_job,list_jobs,ClientOptions,LaunchTemplateRequest,PipelineOptions,TemplatesServiceClient,GetJobRequest,LaunchTemplateParameters,ListJobsRequest,RuntimeEnvironment,Version-Sensitive,launch_template"
 ---
 
 # Google Cloud Dataflow Python Guide

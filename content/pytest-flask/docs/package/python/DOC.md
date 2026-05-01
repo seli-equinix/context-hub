@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-flask,pytest,flask,testing,pytest-plugin,fixtures"
+  tags: "pytest-flask,pytest,flask,testing,pytest-plugin,fixtures,app,client,config,session,get,live_server,ping,url_for,json,start,health,ini,options,test_ping,app.get,create_app,mark,pytest.fixture,pytest.mark.options,update,urlopen,Class-Based,Per-Test,TestViews,live_server.app.get"
 ---
 
 # pytest-flask Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "3.3.1"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "clerk,auth,authentication,user-management,backend"
+  tags: "clerk,auth,authentication,user-management,backend,users,sessions,email_addresses,example.com,get_user,webhooks,ClerkErrors,create_email_address,create_jwt_template,create_organization,create_organization_membership,create_phone_number,create_user,create_webhook,get_session_list,get_user_list,jwt_templates,organization_memberships,organizations,phone_numbers,update_user,verify_session"
 ---
 
 # Clerk Backend API Python SDK Coding Guidelines

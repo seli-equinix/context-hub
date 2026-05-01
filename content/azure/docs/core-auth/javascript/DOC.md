@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,core-auth,javascript,credentials,authentication,tokens,keys,sas"
+  tags: "azure,core-auth,javascript,credentials,authentication,tokens,keys,sas,credential,client,search,update,console,log,1.10.1,getToken,createSearchClient"
 ---
 
 # @azure/core-auth JavaScript Package Guide

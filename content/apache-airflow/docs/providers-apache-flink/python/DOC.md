@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,flink,kubernetes,python,dag,operator"
+  tags: "airflow,apache-airflow,flink,kubernetes,python,dag,operator,FlinkKubernetesOperator,pendulum,annotations,datetime,environ"
 ---
 
 # apache-airflow-providers-apache-flink

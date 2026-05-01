@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,unicorn,javascript,linting,node,npm"
+  tags: "eslint,unicorn,javascript,linting,node,npm,default,63.0.0,Version-Sensitive"
 ---
 
 # eslint-plugin-unicorn JavaScript Guide

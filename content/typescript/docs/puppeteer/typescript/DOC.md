@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,puppeteer,browser,automation,types,definitelytyped,npm"
+  tags: "typescript,puppeteer,browser,automation,types,definitelytyped,npm,page,type,launch,title,7.0.4,card,waitForSelector,anchor,goto,ProductCard,SearchResult,anchors,cards,close,input,map,newPage,querySelector,button,click,getAttribute,setViewport,slice"
 ---
 
 # Puppeteer TypeScript Guide

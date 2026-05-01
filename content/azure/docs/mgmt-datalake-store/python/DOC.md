@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,adls,gen1,management,python,networking,legacy"
+  tags: "azure,adls,gen1,management,python,networking,legacy,accounts,result,environ,locations,DataLakeStoreAccountManagementClient,update,ServicePrincipalCredentials,firewall_rules,CreateDataLakeStoreAccountParameters,UpdateDataLakeStoreAccountParameters,UpdateFirewallRuleParameters,get_capability,get_usage,get,list,Version-Sensitive,list_by_account"
 ---
 
 # azure-mgmt-datalake-store Python Package Guide

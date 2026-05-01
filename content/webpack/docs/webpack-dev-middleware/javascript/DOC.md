@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,middleware,development,express,koa,hono"
+  tags: "webpack,middleware,development,express,koa,hono,app,devMiddleware,res,asset,path,fastify,server,send,stats,close,console,endsWith,error,filter,get,join,listen,mainAssets,process,Array,exit,filePath,getFilenameFromUrl,invalidate,isArray"
 ---
 
 # webpack-dev-middleware JavaScript Guide

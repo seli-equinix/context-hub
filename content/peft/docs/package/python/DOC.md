@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "peft,huggingface,transformers,lora,adapters,fine-tuning,ml"
+  tags: "peft,huggingface,transformers,lora,adapters,fine-tuning,ml,model,from_pretrained,tokenizer,AutoModelForCausalLM,AutoTokenizer,PeftModel,save_pretrained,AutoPeftModelForCausalLM,LoraConfig,get_peft_model,TaskType,merged_model,outputs,print_trainable_parameters,Version-Sensitive,decode,eval,generate,merge_and_unload"
 ---
 
 # PEFT Python Package Guide

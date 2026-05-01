@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,composer,airflow,gcp,orchestration"
+  tags: "google,google-cloud,composer,airflow,gcp,orchestration,service_v1,client,environ,EnvironmentsClient,get,environment_path,operation,result,service_account,Environment,ImageVersionsClient,EnvironmentConfig,common_location_path,list_image_versions,pypi_packages,time,Credentials,FieldMask,SoftwareConfig,create_environment,execute_airflow_command,load_operation,save_operation,update_environment,ExecuteAirflowCommandRequest"
 ---
 
 # Google Cloud Composer Python Client

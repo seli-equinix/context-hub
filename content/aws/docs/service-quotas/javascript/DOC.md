@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,service-quotas,limits,quota-management,operations"
+  tags: "aws,service-quotas,limits,quota-management,operations,client,const,send,console,log,Number,Promise,all,dir,isNaN,table"
 ---
 
 # AWS Service Quotas SDK for JavaScript

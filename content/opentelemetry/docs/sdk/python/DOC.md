@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,observability,telemetry,tracing,metrics,logs,otlp"
+  tags: "opentelemetry,observability,telemetry,tracing,metrics,logs,otlp,logging,trace,Resource,add,create,logger_provider,LoggingHandler,BatchSpanProcessor,MeterProvider,meter,span,trace_provider,tracer,ConsoleSpanExporter,LoggerProvider,TracerProvider,get_tracer_provider,names,request_counter,set_logger_provider,set_tracer_provider,Auto-Instrumentation,Third-Party,Version-Sensitive,add_event"
 ---
 
 # OpenTelemetry SDK Python Package Guide

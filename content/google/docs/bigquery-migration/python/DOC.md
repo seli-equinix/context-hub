@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,bigquery,migration,google-cloud,gcp,sql,translation,python"
+  tags: "google,bigquery,migration,google-cloud,gcp,sql,translation,python,bigquery_migration_v2,client,bigquery_migration_v2alpha,MigrationServiceClient,SqlTranslationServiceClient,TranslateQueryRequest,environ,getenv,translate_query,Dialect,TeradataDialect,create_migration_workflow,start_migration_workflow,BigQueryDialect,CreateMigrationWorkflowRequest,MigrationTask,MigrationWorkflow,TranslationConfigDetails,Version-Sensitive,get_migration_workflow,list_migration_subtasks,list_migration_workflows,tasks"
 ---
 
 # google-cloud-bigquery-migration Python Package Guide

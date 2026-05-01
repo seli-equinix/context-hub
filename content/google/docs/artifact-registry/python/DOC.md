@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,gcp,artifact-registry,packages,python,registry,google-cloud"
+  tags: "google,gcp,artifact-registry,packages,python,registry,google-cloud,client,artifactregistry_v1,ArtifactRegistryClient,Repository,operation,create_repository,package_path,repository_path,result,ClientOptions,list_packages,list_python_packages,python_package_path,Version-Sensitive,list_repositories,list_tags,list_versions"
 ---
 
 # Google Cloud Artifact Registry Python Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "litellm,llm,openai,anthropic,routing,proxy,python"
+  tags: "litellm,llm,openai,anthropic,routing,proxy,python,completion,responses,Router,choices,environ,acompletion,asyncio,main,Multi-Model,Version-Sensitive,run"
 ---
 
 # litellm Python Package Guide

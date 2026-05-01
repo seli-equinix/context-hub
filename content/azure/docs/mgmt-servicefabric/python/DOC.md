@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,service-fabric,arm,management,python,clusters"
+  tags: "azure,service-fabric,arm,management,python,clusters,ServiceFabricManagementClient,DefaultAzureCredential,environ,list,services,applications,cluster_versions,get,AzureCliCredential,application_type_versions,application_types,begin_create_or_update,list_by_environment,unsupported_vm_sizes,list_by_resource_group,list_upgradable_versions,Version-Sensitive,create_or_update"
 ---
 
 # Azure Service Fabric Management SDK for Python

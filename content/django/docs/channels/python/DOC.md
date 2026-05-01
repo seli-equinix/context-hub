@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-channels,kawasemi,django,python,notifications,slack,hipchat,twitter,yo"
+  tags: "django-channels,kawasemi,django,python,notifications,slack,hipchat,twitter,yo,channels,send,Version-Sensitive,environ,notify_deploy_finished"
 ---
 
 # django-channels Python Package Guide

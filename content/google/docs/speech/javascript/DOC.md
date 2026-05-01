@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,speech,speech-to-text,transcription,audio,javascript,nodejs"
+  tags: "google-cloud,gcp,speech,speech-to-text,transcription,audio,javascript,nodejs,const,client,google,speechV2,SpeechClient,console,operation,recognize,longRunningRecognize,batchRecognize,log,promise,streamingRecognize,7.3.0,readFile,Auto-Decoding,createReadStream"
 ---
 
 # `@google-cloud/speech` JavaScript Package Guide

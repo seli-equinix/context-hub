@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,language,text-analytics,nlp,sentiment,entities,summarization"
+  tags: "azure,language,text-analytics,nlp,sentiment,entities,summarization,result,client,TextAnalyticsClient,AzureKeyCredential,poller,environ,DefaultAzureCredential,TextAnalyticsApiVersion,extract_key_phrases,main,results,Long-Running,analyze_sentiment,begin_analyze_actions,begin_extract_summary,begin_single_label_classify,detect_language,recognize_entities,recognize_pii_entities"
 ---
 
 # azure-ai-textanalytics Python Package Guide

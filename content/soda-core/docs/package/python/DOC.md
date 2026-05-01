@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "soda,soda-core,data-quality,data-contracts,cli,validation"
+  tags: "soda,soda-core,data-quality,data-contracts,cli,validation,result,duckdb,verify_contract_locally,cursor,DuckDBDataSource,configure_logging,conn,get_errors_str,get_logs_str,publish_contract,In-Memory,Version-Sensitive,connect,from_existing_cursor,pandas as pd,read_parquet,register"
 ---
 
 # Soda Core Python Package Guide

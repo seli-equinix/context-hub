@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,debugging,toolbar,sql,profiling,development"
+  tags: "django,debugging,toolbar,sql,profiling,development,settings,DEBUG_TOOLBAR_CONFIG,debug_toolbar_urls,include,path,META,show_toolbar,sys,Development-Only,Version-Sensitive,get"
 ---
 
 # django-debug-toolbar Python Package Guide

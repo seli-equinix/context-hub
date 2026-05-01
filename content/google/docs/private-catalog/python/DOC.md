@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,service-catalog,private-catalog,python,marketplace"
+  tags: "google,gcp,service-catalog,private-catalog,python,marketplace,privatecatalog_v1beta1,client,PrivateCatalogClient,SearchCatalogsRequest,SearchProductsRequest,SearchVersionsRequest,search_catalogs,search_products,search_versions,Credentials,service_account,Version-Sensitive,catalog_path,from_service_account_file,version_path"
 ---
 
 # Google Cloud Private Catalog Python Client

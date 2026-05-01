@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "httpx,http,client,async,python,requests"
+  tags: "httpx,http,client,async,python,requests,response,raise_for_status,get,ssl,AsyncClient,json,asyncio,homepage,ASGITransport,SSLContext,Timeout,main,stream,truststore,JSONResponse,Limits,Route,Starlette,certifi,download,post,run,where,DigestAuth,In-Process"
 ---
 
 # HTTPX Python Package Guide

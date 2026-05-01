@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pydantic,python,validation,typing,json-schema,settings"
+  tags: "pydantic,python,validation,typing,json-schema,settings,BaseModel,Field,TypeAdapter,ConfigDict,model_validate,BaseSettings,model_validate_json,model_validator,Event,UserCreate,UserIds,datetime,field_validator,model_dump,model_json_schema,model_validate_strings,user,Annotated,SettingsConfigDict,Signup,example.com,json,Account,Environment-Backed,Version-Sensitive"
 ---
 
 # Pydantic Python Package Guide

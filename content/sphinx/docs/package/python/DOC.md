@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sphinx,python,documentation,autodoc,docs"
+  tags: "sphinx,python,documentation,autodoc,docs,path,sys,insert,Version-Sensitive,greet,parents,path or editable install"
 ---
 
 # Sphinx Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,pagerduty,events,alerts,notifications"
+  tags: "airflow,apache-airflow,pagerduty,events,alerts,notifications,task,DAG,context,PagerdutyEventsHook,datetime,hook,trigger_pagerduty_event,EmptyOperator,get_current_context,send_event"
 ---
 
 # apache-airflow-providers-pagerduty

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,apprunner,javascript,nodejs,containers,deployment"
+  tags: "aws,apprunner,javascript,nodejs,containers,deployment,client,console,log,send,Runner-Specific"
 ---
 
 # AWS App Runner SDK for JavaScript

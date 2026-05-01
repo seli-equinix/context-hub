@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,mwaa,airflow,javascript,nodejs,managed-workflows"
+  tags: "aws,mwaa,airflow,javascript,nodejs,managed-workflows,client,console,log,send,error,names,push"
 ---
 
 # `@aws-sdk/client-mwaa`

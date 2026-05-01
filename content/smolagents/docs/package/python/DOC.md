@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "smolagents,python,agents,llm,huggingface,tool-calling,code-agents"
+  tags: "smolagents,python,agents,llm,huggingface,tool-calling,code-agents,agent,CodeAgent,InferenceClientModel,tool,ToolCallingAgent,run,OpenAIServerModel,get_weather,itself,Long-Lived,OpenAI-Compatible,Version-Sensitive,environ"
 ---
 
 # smolagents Python Package Guide

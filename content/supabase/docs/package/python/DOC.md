@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "supabase,postgres,auth,storage,realtime,edge-functions,python"
+  tags: "supabase,postgres,auth,storage,realtime,edge-functions,python,admin,table,channel,Client,create_client,environ,get_user,example.com,from_,functions,invoke,subscribe,get_session,rpc,Server-Only,Version-Sensitive,create_user,remove_all_channels,remove_channel,sign_in_with_password,sign_out,sign_up"
 ---
 
 # Supabase Python Client

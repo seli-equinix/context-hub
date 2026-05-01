@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,memorydb,javascript,nodejs,redis,cache,acl"
+  tags: "aws,memorydb,javascript,nodejs,redis,cache,acl,console,log,send,Date,now,all"
 ---
 
 # `@aws-sdk/client-memorydb`

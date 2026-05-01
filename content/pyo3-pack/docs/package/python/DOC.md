@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyo3-pack,pyo3,rust,python,packaging,wheels"
+  tags: "pyo3-pack,pyo3,rust,python,packaging,wheels,toml"
 ---
 
 # pyo3-pack Python Package Guide

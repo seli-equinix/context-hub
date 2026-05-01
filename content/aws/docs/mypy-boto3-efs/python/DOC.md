@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,efs,boto3,type-stubs,mypy,pyright,autocomplete"
+  tags: "aws,efs,boto3,type-stubs,mypy,pyright,autocomplete,client,stubs,session,EFSClient,response,file_system,lite,DeletionModeType,TYPE_CHECKING,describe_file_systems,get,page,pages,DescribeFileSystemsPaginator,PosixUserOutputTypeDef,access_point,describe_access_points,Version-Sensitive,get_paginator,get_posix_user,normalize_deletion_mode,paginate"
 ---
 
 # mypy-boto3-efs Python Package Guide

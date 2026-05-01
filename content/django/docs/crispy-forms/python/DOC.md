@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,forms,templates,bootstrap,pypi,crispy"
+  tags: "django,forms,templates,bootstrap,pypi,crispy,helper,Field,FormHelper,Layout,HTML,Submit,__init__,Div,ModelForm,render_crispy_form,CharField,csrf,ContactForm,EmailField,Meta,ProjectForm,Version-Sensitive,add_input,render_form_fragment"
 ---
 
 # django-crispy-forms 2.6 for Python

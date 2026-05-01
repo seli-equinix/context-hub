@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: community
-  tags: "turso,libsql,sqlite,database,embedded-replicas,edge"
+  tags: "turso,libsql,sqlite,database,embedded-replicas,edge,client,execute,console,sync,error,rows,log,prisma,example.com,batch,results,firstRow,transaction,user,close,rollback,select,In-Memory,commit,findMany,insert"
 ---
 
 # Turso libSQL Client Coding Guidelines (JavaScript/TypeScript)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "urllib3,http,https,python,retries,tls,proxies"
+  tags: "urllib3,http,https,python,retries,tls,proxies,resp,request,proxy,headers,json,PoolManager,Retry,read,util,Content-Type,HTTPResponse,Timeout,certifi,release_conn,Retry-After,SOCKSProxyManager,get,ProxyManager,User-Agent,Version-Sensitive,drain_conn,make_headers,where,write"
 ---
 
 # urllib3 Python Package Guide

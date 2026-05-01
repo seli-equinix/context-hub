@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,notification-hubs,arm,management,push-notifications,python"
+  tags: "azure,notification-hubs,arm,management,push-notifications,python,notification_hubs,NotificationHubsManagementClient,environ,namespaces,AzureCliCredential,DefaultAzureCredential,list_keys,patch,CheckAvailabilityParameters,NotificationHubCreateOrUpdateParameters,create_or_update,Version-Sensitive,check_availability,create_or_update_authorization_rule,get_pns_credentials"
 ---
 
 # Azure Notification Hubs Management SDK for Python

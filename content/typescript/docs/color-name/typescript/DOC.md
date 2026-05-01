@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,color-name,css,colors,types,definitelytyped"
+  tags: "typescript,color-name,css,colors,types,definitelytyped,colorName,NamedColor,const,console,keys,log,rgbFromNamedColor,Object,isNamedColor,parseNamedColor"
 ---
 
 # Color Name TypeScript Guide

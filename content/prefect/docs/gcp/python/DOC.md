@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,gcp,python,workflow,orchestration,bigquery,cloud-storage,secret-manager,blocks"
+  tags: "prefect,gcp,python,workflow,orchestration,bigquery,cloud-storage,secret-manager,blocks,GcpCredentials,gcp_credentials,flow,load,BigQueryWarehouse,GcsBucket,client,environ,GcpSecret,gcp_secret,warehouse,Path,gcs_bucket,get_bigquery_client,json,local_path,save,bigquery_demo,gcs_demo,secret_manager_demo,upload_from_path,create_dataset,delete_secret,download_object_to_path,execute"
 ---
 
 # Prefect GCP Python Package Guide

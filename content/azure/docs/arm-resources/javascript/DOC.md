@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,resource-manager,resource-groups,tags,javascript"
+  tags: "azure,arm,resource-manager,resource-groups,tags,javascript,resources,resourceClient,console,log,resourceGroups,7.0.0,getById,list,providers,createOrUpdate,get,beginDeleteAndWait"
 ---
 
 # Azure Resource Manager Client For JavaScript

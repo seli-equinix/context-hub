@@ -6,7 +6,7 @@ metadata:
   versions: "0.10.9"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "rabbitmq,queue,amqp,messaging,async"
+  tags: "rabbitmq,queue,amqp,messaging,async,channel,connection,console,log,connect,error,localhost,createChannel,close,assertQueue,content,toString,Buffer,consume,process,sendToQueue,assertExchange,ack,task,JSON,Sent,bindQueue,reconnect,client,createConfirmChannel"
 ---
 
 # RabbitMQ amqplib Coding Guidelines (JavaScript/Node.js)

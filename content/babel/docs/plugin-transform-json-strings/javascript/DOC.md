@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,strings,json,transpile"
+  tags: "babel,build,javascript,strings,json,transpile,7.28.6,String,fromCharCode,console,log"
 ---
 
 # @babel/plugin-transform-json-strings

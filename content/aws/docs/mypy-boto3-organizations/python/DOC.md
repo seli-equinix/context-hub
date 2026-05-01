@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,organizations,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,organizations,boto3,type-stubs,mypy,pyright,python,client,org,session,OrganizationsClient,TYPE_CHECKING,stubs,paginator,annotations,page,response,account,DescribePolicyResponseTypeDef,ListAccountsPaginator,PolicyTypeType,describe_organization,lite,organization,policy,Version-Sensitive,describe_policy,get,get_paginator,make_client,paginate"
 ---
 
 # mypy-boto3-organizations Python Package Guide

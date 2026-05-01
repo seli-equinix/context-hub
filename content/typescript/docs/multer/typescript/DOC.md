@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,multer,express,file-upload,multipart,types,definitelytyped"
+  tags: "typescript,multer,express,file-upload,multipart,types,definitelytyped,files,upload,res,json,app,array,fields,originalname,post,single,status,memoryStorage,mimetype,diskStorage,isArray,uploadAvatar,Date,Options,Version-Sensitive,now,replace,startsWith,urlencoded"
 ---
 
 # Multer TypeScript Guide

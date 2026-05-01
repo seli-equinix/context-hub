@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,dialogflow,dialogflow-es,gcp,chatbot,conversation,nlp"
+  tags: "google,dialogflow,dialogflow-es,gcp,chatbot,conversation,nlp,client,SessionsClient,ClientOptions,fork,session_client,Sequence,detect_intent_texts,environ,getenv,session_path,QueryInput,TextInput,Version-Sensitive,build_session_name,detect_intent,from_service_account_file,make_sessions_client"
 ---
 
 # Google Cloud Dialogflow Python Client

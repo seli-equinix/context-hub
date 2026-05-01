@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,error-reporting,observability,exceptions,logging"
+  tags: "google,error-reporting,observability,exceptions,logging,client,error_reporting,Flask,report_exception,request,checkout,report,app,Pool,build_flask_context,handle_job,init_worker,User-Id,Version-Sensitive,app.post,get,headers,map,post"
 ---
 
 # Google Cloud Error Reporting Python Client

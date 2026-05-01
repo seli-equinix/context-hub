@@ -6,7 +6,7 @@ metadata:
   versions: "1.2.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "chromadb,embeddings,vector-db,ai,search"
+  tags: "chromadb,embeddings,vector-db,ai,search,collection,documents,ids,results,client,metadatas,query,add,List,count,get,create_collection,embedding_functions,embedding,self,PersistentClient,Optional,batch_docs,data,HttpClient,doc,batch_ids,update,OpenAI,Settings"
 ---
 
 # ChromaDB Python SDK - v1.2.1

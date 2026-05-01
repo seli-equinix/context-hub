@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,fivetran,dagster-fivetran,python,data-orchestration,etl,assets"
+  tags: "dagster,fivetran,dagster-fivetran,python,data-orchestration,etl,assets,FivetranResource,build_fivetran_assets,Definitions,EnvVar,environ,dagster as dg"
 ---
 
 # dagster-fivetran Python Package Guide

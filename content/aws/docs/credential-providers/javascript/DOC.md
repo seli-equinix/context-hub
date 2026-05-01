@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,credentials,sts,sso,cognito,iam,javascript,nodejs"
+  tags: "aws,credentials,sts,sso,cognito,iam,javascript,nodejs,console,log,send,ini"
 ---
 
 # `@aws-sdk/credential-providers`

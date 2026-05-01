@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,github,python,workflow,orchestration,deployments,blocks,graphql"
+  tags: "prefect,github,python,workflow,orchestration,deployments,blocks,graphql,repository,GitHubCredentials,flow,github_credentials,load,repo,GitHubRepository,GitRepository,my_flow,save,add_star_starrable,environ,from_source,get_client,get_directory,github_add_star_flow,query_repository"
 ---
 
 # Prefect GitHub Python Package Guide

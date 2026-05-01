@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "langchain-openai,langchain,openai,python,llm,embeddings,azure-openai"
+  tags: "langchain-openai,langchain,openai,python,llm,embeddings,azure-openai,ChatOpenAI,OpenAIEmbeddings,tool,invoke,AzureChatOpenAI,vectors,pattern,with_structured_output,BaseModel,Person,bind_tools,get_weather,llm_with_tools,stream,structured_llm,Version-Sensitive,embed_documents,embed_query"
 ---
 
 # langchain-openai Python Package Guide

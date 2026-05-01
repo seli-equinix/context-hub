@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "wandb,weights-and-biases,python,ml,experiment-tracking,artifacts,training"
+  tags: "wandb,weights-and-biases,python,ml,experiment-tracking,artifacts,training,run,init,log,config,login,artifact,finish,environ,getenv,log_artifact,random,Path,Version-Sensitive,add_dir,add_file,update"
 ---
 
 # wandb Python Package Guide

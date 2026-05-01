@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,phishing-protection,security,safe-browsing,python"
+  tags: "google-cloud,phishing-protection,security,safe-browsing,python,client,phishingprotection_v1beta1,docs,reference,report_phishing,PhishingProtectionServiceV1Beta1Client,ReportPhishingRequest,asyncio,also,common_project_path,main,PhishingProtectionServiceV1Beta1AsyncClient,report_phishing_uri,run"
 ---
 
 # google-cloud-phishing-protection Python Package Guide

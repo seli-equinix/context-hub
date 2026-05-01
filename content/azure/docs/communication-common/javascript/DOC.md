@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,communication,communication-common,javascript,authentication,identifiers"
+  tags: "azure,communication,communication-common,javascript,authentication,identifiers,2.4.0,response,json,normalizeIdentifier"
 ---
 
 # Azure Communication Services Common JavaScript Package

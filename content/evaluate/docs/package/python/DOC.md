@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "evaluate,hugging-face,python,metrics,evaluation,ml,nlp"
+  tags: "evaluate,hugging-face,python,metrics,evaluation,ml,nlp,metric,accuracy,compute,pipeline,evaluator,load,add_batch,combine,all_metrics,load_dataset,scores,task_evaluator,Version-Sensitive,list_evaluation_modules,test"
 ---
 
 # Hugging Face Evaluate Python Package Guide

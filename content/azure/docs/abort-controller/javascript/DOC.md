@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,abort-controller,javascript,abort,abortsignal,cancellation"
+  tags: "azure,abort-controller,javascript,abort,abortsignal,cancellation,controller,2.1.2,console,log,response,json"
 ---
 
 # @azure/abort-controller JavaScript Package Guide

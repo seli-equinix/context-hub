@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pynacl,python,cryptography,libsodium,signing,encryption,password-hashing"
+  tags: "pynacl,python,cryptography,libsodium,signing,encryption,password-hashing,PrivateKey,encrypt,Aead,SecretBox,SigningKey,decrypt,generate,pwhash,SealedBox,verify_key,Box,HexEncoder,encode,utils,argon2id,exceptions,signing_key,verify,VerifyKey,random,encoding,sign,str,alice_box,bob_box"
 ---
 
 # PyNaCl Python Package Guide

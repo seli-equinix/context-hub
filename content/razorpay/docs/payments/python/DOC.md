@@ -6,7 +6,7 @@ metadata:
   versions: "1.4.2"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "razorpay,payments,india,checkout,upi"
+  tags: "razorpay,payments,india,checkout,upi,payment,client,data,order,invoice,subscription,get,refund,customer,event,fetch,environ,jsonify,time,all,virtual_account,message,refunds,transfer,create,plan,request,app,Flask,edit"
 ---
 
 # Razorpay Python Coding Guidelines

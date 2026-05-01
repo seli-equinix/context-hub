@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,loader,source-maps,debugging"
+  tags: "webpack,build,loader,source-maps,debugging,5.0.0,path,resolve"
 ---
 
 # source-map-loader

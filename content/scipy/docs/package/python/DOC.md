@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "scipy,python,numerical-computing,optimization,linear-algebra,sparse"
+  tags: "scipy,python,numerical-computing,optimization,linear-algebra,sparse,linalg,numpy as np,optimize,integrate,stats,array,dist,asarray,decay,minimize,objective,solve,solve_ivp,Version-Sensitive,cdf,csr_matrix,linspace,near,norm,or ABI issues,ppf"
 ---
 
 # SciPy Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "apscheduler,scheduling,cron,asyncio,jobs,background-tasks"
+  tags: "apscheduler,scheduling,cron,asyncio,jobs,background-tasks,scheduler,BackgroundScheduler,ZoneInfo,AsyncIOScheduler,main,CronTrigger,add_job,refresh_cache,run,start,ProcessPoolExecutor,SQLAlchemyJobStore,poll_queue,EVENT_JOB_ERROR,EVENT_JOB_EXECUTED,ThreadPoolExecutor,from_crontab,generate_report,on_job_event,resume,shutdown,sleep,Event,Version-Sensitive,add_listener"
 ---
 
 # APScheduler Python Package Guide

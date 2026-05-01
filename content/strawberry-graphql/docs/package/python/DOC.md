@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "strawberry,graphql,python,asgi,fastapi,api"
+  tags: "strawberry,graphql,python,asgi,fastapi,api,Query,strawberry.type,User,app,USERS,json,strawberry.field,Schema,getenv,Info,auth_header,requests,response,uvicorn,CreateUserInput,GraphQLRouter,Request,context,datetime,post,strawberry.input,Mutation,dict,get,get_context"
 ---
 
 # Strawberry Python Package Guide

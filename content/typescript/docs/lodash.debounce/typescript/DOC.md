@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.debounce,debounce,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.debounce,debounce,types,definitelytyped,npm,onSearchInput,scheduleSuggestions,cancel,console,flush,log,saveDraft,4.0.9,Version-Sensitive"
 ---
 
 # lodash.debounce TypeScript Guide

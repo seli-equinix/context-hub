@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "twilio,communications,sms,voice,twiml,oauth"
+  tags: "twilio,communications,sms,voice,twiml,oauth,Client,AsyncTwilioHttpClient,messages,response,TwilioRestException,create,stream,ClientCredentialProvider,VoiceResponse,asyncio,main,Version-Sensitive,calls,create_async,play,run,say"
 ---
 
 # Twilio Python Package Guide

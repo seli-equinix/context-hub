@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,iam,javascript,nodejs,identity,access-management,policies,roles"
+  tags: "aws,iam,javascript,nodejs,identity,access-management,policies,roles,JSON,console,log,send,parse,stringify,IAM-Specific"
 ---
 
 # `@aws-sdk/client-iam`

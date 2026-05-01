@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "python,six,compatibility,python2,python3,stdlib"
+  tags: "python,six,compatibility,python2,python3,stdlib,ensure_text,branches,ensure_binary,ensure_str,response,Base,Meta,configparser,iteritems,reload_module,syntax,urlencode,urlopen,Example,Standard-Library,Version-Sensitive,add_metaclass,fetch,iterkeys,itervalues,normalize_value,raise_from,read,reraise,serialize_headers"
 ---
 
 # six Python Package Guide

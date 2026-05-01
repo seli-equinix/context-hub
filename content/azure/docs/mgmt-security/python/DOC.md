@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,security,defender-for-cloud,management,arm,python"
+  tags: "azure,security,defender-for-cloud,management,arm,python,client,SecurityCenter,DefaultAzureCredential,Pricing,close,environ,list,pricings,update,assessments,assessments_metadata,get,list_by_subscription,secure_scores,Version-Sensitive"
 ---
 
 # Azure Security Center / Defender for Cloud SDK for Python

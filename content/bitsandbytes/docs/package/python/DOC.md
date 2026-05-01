@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "bitsandbytes,quantization,pytorch,transformers,llm,qlora,optimizers"
+  tags: "bitsandbytes,quantization,pytorch,transformers,llm,qlora,optimizers,model,torch,Linear8bitLt,BitsAndBytesConfig,optim,Linear4bit,bitsandbytes as bnb,AutoModelForCausalLM,Linear,Sequential,cuda,fp16_model,int8,int8_model,mps,parameters,quantized_model,version,from_pretrained,mng,AutoTokenizer,GlobalOptimManager,is_available,load_state_dict,state_dict"
 ---
 
 # bitsandbytes Python Package Guide

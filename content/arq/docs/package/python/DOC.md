@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "arq,python,asyncio,redis,queue,workers,background-jobs"
+  tags: "arq,python,asyncio,redis,queue,workers,background-jobs,ctx,job,WorkerSettings,send_email,RedisSettings,enqueue_job,class,response,create_pool,getenv,cron,msgpack,shutdown,Retry,main,startup,datetime,loop,status,timedelta,AsyncClient,ProcessPoolExecutor,abort,fetch_invoice,fetch_url"
 ---
 
 # arq Python Package Guide

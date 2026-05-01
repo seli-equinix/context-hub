@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,storage,data-lake,adls,adls-gen2,javascript,filesystem,files,acl"
+  tags: "azure,storage,data-lake,adls,adls-gen2,javascript,filesystem,files,acl,DataLakeServiceClient,serviceClient,createDataLakeServiceClient,fileClient,fileSystemClient,12.29.0,Buffer,append,createIfNotExists,flush,chunks,getFileSystemClient,console,content,directoryClient,fromConnectionString,getFileClient,listPaths,log,read,concat,create,getDirectoryClient,isBuffer,push"
 ---
 
 # Azure Storage Data Lake JavaScript Client

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "httpcore,http,http2,asyncio,trio,networking,proxy,transport"
+  tags: "httpcore,http,http2,asyncio,trio,networking,proxy,transport,response,pool,request,ConnectionPool,ssl_context,json,output,ssl,AsyncConnectionPool,open,path,stream,write,main,create_default_context,trace,iter_stream,run,Content-Type,User-Agent,Version-Sensitive,aiter_stream,aread,dumps,load_cert_chain"
 ---
 
 # httpcore Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud-translate,gcp,translation,i18n,javascript,nodejs,google-cloud"
+  tags: "google-cloud-translate,gcp,translation,i18n,javascript,nodejs,google-cloud,const,translate,google,console,TranslationServiceClient,client,9.3.0,log,languages,translateText,slice,Array,Version-Sensitive,detect,detectLanguage,getLanguages,getSupportedLanguages,glossaryTranslations,isArray,let"
 ---
 
 # google-cloud-translate JavaScript Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pip-tools,pip-compile,pip-sync,packaging,dependencies,python"
+  tags: "pip-tools,pip-compile,pip-sync,packaging,dependencies,python,toml,false,pypi.mycompany.example,Version-Sensitive"
 ---
 
 # pip-tools Python Package Guide

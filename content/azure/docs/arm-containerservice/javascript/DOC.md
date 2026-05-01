@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,aks,kubernetes,containers,arm,management,javascript"
+  tags: "azure,aks,kubernetes,containers,arm,management,javascript,aksClient,console,log,managedClusters,24.1.0,get,getUpgradeProfile,Buffer,list,beginCreateOrUpdateAndWait,listByResourceGroup,listClusterAdminCredentials,listClusterUserCredentials"
 ---
 
 # Azure Kubernetes Service Management Client For JavaScript

@@ -6,7 +6,7 @@ metadata:
   versions: "7.3.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "okta,identity,sso,oauth,authentication"
+  tags: "okta,identity,sso,oauth,authentication,console,log,error,userApi,collection,example.com,applicationApi,users,groupApi,Client,createUser,listUsers,createApplication,getUser,createGroup,assignGroupToApplication,assignUserToApplication,assignUserToGroup,deactivateUser,getApplication,getGroup,updateUser,OKTA_SCOPES,clearUserSessions,deleteApplication"
 ---
 
 # Okta Node.js SDK Coding Guidelines

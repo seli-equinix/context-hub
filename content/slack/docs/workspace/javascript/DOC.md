@@ -6,7 +6,7 @@ metadata:
   versions: "7.12.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "slack,bot,workspace,messaging,events-api"
+  tags: "slack,bot,workspace,messaging,events-api,error,console,text,log,process,chat,postMessage,channels,socketMode,app,auth,exit,info,conversations,dotenv,list,disconnect,join,json,send,users,webhook,installer,config,envContent"
 ---
 
 # Slack Node SDK Examples

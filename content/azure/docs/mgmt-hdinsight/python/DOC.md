@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,hdinsight,arm,management,spark,hadoop,private-link"
+  tags: "azure,hdinsight,arm,management,spark,hadoop,private-link,clusters,HDInsightManagementClient,locations,DefaultAzureCredential,create,delete,environ,get_capabilities,list_by_cluster,AzureCliCredential,private_endpoint_connections,script_actions,update,ClusterPatchParameters,check_name_availability,private_link_resources,script_execution_history,validate_cluster_create_request,Version-Sensitive,begin_create,begin_create_or_update,begin_delete,begin_execute_script_actions,get,list_by_resource_group"
 ---
 
 # Azure HDInsight Management SDK for Python

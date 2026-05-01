@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,document-intelligence,form-recognizer,ocr,document-analysis,javascript,sdk"
+  tags: "azure,document-intelligence,form-recognizer,ocr,document-analysis,javascript,sdk,const,client,poller,console,log,pollUntilDone,5.1.0,adminClient,beginAnalyzeDocument,beginAnalyzeDocumentFromUrl,Object,entries,beginBuildDocumentModel,deleteDocumentModel,listDocumentModels"
 ---
 
 # Azure Form Recognizer JavaScript SDK

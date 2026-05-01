@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,import-meta,syntax"
+  tags: "babel,build,javascript,import-meta,syntax,7.10.4,console,log"
 ---
 
 # @babel/plugin-syntax-import-meta

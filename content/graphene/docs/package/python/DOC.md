@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "graphene,graphql,python,schema,mutation,subscription"
+  tags: "graphene,graphql,python,schema,mutation,subscription,String,Query,execute,Context,Field,data,User,current_user,CreateUser,example.com,Int,execute_async,resolve_hello,subscribe,Arguments,asyncio,mutate,resolve_health,Boolean,introspect,localhost,must,resolve_user,sleep,subscribe_count_upwards"
 ---
 
 # Graphene for Python

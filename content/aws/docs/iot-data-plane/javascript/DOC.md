@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,iot,iot-core,thing-shadow,publish,javascript,nodejs"
+  tags: "aws,iot,iot-core,thing-shadow,publish,javascript,nodejs,client,iotData,JSON,send,console,log,parse,Buffer,Data-ATS,stringify"
 ---
 
 # `@aws-sdk/client-iot-data-plane`

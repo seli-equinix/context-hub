@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.omit,omit,object-shaping,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.omit,omit,object-shaping,types,definitelytyped,npm,console,log,4.5.9,field,example.com,JSON,Version-Sensitive,stringify,trim"
 ---
 
 # lodash.omit TypeScript Guide

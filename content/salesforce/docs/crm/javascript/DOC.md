@@ -6,7 +6,7 @@ metadata:
   versions: "3.10.8"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "salesforce,crm,soql,enterprise,api"
+  tags: "salesforce,crm,soql,enterprise,api,conn,console,log,result,login,jsforce,error,sobject,records,forEach,Connection,metadata,results,query,create,oauth2,accounts,identity,browser,limits,report,res,update,analytics,apex"
 ---
 
 # Salesforce JavaScript SDK (JSforce) Coding Guidelines

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "micromatch,glob,matching,paths,nodejs,javascript"
+  tags: "micromatch,glob,matching,paths,nodejs,javascript,console,test,log,isMatch,path,matchKeys,matcher,4.0.8,capture,contains,makeRe,join,regex,error"
 ---
 
 # Micromatch Guide for JavaScript

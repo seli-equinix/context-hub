@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,resource-settings,python,deprecated,settings,resource-manager"
+  tags: "google,google-cloud,resource-settings,python,deprecated,settings,resource-manager,resourcesettings_v1,client,Value,ResourceSettingsServiceClient,get_setting,Setting,update_setting,Credentials,list_settings,service_account,EnumValue,StringSet,Version-Sensitive,from_service_account_file"
 ---
 
 # Google Cloud Resource Settings Python Client Library

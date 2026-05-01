@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,openlineage,lineage,data-lineage,dag,python"
+  tags: "airflow,openlineage,lineage,data-lineage,dag,python,PythonOperator,datetime,extract,disable_lineage,emit_log,enable_lineage,publish_metrics,annotations,ini"
 ---
 
 # apache-airflow-providers-openlineage

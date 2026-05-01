@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,mail,email,smtp,testing,attachments,python"
+  tags: "flask,mail,email,smtp,testing,attachments,python,app,Flask-Mail,Message,msg,example.com,send,init_app,config,getenv,email_dispatched,user,version,app_context,outbox,Blueprint,attach,conn,connect,current_app,environ,jsonify,list,log_message,record_messages,send_message"
 ---
 
 # Flask-Mail Python Guide

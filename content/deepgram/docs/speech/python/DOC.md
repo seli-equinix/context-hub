@@ -6,7 +6,7 @@ metadata:
   versions: "5.1.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "deepgram,speech,transcription,tts,audio"
+  tags: "deepgram,speech,transcription,tts,audio,DeepgramClient,connection,dg_connection,SpeakOptions,PrerecordedOptions,file,DeepgramConverter,alternatives,start,stream_memory,ReadOptions,SettingsOptions,channels,read,SpeakWebSocketEvents,asyncio,finish,main,run,srt,webvtt,FileSource,LiveOptions,LiveTranscriptionEvents,getbuffer"
 ---
 
 # Deepgram Python SDK Coding Guidelines

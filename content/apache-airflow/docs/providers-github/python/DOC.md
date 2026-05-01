@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,github,pygithub,hooks,operators,dags"
+  tags: "airflow,apache-airflow,github,pygithub,hooks,operators,dags,DAG,task,GithubHook,client,hook,GithubOperator,pendulum,create_issue,get_repo,list,repo,annotations,datetime,get_conn,get_pulls,list_open_pull_requests,pulls,return"
 ---
 
 # Apache Airflow GitHub Provider Guide

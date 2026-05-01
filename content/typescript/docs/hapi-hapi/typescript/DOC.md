@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,hapi,node,http,server,types,definitelytyped"
+  tags: "typescript,hapi,node,http,server,types,definitelytyped,route,Number,register,registeredServer,start,Version-Sensitive,console,isInteger,log,parseInt"
 ---
 
 # @hapi/hapi TypeScript Guide

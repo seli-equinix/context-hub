@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,elasticache,javascript,nodejs,redis,memcached,valkey"
+  tags: "aws,elasticache,javascript,nodejs,redis,memcached,valkey,console,log,send,ElastiCache-Specific"
 ---
 
 # `@aws-sdk/client-elasticache`

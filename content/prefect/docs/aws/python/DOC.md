@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,aws,python,workflow,orchestration,boto3,s3,blocks"
+  tags: "prefect,aws,python,workflow,orchestration,boto3,s3,blocks,AwsCredentials,aws_credentials,environ,flow,load,session,save,client,getenv,response,task,S3Bucket,get_boto3_session,aws_demo,get_object,put_object,read_marker,s3_bucket,write_marker"
 ---
 
 # Prefect AWS Python Package Guide

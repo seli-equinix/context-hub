@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,workbox,service-worker,pwa,build"
+  tags: "webpack,workbox,service-worker,pwa,build,path,register,self,skipWaiting,waiting,error,resolve,serviceWorker,postMessage,7.4.0,addEventListener,console,getRegistration,window"
 ---
 
 # workbox-webpack-plugin

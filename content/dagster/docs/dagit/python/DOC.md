@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagit,dagster,python,web-ui,orchestration,assets"
+  tags: "dagit,dagster,python,web-ui,orchestration,assets,Definitions,api,raw_items,return,ApiResource,dg.asset,hello,list,dagster as dg,fetch,item_count,EnvVar,Version-Sensitive"
 ---
 
 # dagit Python Package Guide

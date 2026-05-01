@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "gunicorn,python,wsgi,server,deployment"
+  tags: "gunicorn,python,wsgi,server,deployment,app,worker,ASGI,Content-Length,Content-Type,Forwarded-Proto,Version-Sensitive,return"
 ---
 
 # Gunicorn Python Package Guide

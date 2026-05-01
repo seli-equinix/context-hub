@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,comprehend,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,comprehend,boto3,type-stubs,mypy,pyright,python,client,Session,stubs,ComprehendClient,response,paginator,TYPE_CHECKING,lite,LanguageCodeType,page,props,ContainsPiiEntitiesRequestTypeDef,ListEntitiesDetectionJobsPaginator,contains_pii_entities,Version-Sensitive,detect_sentiment,example.com,get,get_paginator,normalize_language,paginate"
 ---
 
 # mypy-boto3-comprehend Python Package Guide

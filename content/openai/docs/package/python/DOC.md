@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-04-27"
   source: maintainer
-  tags: "openai,python,sdk,llm,responses,chat,streaming,webhooks"
+  tags: "openai,python,sdk,llm,responses,chat,streaming,webhooks,client,create,response,request,AsyncOpenAI,main,completions,asyncio,completion,stream,AzureOpenAI,parse,webhook,realtime,list,run,BaseModel,DefaultAioHttpClient,Flask,Path,Summary,app,choices,item,session"
 ---
 
 # openai Python Package Guide

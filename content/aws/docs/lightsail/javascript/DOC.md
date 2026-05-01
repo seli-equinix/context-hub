@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,lightsail,javascript,nodejs,instances,static-ip,networking"
+  tags: "aws,lightsail,javascript,nodejs,instances,static-ip,networking,const,client,console,log,send,Promise,all"
 ---
 
 # `@aws-sdk/client-lightsail`

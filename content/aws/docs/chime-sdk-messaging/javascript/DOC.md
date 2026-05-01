@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,chime-sdk,messaging,javascript,nodejs,channels"
+  tags: "aws,chime-sdk,messaging,javascript,nodejs,channels,client,send,console,log,env,JSON,stringify,3.1007.0"
 ---
 
 # `@aws-sdk/client-chime-sdk-messaging`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,appstream,boto3,type-stubs,mypy,pyright,autocomplete"
+  tags: "aws,appstream,boto3,type-stubs,mypy,pyright,autocomplete,client,stubs,Session,AppStreamClient,paginator,waiter,lite,fleet,result,stack,TYPE_CHECKING,page,response,AuthenticationTypeType,DescribeStacksPaginator,FleetStartedWaiter,describe_stacks,get_client,Version-Sensitive,describe_fleets,describe_users,get_paginator,get_waiter,paginate,wait"
 ---
 
 # mypy-boto3-appstream Python Package Guide

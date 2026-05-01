@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,iot-hub,arm,management,python,certificates"
+  tags: "azure,iot-hub,arm,management,python,certificates,iot_hub_resource,IotHubClient,begin_create_or_update,verify,begin_update,DefaultAzureCredential,Path,poller,result,AzureCliCredential,create_or_update,environ,get,Version-Sensitive,check_name_availability,create_event_hub_consumer_group,delete_event_hub_consumer_group,generate_verification_code,get_quota_metrics,get_stats,get_subscription_quota,get_valid_skus,list_by_resource_group,list_event_hub_consumer_groups,list_keys"
 ---
 
 # Azure IoT Hub Management SDK for Python

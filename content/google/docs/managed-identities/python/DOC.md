@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,managed-identities,active-directory,microsoft-ad,python,trusts"
+  tags: "google,managed-identities,active-directory,microsoft-ad,python,trusts,managedidentities_v1,client,environ,operation,ManagedIdentitiesServiceClient,result,Domain,Trust,CreateMicrosoftAdDomainRequest,ListDomainsRequest,ReconfigureTrustRequest,ValidateTrustRequest,update_domain,FieldMask,reconfigure_trust,validate_trust,validation,AttachTrustRequest,attach_trust,create_microsoft_ad_domain,get_domain,getenv,list_domains,reset_admin_password,summary"
 ---
 
 # Google Cloud Managed Identities Python Client

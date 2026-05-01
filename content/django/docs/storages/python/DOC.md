@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-storages,django,storage,s3,azure,gcs,staticfiles"
+  tags: "django-storages,django,storage,s3,azure,gcs,staticfiles,STORAGES,default_storage,models,ContentFile,FileField,Document,Version-Sensitive,paths,save,string,url"
 ---
 
 # django-storages Python Package Guide

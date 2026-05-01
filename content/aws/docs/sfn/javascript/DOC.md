@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,step-functions,sfn,javascript,nodejs,workflows,state-machines"
+  tags: "aws,step-functions,sfn,javascript,nodejs,workflows,state-machines,client,JSON,send,console,log,stringify,parse,Date,now"
 ---
 
 # AWS Step Functions SDK for JavaScript (v3)

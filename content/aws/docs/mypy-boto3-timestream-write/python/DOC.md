@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,timestream,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,timestream,boto3,type-stubs,mypy,pyright,python,client,Session,TimestreamWriteClient,stubs,endpoint,write_records,report,lite,task,TYPE_CHECKING,create_batch_load_task,response,BatchLoadDataFormatType,BatchLoadProgressReportTypeDef,describe_endpoints,Using-API,Version-Sensitive,get,make_client,processed_records"
 ---
 
 # mypy-boto3-timestream-write Python Package Guide

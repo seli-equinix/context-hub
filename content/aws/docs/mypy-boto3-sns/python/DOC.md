@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,sns,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,sns,type-stubs,mypy,pyright,python,session,client,paginator,resource,SNSClient,lite,stubs,TYPE_CHECKING,page,topic,ListTopicsPaginator,annotations,response,LanguageCodeStringType,PublishInputTypeDef,SNSServiceResource,Version-Sensitive,all,get,get_paginator,make_client,paginate,publish,topics"
 ---
 
 # mypy-boto3-sns Python Package Guide

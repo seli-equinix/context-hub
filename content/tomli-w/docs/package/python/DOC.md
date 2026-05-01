@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "tomli-w,toml,python,serialization,config"
+  tags: "tomli-w,toml,python,serialization,config,tomli,tomli_w,dumps,Decimal,dump,date,tomllib,parsed,sys"
 ---
 
 # tomli-w Python Package Guide

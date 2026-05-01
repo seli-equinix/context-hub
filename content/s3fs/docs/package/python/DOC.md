@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "s3fs,s3,fsspec,aws,storage,python"
+  tags: "s3fs,s3,fsspec,aws,storage,python,S3FileSystem,json,open,main,asyncio,close,glob,Version-Sensitive,_ls,_session,dumps,exists,get,get_delegated_s3pars,info,loads,pandas as pd,put,read_parquet,run,set_session"
 ---
 
 # s3fs Python Package Guide

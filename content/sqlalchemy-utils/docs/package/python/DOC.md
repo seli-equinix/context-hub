@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "sqlalchemy,sqlalchemy-utils,python,orm,database,types"
+  tags: "sqlalchemy,sqlalchemy-utils,python,orm,database,types,Column,utils,declarative_base,object,StringEncryptedType,force_auto_coercion,sqlalchemy as sa,PhoneNumberType,UUIDType,aggregated,session,uuid,Event,User,AesGcmEngine,EmailType,Timestamp,environ,generic_relationship,metadata,relationship,Comment,Thread,Unicode,comment_count"
 ---
 
 # SQLAlchemy-Utils Python Package Guide

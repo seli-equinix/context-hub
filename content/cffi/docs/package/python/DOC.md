@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "cffi,ffi,c,bindings,python,native"
+  tags: "cffi,ffi,c,bindings,python,native,new,char,lib,cdef,ffibuilder,set_source,string,callback,dlopen,add,compile,find_library,buffer,puts,sqlite3_libversion_number,translate,util,verify,Version-Sensitive,consume,ffi.callback,from_handle,new_handle,toml"
 ---
 
 # cffi Python Package Guide

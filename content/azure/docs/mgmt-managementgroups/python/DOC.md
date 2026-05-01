@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,management-groups,tenant,subscriptions,governance"
+  tags: "azure,arm,management-groups,tenant,subscriptions,governance,ManagementGroupsAPI,DefaultAzureCredential,operations,create,management_group_subscriptions,management_groups,list,get,hierarchy_settings,poller,AzureCliCredential,begin_create_or_update,delete,result,Version-Sensitive"
 ---
 
 # azure-mgmt-managementgroups Python Package Guide

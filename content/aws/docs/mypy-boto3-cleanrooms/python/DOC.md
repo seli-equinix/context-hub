@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,cleanrooms,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,cleanrooms,boto3,type-stubs,mypy,pyright,python,client,Session,CleanRoomsServiceClient,membership,stubs,response,paginator,create_membership,get_membership,getenv,ClientError,ListMembershipsPaginator,TYPE_CHECKING,lite,table,environ,get,page,Version-Sensitive,get_paginator,list_configured_tables,make_cleanrooms_client,paginate"
 ---
 
 # mypy-boto3-cleanrooms Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "websockets,websocket,asyncio,threading,realtime,networking,proxy"
+  tags: "websockets,websocket,asyncio,threading,realtime,networking,proxy,connect,main,serve,send,run,handler,recv,echo,get_running_loop,ssl,basic_auth,Cross-Site,create_default_context,socks,surface"
 ---
 
 # websockets Python Package Guide

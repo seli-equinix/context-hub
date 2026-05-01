@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "apache-airflow,airflow,cohere,embeddings,llm,dag"
+  tags: "apache-airflow,airflow,cohere,embeddings,llm,dag,list,task,CohereEmbeddingOperator,CohereHook,hook,pendulum,vectors,annotations,create_embeddings,datetime,embed_query,inspect_vectors,test_connection"
 ---
 
 # Apache Airflow Cohere Provider Python Guide

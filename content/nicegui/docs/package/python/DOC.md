@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "nicegui,python,ui,web,fastapi,desktop"
+  tags: "nicegui,python,ui,web,fastapi,desktop,page,app,run,ui.page,user,label,login,button,index,path,root,run_with,settings,fastapi_app,get,notify,BaseHTTPMiddleware,RedirectResponse,Request,do_login,healthz,AuthMiddleware,Version-Sensitive,app.add_middleware,dict"
 ---
 
 # NiceGUI Python Package Guide

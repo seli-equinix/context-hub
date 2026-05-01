@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "azure,language,nlp,textanalytics,sentiment,ner,summarization"
+  tags: "azure,language,nlp,textanalytics,sentiment,ner,summarization,TextAnalyticsClient,client,AzureKeyCredential,environ,result,poller,DefaultAzureCredential,ExtractiveSummaryAction,Version-Sensitive,begin_analyze_actions,detect_language"
 ---
 
 # azure-ai-language-text Python Package Guide

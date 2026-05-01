@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "grpcio,grpc,rpc,protobuf,http2,asyncio"
+  tags: "grpcio,grpc,rpc,protobuf,http2,asyncio,server,code,helloworld_pb2_grpc,helloworld_pb2,call,aio,exc,insecure_channel,stub,Greeter,SayHello,read,secure_channel,self,HelloRequest,json,serve,GreeterStub,details,run,ssl_channel_credentials,start,write,HelloReply,add_GreeterServicer_to_server"
 ---
 
 # grpcio Python Package Guide

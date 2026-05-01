@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "idna,dns,unicode,domain,punycode,internationalization"
+  tags: "idna,dns,unicode,domain,punycode,internationalization,encode,decode,alabel,ulabel,wire_value,Version-Sensitive,normalize_domain"
 ---
 
 # idna Python Package Guide

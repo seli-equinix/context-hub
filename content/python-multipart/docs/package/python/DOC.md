@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-multipart,multipart,form-data,uploads,python"
+  tags: "python-multipart,multipart,form-data,uploads,python,parser,on_file,Content-Type,on_field,value,create_form_parser,files,parse_form,text,BytesIO,File,fields,file_object,Content-Length,finalize,write,Content-Disposition,Content-Transfer,File-Name,close,decode,dict,read,seek,URL-Encoded"
 ---
 
 # python-multipart Python Guide

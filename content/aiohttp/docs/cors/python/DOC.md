@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aiohttp-cors,aiohttp,cors,http,asyncio,python,web"
+  tags: "aiohttp-cors,aiohttp,cors,http,asyncio,python,web,aiohttp_cors,router,resource,add,routes,setup,Content-Type,ResourceOptions,add_route,Application,Response,add_get,create_item,health,json_response,Request-Id,UserView,hdrs,Class-Based,Version-Sensitive,add_post,add_resource,aiohttp_cors.custom_cors,asyncio.coroutine,custom_cors"
 ---
 
 # aiohttp-cors Python Package Guide

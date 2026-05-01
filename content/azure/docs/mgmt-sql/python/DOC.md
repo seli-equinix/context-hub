@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-sql,sql,management,arm,database"
+  tags: "azure,azure-sql,sql,management,arm,database,SqlManagementClient,DefaultAzureCredential,databases,result,servers,Server,poller,environ,Sku,firewall_rules,FirewallRule,begin_create_or_update,begin_delete,Version-Sensitive,create_or_update,list_by_resource_group,list_by_server"
 ---
 
 # Azure SQL Management SDK For Python

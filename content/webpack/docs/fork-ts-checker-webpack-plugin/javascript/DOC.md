@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,typescript,build,plugin,type-checking,javascript"
+  tags: "webpack,typescript,build,plugin,type-checking,javascript,path,babel,resolve,app"
 ---
 
 # fork-ts-checker-webpack-plugin

@@ -6,7 +6,7 @@ metadata:
   versions: "2.2.4"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "kafka,streaming,messaging,queue,events"
+  tags: "kafka,streaming,messaging,queue,events,consumer,console,producer,error,value,log,admin,process,transaction,send,kafkajs,run,connect,toString,subscribe,JSON,disconnect,headers,Date,commit,now,abort,assignment,createTopics,stringify"
 ---
 
 # KafkaJS - Apache Kafka Client for Node.js

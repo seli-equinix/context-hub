@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,binary-authorization,gke,cloud-run,attestations,supply-chain,python"
+  tags: "google-cloud,binary-authorization,gke,cloud-run,attestations,supply-chain,python,binaryauthorization_v1,client,Attestor,BinauthzManagementServiceV1Client,ValidationHelperV1Client,UserOwnedGrafeasNote,get_policy,Credentials,SystemPolicyV1Client,create_attestor,operation,service_account,CreateAttestorRequest,GetAttestorRequest,GetPolicyRequest,GetSystemPolicyRequest,ListAttestorsRequest,environ,from_service_account_file,get_attestor,get_system_policy,getenv,list_attestors,result"
 ---
 
 # google-cloud-binary-authorization Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,memorystore,memcached,javascript,nodejs,admin-sdk"
+  tags: "google-cloud,gcp,memorystore,memcached,javascript,nodejs,admin-sdk,const,client,google,operation,CloudMemcacheClient,promise,set,applyParameters,createInstance,rescheduleMaintenance,updateParameters,console,deleteInstance,get,getInstance,log,scheduleTime,4.2.1,listInstancesAsync,updateInstance,Math,floor,getTime"
 ---
 
 # `@google-cloud/memcache` JavaScript Package Guide

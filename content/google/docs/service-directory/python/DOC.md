@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,service-directory,service-discovery,dns,python"
+  tags: "google,gcp,service-directory,service-discovery,dns,python,servicedirectory_v1,client,RegistrationServiceClient,Service,Endpoint,LookupServiceClient,registration,Namespace,environ,lookup,resolve_service,FieldMask,namespace_path,service_path,Credentials,list_endpoints,service_account,ListEndpointsRequest,ResolveServiceRequest,Version-Sensitive,create_endpoint,create_namespace,create_service,delete_namespace,endpoint_path"
 ---
 
 # Google Cloud Service Directory Python Client Library

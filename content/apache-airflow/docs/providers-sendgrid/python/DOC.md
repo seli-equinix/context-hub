@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,sendgrid,email,python,notifications"
+  tags: "airflow,apache-airflow,sendgrid,email,python,notifications,DAG,send_email,task,context,datetime,example.com,notify_with_sendgrid,EmptyOperator,get_current_context,Built-In,ini"
 ---
 
 # apache-airflow-providers-sendgrid

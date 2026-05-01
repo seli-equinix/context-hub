@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "toolz,python,functional,iterators,pipelines,dictionaries"
+  tags: "toolz,python,functional,iterators,pipelines,dictionaries,pipe,compose,reduceby,assoc_in,curry,map,update_in,groupby,partition_all,row,filter,clamp,pluck,take,valmap,Version-Sensitive"
 ---
 
 # toolz Python Package Guide

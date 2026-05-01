@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyspark,spark,dataframe,sql,etl,distributed-computing,big-data"
+  tags: "pyspark,spark,dataframe,sql,etl,distributed-computing,big-data,local,SparkSession,master,remote,builder,date,events,mode,show,result,write,filter,parquet,read,summary,Version-Sensitive,assertDataFrameEqual,assertSchemaEqual,createDataFrame,createOrReplaceTempView,functions as F,withColumn"
 ---
 
 # PySpark Python Package Guide

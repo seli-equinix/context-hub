@@ -6,7 +6,7 @@ metadata:
   versions: "3.1.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "airtable,database,low-code,spreadsheet,api"
+  tags: "airtable,database,low-code,spreadsheet,api,table,fields,record,all,base,Task,create,example.com,updated,datetime,tasks,environ,get,schema,product,update,all_updated,result,webhook,updates,contacts,date,now,order,contact"
 ---
 
 # Airtable Python SDK (pyairtable) - Version 3.1.1

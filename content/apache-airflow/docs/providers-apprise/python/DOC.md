@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,apprise,notifications,alerts,python"
+  tags: "airflow,apache-airflow,apprise,notifications,alerts,python,DAG,task,AppriseHook,hook,send_apprise_notification,NotifyType,NotifyFormat,context,datetime,notify,notify_ops,get_current_context,run_job,example.com"
 ---
 
 # apache-airflow-providers-apprise

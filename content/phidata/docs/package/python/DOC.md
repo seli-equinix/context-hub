@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "phidata,agents,llm,rag,playground,python"
+  tags: "phidata,agents,llm,rag,playground,python,agent,OpenAIChat,knowledge_base,print_response,PDFUrlKnowledgeBase,DuckDuckGo,LanceDb,SearchType,SqlAgentStorage,fastapi,serve_playground_app,Version-Sensitive,load"
 ---
 
 # phidata Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "uvloop,asyncio,event-loop,async,libuv,performance"
+  tags: "uvloop,asyncio,event-loop,async,libuv,performance,loop,run,main,install,Runner,new_event_loop,work,sleep,writer,get_event_loop,server,EventLoopPolicy,close,handle_echo,reader,set_event_loop_policy,write,Version-Sensitive,drain,gather,read,run_until_complete,serve_forever,set_event_loop,start_server"
 ---
 
 # uvloop Python Package Guide

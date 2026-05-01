@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,typescript,loader,build,javascript"
+  tags: "webpack,typescript,loader,build,javascript,path,resolve,specifiers,9.5.4,app"
 ---
 
 # ts-loader

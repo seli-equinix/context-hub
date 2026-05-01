@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,aws,lambda,serverless,types,definitelytyped"
+  tags: "typescript,aws,lambda,serverless,types,definitelytyped,event,handler,SQSBatchResponse,batchItemFailures,JSON,console,log,stringify,parse,push"
 ---
 
 # AWS Lambda TypeScript Guide

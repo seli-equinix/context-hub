@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "docutils,restructuredtext,rst,html,xml,documentation"
+  tags: "docutils,restructuredtext,rst,html,xml,documentation,publish_string,doctree,destination,parts,publish_doctree,publish_file,publish_parts,StringIO,log,File-Like,Version-Sensitive,getvalue,ini,pformat"
 ---
 
 # docutils Python Package Guide

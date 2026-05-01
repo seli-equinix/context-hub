@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-env,pytest,python,testing,environment-variables,toml"
+  tags: "pytest-env,pytest,python,testing,environment-variables,toml,environ,getenv,One-Off,Version-Sensitive,dict,get,load_settings,test_env_is_available"
 ---
 
 # pytest-env Python Package Guide

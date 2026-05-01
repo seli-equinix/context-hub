@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "fastapi-users,fastapi,python,auth,users,jwt,cookies,sqlalchemy"
+  tags: "fastapi-users,fastapi,python,auth,users,jwt,cookies,sqlalchemy,app,fastapi_users,User,schemas,Depends,include_router,UserRead,auth_backend,Request,UserCreate,UserManager,uuid,Base,Content-Type,JWTStrategy,SQLAlchemyUserDatabase,UserUpdate,example.com,get_user_db,AsyncGenerator,AsyncSession,BearerTransport,CookieTransport,InvalidPasswordException,SQLAlchemyBaseUserTableUUID"
 ---
 
 # FastAPI Users Python Package Guide

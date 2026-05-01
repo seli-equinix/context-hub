@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,vertex-ai,aiplatform,prediction,ml,javascript,nodejs"
+  tags: "google-cloud,vertex-ai,aiplatform,prediction,ml,javascript,nodejs,const,google,client,helpers,endpoints,EndpointServiceClient,models,predict,toValue,ModelServiceClient,PredictionServiceClient,getEndpoint,6.5.0,push,console,dir,listEndpointsAsync,listModelsAsync"
 ---
 
 # `@google-cloud/aiplatform` JavaScript Package Guide

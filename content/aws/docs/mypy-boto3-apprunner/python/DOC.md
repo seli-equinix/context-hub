@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,apprunner,boto3,python,typing,mypy,pyright,stubs"
+  tags: "aws,apprunner,boto3,python,typing,mypy,pyright,stubs,client,service,session,AppRunnerClient,annotations,lite,TYPE_CHECKING,Config,describe_request,RuntimeType,describe_service,response,Runner-Specific,Runtime-Safe,Version-Sensitive,get,list_services,normalize_runtime,resource,start_deployment"
 ---
 
 # mypy-boto3-apprunner Python Package Guide

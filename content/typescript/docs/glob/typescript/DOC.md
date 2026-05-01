@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,glob,node,filesystem,types,definitelytyped"
+  tags: "typescript,glob,node,filesystem,types,definitelytyped,log,console,entry,cwd,walk,Path,controller,shared,string,isDirectory,tests,abort,findMarkdownFiles,fullpath,process,walkSync"
 ---
 
 # glob TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,css,build,plugin,assets"
+  tags: "webpack,css,build,plugin,assets,path,resolve"
 ---
 
 # mini-css-extract-plugin for JavaScript

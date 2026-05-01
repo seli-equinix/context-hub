@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,digital-twins,iot,dtdl,javascript,azure-identity"
+  tags: "azure,digital-twins,iot,dtdl,javascript,azure-identity,digitalTwinsClient,client,console,log,2.0.0,upsertDigitalTwin,getDigitalTwin,queryTwins,type,JSON,context,listIncomingRelationships,listRelationships,updateComponent,updateDigitalTwin,Sub-Domain,createModels,stringify,upsertRelationship"
 ---
 
 # @azure/digital-twins-core JavaScript Package Guide

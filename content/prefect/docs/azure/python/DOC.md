@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,azure,python,workflow,orchestration,blob-storage,blocks"
+  tags: "prefect,azure,python,workflow,orchestration,blob-storage,blocks,AzureBlobStorageCredentials,azure_credentials,load,flow,container_client,blob_service_client,environ,save,task,AzureBlobStorageContainer,get_client,get_container_client,azure_blob_demo,azure_container,content,decode,download_blob,read_marker,upload_blob,upload_marker"
 ---
 
 # Prefect Azure Python Package Guide

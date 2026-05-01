@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "bcrypt,passwords,hashing,security,python"
+  tags: "bcrypt,passwords,hashing,security,python,password,hashpw,gensalt,checkpw,encode,kdf,base64,normalize_password,hash_password,hashlib,verify_password,b64encode,sha256"
 ---
 
 # bcrypt Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "scrapy,python,web-scraping,crawler,spider,twisted,asyncio"
+  tags: "scrapy,python,web-scraping,crawler,spider,twisted,asyncio,response,settings,css,crawl,process,quote,set,update_settings,QuotesSpider,Request,start,CrawlerProcess,follow,parse,start_requests,get_project_settings,parse_items,AsyncSpider,PrivateSpider,Version-Sensitive,classmethod,meta,xpath"
 ---
 
 # Scrapy Python Package Guide

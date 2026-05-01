@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "trl,huggingface,rlhf,alignment,fine-tuning,llm,training"
+  tags: "trl,huggingface,rlhf,alignment,fine-tuning,llm,training,trainer,SFTTrainer,SFTConfig,AutoModelForCausalLM,AutoTokenizer,from_pretrained,load_dataset,train,Large-Model,Version-Sensitive,save_model"
 ---
 
 # trl Python Package Guide

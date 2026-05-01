@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,data-tables,azure-storage,cosmosdb,tables,nosql,odata"
+  tags: "azure,data-tables,azure-storage,cosmosdb,tables,nosql,odata,table,entity,TableServiceClient,DefaultAzureCredential,service,TableClient,from_connection_string,get_table_client,item,UpdateMode,create_table_if_not_exists,get_entity,asyncio,main,minimum,query_entities,submit_transaction,update_entity,upsert_entity,Version-Sensitive,delete_entity,run"
 ---
 
 # Azure Data Tables Python Client

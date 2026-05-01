@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,rekognition,vision,images,video,faces"
+  tags: "aws,rekognition,vision,images,video,faces,client,send,console,error,log,Rekognition-Specific"
 ---
 
 # AWS Rekognition SDK for JavaScript (v3)

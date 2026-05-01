@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,ast,plugin,imports"
+  tags: "babel,build,ast,plugin,imports,path,log,console,forms,and reuse it,conditionalImportPlugin,examplePlugin,get"
 ---
 
 # @babel/helper-module-imports

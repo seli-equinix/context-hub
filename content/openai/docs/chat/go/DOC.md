@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-09"
   source: community
-  tags: "openai,chat,llm,ai"
+  tags: "openai,chat,llm,ai,context,resp,Completions,fmt,Background,New,stream,Choices,Responses,option,NewClient,json,UserMessage,main,Bool,Current,Next,Printf,Println,acc,Embeddings,Err,Int,NewStreaming,OutputText"
 ---
 
 # OpenAI Go SDK Coding Guidelines

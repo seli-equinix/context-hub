@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,keyspaces,cassandra,database,nosql"
+  tags: "aws,keyspaces,cassandra,database,nosql,client,send,log,console,Date,now"
 ---
 
 # Amazon Keyspaces SDK for JavaScript

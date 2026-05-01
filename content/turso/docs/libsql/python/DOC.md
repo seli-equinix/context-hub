@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: community
-  tags: "turso,libsql,sqlite,database,embedded-replicas,python"
+  tags: "turso,libsql,sqlite,database,embedded-replicas,python,conn,cursor,execute,commit,sync,connect,environ,Column,example.com,fetchall,row,asyncio,session,FastAPI,String,User,create_engine,rollback,Integer,ThreadPoolExecutor,app,close,declarative_base,desc,fetchone"
 ---
 
 # Turso libSQL Client Coding Guidelines (Python)

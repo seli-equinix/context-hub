@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "h3,geospatial,gis,hexagonal-grid,geojson,uber"
+  tags: "h3,geospatial,gis,hexagonal-grid,geojson,uber,geo_to_cells,latlng_to_cell,grid_disk,grid_ring,h3shape_to_cells,versions,LatLngPoly,cell_to_boundary,cell_to_children,cells_to_geo,cells_to_h3shape,compact_cells,cell_to_latlng,cell_to_parent,ring,uncompact_cells,Version-Sensitive,are_neighbor_cells,get_resolution"
 ---
 
 # h3 Python Package Guide

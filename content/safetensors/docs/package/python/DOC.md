@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "safetensors,huggingface,tensors,serialization,model-weights,pytorch,numpy"
+  tags: "safetensors,huggingface,tensors,serialization,model-weights,pytorch,numpy,model,torch,save_file,safe_open,load_file,load,load_model,weights,save_model,zeros,tensor_slice,state_dict,Dict,Model-Level,Version-Sensitive,arange,get_shape,load_state_dict,numpy as np"
 ---
 
 # safetensors Python Package Guide

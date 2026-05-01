@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,datastore,firestore-datastore-mode,nosql,query,transaction"
+  tags: "google,datastore,firestore-datastore-mode,nosql,query,transaction,client,key,task,put,counter,PropertyFilter,batch,entity,update,audit,get,Credentials,add_filter,delete,service_account,Version-Sensitive,fetch,from_service_account_file,key_filter"
 ---
 
 # Google Cloud Datastore Python Client Library

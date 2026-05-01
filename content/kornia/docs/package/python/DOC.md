@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "kornia,pytorch,computer-vision,image-processing,augmentation,deep-learning"
+  tags: "kornia,pytorch,computer-vision,image-processing,augmentation,deep-learning,torch,image,device,ImageLoadType,rand,cuda,image_to_tensor,load_image,resize,rgb_to_grayscale,tensor_to_image,Version-Sensitive,is_available,kornia as K,numpy as np,unsqueeze,zeros"
 ---
 
 # Kornia Python Package Guide

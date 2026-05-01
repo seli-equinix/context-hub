@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "simplejson,json,serialization,deserialization,python,decimal"
+  tags: "simplejson,json,serialization,deserialization,python,decimal,simplejson as json,obj,data,dumps,loads,parsed,path,User,example.com,version,as_user,asdict,dataclass,dump,keys,load,open,to_jsonable,Drop-In,decode_payload,encode_payload"
 ---
 
 # simplejson Python Package Guide

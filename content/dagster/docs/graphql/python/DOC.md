@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,graphql,python,orchestration,jobs,runs"
+  tags: "dagster,graphql,python,orchestration,jobs,runs,client,DagsterGraphQLClient,DagsterRunStatus,submit_job_execution,DagsterGraphQLClientError,args,requests,environ,response,Api-Token,Dagster-Cloud,HTTPBasicAuth,get_run_status,getenv,json,reload_repository_location,terminate_runs,time,Version-Sensitive,post,raise_for_status,sleep,terminate_run"
 ---
 
 # Dagster GraphQL Python Package Guide

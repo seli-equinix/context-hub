@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "lancedb,python,vector-database,vector-search,embeddings,arrow,pydantic,rag"
+  tags: "lancedb,python,vector-database,vector-search,embeddings,arrow,pydantic,rag,table,search,Vector,connect,add,results,LanceModel,func,create_index,create_table,open_table,get_registry,registry,Document,Item,SourceField,VectorField,Version-Sensitive,get,ndims"
 ---
 
 # lancedb Python Package Guide

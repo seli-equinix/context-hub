@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,optional-chaining,syntax"
+  tags: "babel,build,javascript,optional-chaining,syntax,7.8.3,console,log"
 ---
 
 # @babel/plugin-syntax-optional-chaining

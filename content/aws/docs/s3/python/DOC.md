@@ -6,7 +6,7 @@ metadata:
   versions: "1.40.59"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "aws,s3,storage,cloud,bucket"
+  tags: "aws,s3,storage,cloud,bucket,boto3,key,response,client,error,obj,resource,Object,objects,upload,ClientError,all,upload_file,Config,delete,get,get_object,list_objects_v2,create_bucket,json,put_object,waiter,download_file,requests,tags"
 ---
 
 # AWS S3 SDK for Python (boto3) - Complete Guide

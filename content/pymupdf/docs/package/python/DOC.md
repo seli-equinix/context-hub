@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pymupdf,pdf,documents,ocr,text-extraction,rendering,annotations"
+  tags: "pymupdf,pdf,documents,ocr,text-extraction,rendering,annotations,doc,page,open,save,text,get_text,close,markdown,blocks,words,authenticate,response,annot,can_save_incrementally,get_textpage_ocr,requests,get,get_pixmap,pix,plain_text,Non-PDF,Rect,Version-Sensitive,add_freetext_annot,environ"
 ---
 
 # PyMuPDF Python Package Guide

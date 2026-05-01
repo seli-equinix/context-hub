@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,plexus,hooks,operators,dags"
+  tags: "airflow,apache-airflow,plexus,hooks,operators,dags,PlexusJobOperator,DAG,response,PlexusHook,task,get,item,requests,list,Variable,annotations,example.com,json,pendulum,raise_for_status,datetime,list_plexus_apps,return"
 ---
 
 # Apache Airflow Plexus Provider Guide

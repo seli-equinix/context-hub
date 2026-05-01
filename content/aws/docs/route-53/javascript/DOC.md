@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,route53,dns,javascript,nodejs,browser,hosted-zones"
+  tags: "aws,route53,dns,javascript,nodejs,browser,hosted-zones,console,log,send"
 ---
 
 # `@aws-sdk/client-route-53`

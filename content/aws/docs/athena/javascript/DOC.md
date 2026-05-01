@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,athena,javascript,nodejs,sql,analytics,query"
+  tags: "aws,athena,javascript,nodejs,sql,analytics,query,rows,send,console,log,pages,map,columnNames,terminalStates,Athena-Specific,Object,flatMap,fromEntries,push,slice"
 ---
 
 # `@aws-sdk/client-athena`

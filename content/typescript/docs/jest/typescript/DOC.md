@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,jest,testing,mocks,types"
+  tags: "typescript,jest,testing,mocks,types,expect,extend,mockResolvedValue,deleteUser,fetchUser,getUser,console,spyOn,warn,Version-Sensitive,resolves,restoreAllMocks,toEqual"
 ---
 
 # Jest TypeScript Guide

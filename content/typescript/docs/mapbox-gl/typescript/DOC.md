@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,mapbox,mapbox-gl,maps,geojson,browser,types,definitelytyped"
+  tags: "typescript,mapbox,mapbox-gl,maps,geojson,browser,types,definitelytyped,map,mapboxgl,const,Popup,Marker,remove,addLayer,addSource,flyTo,getCanvas,NavigationControl,addControl,document,getElementById,getSource"
 ---
 
 # Mapbox GL JS TypeScript Guide

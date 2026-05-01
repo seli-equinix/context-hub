@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react-router,routing,history,react,types,definitelytyped"
+  tags: "typescript,react-router,routing,history,react,types,definitelytyped,withRouter,components,5.1.20,ProjectPage,UserRoute,push,5.3.3,AppRoutes,ContinueButton,ServerApp,TeamBadge,TestApp,UserScreen,console,isTeamPath,log"
 ---
 
 # React Router TypeScript Guide

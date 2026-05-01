@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,lightsail,type-stubs,mypy,pyright,autocomplete,python"
+  tags: "aws,boto3,lightsail,type-stubs,mypy,pyright,autocomplete,python,client,LightsailClient,stubs,Session,instance,paginator,response,TYPE_CHECKING,lite,get,get_instances,page,Config,GetInstanceAccessDetailsResultTypeDef,GetInstanceRequestTypeDef,GetInstancesPaginator,InstanceAccessProtocolType,get_lightsail_client,result,Version-Sensitive,get_instance,get_instance_access_details,get_paginator,paginate"
 ---
 
 # mypy-boto3-lightsail Python Package Guide

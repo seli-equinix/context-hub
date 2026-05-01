@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "postcss,css,plugins,ast,source-maps"
+  tags: "postcss,css,plugins,ast,source-maps,result,decl,map,error,console,plugin,process,root,value,log,match,parse,rule,cardRule,toResult,toString,warn,append,processor,replace,toUpperCase,warning,atRule,comment,document"
 ---
 
 # PostCSS for JavaScript

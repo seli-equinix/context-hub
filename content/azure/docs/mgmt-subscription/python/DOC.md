@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,arm,subscription,management,identity,tenant"
+  tags: "azure,arm,subscription,management,identity,tenant,client,SubscriptionClient,DefaultAzureCredential,alias,credential,list,operations,subscriptions,tenants,PutAliasRequestProperties,PutTenantPolicyRequestProperties,close,subscription_policy,PutAliasRequest,begin_create,get,poller,Version-Sensitive,add_update_policy_for_tenant,list_locations,main,result"
 ---
 
 # azure-mgmt-subscription Python Package Guide

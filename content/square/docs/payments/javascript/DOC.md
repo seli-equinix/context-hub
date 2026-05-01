@@ -6,7 +6,7 @@ metadata:
   versions: "43.2.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "square,payments,pos,commerce,checkout"
+  tags: "square,payments,pos,commerce,checkout,error,console,errors,crypto,name,create,log,customers,locationIds,catalog,retrieve,orders,subscriptions,bookings,inventory,invoices,list,locations,refunds,body,quantity,terminal,express,lineItems,map"
 ---
 
 # Square SDK Coding Guide

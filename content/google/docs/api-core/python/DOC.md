@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,python,auth,retry,pagination,long-running-operations"
+  tags: "google,google-cloud,python,auth,retry,pagination,long-running-operations,client,core,exceptions,ClientOptions,operation,secretmanager_v1,SecretManagerServiceClient,result,retry_async,service_account,Credentials,AsyncRetry,access_secret_version,from_service_account_file,if_exception_type,Version-Sensitive,list_secrets,some_long_running_method"
 ---
 
 # google-api-core Python Package Guide

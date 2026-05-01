@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-sugar,pytest,testing,terminal,ci,playwright"
+  tags: "pytest-sugar,pytest,testing,terminal,ci,playwright,ini,toml,Version-Sensitive"
 ---
 
 # pytest-sugar Python Package Guide

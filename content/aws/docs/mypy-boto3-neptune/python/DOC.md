@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,neptune,boto3,mypy-boto3-neptune,boto3-stubs,typing,type-checking,python"
+  tags: "aws,neptune,boto3,mypy-boto3-neptune,boto3-stubs,typing,type-checking,python,client,session,NeptuneClient,stubs,cluster,describe_db_clusters,response,lite,TYPE_CHECKING,get,page,paginator,waiter,DBInstanceAvailableWaiter,AddRoleToDBClusterMessageTypeDef,ApplyMethodType,Config,DescribeDBClustersPaginator,Version-Sensitive,get_paginator,get_waiter,paginate,resource,wait"
 ---
 
 # mypy-boto3-neptune Python Package Guide

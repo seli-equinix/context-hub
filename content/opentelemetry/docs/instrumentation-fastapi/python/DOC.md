@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,otel,fastapi,asgi,tracing,observability"
+  tags: "opentelemetry,otel,fastapi,asgi,tracing,observability,app,span,trace,FastAPIInstrumentor,tracer_provider,Any,dict,BatchSpanProcessor,SERVICE_NAME,client_request_hook,get,scope,server_request_hook,OTLPSpanExporter,Resource,TracerProvider,create,instrument_app,is_recording,message,set_attribute,Version-Sensitive,Zero-Code,add_span_processor,app.get"
 ---
 
 # OpenTelemetry FastAPI Instrumentation Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,less,css,loader"
+  tags: "webpack,build,less,css,loader,path,import,brand,resolve,12.3.2"
 ---
 
 # less-loader

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-core,python,azure-sdk,pipeline,credentials,retries,http"
+  tags: "azure,azure-core,python,azure-sdk,pipeline,credentials,retries,http,core,PipelineClient,response,client,credential,HttpRequest,AsyncPipelineClient,send_request,AzureKeyCredential,logging,raise_for_status,RetryPolicy,headers,main,DefaultAzureCredential,azure_logger,json,ApiKeyPolicy,BearerTokenCredentialPolicy,SansIOHTTPPolicy,asyncio,format_url,sys,StreamHandler,Version-Sensitive"
 ---
 
 # azure-core Python Package Guide

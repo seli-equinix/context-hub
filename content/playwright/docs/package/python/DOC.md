@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "playwright,python,browser,testing,e2e,automation"
+  tags: "playwright,python,browser,testing,e2e,automation,page,context,chromium,launch,sync_playwright,close,get_by_role,asyncio,example.com,goto,get_by_label,new_page,new_context,storage_state,run,Path,async_playwright,main,title,Version-Sensitive,get_by_test_id,get_by_text,mkdir,parent,sleep"
 ---
 
 # Playwright Python Package Guide

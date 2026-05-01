@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "xgboost,machine-learning,gradient-boosting,scikit-learn,gpu"
+  tags: "xgboost,machine-learning,gradient-boosting,scikit-learn,gpu,xgb,model,Booster,DMatrix,X_valid,train,X_train,bst,save_model,XGBClassifier,predict,xgboost as xgb,DataFrame,clf,fit,normal,rng,load_breast_cancer,load_model,loaded,predict_proba,restored,roc_auc_score,train_test_split,Booster-Level"
 ---
 
 # xgboost Python Package Guide

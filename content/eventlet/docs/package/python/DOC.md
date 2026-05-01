@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "eventlet,python,networking,concurrency,green-threads,wsgi"
+  tags: "eventlet,python,networking,concurrency,green-threads,wsgi,app,sleep,socket,work,client,server,Timeout,import_patched,monkey_patch,spawn,GreenPool,fetch,return,wait,gt1,gt2,hubs,patcher,pool,request,time,Content-Type,Version-Sensitive,connect,imap"
 ---
 
 # eventlet Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "replicate,python,ml,inference,ai,predictions"
+  tags: "replicate,python,ml,inference,ai,predictions,output,run,asyncio,httpx,Client,main,create,environ,first_file,stream,Version-Sensitive,async_run,async_stream,get,read"
 ---
 
 # replicate Python Package Guide

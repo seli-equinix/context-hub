@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "werkzeug,wsgi,http,routing,middleware,testing,python"
+  tags: "werkzeug,wsgi,http,routing,middleware,testing,python,request,Response,app,ProxyFix,headers,Rule,client,form,Map,Request.application,run_simple,safe_join,AppRequest,args,get,get_data,HTTPException,adapter,check_password_hash,generate_password_hash,secure_filename,url_map,values,App-Version,AppRequest.application"
 ---
 
 # Werkzeug Python Package Guide

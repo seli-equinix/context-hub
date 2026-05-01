@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,staticfiles,assets,compression,css,javascript,python,pypi"
+  tags: "django,staticfiles,assets,compression,css,javascript,python,pypi,storages,jinja2,CompressorExtension,local_storage,save,CachedS3Boto3Storage,S3Boto3Storage,__init__,Environment,Version-Sensitive,_open,create_storage"
 ---
 
 # django-compressor Python Package Guide

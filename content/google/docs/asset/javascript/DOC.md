@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gcp,cloud-asset-inventory,javascript,nodejs,iam,inventory,search,export"
+  tags: "google-cloud,gcp,cloud-asset-inventory,javascript,nodejs,iam,inventory,search,export,const,client,google,AssetServiceClient,console,exportAssets,operation,listAssetsAsync,log,searchAllResourcesAsync,6.3.1,promise"
 ---
 
 # `@google-cloud/asset` JavaScript Package Guide

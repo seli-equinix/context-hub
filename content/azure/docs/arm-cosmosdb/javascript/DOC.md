@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,cosmosdb,arm,management,javascript"
+  tags: "azure,cosmosdb,arm,management,javascript,cosmosClient,log,console,sqlResources,databaseAccounts,16.4.0,beginCreateUpdateSqlContainerAndWait,beginCreateUpdateSqlDatabaseAndWait,get,list,listKeys,listSqlContainers,listSqlDatabases"
 ---
 
 # Azure Cosmos DB Management Client For JavaScript

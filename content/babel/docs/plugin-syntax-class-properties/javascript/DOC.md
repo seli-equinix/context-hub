@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,class-fields,private-fields,private-methods,syntax"
+  tags: "babel,build,javascript,class-fields,private-fields,private-methods,syntax,properties,fields,7.12.13,field,features,Counter,Example,console,log"
 ---
 
 # @babel/plugin-syntax-class-properties

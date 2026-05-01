@@ -6,7 +6,7 @@ metadata:
   versions: "6.19.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "prisma,orm,database,typescript,migrations"
+  tags: "prisma,orm,database,typescript,migrations,user,const,prisma.io,findMany,String,default,post,create,console,log,update,error,unique,relation,count,findUnique,now,Category,updatedAt,6.19.0,PostCategory,args,delete,deleteMany,groupBy"
 ---
 
 # Prisma ORM - JavaScript/TypeScript

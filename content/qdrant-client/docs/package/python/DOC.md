@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "qdrant,vector-database,embeddings,search,retrieval,rag"
+  tags: "qdrant,vector-database,embeddings,search,retrieval,rag,client,models,QdrantClient,query_points,query,AsyncQdrantClient,PointStruct,environ,VectorParams,create_collection,upsert,FieldCondition,Filter,MatchValue,PointIdsList,Version-Sensitive,YOUR-CLUSTER,add,delete,get,retrieve"
 ---
 
 # qdrant-client Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "langchain-community,langchain,python,integrations,document-loaders,vectorstores,tools"
+  tags: "langchain-community,langchain,python,integrations,document-loaders,vectorstores,tools,FAISS,loader,TextLoader,as_retriever,page_content,retriever,tool,vector_store,DuckDuckGoSearchRun,OpenAIEmbeddings,invoke,load,Version-Sensitive,from_texts,similarity_search,successfully only after you install their separate backend dependency"
 ---
 
 # langchain-community Python Package Guide

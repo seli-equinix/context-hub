@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "fpdf2,pdf,python,fonts,unicode,html"
+  tags: "fpdf2,pdf,python,fonts,unicode,html,FPDF,output,add_page,cell,multi_cell,set_font,add_font,write_html,Response,image,set_auto_page_break,Content-Disposition,Version-Sensitive,download_pdf,set_font_size"
 ---
 
 # fpdf2 Python Package Guide

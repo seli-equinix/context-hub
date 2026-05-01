@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,codepipeline,boto3,mypy,pyright,stubs,typing,python,cicd"
+  tags: "aws,codepipeline,boto3,mypy,pyright,stubs,typing,python,cicd,client,session,config,CodePipelineClient,annotations,latest,lite,page,get,paginator,response,TYPE_CHECKING,execution,stage,state,AWSSessionCredentialsTypeDef,ActionCategoryType,ListPipelineExecutionsPaginator,get_pipeline_state,start_pipeline_execution,CodePipeline-Specific,Version-Sensitive,get_paginator,paginate"
 ---
 
 # mypy-boto3-codepipeline Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "statsmodels,python,statistics,regression,time-series,econometrics,glm,arima"
+  tags: "statsmodels,python,statistics,regression,time-series,econometrics,glm,arima,model,results,smf,OLS,fit,DataFrame,forecast,pandas as pd,Series,add_constant,prediction,robust_results,Version-Sensitive,conf_int,date_range,get_prediction,head,summary"
 ---
 
 # statsmodels Python Package Guide

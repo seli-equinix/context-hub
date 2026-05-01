@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dbt,dbt-core,analytics-engineering,sql,etl,cli,warehouse"
+  tags: "dbt,dbt-core,analytics-engineering,sql,etl,cli,warehouse,Version-Sensitive"
 ---
 
 # dbt Core Python Package Guide

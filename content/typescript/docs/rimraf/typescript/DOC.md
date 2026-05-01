@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,rimraf,node,filesystem,types,npm"
+  tags: "typescript,rimraf,node,filesystem,types,npm,path,entry,console,log,endsWith,isDirectory"
 ---
 
 # rimraf TypeScript Guide

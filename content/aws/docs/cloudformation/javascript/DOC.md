@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,cloudformation,javascript,nodejs,browser,infrastructure"
+  tags: "aws,cloudformation,javascript,nodejs,browser,infrastructure,console,log,send,CloudFormation-Specific"
 ---
 
 # `@aws-sdk/client-cloudformation`

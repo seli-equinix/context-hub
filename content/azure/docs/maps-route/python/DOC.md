@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,azure-maps,route,routing,geospatial,python"
+  tags: "azure,azure-maps,route,routing,geospatial,python,client,MapsRouteClient,AzureKeyCredential,environ,get_route_directions,logging,reference,AzureSasCredential,HttpResponseError,logger,main,routes,DefaultAzureCredential,asyncio,get_route_range,sys,StreamHandler,Version-Sensitive,addHandler,getLogger,run,setLevel"
 ---
 
 # azure-maps-route Python Package Guide

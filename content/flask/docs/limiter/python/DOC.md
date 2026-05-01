@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask-limiter,flask,python,rate-limiting,redis,limits"
+  tags: "flask-limiter,flask,python,rate-limiting,redis,limits,app,limiter,config,get_remote_address,limit,error,route,limiter.limit,request,app.post,post,get,ProxyFix,app.get,current_user,items,medium,slow,write_limit,RateLimitExceeded,batch,checkout,get_response,health,init_app"
 ---
 
 # Flask-Limiter Python Package Guide

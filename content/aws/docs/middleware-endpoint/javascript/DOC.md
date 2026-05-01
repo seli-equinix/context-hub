@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,aws-sdk,javascript,endpoints,middleware"
+  tags: "aws,aws-sdk,javascript,endpoints,middleware,client,console,log,middlewareStack,send,Dual-Stack"
 ---
 
 # `@aws-sdk/middleware-endpoint`

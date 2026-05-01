@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,requests-oauthlib,oauth,oauth1,oauth2,requests"
+  tags: "python,requests-oauthlib,oauth,oauth1,oauth2,requests,environ,OAuth2Session,session,json,response,authorization_url,fetch_token,callback,get,redirect,OAuth1Session,request,app,Path,refresh_token,Flask,app.get,login,raise_for_status,token_path,HTTPBasicAuth,fetch_access_token,jsonify,loads,parse_authorization_response"
 ---
 
 # requests-oauthlib Python Package Guide

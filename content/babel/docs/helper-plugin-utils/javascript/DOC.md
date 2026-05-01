@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,plugin,preset,ast,javascript"
+  tags: "babel,build,plugin,preset,ast,javascript,api,assertVersion,path,resolve,JSON,console,log,replaceWithSourceString,stringify"
 ---
 
 # @babel/helper-plugin-utils

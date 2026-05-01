@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,gcp,rapidmigrationassessment,migration,collector,python"
+  tags: "google,google-cloud,gcp,rapidmigrationassessment,migration,collector,python,rapidmigrationassessment_v1,client,uuid,RapidMigrationAssessmentClient,result,environ,uuid4,operation,create_collector,delete_collector,field_mask_pb2,list_collectors,pause_collector,register_collector,resume_collector,update_collector,FieldMask,get_collector"
 ---
 
 # Google Cloud Rapid Migration Assessment Python Client

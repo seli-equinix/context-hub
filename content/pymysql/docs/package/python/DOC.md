@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pymysql,mysql,mariadb,sql,db-api,python"
+  tags: "pymysql,mysql,mariadb,sql,db-api,python,connection,cursor,environ,ssl,connect,commit,example.com,execute,rollback,SSCursor,executemany,fetchall,Requires-Python,Version-Sensitive,close,create_default_context,deliberately,getenv"
 ---
 
 # PyMySQL Python Package Guide

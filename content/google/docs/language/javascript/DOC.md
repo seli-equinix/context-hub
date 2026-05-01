@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,natural-language,nlp,sentiment,entities,moderation,text-classification"
+  tags: "google,google-cloud,natural-language,nlp,sentiment,entities,moderation,text-classification,language,const,client,console,LanguageServiceClient,log,annotateText,classifyText,moderateText,analyzeEntities,analyzeSentiment,7.2.1,Version-Sensitive"
 ---
 
 # Google Cloud Natural Language Node.js Client

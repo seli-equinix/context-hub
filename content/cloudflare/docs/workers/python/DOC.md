@@ -6,7 +6,7 @@ metadata:
   versions: "4.3.1"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "cloudflare,workers,edge,kv,r2"
+  tags: "cloudflare,workers,edge,kv,r2,client,zones,get,response,list,create,database,records,delete,first_page,namespaces,AsyncCloudflare,Zone,httpx,main,asyncio,buckets,projects,scripts,accounts,all_accounts,load_balancers,page,values,all_zones"
 ---
 
 # Cloudflare API Coding Guidelines (Python)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,bcrypt,passwords,hashing,security,node,types,definitelytyped"
+  tags: "typescript,bcrypt,passwords,hashing,security,node,types,definitelytyped,hash,compare,genSalt,Number,getRounds,parseInt,Version-Sensitive,compareSync,console,genSaltSync,hashSync,isInteger,log,needsRehash"
 ---
 
 # bcrypt TypeScript Guide

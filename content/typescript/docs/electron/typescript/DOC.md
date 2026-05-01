@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,electron,desktop,nodejs,types,definitelytyped"
+  tags: "typescript,electron,desktop,nodejs,types,definitelytyped,app,settings,BrowserWindow,settingsChannel,contextBridge,ipcMain,read,1.6.12,mainWindow,handle,ipcRenderer,Version-Sensitive,exposeInMainWorld,getAllWindows,invoke,loadFile,quit,whenReady"
 ---
 
 # Electron TypeScript Guide

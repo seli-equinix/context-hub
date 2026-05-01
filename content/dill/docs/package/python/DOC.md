@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dill,python,serialization,pickle,functions,sessions"
+  tags: "dill,python,serialization,pickle,functions,sessions,restored,dumps,loads,load,cache_path,dump,settings,math,trace,Path,build_greeter,bump,detect,dump_module,greet,load_module,make_handler,make_multiplier,multiply,normalize,open,mkdir,parent"
 ---
 
 # dill Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "debug,logging,nodejs,browser,namespaces"
+  tags: "debug,logging,nodejs,browser,namespaces,log,createDebug,console,enabled,stderr,enable,info,authLog,disable,extend,pipe,bind,inspect,value,Buffer,destroy,toString,util"
 ---
 
 # debug for JavaScript

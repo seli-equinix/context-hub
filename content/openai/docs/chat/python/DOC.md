@@ -6,7 +6,7 @@ metadata:
   versions: "2.26.0"
   updated-on: "2026-04-27"
   source: maintainer
-  tags: "openai,chat,llm,ai"
+  tags: "openai,chat,llm,ai,client,response,create,content,responses,files,choices,realtime,completions,BaseModel,request,AsyncOpenAI,asyncio,data,list,main,base64,embeddings,first_page,option,parse,AzureOpenAI,Flask,MathResponse,Path"
 ---
 
 # OpenAI Python SDK Coding Guidelines

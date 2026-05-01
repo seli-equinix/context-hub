@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ipywidgets,jupyter,notebook,jupyterlab,widgets,ui,traitlets"
+  tags: "ipywidgets,jupyter,notebook,jupyterlab,widgets,ui,traitlets,display,value,slider,IntSlider,ipywidgets as widgets,out,content,uploader,interact,FileUpload,HTML,VBox,change,Button,HBox,Output,observe,FloatSlider,Label,area,handle_change,handle_upload,interactive_output,render,run_clicked"
 ---
 
 # ipywidgets Python Package Guide

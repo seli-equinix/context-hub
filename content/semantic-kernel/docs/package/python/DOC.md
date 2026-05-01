@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "semantic-kernel,ai,agents,llm,openai,azure"
+  tags: "semantic-kernel,ai,agents,llm,openai,azure,kernel,OpenAIChatCompletion,main,asyncio,AzureChatCompletion,add_service,add,invoke_prompt,kernel_function,run,FunctionChoiceBehavior,KernelArguments,MathPlugin,Auto,Version-Sensitive,add_plugin"
 ---
 
 # semantic-kernel Python Package Guide

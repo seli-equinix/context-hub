@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,cross-spawn,node,child-process,spawn,types"
+  tags: "typescript,cross-spawn,node,child-process,spawn,types,child_process,process,error,cwd,sync,console,string,run,stdout,log,spawnSync,trim"
 ---
 
 # cross-spawn TypeScript Guide

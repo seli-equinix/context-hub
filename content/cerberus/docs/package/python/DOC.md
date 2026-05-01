@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "cerberus,validation,schema,normalization,python"
+  tags: "cerberus,validation,schema,normalization,python,validator,validate,types_mapping,Decimal,add,MoneyValidator,OrderValidator,copy,example.com,normalized,schema_registry,self,Cross-Field,TypeDefinition,Version-Sensitive,_check_with_even_quantity,_error,validated"
 ---
 
 # Cerberus Python Package Guide

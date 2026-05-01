@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,key-vault,secrets,azure-keyvault-secrets,azure-identity,rbac"
+  tags: "azure,key-vault,secrets,azure-keyvault-secrets,azure-identity,rbac,client,SecretClient,credential,DefaultAzureCredential,get_secret,asyncio,datetime,environ,main,set_secret,update_secret_properties,begin_delete_secret,close,list_properties_of_secret_versions,list_properties_of_secrets,now,timedelta,timezone,Version-Sensitive,backup_secret,begin_recover_deleted_secret,purge_deleted_secret,restore_secret_backup,run"
 ---
 
 # Azure Key Vault Secrets Python Client Library

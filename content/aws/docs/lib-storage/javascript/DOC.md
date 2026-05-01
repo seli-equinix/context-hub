@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,s3,multipart-upload,storage,javascript"
+  tags: "aws,s3,multipart-upload,storage,javascript,upload,done,abort,Math,console,log,round"
 ---
 
 # `@aws-sdk/lib-storage` for JavaScript

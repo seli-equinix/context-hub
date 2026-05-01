@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "glob,javascript,node,filesystem,patterns"
+  tags: "glob,javascript,node,filesystem,patterns,cwd,process,log,console,entry,path,walk,base,fullpath,13.0.6,AbortSignal,isDirectory,argv,join,resolve,timeout"
 ---
 
 # glob Guide for JavaScript

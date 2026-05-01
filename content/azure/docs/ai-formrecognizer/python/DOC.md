@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,document-intelligence,form-recognizer,ocr,document-analysis,python,sdk"
+  tags: "azure,document-intelligence,form-recognizer,ocr,document-analysis,python,sdk,environ,DocumentAnalysisClient,AzureKeyCredential,result,client,poller,DocumentModelAdministrationClient,admin,AnalysisFeature,ModelBuildMode,DefaultAzureCredential,FormRecognizerClient,FormTrainingClient,begin_analyze_document,fields,get,begin_analyze_document_from_url,begin_build_document_classifier,begin_build_document_model,begin_classify_document,get_resource_details,list_document_models"
 ---
 
 # azure-ai-formrecognizer Python Package Guide

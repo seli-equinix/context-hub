@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,data-tables,azure-storage,cosmosdb,tables,odata,javascript"
+  tags: "azure,data-tables,azure-storage,cosmosdb,tables,odata,javascript,TableServiceClient,tableClient,serviceClient,13.3.2,fromConnectionString,createTableServiceClient,console,createTable,getEntity,getTableClient,log,upsertEntity,deleteEntity,listEntities,updateEntity"
 ---
 
 # Azure Data Tables JavaScript Client

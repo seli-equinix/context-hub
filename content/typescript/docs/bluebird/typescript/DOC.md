@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,bluebird,promises,async,types,definitelytyped"
+  tags: "typescript,bluebird,promises,async,types,definitelytyped,string,value,map,resolve,Promise,inspection,props,fromCallback,Row,config,inspections,promisify,reason,settle,JSON,isFulfilled,parse,promisifyAll,reject,toUpperCase"
 ---
 
 # Bluebird TypeScript Guide

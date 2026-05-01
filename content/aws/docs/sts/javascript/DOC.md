@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,sts,javascript,nodejs,iam,credentials,assume-role,temporary-credentials"
+  tags: "aws,sts,javascript,nodejs,iam,credentials,assume-role,temporary-credentials,console,log,send,JSON,STS-Specific,parse"
 ---
 
 # `@aws-sdk/client-sts`

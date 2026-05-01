@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,caching,cachelib,redis,memcached,python,pypi"
+  tags: "flask,caching,cachelib,redis,memcached,python,pypi,cache,app,cached,config,Flask-Caching,cache.cached,memoize,request,from_mapping,CACHE_OPTIONS,cache.memoize,get,set,app.get,clear,delete,delete_memoized,init_app,search,user_has_role,Response,dashboard,hashlib,json,jsonify"
 ---
 
 # Flask-Caching Python Package Guide

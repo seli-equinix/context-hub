@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "schedule,scheduler,jobs,cron,tasks,python"
+  tags: "schedule,scheduler,jobs,cron,tasks,python,every,job,time,run_pending,sleep,sync,thread,day,hour,slow,fast,logging,repeat,decorator,exception,reminder,threading,until,wrapper,catch_exceptions,clear,flaky_job,functools,greet,idle_seconds"
 ---
 
 # schedule Python Package Guide

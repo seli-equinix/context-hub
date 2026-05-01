@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,network,virtual-network,subnet,public-ip,javascript"
+  tags: "azure,arm,network,virtual-network,subnet,public-ip,javascript,networkClient,console,log,beginCreateOrUpdateAndWait,subnets,36.0.0,get,list,virtualNetworks,beginDeleteAndWait,publicIPAddresses"
 ---
 
 # Azure Network Management Client For JavaScript

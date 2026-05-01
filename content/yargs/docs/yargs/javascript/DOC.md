@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "yargs,javascript,cli,nodejs,arguments,commands"
+  tags: "yargs,javascript,cli,nodejs,arguments,commands,console,log,positional,Number,info,isInteger,serve"
 ---
 
 # yargs Guide (JavaScript)

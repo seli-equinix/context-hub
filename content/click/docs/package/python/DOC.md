@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "click,python,cli,command-line,pallets"
+  tags: "click,python,cli,command-line,pallets,option,command,click.option,echo,group,prompt,ctx,CliRunner,click.command,argument,click.argument,click.group,click.pass_context,obj,sync,toml,confirm,invoke,runner,version,Version-Sensitive,add_command,cli.command,click.pass_obj,ensure_object"
 ---
 
 # Click Python Package Guide

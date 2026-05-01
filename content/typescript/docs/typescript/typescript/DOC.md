@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,tsc,compiler,tsconfig,language,javascript"
+  tags: "typescript,tsc,compiler,tsconfig,language,javascript,diagnostics,5.9.3,error,console,name,process,program,transpileModule,cwd,formatDiagnosticsWithColorAndContext,greet,Compiler-API,Version-Sensitive,answer,createProgram,emit,findConfigFile,getPreEmitDiagnostics,log,map,param,parseJsonConfigFileContent,readConfigFile,toUpperCase"
 ---
 
 # TypeScript Compiler Guide

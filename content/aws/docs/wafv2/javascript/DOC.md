@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,wafv2,waf,javascript,nodejs,web-acl,ip-set,cloudfront"
+  tags: "aws,wafv2,waf,javascript,nodejs,web-acl,ip-set,cloudfront,client,send,console,log"
 ---
 
 # `@aws-sdk/client-wafv2`

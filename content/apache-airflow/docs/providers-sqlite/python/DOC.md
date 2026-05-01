@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,sqlite,sql,python,dag,database"
+  tags: "airflow,sqlite,sql,python,dag,database,SqliteHook,task,hook,row,SQLExecuteQueryOperator,datetime,get_first,get_records,read_summary,DB-API,ping_sqlite"
 ---
 
 # apache-airflow-providers-sqlite

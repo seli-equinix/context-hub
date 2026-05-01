@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "apache-airflow,airflow,yandex-cloud,yq,dataproc,lockbox,dag"
+  tags: "apache-airflow,airflow,yandex-cloud,yq,dataproc,lockbox,dag,Variable,get,YQExecuteQueryOperator,pendulum,BaseHook,TriggerRule,annotations,datetime,get_connection"
 ---
 
 # Apache Airflow Yandex Provider Python Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-10"
   source: maintainer
-  tags: "olakai,ai-analytics,governance,agents,kpi,roi,monitoring"
+  tags: "olakai,ai-analytics,governance,agents,kpi,roi,monitoring,create,choices,req,app,completions,run,company.com,json,Date,NextResponse,crypto,detectedSensitivity,now,randomUUID,res,Cross-Agent,classifierAgent,includes,post,reviewerAgent,writerAgent"
 ---
 
 # Olakai TypeScript/JavaScript SDK

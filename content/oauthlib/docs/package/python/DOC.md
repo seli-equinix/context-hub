@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,oauthlib,oauth,oauth1,oauth2"
+  tags: "python,oauthlib,oauth,oauth1,oauth2,client,environ,headers,response,Request,body,urlopen,code_verifier,WebApplicationClient,json,read,BackendApplicationClient,base64,parse_request_body_response,post_form,secrets,Path,add_token,encode,prepare_token_request,basic_auth_header,code_challenge_s256,docs,hashlib,prepare_request_body"
 ---
 
 # oauthlib Python Package Guide

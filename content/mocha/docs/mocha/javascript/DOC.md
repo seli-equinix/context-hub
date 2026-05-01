@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "mocha,testing,javascript,nodejs,test-runner,unit-test"
+  tags: "mocha,testing,javascript,nodejs,test-runner,unit-test,assert,timeout,sum,equal,close,createAccount,example.com,reset,11.7.5,deepEqual"
 ---
 
 # Mocha for JavaScript

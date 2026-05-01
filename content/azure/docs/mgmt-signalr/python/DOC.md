@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,signalr,management,arm,real-time,python"
+  tags: "azure,signalr,management,arm,real-time,python,list,result,signal_r,SignalRManagementClient,DefaultAzureCredential,Replica,ResourceSku,begin_create_or_update,AzureCliCredential,environ,get,signal_rreplicas,CustomCertificate,CustomDomain,RegenerateKeyParameters,ResourceReference,list_skus,poller,signal_rcustom_certificates,signal_rcustom_domains,Version-Sensitive,begin_regenerate_key,list_by_resource_group,list_keys"
 ---
 
 # Azure SignalR Service Management SDK for Python

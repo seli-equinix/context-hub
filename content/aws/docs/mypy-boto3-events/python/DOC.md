@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,eventbridge,boto3,typing,stubs,mypy"
+  tags: "aws,eventbridge,boto3,typing,stubs,mypy,events,client,EventBridgeClient,paginator,put_events,names,page,response,session,Config,ListRuleNamesByTargetPaginator,PutEventsRequestEntryTypeDef,TYPE_CHECKING,cast,list,lite,RuleStateType,json,list_rule_names_by_target,Version-Sensitive,dumps,extend,get,get_paginator,paginate"
 ---
 
 # mypy-boto3-events Python Package Guide

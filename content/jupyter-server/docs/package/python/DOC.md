@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "jupyter,jupyter-server,python,server,notebook,rest-api"
+  tags: "jupyter,jupyter-server,python,server,notebook,rest-api,root,session,requests,response,json,environ,entry,headers,passwd,raise_for_status,update,Server-Side,Version-Sensitive,get,put"
 ---
 
 # jupyter-server Python Package Guide

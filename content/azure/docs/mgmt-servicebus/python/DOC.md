@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,service-bus,arm,management,namespaces,queues,topics,subscriptions,python"
+  tags: "azure,service-bus,arm,management,namespaces,queues,topics,subscriptions,python,environ,client,models,rules,ServiceBusManagementClient,create_or_update,timedelta,AzureCliCredential,DefaultAzureCredential,Rule,CorrelationFilter,SBQueue,begin_create_or_update,list_by_namespace,CheckNameAvailability,NWRuleSetIpRules,NetworkRuleSet,SBAuthorizationRule,SBNamespace,SBSku,SBSubscription,SBTopic,Version-Sensitive,check_name_availability,create_or_update_authorization_rule"
 ---
 
 # Azure Service Bus Management SDK for Python

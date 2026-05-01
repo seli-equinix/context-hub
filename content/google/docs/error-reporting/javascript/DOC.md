@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,error-reporting,observability,exceptions,javascript,nodejs"
+  tags: "google-cloud,error-reporting,observability,exceptions,javascript,nodejs,google,errors,report,res,3.0.5,app,json,Version-Sensitive,billingClient,charge,get,status"
 ---
 
 # `@google-cloud/error-reporting` JavaScript Package Guide

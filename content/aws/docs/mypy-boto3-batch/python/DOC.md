@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,batch,boto3,type-stubs,mypy,pyright,python"
+  tags: "aws,batch,boto3,type-stubs,mypy,pyright,python,client,stubs,Session,BatchClient,lite,paginator,response,job,page,TYPE_CHECKING,cast,queue,ListJobsPaginator,describe_job_queues,get,Version-Sensitive,get_paginator,paginate,submit_etl_job,submit_job"
 ---
 
 # mypy-boto3-batch Python Package Guide

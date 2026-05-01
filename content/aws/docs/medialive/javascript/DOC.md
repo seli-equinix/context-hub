@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,medialive,javascript,nodejs,video,streaming,live-video"
+  tags: "aws,medialive,javascript,nodejs,video,streaming,live-video,client,send,console,log,3.1007.0,MediaLive-Specific"
 ---
 
 # `@aws-sdk/client-medialive`

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,eventhubs,messaging,streaming,amqp"
+  tags: "azure,eventhubs,messaging,streaming,amqp,environ,EventHubProducerClient,event,consumer,producer,EventHubConsumerClient,batch,from_connection_string,get,TransportType,DefaultAzureCredential,EventData,add,BlobCheckpointStore,latest,on_event,close,create_batch,receive,Version-Sensitive,body_as_str,make_producer,send_batch"
 ---
 
 # azure-eventhub Python Package Guide

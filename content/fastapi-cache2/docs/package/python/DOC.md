@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "fastapi,python,cache,redis,memcached,dynamodb,asgi"
+  tags: "fastapi,python,cache,redis,memcached,dynamodb,asgi,cache2,Any,FastAPICache,app,UserOut,app.get,get,init,orjson,InMemoryBackend,dict,lifespan,Cache-Control,Coder,RedisBackend,AsyncIterator,BaseModel,ORJsonCoder,Request,Response,asynccontextmanager,classmethod,example.com,getenv,jsonable_encoder"
 ---
 
 # fastapi-cache2 Python Package Guide

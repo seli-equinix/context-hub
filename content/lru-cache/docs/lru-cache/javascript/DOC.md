@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "lru-cache,javascript,nodejs,caching,memoization,ttl"
+  tags: "lru-cache,javascript,nodejs,caching,memoization,ttl,cache,key,fetch,response,get,load,set,11.2.6,JSON,sessionCache,userCache,dump,memo,productCache,responseCache,configCache,delete,parse,purgeStale,restoredCache,stringify,timeout,AbortSignal,Buffer,Promise"
 ---
 
 # lru-cache JavaScript Package Guide

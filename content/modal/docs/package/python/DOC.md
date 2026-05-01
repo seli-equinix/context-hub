@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "modal,python,serverless,cloud,gpu,jobs"
+  tags: "modal,python,serverless,cloud,gpu,jobs,app,function,remote,Image,cache,app.function,Volume,httpx,debian_slim,Secret,app.local_entrypoint,commit,local_entrypoint,fetch,from_name,get,response,body,main,map,fetch_status,square,End-To,Version-Sensitive,environ"
 ---
 
 # modal Python Package Guide

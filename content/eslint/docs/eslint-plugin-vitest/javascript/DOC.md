@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,vitest,testing,javascript,linting,npm"
+  tags: "eslint,vitest,testing,javascript,linting,npm,0.5.4,Version-Sensitive,typescript"
 ---
 
 # eslint-plugin-vitest JavaScript Guide

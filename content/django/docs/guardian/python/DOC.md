@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-guardian,permissions,auth,acl,object-permissions,admin"
+  tags: "django,django-guardian,permissions,auth,acl,object-permissions,admin,user,models,Project,has_perm,objects,assign_perm,ObjectPermissionChecker,get_objects_for_user,Group,GuardedModelAdmin,PermissionRequiredMixin,checker,DetailView,ForeignKey,GroupObjectPermissionBase,UserObjectPermissionBase,get,get_perms,prefetch_perms,remove_perm,CharField,ProjectAdmin,ProjectDetailView,ProjectGroupObjectPermission,ProjectUserObjectPermission"
 ---
 
 # django-guardian 3.3.0 Python Package Guide

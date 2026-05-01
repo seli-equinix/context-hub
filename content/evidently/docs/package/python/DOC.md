@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "evidently,python,ml,monitoring,data-quality,data-drift,testing"
+  tags: "evidently,python,ml,monitoring,data-quality,data-drift,testing,Report,run,snapshot,TestSuite,DataSummaryPreset,CloudWorkspace,add_run,create,DataDriftPreset,NoTargetPerformanceTestPreset,RegressionPreset,Workspace,read_parquet,save_html,save_json,test_suite,Version-Sensitive,create_project,get_project,pandas as pd"
 ---
 
 # evidently Python Package Guide

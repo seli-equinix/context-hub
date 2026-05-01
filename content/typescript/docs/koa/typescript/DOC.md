@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,koa,node,http,middleware,types,definitelytyped"
+  tags: "typescript,koa,node,http,middleware,types,definitelytyped,ctx,app,error,audit,services,console,example.com,get,Date,Version-Sensitive,emit,listen,log,now"
 ---
 
 # Koa TypeScript Guide

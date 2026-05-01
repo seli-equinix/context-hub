@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "jax,python,autodiff,numpy,xla,gpu,tpu"
+  tags: "jax,python,autodiff,numpy,xla,gpu,tpu,jnp,jit,random,config,arange,key,array,grad,jax.jit,vmap,block_until_ready,default_backend,devices,loss,normal,normalize_rows,result,sin,split,squared_norm,sum,update,where,Version-Sensitive,exp"
 ---
 
 # JAX Python Package Guide

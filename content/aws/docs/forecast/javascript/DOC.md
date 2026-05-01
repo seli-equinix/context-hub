@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,forecast,javascript,nodejs,time-series,ml"
+  tags: "aws,forecast,javascript,nodejs,time-series,ml,status,console,log,send,endsWith,training data from S3,data must come from S3,job from S3,job must use matching key access"
 ---
 
 # `@aws-sdk/client-forecast`

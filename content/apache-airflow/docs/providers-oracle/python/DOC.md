@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,oracle,oracledb,sql,dag,python"
+  tags: "airflow,oracle,oracledb,sql,dag,python,OracleHook,task,hook,datetime,row,SQLExecuteQueryOperator,get_first,callproc,get_records,oracle_hook_example,oracle_sql_example,result,annotations,bulk_insert_rows,read_summary,settings,DB-API,db.example.com,dict,load_batch,ping_oracle,run_procedure"
 ---
 
 # apache-airflow-providers-oracle

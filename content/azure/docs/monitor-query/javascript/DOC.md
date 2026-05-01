@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-monitor,log-analytics,metrics,javascript,observability,entra-id"
+  tags: "azure,azure-monitor,log-analytics,metrics,javascript,observability,entra-id,console,createMonitorClients,log,logsClient,queryResource,1.3.3,metricsClient,queryWorkspace,map,columnNames,error,row,Object,columnDescriptors,fromEntries,rows"
 ---
 
 # Azure Monitor Query JavaScript Package Guide

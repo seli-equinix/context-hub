@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-import-export,python,admin,import,export,tablib"
+  tags: "django,django-import-export,python,admin,import,export,tablib,fields,Book,BookResource,resource,resources,Meta,preview,Author,Dataset,ForeignKeyWidget,ImportExportModelAdmin,import_data,BookAdmin,Field,High-Value,Version-Sensitive,admin.register,has_errors,register"
 ---
 
 # django-import-export Python Package Guide

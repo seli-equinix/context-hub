@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,testing-library,linting,javascript,testing,react,dom"
+  tags: "eslint,testing-library,linting,javascript,testing,react,dom,configs,default,settings,renderWithProviders,7.16.0,Version-Sensitive"
 ---
 
 # eslint-plugin-testing-library JavaScript Guide

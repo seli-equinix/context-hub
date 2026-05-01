@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,influxdb,flux,time-series,dags,python"
+  tags: "airflow,apache-airflow,influxdb,flux,time-series,dags,python,query,InfluxDBHook,DAG,InfluxDBOperator,hook,task,write,datetime,get_conn,record,read_points,write_point,get_time,get_value"
 ---
 
 # Apache Airflow InfluxDB Provider Guide

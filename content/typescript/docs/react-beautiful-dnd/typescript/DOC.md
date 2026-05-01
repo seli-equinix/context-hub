@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,drag-and-drop,types,definitelytyped"
+  tags: "typescript,react,drag-and-drop,types,definitelytyped,const,Task,next,console,log,tasks,splice,Board,TaskList,map"
 ---
 
 # react-beautiful-dnd TypeScript Guide

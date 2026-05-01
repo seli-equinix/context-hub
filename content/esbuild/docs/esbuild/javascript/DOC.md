@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "esbuild,build,bundler,minifier,typescript,javascript"
+  tags: "esbuild,build,bundler,minifier,typescript,javascript,watch,context,ctx,process,console,log,JSON,stringify,NODE_ENV,dotenv,serve,transform,analyzeMetafile,answer,dispose,onLoad,onResolve,rebuild,0.27.3,cancel,config,exit,hosts,path resolution"
 ---
 
 # esbuild

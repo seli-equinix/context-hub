@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,passport,authentication,express,sessions,types,definitelytyped"
+  tags: "typescript,passport,authentication,express,sessions,types,definitelytyped,req,session,app,login,res,json,logout,authenticate,isAuthenticated,status,post,deserializeUser,example.com,initialize,serializeUser,get"
 ---
 
 # Passport TypeScript Guide

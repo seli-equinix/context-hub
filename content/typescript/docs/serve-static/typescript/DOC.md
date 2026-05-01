@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,serve-static,express,node,http,middleware,static-files,types,definitelytyped"
+  tags: "typescript,serve-static,express,node,http,middleware,static-files,types,definitelytyped,static,app,path,resolve,listen,res,Cache-Control,extname,servePublic,setHeader"
 ---
 
 # serve-static TypeScript Guide

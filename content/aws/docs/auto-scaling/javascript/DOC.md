@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,auto-scaling,ec2,javascript,nodejs,scaling,autoscaling"
+  tags: "aws,auto-scaling,ec2,javascript,nodejs,scaling,autoscaling,client,send,console,log,3.1007.0"
 ---
 
 # Amazon EC2 Auto Scaling SDK for JavaScript v3 Guide

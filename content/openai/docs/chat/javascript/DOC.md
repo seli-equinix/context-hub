@@ -6,7 +6,7 @@ metadata:
   versions: "6.27.0"
   updated-on: "2026-03-06"
   source: maintainer
-  tags: "openai,chat,llm,ai"
+  tags: "openai,chat,llm,ai,create,messages,completions,console,log,choices,files,env,push,JSON,responses,Buffer,ChatCompletionMessageParam,ChatSession,Cost-Efficient,Math,ReadStream,any,createReadStream,for Deno,parse,pow,stdout,write"
 ---
 
 # OpenAI API Coding Guidelines (JavaScript/TypeScript)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,google-cloud,network-connectivity,networking,ncc,python"
+  tags: "google,gcp,google-cloud,network-connectivity,networking,ncc,python,client,networkconnectivity_v1,HubServiceClient,operation,result,hub_path,common_location_path,list,Hub,create_hub,spoke_path,list_hub_spokes,list_hubs,ClientOptions,FieldMask,Spoke,accept_hub_spoke,create_spoke,create_vpc_spoke,environ,update_hub,LinkedVpcNetwork,delete_hub,delete_spoke,from_service_account_file"
 ---
 
 # google-cloud-network-connectivity Python Package Guide

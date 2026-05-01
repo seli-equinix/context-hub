@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,hdfs,webhdfs,hooks,sensors,data-pipelines"
+  tags: "airflow,apache-airflow,hdfs,webhdfs,hooks,sensors,data-pipelines,client,DAG,WebHDFSHook,task,hook,HDFSHook,HdfsSensor,HdfsRegexSensor,get_conn,pendulum,webhdfs_inspect_and_upload,annotations,datetime,inspect_hdfs,list,namenode.example.com,status,upload,upload_file,dict"
 ---
 
 # Apache Airflow HDFS Provider Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,jest,linting,javascript,testing"
+  tags: "eslint,jest,linting,javascript,testing,configs,29.15.0,Version-Sensitive"
 ---
 
 # eslint-plugin-jest JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "styled-components,react,css-in-js,styling,theme,ssr"
+  tags: "styled-components,react,css-in-js,styling,theme,ssr,sheet,App,emotion,seal,attrs,6.3.11,AppProviders,Banner,collectStyles,getStyleElement,getStyleTags,input,renderPage"
 ---
 
 # styled-components Guide (JavaScript)

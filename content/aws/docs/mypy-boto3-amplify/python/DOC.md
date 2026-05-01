@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,aws,boto3,amplify,type-stubs,mypy,pyright"
+  tags: "python,aws,boto3,amplify,type-stubs,mypy,pyright,client,session,AmplifyClient,stubs,when,paginator,app,page,Config,ListAppsPaginator,TYPE_CHECKING,lite,ListAppsResultTypeDef,PlatformType,get,list_apps,result,Type-Checking,Version-Sensitive,get_paginator,make_amplify_client,paginate,path"
 ---
 
 # mypy-boto3-amplify Python Package Guide

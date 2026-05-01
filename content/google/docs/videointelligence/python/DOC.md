@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,gcp,videointelligence,video,annotation"
+  tags: "google,google-cloud,gcp,videointelligence,video,annotation,client,result,operation,VideoIntelligenceServiceClient,videointelligence_v1 as videointelligence,annotate_video,annotation_results,ClientOptions,VideoContext,detect_labels,total_seconds,SpeechTranscriptionConfig,Version-Sensitive,detect_shots,end_time_offset,from_service_account_file,read,start_time_offset,transcribe_video"
 ---
 
 # Google Cloud Video Intelligence Python Client

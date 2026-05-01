@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,dev-server,hmr,proxy,development"
+  tags: "webpack,dev-server,hmr,proxy,development,server,path,process,resolve,5.2.3,error,exit,readFileSync,start,console,cwd,stop"
 ---
 
 # webpack-dev-server JavaScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,minimatch,glob,node,types,npm"
+  tags: "typescript,minimatch,glob,node,types,npm,match,console,log,path,filter,makeRe,files,hasMagic,regexp,test,when,join,resolve"
 ---
 
 # Minimatch TypeScript Guide

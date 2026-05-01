@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,babel,babel-traverse,ast,codemod,compiler,types,definitelytyped"
+  tags: "typescript,babel,babel-traverse,ast,codemod,compiler,types,definitelytyped,traverse,path,scope,console,counts,log,7.28.0,get,visitors,evaluate,hasType,rename,replaceWith,Version-Sensitive,explode,hasBinding,set,verify"
 ---
 
 # Babel Traverse TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,taggit,tags,orm,admin,drf"
+  tags: "django,taggit,tags,orm,admin,drf,models,article,TaggableManager,add,serializers,form,objects,save,filter,set,clear,remove,save_m2m,CharField,ForeignKey,GenericUUIDTaggedItemBase,MyTag,TagBase,TagListSerializerField,TaggedArticle,TaggitListFilter,TaggitSerializer,TextField,create,names"
 ---
 
 # django-taggit Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-router,react-router-dom,routing,types,definitelytyped"
+  tags: "typescript,react,react-router,react-router-dom,routing,types,definitelytyped,props,components,history,AccountScreen,loadAccount,push,5.3.3,AppRouter,ServerRouter,TestHarness,UserToolbar,console,log"
 ---
 
 # React Router DOM TypeScript Guide

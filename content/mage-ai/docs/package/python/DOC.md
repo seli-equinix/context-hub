@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mage,mage-ai,python,data-pipelines,orchestration,etl,elt"
+  tags: "mage,mage-ai,python,data-pipelines,orchestration,etl,elt,data_loader,kwargs,path,test,transformer,get_repo_path,response,start,ConfigFileLoader,Postgres,StringIO,get,load_data,loader,requests,trigger_pipeline,Version-Sensitive,admin.com,join,load,loc,pandas as pd,raise_for_status,read_csv,test_output"
 ---
 
 # Mage OSS Python Package Guide

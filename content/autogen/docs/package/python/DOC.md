@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-17"
   source: maintainer
-  tags: "autogen,ag2,agents,llm,multi-agent,openai,tool-use"
+  tags: "autogen,ag2,agents,llm,multi-agent,openai,tool-use,LLMConfig,assistant,ConversableAgent,run,process,result,user_proxy,UserProxyAgent,run_group_chat,Annotated,LocalCommandLineCodeExecutor,chat_result,AutoPattern,search_web,Version-Sensitive,assistant.register_for_llm,environ,get_stock_price,register_for_execution,register_for_llm,user_proxy.register_for_execution"
 ---
 
 # AG2 / AutoGen Python Package Guide

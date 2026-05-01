@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "requests,http,python,client,auth,tls,proxies"
+  tags: "requests,http,python,client,auth,tls,proxies,response,get,raise_for_status,session,json,post,headers,RequestException,events,HTTPError,JSONDecodeError,Timeout,HTTPDigestAuth,iter_content,iter_lines,User-Agent,Version-Sensitive,update,write"
 ---
 
 # Requests Python Package Guide

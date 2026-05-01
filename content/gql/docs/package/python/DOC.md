@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "gql,graphql,python,http,websocket,subscriptions"
+  tags: "gql,graphql,python,http,websocket,subscriptions,client,session,execute,environ,result,asyncio,TransportQueryError,event,main,AIOHTTPTransport,RequestsHTTPTransport,WebsocketsTransport,run,subscribe"
 ---
 
 # gql for Python

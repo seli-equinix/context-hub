@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,personalize,javascript,nodejs,recommendations,machine-learning,control-plane"
+  tags: "aws,personalize,javascript,nodejs,recommendations,machine-learning,control-plane,client,send,console,log,JSON,3.1007.0,Long-Running,stringify"
 ---
 
 # Amazon Personalize SDK for JavaScript v3 Guide

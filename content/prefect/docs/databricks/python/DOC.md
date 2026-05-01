@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,databricks,python,workflow,orchestration,jobs,blocks"
+  tags: "prefect,databricks,python,workflow,orchestration,jobs,blocks,flow,DatabricksCredentials,databricks_credentials,load,save,environ,run_databricks_notebook,deploy,jobs_runs_submit_and_wait_for_completion,task,One-Time"
 ---
 
 # Prefect Databricks Python Package Guide

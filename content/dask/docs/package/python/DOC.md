@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dask,python,parallel,distributed,dataframe,array,scheduling"
+  tags: "dask,python,parallel,distributed,dataframe,array,scheduling,Client,compute,config,amount,ddf,mean,dask.delayed,read_parquet,sum,LocalCluster,combine,daily_totals,filtered,groupby,load_value,map,random,result,set,top_users,total,Version-Sensitive,from_zarr,gather,head"
 ---
 
 # Dask Python Package Guide

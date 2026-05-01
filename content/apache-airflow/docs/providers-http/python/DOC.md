@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,http,rest,operators,sensors,hooks"
+  tags: "airflow,apache-airflow,http,rest,operators,sensors,hooks,response,DAG,HttpHook,HttpOperator,json,task,HttpSensor,datetime,Variable,hook,run,api.example.com,fetch_user,raise_for_status,Content-Type,dumps,get"
 ---
 
 # Apache Airflow HTTP Provider Guide

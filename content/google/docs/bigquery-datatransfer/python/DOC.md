@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,bigquery,data-transfer,gcp,scheduled-query,cloud-storage,python"
+  tags: "google,bigquery,data-transfer,gcp,scheduled-query,cloud-storage,python,bigquery_datatransfer_v1,client,DataTransferServiceClient,params,datetime,environ,update,FieldMask,TransferConfig,now,run_date,run_time,timezone,StartManualTransferRunsRequest,start_manual_transfer_runs,timedelta,update_transfer_config,CreateTransferConfigRequest,Credentials,create_transfer_config,list_data_sources,service_account,struct_pb2,Struct,TimeRange"
 ---
 
 # google-cloud-bigquery-datatransfer Python Package Guide

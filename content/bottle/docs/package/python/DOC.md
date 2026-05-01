@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "bottle,python,web,wsgi,microframework,api"
+  tags: "bottle,python,web,wsgi,microframework,api,app,request,get,abort,app.get,response,config,plain,query,upload,Path,app.post,post,created,dict,payload,static_file,UPLOAD_DIR,files,forms,health,install,json,template,assets"
 ---
 
 # bottle Python Package Guide

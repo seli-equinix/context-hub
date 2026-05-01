@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,axes,authentication,security,login,lockout"
+  tags: "django,axes,authentication,security,login,lockout,JsonResponse,Version-Sensitive"
 ---
 
 # Django Axes Python Package Guide

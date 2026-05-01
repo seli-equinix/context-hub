@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pyav,av,ffmpeg,video,audio,media,encoding,decoding"
+  tags: "pyav,av,ffmpeg,video,audio,media,encoding,decoding,container,frame,open,stream,decode,encode,logging,rgb,mux,VideoFrame,close,input_container,output_container,to_ndarray,add_stream_from_template,demux,from_ndarray,PyAV-Org,Version-Sensitive,add_stream,numpy as np,set_level,zeros"
 ---
 
 # PyAV Python Package Guide

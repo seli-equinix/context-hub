@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,assured-workloads,compliance,folders,violations,python"
+  tags: "google,gcp,assured-workloads,compliance,folders,violations,python,assuredworkloads_v1,client,AssuredWorkloadsServiceClient,Workload,labels,operation,ClientOptions,RestrictAllowedResourcesRequest,ResourceSettings,create_workload,environ,getenv,result,Credentials,FieldMask,get_workload,list_workloads,restrict_allowed_resources,service_account,AcknowledgeViolationRequest,acknowledge_violation,from_service_account_file,get_violation,list_violations,update_workload"
 ---
 
 # Google Cloud Assured Workloads Python Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,xray,tracing,observability,javascript,nodejs,sdk"
+  tags: "aws,xray,tracing,observability,javascript,nodejs,sdk,send,endTime,return,JSON,parse,console,getTime,log,traceSummaries,push,stringify"
 ---
 
 # AWS X-Ray SDK for JavaScript (v3)

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "wheel,python,packaging,build,pypi"
+  tags: "wheel,python,packaging,build,pypi,ini,toml,Version-Sensitive"
 ---
 
 # wheel Python Package Guide

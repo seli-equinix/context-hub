@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "humanize,python,formatting,i18n,time,filesize,numbers"
+  tags: "humanize,python,formatting,i18n,time,filesize,numbers,datetime,intword,now,timedelta,activate,timezone,naturaltime,intcomma,naturalsize,deactivate,natural_list,naturaldelta,precisedelta,scientific,Version-Sensitive,apnumber,decimal_separator,metric,naturaldate,naturalday,thousands_separator"
 ---
 
 # humanize Python Package Guide

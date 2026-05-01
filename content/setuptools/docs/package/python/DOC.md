@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "setuptools,python,packaging,build,pyproject,wheel,sdist"
+  tags: "setuptools,python,packaging,build,pyproject,wheel,sdist,toml,setup,main,Version-Sensitive"
 ---
 
 # `setuptools`

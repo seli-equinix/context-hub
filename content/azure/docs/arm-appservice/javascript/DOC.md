@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,app-service,arm,management,web-apps,javascript"
+  tags: "azure,app-service,arm,management,web-apps,javascript,appServiceClient,console,log,webApps,18.0.0,appServicePlans,updateApplicationSettings,beginCreateOrUpdateAndWait,get,listApplicationSettings,listByResourceGroup"
 ---
 
 # Azure App Service Management Client For JavaScript

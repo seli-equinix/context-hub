@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,media-services,management,video,streaming,encoding,python"
+  tags: "azure,media-services,management,video,streaming,encoding,python,assets,transforms,MediaManagementClient,jobs,DefaultAzureCredential,create,AzureCliCredential,environ,list,mediaservices,create_or_update,get,begin_start,streaming_endpoints,streaming_locators"
 ---
 
 # Azure Media Services Management SDK for Python

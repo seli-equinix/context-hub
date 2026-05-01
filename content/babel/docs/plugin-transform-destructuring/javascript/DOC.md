@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,destructuring,javascript"
+  tags: "babel,build,transpile,destructuring,javascript,const,Object,assign,_list,console,log"
 ---
 
 # @babel/plugin-transform-destructuring

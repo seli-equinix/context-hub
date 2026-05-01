@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "javascript,eslint,prettier,linting,formatting,flat-config"
+  tags: "javascript,eslint,prettier,linting,formatting,flat-config,Version-Sensitive"
 ---
 
 # eslint-config-prettier JavaScript Guide

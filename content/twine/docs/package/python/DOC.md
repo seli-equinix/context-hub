@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "twine,pypi,packaging,publishing,python"
+  tags: "twine,pypi,packaging,publishing,python,repository,release,ini,Version-Sensitive"
 ---
 
 # Twine Python Package Guide

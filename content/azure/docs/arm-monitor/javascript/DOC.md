@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-monitor,monitor,management,arm,alerts,diagnostic-settings,javascript"
+  tags: "azure,azure-monitor,monitor,management,arm,alerts,diagnostic-settings,javascript,monitorClient,log,console,list,activityLogs,listByResourceGroup,7.0.0,dataCollectionRules,endTime,get,metricAlerts,actionGroups,diagnosticSettings,scheduledQueryRules,startTime,toISOString,getTime"
 ---
 
 # Azure Monitor Management Client For JavaScript

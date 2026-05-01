@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sympy,python,symbolic-math,cas,algebra,calculus,matrices"
+  tags: "sympy,python,symbolic-math,cas,algebra,calculus,matrices,symbols,sympy as sp,lambdify,expr,sin,expand,factor,solve,solveset,sqrt,Rational,diff,evalf,exp,init_printing,nsolve,Interval,Matrix,Version-Sensitive,cos,integrate,linspace,numpy as np,subs"
 ---
 
 # SymPy Python Package Guide

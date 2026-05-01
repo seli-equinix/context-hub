@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cachetools,python,caching,memoization,lru,ttl"
+  tags: "cachetools,python,caching,memoization,lru,ttl,cache,cached,LRUCache,TTLCache,return,value,cachedmethod,hashkey,expire,query,square,load_user,typedkey,Condition,RLock,normalize,UserService,Version-Sensitive,__init__,cache_info,cachedmethod.cache_key,casefold,fetch_config,fetch_product,fetch_settings"
 ---
 
 # cachetools Python Package Guide

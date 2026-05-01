@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pydub,audio,ffmpeg,media,python"
+  tags: "pydub,audio,ffmpeg,media,python,AudioSegment,segment,export,from_file,song,voice,from_mp3,music,overlay,play,set_channels,set_frame_rate,append,fade,fade_in,from_wav,louder,mono,normalized,speedup,split_on_silence,Version-Sensitive,effects"
 ---
 
 # pydub Python Package Guide

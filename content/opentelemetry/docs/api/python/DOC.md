@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,otel,python,observability,tracing,metrics,logs,context-propagation"
+  tags: "opentelemetry,otel,python,observability,tracing,metrics,logs,context-propagation,provider,logging,trace,span,tracer,baggage,propagate,attach,detach,get_tracer,meter,set_attribute,ConsoleLogRecordExporter,inject,set_meter_provider,set_tracer_provider,start_as_current_span,BatchLogRecordProcessor,BatchSpanProcessor,ConsoleMetricExporter,ConsoleSpanExporter,LoggerProvider,LoggingHandler,MeterProvider,PeriodicExportingMetricReader"
 ---
 
 # OpenTelemetry Python API Package Guide

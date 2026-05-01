@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,celery,beat,scheduler,periodic-tasks,cron,task-queue,python"
+  tags: "django,celery,beat,scheduler,periodic-tasks,cron,task-queue,python,PeriodicTask,app,json,objects,timezone,IntervalSchedule,PeriodicTasks,dumps,ClockedSchedule,import_contacts,CrontabSchedule,create,get_or_create,update_changed,ZoneInfo,autodiscover_tasks,changed,environ,shared_task,timedelta,update,update_or_create,QuerySet,app as celery_app,config_from_object"
 ---
 
 # `django-celery-beat` for Python

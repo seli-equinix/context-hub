@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,kinesis,data-streams,streaming,javascript,nodejs"
+  tags: "aws,kinesis,data-streams,streaming,javascript,nodejs,records,console,log,send,Buffer,JSON,map,stringify,Kinesis-Specific"
 ---
 
 # AWS Kinesis SDK for JavaScript (v3)

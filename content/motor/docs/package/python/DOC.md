@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "motor,mongodb,asyncio,tornado,pymongo,database"
+  tags: "motor,mongodb,asyncio,tornado,pymongo,database,client,cursor,ObjectId,session,users,find,to_list,AsyncIOMotorClient,admin,environ,instead,startup,quote_plus,shutdown,update_one,user,MotorClient,accounts,command,getenv,list,start_transaction,MotorCursor,Tornado-Specific,Version-Sensitive"
 ---
 
 # Motor Python Package Guide

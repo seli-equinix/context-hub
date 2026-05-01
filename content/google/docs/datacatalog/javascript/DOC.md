@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,datacatalog,metadata,governance,tags,bigquery,javascript,nodejs"
+  tags: "google-cloud,datacatalog,metadata,governance,tags,bigquery,javascript,nodejs,const,google,client,console,DataCatalogClient,log,PolicyTagManagerClient,lookupEntry,5.2.1,createTag,searchCatalogAsync,getEntry,tagTemplatePath,Version-Sensitive,listTagsAsync"
 ---
 
 # `@google-cloud/datacatalog` JavaScript Package Guide

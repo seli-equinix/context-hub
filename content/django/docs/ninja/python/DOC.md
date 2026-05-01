@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-ninja,django,python,api,openapi,pydantic"
+  tags: "django-ninja,django,python,api,openapi,pydantic,response,NinjaAPI,Schema,path,add,avatar,get,json,File,Form,ModelSchema,admin,api.get,list,payload,PageNumberPagination,TestClient,client,objects,paginate,post,sync_to_async,AddIn,AddOut,AuthBearer"
 ---
 
 # django-ninja Python Package Guide

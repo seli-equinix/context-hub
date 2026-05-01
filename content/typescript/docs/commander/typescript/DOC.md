@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,commander,cli,node,types,definitelytyped"
+  tags: "typescript,commander,cli,node,types,definitelytyped,program,option,command,argv,console,log,parse,2.12.5,version,opts,outputHelp,form,slice"
 ---
 
 # Commander TypeScript Guide

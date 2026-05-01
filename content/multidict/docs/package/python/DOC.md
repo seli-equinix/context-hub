@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "multidict,python,mapping,http,headers,querystring,aio-libs"
+  tags: "multidict,python,mapping,http,headers,querystring,aio-libs,params,getall,CIMultiDict,add,items,view,update,MultiDictProxy,extend,base,istr,snapshot,Trace-Id,get,getone,User-Agent,copy,merge,popall,popone,Case-Insensitive,Content-Type,Read-Only,SET-COOKIE,Version-Sensitive"
 ---
 
 # multidict Python Package Guide

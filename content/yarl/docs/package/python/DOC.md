@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "yarl,python,url,querystring,encoding,pydantic"
+  tags: "yarl,python,url,querystring,encoding,pydantic,example.com,base,build,with_query,human_repr,join,joinpath,relative,with_path,BaseModel,ServiceConfig,extend_query,relative_url,update_query,with_name,with_suffix,cache_configure,cache_info,is_absolute,origin"
 ---
 
 # yarl Python Package Guide

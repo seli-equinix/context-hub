@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-dateutil,dateutil,python,datetime,timezone,parsing,rrule,relativedelta"
+  tags: "python-dateutil,dateutil,python,datetime,timezone,parsing,rrule,relativedelta,gettz,parse,isoparse,parser,DAILY,MONTHLY,UTC,datetime_ambiguous,datetime_exists,resolve_imaginary,Version-Sensitive,astimezone,fromisoformat,name differ"
 ---
 
 # python-dateutil Python Package Guide

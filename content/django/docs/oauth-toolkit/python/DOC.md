@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,oauth2,openid-connect,drf,authentication,authorization"
+  tags: "django,oauth2,openid-connect,drf,authentication,authorization,response,include,APIView,path,requests,urlencode,DocumentView,Version-Sensitive,derived,environ,get,json,post,raise_for_status,urls as oauth2_urls"
 ---
 
 # django-oauth-toolkit Python Package Guide

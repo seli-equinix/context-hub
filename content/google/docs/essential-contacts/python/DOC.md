@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,gcp,essential-contacts,contacts,notifications,python"
+  tags: "google,google-cloud,gcp,essential-contacts,contacts,notifications,python,essential_contacts_v1,client,EssentialContactsServiceClient,Contact,list_contacts,FieldMask,compute_contacts,Credentials,create_contact,environ,example.com,service_account,update_contact,ComputeContactsRequest,CreateContactRequest,DeleteContactRequest,GetContactRequest,SendTestMessageRequest,UpdateContactRequest,delete_contact,from_service_account_file,get_contact,send_test_message"
 ---
 
 # Google Cloud Essential Contacts Python Package Guide

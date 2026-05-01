@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "arrow,datetime,date,time,timezone,humanize,localization"
+  tags: "arrow,datetime,date,time,timezone,humanize,localization,get,utcnow,format,present,YYYY-MM,base,shift,dehumanize,event_utc,now,replace,created_at,future,range,span_range,Version-Sensitive,isoformat"
 ---
 
 # Arrow Python Package Guide

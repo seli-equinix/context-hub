@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,redis,node-redis,types,definitelytyped"
+  tags: "typescript,redis,node-redis,types,definitelytyped,client,string,JSON,connect,console,error,4.0.11,get,localhost,quit,roles,set,Number,log,includes,isNaN,parse,parseInt,stringify"
 ---
 
 # Redis TypeScript Guide

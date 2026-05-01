@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,task-queue,scheduler,workers,async,jobs,background"
+  tags: "django,task-queue,scheduler,workers,async,jobs,background,async_task,Schedule,fetch,result,datetime,environ,example.com,get_broker,send_mail,send_welcome_email,Version-Sensitive,redis.example.com,utcnow"
 ---
 
 # django-q2 Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-simple-history,django,history,audit,admin,middleware,models"
+  tags: "django-simple-history,django,history,audit,admin,middleware,models,poll,save,HistoricalRecords,register,timezone,create,polls,all,as_of,get,now,update,ExternalModel,QuerySet,SimpleHistoryAdmin,bulk_create_with_history,bulk_update_with_history,directly,first,new_record,objects,restored,CharField,DateTimeField,ManyToManyField"
 ---
 
 # django-simple-history Python Package Guide

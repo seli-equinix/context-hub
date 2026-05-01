@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,boto3,rekognition,python,types,stubs,mypy"
+  tags: "aws,boto3,rekognition,python,types,stubs,mypy,client,RekognitionClient,response,cast,Session,get,label,project_version_arn,AttributeTypeType,CompareFacesRequestRequestTypeDef,lite,rsplit,Lower-Memory,Service-Specific,Version-Sensitive,describe_project_versions,detect_labels,get_paginator,has_face_model,list"
 ---
 
 # mypy-boto3-rekognition Python Package Guide

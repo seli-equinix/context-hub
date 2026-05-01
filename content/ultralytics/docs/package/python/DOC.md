@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ultralytics,yolo,computer-vision,object-detection,training,inference,export"
+  tags: "ultralytics,yolo,computer-vision,object-detection,training,inference,export,model,settings,predict,train,update,val"
 ---
 
 # ultralytics Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "github,api,rest,automation,python"
+  tags: "github,api,rest,automation,python,github3,login,repo,environ,issue,name,4.0.1,repositories,repository,get_github,Version-Sensitive,create_gist,create_issue"
 ---
 
 # github3.py Python Package Guide

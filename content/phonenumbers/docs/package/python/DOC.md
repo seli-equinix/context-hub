@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "phonenumbers,python,phone-numbers,libphonenumber,validation,formatting"
+  tags: "phonenumbers,python,phone-numbers,libphonenumber,validation,formatting,PhoneNumberFormat,parse,format_number,NumberParseException,AsYouTypeFormatter,carrier,geocoder,is_possible_number,is_valid_number,normalize_phone_number,timezone,Optional,PhoneNumberMatcher,formatter,description_for_number,input_digit,name_for_number,time_zones_for_number"
 ---
 
 # phonenumbers Python Package Guide

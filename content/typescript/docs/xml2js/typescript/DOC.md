@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,xml2js,xml,parsing,builder,npm,types,definitelytyped"
+  tags: "typescript,xml2js,xml,parsing,builder,npm,types,definitelytyped,parser,console,log,price,parseString,Version-Sensitive,buildObject,toFixed"
 ---
 
 # xml2js TypeScript Guide

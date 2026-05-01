@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,arrow-functions,es2015"
+  tags: "babel,build,transpile,arrow-functions,es2015,7.27.1,console,log"
 ---
 
 # @babel/plugin-transform-arrow-functions

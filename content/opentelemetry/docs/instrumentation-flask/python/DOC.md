@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,otel,flask,wsgi,tracing,observability"
+  tags: "opentelemetry,otel,flask,wsgi,tracing,observability,app,span,FlaskInstrumentor,trace,tracer_provider,distro,request_hook,response_hook,BatchSpanProcessor,OTLPSpanExporter,Resource,SERVICE_NAME,TracerProvider,environ,get,is_recording,set_attribute,Version-Sensitive,Zero-Code,add_span_processor,app.get,create,get_order,run,set_tracer_provider"
 ---
 
 # OpenTelemetry Flask Instrumentation Python Package Guide

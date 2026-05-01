@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,color,css,colors,conversion,accessibility,types,definitelytyped,npm"
+  tags: "typescript,color,css,colors,conversion,accessibility,types,definitelytyped,npm,hex,console,log,base,rgb,accent,alpha,contrast,hexa,background,foreground,hsl,lighten,mix,rgbNumber,4.2.0,badge,blended,cmyk,darker,greener,lessSaturated,lighter,rotate,rotated"
 ---
 
 # color TypeScript Guide

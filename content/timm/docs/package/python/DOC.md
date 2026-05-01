@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "timm,pytorch,vision,image-classification,feature-extraction,huggingface"
+  tags: "timm,pytorch,vision,image-classification,feature-extraction,huggingface,model,create_model,models,eval,torch,create_transform,logits,resolve_data_config,Image,forward_features,inference_mode,randn,reset_classifier,Fine-Tuning,Version-Sensitive,list_models,no_grad,open,softmax"
 ---
 
 # timm Python Package Guide

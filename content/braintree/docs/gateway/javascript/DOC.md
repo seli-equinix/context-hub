@@ -6,7 +6,7 @@ metadata:
   versions: "3.34.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "braintree,gateway,payments,paypal,subscriptions"
+  tags: "braintree,gateway,payments,paypal,subscriptions,console,log,transaction,customer,amount,subscription,webhookNotification,create,paymentMethod,submitForSettlement,firstName,res,lastName,clientToken,sale,app,example.com,find,search,status,error,dispute,plan,send,update"
 ---
 
 # Braintree Node.js SDK Context

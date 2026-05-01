@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "google-cloud,beyondcorp,python,gcp,iam,zero-trust"
+  tags: "google-cloud,beyondcorp,python,gcp,iam,zero-trust,client,names,beyondcorp_appconnections_v1,result,get,operation,AppConnectionsServiceClient,ClientOptions,environ,Long-Running,Version-Sensitive,create_app_connection,list_app_connections,the matching generated module"
 ---
 
 # google-cloud-beyondcorp Python Package Guide

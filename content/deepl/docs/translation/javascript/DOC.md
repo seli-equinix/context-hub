@@ -6,7 +6,7 @@ metadata:
   versions: "1.21.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "deepl,translation,language,localization,api"
+  tags: "deepl,translation,language,localization,api,translator,console,log,translateText,error,DeepLClient,glossaries,translateDocument,forEach,languages,texts,listMultilingualGlossaries,find,deleteMultilingualGlossary,detectLanguage,downloadDocument,getDocumentStatus,getTargetLanguages,getUsage,glossaryLanguages,results,sourceLanguages,targetLangs,targetLanguages,uploadDocument"
 ---
 
 # DeepL API Coding Guidelines (JavaScript/TypeScript)

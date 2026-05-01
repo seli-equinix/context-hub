@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,appsync,graphql,realtime,serverless"
+  tags: "aws,appsync,graphql,realtime,serverless,client,send,console,log,Buffer,Control-Plane"
 ---
 
 # AWS AppSync SDK for JavaScript (v3)

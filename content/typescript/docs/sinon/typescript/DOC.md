@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,sinon,testing,mocks,stubs,types"
+  tags: "typescript,sinon,testing,mocks,stubs,types,assert,fetchUser,run,restore,calledOnce,emailClient,log,sandbox,send,spy,write,audit,console,infoSpy,calledWithExactly,clock,example.com,info,job,logger,stub,userService,Date,createSandbox,createStubInstance"
 ---
 
 # Sinon TypeScript Guide

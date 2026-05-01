@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,webpack-merge,build,bundler,javascript"
+  tags: "webpack,webpack-merge,build,bundler,javascript,path,HotModuleReplacementPlugin,resolve"
 ---
 
 # webpack-merge for JavaScript

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "zipp,python,zip,zipfile,pathlib,archives"
+  tags: "zipp,python,zip,zipfile,pathlib,archives,Path,root,open,config_path,write,child,joinpath,read,read_text,exists,is_dir,is_file,readme,Version-Sensitive,abspath,commonpath,iterdir"
 ---
 
 # zipp Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,accessanalyzer,boto3,python,typing,type-stubs,mypy,pyright"
+  tags: "aws,accessanalyzer,boto3,python,typing,type-stubs,mypy,pyright,client,Session,AccessAnalyzerClient,stubs,analyzer,finding,list_analyzers,findings,page,response,create_analyzer,start_resource_scan,ListAnalyzersPaginator,TYPE_CHECKING,lite,validate_policy,get_paginator,AccessCheckPolicyTypeType,AccessPreviewStatusReasonTypeDef,Config,ListFindingsV2Paginator,environ,json,paginate,Version-Sensitive"
 ---
 
 # `mypy-boto3-accessanalyzer` Python Package Guide

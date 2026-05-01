@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud-os-config,gcp,google-cloud,vm-manager,os-config,patching,inventory,python"
+  tags: "google-cloud-os-config,gcp,google-cloud,vm-manager,os-config,patching,inventory,python,osconfig_v1,client,environ,OsConfigZonalServiceClient,OsConfigServiceClient,execute_patch_job,operation,Credentials,get_patch_job,list_os_policy_assignments,list_patch_job_instance_details,result,service_account,fork,from_service_account_file,get_inventory,get_vulnerability_report,inventory_path,list_inventories,list_vulnerability_reports,vulnerability_report_path"
 ---
 
 # google-cloud-os-config Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "mlflow,python,ml,tracking,experiments,models,serving"
+  tags: "mlflow,python,ml,tracking,experiments,models,serving,model,pyfunc,sklearn,autolog,json,report_path,set_experiment,Logged,Path,RandomForestRegressor,iloc,infer_signature,loaded,log_metric,log_model,log_param,predict,set_tracking_uri,start_run,train_test_split,training_df,Content-Type,Version-Sensitive,drop,dumps"
 ---
 
 # mlflow Python Package Guide

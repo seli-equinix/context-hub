@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "whitenoise,django,wsgi,staticfiles,compression,caching,cdn"
+  tags: "whitenoise,django,wsgi,staticfiles,compression,caching,cdn,path,Flask,application,wsgi_app,add_files,headers,immutable_file_test,Accept-Encoding,add_headers,Content-Disposition,Version-Sensitive,endswith,environ,get,match"
 ---
 
 # WhiteNoise Python Package Guide

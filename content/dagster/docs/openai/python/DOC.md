@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-openai,python,openai,llm,ai,data-orchestration"
+  tags: "dagster,dagster-openai,python,openai,llm,ai,data-orchestration,OpenAIResource,Definitions,completions,create,EnvVar,dagster as dg,generate_copy,get_client,PromptConfig,choices,marketing_job,summarize_feedback,dg.asset,dg.job,dg.op,environ,get"
 ---
 
 # dagster-openai Python Package Guide

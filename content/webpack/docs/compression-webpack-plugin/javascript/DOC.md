@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,compression,gzip,brotli,build"
+  tags: "webpack,compression,gzip,brotli,build,path,resolve,Content-Encoding"
 ---
 
 # compression-webpack-plugin for JavaScript

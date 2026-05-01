@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,neo4j,cypher,graph,dag,python"
+  tags: "airflow,apache-airflow,neo4j,cypher,graph,dag,python,driver,task,session,Neo4jHook,record,run,hook,close,get_conn,neo4j.example.com,pendulum,write_and_read,annotations,count_people,datetime"
 ---
 
 # apache-airflow-providers-neo4j

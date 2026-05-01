@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "clearml,python,mlops,experiments,datasets,tracking"
+  tags: "clearml,python,mlops,experiments,datasets,tracking,Task,init,Dataset,set_credentials,connect,create,logger,upload,First-Time,Version-Sensitive,add_files,close,finalize,get,get_logger,report_scalar"
 ---
 
 # ClearML Python Package Guide

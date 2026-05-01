@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mem0ai,mem0,python,memory,rag,agents,llm"
+  tags: "mem0ai,mem0,python,memory,rag,agents,llm,MemoryClient,client,AsyncMemoryClient,add,environ,from_config,search,main,AsyncMemory,asyncio,Open-Source,Version-Sensitive,run"
 ---
 
 # mem0ai Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,secret-manager,gcp,secrets,iam,javascript,nodejs"
+  tags: "google-cloud,secret-manager,gcp,secrets,iam,javascript,nodejs,const,client,google,names,data,addSecretVersion,destroySecretVersion,6.1.1,Buffer,accessSecretVersion,createSecret,disableSecretVersion,enableSecretVersion,getSecret,getSecretVersion,toString,listSecretsAsync,push"
 ---
 
 # `@google-cloud/secret-manager` JavaScript Package Guide

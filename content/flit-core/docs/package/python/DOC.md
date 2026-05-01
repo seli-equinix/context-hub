@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flit-core,python,packaging,pyproject,pep517,build-backend,pypi"
+  tags: "flit-core,python,packaging,pyproject,pep517,build-backend,pypi,toml,example.com,Version-Sensitive"
 ---
 
 # flit-core Python Package Guide

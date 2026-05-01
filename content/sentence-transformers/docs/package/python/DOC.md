@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "sentence-transformers,embeddings,retrieval,reranking,semantic-search,hugging-face,transformers"
+  tags: "sentence-transformers,embeddings,retrieval,reranking,semantic-search,hugging-face,transformers,model,SentenceTransformer,CrossEncoder,similarity,documents,encode,encode_document,encode_query,scores,item,ranked,Version-Sensitive,environ,getenv,predict"
 ---
 
 # sentence-transformers Python Package Guide

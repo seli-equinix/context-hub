@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "django,drf,rest,api,python,web"
+  tags: "django,drf,rest,api,python,web,permissions,models,path,IsAuthenticated,include,APIView,Widget,DefaultRouter,TokenAuthentication,action,router,serializers,WidgetSerializer,WidgetViewSet,viewsets,Response,obtain_auth_token,register,BooleanField,CharField,DateTimeField,MeView,Meta,Per-View,Version-Sensitive"
 ---
 
 # djangorestframework Python Package Guide

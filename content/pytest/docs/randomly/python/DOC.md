@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest,pytest-randomly,testing,python,random,seeding"
+  tags: "pytest,pytest-randomly,testing,python,random,seeding,seed,ini,toml,while,Requires-Python,reseed,Random-Using,Version-Sensitive,default_rng"
 ---
 
 # pytest-randomly Python Package Guide

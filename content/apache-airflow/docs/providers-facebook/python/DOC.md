@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,facebook,facebook-ads,marketing-api,hooks,dag"
+  tags: "airflow,apache-airflow,facebook,facebook-ads,marketing-api,hooks,dag,FacebookAdsReportingHook,hook,task,bulk_facebook_report,dict,pendulum,fetch_campaign_metrics,report,annotations,datetime,fetch_by_account,items"
 ---
 
 # Apache Airflow Facebook Provider Guide

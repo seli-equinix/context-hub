@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "sqlalchemy,orm,sql,database,python,asyncio"
+  tags: "sqlalchemy,orm,sql,database,python,asyncio,session,engine,create_engine,User,select,Mapped,execute,name,Base,conn,mapped_column,text,URL,SessionLocal,begin,scalars,DeclarativeBase,create_all,localhost,String,commit,relationship,metadata,sessionmaker,Address"
 ---
 
 # SQLAlchemy Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "cytoolz,toolz,python,functional,iterators,dictionaries"
+  tags: "cytoolz,toolz,python,functional,iterators,dictionaries,map,filter,example.com,next_config,frequencies,groupby,merge_with,user,compose,pipe,update_in,valmap,assoc_in,normalize,orders_by_region,partition_all,word,Version-Sensitive,lower"
 ---
 
 # cytoolz Python Package Guide

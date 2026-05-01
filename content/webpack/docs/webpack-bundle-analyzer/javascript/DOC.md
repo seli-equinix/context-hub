@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,webpack-bundle-analyzer,bundle-analysis,performance,build,javascript"
+  tags: "webpack,webpack-bundle-analyzer,bundle-analysis,performance,build,javascript,path,plugins,resolve,5.2.0,push"
 ---
 
 # webpack-bundle-analyzer for JavaScript

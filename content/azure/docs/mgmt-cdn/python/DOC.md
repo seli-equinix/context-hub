@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,cdn,front-door,arm,management,networking"
+  tags: "azure,cdn,front-door,arm,management,networking,profiles,endpoints,CdnManagementClient,begin_create,DefaultAzureCredential,afd_endpoints,create,routes,afd_profiles,environ,AzureCliCredential,validate_custom_domain,afd_origin_groups,afd_origins,begin_purge_content,begin_update,DNS-Dependent,Version-Sensitive,begin_can_migrate,begin_migrate,begin_migration_commit,begin_upgrade,check_endpoint_name_availability,list,validate_secret"
 ---
 
 # Azure CDN Management SDK for Python

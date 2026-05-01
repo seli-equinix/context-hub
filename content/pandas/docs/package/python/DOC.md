@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pandas,dataframe,data-analysis,io,timeseries,pyarrow"
+  tags: "pandas,dataframe,data-analysis,io,timeseries,pyarrow,col,loc,pandas as pd,groupby,merge,assign,read_csv,to_datetime,create_engine,customers,iloc,option_context,read_excel,read_sql,set_option,Version-Sensitive,describe,describe_option,get_option,head,host,reset_option,set_index,to_excel,to_parquet"
 ---
 
 # pandas Python Package Guide

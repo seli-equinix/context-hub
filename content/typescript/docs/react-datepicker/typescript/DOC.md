@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-datepicker,date-picker,ui,types,definitelytyped"
+  tags: "typescript,react,react-datepicker,date-picker,ui,types,definitelytyped,publishAt,7.0.0,const,event,BookingDateField,PublishDateField,PublishForm,Version-Sensitive,console,log,preventDefault,toISOString"
 ---
 
 # react-datepicker TypeScript Guide

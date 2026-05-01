@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,sqlalchemy,python,database,postgresql,sqlite,blocks"
+  tags: "prefect,sqlalchemy,python,database,postgresql,sqlite,blocks,SqlAlchemyConnector,connector,connection,flow,environ,result,engine,load,ConnectionComponents,list,task,text,execute,get,main,reset_connections,save,AsyncDriver,SyncDriver,asyncio,begin,create_and_seed,example.com,fetch_all,fetch_many"
 ---
 
 # Prefect SQLAlchemy Python Package Guide

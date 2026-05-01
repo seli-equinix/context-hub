@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,core-util,javascript,utilities,abort,retry,hashing"
+  tags: "azure,core-util,javascript,utilities,abort,retry,hashing,error,console,log,abortController,JSON,parse"
 ---
 
 # @azure/core-util JavaScript Package Guide

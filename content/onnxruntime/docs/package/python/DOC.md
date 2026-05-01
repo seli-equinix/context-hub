@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "onnxruntime,onnx,inference,machine-learning,execution-providers,cpu,gpu"
+  tags: "onnxruntime,onnx,inference,machine-learning,execution-providers,cpu,gpu,session,ort,onnxruntime as ort,InferenceSession,binding,run,numpy as np,get_inputs,OrtValue,get_outputs,ones,SessionOptions,get_available_providers,results,Path,model_path,on_done,run_async,run_with_iobinding,Device-Resident,Version-Sensitive,add_session_config_entry,as_posix,bind_cpu_input,bind_output"
 ---
 
 # onnxruntime Python Package Guide

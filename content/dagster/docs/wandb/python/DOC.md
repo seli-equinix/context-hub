@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-wandb,python,wandb,weights-and-biases,artifacts,mlops"
+  tags: "dagster,dagster-wandb,python,wandb,weights-and-biases,artifacts,mlops,artifact,run,asset,wandb_resource,training_metrics,Table,init,log,metadata,wandb_artifacts_io_manager,configured,dagster as dg,dg.asset,environ,inspect_metrics,AssetIn,Definitions,add,dg.op,finish,get_column,info,make_values_resource,track_training_run,with_resources"
 ---
 
 # dagster-wandb Python Package Guide

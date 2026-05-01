@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "scikit-learn,sklearn,machine-learning,data-science,python"
+  tags: "scikit-learn,sklearn,machine-learning,data-science,python,Pipeline,joblib,model,fit,set_config,predict,ColumnTransformer,SimpleImputer,best_model,config_context,load,search,show_versions,text_model,GridSearchCV,KMeans,LinearSVC,LogisticRegression,OneHotEncoder,StandardScaler,TfidfVectorizer,accuracy_score,classification_report,dump,probabilities"
 ---
 
 # scikit-learn Python Package Guide

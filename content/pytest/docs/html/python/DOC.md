@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-html,pytest,testing,html,reporting"
+  tags: "pytest-html,pytest,testing,html,reporting,extras,append,hookimpl,metadata_key,outcome,pytest.hookimpl,getenv,ini,pytest_sessionfinish,stash,text,toml,Version-Sensitive,get_result,pytest_html_report_title,pytest_runtest_makereport,url"
 ---
 
 # pytest-html Python Package Guide

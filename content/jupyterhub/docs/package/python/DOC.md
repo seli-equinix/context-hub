@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "jupyterhub,jupyter,python,multi-user,auth,spawner,proxy,notebooks"
+  tags: "jupyterhub,jupyter,python,multi-user,auth,spawner,proxy,notebooks,environ,get,requests,DummyAuthenticator,json,raise_for_status,response,user_response,users_response,SimpleLocalProcessSpawner,Production-Leaning,Version-Sensitive"
 ---
 
 # jupyterhub Python Package Guide

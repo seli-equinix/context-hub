@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,key-vault,keys,kms,cryptography,security"
+  tags: "azure,key-vault,keys,kms,cryptography,security,client,KeyClient,DefaultAzureCredential,CryptographyClient,result,EncryptionAlgorithm,crypto_client,decrypt,encrypt,get_key,asyncio,delete_poller,environ,key_client,main,recover_poller,Version-Sensitive,begin_delete_key,begin_recover_deleted_key,create_ec_key,create_rsa_key,get_deleted_key,list_properties_of_key_versions,list_properties_of_keys,purge_deleted_key"
 ---
 
 # Azure Key Vault Keys Python Client Library

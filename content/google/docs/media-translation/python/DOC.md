@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud-media-translation,google-cloud,translation,speech,streaming,gcp,python"
+  tags: "google-cloud-media-translation,google-cloud,translation,speech,streaming,gcp,python,client,media_translation,result,response,SpeechTranslationServiceClient,StreamingTranslateSpeechRequest,mediatranslation_v1beta1 as media_translation,Iterator,WhichOneof,audio_file,request_stream,streaming_translate_speech,translate_stream,AudioConfig,SpeechTranslationServiceAsyncClient,StreamingTranslateSpeechConfig,read"
 ---
 
 # Google Cloud Media Translation Python Package Guide

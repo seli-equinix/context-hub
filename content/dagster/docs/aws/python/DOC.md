@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,aws,dagster-aws,python,s3,secrets-manager,data-orchestration"
+  tags: "dagster,aws,dagster-aws,python,s3,secrets-manager,data-orchestration,S3Resource,asset,Definitions,response,secretsmanager,SecretsManagerResource,dg.asset,get_client,write_example_file,dagster as dg,external_api_key,read_example_file"
 ---
 
 # dagster-aws Python Package Guide

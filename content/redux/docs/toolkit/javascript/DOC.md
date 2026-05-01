@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "redux,redux-toolkit,state-management,rtk-query,javascript"
+  tags: "redux,redux-toolkit,state-management,rtk-query,javascript,const,store,reduxjs,postsApi,query,error,fetchUserById,posts,builder,event,response,addCase,Counter,PostsList,ReactDOM,console,entities,LoadUserButton,createRoot,document,getElementById,instances,json,log,map"
 ---
 
 # Redux Toolkit for JavaScript

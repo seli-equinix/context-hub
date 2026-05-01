@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python-dotenv,dotenv,environment,configuration,secrets,cli"
+  tags: "python-dotenv,dotenv,environment,configuration,secrets,cli,load_dotenv,dotenv_values,set_key,environ,unset_key,config,find_dotenv,Path,StringIO,get_key,Version-Sensitive,dict,getenv"
 ---
 
 # python-dotenv Python Package Guide

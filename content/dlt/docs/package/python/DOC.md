@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dlt,etl,elt,data-loading,pipeline,python"
+  tags: "dlt,etl,elt,data-loading,pipeline,python,toml,incremental,resource,sources,run,cursor,users,dlt.resource,users_source,dlt.source,example.com,response,client,events,requests,yield,Version-Sensitive,accounts,execute_query,fetchall,get,json,raise_for_status,sql_client"
 ---
 
 # dlt Python Package Guide

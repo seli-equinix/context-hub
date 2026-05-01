@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,flask-testing,testing,unittest,test-client,live-server"
+  tags: "flask,flask-testing,testing,unittest,test-client,live-server,app,self,TestCase,create_app,client,config,get,index,redirect,LiveServerTestCase,app.get,assert200,assert_redirects,url_for,api,assert_context,assert_template_used,render_template,setUp,tearDown,update,assert_message_flashed,flash,get_server_url,jsonify"
 ---
 
 # Flask-Testing for Flask Apps

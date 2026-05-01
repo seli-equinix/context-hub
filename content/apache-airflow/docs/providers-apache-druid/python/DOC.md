@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,druid,apache-druid,dag,python"
+  tags: "airflow,apache-airflow,druid,apache-druid,dag,python,task,datetime,DruidCheckOperator,DruidDbApiHook,DruidOperator,hook,print_top_countries,get_records"
 ---
 
 # apache-airflow-providers-apache-druid

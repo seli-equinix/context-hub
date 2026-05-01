@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "albumentations,computer-vision,image-augmentation,opencv,pytorch,augmentation"
+  tags: "albumentations,computer-vision,image-augmentation,opencv,pytorch,augmentation,albumentations as A,augmented,cv2,result,Version-Sensitive,cvtColor,imread"
 ---
 
 # Albumentations Python Package Guide

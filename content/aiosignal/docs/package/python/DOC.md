@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aiosignal,python,asyncio,signals,aiohttp,callbacks"
+  tags: "aiosignal,python,asyncio,signals,aiohttp,callbacks,signal,app,append,on_job_finished,send,web,JobRunner,before_flush,freeze,handler,main,run,Application,Worker,close_resources,log_completion,log_flush,on_cleanup,on_startup,open_resources,update_metrics,remove"
 ---
 
 # aiosignal Python Package Guide

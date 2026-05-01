@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dvc,data-versioning,mlops,pipelines,python,git"
+  tags: "dvc,data-versioning,mlops,pipelines,python,git,api,read,stream,Version-Sensitive,example.com,open"
 ---
 
 # DVC Python Package Guide

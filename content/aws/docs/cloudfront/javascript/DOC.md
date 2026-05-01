@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,cloudfront,javascript,nodejs,browser,cdn"
+  tags: "aws,cloudfront,javascript,nodejs,browser,cdn,send,console,log,CloudFront-Specific,Date,now"
 ---
 
 # `@aws-sdk/client-cloudfront`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "cookiecutter,python,scaffolding,templates,cli,project-generation,jinja2"
+  tags: "cookiecutter,python,scaffolding,templates,cli,project-generation,jinja2,main,Non-Interactive,Version-Sensitive,example.com"
 ---
 
 # Cookiecutter Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "typing,type-hints,backports,static-analysis,python"
+  tags: "typing,type-hints,backports,static-analysis,python,typing_extensions,TypedDict,name,annotations,Protocol,get_annotations,resource,runtime_checkable,Format,Node,NotRequired,ReadOnly,Self,SupportsClose,UserPatch,close,evaluate_forward_ref,override,BaseHandler,handle,toml,Builder,Handler,Version-Sensitive,get_type_hints"
 ---
 
 # typing-extensions Python Package Guide

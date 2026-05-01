@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "vllm,llm,inference,serving,openai-compatible,huggingface,gpu"
+  tags: "vllm,llm,inference,serving,openai-compatible,huggingface,gpu,OpenAI,outputs,SamplingParams,Version-Sensitive,choices,completions,create,generate"
 ---
 
 # vLLM Python Package Guide

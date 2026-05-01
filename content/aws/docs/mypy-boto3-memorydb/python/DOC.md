@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,memorydb,boto3,mypy-boto3-memorydb,boto3-stubs,typing,type-checking"
+  tags: "aws,memorydb,boto3,mypy-boto3-memorydb,boto3-stubs,typing,type-checking,client,Session,MemoryDBClient,stubs,config,cluster,value,TYPE_CHECKING,lite,page,paginator,resource,describe_clusters,get,response,ACLPendingChangesTypeDef,AZStatusType,DescribeClustersPaginator,Version-Sensitive,accepts_status,get_paginator,list,paginate,read_pending_changes"
 ---
 
 # mypy-boto3-memorydb Python Package Guide

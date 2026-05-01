@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "nuxt,vue,ssr,ssg,nitro,meta-framework"
+  tags: "nuxt,vue,ssr,ssg,nitro,meta-framework,fetch,click,create,latest"
 ---
 
 # Nuxt for JavaScript

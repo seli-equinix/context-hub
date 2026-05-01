@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "httplib2,http,https,client,cache,proxy,python"
+  tags: "httplib2,http,https,client,cache,proxy,python,content,request,json,environ,getenv,decode,loads,add_credentials,created,parse,Version-Sensitive,add_certificate,dumps,urlencode"
 ---
 
 # httplib2 Python Package Guide

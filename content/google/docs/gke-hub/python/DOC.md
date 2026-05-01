@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gke-hub,fleet,anthos,gke,adc"
+  tags: "google-cloud,gke-hub,fleet,anthos,gke,adc,client,gkehub_v1,GkeHubClient,environ,operation,common_location_path,labels,getenv,logging,uuid,result,Membership,membership_path,FieldMask,base_logger,get_membership,list_memberships,update_membership,uuid4,create_membership,feature_path,field_mask_pb2,CreateMembershipRequest,DeleteMembershipRequest,GkeCluster"
 ---
 
 # google-cloud-gke-hub Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "pygithub,github,api,auth,pagination,github-apps"
+  tags: "pygithub,github,api,auth,pagination,github-apps,repo,Token,views,docs,get_repo,issues,GithubIntegration,close,data,environ,integration,requester,get_page,pulls,requestJsonAndCheck,AppAuth,Hello-World,Requires-Python,Version-Sensitive,create_issue,get_installation_auth,get_issues,get_pulls,get_rate_limit,get_repo_installation"
 ---
 
 # PyGithub 2.6.0 Python Package Guide

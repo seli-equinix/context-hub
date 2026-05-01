@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,secrets-manager,secrets,security,javascript"
+  tags: "aws,secrets-manager,secrets,security,javascript,JSON,log,send,console,stringify,Manager-Specific,parse"
 ---
 
 # AWS Secrets Manager SDK for JavaScript (v3)

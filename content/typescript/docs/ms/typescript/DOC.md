@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,ms,duration,time,npm,types"
+  tags: "typescript,ms,duration,time,npm,types,console,log,2.1.0,durationPattern,readDuration,cacheTtlMs,revalidateAfterMs,test"
 ---
 
 # ms TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "python,dataclasses,json,serialization,marshmallow"
+  tags: "python,dataclasses,json,serialization,marshmallow,dataclass,dataclass_json,schema,field,fields,from_json,datetime,from_dict,config,user,Optional,Person,Undefined,to_dict,to_json,CatchAll,DataClassJsonMixin,LetterCase,ValidationError,Account,Any,AuditRecord,Dict,Enrollment,Event"
 ---
 
 # dataclasses-json Python Package Guide

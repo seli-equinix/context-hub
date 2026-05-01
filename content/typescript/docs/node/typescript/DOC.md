@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,node,nodejs,types,definitelytyped,ambient-types"
+  tags: "typescript,node,nodejs,types,definitelytyped,ambient-types,json,process,heartbeat,response,25.4.0,Buffer,bytes,console,log,config,cwd,parse,startHeartbeat,stdout,stopHeartbeat,toString,unref,write"
 ---
 
 # Node.js TypeScript Guide

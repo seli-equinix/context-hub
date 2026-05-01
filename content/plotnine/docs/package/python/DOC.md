@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "plotnine,python,visualization,ggplot,data-viz,pandas,polars,matplotlib"
+  tags: "plotnine,python,visualization,ggplot,data-viz,pandas,polars,matplotlib,aes,geom_point,theme,coord_cartesian,labs,penguins,facet_wrap,geom_smooth,set_option,theme_minimal,Version-Sensitive,dropna"
 ---
 
 # plotnine Python Package Guide

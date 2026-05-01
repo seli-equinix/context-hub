@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,css,loader,build,css-modules"
+  tags: "webpack,css,loader,build,css-modules,import,path,body,document,resolve,append,createElement,literally"
 ---
 
 # css-loader

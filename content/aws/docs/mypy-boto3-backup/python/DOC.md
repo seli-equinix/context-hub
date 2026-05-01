@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,backup,boto3,mypy,pyright,type-stubs,python"
+  tags: "aws,backup,boto3,mypy,pyright,type-stubs,python,client,stubs,Session,BackupClient,job,lite,page,get,resource,AggregationPeriodType,TYPE_CHECKING,annotations,jobs,list_backup_jobs,response,AdvancedBackupSettingOutputTypeDef,get_paginator,paginate,point,recovery_points,Version-Sensitive,build_setting,get_waiter,normalize_period"
 ---
 
 # `mypy-boto3-backup` Python Package Guide

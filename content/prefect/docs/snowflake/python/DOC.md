@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,snowflake,python,workflow,orchestration,database,sql,blocks"
+  tags: "prefect,snowflake,python,workflow,orchestration,database,sql,blocks,connector,SnowflakeConnector,flow,SnowflakeCredentials,credentials,environ,connection,cursor,load,task,fetch_many,save,write_pandas,fetch_all,get_connection,reset_cursors,DataFrame,Path,execute,fetch_active_customers,getenv,setup_demo_table,snowflake_demo,tuple,execute_many"
 ---
 
 # Prefect Snowflake Python Package Guide

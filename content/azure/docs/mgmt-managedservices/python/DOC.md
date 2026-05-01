@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-lighthouse,managed-services,management,delegation,multitenant,python"
+  tags: "azure,azure-lighthouse,managed-services,management,delegation,multitenant,python,DefaultAzureCredential,ManagedServicesClient,environ,registration_assignments,registration_definitions,uuid,begin_create_or_update,begin_delete,delete,get,timedelta,uuid4"
 ---
 
 # azure-mgmt-managedservices Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "2.1.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "atlassian,confluence,wiki,documentation,collaboration"
+  tags: "atlassian,confluence,wiki,documentation,collaboration,content,space,console,log,results,getContent,string,error,search,user,form,createContent,Promise,updateContent,example.com,append,cache,created,allPages,now,push,Date,Type-Safe,all,createReadStream"
 ---
 
 # Confluence Cloud API Coding Guidelines (JavaScript/TypeScript)

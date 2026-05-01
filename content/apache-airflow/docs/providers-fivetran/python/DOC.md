@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,fivetran,elt,operators,sensors"
+  tags: "airflow,apache-airflow,fivetran,elt,operators,sensors,DAG,FivetranOperator,FivetranSensor,pendulum,annotations,datetime,environ"
 ---
 
 # Airflow Provider Fivetran Python Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,iam,python,service-accounts,credentials,deny-policies"
+  tags: "google,iam,python,service-accounts,credentials,deny-policies,client,iam_admin_v1,iam_credentials_v1,IAMCredentialsClient,IAMClient,iam_v2,PoliciesClient,types,json,quote,operation,Duration,FieldMask,ServiceAccount,generate_access_token,list_policies,pages,result,sign_jwt,CreatePolicyRequest,CreateServiceAccountRequest,DenyRule,GenerateAccessTokenRequest,GenerateIdTokenRequest,ListServiceAccountsRequest"
 ---
 
 # Google Cloud IAM Python Client Library

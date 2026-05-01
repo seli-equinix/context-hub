@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "torch,pytorch,python,deep-learning,tensors,autograd,nn,training"
+  tags: "torch,pytorch,python,deep-learning,tensors,autograd,nn,training,device,model,cuda,mps,is_available,state_dict,load,optimizer,tensor,DataLoader,Linear,amp,autocast,eval,inference_mode,parameters,randn,restored,TensorDataset,backward,loss,probs,save,train,Adam"
 ---
 
 # PyTorch `torch` Python Package Guide

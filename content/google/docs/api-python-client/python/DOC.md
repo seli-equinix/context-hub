@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-api,googleapiclient,discovery,oauth,service-account,rest"
+  tags: "google,google-api,googleapiclient,discovery,oauth,service-account,rest,service,credentials,response,build,files,get,request,execute,HttpError,file,httplib2,item,close,flow,MediaFileUpload,status,InstalledAppFlow,result,service_account,volume,Http,Version-Sensitive,calendarList,environ,example.com"
 ---
 
 # Google API Python Client

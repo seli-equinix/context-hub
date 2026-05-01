@@ -6,7 +6,7 @@ metadata:
   versions: "1.23.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "deepl,translation,language,localization,api"
+  tags: "deepl,translation,language,localization,api,translator,translate_text,DeepLClient,rephrase_text,glossaries,get,List,MultilingualGlossaryDictionaryEntries,dictionaries,environ,translate_document_from_filepath,asyncio,list_multilingual_glossaries,ThreadPoolExecutor,complete_example,detect_language,get_glossary_languages,get_target_languages,get_usage,loop,main,return,time,translate_async,translate_document_download"
 ---
 
 # DeepL API Coding Guidelines (Python)

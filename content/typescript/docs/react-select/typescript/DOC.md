@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,react-select,select,forms,ui,types,definitelytyped"
+  tags: "typescript,react,react-select,select,forms,ui,types,definitelytyped,Option,StatusOption,const,ColorOption,UserOption,5.0.1,AssigneeField,FavoriteColorField,StatusField,StatusSelect,Version-Sensitive"
 ---
 
 # react-select TypeScript Guide

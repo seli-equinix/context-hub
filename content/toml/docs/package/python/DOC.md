@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "toml,python,config,serialization,parser"
+  tags: "toml,python,config,serialization,parser,load,dump,dumps,data,Path,loads,Decimal,TomlArraySeparatorEncoder,TomlPathlibEncoder,date,OrderedDict,TomlNumpyEncoder,arange,numpy as np,setdefault"
 ---
 
 # toml Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,pip,packaging,dependencies,cli,virtualenv"
+  tags: "python,pip,packaging,dependencies,cli,virtualenv,pipdeptree,Machine-Readable,Version-Sensitive"
 ---
 
 # pipdeptree Python Package Guide

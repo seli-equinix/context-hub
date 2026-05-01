@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,elastic-load-balancing,elb,alb,nlb,javascript,nodejs"
+  tags: "aws,elastic-load-balancing,elb,alb,nlb,javascript,nodejs,elbv2,send,value,console,log,Targets,trim"
 ---
 
 # `@aws-sdk/client-elastic-load-balancing-v2`

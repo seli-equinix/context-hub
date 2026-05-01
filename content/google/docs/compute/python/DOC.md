@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud-compute,gcp,google-cloud,compute-engine,vm,python"
+  tags: "google-cloud-compute,gcp,google-cloud,compute-engine,vm,python,compute_v1,instances,operation,InstancesClient,environ,result,wait_for_extended_operation,ImagesClient,delete,images,stop,ExtendedOperation,Instance,get_from_family,insert,start,Credentials,service_account,AttachedDisk,AttachedDiskInitializeParams,NetworkInterface,Version-Sensitive,fork,from_service_account_file,get"
 ---
 
 # google-cloud-compute Python Package Guide

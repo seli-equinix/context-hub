@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,utility,types,definitelytyped,npm"
+  tags: "typescript,lodash,utility,types,definitelytyped,npm,console,log,name,example.com,sendSearch,4.17.24,filter,PackageRow,User,cancel,flush,rows,Version-Sensitive,startsWith"
 ---
 
 # lodash TypeScript Guide

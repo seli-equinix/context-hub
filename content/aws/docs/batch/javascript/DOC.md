@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,batch,javascript,nodejs,job-queue,containers"
+  tags: "aws,batch,javascript,nodejs,job-queue,containers,client,send,console,log"
 ---
 
 # AWS Batch SDK for JavaScript (v3)

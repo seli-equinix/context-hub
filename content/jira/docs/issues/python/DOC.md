@@ -6,7 +6,7 @@ metadata:
   versions: "3.10.5"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "jira,issues,atlassian,project-management,agile"
+  tags: "jira,issues,atlassian,project-management,agile,issue,fields,comment,project,sprint,version,attachment,component,search_issues,board,update,jql,permissions,field,transitions,boards,sprints,get,JIRAError,current_user,environ,example.com,headers,result,watchers"
 ---
 
 # Jira Python SDK Coding Guidelines

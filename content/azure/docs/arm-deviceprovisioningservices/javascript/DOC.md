@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,device-provisioning-services,arm,iot,dps,javascript"
+  tags: "azure,device-provisioning-services,arm,iot,dps,javascript,dpsClient,iotDpsResource,console,log,beginCreateOrUpdateAndWait,beginDeleteAndWait,get,listByResourceGroup,listBySubscription,listKeys,5.1.0,checkProvisioningServiceNameAvailability,dir"
 ---
 
 # Azure Device Provisioning Services Management Client For JavaScript

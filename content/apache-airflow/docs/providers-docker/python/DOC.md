@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,docker,containers,python,dag,operator"
+  tags: "airflow,docker,containers,python,dag,operator,DockerOperator,datetime,environ,Mount,get"
 ---
 
 # apache-airflow-providers-docker

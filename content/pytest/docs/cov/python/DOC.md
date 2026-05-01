@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest,coverage,testing,python,ci,xdist"
+  tags: "pytest,coverage,testing,python,ci,xdist,xml,toml,append,true,html,markdown,Opt-Out,Version-Sensitive,annotate,json,lcov"
 ---
 
 # pytest-cov Python Package Guide

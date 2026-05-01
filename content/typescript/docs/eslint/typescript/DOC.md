@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,eslint,linting,types,definitelytyped,node,npm"
+  tags: "typescript,eslint,linting,types,definitelytyped,node,npm,console,9.6.1,ESLintRules,context,formatter,log,Version-Sensitive,format,lintText,loadFormatter,noFoo,report"
 ---
 
 # ESLint TypeScript Guide

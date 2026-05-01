@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,auth,rbac,fab,sso,python"
+  tags: "airflow,apache-airflow,auth,rbac,fab,sso,python,DAG,json,session,environ,AUTH_OAUTH,example.com,dags_response,token_response,AUTH_DB,EmptyOperator,FabAirflowSecurityManagerOverride,datetime,get,raise_for_status,requests,Content-Type,headers,load,post,update"
 ---
 
 # Apache Airflow Providers FAB Guide

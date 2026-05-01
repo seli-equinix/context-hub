@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,network,arm,virtual-network,subnet,nsg,public-ip,nic"
+  tags: "azure,network,arm,virtual-network,subnet,nsg,public-ip,nic,client,credential,result,NetworkManagementClient,DefaultAzureCredential,begin_create_or_update,subnets,list,virtual_networks,AzureCliCredential,SecurityRule,VirtualNetwork,environ,main,AddressSpace,NetworkSecurityGroup,PublicIPAddress,asyncio,close,network_interfaces,network_security_groups,poller,public_ip_addresses,Version-Sensitive,run"
 ---
 
 # Azure Network Management SDK for Python

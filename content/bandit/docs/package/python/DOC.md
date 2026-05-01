@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "bandit,python,security,sast,static-analysis,lint,ci"
+  tags: "bandit,python,security,sast,static-analysis,lint,ci,toml,Version-Sensitive,ini"
 ---
 
 # Bandit Python Package Guide

@@ -6,7 +6,7 @@ metadata:
   versions: "43.2.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "square,payments,pos,commerce,checkout"
+  tags: "square,payments,pos,commerce,checkout,get,ApiError,uuid,query,uuid4,create,customers,name,list,search_query,customer_data,invoice_data,payment_data,Environment,catalog,locations,payment_details,retrieve,subscription_data,all_customers,event,item_data,orders,subscriptions,bookings"
 ---
 
 # Square Python SDK Coding Guide

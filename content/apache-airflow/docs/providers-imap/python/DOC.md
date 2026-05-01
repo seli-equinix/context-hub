@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,imap,email,dag,python"
+  tags: "airflow,apache-airflow,imap,email,dag,python,client,ImapHook,message,task,hook,search,select,data,fetch,get_conn,datetime,logout,message_data,message_from_bytes,output_path,list,part,subjects,Path,annotations,example.com,get,list_unseen_subjects,save_attachment,append"
 ---
 
 # apache-airflow-providers-imap

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,cassandra,cql,dag,python"
+  tags: "airflow,apache-airflow,cassandra,cql,dag,python,CassandraHook,task,hook,session,execute,datetime,get_conn,analytics,events,insert_event,list,read_cluster_info,read_recent_events,return,dict"
 ---
 
 # apache-airflow-providers-apache-cassandra

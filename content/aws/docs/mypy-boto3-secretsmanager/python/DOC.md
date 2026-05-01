@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,secretsmanager,typing,mypy,pyright,python"
+  tags: "aws,boto3,secretsmanager,typing,mypy,pyright,python,client,session,SecretsManagerClient,stubs,paginator,put_secret_value,response,CreateSecretRequestTypeDef,GetSecretValueResponseTypeDef,ListSecretsPaginator,PutSecretValueRequestTypeDef,TYPE_CHECKING,get,page,secret_binary,create_secret,get_secret_value,item,lite,FilterNameStringTypeType,Version-Sensitive,annotations,decode,get_client,get_paginator"
 ---
 
 # mypy-boto3-secretsmanager Python Package Guide

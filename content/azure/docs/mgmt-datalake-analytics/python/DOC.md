@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,datalake,analytics,management,legacy,python"
+  tags: "azure,datalake,analytics,management,legacy,python,account,accounts,create,DefaultAzureCredential,job,reference,DataLakeAnalyticsAccountManagementClient,environ,list_by_account,storage_accounts,AddStorageAccountParameters,AzureCliCredential,DataLakeAnalyticsJobManagementClient,JobInformation,USqlJobProperties,add,begin_create,compute_policies,data_lake_store_accounts,firewall_rules,get,list,locations,uuid,get_capability"
 ---
 
 # Azure Data Lake Analytics Management SDK for Python

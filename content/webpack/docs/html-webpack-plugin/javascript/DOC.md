@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,html,plugin,templates"
+  tags: "webpack,build,html,plugin,templates,HtmlWebpackPlugin,path,compilation,AddBuildHashPlugin,resolve,Content-Security,beforeEmit,getCompilationHooks,tap,5.6.6,replace,tapAsync"
 ---
 
 # html-webpack-plugin

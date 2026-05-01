@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django,django-csp,csp,security,http-headers,xss"
+  tags: "django,django-csp,csp,security,http-headers,xss,SELF,NONCE,NONE,render,csp_exempt,csp_replace,csp_update,dashboard,Content-Security,Per-View,Version-Sensitive,console,embeddable,legacy_callback,log,strict_view"
 ---
 
 # django-csp 4.0 Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,async,generators"
+  tags: "babel,build,transpile,async,generators,_run,apply,console,log"
 ---
 
 # @babel/plugin-transform-async-to-generator

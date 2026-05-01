@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask-socketio,flask,socketio,websocket,realtime,rooms,auth,gunicorn"
+  tags: "flask-socketio,flask,socketio,websocket,realtime,rooms,auth,gunicorn,app,eventlet,data,session,emit,request,run,create_app,init_app,socket_client,socketio.on,join_room,monkey,test_client,config,disconnect,get,run_job,sleep,start_background_task,Version-Sensitive,handle_ping,is_connected,monkey_patch,on_chat_send"
 ---
 
 # Flask-SocketIO Python Package Guide

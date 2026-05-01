@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ruff,python,linter,formatter,quality,pre-commit"
+  tags: "ruff,python,linter,formatter,quality,pre-commit,toml,Version-Sensitive"
 ---
 
 # Ruff Python Package Guide

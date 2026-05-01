@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,workspaces,javascript,nodejs,v3,desktop,virtual-desktop"
+  tags: "aws,workspaces,javascript,nodejs,v3,desktop,virtual-desktop,client,send,console,log,error,3.1007.0,JSON,example.com,stringify"
 ---
 
 # `@aws-sdk/client-workspaces`

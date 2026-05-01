@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "neo4j,graph,database,cypher,bolt,asyncio"
+  tags: "neo4j,graph,database,cypher,bolt,asyncio,driver,GraphDatabase,record,records,session,environ,execute_query,return,run,AsyncGraphDatabase,close,execute_write,single,AuthManagers,ExpiringAuth,auth_provider,bearer,create_friendship,getenv,main,read_transaction,result,verify_connectivity,write_transaction,Version-Sensitive"
 ---
 
 # Neo4j Python Package Guide

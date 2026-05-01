@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,ses,email,javascript,nodejs,templating,delivery"
+  tags: "aws,ses,email,javascript,nodejs,templating,delivery,client,send,example.com,JSON,SES-Specific,console,log,stringify"
 ---
 
 # `@aws-sdk/client-ses`

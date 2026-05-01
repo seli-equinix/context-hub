@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "got,http,http2,node,javascript,requests"
+  tags: "got,http,http2,node,javascript,requests,api,console,log,headers,JSON,get,paginate,parse,stream,abortController,error,extend,previous,14.6.6,all,post,abort"
 ---
 
 # Got Guide for Node.js HTTP Requests

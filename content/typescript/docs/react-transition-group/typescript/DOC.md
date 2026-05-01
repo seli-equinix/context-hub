@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,react,transitions,animation,react-transition-group,types,definitelytyped"
+  tags: "typescript,react,transitions,animation,react-transition-group,types,definitelytyped,const,items,Todo,current,map,transitionStyles,InlineFade,SaveNotice,StatusBadge,TodoList,Version-Sensitive,cleanup,management"
 ---
 
 # react-transition-group TypeScript Guide

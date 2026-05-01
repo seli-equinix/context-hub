@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,opensearch,search,dag,python"
+  tags: "airflow,opensearch,search,dag,python,client,index,OpenSearchHook,hook,task,create,info,get_conn,indices,response,datetime,ping,write_and_search,exists,list,opensearch.example.com,show_cluster_info"
 ---
 
 # apache-airflow-providers-opensearch

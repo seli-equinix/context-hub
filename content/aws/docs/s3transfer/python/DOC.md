@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "s3transfer,aws,s3,botocore,boto3,transfers"
+  tags: "s3transfer,aws,s3,botocore,boto3,transfers,transfer,manager,TransferManager,session,TransferConfig,client,future,create_client,download,result,shutdown,upload_file,upload,File-Like,Version-Sensitive"
 ---
 
 # s3transfer Python Package Guide

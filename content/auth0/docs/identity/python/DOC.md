@@ -6,7 +6,7 @@ metadata:
   versions: "4.7.2"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "auth0,identity,oauth,oidc,authentication"
+  tags: "auth0,identity,oauth,oidc,authentication,users,user,token,roles,get,get_token,getenv,example.com,role,token_response,GetToken,organizations,Database,clients,create,ticket,Username-Password,connections,delete,grants,logs,org,time,update,list"
 ---
 
 # Auth0 Python SDK Coding Guidelines

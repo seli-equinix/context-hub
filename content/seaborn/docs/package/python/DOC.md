@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "seaborn,python,visualization,plotting,matplotlib,pandas,statistics"
+  tags: "seaborn,python,visualization,plotting,matplotlib,pandas,statistics,sns,penguins,figure,load_dataset,seaborn as sns,set_theme,plt,Plot,catplot,displot,relplot,pyplot,show,scatterplot,despine,fig,heatmap,pairplot,histplot,savefig,set,set_title,subplots,tight_layout,Dots"
 ---
 
 # seaborn Python Package Guide

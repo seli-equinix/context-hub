@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,build,minify,terser,javascript"
+  tags: "webpack,build,minify,terser,javascript,path,license,txt,cc_on,preserve,resolve,5.x"
 ---
 
 # terser-webpack-plugin

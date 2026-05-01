@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tomli,toml,configuration,parser,python,tomllib"
+  tags: "tomli,toml,configuration,parser,python,tomllib,load,loads,data,project,sys,pyproject,settings,Decimal,Path,get,tomli as tomllib,Version-Sensitive"
 ---
 
 # tomli Python Package Guide

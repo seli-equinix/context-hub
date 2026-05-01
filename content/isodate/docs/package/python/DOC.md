@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "isodate,python,iso8601,date,time,datetime,duration"
+  tags: "isodate,python,iso8601,date,time,datetime,duration,timedelta,parse_duration,tzinfo,parse_datetime,ISO8601Error,timezone,duration_isoformat,parse_date,parse_time,parse_tzinfo,published_at,totimedelta,utcoffset,PYYYY-MM,Version-Sensitive,date_isoformat,datetime_isoformat,time_isoformat,total_seconds"
 ---
 
 # isodate Python Package Guide

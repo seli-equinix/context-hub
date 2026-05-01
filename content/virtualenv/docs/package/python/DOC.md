@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "virtualenv,python,packaging,environments,venv,pip"
+  tags: "virtualenv,python,packaging,environments,venv,pip,cli_run,session_via_cli,BASH_SOURCE,Set-ExecutionPolicy,Version-Sensitive"
 ---
 
 # virtualenv Python Package Guide

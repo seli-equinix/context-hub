@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "newrelic,apm,observability,monitoring,tracing,logging"
+  tags: "newrelic,apm,observability,monitoring,tracing,logging,agent,ini,initialize,add_custom_attribute,background_task,create_app,notice_error,sync_customers,Version-Sensitive,handle_order,newrelic.agent.background_task,process_message"
 ---
 
 # New Relic Python Agent

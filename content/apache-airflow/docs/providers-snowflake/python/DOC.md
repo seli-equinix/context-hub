@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,snowflake,sql,dag,python"
+  tags: "airflow,apache-airflow,snowflake,sql,dag,python,SnowflakeHook,SnowflakeSqlApiOperator,datetime,task,SQLExecuteQueryOperator,hook,get_first,get_records,read_summary,version_row,Multi-Statement,list,return,tuple"
 ---
 
 # Apache Airflow Snowflake Provider Python Guide

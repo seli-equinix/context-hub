@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "fsspec,filesystem,storage,python,io"
+  tags: "fsspec,filesystem,storage,python,io,open,mapper,get_mapper,open_files,url_to_fs,Version-Sensitive,exists,pandas as pd,read_csv"
 ---
 
 # fsspec Python Package Guide

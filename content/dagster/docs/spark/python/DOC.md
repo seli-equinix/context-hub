@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-spark,python,spark,apache-spark,spark-submit,data-orchestration"
+  tags: "dagster,dagster-spark,python,spark,apache-spark,spark-submit,data-orchestration,job,spark_wordcount_job,Definitions,create_spark_op,local,spark_resource,dagster as dg,configured,dg.job,environ,execute_in_process"
 ---
 
 # dagster-spark Python Package Guide

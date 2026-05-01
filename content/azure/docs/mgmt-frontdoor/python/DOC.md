@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,frontdoor,arm,waf,cdn,network,python"
+  tags: "azure,frontdoor,arm,waf,cdn,network,python,FrontDoorManagementClient,policies,front_doors,begin_create_or_update,check,AzureCliCredential,DefaultAzureCredential,environ,front_door_name_availability_with_subscription,list,managed_rule_sets,validate_custom_domain,frontend_endpoints,Version-Sensitive,begin_enable_https,get,list_by_resource_group,odata.type"
 ---
 
 # Azure Front Door Management SDK for Python

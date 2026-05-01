@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pydantic,python,validation,serialization,json,schema"
+  tags: "pydantic,python,validation,serialization,json,schema,core_schema,SchemaValidator,validator,typed_dict_field,int_schema,validate_python,SchemaSerializer,ValidationError,exc,serializer,validate_json,from_json,strict_ints,to_json,typed_dict_schema,validate_strings,bool_schema,errors,json_bytes,list_schema,str_schema,to_python,Version-Sensitive,decode,loads"
 ---
 
 # pydantic-core Python Package Guide

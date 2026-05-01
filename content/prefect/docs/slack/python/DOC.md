@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,slack,python,notifications,blocks,workflow"
+  tags: "prefect,slack,python,notifications,blocks,workflow,SlackCredentials,SlackWebhook,flow,slack_credentials,environ,load,save,slack_webhook,send_chat_message,asyncio,client,run,send_incoming_webhook_message,post_status_message,post_webhook_message,chat_postMessage,get_client,notify_ops,post_with_sdk"
 ---
 
 # Prefect Slack Python Package Guide

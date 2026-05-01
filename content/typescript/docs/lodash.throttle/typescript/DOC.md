@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.throttle,throttle,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.throttle,throttle,types,definitelytyped,npm,cancel,flush,saveDraft,console,log,scheduleDraftSave,4.1.9,Version-Sensitive"
 ---
 
 # lodash.throttle TypeScript Guide

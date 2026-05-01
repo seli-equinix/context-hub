@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,codebuild,ci,builds,devops"
+  tags: "aws,codebuild,ci,builds,devops,client,send,console,log,terminalStatuses,CodeBuild-Specific"
 ---
 
 # AWS CodeBuild SDK for JavaScript (v3)

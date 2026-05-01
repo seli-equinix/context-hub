@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,apigateway,typing,mypy,pyright"
+  tags: "aws,boto3,apigateway,typing,mypy,pyright,client,session,APIGatewayClient,stubs,paginator,api,lite,Config,GetRestApisPaginator,CreateRestApiRequestTypeDef,EndpointTypeType,names,page,result,Version-Sensitive,create_rest_api,dict,endpoint_config,get,get_paginator,list,paginate"
 ---
 
 # mypy-boto3-apigateway Python Package Guide

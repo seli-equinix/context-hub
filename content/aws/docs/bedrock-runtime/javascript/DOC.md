@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,bedrock,bedrock-runtime,javascript,nodejs,genai,llm,inference,streaming"
+  tags: "aws,bedrock,bedrock-runtime,javascript,nodejs,genai,llm,inference,streaming,client,JSON,console,error,send,log,parse,stdout,write,3.1007.0,Model-Native,stringify"
 ---
 
 # `@aws-sdk/client-bedrock-runtime`

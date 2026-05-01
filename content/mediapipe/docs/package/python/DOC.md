@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mediapipe,google-ai-edge,vision,text,audio,ml,computer-vision"
+  tags: "mediapipe,google-ai-edge,vision,text,audio,ml,computer-vision,tasks,BaseOptions,ObjectDetector,Image,mediapipe as mp,detector,create_from_options,create_from_file,detect,detect_async,on_result,Version-Sensitive"
 ---
 
 # MediaPipe Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "ariadne,graphql,python,asgi,wsgi,starlette"
+  tags: "ariadne,graphql,python,asgi,wsgi,starlette,app,query,context_value,field,mutation,FastAPI,Mount,context,MutationType,QueryType,get,make_executable_schema,messages,query.field,result,GraphQLError,gql,graphql_sync,resolve_viewer,uvicorn,append,getenv,headers,mutation.field,resolve_create_message"
 ---
 
 # Ariadne Python Package Guide

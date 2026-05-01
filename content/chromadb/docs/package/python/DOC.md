@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "chromadb,vector-db,retrieval,rag,embeddings,search"
+  tags: "chromadb,vector-db,retrieval,rag,embeddings,search,client,collection,query,add,get,result,Settings,records,HttpClient,PersistentClient,example,AsyncHttpClient,CloudClient,based,upsert,DEFAULT_DATABASE,DEFAULT_TENANT,EphemeralClient,OpenAIEmbeddingFunction,asyncio,create_collection,main,run,Chroma-Token,Version-Sensitive"
 ---
 
 # ChromaDB Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,iot,cloudiot,devices,pubsub,legacy"
+  tags: "google,google-cloud,iot,cloudiot,devices,pubsub,legacy,client,iot_v1,DeviceManagerClient,json,modify_cloud_to_device_config,send_command_to_device,dumps,Version-Sensitive,create_device_registry,get_device,list_device_config_versions,list_device_registries,list_devices"
 ---
 
 # Google Cloud IoT Python Client Library

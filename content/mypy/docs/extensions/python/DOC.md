@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "python,typing,mypy,mypyc,types"
+  tags: "python,typing,mypy,mypyc,types,TypedDict,NoReturn,i64,Arg,KwArg,VarArg,i16,DefaultNamedArg,mypyc_attr,trait,Callable,LegacyMovie,checks,emit,toml,Node,Requires-Python,UserPayload,Version-Sensitive,Visitor,__init__,fail,visit_int,working"
 ---
 
 # mypy-extensions Python Package Guide

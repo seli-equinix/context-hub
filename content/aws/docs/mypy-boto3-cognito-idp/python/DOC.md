@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,cognito,cognito-idp,python,typing,stubs,mypy"
+  tags: "aws,boto3,cognito,cognito-idp,python,typing,stubs,mypy,client,Session,CognitoIdentityProviderClient,pool,page,lite,paginator,TYPE_CHECKING,AdminGetUserResponseTypeDef,AuthFlowTypeType,ListUserPoolsPaginator,attribute,get,response,Dev-Only,Enum-Like,Version-Sensitive,admin_get_user,describe_user_pool,example.com,get_cognito_client,get_paginator,paginate,resource"
 ---
 
 # mypy-boto3-cognito-idp Python Package Guide

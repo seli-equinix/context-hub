@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,ecr,javascript,docker,containers,registry,images"
+  tags: "aws,ecr,javascript,docker,containers,registry,images,const,send,console,log,proxyEndpoint,Buffer,replace,stdin,end"
 ---
 
 # Amazon ECR JavaScript Guide

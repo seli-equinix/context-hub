@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "confluent,kafka,streaming,producer,consumer,schema-registry"
+  tags: "confluent,kafka,streaming,producer,consumer,schema-registry,msg,produce,SchemaRegistryClient,docs,key,value,AIOProducer,admin,flush,offset,poll,AdminClient,close,error,topic,NewTopic,futures,main,transactional_producer,AvroSerializer,MessageField,SerializationContext,asyncio,delivery_report,future"
 ---
 
 # confluent-kafka Python Package Guide

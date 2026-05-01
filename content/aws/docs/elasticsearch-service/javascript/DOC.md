@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,elasticsearch-service,opensearch,javascript,nodejs,search,managed-service,control-plane"
+  tags: "aws,elasticsearch-service,opensearch,javascript,nodejs,search,managed-service,control-plane,console,log,send,Policy-Min,JSON,TXT-DICTIONARY,stringify"
 ---
 
 # `@aws-sdk/client-elasticsearch-service`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,gcp,google-cloud,network-security,tls,mtls,address-groups,python"
+  tags: "google,gcp,google-cloud,network-security,tls,mtls,address-groups,python,network_security_v1,client,environ,AddressGroupServiceClient,NetworkSecurityClient,operation,uuid,get,AddressGroup,result,uuid4,AddAddressGroupItemsRequest,ClientOptions,Credentials,service_account,CreateAddressGroupRequest,add_address_group_items,create_address_group,create_client_tls_policy,create_server_tls_policy,from_service_account_file,list_address_group_references,list_address_groups,list_authorization_policies,pages"
 ---
 
 # google-cloud-network-security Python Package Guide

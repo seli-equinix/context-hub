@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,object-storage,file-transfer,xcom,s3"
+  tags: "airflow,apache-airflow,object-storage,file-transfer,xcom,s3,ObjectStoragePath,task,FileTransferOperator,bucket,dag,datetime,list,common_io_xcom_backend,amazon,count_partitions,dict,manifest,produce_manifest"
 ---
 
 # Apache Airflow Common IO Provider Guide

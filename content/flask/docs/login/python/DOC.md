@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask,flask-login,authentication,session,login,remember-cookie"
+  tags: "flask,flask-login,authentication,session,login,remember-cookie,app,request,get,login_manager,redirect,url_for,args,login_required,login_user,settings,auth_header,client,config,current_user,target,FlaskLoginClient,abort,app.get,form,fresh_login_required,index,user_loaded_from_request,APISessionInterface,HTTPStatus,LoginManager"
 ---
 
 # Flask-Login for Flask Apps

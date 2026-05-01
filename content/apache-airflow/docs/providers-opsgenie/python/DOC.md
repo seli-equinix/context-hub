@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "airflow,apache-airflow,opsgenie,alerts,incident-management,dag"
+  tags: "airflow,apache-airflow,opsgenie,alerts,incident-management,dag,task,create_alert,hook,pendulum,notify_opsgenie,OpsgenieAlertHook,annotations,datetime"
 ---
 
 # Apache Airflow Providers Opsgenie Guide

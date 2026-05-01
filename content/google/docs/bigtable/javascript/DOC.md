@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,bigtable,google-cloud,gcp,nosql,database,javascript,nodejs"
+  tags: "google,bigtable,google-cloud,gcp,nosql,database,javascript,nodejs,const,table,instance,row,data,console,exists,name,email,6.5.0,log,value,delete,example.com,toString,createReadStream,createTable,insert"
 ---
 
 # Google Cloud Bigtable Node.js Client

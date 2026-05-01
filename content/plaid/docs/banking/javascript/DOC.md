@@ -6,7 +6,7 @@ metadata:
   versions: "39.1.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "plaid,banking,fintech,payments,financial-data"
+  tags: "plaid,banking,fintech,payments,financial-data,error,console,log,string,transactions,plaidClient,accounts,res,json,status,app,allTransactions,forEach,get,express,any,PLAID-CLIENT,PLAID-SECRET,Plaid-Version,added,dotenv,holdings,transactionsSync,accessTokenStore,accountsGet"
 ---
 
 # Plaid API Coding Guidelines (JavaScript/TypeScript)

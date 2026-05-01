@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,verifiedpermissions,authorization,cedar,javascript,nodejs"
+  tags: "aws,verifiedpermissions,authorization,cedar,javascript,nodejs,client,console,log,send"
 ---
 
 # `@aws-sdk/client-verifiedpermissions`

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "platformdirs,paths,filesystem,xdg,windows,macos,linux,android"
+  tags: "platformdirs,paths,filesystem,xdg,windows,macos,linux,android,dirs,user_config_path,user_data_path,candidate,AppDirs,db_file,user_cache_dir,user_data_dir,write_text,cache_file,config_file,log_file,user_bin_path,user_documents_path,user_downloads_path,Version-Sensitive,environ,exists,iter_config_paths,mkdir,parent,write_bytes"
 ---
 
 # platformdirs Python Package Guide

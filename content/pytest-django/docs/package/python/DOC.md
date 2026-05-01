@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pytest-django,pytest,django,testing,fixtures,database"
+  tags: "pytest-django,pytest,django,testing,fixtures,database,client,django_db,ini,mark,pytest.mark.django_db,create,toml,Post,objects,reverse,High-Value,create_user,force_login,get,test_dashboard_requires_login,test_feature_flag,test_plain_python_logic,test_post_str,test_reads_from_replica,test_select_for_update_path"
 ---
 
 # pytest-django Python Package Guide

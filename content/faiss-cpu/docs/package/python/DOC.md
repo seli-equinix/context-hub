@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "faiss,faiss-cpu,python,vector-search,similarity-search,ann,embeddings"
+  tags: "faiss,faiss-cpu,python,vector-search,similarity-search,ann,embeddings,index,search,random,add,version,train,IndexFlatIP,IndexFlatL2,numpy as np,index_factory,IndexIDMap,ascontiguousarray,read_index,normalize_L2,write_index,Index-IO,Version-Sensitive,add_with_ids,arange,as_faiss_matrix,name differ"
 ---
 
 # Faiss CPU Python Package Guide

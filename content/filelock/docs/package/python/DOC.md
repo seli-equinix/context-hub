@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "filelock,locking,concurrency,filesystem,asyncio,sqlite"
+  tags: "filelock,locking,concurrency,filesystem,asyncio,sqlite,lock,Timeout,ReadWriteLock,AsyncFileLock,release,acquire,data_path,rw_lock,close,main,read_lock,write_lock,Event,Path,Version-Sensitive,WindowsFileLock,exists,read_text,run,write_text"
 ---
 
 # filelock Python Package Guide

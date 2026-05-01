@@ -6,7 +6,7 @@ metadata:
   versions: "3.37.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "slack,bot,workspace,messaging,events-api"
+  tags: "slack,bot,workspace,messaging,events-api,slack_sdk,client,WebClient,response,SlackApiError,environ,webhook,chat_postMessage,AsyncWebClient,SocketModeClient,socket_client,ssl,ActionsBlock,ButtonElement,DividerBlock,SectionBlock,WebhookClient,asyncio,files_upload_v2,post_message,process_event,send,append,connect,create_default_context"
 ---
 
 # Slack Python SDK Coding Guidelines

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "angular,typescript,ui,framework,signals,dependency-injection"
+  tags: "angular,typescript,ui,framework,signals,dependency-injection,item,Component,items,timer,todos,update,AppComponent,Injectable,TimerService,TodoItemComponent,appConfig,doneChange,seconds,Todo,destroyRef,emit,ClockComponent,console,error,latest,map,onDestroy"
 ---
 
 # Angular Core for TypeScript

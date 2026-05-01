@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,cookie-parser,express,cookies,middleware,types"
+  tags: "typescript,cookie-parser,express,cookies,middleware,types,cookieParser,value,app,res,json,get,status,JSONCookie,console,log,signedCookie,trim"
 ---
 
 # cookie-parser TypeScript Guide

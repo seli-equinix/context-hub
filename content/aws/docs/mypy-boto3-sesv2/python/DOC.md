@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,sesv2,boto3,typing,mypy,pyright,stub"
+  tags: "aws,sesv2,boto3,typing,mypy,pyright,stub,client,session,SESV2Client,stubs,paginator,request,identity,response,get,lite,page,TYPE_CHECKING,example.com,GetEmailIdentityResponseTypeDef,ListEmailTemplatesPaginator,SendEmailRequestRequestTypeDef,cast,get_email_identity,list_email_identities,template,Version-Sensitive,get_paginator,paginate,send_email"
 ---
 
 # mypy-boto3-sesv2 Python Package Guide

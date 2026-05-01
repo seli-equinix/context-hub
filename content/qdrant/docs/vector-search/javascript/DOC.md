@@ -6,7 +6,7 @@ metadata:
   versions: "1.15.1"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "qdrant,vector-search,embeddings,similarity,ai"
+  tags: "qdrant,vector-search,embeddings,similarity,ai,client,results,points,console,log,search,query,count,error,upsert,createCollection,createPayloadIndex,forEach,scroll,allPoints,batch,delete,deleteCollection,filteredResults,getCollection,push,retrieve,setPayload,Math,clearPayload"
 ---
 
 # Qdrant JavaScript SDK v1.15.1

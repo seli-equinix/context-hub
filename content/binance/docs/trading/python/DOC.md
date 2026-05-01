@@ -6,7 +6,7 @@ metadata:
   versions: "3.12.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "binance,trading,crypto,exchange,api"
+  tags: "binance,trading,crypto,exchange,api,client,ws_client,time,Spot,message_handler,trades,account,error,ticker,logging,sleep,klines,stop,SpotWebsocketStreamClient,exchange_info,depth,new_order,book_ticker,response,trade,agg_trades,SpotWebsocketAPIClient,ClientError,event,getenv"
 ---
 
 # Binance API Python Coding Guidelines

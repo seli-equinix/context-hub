@@ -6,7 +6,7 @@ metadata:
   versions: "3.917.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "aws,s3,storage,cloud,bucket"
+  tags: "aws,s3,storage,cloud,bucket,error,client,console,log,send,upload,Body,Contents,forEach,Deleted,JSON,done,transformToString,map,tags,Buckets,TagSet,dotenv,CommonPrefixes,Content-Type,config,keys,now,stringify,transformToByteArray"
 ---
 
 # AWS S3 SDK for JavaScript (v3) - Complete Guide

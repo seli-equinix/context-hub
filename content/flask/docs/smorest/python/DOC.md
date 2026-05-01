@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "flask-smorest,flask,marshmallow,openapi,rest,python"
+  tags: "flask-smorest,flask,marshmallow,openapi,rest,python,blp,response,arguments,blp.response,ItemSchema,item,return,blp.arguments,Api,ITEMS,abort,fields,get,Blueprint,MethodView,config,flask_smorest,route,update,alt_response,blp.alt_response,blp.etag,blp.paginate,blp.route,check_etag"
 ---
 
 # flask-smorest Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,datasync,javascript,nodejs,s3,data-transfer,migration"
+  tags: "aws,datasync,javascript,nodejs,s3,data-transfer,migration,log,send,console"
 ---
 
 # `@aws-sdk/client-datasync`

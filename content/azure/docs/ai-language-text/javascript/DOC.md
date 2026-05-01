@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,language,text,nlp,sentiment,entities,pii,javascript"
+  tags: "azure,language,text,nlp,sentiment,entities,pii,javascript,error,console,textClient,log,analyze,1.1.0,example.com."
 ---
 
 # @azure/ai-language-text JavaScript Package Guide

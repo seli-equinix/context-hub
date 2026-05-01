@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,communication-services,email,python,sdk,cloud"
+  tags: "azure,communication-services,email,python,sdk,cloud,EmailClient,poller,result,begin_send,example.com,client,send,environ,status,AzureKeyCredential,base64,DefaultAzureCredential,Path,HttpResponseError,b64encode,email_client,from_connection_string,send_result,wait_for_send,Version-Sensitive,done,get,wait"
 ---
 
 # Azure Communication Services Email SDK For Python

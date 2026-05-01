@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "dagster,dagster-polars,python,polars,dataframe,lazyframe,io-manager"
+  tags: "dagster,dagster-polars,python,polars,dataframe,lazyframe,io-manager,asset,orders,dg.asset,daily_orders,Optional,dagster as dg,polars as pl,Definitions,PolarsParquetIOManager,Dict,customer_totals,values,AssetIn,PolarsBigQueryIOManager,concat,frame,warehouse_orders,DailyPartitionsDefinition,EnvVar,all_partitions,col,collect,environ,group_by,latest_snapshot"
 ---
 
 # dagster-polars Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,python,access-context-manager,vpc-service-controls,access-levels,service-perimeters"
+  tags: "google,google-cloud,python,access-context-manager,vpc-service-controls,access-levels,service-perimeters,accesscontextmanager_v1,client,AccessContextManagerClient,environ,operation,result,get_access_policy,AccessLevel,BasicLevel,Condition,Context-Aware,commit_service_perimeters,create_access_level,example.com,get_access_level,list_access_levels,list_access_policies,list_gcp_user_access_bindings,list_service_perimeters"
 ---
 
 # Google Cloud Access Context Manager Python Package Guide

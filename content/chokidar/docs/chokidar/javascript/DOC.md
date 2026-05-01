@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "chokidar,javascript,nodejs,filesystem,file-watching"
+  tags: "chokidar,javascript,nodejs,filesystem,file-watching,watcher,watch,console,log,add,error,close,process,watchedPath,cwd,getWatched,endsWith,includes,unwatch,4.0.3,exit"
 ---
 
 # chokidar JavaScript Package Guide

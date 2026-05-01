@@ -6,7 +6,7 @@ metadata:
   versions: "1.46.0"
   updated-on: "2026-03-01"
   source: maintainer
-  tags: "datadog,monitoring,metrics,observability,apm"
+  tags: "datadog,monitoring,metrics,observability,apm,client,error,configuration,console,apiInstance,data,log,createConfiguration,any,Date,now,Monitor,Math,floor,forEach,MetricsApi,MonitorsApi,DashboardsApi,EventsApi,submitMetrics,DowntimesApi,HostsApi,JSON,LogsApi,TagsApi"
 ---
 
 # Datadog API Client for JavaScript/TypeScript

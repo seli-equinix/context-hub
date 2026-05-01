@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pony,ponyorm,orm,sql,sqlite,postgresql,mysql"
+  tags: "pony,ponyorm,orm,sql,sqlite,postgresql,mysql,db_session,Customer,bind,Database,Order,environ,Required,return,PrimaryKey,date,select,example.com,flush,generate_mapping,DB-API,Set,desc,get,getenv,Version-Sensitive,create_customer,delete_order,get_customer,list,on_connect"
 ---
 
 # Pony ORM Python Package Guide

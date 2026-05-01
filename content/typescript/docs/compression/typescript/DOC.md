@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,compression,express,node,http,middleware,types,definitelytyped"
+  tags: "typescript,compression,express,node,http,middleware,types,definitelytyped,app,res,filter,flush,static,json,Response,get,setHeader,listen,write,Cache-Control,Content-Type,Server-Sent,console,end,headers,log,stringify"
 ---
 
 # compression TypeScript Guide

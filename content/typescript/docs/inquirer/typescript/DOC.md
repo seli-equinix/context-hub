@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,inquirer,cli,prompts,types,definitelytyped"
+  tags: "typescript,inquirer,cli,prompts,types,definitelytyped,prompt,9.0.9,console,log,Version-Sensitive"
 ---
 
 # Inquirer TypeScript Guide

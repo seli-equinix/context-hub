@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,amazon-location,location,maps,routing,geocoding,javascript,nodejs"
+  tags: "aws,amazon-location,location,maps,routing,geocoding,javascript,nodejs,client,env,console,send,log,dir,error"
 ---
 
 # `@aws-sdk/client-location`

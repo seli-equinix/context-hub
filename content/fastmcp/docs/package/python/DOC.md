@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "fastmcp,mcp,python,agents,tools,client,server,oauth"
+  tags: "fastmcp,mcp,python,agents,tools,client,server,oauth,main,resource,run,Context,environ,get_ticket_status,GitHubProvider,asyncio,ctx,mcp.prompt,mcp.resource,mcp.tool,summarize_ticket,Version-Sensitive,call_tool,get,get_prompt,info,initialize,list_resources,list_tools,ping,support_config"
 ---
 
 # FastMCP Python Package Guide

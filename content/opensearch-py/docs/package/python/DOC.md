@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opensearch,search,analytics,python,aws,async"
+  tags: "opensearch,search,analytics,python,aws,async,client,info,main,helpers,index,AsyncOpenSearch,RequestsAWSV4SignerAuth,boto3,bulk,AsyncHttpConnection,RequestsHttpConnection,close,asyncio,instead,parallel_bulk,response,Session,Version-Sensitive,correctly,create,indices,ping,run"
 ---
 
 # opensearch-py Python Package Guide

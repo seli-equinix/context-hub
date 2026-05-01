@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,identifiers,parser"
+  tags: "babel,build,javascript,identifiers,parser,console,log"
 ---
 
 # @babel/helper-validator-identifier

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,blob-storage,azure-storage,python,cloud,storage"
+  tags: "azure,blob-storage,azure-storage,python,cloud,storage,blob,container,BlobServiceClient,DefaultAzureCredential,service,download_blob,environ,list_blobs,upload_blob,from_connection_string,get_container_client,BlobClient,BlobPrefix,ContainerClient,ContentSettings,ResourceExistsError,chunks,download_stream,get_blob_client,main,readinto,stream,walk_blobs,Version-Sensitive,create_container"
 ---
 
 # Azure Blob Storage Python SDK

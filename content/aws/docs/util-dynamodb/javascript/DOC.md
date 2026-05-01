@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,dynamodb,javascript,nodejs,nosql,marshall,unmarshall"
+  tags: "aws,dynamodb,javascript,nodejs,nosql,marshall,unmarshall,send,console,log,3.996.2,AuditInfo,example.com,instances,amount,toString"
 ---
 
 # `@aws-sdk/util-dynamodb`

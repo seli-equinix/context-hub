@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,pinecone,vector-database,embeddings,dag,python"
+  tags: "airflow,pinecone,vector-database,embeddings,dag,python,datetime,hook,CreateServerlessIndexOperator,PineconeHook,task,CreatePodIndexOperator,query_index,Pod-Based,describe_index_stats,list_indexes,query_vector"
 ---
 
 # apache-airflow-providers-pinecone

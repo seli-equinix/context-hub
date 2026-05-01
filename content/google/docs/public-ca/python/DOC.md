@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,cloud,public-ca,certificate-manager,acme,tls,eab"
+  tags: "google,cloud,public-ca,certificate-manager,acme,tls,eab,publicca_v1beta1,client,ExternalAccountKey,example.com,PublicCertificateAuthorityServiceClient,b64_mac_key,Credentials,service_account,CreateExternalAccountKeyRequest,Version-Sensitive,base64,close,create_external_account_key,decode,environ,from_service_account_file,transport,urlsafe_b64encode"
 ---
 
 # Google Cloud Public CA Python Client

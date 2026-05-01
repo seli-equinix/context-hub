@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,gke,kubernetes,container,gcp,adc"
+  tags: "google-cloud,gke,kubernetes,container,gcp,adc,container_v1,client,ClusterManagerClient,Cluster,get_server_config,list,list_clusters,create_cluster,get_cluster,get_operation,ClientOptions,Control-Plane,delete_cluster,time,ClusterManagerAsyncClient,Long-Running,NodeConfig,from_service_account_file,sleep,wait_for_operation"
 ---
 
 # google-cloud-container Python Package Guide

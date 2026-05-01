@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,policy,policy-insights,compliance,remediation,governance,python"
+  tags: "azure,policy,policy-insights,compliance,remediation,governance,python,remediations,QueryOptions,policy_states,PolicyInsightsClient,result,DefaultAzureCredential,poller,datetime,policy_events,policy_restrictions,create_or_update_at_subscription,environ,timedelta,timezone,LROPoller,begin_trigger_resource_group_evaluation,begin_trigger_subscription_evaluation,check_at_subscription_scope,get_at_subscription,list_for_subscription,list_query_results_for_resource,list_query_results_for_resource_group,list_query_results_for_subscription,now,summarize_for_subscription"
 ---
 
 # Azure Policy Insights SDK for Python

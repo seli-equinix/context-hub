@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "opentelemetry,observability,tracing,metrics,logging,otlp,auto-instrumentation"
+  tags: "opentelemetry,observability,tracing,metrics,logging,otlp,auto-instrumentation,distro,initialize,FastAPI,Version-Sensitive,Zero-Code"
 ---
 
 # OpenTelemetry Instrumentation Python Package Guide

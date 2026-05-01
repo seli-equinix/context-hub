@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,cloudtrail,javascript,nodejs,audit,logging,security,aws-sdk-v3"
+  tags: "aws,cloudtrail,javascript,nodejs,audit,logging,security,aws-sdk-v3,client,log,send,console,Date,JSON,3.1007.0,SSE-KMS,now,parse"
 ---
 
 # `@aws-sdk/client-cloudtrail`

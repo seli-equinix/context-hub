@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "emotion,react,css-in-js,styling,theme,css-prop"
+  tags: "emotion,react,css-in-js,styling,theme,css-prop,jsxImportSource,babel,11.14.0,App,AppProviders,AppShell,SaveButton,Sidebar"
 ---
 
 # Emotion React Guide (JavaScript)

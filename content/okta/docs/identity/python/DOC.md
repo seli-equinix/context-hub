@@ -6,7 +6,7 @@ metadata:
   versions: "2.9.13"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "okta,identity,sso,oauth,authentication"
+  tags: "okta,identity,sso,oauth,authentication,client,resp,asyncio,run,User,Application,Group,example.com,getenv,list_users,Client as OktaClient,create_user,CreateUserRequest,PasswordCredential,UserCredentials,UserProfile,get_user,create_application,user_data,ApplicationGroupAssignment,GroupProfile,assign_user_to_application,create_group,deactivate_user,get_application"
 ---
 
 # Okta Python SDK Coding Guidelines

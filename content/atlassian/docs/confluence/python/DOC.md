@@ -6,7 +6,7 @@ metadata:
   versions: "4.0.7"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "atlassian,confluence,wiki,documentation,collaboration"
+  tags: "atlassian,confluence,wiki,documentation,collaboration,page,space,version,content,pages,results,get,get_page_by_id,time,cql,user,data,label,result,source,update,comment,attachment,copy,create_page,current,HTTPError,example.com,requests,restrictions"
 ---
 
 # Confluence Cloud API Coding Guidelines (Python)

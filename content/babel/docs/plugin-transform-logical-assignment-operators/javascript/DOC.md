@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,logical-assignment,es2021"
+  tags: "babel,build,transpile,logical-assignment,es2021,_obj,obj,console,log"
 ---
 
 # @babel/plugin-transform-logical-assignment-operators

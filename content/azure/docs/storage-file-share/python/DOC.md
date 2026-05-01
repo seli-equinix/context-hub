@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,storage,file-share,python,files,sas,entra-id"
+  tags: "azure,storage,file-share,python,files,sas,entra-id,ShareServiceClient,file_client,data,service_client,share_client,ShareFileClient,directory_client,downloader,DefaultAzureCredential,download_file,environ,from_connection_string,readall,AzureNamedKeyCredential,AzureSasCredential,ShareClient,decode,item,main,asyncio,exists,get_share_client,Version-Sensitive,create_directory,create_share"
 ---
 
 # Azure Files Share Python Client Library

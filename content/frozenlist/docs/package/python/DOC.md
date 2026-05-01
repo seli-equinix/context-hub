@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "frozenlist,python,collections,mutable-sequence,aio-libs"
+  tags: "frozenlist,python,collections,mutable-sequence,aio-libs,freeze,steps,enabled_features,append,base,editable,cache,extend,names,copy,deepcopy,directly,insert"
 ---
 
 # frozenlist Python Package Guide

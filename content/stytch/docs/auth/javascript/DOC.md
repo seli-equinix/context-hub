@@ -6,7 +6,7 @@ metadata:
   versions: "12.43.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "stytch,auth,authentication,passwordless,otp"
+  tags: "stytch,auth,authentication,passwordless,otp,console,log,authenticate,email,error,res,example.com,session,magicLinks,json,sessions,acme.com,status,otps,app,organizations,Client,loginOrCreate,get,oauth,passwords,send,sso,users,create"
 ---
 
 # Stytch Node.js SDK - Authentication Guide

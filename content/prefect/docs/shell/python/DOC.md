@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,shell,python,workflow,commands,blocks"
+  tags: "prefect,shell,python,workflow,commands,blocks,ShellOperation,flow,Path,run,shell_run_command,list,load,operation,save,shell_operation,shell_process,trigger,wait_for_completion,environ,fetch_result,get,git_status,prepare_workspace,run_background_job,Longer-Running,One-Off,Short-Lived,run_saved_operation"
 ---
 
 # Prefect Shell Python Package Guide

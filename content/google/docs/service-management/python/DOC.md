@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google-cloud,gcp,service-management,api-management,endpoints,long-running-operations"
+  tags: "google-cloud,gcp,service-management,api-management,endpoints,long-running-operations,servicemanagement_v1,client,ServiceManagerClient,environ,operation,asyncio,auth,main,result,Path,ServiceManagerAsyncClient,get_service_rollout,submit_config_source,ClientOptions,ConfigSource,default,get_service,get_service_config,list_service_configs,list_services,run,CreateServiceRequest,ManagedService,SubmitConfigSourceRequest,Version-Sensitive"
 ---
 
 # google-cloud-service-management Python Package Guide

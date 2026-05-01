@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "react,javascript,ui,components,hooks,context,suspense"
+  tags: "react,javascript,ui,components,hooks,context,suspense,const,App,event,name,products,query,now,ThemeProvider,toLowerCase,useTheme,visibleProducts,window,Clock,ProductSearch,SettingsPage,SignupForm,Version-Sensitive,clearInterval,document,filter,getElementById,map,preventDefault,setInterval,toISOString"
 ---
 
 # React Guide (JavaScript)

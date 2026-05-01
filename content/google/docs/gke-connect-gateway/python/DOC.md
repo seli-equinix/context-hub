@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,gke,fleet,connect-gateway,kubernetes,adc"
+  tags: "google-cloud,gke,fleet,connect-gateway,kubernetes,adc,gateway_v1,client,GatewayControlClient,Path,generate_credentials,GenerateCredentialsRequest,kubeconfig_path,write_bytes,subprocess,Agent-Based,Windows-Specific,from_service_account_file,resolve,run"
 ---
 
 # google-cloud-gke-connect-gateway Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,network-firewall,javascript,nodejs,vpc,security,suricata"
+  tags: "aws,network-firewall,javascript,nodejs,vpc,security,suricata,networkFirewall,send,map,subnetIds,values,Object"
 ---
 
 # `@aws-sdk/client-network-firewall`

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "undici,http,fetch,nodejs"
+  tags: "undici,http,fetch,nodejs,response,body,dispatcher,console,log,json,items,text,mockAgent,close,set,form,Readable,disableNetConnect,fromWeb,intercept,mockPool,stringify,7.22.0,Buffer,assertNoPendingInterceptors,get"
 ---
 
 # Undici HTTP Client for Node.js

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,netapp,storage,arm,management,capacity-pools,volumes,snapshots"
+  tags: "azure,netapp,storage,arm,management,capacity-pools,volumes,snapshots,environ,NetAppManagementClient,pools,list,DefaultAzureCredential,accounts,begin_create_or_update,AzureCliCredential,Version-Sensitive,begin_create,begin_pool_change,begin_revert,net_app_resource_quota_limits,net_app_resource_quota_limits_account"
 ---
 
 # Azure NetApp Files Management SDK for Python

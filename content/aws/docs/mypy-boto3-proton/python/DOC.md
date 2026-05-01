@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,proton,boto3,mypy-boto3-proton,boto3-stubs,typing,type-checking"
+  tags: "aws,proton,boto3,mypy-boto3-proton,boto3-stubs,typing,type-checking,client,session,stubs,service,ProtonClient,lite,paginator,ListServicesPaginator,config,response,TYPE_CHECKING,list_services,get,get_paginator,names,page,resource,Version-Sensitive,dict,paginate"
 ---
 
 # mypy-boto3-proton Python Package Guide

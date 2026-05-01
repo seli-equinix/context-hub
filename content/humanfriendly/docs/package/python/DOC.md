@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "humanfriendly,python,cli,terminal,formatting,utilities"
+  tags: "humanfriendly,python,cli,terminal,formatting,utilities,time,Timer,parse_size,sleep,format_timespan,parse_timespan,coerce_boolean,format_size,output,prompt_for_choice,parse_path,AutomaticSpinner,InvalidSize,InvalidTimespan,prompt_for_input,ansi_wrap,format_smart_table,getenv,message,prompt_for_confirmation,Command-Line,second"
 ---
 
 # humanfriendly Python Package Guide

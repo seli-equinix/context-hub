@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,digitaltwins,iot,azure-identity,dtdl,twins"
+  tags: "azure,digitaltwins,iot,azure-identity,dtdl,twins,client,DigitalTwinsClient,credential,DefaultAzureCredential,rel,relationship,get_digital_twin,type,update_digital_twin,HttpResponseError,ResourceNotFoundError,close,current,environ,upsert_digital_twin,DigitalTwinsEventRoute,MatchConditions,context,create_models,created,item,query_twins,stored,update_component,upsert_relationship"
 ---
 
 # azure-digitaltwins-core Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "wrapt,python,decorators,wrappers,proxies,monkey-patching"
+  tags: "wrapt,python,decorators,wrappers,proxies,monkey-patching,args,wrapper,BaseObjectProxy,wrapt.decorator,LazyObjectProxy,methods,wrap_function_wrapper,time,Callable,ObjectProxy,add,append,patch_function_wrapper,ParamSpec,TracedList,TypeVar,apply_patch,classmethod,items,log_calls,perf_counter,record_open,record_request,register_post_import_hook,timed"
 ---
 
 # wrapt Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,exceljs,xlsx,node,types,definitelytyped,npm"
+  tags: "typescript,exceljs,xlsx,node,types,definitelytyped,npm,excelFile,sheet,row,Workbook,rows,UserRow,getCell,writeFile,1.3.2,addRow,addWorksheet,example.com,getWorksheet,process,readFile,Version-Sensitive,console,cwd,eachRow,forEach,log"
 ---
 
 # ExcelJS TypeScript Guide

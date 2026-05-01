@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "svelte,javascript,ui,frontend,components,vite"
+  tags: "svelte,javascript,ui,frontend,components,vite,theme,response,sveltejs,todos,5.53.10,controller,document,getElementById,json,Server-Rendered,abort,console,filter,latest,log"
 ---
 
 # Svelte JavaScript Package Guide

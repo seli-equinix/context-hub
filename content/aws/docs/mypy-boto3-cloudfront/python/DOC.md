@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,cloudfront,mypy,pyright,type-stubs,python"
+  tags: "aws,boto3,cloudfront,mypy,pyright,type-stubs,python,client,CloudFrontClient,Session,stubs,paginator,waiter,lite,page,response,TYPE_CHECKING,item,AliasICPRecordalTypeDef,CachePolicyCookieBehaviorType,InvalidationCompletedWaiter,ListDistributionsPaginator,get,Type-Checking,Version-Sensitive,get_distribution,get_paginator,get_waiter,make_client,paginate,resource,wait"
 ---
 
 # mypy-boto3-cloudfront Python Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,kms,key-management,encryption,security,javascript"
+  tags: "aws,kms,key-management,encryption,security,javascript,log,send,console,Buffer,KMS-Specific"
 ---
 
 # AWS KMS SDK for JavaScript (v3)

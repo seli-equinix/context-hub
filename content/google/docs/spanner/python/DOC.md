@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,spanner,database,sql,gcp,transactions"
+  tags: "google,spanner,database,sql,gcp,transactions,client,instance,reference,singer_id,snapshot,batch,row,DB-API,cursor,transaction,budget,conn,environ,execute_sql,last_name,run_in_transaction,spanner_dbapi,AnonymousCredentials,execute_update,insert,pages,transfer_budget,Version-Sensitive,close,connect"
 ---
 
 # Google Cloud Spanner Python Client

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,logger,logging,javascript,diagnostics"
+  tags: "azure,logger,logging,javascript,diagnostics,log,info,verbose,1.3.0,error,warning,console"
 ---
 
 # @azure/logger JavaScript Package Guide

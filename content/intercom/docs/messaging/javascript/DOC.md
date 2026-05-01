@@ -6,7 +6,7 @@ metadata:
   versions: "6.4.0"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "intercom,messaging,customer,chat,support"
+  tags: "intercom,messaging,customer,chat,support,contacts,console,log,create,conversations,data,events,results,find,error,list,tag,companies,notes,update,Date,headers,tags,Math,admins,reply,segments,subject,tickets,articles"
 ---
 
 # Intercom JavaScript SDK (v6.4.0)

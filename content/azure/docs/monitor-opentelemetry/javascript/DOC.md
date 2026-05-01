@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,azure-monitor,application-insights,opentelemetry,observability,javascript,nodejs"
+  tags: "azure,azure-monitor,application-insights,opentelemetry,observability,javascript,nodejs,app,metrics,span,1.16.0,trace,add,meter,tracer,createCounter,end,getMeter,getTracer,invoicesProcessed,jobsProcessed,res,setAttribute,startSpan,Version-Sensitive,get,json,listen,recordException,setStatus"
 ---
 
 # @azure/monitor-opentelemetry JavaScript Package Guide

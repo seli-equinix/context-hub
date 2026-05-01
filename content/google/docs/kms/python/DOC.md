@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,kms,cloud-kms,encryption,gcp,adc"
+  tags: "google,google-cloud,kms,cloud-kms,encryption,gcp,adc,kms_v1,client,KeyManagementServiceClient,reference,encrypt,decrypt,crypto_key_path,plaintext,ClientOptions,CryptoKey,decode,environ,key_ring_path,CryptoKeyVersionTemplate,KeyManagementServiceAsyncClient,KeyRing,Version-Sensitive,create_crypto_key,create_key_ring,from_service_account_file,get,get_crypto_key,list_crypto_key_versions,list_key_rings"
 ---
 
 # Google Cloud KMS Python Client

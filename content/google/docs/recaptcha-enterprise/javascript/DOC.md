@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,recaptcha-enterprise,security,fraud-detection,javascript,nodejs"
+  tags: "google,google-cloud,recaptcha-enterprise,security,fraud-detection,javascript,nodejs,const,client,RecaptchaEnterpriseServiceClient,createAssessment,6.4.0,annotateAssessment,createKey,getKey,getMetrics,Score-Based,Version-Sensitive"
 ---
 
 # `@google-cloud/recaptcha-enterprise` JavaScript Package Guide

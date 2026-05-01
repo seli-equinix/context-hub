@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "prefect,docker,python,workflow,orchestration,deployments,workers,containers"
+  tags: "prefect,docker,python,workflow,orchestration,deployments,workers,containers,docker_host,hello,flow,DockerHost,DockerRegistryCredentials,DockerImage,deploy,docker_registry_credentials,load,client,save,logs,pull_docker_image,environ,run_container,get_client,login,ping,strip"
 ---
 
 # Prefect Docker Python Package Guide

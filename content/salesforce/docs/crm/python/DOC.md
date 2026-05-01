@@ -6,7 +6,7 @@ metadata:
   versions: "1.12.9"
   updated-on: "2026-03-02"
   source: maintainer
-  tags: "salesforce,crm,soql,enterprise,api"
+  tags: "salesforce,crm,soql,enterprise,api,result,Account,query,session,record,example.org,field,requests,Contact,create,metadata,getenv,update,value,SalesforceError,accounts,delete,get,base64,load_dotenv,Attachment,apexecute,sobject,Retry,SalesforceAuthenticationFailed"
 ---
 
 # Salesforce Python SDK (simple-salesforce) Coding Guidelines

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,bigquery,google-cloud,gcp,sql,analytics,data-warehouse,python"
+  tags: "google,bigquery,google-cloud,gcp,sql,analytics,data-warehouse,python,client,query,result,state,DataFrame,load_job,rows,ScalarQueryParameter,SchemaField,insert_rows_json,Credentials,Dataset,LoadJobConfig,QueryJobConfig,Table,limit,load_table_from_dataframe,query_job,service_account,to_dataframe,API-Key,Credential-Based,create_dataset,create_table,environ"
 ---
 
 # google-cloud-bigquery Python Package Guide

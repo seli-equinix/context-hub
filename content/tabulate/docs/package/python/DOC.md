@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "tabulate,tables,markdown,html,cli,formatting"
+  tags: "tabulate,tables,markdown,html,cli,formatting,DataFrame,Requires-Python,Version-Sensitive,pandas as pd"
 ---
 
 # tabulate Python Package Guide

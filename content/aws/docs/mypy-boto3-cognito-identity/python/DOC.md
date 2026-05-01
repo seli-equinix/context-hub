@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,boto3,cognito,cognito-identity,type-stubs,mypy,pyright,python"
+  tags: "aws,boto3,cognito,cognito-identity,type-stubs,mypy,pyright,python,identity,client,session,CognitoIdentityClient,credentials,stubs,paginator,page,pool,response,ListIdentityPoolsPaginator,TYPE_CHECKING,lite,get,list_identity_pools,Version-Sensitive,get_credentials_for_identity,get_id,get_paginator,paginate"
 ---
 
 # mypy-boto3-cognito-identity Python Package Guide

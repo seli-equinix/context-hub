@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "airflow,apache-airflow,openfaas,faas,serverless,hooks"
+  tags: "airflow,apache-airflow,openfaas,faas,serverless,hooks,hook,OpenFaasHook,DAG,response,requests,invoke_function,environ,task,post,annotations,delete_function,deploy_function,get_conn,pendulum,raise_for_status,update_function,datetime"
 ---
 
 # Apache Airflow OpenFaaS Provider Guide

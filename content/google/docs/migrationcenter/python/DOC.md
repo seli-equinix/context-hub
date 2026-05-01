@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google,google-cloud,gcp,migrationcenter,migration,inventory,discovery,python"
+  tags: "google,google-cloud,gcp,migrationcenter,migration,inventory,discovery,python,migrationcenter_v1,client,MigrationCenterClient,environ,result,job,Group,Source,create_import_data_file,Path,add_assets_to_group,add_operation,create_group,create_import_job,create_operation,create_source,data file,job_operation,list_assets,remove_assets_from_group,requests,response,run_import_job,source_operation,validate_import_job"
 ---
 
 # Google Cloud Migration Center Python Client

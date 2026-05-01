@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,jsdom,dom,node,testing,types"
+  tags: "typescript,jsdom,dom,node,testing,types,window,console,close,fragment,log,document,error,fromDisk,fromFile,fromURL,item,nodeLocation,getElementById,querySelector,eval,getAttribute,querySelectorAll,serialize"
 ---
 
 # jsdom TypeScript Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "pylint,python,linting,static-analysis,quality,ci"
+  tags: "pylint,python,linting,static-analysis,quality,ci,Version-Sensitive"
 ---
 
 # Pylint Python Package Guide

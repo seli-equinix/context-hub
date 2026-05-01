@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "websocket,python,realtime,networking,client"
+  tags: "websocket,python,realtime,networking,client,create_connection,WebSocketApp,app,run_forever,rel,json,on_reconnect,on_open,send,on_message,close,on_close,on_error,dumps,build_headers,recv,recv_data,send_binary,setdefaulttimeout,ssl,API-Key,Version-Sensitive,dispatch,enableTrace,environ"
 ---
 
 # websocket-client Python Package Guide

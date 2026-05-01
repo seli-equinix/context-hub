@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "mypy,python,typing,type-checking,static-analysis,pep-561"
+  tags: "mypy,python,typing,type-checking,static-analysis,pep-561,true,toml,ignore,Version-Sensitive"
 ---
 
 # mypy Python Package Guide

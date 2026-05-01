@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "duckdb,python,sql,analytics,dataframe,parquet"
+  tags: "duckdb,python,sql,analytics,dataframe,parquet,con,connect,execute,fetchall,rel,DB-API,result,fetch_arrow_table,fetchnumpy,pandas as pd,Version-Sensitive,close"
 ---
 
 # duckdb Python Package Guide

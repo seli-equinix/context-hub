@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "aws,qldb,boto3,mypy-boto3-qldb,boto3-stubs,typing,type-checking"
+  tags: "aws,qldb,boto3,mypy-boto3-qldb,boto3-stubs,typing,type-checking,client,QLDBClient,stubs,Session,ledger,name,TYPE_CHECKING,response,result,CreateLedgerResponseTypeDef,DescribeLedgerResponseTypeDef,PermissionsModeType,describe_ledger,lite,Version-Sensitive,create_ledger,get,get_qldb_client,list_ledgers"
 ---
 
 # mypy-boto3-qldb Python Package Guide

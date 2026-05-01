@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "jiter,json,python,pydantic,parser"
+  tags: "jiter,json,python,pydantic,parser,data,from_json,value,cache_usage,Decimal,encode,text,Path,Non-Standard,as_decimal,cache_clear"
 ---
 
 # jiter Python Package Guide

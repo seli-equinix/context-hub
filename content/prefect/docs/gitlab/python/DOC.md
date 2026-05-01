@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "prefect,gitlab,python,workflow,orchestration,deployments,blocks"
+  tags: "prefect,gitlab,python,workflow,orchestration,deployments,blocks,flow,GitLabCredentials,load,save,GitLabRepository,gitlab_credentials,environ,from_source,task"
 ---
 
 # Prefect GitLab Python Package Guide

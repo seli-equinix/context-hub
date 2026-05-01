@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "prediction-markets,polymarket,kalshi,trading,ai-agents,betting,forecasting,simmer,sdk"
+  tags: "prediction-markets,polymarket,kalshi,trading,ai-agents,betting,forecasting,simmer,sdk,client,markets,trade,SimmerClient,find_markets,get_briefing,get_market_context,Content-Type,Optional,auto_redeem,get_market_by_id,get_markets,get_positions,import_market,link_wallet,set_approvals"
 ---
 
 # Simmer SDK

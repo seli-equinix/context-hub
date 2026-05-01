@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "pyflakes,python,lint,static-analysis,cli"
+  tags: "pyflakes,python,lint,static-analysis,cli,check,checkPath,Command-Line,greet"
 ---
 
 # Pyflakes Python Package Guide

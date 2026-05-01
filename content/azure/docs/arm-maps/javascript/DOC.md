@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,arm,maps,management,sas,keys,javascript"
+  tags: "azure,arm,maps,management,sas,keys,javascript,mapsClient,accounts,console,log,start,3.1.0,expiry,update,beginCreateOrUpdateAndWait,beginDeleteAndWait,listByResourceGroup,listKeys,listSas,toISOString,get,getTime,regenerateKeys"
 ---
 
 # Azure Maps Management Client For JavaScript

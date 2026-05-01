@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,decorators,classes,syntax,proposal"
+  tags: "babel,build,javascript,decorators,classes,syntax,proposal,value,logged,properties,task,console,fields,log,Service,call,toUpperCase,elements,features"
 ---
 
 # @babel/plugin-proposal-decorators

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,mocha,testing,types,definitelytyped,ambient-types"
+  tags: "typescript,mocha,testing,types,definitelytyped,ambient-types,assert,equal,timeout,Callback-Style,retries"
 ---
 
 # Mocha TypeScript Guide

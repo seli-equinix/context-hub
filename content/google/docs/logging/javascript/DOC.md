@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "google-cloud,google,gcp,logging,cloud-logging,observability,javascript,nodejs"
+  tags: "google-cloud,google,gcp,logging,cloud-logging,observability,javascript,nodejs,log,const,entry,write,11.2.1,console,Version-Sensitive,getEntries,headers"
 ---
 
 # `@google-cloud/logging` JavaScript Package Guide

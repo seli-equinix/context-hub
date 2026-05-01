@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.merge,merge,types,definitelytyped,npm"
+  tags: "typescript,lodash,lodash.merge,merge,types,definitelytyped,npm,console,log,string,4.6.9,example.com,Version-Sensitive"
 ---
 
 # lodash.merge TypeScript Guide

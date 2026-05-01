@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,retail,ecommerce,search,recommendations"
+  tags: "google,google-cloud,retail,ecommerce,search,recommendations,retail_v2,client,logging,retail_v2beta,PredictRequest,CompletionServiceClient,branch_path,CompleteQueryRequest,PredictionServiceClient,Product,SearchRequest,SearchServiceClient,UserEventServiceClient,base_logger,operation,result,search_client,serving_config_path,write_user_event,ImportProductsRequest,ProductServiceClient,UserEvent,WriteUserEventRequest,import_products,predict"
 ---
 
 # Google Cloud Retail Python Client

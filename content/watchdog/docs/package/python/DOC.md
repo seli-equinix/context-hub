@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "watchdog,python,filesystem,events,observer,watchmedo"
+  tags: "watchdog,python,filesystem,events,observer,watchmedo,join,FileSystemEventHandler,stop,time,PollingObserver,start,PatternMatchingEventHandler,schedule,on_any_event,on_modified,sleep,Handler,PrintEvents,PythonOnlyHandler,__init__,on_created,on_deleted,on_moved,BuildHandler,Version-Sensitive"
 ---
 
 # watchdog Python Package Guide

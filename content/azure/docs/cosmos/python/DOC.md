@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "azure,cosmos,cosmos-db,nosql,python,database"
+  tags: "azure,cosmos,cosmos-db,nosql,python,database,CosmosClient,item,client,credential,container,environ,DefaultAzureCredential,row,upsert_item,PartitionKey,__aenter__,create_container_if_not_exists,create_database_if_not_exists,doc,get_container_client,get_database_client,main,min_price,patch_item,read_item,saved,tenant_id,Version-Sensitive,close,delete_item"
 ---
 
 # Azure Cosmos DB Python Client

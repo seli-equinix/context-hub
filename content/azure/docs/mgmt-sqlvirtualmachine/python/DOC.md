@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,sql-virtual-machine,sql,management,arm,vm"
+  tags: "azure,sql-virtual-machine,sql,management,arm,vm,SqlVirtualMachineManagementClient,DefaultAzureCredential,sql_virtual_machines,environ,list_by_sql_vm_group,result,sql_virtual_machine_groups,list_by_resource_group,poller,Version-Sensitive,begin_create_or_update,get"
 ---
 
 # Azure SQL Virtual Machine Management SDK For Python

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "playwright,javascript,nodejs,browser,testing,e2e,automation"
+  tags: "playwright,javascript,nodejs,browser,testing,e2e,automation,page,context,chromium,close,launch,getByRole,example.com,goto,locator,newContext,newPage,getByLabel,route,devices,start,storageState,title,tracing,waitForTimeout,JSON,Version-Sensitive,console,continue,fulfill,getByTestId"
 ---
 
 # Playwright JavaScript Package Guide

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "google,google-cloud,dns,gcp,networking,python"
+  tags: "google,google-cloud,dns,gcp,networking,python,zone,client,change,create,changes,resource_record_set,add_record_set,pages,reload,ClientOptions,Credentials,list_resource_record_sets,list_zones,service_account,time,Version-Sensitive,delete_record_set,from_service_account_file,helper,sleep"
 ---
 
 # Google Cloud DNS Python Client

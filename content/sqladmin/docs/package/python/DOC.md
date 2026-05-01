@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "sqladmin,sqlalchemy,fastapi,starlette,admin,python"
+  tags: "sqladmin,sqlalchemy,fastapi,starlette,admin,python,User,ModelView,request,session,DATABASE_URL,AuthenticationBackend,form,Column,environ,BaseView,UserAdmin,expose,sessionmaker,templates,AdminAuth,AsyncSession,Boolean,Integer,ReportView,String,add_view,authenticate,create_async_engine,create_engine,declarative_base"
 ---
 
 # SQLAdmin Python Package Guide

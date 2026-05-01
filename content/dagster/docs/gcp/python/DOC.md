@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "dagster,gcp,dagster-gcp,python,gcs,bigquery,data-orchestration"
+  tags: "dagster,gcp,dagster-gcp,python,gcs,bigquery,data-orchestration,client,asset,bucket,GCSResource,blob,BigQueryResource,query,Definitions,environ,dg.asset,get_client,return,write_example_file,dagster as dg,read_example_file,recent_events,row,download_as_text,items,list,upload_from_string"
 ---
 
 # dagster-gcp Python Package Guide
