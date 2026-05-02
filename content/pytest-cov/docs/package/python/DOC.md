@@ -4,181 +4,1028 @@ description: "Practical pytest-cov 7.0.0 guide for pytest coverage runs, reports
 metadata:
   languages: "python"
   versions: "7.0.0"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "pytest-cov,pytest,coverage,testing,python,ci,toml,true,Opt-Out"
+  tags: "pytest-cov,python,pytest,coverage,testing,ci,toml,true,Opt-Out,CentralCovContextWarning,CovDisabledWarning,CovReportWarning,CoverageError,DistCovError,PytestCovWarning,BrokenCovConfigError,Central,ensure_topdir,finish,get_node_desc,get_width,pause,resume,sep,start,summary,CovController,DistMaster,configure_node,testnodedown,DistWorker,CovPlugin,pytest_configure_node,pytest_runtest_call,pytest_runtestloop,pytest_sessionstart,pytest_terminal_summary,pytest_testnodedown,write_heading,StoreReport,format_usage,TestContextPlugin,pytest_runtest_setup,pytest_runtest_teardown,switch_context,pytest_addoption,pytest_configure,pytest_load_initial_conftests,validate_context,validate_fail_under,validate_report"
 ---
 
-# pytest-cov Python Package Guide
+# pytest-cov — package
 
-## Golden Rule
-
-`pytest-cov` is a pytest plugin, not an application library. Install it into the same environment as `pytest`, run it through `pytest` command-line options such as `--cov`, and keep long-lived coverage settings in a coverage config file.
-
-This guide targets `pytest-cov 7.0.0`.
+pytest-cov: avoid already-imported warning: PYTEST_DONT_REWRITE.
 
 ## Install
 
-Install the plugin into the same virtual environment as `pytest`:
-
 ```bash
-python -m pip install "pytest-cov==7.0.0"
+pip install pytest-cov
 ```
 
-If you run tests in parallel with `pytest-xdist`, install that alongside the plugin:
+## Imports
 
-```bash
-python -m pip install pytest-xdist
+```python
+import pytest_cov
 ```
 
-## Runtime Setup
+## Symbols (76)
 
-- Import: none in application code
-- Environment variables: none required for normal usage
-- Authentication: none
-- Initialization: run tests with `python -m pytest` and pass coverage options there
+| Symbol | Kind | Synopsis |
+|--------|------|----------|
+| `CentralCovContextWarning` | Class | Indicates that dynamic_context was set to test_function instead of using the bu… |
+| `CovDisabledWarning` | Class | Indicates that Coverage was manually disabled. |
+| `CovReportWarning` | Class | Indicates that we failed to generate a report. |
+| `CoverageError` | Class | Indicates that our coverage is too low |
+| `DistCovError` | Class | Raised when dynamic_context is set to test_function and xdist is also used.  Se… |
+| `PytestCovWarning` | Class | The base for all pytest-cov warnings, never raised directly. |
+| `BrokenCovConfigError` | Class | Common base class for all non-exit exceptions. |
+| `Central` | Class | Implementation for centralised operation. |
+| `ensure_topdir` | Method |  |
+| `finish` | Method | Stop coverage, save data to file and set the list of coverage objects to report… |
+| `get_node_desc` | Method | Return a description of this node. |
+| `get_width` | Method |  |
+| `pause` | Method |  |
+| `resume` | Method |  |
+| `sep` | Method |  |
+| `start` | Method |  |
+| `summary` | Method | Produce coverage reports. |
+| `CentralCovContextWarning` | Class | Indicates that dynamic_context was set to test_function instead of using the bu… |
+| `CovController` | Class | Base class for different plugin implementations. |
+| `ensure_topdir` | Method |  |
+| `finish` | Method |  |
+| `get_node_desc` | Method | Return a description of this node. |
+| `get_width` | Method |  |
+| `pause` | Method |  |
+| `resume` | Method |  |
+| `sep` | Method |  |
+| `start` | Method |  |
+| `summary` | Method | Produce coverage reports. |
+| `DistCovError` | Class | Raised when dynamic_context is set to test_function and xdist is also used.  Se… |
+| `DistMaster` | Class | Implementation for distributed master. |
+| `configure_node` | Method | Workers need to know if they are collocated and what files have moved. |
+| `ensure_topdir` | Method |  |
+| `finish` | Method | Combines coverage data and sets the list of coverage objects to report on. |
+| `get_node_desc` | Method | Return a description of this node. |
+| `get_width` | Method |  |
+| `pause` | Method |  |
+| `resume` | Method |  |
+| `sep` | Method |  |
+| `start` | Method |  |
+| `summary` | Method | Produce coverage reports. |
+| `testnodedown` | Method | Collect data file name from worker. |
+| `DistWorker` | Class | Implementation for distributed workers. |
+| `ensure_topdir` | Method |  |
+| `finish` | Method | Stop coverage and send relevant info back to the master. |
+| `get_node_desc` | Method | Return a description of this node. |
+| `get_width` | Method |  |
+| `pause` | Method |  |
+| `resume` | Method |  |
+| `sep` | Method |  |
+| `start` | Method |  |
+| `summary` | Method | Only the master reports so do nothing. |
+| `CovDisabledWarning` | Class | Indicates that Coverage was manually disabled. |
+| `CovPlugin` | Class | Use coverage package to produce code coverage reports.  Delegates all work to a… |
+| `pytest_configure_node` | Method | Delegate to our implementation.  Mark this hook as optional in case xdist is no… |
+| `pytest_runtest_call` | Method |  |
+| `pytest_runtestloop` | Method |  |
+| `pytest_sessionstart` | Method | At session start determine our implementation and delegate to it. |
+| `pytest_terminal_summary` | Method |  |
+| `pytest_testnodedown` | Method | Delegate to our implementation.  Mark this hook as optional in case xdist is no… |
+| `start` | Method |  |
+| `write_heading` | Method |  |
+| `CovReportWarning` | Class | Indicates that we failed to generate a report. |
+| `PytestCovWarning` | Class | The base for all pytest-cov warnings, never raised directly. |
+| `StoreReport` | Class | Information about how to convert command line strings to Python objects.  Actio… |
+| `format_usage` | Method |  |
+| `TestContextPlugin` | Class |  |
+| `pytest_runtest_call` | Method |  |
+| `pytest_runtest_setup` | Method |  |
+| `pytest_runtest_teardown` | Method |  |
+| `switch_context` | Method |  |
+| `pytest_addoption` | Function | Add options to control coverage. |
+| `pytest_configure` | Function |  |
+| `pytest_load_initial_conftests` | Function |  |
+| `validate_context` | Function |  |
+| `validate_fail_under` | Function |  |
+| `validate_report` | Function |  |
 
-The common setup mistake is treating `pytest-cov` like a runtime package import. In normal use, you do not add `import pytest_cov` to your app.
+## Classes
 
-## Basic Commands
+### `CentralCovContextWarning`
 
-Run coverage for one package or source tree:
+Indicates that dynamic_context was set to test_function instead of using the builtin --cov-context.
 
-```bash
-python -m pytest --cov=src/your_pkg tests
+```python
+pytest_cov.CentralCovContextWarning(self, /, *args, **kwargs)
 ```
 
-Show missing lines in terminal output:
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-```bash
-python -m pytest --cov=src/your_pkg --cov-report=term-missing tests
+### `CovDisabledWarning`
+
+Indicates that Coverage was manually disabled.
+
+```python
+pytest_cov.CovDisabledWarning(self, /, *args, **kwargs)
 ```
 
-Fail CI if total coverage drops below a threshold:
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-```bash
-python -m pytest \
-  --cov=src/your_pkg \
-  --cov-branch \
-  --cov-fail-under=90 \
-  tests
+### `CovReportWarning`
+
+Indicates that we failed to generate a report.
+
+```python
+pytest_cov.CovReportWarning(self, /, *args, **kwargs)
 ```
 
-Append coverage data across multiple runs instead of replacing it:
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-```bash
-python -m pytest --cov=src/your_pkg --cov-append tests/unit
-python -m pytest --cov=src/your_pkg --cov-append tests/integration
+### `CoverageError`
+
+Indicates that our coverage is too low
+
+```python
+pytest_cov.CoverageError(self, /, *args, **kwargs)
 ```
 
-## Put Persistent Settings In `pyproject.toml`
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-`pytest-cov` works best when the CLI stays short and the real coverage settings live in a config file that coverage already understands.
+### `DistCovError`
 
-```toml
-[tool.pytest.ini_options]
-addopts = [
-  "--cov",
-  "--cov-report=term-missing",
-  "--cov-report=xml:coverage.xml",
-]
+Raised when dynamic_context is set to test_function and xdist is also used.
 
-[tool.coverage.run]
-source = ["src/your_pkg"]
-branch = true
+See: https://github.com/pytest-dev/pytest-cov/issues/604
 
-[tool.coverage.report]
-show_missing = true
-skip_covered = true
+```python
+pytest_cov.DistCovError(self, /, *args, **kwargs)
 ```
 
-Use bare `--cov` when `source` is already configured under coverage settings. Passing `--cov=...` on the command line overrides coverage's `source` value.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-If your tests change the working directory, or you spawn subprocesses from a different location, pass the config path explicitly:
+### `PytestCovWarning`
 
-```bash
-python -m pytest --cov --cov-config=pyproject.toml tests
+The base for all pytest-cov warnings, never raised directly.
+
+```python
+pytest_cov.PytestCovWarning(self, /, *args, **kwargs)
 ```
 
-## Reports
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-Common report outputs include terminal summaries, HTML, XML, JSON, LCOV, and annotated source output.
+### `BrokenCovConfigError`
 
-Generate multiple outputs in one run:
+Common base class for all non-exit exceptions.
 
-```bash
-python -m pytest \
-  --cov=src/your_pkg \
-  --cov-report=term-missing \
-  --cov-report=html:htmlcov \
-  --cov-report=xml:coverage.xml \
-  tests
+```python
+pytest_cov.engine.BrokenCovConfigError(self, /, *args, **kwargs)
 ```
 
-If you pass any explicit `--cov-report`, the default terminal report is not added automatically. Ask for every report you want.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-To generate only file output and suppress terminal coverage text:
+### `Central`
 
-```bash
-python -m pytest --cov=src/your_pkg --cov-report= --cov-report=xml:coverage.xml tests
+Implementation for centralised operation.
+
+```python
+pytest_cov.engine.Central(self, options: argparse.Namespace, config: Optional[object], nodeid: Optional[str])
 ```
 
-## Parallel Runs With `pytest-xdist`
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `Namespace` | `—` | pos/kw |
+| `config` | `Optional` | `—` | pos/kw |
+| `nodeid` | `Optional` | `—` | pos/kw |
 
-For distributed or parallel pytest runs:
+### `CentralCovContextWarning`
 
-```bash
-python -m pytest -n auto --cov=src/your_pkg tests
+Indicates that dynamic_context was set to test_function instead of using the builtin --cov-context.
+
+```python
+pytest_cov.engine.CentralCovContextWarning(self, /, *args, **kwargs)
 ```
 
-`pytest-cov` combines coverage from xdist workers automatically.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-For per-test coverage contexts:
+### `CovController`
 
-```bash
-python -m pytest --cov=src/your_pkg --cov-context=test tests
+Base class for different plugin implementations.
+
+```python
+pytest_cov.engine.CovController(self, options: argparse.Namespace, config: Optional[object], nodeid: Optional[str])
 ```
 
-Do not combine `--cov-context=test` with xdist. Distinct test contexts are not supported with distributed workers.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `Namespace` | `—` | pos/kw |
+| `config` | `Optional` | `—` | pos/kw |
+| `nodeid` | `Optional` | `—` | pos/kw |
 
-## Subprocess Coverage In 7.x
+### `DistCovError`
 
-`pytest-cov 7.0.0` no longer uses the older `.pth`-based subprocess measurement approach. If your tests spawn Python subprocesses and you want their coverage included, enable coverage's subprocess patching in your coverage config:
+Raised when dynamic_context is set to test_function and xdist is also used.
 
-```toml
-[tool.coverage.run]
-patch = ["subprocess"]
+See: https://github.com/pytest-dev/pytest-cov/issues/604
+
+```python
+pytest_cov.engine.DistCovError(self, /, *args, **kwargs)
 ```
 
-Keep `--cov-config` explicit when subprocesses may start from a different working directory:
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-```bash
-python -m pytest --cov --cov-config=pyproject.toml tests
+### `DistMaster`
+
+Implementation for distributed master.
+
+```python
+pytest_cov.engine.DistMaster(self, options: argparse.Namespace, config: Optional[object], nodeid: Optional[str])
 ```
 
-## Debugging And Temporary Opt-Out
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `Namespace` | `—` | pos/kw |
+| `config` | `Optional` | `—` | pos/kw |
+| `nodeid` | `Optional` | `—` | pos/kw |
 
-Coverage tracing can interfere with debuggers. Disable coverage for that run when you need reliable breakpoint behavior:
+### `DistWorker`
 
-```bash
-python -m pytest --no-cov -k test_name
+Implementation for distributed workers.
+
+```python
+pytest_cov.engine.DistWorker(self, options: argparse.Namespace, config: Optional[object], nodeid: Optional[str])
 ```
 
-## Common Pitfalls
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `Namespace` | `—` | pos/kw |
+| `config` | `Optional` | `—` | pos/kw |
+| `nodeid` | `Optional` | `—` | pos/kw |
 
-- `--cov=path_or_pkg` overrides coverage's configured `source`; use bare `--cov` when `source` already lives in config.
-- If you specify one `--cov-report`, specify every report you need for that run.
-- Config-file discovery can break when tests or subprocesses change directories; use `--cov-config=pyproject.toml` or `--cov-config=.coveragerc` explicitly.
-- Older guides that describe automatic `.pth`-based subprocess handling do not match `pytest-cov 7.0.0`.
-- `--cov-context=test` is useful for fine-grained analysis, but not with xdist.
+### `CovDisabledWarning`
 
-## Official Sources
+Indicates that Coverage was manually disabled.
 
-- Documentation: `https://pytest-cov.readthedocs.io/en/latest/`
-- Configuration: `https://pytest-cov.readthedocs.io/en/latest/config.html`
-- Reporting: `https://pytest-cov.readthedocs.io/en/latest/reporting.html`
-- xdist: `https://pytest-cov.readthedocs.io/en/latest/xdist.html`
-- Subprocess support: `https://pytest-cov.readthedocs.io/en/latest/subprocess-support.html`
-- Changelog: `https://pytest-cov.readthedocs.io/en/latest/changelog.html`
-- PyPI package: `https://pypi.org/project/pytest-cov/`
+```python
+pytest_cov.plugin.CovDisabledWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `CovPlugin`
+
+Use coverage package to produce code coverage reports.
+
+Delegates all work to a particular implementation based on whether
+this test process is centralised, a distributed master or a
+distributed work…
+
+```python
+pytest_cov.plugin.CovPlugin(self, options: argparse.Namespace, pluginmanager, start=True, no_cov_should_warn=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `Namespace` | `—` | pos/kw |
+| `pluginmanager` | `—` | `—` | pos/kw |
+| `start` | `—` | `True` | pos/kw |
+| `no_cov_should_warn` | `—` | `False` | pos/kw |
+
+### `CovReportWarning`
+
+Indicates that we failed to generate a report.
+
+```python
+pytest_cov.plugin.CovReportWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `PytestCovWarning`
+
+The base for all pytest-cov warnings, never raised directly.
+
+```python
+pytest_cov.plugin.PytestCovWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `StoreReport`
+
+Information about how to convert command line strings to Python objects.
+
+Action objects are used by an ArgumentParser to represent the information
+needed to parse a single argument from one or more…
+
+```python
+pytest_cov.plugin.StoreReport(self, option_strings, dest, nargs=None, const=None, default=None, type=None, choices=None, required=False, help=None, metavar=None, deprecated=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `option_strings` | `—` | `—` | pos/kw |
+| `dest` | `—` | `—` | pos/kw |
+| `nargs` | `—` | `None` | pos/kw |
+| `const` | `—` | `None` | pos/kw |
+| `default` | `—` | `None` | pos/kw |
+| `type` | `—` | `None` | pos/kw |
+| `choices` | `—` | `None` | pos/kw |
+| `required` | `—` | `False` | pos/kw |
+| `help` | `—` | `None` | pos/kw |
+| `metavar` | `—` | `None` | pos/kw |
+| `deprecated` | `—` | `False` | pos/kw |
+
+### `TestContextPlugin`
+
+```python
+pytest_cov.plugin.TestContextPlugin(self, cov_controller)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `cov_controller` | `—` | `—` | pos/kw |
+
+## Functions
+
+### `pytest_addoption`
+
+Add options to control coverage.
+
+```python
+pytest_cov.plugin.pytest_addoption(parser)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `—` | `—` | pos/kw |
+
+### `pytest_configure`
+
+```python
+pytest_cov.plugin.pytest_configure(config)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `config` | `—` | `—` | pos/kw |
+
+### `pytest_load_initial_conftests`
+
+```python
+pytest_cov.plugin.pytest_load_initial_conftests(early_config, parser, args)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `early_config` | `—` | `—` | pos/kw |
+| `parser` | `—` | `—` | pos/kw |
+| `args` | `—` | `—` | pos/kw |
+
+### `validate_context`
+
+```python
+pytest_cov.plugin.validate_context(arg)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `arg` | `—` | `—` | pos/kw |
+
+### `validate_fail_under`
+
+```python
+pytest_cov.plugin.validate_fail_under(num_str)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `num_str` | `—` | `—` | pos/kw |
+
+### `validate_report`
+
+```python
+pytest_cov.plugin.validate_report(arg)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `arg` | `—` | `—` | pos/kw |
+
+## Methods
+
+### `pytest_cov.engine.Central` methods
+
+### `ensure_topdir`
+
+```python
+pytest_cov.engine.Central.ensure_topdir(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `finish`
+
+Stop coverage, save data to file and set the list of coverage objects to report on.
+
+```python
+pytest_cov.engine.Central.finish(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `get_node_desc`
+
+Return a description of this node.
+
+```python
+pytest_cov.engine.Central.get_node_desc(platform, version_info)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `platform` | `—` | `—` | pos/kw |
+| `version_info` | `—` | `—` | pos/kw |
+
+### `get_width`
+
+```python
+pytest_cov.engine.Central.get_width()
+```
+
+### `pause`
+
+```python
+pytest_cov.engine.Central.pause(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `resume`
+
+```python
+pytest_cov.engine.Central.resume(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `sep`
+
+```python
+pytest_cov.engine.Central.sep(self, stream, s, txt)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+| `s` | `—` | `—` | pos/kw |
+| `txt` | `—` | `—` | pos/kw |
+
+### `start`
+
+```python
+pytest_cov.engine.Central.start(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `summary`
+
+Produce coverage reports.
+
+```python
+pytest_cov.engine.Central.summary(self, stream)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+
+### `pytest_cov.engine.CovController` methods
+
+### `ensure_topdir`
+
+```python
+pytest_cov.engine.CovController.ensure_topdir(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `finish`
+
+```python
+pytest_cov.engine.CovController.finish(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `get_node_desc`
+
+Return a description of this node.
+
+```python
+pytest_cov.engine.CovController.get_node_desc(platform, version_info)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `platform` | `—` | `—` | pos/kw |
+| `version_info` | `—` | `—` | pos/kw |
+
+### `get_width`
+
+```python
+pytest_cov.engine.CovController.get_width()
+```
+
+### `pause`
+
+```python
+pytest_cov.engine.CovController.pause(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `resume`
+
+```python
+pytest_cov.engine.CovController.resume(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `sep`
+
+```python
+pytest_cov.engine.CovController.sep(self, stream, s, txt)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+| `s` | `—` | `—` | pos/kw |
+| `txt` | `—` | `—` | pos/kw |
+
+### `start`
+
+```python
+pytest_cov.engine.CovController.start(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `summary`
+
+Produce coverage reports.
+
+```python
+pytest_cov.engine.CovController.summary(self, stream)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+
+### `pytest_cov.engine.DistMaster` methods
+
+### `configure_node`
+
+Workers need to know if they are collocated and what files have moved.
+
+```python
+pytest_cov.engine.DistMaster.configure_node(self, node)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `—` | `—` | pos/kw |
+
+### `ensure_topdir`
+
+```python
+pytest_cov.engine.DistMaster.ensure_topdir(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `finish`
+
+Combines coverage data and sets the list of coverage objects to report on.
+
+```python
+pytest_cov.engine.DistMaster.finish(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `get_node_desc`
+
+Return a description of this node.
+
+```python
+pytest_cov.engine.DistMaster.get_node_desc(platform, version_info)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `platform` | `—` | `—` | pos/kw |
+| `version_info` | `—` | `—` | pos/kw |
+
+### `get_width`
+
+```python
+pytest_cov.engine.DistMaster.get_width()
+```
+
+### `pause`
+
+```python
+pytest_cov.engine.DistMaster.pause(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `resume`
+
+```python
+pytest_cov.engine.DistMaster.resume(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `sep`
+
+```python
+pytest_cov.engine.DistMaster.sep(self, stream, s, txt)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+| `s` | `—` | `—` | pos/kw |
+| `txt` | `—` | `—` | pos/kw |
+
+### `start`
+
+```python
+pytest_cov.engine.DistMaster.start(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `summary`
+
+Produce coverage reports.
+
+```python
+pytest_cov.engine.DistMaster.summary(self, stream)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+
+### `testnodedown`
+
+Collect data file name from worker.
+
+```python
+pytest_cov.engine.DistMaster.testnodedown(self, node, error)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `—` | `—` | pos/kw |
+| `error` | `—` | `—` | pos/kw |
+
+### `pytest_cov.engine.DistWorker` methods
+
+### `ensure_topdir`
+
+```python
+pytest_cov.engine.DistWorker.ensure_topdir(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `finish`
+
+Stop coverage and send relevant info back to the master.
+
+```python
+pytest_cov.engine.DistWorker.finish(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `get_node_desc`
+
+Return a description of this node.
+
+```python
+pytest_cov.engine.DistWorker.get_node_desc(platform, version_info)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `platform` | `—` | `—` | pos/kw |
+| `version_info` | `—` | `—` | pos/kw |
+
+### `get_width`
+
+```python
+pytest_cov.engine.DistWorker.get_width()
+```
+
+### `pause`
+
+```python
+pytest_cov.engine.DistWorker.pause(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `resume`
+
+```python
+pytest_cov.engine.DistWorker.resume(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `sep`
+
+```python
+pytest_cov.engine.DistWorker.sep(self, stream, s, txt)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+| `s` | `—` | `—` | pos/kw |
+| `txt` | `—` | `—` | pos/kw |
+
+### `start`
+
+```python
+pytest_cov.engine.DistWorker.start(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `summary`
+
+Only the master reports so do nothing.
+
+```python
+pytest_cov.engine.DistWorker.summary(self, stream)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `stream` | `—` | `—` | pos/kw |
+
+### `pytest_cov.plugin.CovPlugin` methods
+
+### `pytest_configure_node`
+
+Delegate to our implementation.
+
+Mark this hook as optional in case xdist is not installed.
+
+```python
+pytest_cov.plugin.CovPlugin.pytest_configure_node(self, node)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `—` | `—` | pos/kw |
+
+### `pytest_runtest_call`
+
+```python
+pytest_cov.plugin.CovPlugin.pytest_runtest_call(self, item)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `item` | `—` | `—` | pos/kw |
+
+### `pytest_runtestloop`
+
+```python
+pytest_cov.plugin.CovPlugin.pytest_runtestloop(self, session)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `session` | `—` | `—` | pos/kw |
+
+### `pytest_sessionstart`
+
+At session start determine our implementation and delegate to it.
+
+```python
+pytest_cov.plugin.CovPlugin.pytest_sessionstart(self, session)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `session` | `—` | `—` | pos/kw |
+
+### `pytest_terminal_summary`
+
+```python
+pytest_cov.plugin.CovPlugin.pytest_terminal_summary(self, terminalreporter)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `terminalreporter` | `—` | `—` | pos/kw |
+
+### `pytest_testnodedown`
+
+Delegate to our implementation.
+
+Mark this hook as optional in case xdist is not installed.
+
+```python
+pytest_cov.plugin.CovPlugin.pytest_testnodedown(self, node, error)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `—` | `—` | pos/kw |
+| `error` | `—` | `—` | pos/kw |
+
+### `start`
+
+```python
+pytest_cov.plugin.CovPlugin.start(self, controller_cls: type['CovController'], config=None, nodeid=None)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `controller_cls` | `type` | `—` | pos/kw |
+| `config` | `—` | `None` | pos/kw |
+| `nodeid` | `—` | `None` | pos/kw |
+
+### `write_heading`
+
+```python
+pytest_cov.plugin.CovPlugin.write_heading(self, terminalreporter)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `terminalreporter` | `—` | `—` | pos/kw |
+
+### `pytest_cov.plugin.StoreReport` methods
+
+### `format_usage`
+
+```python
+pytest_cov.plugin.StoreReport.format_usage(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `pytest_cov.plugin.TestContextPlugin` methods
+
+### `pytest_runtest_call`
+
+```python
+pytest_cov.plugin.TestContextPlugin.pytest_runtest_call(self, item)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `item` | `—` | `—` | pos/kw |
+
+### `pytest_runtest_setup`
+
+```python
+pytest_cov.plugin.TestContextPlugin.pytest_runtest_setup(self, item)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `item` | `—` | `—` | pos/kw |
+
+### `pytest_runtest_teardown`
+
+```python
+pytest_cov.plugin.TestContextPlugin.pytest_runtest_teardown(self, item)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `item` | `—` | `—` | pos/kw |
+
+### `switch_context`
+
+```python
+pytest_cov.plugin.TestContextPlugin.switch_context(self, item, when)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `item` | `—` | `—` | pos/kw |
+| `when` | `—` | `—` | pos/kw |
+

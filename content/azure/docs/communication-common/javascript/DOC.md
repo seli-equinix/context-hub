@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,communication,communication-common,javascript,authentication,identifiers,2.4.0,response,json,normalizeIdentifier"
+  tags: "azure,communication,communication-common,javascript,authentication,identifiers,2.4.0,response,json,normalizeIdentifier,AzureCommunicationTokenCredential,CommunicationIdentifier,CommunicationUserIdentifier,PhoneNumberIdentifier,MicrosoftTeamsUserIdentifier,getToken,getIdentifierRawId,createIdentifierFromRawId,getIdentifierKind"
 ---
 
 # Azure Communication Services Common JavaScript Package
@@ -188,3 +188,54 @@ This is the safe pattern when you read participant lists, sender identities, or 
 - `AzureCommunicationTokenCredential` reference: `https://learn.microsoft.com/en-us/javascript/api/@azure/communication-common/azurecommunicationtokencredential?view=azure-node-latest`
 - `CommunicationIdentifier` reference: `https://learn.microsoft.com/en-us/javascript/api/@azure/communication-common/communicationidentifier?view=azure-node-latest`
 - npm package page: `https://www.npmjs.com/package/@azure/communication-common`
+## API surface — Azure Communication common public API
+
+```typescript
+class AzureCommunicationTokenCredential {}
+class CommunicationIdentifier {}
+class CommunicationUserIdentifier {}
+class PhoneNumberIdentifier {}
+class MicrosoftTeamsUserIdentifier {}
+class MicrosoftTeamsAppIdentifier {}
+class TeamsExtensionUserIdentifier {}
+class CommunicationCloudEnvironment {}
+class UnknownIdentifier {}
+class CommunicationTokenRefreshOptions {}
+class CommunicationAccessToken {}
+class CommunicationIdentifierKind {}
+class TokenCredential {}
+class GetTokenOptions {}
+class CommunicationIdentifierModel {}
+class IdentifierMapper {}
+class TokenParser {}
+class JwtPayload {}
+class IdentifierKind {}
+class RawIdGenerator {}
+```
+
+```javascript
+const credential = new AzureCommunicationTokenCredential(token);
+const accessToken = await credential.getToken();
+const refreshable = new AzureCommunicationTokenCredential({ tokenRefresher: refresher, refreshProactively: true });
+const userId = createCommunicationUser('id');
+const isUser = isCommunicationUserIdentifier(identifier);
+const isPhone = isPhoneNumberIdentifier(identifier);
+const isTeams = isMicrosoftTeamsUserIdentifier(identifier);
+const isTeamsApp = isMicrosoftTeamsAppIdentifier(identifier);
+const isUnknown = isUnknownIdentifier(identifier);
+const rawId = getIdentifierRawId(identifier);
+const parsed = createIdentifierFromRawId(rawId);
+const kind = getIdentifierKind(identifier);
+credential.dispose();
+```
+
+```typescript
+class CommunicationTokenCredentialOptions {}
+class TokenCredentialOptions {}
+class JwtClaim {}
+class TokenRefresher {}
+class TokenSource {}
+class TokenStore {}
+class IdentifierUtils {}
+class RawIdParseError {}
+```

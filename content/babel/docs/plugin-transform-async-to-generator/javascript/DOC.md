@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,async,generators,_run,apply,console,log"
+  tags: "babel,build,transpile,async,generators,_run,apply,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,ConfigAPI,PluginObj,PluginPass,PluginOptions,TransformOptions,BabelFileResult,BabelFile,NodePath,transformSync,transformAsync,transformFileSync,transformFileAsync,parseSync,parseAsync"
 ---
 
 # @babel/plugin-transform-async-to-generator
@@ -172,3 +172,72 @@ With `babel.config.json`:
 - If you set only `module` or only `method`, Babel does not use a custom wrapper. Set both options together.
 - If you already use `@babel/preset-env`, this transform is part of Babel's preset-env plugin set. Add the plugin directly when you need to force this transform or pass `module` / `method` options.
 - A custom wrapper controls runtime behavior for yielded values. This plugin only rewrites `async` functions to generator-based code and delegates execution to the wrapper you configure.
+
+## API surface — Babel runtime
+
+Like every Babel plugin, `@babel/plugin-transform-async-to-generator` is consumed by Babel's runtime API. The types and helpers below are what plugin authors and config writers compose against. They are stable across the `7.x` line.
+
+```typescript
+// Babel core types (@babel/core)
+class ConfigAPI {}
+class PluginObj {}
+class PluginPass {}
+class PluginOptions {}
+class TransformOptions {}
+class BabelFileResult {}
+class BabelFile {}
+class NodePath {}
+class Visitor {}
+class TraversalContext {}
+class ParserOptions {}
+class GeneratorOptions {}
+class ConfigItem {}
+class PartialConfig {}
+class ResolvedConfig {}
+class FileResultCallback {}
+class InputOptions {}
+
+// AST node types (@babel/types)
+class Identifier {}
+class Expression {}
+class Statement {}
+class Program {}
+class File {}
+class BlockStatement {}
+class FunctionDeclaration {}
+class FunctionExpression {}
+class ArrowFunctionExpression {}
+class ClassDeclaration {}
+class ImportDeclaration {}
+class ExportDefaultDeclaration {}
+class VariableDeclaration {}
+class ReturnStatement {}
+class CallExpression {}
+class MemberExpression {}
+class ObjectExpression {}
+class ArrayExpression {}
+class TemplateLiteral {}
+class TaggedTemplateExpression {}
+class ConditionalExpression {}
+class AssignmentExpression {}
+class BinaryExpression {}
+class LogicalExpression {}
+```
+
+```javascript
+// Babel core helpers (@babel/core)
+const code = `const x = 1`;
+const result_transformSync = await babel.transformSync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_transformAsync = await babel.transformAsync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_transformFileSync = await babel.transformFileSync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_transformFileAsync = await babel.transformFileAsync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_parseSync = await babel.parseSync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_parseAsync = await babel.parseAsync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_loadOptionsSync = await babel.loadOptionsSync(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_buildExternalHelpers = await babel.buildExternalHelpers(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+const result_createConfigItem = await babel.createConfigItem(code, { plugins: ['@babel/plugin-transform-async-to-generator'] });
+
+// Use the plugin in a config
+const config = { plugins: ['@babel/plugin-transform-async-to-generator'] };
+const visitor = { Identifier(path) { path.node; } };
+```

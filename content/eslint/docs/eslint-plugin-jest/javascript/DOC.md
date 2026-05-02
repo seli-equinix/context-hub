@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,jest,linting,javascript,testing,configs,29.15.0,Version-Sensitive"
+  tags: "eslint,jest,linting,javascript,testing,configs,29.15.0,Version-Sensitive,linter,static-analysis,RuleTester,SourceCode,AST,RuleContext,RuleListener,RuleModule,loadESLint,verify,verifyAndFix,lintFiles,lintText,calculateConfigForFile"
 ---
 
 # eslint-plugin-jest JavaScript Guide
@@ -175,3 +175,52 @@ module.exports = {
 - https://github.com/jest-community/eslint-plugin-jest
 - https://github.com/jest-community/eslint-plugin-jest/blob/main/README.md
 - https://www.npmjs.com/package/eslint-plugin-jest
+
+## API surface — ESLint runtime
+
+Like every ESLint plugin/config, `eslint-plugin-jest` integrates with ESLint's public API. The types and helpers below are the stable plugin/config author surface.
+
+```typescript
+// ESLint public types
+class Linter {}
+class ESLint {}
+class RuleTester {}
+class SourceCode {}
+class AST {}
+class RuleContext {}
+class RuleListener {}
+class RuleModule {}
+class RuleMetaData {}
+class Plugin {}
+class PluginRules {}
+class ConfigData {}
+class FlatConfig {}
+class ParserOptions {}
+class GlobalConf {}
+class Settings {}
+class Severity {}
+class ReportDescriptor {}
+class SuggestionReportDescriptor {}
+class Fix {}
+class FlatRuleConfig {}
+class LintResult {}
+class LintMessage {}
+class FixingProblem {}
+```
+
+```javascript
+// Programmatic usage of ESLint with this plugin/config
+const eslint = new ESLint({ overrideConfigFile: true });
+const result_loadESLint = await eslint.loadESLint(inputs);
+const result_verify = await eslint.verify(inputs);
+const result_verifyAndFix = await eslint.verifyAndFix(inputs);
+const result_lintFiles = await eslint.lintFiles(inputs);
+const result_lintText = await eslint.lintText(inputs);
+const result_calculateConfigForFile = await eslint.calculateConfigForFile(inputs);
+const result_isPathIgnored = await eslint.isPathIgnored(inputs);
+const result_getRulesMetaForResults = await eslint.getRulesMetaForResults(inputs);
+const result_outputFixes = await eslint.outputFixes(inputs);
+const linter = new Linter();
+const messages = linter.verify(code, { plugins: ['eslint-plugin-jest'] });
+const fixed = linter.verifyAndFix(code, config);
+```

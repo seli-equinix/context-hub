@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-channels,kawasemi,django,python,notifications,slack,hipchat,twitter,yo,channels,send,Version-Sensitive,environ,notify_deploy_finished"
+  tags: "django-channels,kawasemi,django,python,notifications,slack,hipchat,twitter,yo,channels,send,Version-Sensitive,environ,notify_deploy_finished,URLRouter,ProtocolTypeRouter,ChannelNameRouter,AsyncConsumer,SyncConsumer,AsyncWebsocketConsumer,WebsocketConsumer,JsonWebsocketConsumer,AuthMiddlewareStack,get_channel_layer,WebsocketCommunicator,ChannelsLiveServerTestCase,database_sync_to_async"
 ---
 
 # django-channels Python Package Guide
@@ -142,3 +142,31 @@ Prefer a wrapper like this instead of scattering raw `channels.send(...)` calls 
 - Successor docs root: `https://kawasemi.readthedocs.io/`
 - Successor Slack backend docs: `https://kawasemi.readthedocs.io/en/latest/backends/slack.html`
 - Docs URL that is actually a different project: `https://channels.readthedocs.io/en/latest/`
+## API surface — channels public API
+
+```python
+from channels.routing import URLRouter, ProtocolTypeRouter, ChannelNameRouter
+from channels.consumer import AsyncConsumer, SyncConsumer
+from channels.generic.websocket import AsyncWebsocketConsumer, JsonWebsocketConsumer, WebsocketConsumer
+from channels.layers import get_channel_layer, BaseChannelLayer, InMemoryChannelLayer
+from channels.auth import AuthMiddlewareStack, get_user
+from channels.db import database_sync_to_async
+from channels.testing import WebsocketCommunicator, ChannelsLiveServerTestCase
+
+class CustomConsumer(AsyncWebsocketConsumer):
+    async def connect(self): pass
+    async def disconnect(self, code): pass
+    async def receive(self, text_data=None, bytes_data=None): pass
+    async def send(self, text_data=None, bytes_data=None): pass
+    async def close(self, code=None): pass
+    async def receive_json(self, content): pass
+    async def send_json(self, content): pass
+    async def channel_layer_alias(self): pass
+
+layer = get_channel_layer()
+result_send = await layer.send(channel, message)
+result_receive = await layer.receive(channel)
+result_group = await layer.group_add(group, channel)
+result_discard = await layer.group_discard(group, channel)
+result_broadcast = await layer.group_send(group, message)
+```

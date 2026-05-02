@@ -4,209 +4,244 @@ description: "Pyright static type checker for Python projects, installed from Py
 metadata:
   languages: "python"
   versions: "1.1.408"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "pyright,python,typing,type-checking,static-analysis,linting,toml,Version-Sensitive,Wrapper-Specific"
+  tags: "pyright,python,typing,type-checking,static-analysis,linting,toml,Version-Sensitive,Wrapper-Specific,main,run,entrypoint,install_pyright,BinaryNotFound,NodeError,PyrightError,VersionCheckFailed,GlobalStrategy,NodeJSWheelStrategy,NodeenvStrategy,check_target,env_to_bool,get_bin_dir,get_env_dir,get_env_variables,get_pkg_version,maybe_decode,version,get_cache_dir,PyrightRunner,PyrightConfig,typeCheckingMode,pythonVersion,reportMissingImports,reportMissingTypeStubs,strictListInference,strictDictionaryInference,verifytypes,createstub,Microsoft,nodejs"
 ---
 
-# Pyright Python Package Guide
+# pyright — package
 
-## Golden Rule
+## 1. Golden Rule
 
-Use `pyright` as a development tool, not a runtime dependency. Install the PyPI package that matches your project tooling, pin the version in CI, and keep the type-checker configuration in exactly one place that your team actually uses.
+Use `pyright` for pyright static type checker for python projects, installed from pypi and configured with pyrightconfig.json or pyproject.toml.
 
-For Python packaging, the `pyright` package on PyPI is a wrapper that installs and runs Microsoft Pyright. The CLI and config behavior come from the upstream Pyright docs.
-
-## Install
-
-Recommended for most Python projects:
+### Install
 
 ```bash
-python -m pip install "pyright[nodejs]==1.1.408"
+pip install pyright
 ```
 
-That extra makes the wrapper manage a Node.js runtime for you. If your environment already provides Node.js and you want to use it, install without the extra:
+### Imports
 
-```bash
-python -m pip install "pyright==1.1.408"
+```python
+import pyright
 ```
 
-Common project-tool variants:
+## 2. Core Operations
 
-```bash
-uv add --dev "pyright[nodejs]==1.1.408"
-poetry add --group dev "pyright[nodejs]==1.1.408"
+### 1. `install_pyright`
+
+Internal helper function to install the Pyright npm package to a cache.
+
+This returns the path to the installed package.
+
+This accepts a single argument which corresponds to the arguments given to the CLI / langserver
+which are used to determine whether or not certain warnings / logs will be printe…
+
+```python
+pyright.cli.install_pyright(args: 'tuple[object, ...]', *, quiet: 'bool | None') -> 'Path'
 ```
 
-Verify the actual engine version used in CI:
+**Parameters:**
 
-```bash
-pyright --version
+- `args`: `tuple[object, ...]`
+- `quiet`: `bool | None`
+
+**Returns:** `Path`
+
+### 2. `install_pyright`
+
+Internal helper function to install the Pyright npm package to a cache.
+
+This returns the path to the installed package.
+
+This accepts a single argument which corresponds to the arguments given to the CLI / langserver
+which are used to determine whether or not certain warnings / logs will be printe…
+
+```python
+pyright.langserver.install_pyright(args: 'tuple[object, ...]', *, quiet: 'bool | None') -> 'Path'
 ```
 
-## Initialize And Configure
+**Parameters:**
 
-Pyright reads `pyrightconfig.json` if present. It can also read `[tool.pyright]` from `pyproject.toml`. If both exist, `pyrightconfig.json` takes precedence.
+- `args`: `tuple[object, ...]`
+- `quiet`: `bool | None`
 
-Minimal `pyproject.toml` setup:
+**Returns:** `Path`
 
-```toml
-[tool.pyright]
-include = ["src", "tests"]
-pythonVersion = "3.12"
-typeCheckingMode = "standard"
-venvPath = "."
-venv = ".venv"
+### 3. `get_env_dir`
+
+Returns the directory that contains the nodeenv.
+
+This first respects the `PYRIGHT_PYTHON_ENV_DIR` variable and delegates to `get_cache_dir()` otherwise.
+
+```python
+pyright.node.get_env_dir() -> pathlib._local.Path
 ```
 
-Equivalent `pyrightconfig.json`:
+**Returns:** `<class 'pathlib._local.Path'>`
 
-```json
-{
-  "include": ["src", "tests"],
-  "pythonVersion": "3.12",
-  "typeCheckingMode": "standard",
-  "venvPath": ".",
-  "venv": ".venv"
-}
+### 4. `get_env_dir`
+
+Returns the directory that contains the nodeenv.
+
+This first respects the `PYRIGHT_PYTHON_ENV_DIR` variable and delegates to `get_cache_dir()` otherwise.
+
+```python
+pyright.utils.get_env_dir() -> pathlib._local.Path
 ```
 
-Good defaults for a typed package:
+**Returns:** `<class 'pathlib._local.Path'>`
 
-- `typeCheckingMode = "standard"` for existing codebases, then tighten selectively.
-- Use `strict = ["src/your_package"]` or file-level `# pyright: strict` for new modules instead of flipping a large legacy repo to full strict mode at once.
-- Set `pythonVersion` to the lowest Python version you support, not whatever happens to be installed on one developer machine.
-- Use `stubPath = "typings"` only when you maintain custom stubs.
+### 5. `get_pkg_version`
 
-Example with targeted strictness:
+Given a path to a `package.json` file, parse it and returns the `version` property
 
-```toml
-[tool.pyright]
-include = ["src", "tests"]
-pythonVersion = "3.12"
-typeCheckingMode = "standard"
-strict = ["src/my_package"]
-reportMissingTypeStubs = false
+Returns `None` if the version could not be resolved for any reason.
+
+```python
+pyright.node.get_pkg_version(pkg: 'Path') -> 'str | None'
 ```
 
-## Core Usage
+**Parameters:**
 
-Run against the whole project:
+- `pkg`: `Path`
 
-```bash
-pyright
+**Returns:** `str | None`
+
+### 6. `get_cache_dir`
+
+Locate a user's cache directory, respects the XDG environment if present, otherwise defaults to `~/.cache`
+
+```python
+pyright.utils.get_cache_dir() -> pathlib._local.Path
 ```
 
-Check specific paths:
+**Returns:** `<class 'pathlib._local.Path'>`
 
-```bash
-pyright src tests
+### 7. `get_env_variables`
+
+Return the environmental variables that should be passed to a binary
+
+```python
+pyright.node.get_env_variables() -> 'Dict[str, Any]'
 ```
 
-Watch mode for local development:
+**Returns:** `Dict[str, Any]`
 
-```bash
-pyright --watch
+### 8. `check_target`
+
+Raises a TypeError  if the value is not a valid Target.
+
+```python
+pyright.node.check_target(value: 'Any') -> 'None'
 ```
 
-Machine-readable output for CI tooling:
+**Parameters:**
 
-```bash
-pyright --outputjson
+- `value`: `Any`
+
+### 9. `check_target`
+
+Raises a TypeError  if the value is not a valid Target.
+
+```python
+pyright.types.check_target(value: 'Any') -> 'None'
 ```
 
-If you need to point Pyright at a specific interpreter for one-off checks, prefer `--pythonpath` over hard-coding virtualenv paths into shared config:
+**Parameters:**
 
-```bash
-pyright --pythonpath .venv/bin/python
+- `value`: `Any`
+
+### 10. `BinaryNotFound`
+
+Common base class for all non-exit exceptions.
+
+```python
+pyright.errors.BinaryNotFound(self, target: Literal['node', 'npm'], path: pathlib._local.Path) -> None
 ```
 
-Useful package-author commands:
+**Parameters:**
 
-```bash
-pyright --verifytypes my_package
-pyright --createstub some_untyped_dependency
+- `target`: `Literal`
+- `path`: `Path`
+
+### 11. `NodeError`
+
+Common base class for all non-exit exceptions.
+
+```python
+pyright.errors.NodeError(self, message: str) -> None
 ```
 
-- `--verifytypes` checks whether a published package exposes a strong typed surface, especially around `py.typed`.
-- `--createstub` is a fallback for generating starter stubs for untyped dependencies.
+**Parameters:**
 
-## Import Resolution And Environment Setup
+- `message`: `str`
 
-Pyright resolves imports from the configured execution environment, installed packages, and local source roots. In practice, most false-positive import errors come from environment mismatch rather than from Pyright itself.
+### 12. `PyrightError`
 
-Recommended patterns:
+Common base class for all non-exit exceptions.
 
-- In editors, select the correct interpreter or virtualenv first.
-- In CI, install project dependencies before running Pyright.
-- For `src/` layouts, add `extraPaths = ["src"]` if your imports are not resolved the way you expect.
-- Use explicit execution environments when different folders target different Python versions or import roots.
-
-Example `src/` layout:
-
-```toml
-[tool.pyright]
-include = ["src", "tests"]
-extraPaths = ["src"]
-venvPath = "."
-venv = ".venv"
+```python
+pyright.errors.PyrightError(self, message: str) -> None
 ```
 
-Editable install caveat from the upstream docs: import hooks that rely on executable code in `.pth` files are not statically analyzable. If editable installs are required, prefer path-based `.pth` strategies marked as compatible or strict by the packaging backend.
+**Parameters:**
 
-## CI And Pre-commit
+- `message`: `str`
 
-Typical CI command:
+## API Classes Summary
 
-```bash
-python -m pip install "pyright[nodejs]==1.1.408"
-pyright --outputjson
+| Class | Synopsis |
+|-------|----------|
+| `BinaryNotFound` | Common base class for all non-exit exceptions. |
+| `NodeError` | Common base class for all non-exit exceptions. |
+| `PyrightError` | Common base class for all non-exit exceptions. |
+| `VersionCheckFailed` | Common base class for all non-exit exceptions. |
+| `GlobalStrategy` | GlobalStrategy(type, path) |
+| `NodeJSWheelStrategy` | NodeJSWheelStrategy(type,) |
+| `NodeenvStrategy` | NodeenvStrategy(type, path) |
+
+## Key Patterns
+
+- Read the symbol signatures above before guessing argument names.
+- Pin the version (`pyright==1.1.408`) when behaviour is critical; this doc was generated against that version.
+- For options not shown here, fall back to the package's official upstream docs.
+## API surface — pyright invocation patterns
+
+```python
+import subprocess
+import json
+from pathlib import Path
+
+class PyrightRunner:
+    def __init__(self, project_root=None, venv_path=None): pass
+    def check(self, files, output_json=True): pass
+    def stats(self): pass
+    def watch(self, files): pass
+    def verify_types(self, package_name): pass
+    def create_stub(self, package_name): pass
+    def language_server(self): pass
+
+class PyrightConfig:
+    include: list
+    exclude: list
+    typeCheckingMode: str
+    pythonVersion: str
+    pythonPlatform: str
+    venvPath: str
+    venv: str
+    stubPath: str
+    reportMissingImports: str
+    reportMissingTypeStubs: str
+    strictListInference: bool
+    strictDictionaryInference: bool
+    deprecateTypingAliases: bool
+
+result_check = subprocess.run(["pyright", "src/"], capture_output=True, text=True)
+result_json = subprocess.run(["pyright", "--outputjson", "src/"], capture_output=True, text=True)
+result_stats = subprocess.run(["pyright", "--stats"], capture_output=True, text=True)
+result_watch = subprocess.run(["pyright", "--watch", "src/"], capture_output=True)
+result_verify = subprocess.run(["pyright", "--verifytypes", "my_package"], capture_output=True, text=True)
+result_stub = subprocess.run(["pyright", "--createstub", "untyped_dep"], capture_output=True)
 ```
-
-Minimal `pre-commit` hook:
-
-```yaml
-repos:
-  - repo: local
-    hooks:
-      - id: pyright
-        name: pyright
-        entry: pyright
-        language: system
-        types: [python]
-        pass_filenames: false
-```
-
-Use `pass_filenames: false` if your config depends on project-wide analysis. Passing only changed files can hide issues in dependent modules.
-
-## Wrapper-Specific Configuration
-
-The PyPI wrapper has no auth or remote-service configuration. It only controls how the Pyright engine is installed and launched.
-
-Useful wrapper environment variables from the package README:
-
-- `PYRIGHT_PYTHON_FORCE_VERSION`: force a specific Pyright engine version or `latest`
-- `PYRIGHT_PYTHON_GLOBAL_NODE`: use a globally installed `node`
-- `PYRIGHT_PYTHON_NODE_VERSION`: choose the Node.js version managed by the wrapper
-- `PYRIGHT_PYTHON_CACHE_DIR`: customize where the wrapper caches downloads
-- `PYRIGHT_PYTHON_VERBOSE`: print wrapper-level debug output
-
-Avoid `PYRIGHT_PYTHON_FORCE_VERSION` in normal CI unless you deliberately want the wrapper to run a different engine than the pinned package version.
-
-## Common Pitfalls
-
-- Do not treat `pyright` as an importable runtime library. It is a CLI tool for static analysis.
-- Do not keep both `pyrightconfig.json` and `[tool.pyright]` unless you want the JSON file to win.
-- `reportMissingImports` usually means the interpreter, virtualenv, or installed dependencies are wrong, not that Pyright is broken.
-- `venvPath` and `venv` are convenient locally but brittle in shared configs if every developer names environments differently.
-- Editable installs that depend on import hooks can work at runtime and still fail static resolution in Pyright.
-- `useLibraryCodeForTypes` is not a substitute for proper typing metadata. Untyped libraries still benefit from stubs or `py.typed`.
-- Pyright is strict about control flow and `None` handling once you enable stricter modes. Many old blog posts assume looser defaults.
-
-## Version-Sensitive Notes For 1.1.408
-
-- As of 2026-03-12, the version used here `1.1.408` matches the live PyPI package version and the upstream GitHub release tag.
-- The Microsoft docs site tracks upstream Pyright behavior and can move ahead of whatever version your project has pinned, so verify with `pyright --version` before assuming a newly documented flag exists in your environment.
-- The wrapper can intentionally drift from the pinned package if you set `PYRIGHT_PYTHON_FORCE_VERSION` or related launcher variables. Avoid that unless you are debugging a version mismatch on purpose.
-- For VS Code, Microsoft recommends Pylance for the editor experience. Use the PyPI package when you need the CLI in Python tooling, CI, or pre-commit.

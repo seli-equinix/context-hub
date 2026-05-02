@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,s3,presigned-url,signing,javascript,console,log,Content-Type"
+  tags: "aws,s3,presigned-url,signing,javascript,console,log,Content-Type,s3-request-presigner,aws-sdk,node,S3RequestPresigner,getSignedUrl"
 ---
 
 # `@aws-sdk/s3-request-presigner`
@@ -187,3 +187,55 @@ console.log({ headUrl, deleteUrl });
 
 - This guide covers `@aws-sdk/s3-request-presigner` version `3.1007.0`.
 - Pair this package with `@aws-sdk/client-s3` in the same AWS SDK v3 dependency set to avoid unnecessary version skew.
+
+## API surface — helper functions
+
+This package exports 2 helper functions (no Command classes).
+
+```typescript
+export function S3RequestPresigner() {}
+export function getSignedUrl() {}
+```
+
+```javascript
+const result_S3RequestPresigner = await S3RequestPresigner(input);
+const result_getSignedUrl = await getSignedUrl(input);
+```
+
+```typescript
+// Related S3 Command classes this package commonly signs against
+class GetObjectCommand {}
+class PutObjectCommand {}
+class HeadObjectCommand {}
+class DeleteObjectCommand {}
+class CopyObjectCommand {}
+class CreateMultipartUploadCommand {}
+class UploadPartCommand {}
+class CompleteMultipartUploadCommand {}
+class AbortMultipartUploadCommand {}
+class S3Client {}
+class HttpRequest {}
+class HttpResponse {}
+class RequestPresigningArguments {}
+class RequestSigningArguments {}
+class SignatureV4 {}
+class AwsCredentialIdentity {}
+```
+
+```javascript
+const presigner = new S3RequestPresigner({});
+const url = await getSignedUrl(client, request, options);
+const headers = await presigner.presign(request);
+const stream = await presigner.presign(httpRequest);
+```
+
+```typescript
+class PresignerOptions {}
+class PresignedUrlResponse {}
+class PresignerArguments {}
+class PresigningInput {}
+class HttpAuthSchemeProvider {}
+class HttpSigner {}
+class CredentialProvider {}
+class S3PresignedUrlExpiry {}
+```

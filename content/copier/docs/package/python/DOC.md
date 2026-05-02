@@ -4,260 +4,906 @@ description: "Copier Python package guide for rendering and updating project tem
 metadata:
   languages: "python"
   versions: "9.13.1"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "copier,python,scaffolding,templates,jinja,code-generation,run_copy,run_recopy,run_update,Version-Sensitive,example.com"
+  tags: "copier,python,scaffolding,templates,jinja,code-generation,run_copy,run_recopy,run_update,Version-Sensitive,example.com,Phase,Settings,VcsRef,deprecate_member_as_internal,load_settings,deprecate_module_as_internal,ConfigFileError,CopierAnswersInterrupt,CopierError,CopierWarning,DirtyLocalWarning,ExtensionNotFoundError,ForbiddenPathError,InteractiveSessionError,InvalidConfigFileError,InvalidTypeError,MissingFileWarning,MissingSettingsWarning,MultipleConfigFilesError,MultipleYieldTagsError,OldTemplateWarning,PathError,PathNotAbsoluteError,PathNotRelativeError,SettingsError,ShallowCloneWarning,TaskError,from_process,UnknownCopierVersionWarning,UnsafeTemplateError,UnsupportedVersionError,UserMessageError,YieldTagInFileError,printf_exception,deprecate_member"
 ---
 
-# Copier Python Package Guide
+# copier — package
 
-## Golden Rule
+Copier.
 
-Use `copier` when you need Python-accessible project scaffolding with update support. Treat templates as executable code: only run trusted templates, keep the generated project's answers file under version control, and use Git tags if you expect `copier update` to work cleanly.
+Docs: https://copier.readthedocs.io/
 
 ## Install
 
-Use the install mode that matches how you will call Copier:
-
 ```bash
-# library use inside a project or virtualenv
-python -m pip install "copier==9.13.1"
-
-# standalone CLI
-pipx install copier
-
-# standalone CLI with uv
-uv tool install copier
+pip install copier
 ```
 
-Other official install paths:
-
-```bash
-conda install -c conda-forge copier
-brew install copier
-```
-
-If a template depends on extra Jinja extensions, install those in the same environment as Copier. Examples from the docs:
-
-```bash
-pip install jinja2-time
-pipx inject copier jinja2-time
-uv tool install --with jinja2-time copier
-```
-
-## Core Concepts
-
-Copier works with three pieces:
-
-- Templates: the source tree with `copier.yml` and Jinja-rendered files
-- Questions and answers: prompt data defined in `copier.yml` and stored in an answers file
-- Projects: generated output that can later be updated from the same template
-
-Templates can be local paths, Git URLs, or shortcuts like `gh:owner/repo.git` and `gl:owner/repo.git`.
-
-By default, Copier copies from the latest Git tag in the template repository, sorted using PEP 440 version rules. Use `--vcs-ref` or `vcs_ref=` when you need a specific tag, branch, or commit.
-
-## Generate A Project
-
-CLI:
-
-```bash
-copier copy gh:your-org/your-template.git ./my-project
-```
-
-CLI with non-interactive answers:
-
-```bash
-copier copy --defaults \
-  --data project_name=my-project \
-  --data module_name=my_project \
-  path/to/template ./my-project
-```
-
-Python API:
+## Imports
 
 ```python
-from copier import run_copy
-
-run_copy(
-    "path/to/template-or-git-url",
-    "my-project",
-    data={
-        "project_name": "my-project",
-        "module_name": "my_project",
-    },
-    defaults=True,
-)
+import copier
 ```
 
-Notes:
+## Symbols (55)
 
-- If the destination path does not exist, Copier creates it.
-- If the destination path already exists, it must be writable.
-- `--data` values override prompt defaults. `--data-file` is CLI-only.
-- `cleanup_on_error=True` is the default for `copy`; if Copier created the destination and rendering fails, it removes that directory.
+| Symbol | Kind | Synopsis |
+|--------|------|----------|
+| `Phase` | Class | The known execution phases. |
+| `Settings` | Class | User settings. |
+| `VcsRef` | Class | Create a collection of name/value pairs.  Example enumeration:  >>> class Color… |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `load_settings` | Function | Load settings from a YAML file.  If `settings_path` is not given, the path is d… |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `ConfigFileError` | Class | Parent class defining problems with the config file. |
+| `CopierAnswersInterrupt` | Class | CopierAnswersInterrupt is raised during interactive question prompts.  It typic… |
+| `CopierError` | Class | Base class for all other Copier errors. |
+| `CopierWarning` | Class | Base class for all other Copier warnings. |
+| `DirtyLocalWarning` | Class | Changes and untracked files present in template. |
+| `ExtensionNotFoundError` | Class | Extensions listed in the configuration could not be loaded. |
+| `ForbiddenPathError` | Class | The path is forbidden in the given context. |
+| `InteractiveSessionError` | Class | An interactive session is required to run this program. |
+| `InvalidConfigFileError` | Class | Indicates that the config file is wrong. |
+| `InvalidTypeError` | Class | The question type is not among the supported ones. |
+| `MissingFileWarning` | Class | I still couldn't find what I'm looking for. |
+| `MissingSettingsWarning` | Class | Settings path has been defined but file is missing. |
+| `MultipleConfigFilesError` | Class | Both copier.yml and copier.yaml found, and that's an error. |
+| `MultipleYieldTagsError` | Class | Multiple yield tags are used in one path name, but it is not allowed. |
+| `OldTemplateWarning` | Class | Template was designed for an older Copier version. |
+| `PathError` | Class | The path is invalid in the given context. |
+| `PathNotAbsoluteError` | Class | The path is not absolute, but it should be. |
+| `PathNotRelativeError` | Class | The path is not relative, but it should be. |
+| `SettingsError` | Class | Exception raised when the settings are invalid. |
+| `ShallowCloneWarning` | Class | The template repository is a shallow clone. |
+| `TaskError` | Class | Exception raised when a task fails. |
+| `from_process` | Method | Create a TaskError from a CompletedProcess. |
+| `UnknownCopierVersionWarning` | Class | Cannot determine installed Copier version. |
+| `UnsafeTemplateError` | Class | Unsafe Copier template features are used without explicit consent. |
+| `UnsupportedVersionError` | Class | Copier version does not support template version. |
+| `UserMessageError` | Class | Exit the program giving a message to the user. |
+| `YieldTagInFileError` | Class | A yield tag is used in the file content, but it is not allowed. |
+| `printf_exception` | Function | Print exception with common format. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member` | Function | Deprecate a module member with a new import statement with a warning.  Args:… |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member` | Function | Deprecate a module member with a new import statement with a warning.  Args:… |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
+| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
 
-## Create A Minimal Template
+## Classes
 
-Minimal template layout:
+### `Phase`
 
-```text
-my_copier_template/
-  copier.yml
-  {{project_name}}/
-    {{module_name}}.py.jinja
-  {{_copier_conf.answers_file}}.jinja
-```
-
-Minimal `copier.yml`:
-
-```yaml
-project_name:
-  type: str
-  help: What is your project name?
-
-module_name:
-  type: str
-  help: What is your Python module name?
-```
-
-Example rendered file:
+The known execution phases.
 
 ```python
-print("Hello from {{module_name}}!")
+copier.Phase(self, *args, **kwds)
 ```
 
-Answers file template:
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwds` | `—` | `—` | **kwargs |
 
-```jinja
-# Changes here will be overwritten by Copier
-{{ _copier_answers|to_nice_yaml -}}
-```
+### `Settings`
 
-Keep the answers file in the generated project if you want updates to work. The default path is `.copier-answers.yml`, but templates can change it with `_answers_file`.
-
-## Update Or Recopy A Generated Project
-
-Best-case update requirements from the official docs:
-
-1. The destination contains a valid `.copier-answers.yml` or equivalent answers file.
-2. The template is versioned with Git tags.
-3. The generated project is versioned with Git.
-
-Recommended update flow:
-
-```bash
-cd my-project
-git status
-copier update
-```
-
-Useful update variants:
-
-```bash
-# reuse previous answers
-copier update --defaults
-
-# change one answer and keep the rest
-copier update --defaults --data package_manager=uv
-
-# re-answer questions without moving to a newer template ref
-copier update --vcs-ref=:current:
-
-# check whether a newer template version exists
-copier check-update
-```
-
-Python API:
+User settings.
 
 ```python
-from copier import run_recopy, run_update
-
-# Smart update: keep project evolution when possible
-run_update("my-project", defaults=True)
-
-# Recopy: regenerate from the template and keep answers,
-# but ignore previous project history
-run_recopy("my-project", defaults=True)
+copier.Settings(self, defaults: 'Mapping[str, Any]' = <factory>, trust: 'Sequence[str]' = <factory>) -> None
 ```
 
-Use `run_recopy()` only when you intentionally want a reset-style regeneration. The docs explicitly say it is not the recommended normal update path.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `defaults` | `Mapping[str, Any]` | `<factory>` | pos/kw |
+| `trust` | `Sequence[str]` | `<factory>` | pos/kw |
 
-## Configuration And Trust
+### `VcsRef`
 
-User settings live at `<CONFIG_ROOT>/settings.yml`:
+Create a collection of name/value pairs.
 
-- Linux: `~/.config/copier/settings.yml` in most setups
-- macOS: `~/Library/Application Support/copier/settings.yml`
-- Windows: `%USERPROFILE%\\AppData\\Local\\copier\\settings.yml`
+Example enumeration:
 
-You can override the location with `COPIER_SETTINGS_PATH`.
+>>> class Color(Enum):
+...     RED = 1
+...     BLUE = 2
+...     GREEN = 3
 
-Example `settings.yml`:
+Access them by:
 
-```yaml
-defaults:
-  user_name: Jane Doe
-  user_email: jane@example.com
-  github_user: janedoe
+- attribute access:
 
-trust:
-  - https://github.com/your-org/your-template.git
-  - https://github.com/your-org/
-  - ~/templates/
-```
-
-Important behavior:
-
-- `defaults` replace question defaults with the same name.
-- `trust` entries ending in `/` are prefix matches; entries without `/` are exact matches.
-- Templates that use Jinja extensions, migrations, or tasks are considered unsafe and are blocked unless you explicitly trust them.
-- `--skip-tasks` only skips tasks, not migration tasks, and it does not imply `--trust`.
-
-If you need to allow unsafe features from Python:
+  >>> Color.RED
+  <Col…
 
 ```python
-from copier import run_copy
-
-run_copy(
-    "gh:your-org/your-template.git",
-    "my-project",
-    unsafe=True,
-)
+copier.VcsRef(self, *args, **kwds)
 ```
 
-Only do this for repositories you have audited.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwds` | `—` | `—` | **kwargs |
 
-## Common Pitfalls
+### `ConfigFileError`
 
-- Never edit `.copier-answers.yml` manually. The official docs call this unsupported and warn that it breaks the smart update algorithm.
-- Do not assume `copier update` works well without Git tags on the template and Git history in the generated project.
-- Review conflicts before committing. `--conflict inline` writes merge markers into files; `--conflict rej` writes `.rej` files.
-- If your template generates one-time secrets or machine-local files, use `_skip_if_exists` so later updates do not overwrite them.
-- `copier.yml` settings use underscore-prefixed names such as `_answers_file`, `_subdirectory`, `_templates_suffix`, and `_secret_questions`.
-- Directories must not end with the template suffix. Files that should render normally use the suffix, which defaults to `.jinja`.
-- If you apply multiple templates to one project, give each template its own answers file.
-- `subdirectory` is for separating metadata from template source, not for hosting many unrelated templates in one Git repository. The docs recommend one template per repository.
+Parent class defining problems with the config file.
 
-## Version-Sensitive Notes For 9.13.1
+```python
+copier.errors.ConfigFileError(self, /, *args, **kwargs)
+```
 
-- `9.13.1` fixes Git version parsing for vendor-suffixed patch versions, which matters on some packaged Git builds.
-- `9.13.0` adds the `copier check-update` CLI subcommand.
-- `9.12.0` introduced a smaller public settings API and explicit public `run_copy`, `run_recopy`, and `run_update` signatures. Prefer those public top-level functions over internal modules.
-- `9.11.0` dropped Python 3.9 support. If your environment is still on 3.9, current Copier is not a valid target.
-- `9.8.0` added the `:current:` VCS ref sentinel used by `copier update --vcs-ref=:current:`.
-- `9.6.0` changed the standard Windows settings directory to `%USERPROFILE%\\AppData\\Local\\copier`; the older nested path is deprecated.
-- `9.5.0` introduced user `defaults` and `trust` settings. Older pre-9.5 examples will not document them correctly.
-- Templates written for Copier 5 or older may still use `.tmpl`. Current Copier defaults to `.jinja`, so older templates should set `_templates_suffix: .tmpl` explicitly if they still depend on that behavior.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-## Official Sources
+### `CopierAnswersInterrupt`
 
-- Stable docs: `https://copier.readthedocs.io/en/stable/`
-- Generating projects: `https://copier.readthedocs.io/en/stable/generating/`
-- Updating projects: `https://copier.readthedocs.io/en/stable/updating/`
-- Template configuration: `https://copier.readthedocs.io/en/stable/configuring/`
-- User settings: `https://copier.readthedocs.io/en/stable/settings/`
-- API reference: `https://copier.readthedocs.io/en/stable/reference/api/`
-- Changelog: `https://copier.readthedocs.io/en/stable/changelog/`
-- PyPI package: `https://pypi.org/project/copier/`
+CopierAnswersInterrupt is raised during interactive question prompts.
+
+It typically follows a KeyboardInterrupt (i.e. ctrl-c) and provides an
+opportunity for the caller to conduct additional cleanup,…
+
+```python
+copier.errors.CopierAnswersInterrupt(self, answers: 'AnswersMap', last_question: 'Question', template: 'Template') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `answers` | `AnswersMap` | `—` | pos/kw |
+| `last_question` | `Question` | `—` | pos/kw |
+| `template` | `Template` | `—` | pos/kw |
+
+### `CopierError`
+
+Base class for all other Copier errors.
+
+```python
+copier.errors.CopierError(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `CopierWarning`
+
+Base class for all other Copier warnings.
+
+```python
+copier.errors.CopierWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `DirtyLocalWarning`
+
+Changes and untracked files present in template.
+
+```python
+copier.errors.DirtyLocalWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `ExtensionNotFoundError`
+
+Extensions listed in the configuration could not be loaded.
+
+```python
+copier.errors.ExtensionNotFoundError(self, message: 'str')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `message` | `str` | `—` | pos/kw |
+
+### `ForbiddenPathError`
+
+The path is forbidden in the given context.
+
+```python
+copier.errors.ForbiddenPathError(self, *, path: 'Path', hint: 'str' = '') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `path` | `Path` | `—` | kw |
+| `hint` | `str` | `''` | kw |
+
+### `InteractiveSessionError`
+
+An interactive session is required to run this program.
+
+```python
+copier.errors.InteractiveSessionError(self, message: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `message` | `str` | `—` | pos/kw |
+
+### `InvalidConfigFileError`
+
+Indicates that the config file is wrong.
+
+```python
+copier.errors.InvalidConfigFileError(self, conf_path: 'Path', quiet: 'bool')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `conf_path` | `Path` | `—` | pos/kw |
+| `quiet` | `bool` | `—` | pos/kw |
+
+### `InvalidTypeError`
+
+The question type is not among the supported ones.
+
+```python
+copier.errors.InvalidTypeError(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `MissingFileWarning`
+
+I still couldn't find what I'm looking for.
+
+```python
+copier.errors.MissingFileWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `MissingSettingsWarning`
+
+Settings path has been defined but file is missing.
+
+```python
+copier.errors.MissingSettingsWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `MultipleConfigFilesError`
+
+Both copier.yml and copier.yaml found, and that's an error.
+
+```python
+copier.errors.MultipleConfigFilesError(self, conf_paths: 'PathSeq')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `conf_paths` | `PathSeq` | `—` | pos/kw |
+
+### `MultipleYieldTagsError`
+
+Multiple yield tags are used in one path name, but it is not allowed.
+
+```python
+copier.errors.MultipleYieldTagsError(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `OldTemplateWarning`
+
+Template was designed for an older Copier version.
+
+```python
+copier.errors.OldTemplateWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `PathError`
+
+The path is invalid in the given context.
+
+```python
+copier.errors.PathError(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `PathNotAbsoluteError`
+
+The path is not absolute, but it should be.
+
+```python
+copier.errors.PathNotAbsoluteError(self, *, path: 'Path') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `path` | `Path` | `—` | kw |
+
+### `PathNotRelativeError`
+
+The path is not relative, but it should be.
+
+```python
+copier.errors.PathNotRelativeError(self, *, path: 'Path') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `path` | `Path` | `—` | kw |
+
+### `SettingsError`
+
+Exception raised when the settings are invalid.
+
+```python
+copier.errors.SettingsError(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `ShallowCloneWarning`
+
+The template repository is a shallow clone.
+
+```python
+copier.errors.ShallowCloneWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `TaskError`
+
+Exception raised when a task fails.
+
+```python
+copier.errors.TaskError(self, command: 'str | Sequence[str]', returncode: 'int', stdout: 'str | bytes | None', stderr: 'str | bytes | None')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `command` | `str \| Sequence[str]` | `—` | pos/kw |
+| `returncode` | `int` | `—` | pos/kw |
+| `stdout` | `str \| bytes \| None` | `—` | pos/kw |
+| `stderr` | `str \| bytes \| None` | `—` | pos/kw |
+
+### `UnknownCopierVersionWarning`
+
+Cannot determine installed Copier version.
+
+```python
+copier.errors.UnknownCopierVersionWarning(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `UnsafeTemplateError`
+
+Unsafe Copier template features are used without explicit consent.
+
+```python
+copier.errors.UnsafeTemplateError(self, features: 'Sequence[str]')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `features` | `Sequence[str]` | `—` | pos/kw |
+
+### `UnsupportedVersionError`
+
+Copier version does not support template version.
+
+```python
+copier.errors.UnsupportedVersionError(self, message: 'str')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `message` | `str` | `—` | pos/kw |
+
+### `UserMessageError`
+
+Exit the program giving a message to the user.
+
+```python
+copier.errors.UserMessageError(self, message: 'str')
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `message` | `str` | `—` | pos/kw |
+
+### `YieldTagInFileError`
+
+A yield tag is used in the file content, but it is not allowed.
+
+```python
+copier.errors.YieldTagInFileError(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+## Functions
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `load_settings`
+
+Load settings from a YAML file.
+
+If `settings_path` is not given, the path is determined from the
+`COPIER_SETTINGS_PATH` environment variable or the platform-specific
+default configuration directory.…
+
+```python
+copier.load_settings(settings_path: 'Path | None' = None) -> 'Settings'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `settings_path` | `Path \| None` | `None` | pos/kw |
+
+**Returns:** `Settings`
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.cli.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.cli.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `printf_exception`
+
+Print exception with common format.
+
+```python
+copier.errors.printf_exception(e: 'Exception', action: 'str', msg: 'str' = '', indent: 'int' = 0, quiet: 'bool' = False) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `e` | `Exception` | `—` | pos/kw |
+| `action` | `str` | `—` | pos/kw |
+| `msg` | `str` | `''` | pos/kw |
+| `indent` | `int` | `0` | pos/kw |
+| `quiet` | `bool` | `False` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.jinja_ext.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.jinja_ext.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member`
+
+Deprecate a module member with a new import statement with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+    new_import: The new import statement.
+
+```python
+copier.main.deprecate_member(member: 'str', module: 'str', new_import: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+| `new_import` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.main.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.main.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member`
+
+Deprecate a module member with a new import statement with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+    new_import: The new import statement.
+
+```python
+copier.settings.deprecate_member(member: 'str', module: 'str', new_import: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+| `new_import` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.settings.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.settings.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.subproject.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.subproject.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.template.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.template.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.tools.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.tools.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.types.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.types.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.user_data.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.user_data.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+### `deprecate_member_as_internal`
+
+Deprecate a module member as internal with a warning.
+
+Args:
+    member: The module member name.
+    module: The module name.
+
+```python
+copier.vcs.deprecate_member_as_internal(member: 'str', module: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `member` | `str` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+### `deprecate_module_as_internal`
+
+Deprecate a module as internal with a warning.
+
+Args:
+    name: The module name.
+
+```python
+copier.vcs.deprecate_module_as_internal(name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `str` | `—` | pos/kw |
+
+## Methods
+
+### `copier.errors.TaskError` methods
+
+### `from_process`
+
+Create a TaskError from a CompletedProcess.
+
+```python
+copier.errors.TaskError.from_process(process: 'CompletedProcess[str] | CompletedProcess[bytes]') -> 'Self'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `process` | `CompletedProcess[str] \| CompletedProcess[bytes]` | `—` | pos/kw |
+
+**Returns:** `Self`
+

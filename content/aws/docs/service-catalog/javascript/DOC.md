@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,service-catalog,portfolios,provisioning,cloudformation,client,console,log,send"
+  tags: "aws,service-catalog,portfolios,provisioning,cloudformation,client,console,log,send,aws-sdk,node,ServiceCatalogClient,AcceptPortfolioShareCommand,AssociateBudgetWithResourceCommand,AssociatePrincipalWithPortfolioCommand,AssociateProductWithPortfolioCommand,AssociateServiceActionWithProvisioningArtifactCommand,AssociateTagOptionWithResourceCommand,BatchAssociateServiceActionWithProvisioningArtifactCommand,BatchDisassociateServiceActionFromProvisioningArtifactCommand,CopyProductCommand,CreateConstraintCommand,CreatePortfolioCommand,CreatePortfolioShareCommand,CreateProductCommand,CreateProvisionedProductPlanCommand,CreateProvisioningArtifactCommand,CreateServiceActionCommand,CreateTagOptionCommand,DeleteConstraintCommand,DeletePortfolioCommand,DeletePortfolioShareCommand,DeleteProductCommand,DeleteProvisionedProductPlanCommand,DeleteProvisioningArtifactCommand,DeleteServiceActionCommand,DeleteTagOptionCommand,DescribeConstraintCommand,DescribeCopyProductStatusCommand,DescribePortfolioCommand,DescribePortfolioShareStatusCommand,DescribePortfolioSharesCommand"
 ---
 
 # AWS Service Catalog SDK for JavaScript
@@ -517,3 +517,238 @@ If you are wiring Service Catalog into an app or agent workflow, the normal sequ
 - AWS Service Catalog `ScanProvisionedProducts` API: `https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ScanProvisionedProducts.html`
 - AWS Service Catalog `TerminateProvisionedProduct` API: `https://docs.aws.amazon.com/servicecatalog/latest/dg/API_TerminateProvisionedProduct.html`
 - npm package: `https://www.npmjs.com/package/@aws-sdk/client-service-catalog`
+
+## API surface — full Command/Input/Output set
+
+`@aws-sdk/client-service-catalog` exports `ServiceCatalogClient` plus 90 `*Command` classes, 19 paginators. Sample below covers the first 50 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+
+```typescript
+// Client + Command/Input/Output types from @aws-sdk/client-service-catalog
+class ServiceCatalogClient {}
+class AcceptPortfolioShareCommand {}
+class AcceptPortfolioShareInput {}
+class AcceptPortfolioShareOutput {}
+class AssociateBudgetWithResourceCommand {}
+class AssociateBudgetWithResourceInput {}
+class AssociateBudgetWithResourceOutput {}
+class AssociatePrincipalWithPortfolioCommand {}
+class AssociatePrincipalWithPortfolioInput {}
+class AssociatePrincipalWithPortfolioOutput {}
+class AssociateProductWithPortfolioCommand {}
+class AssociateProductWithPortfolioInput {}
+class AssociateProductWithPortfolioOutput {}
+class AssociateServiceActionWithProvisioningArtifactCommand {}
+class AssociateServiceActionWithProvisioningArtifactInput {}
+class AssociateServiceActionWithProvisioningArtifactOutput {}
+class AssociateTagOptionWithResourceCommand {}
+class AssociateTagOptionWithResourceInput {}
+class AssociateTagOptionWithResourceOutput {}
+class BatchAssociateServiceActionWithProvisioningArtifactCommand {}
+class BatchAssociateServiceActionWithProvisioningArtifactInput {}
+class BatchAssociateServiceActionWithProvisioningArtifactOutput {}
+class BatchDisassociateServiceActionFromProvisioningArtifactCommand {}
+class BatchDisassociateServiceActionFromProvisioningArtifactInput {}
+class BatchDisassociateServiceActionFromProvisioningArtifactOutput {}
+class CopyProductCommand {}
+class CopyProductInput {}
+class CopyProductOutput {}
+class CreateConstraintCommand {}
+class CreateConstraintInput {}
+class CreateConstraintOutput {}
+class CreatePortfolioCommand {}
+class CreatePortfolioInput {}
+class CreatePortfolioOutput {}
+class CreatePortfolioShareCommand {}
+class CreatePortfolioShareInput {}
+class CreatePortfolioShareOutput {}
+class CreateProductCommand {}
+class CreateProductInput {}
+class CreateProductOutput {}
+class CreateProvisionedProductPlanCommand {}
+class CreateProvisionedProductPlanInput {}
+class CreateProvisionedProductPlanOutput {}
+class CreateProvisioningArtifactCommand {}
+class CreateProvisioningArtifactInput {}
+class CreateProvisioningArtifactOutput {}
+class CreateServiceActionCommand {}
+class CreateServiceActionInput {}
+class CreateServiceActionOutput {}
+class CreateTagOptionCommand {}
+class CreateTagOptionInput {}
+class CreateTagOptionOutput {}
+class DeleteConstraintCommand {}
+class DeleteConstraintInput {}
+class DeleteConstraintOutput {}
+class DeletePortfolioCommand {}
+class DeletePortfolioInput {}
+class DeletePortfolioOutput {}
+class DeletePortfolioShareCommand {}
+class DeletePortfolioShareInput {}
+class DeletePortfolioShareOutput {}
+class DeleteProductCommand {}
+class DeleteProductInput {}
+class DeleteProductOutput {}
+class DeleteProvisionedProductPlanCommand {}
+class DeleteProvisionedProductPlanInput {}
+class DeleteProvisionedProductPlanOutput {}
+class DeleteProvisioningArtifactCommand {}
+class DeleteProvisioningArtifactInput {}
+class DeleteProvisioningArtifactOutput {}
+class DeleteServiceActionCommand {}
+class DeleteServiceActionInput {}
+class DeleteServiceActionOutput {}
+class DeleteTagOptionCommand {}
+class DeleteTagOptionInput {}
+class DeleteTagOptionOutput {}
+class DescribeConstraintCommand {}
+class DescribeConstraintInput {}
+class DescribeConstraintOutput {}
+class DescribeCopyProductStatusCommand {}
+class DescribeCopyProductStatusInput {}
+class DescribeCopyProductStatusOutput {}
+class DescribePortfolioCommand {}
+class DescribePortfolioInput {}
+class DescribePortfolioOutput {}
+class DescribePortfolioShareStatusCommand {}
+class DescribePortfolioShareStatusInput {}
+class DescribePortfolioShareStatusOutput {}
+class DescribePortfolioSharesCommand {}
+class DescribePortfolioSharesInput {}
+class DescribePortfolioSharesOutput {}
+class DescribeProductAsAdminCommand {}
+class DescribeProductAsAdminInput {}
+class DescribeProductAsAdminOutput {}
+class DescribeProductCommand {}
+class DescribeProductInput {}
+class DescribeProductOutput {}
+class DescribeProductViewCommand {}
+class DescribeProductViewInput {}
+class DescribeProductViewOutput {}
+class DescribeProvisionedProductCommand {}
+class DescribeProvisionedProductInput {}
+class DescribeProvisionedProductOutput {}
+class DescribeProvisionedProductPlanCommand {}
+class DescribeProvisionedProductPlanInput {}
+class DescribeProvisionedProductPlanOutput {}
+class DescribeProvisioningArtifactCommand {}
+class DescribeProvisioningArtifactInput {}
+class DescribeProvisioningArtifactOutput {}
+class DescribeProvisioningParametersCommand {}
+class DescribeProvisioningParametersInput {}
+class DescribeProvisioningParametersOutput {}
+class DescribeRecordCommand {}
+class DescribeRecordInput {}
+class DescribeRecordOutput {}
+class DescribeServiceActionCommand {}
+class DescribeServiceActionInput {}
+class DescribeServiceActionOutput {}
+class DescribeServiceActionExecutionParametersCommand {}
+class DescribeServiceActionExecutionParametersInput {}
+class DescribeServiceActionExecutionParametersOutput {}
+class DescribeTagOptionCommand {}
+class DescribeTagOptionInput {}
+class DescribeTagOptionOutput {}
+class DisableAWSOrganizationsAccessCommand {}
+class DisableAWSOrganizationsAccessInput {}
+class DisableAWSOrganizationsAccessOutput {}
+class DisassociateBudgetFromResourceCommand {}
+class DisassociateBudgetFromResourceInput {}
+class DisassociateBudgetFromResourceOutput {}
+class DisassociatePrincipalFromPortfolioCommand {}
+class DisassociatePrincipalFromPortfolioInput {}
+class DisassociatePrincipalFromPortfolioOutput {}
+class DisassociateProductFromPortfolioCommand {}
+class DisassociateProductFromPortfolioInput {}
+class DisassociateProductFromPortfolioOutput {}
+class DisassociateServiceActionFromProvisioningArtifactCommand {}
+class DisassociateServiceActionFromProvisioningArtifactInput {}
+class DisassociateServiceActionFromProvisioningArtifactOutput {}
+class DisassociateTagOptionFromResourceCommand {}
+class DisassociateTagOptionFromResourceInput {}
+class DisassociateTagOptionFromResourceOutput {}
+class EnableAWSOrganizationsAccessCommand {}
+class EnableAWSOrganizationsAccessInput {}
+class EnableAWSOrganizationsAccessOutput {}
+class ExecuteProvisionedProductPlanCommand {}
+class ExecuteProvisionedProductPlanInput {}
+class ExecuteProvisionedProductPlanOutput {}
+class ExecuteProvisionedProductServiceActionCommand {}
+class ExecuteProvisionedProductServiceActionInput {}
+class ExecuteProvisionedProductServiceActionOutput {}
+```
+
+```javascript
+// Issue every operation:
+const client = new ServiceCatalogClient({ region: process.env.AWS_REGION });
+await client.acceptPortfolioShare(input);
+await client.associateBudgetWithResource(input);
+await client.associatePrincipalWithPortfolio(input);
+await client.associateProductWithPortfolio(input);
+await client.associateServiceActionWithProvisioningArtifact(input);
+await client.associateTagOptionWithResource(input);
+await client.batchAssociateServiceActionWithProvisioningArtifact(input);
+await client.batchDisassociateServiceActionFromProvisioningArtifact(input);
+await client.copyProduct(input);
+await client.createConstraint(input);
+await client.createPortfolio(input);
+await client.createPortfolioShare(input);
+await client.createProduct(input);
+await client.createProvisionedProductPlan(input);
+await client.createProvisioningArtifact(input);
+await client.createServiceAction(input);
+await client.createTagOption(input);
+await client.deleteConstraint(input);
+await client.deletePortfolio(input);
+await client.deletePortfolioShare(input);
+await client.deleteProduct(input);
+await client.deleteProvisionedProductPlan(input);
+await client.deleteProvisioningArtifact(input);
+await client.deleteServiceAction(input);
+await client.deleteTagOption(input);
+await client.describeConstraint(input);
+await client.describeCopyProductStatus(input);
+await client.describePortfolio(input);
+await client.describePortfolioShareStatus(input);
+await client.describePortfolioShares(input);
+await client.describeProductAsAdmin(input);
+await client.describeProduct(input);
+await client.describeProductView(input);
+await client.describeProvisionedProduct(input);
+await client.describeProvisionedProductPlan(input);
+await client.describeProvisioningArtifact(input);
+await client.describeProvisioningParameters(input);
+await client.describeRecord(input);
+await client.describeServiceAction(input);
+await client.describeServiceActionExecutionParameters(input);
+await client.describeTagOption(input);
+await client.disableAWSOrganizationsAccess(input);
+await client.disassociateBudgetFromResource(input);
+await client.disassociatePrincipalFromPortfolio(input);
+await client.disassociateProductFromPortfolio(input);
+await client.disassociateServiceActionFromProvisioningArtifact(input);
+await client.disassociateTagOptionFromResource(input);
+await client.enableAWSOrganizationsAccess(input);
+await client.executeProvisionedProductPlan(input);
+await client.executeProvisionedProductServiceAction(input);
+
+// Paginators (auto-iterate over multi-page responses):
+for await (const page of client.paginateDescribePortfolioShares({})) {}
+for await (const page of client.paginateGetProvisionedProductOutputs({})) {}
+for await (const page of client.paginateListAcceptedPortfolioShares({})) {}
+for await (const page of client.paginateListBudgetsForResource({})) {}
+for await (const page of client.paginateListConstraintsForPortfolio({})) {}
+for await (const page of client.paginateListLaunchPaths({})) {}
+for await (const page of client.paginateListOrganizationPortfolioAccess({})) {}
+for await (const page of client.paginateListPortfolioAccess({})) {}
+for await (const page of client.paginateListPortfolios({})) {}
+for await (const page of client.paginateListPortfoliosForProduct({})) {}
+for await (const page of client.paginateListPrincipalsForPortfolio({})) {}
+for await (const page of client.paginateListProvisioningArtifactsForServiceAction({})) {}
+for await (const page of client.paginateListResourcesForTagOption({})) {}
+for await (const page of client.paginateListServiceActions({})) {}
+for await (const page of client.paginateListServiceActionsForProvisioningArtifact({})) {}
+for await (const page of client.paginateListTagOptions({})) {}
+for await (const page of client.paginateSearchProducts({})) {}
+for await (const page of client.paginateSearchProductsAsAdmin({})) {}
+for await (const page of client.paginateSearchProvisionedProducts({})) {}
+```

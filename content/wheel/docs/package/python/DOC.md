@@ -4,172 +4,253 @@ description: "wheel package guide for Python wheel-file tooling and legacy build
 metadata:
   languages: "python"
   versions: "0.46.3"
-  revision: 1
-  updated-on: "2026-03-11"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "wheel,python,packaging,build,pypi,ini,toml,Version-Sensitive"
+  tags: "wheel,python,packaging,build,pypi,ini,toml,Version-Sensitive,calculate_macosx_platform_tag,extract_macosx_min_system_version,get_base_class_and_magic_number,parse_version,read_data,read_mach_header,swap32,convert_requirements,generate_requirements,pkginfo_to_metadata,requires_to_requires_dist,safe_extra,safe_name,split_sections,WheelError,WheelFile,close,extract,extractall,getinfo,infolist,mkdir,namelist,open,printdir,read,setpassword,testzip,write,write_files,writestr,get_zipinfo_datetime,urlsafe_b64decode,urlsafe_b64encode,BdistWheel,unpack,pack,convert,wheel.bdist_wheel,wheel.wheelfile,wheel.cli,WheelExtractor"
 ---
 
-# wheel Python Package Guide
+# wheel — package
 
-## What It Is
+## 1. Golden Rule
 
-`wheel` is the reference implementation of the Python wheel format (PEP 427) and the official command-line tool for manipulating `.whl` files.
+Use `wheel` for wheel package guide for python wheel-file tooling and legacy build compatibility.
 
-For current Python packaging workflows, treat `wheel` primarily as a CLI utility:
-
-- Use `build` plus `setuptools` to produce wheels for modern projects.
-- Install `wheel` when you need CLI commands such as `convert`, `unpack`, `pack`, or `tags`.
-- Keep `wheel` in legacy build environments only when an older `setuptools`-based `bdist_wheel` flow still depends on it.
-
-## Install
-
-Install the package when you need the `wheel` command-line tool:
+### Install
 
 ```bash
-python -m pip install wheel==0.46.3
+pip install wheel
 ```
 
-The upstream docs also note that many system package managers expose it as `python-wheel` or `python3-wheel`.
+### Imports
 
-## Setup
-
-There is no auth, account setup, or remote service configuration. The main setup decision is whether your project actually needs `wheel` installed.
-
-### Modern project build setup
-
-For normal builds, use `build` and a current setuptools backend:
-
-```toml
-[build-system]
-requires = ["setuptools>=70.1"]
-build-backend = "setuptools.build_meta"
+```python
+import wheel
 ```
 
-```bash
-python -m pip install build
-python -m build --wheel
+## 2. Core Operations
+
+### 1. `split_sections`
+
+Split a string or iterable thereof into (section, content) pairs
+Each ``section`` is a stripped version of the section header ("[section]")
+and each ``content`` is a list of stripped lines excluding blank lines and
+comment-only lines.  If there are any such lines before the first section
+header, th…
+
+```python
+wheel.metadata.split_sections(s: 'str | Iterator[str]') -> 'Generator[tuple[str | None, list[str]], None, None]'
 ```
 
-This produces `dist/<project>-<version>-<tags>.whl`.
+**Parameters:**
 
-### Legacy setup for old `setuptools`
+- `s`: `str | Iterator[str]`
 
-If you are forced to keep `setuptools` older than `70.1` and still rely on `bdist_wheel`, add `wheel` to the build environment explicitly:
+**Returns:** `Generator[tuple[str | None, list[str]], None, None]`
 
-```toml
-[build-system]
-requires = ["setuptools<70.1", "wheel==0.46.3"]
-build-backend = "setuptools.build_meta"
+### 2. `generate_requirements`
+
+Convert requirements from a setup()-style dictionary to
+('Requires-Dist', 'requirement') and ('Provides-Extra', 'extra') tuples.
+
+extras_require is a dictionary of {extra: [requirements]} as passed to setup(),
+using the empty extra {'': [requirements]} to hold install_requires.
+
+```python
+wheel.metadata.generate_requirements(extras_require: 'dict[str | None, list[str]]') -> 'Iterator[tuple[str, str]]'
 ```
 
-That should be treated as compatibility-only. Upstream advises against installing `wheel` just to build wheels in modern projects.
+**Parameters:**
 
-## Core Usage
+- `extras_require`: `dict[str | None, list[str]]`
 
-### Build a wheel for your project
+**Returns:** `Iterator[tuple[str, str]]`
 
-Use `build`, not the `wheel` CLI, for standard package builds:
+### 3. `safe_extra`
 
-```bash
-python -m pip install build
-python -m build --wheel
+Convert an arbitrary string to a standard 'extra' name
+Any runs of non-alphanumeric characters are replaced with a single '_',
+and the result is always lowercased.
+
+```python
+wheel.metadata.safe_extra(extra: 'str') -> 'str'
 ```
 
-### Convert a legacy egg or wininst artifact
+**Parameters:**
 
-```bash
-wheel convert legacy_package-1.2.3-py3.11.egg
-wheel convert old_installer.exe
-wheel convert --dest-dir dist legacy_package-1.2.3-py3.11.egg
+- `extra`: `str`
+
+**Returns:** `str`
+
+### 4. `read_mach_header`
+
+This function parses a Mach-O header and extracts
+information about the minimal macOS version.
+
+:param lib_file: reference to opened library file with pointer
+
+```python
+wheel.macosx_libfile.read_mach_header(lib_file: 'BufferedIOBase', seek: 'int | None' = None) -> 'tuple[int, int, int] | None'
 ```
 
-Use this only for migration from old packaging artifacts. `wheel convert` does not build from source.
+**Parameters:**
 
-### Unpack a wheel safely
+- `lib_file`: `BufferedIOBase`
+- `seek`: `int | None` = `None`
 
-```bash
-wheel unpack dist/example_pkg-1.0.0-py3-none-any.whl
-wheel unpack -d /tmp/unpacked dist/example_pkg-1.0.0-py3-none-any.whl
+**Returns:** `tuple[int, int, int] | None`
+
+### 5. `safe_name`
+
+Convert an arbitrary string to a standard distribution name
+Any runs of non-alphanumeric/. characters are replaced with a single '-'.
+
+```python
+wheel.metadata.safe_name(name: 'str') -> 'str'
 ```
 
-`wheel unpack` validates hashes and file sizes against `RECORD`, so it is safer than a plain `unzip` when you need to inspect or modify an existing wheel.
+**Parameters:**
 
-### Repack an unpacked wheel
+- `name`: `str`
 
-```bash
-wheel pack example_pkg-1.0.0
-wheel pack --build-number 2 example_pkg-1.0.0
-wheel pack --dest-dir dist example_pkg-1.0.0
+**Returns:** `str`
+
+### 6. `calculate_macosx_platform_tag`
+
+Calculate proper macosx platform tag basing on files which are included to wheel
+
+Example platform tag `macosx-10.14-x86_64`
+
+```python
+wheel.macosx_libfile.calculate_macosx_platform_tag(archive_root: 'StrPath', platform_tag: 'str') -> 'str'
 ```
 
-This regenerates `RECORD` for the new archive.
+**Parameters:**
 
-### Adjust compatibility tags on an existing wheel
+- `archive_root`: `StrPath`
+- `platform_tag`: `str`
 
-```bash
-wheel tags \
-  --python-tag=py3 \
-  --abi-tag=none \
-  --platform-tag=any \
-  dist/example_pkg-1.0.0-cp311-cp311-manylinux_2_28_x86_64.whl
+**Returns:** `str`
+
+### 7. `WheelFile`
+
+A ZipFile derivative class that also reads SHA-256 hashes from
+.dist-info/RECORD and checks any read files against those.
+
+```python
+wheel.wheelfile.WheelFile(self, file: 'StrPath', mode: "Literal['r', 'w', 'x', 'a']" = 'r', compression: 'int' = 8)
 ```
 
-Use `+tag` to append tags and `-tag` to remove tags. `wheel tags` writes a new wheel unless you also pass `--remove`.
+**Parameters:**
 
-## Configuration
+- `file`: `StrPath`
+- `mode`: `Literal['r', 'w', 'x', 'a']` = `'r'`
+- `compression`: `int` = `8`
 
-### `setup.cfg` options
+### 8. `requires_to_requires_dist`
 
-For legacy setuptools-based projects, `wheel` still documents a few common config points in `setup.cfg`.
+Return the version specifier for a requirement in PEP 345/566 fashion.
 
-Include license files in the generated wheel:
-
-```ini
-[metadata]
-license_files =
-    LICENSE
-    NOTICE
-    licenses/*.txt
+```python
+wheel.metadata.requires_to_requires_dist(requirement: 'Requirement') -> 'str'
 ```
 
-Mark a package as universal only for the old pure-Python Python 2/3 compatibility case:
+**Parameters:**
 
-```ini
-[bdist_wheel]
-universal = 1
+- `requirement`: `Requirement`
+
+**Returns:** `str`
+
+### 9. `pkginfo_to_metadata`
+
+Convert .egg-info directory with PKG-INFO to the Metadata 2.1 format
+
+```python
+wheel.metadata.pkginfo_to_metadata(egg_info_path: 'str', pkginfo_path: 'str') -> 'Message'
 ```
 
-Do not cargo-cult `universal = 1` into Python 3-only or extension-bearing packages.
+**Parameters:**
 
-## Common Pitfalls
+- `egg_info_path`: `str`
+- `pkginfo_path`: `str`
 
-- Do not add `wheel` as a normal runtime dependency. It is packaging tooling, not an application library.
-- Do not keep `wheel` in `build-system.requires` by default for current setuptools projects. Build with `build` plus `setuptools>=70.1` instead.
-- Do not import `wheel.cli`, `wheel.metadata`, or `wheel.bdist_wheel` in new code. Upstream made `wheel.cli` private in `0.46.0`, made `wheel.metadata` private, and deprecated the old `wheel.bdist_wheel` path.
-- Do not use `wheel tags` to claim compatibility you have not actually tested. Retagging changes metadata; it does not rebuild binaries.
-- Do not use `wheel convert` for source distributions. It is for old `.egg` files, `.egg` directories, and `bdist_wininst` installers.
-- Prefer `wheel unpack` over `unzip` when auditing a wheel, because it verifies `RECORD` hashes and sizes.
+**Returns:** `Message`
 
-## Version-Sensitive Notes
+### 10. `convert_requirements`
 
-- `0.46.0` dropped Python 3.8 support.
-- `0.46.0` removed wheel’s own `bdist_wheel` implementation and turned `wheel.bdist_wheel` into a deprecated alias to the setuptools implementation.
-- `0.46.0` also made `wheel.cli` private and `wheel.metadata` private, so code that imported wheel internals is now on a weaker path.
-- `0.46.2` restored `bdist_wheel` command compatibility for `setuptools` older than `70.1` and fixed a `wheel unpack` directory-traversal style issue tracked as `CVE-2026-24049`.
-- `0.46.3` fixed an `ImportError` that could occur with older setuptools during `bdist_wheel`.
+Yield Requires-Dist: strings for parsed requirements strings.
 
-## Quick Decision Guide
+```python
+wheel.metadata.convert_requirements(requirements: 'list[str]') -> 'Iterator[str]'
+```
 
-- Need to build a wheel from source in a modern project: install `build`, not `wheel`.
-- Need to inspect, retag, convert, or repack existing wheel artifacts: install `wheel`.
-- Need `bdist_wheel` with an older setuptools stack: pin `wheel` for compatibility and plan a setuptools upgrade.
+**Parameters:**
 
-## Official Sources
+- `requirements`: `list[str]`
 
-- Documentation: `https://wheel.readthedocs.io/en/stable/`
-- Installation: `https://wheel.readthedocs.io/en/stable/installing.html`
-- User guide: `https://wheel.readthedocs.io/en/stable/user_guide.html`
-- Reference guide: `https://wheel.readthedocs.io/en/stable/reference/index.html`
-- Release notes: `https://wheel.readthedocs.io/en/stable/news.html`
-- PyPI project: `https://pypi.org/project/wheel/`
+**Returns:** `Iterator[str]`
+
+### 11. `WheelError`
+
+Common base class for all non-exit exceptions.
+
+```python
+wheel.wheelfile.WheelError(self, /, *args, **kwargs)
+```
+
+**Parameters:**
+
+- `args`
+- `kwargs`
+
+### 12. `urlsafe_b64decode`
+
+urlsafe_b64decode without padding
+
+```python
+wheel.wheelfile.urlsafe_b64decode(data: 'bytes') -> 'bytes'
+```
+
+**Parameters:**
+
+- `data`: `bytes`
+
+**Returns:** `bytes`
+
+## API Classes Summary
+
+| Class | Synopsis |
+|-------|----------|
+| `WheelError` | Common base class for all non-exit exceptions. |
+| `WheelFile` | A ZipFile derivative class that also reads SHA-256 hashes from .dist-info/RECORD and checks any rea… |
+
+## Key Patterns
+
+- Read the symbol signatures above before guessing argument names.
+- Pin the version (`wheel==0.46.3`) when behaviour is critical; this doc was generated against that version.
+- For options not shown here, fall back to the package's official upstream docs.
+## API surface — extra wheel symbols
+
+```python
+from wheel.bdist_wheel import bdist_wheel
+from wheel.wheelfile import WheelFile
+from wheel.cli import unpack, pack, convert
+from wheel.metadata import pkginfo_to_metadata
+
+class BdistWheel(bdist_wheel):
+    def initialize_options(self): pass
+    def finalize_options(self): pass
+    def get_tag(self): pass
+    def write_wheelfile(self, wheelfile_base): pass
+    def egg2dist(self, egginfo_path, distinfo_path): pass
+
+class WheelExtractor:
+    def __init__(self, wheel_path): pass
+    def extract_all(self, target): pass
+    def list_files(self): pass
+    def verify_record(self): pass
+
+result_unpack = unpack(wheel_file, dest)
+result_pack = pack(directory, dest)
+result_convert = convert(files, dest, verbose=True)
+result_metadata = pkginfo_to_metadata(pkg_info_path, output_path)
+```

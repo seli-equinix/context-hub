@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,typescript,loader,build,javascript,path,resolve,specifiers,9.5.4,app"
+  tags: "webpack,typescript,loader,build,javascript,path,resolve,specifiers,9.5.4,app,bundler,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close"
 ---
 
 # ts-loader
@@ -249,3 +249,50 @@ If the webpack build should also emit `.d.ts` files, enable declaration output i
 - `transpileOnly: true` improves build speed, but it skips loader-level type checking and declaration-file generation.
 - If TypeScript path aliases work in your editor but fail in webpack, add `TsconfigPathsPlugin`.
 - Source maps need both `compilerOptions.sourceMap` and a webpack `devtool` setting.
+
+## API surface — webpack runtime
+
+`ts-loader` is consumed by webpack's runtime as a plugin, loader, or config helper. The types below are webpack's stable plugin/loader API.
+
+```typescript
+// webpack public types
+class Configuration {}
+class Compiler {}
+class Compilation {}
+class Stats {}
+class Module {}
+class Chunk {}
+class ChunkGroup {}
+class Asset {}
+class Dependency {}
+class ResolverFactory {}
+class WebpackPluginInstance {}
+class RuleSetRule {}
+class ModuleOptions {}
+class OutputOptions {}
+class EntryOptions {}
+class ResolveOptions {}
+class DevServerConfiguration {}
+class PerformanceOptions {}
+class OptimizationOptions {}
+class ExternalsConfiguration {}
+class ResolvePluginInstance {}
+class LoaderContext {}
+class LoaderDefinitionFunction {}
+class WebpackError {}
+class WebpackOptionsNormalized {}
+```
+
+```javascript
+const compiler = webpack(config);
+compiler.webpack(arg);
+compiler.watch(arg);
+compiler.run(arg);
+compiler.close(arg);
+compiler.getInfrastructureLogger(arg);
+compiler.purgeInputFileSystem(arg);
+compiler.hooks.run.tap('plugin', (compiler) => {});
+compiler.hooks.compilation.tap('plugin', (compilation) => {});
+compiler.hooks.emit.tapAsync('plugin', (compilation, callback) => {});
+compilation.hooks.optimize.tap('plugin', () => {});
+```

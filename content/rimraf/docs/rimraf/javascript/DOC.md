@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "rimraf,javascript,node,filesystem,cli,deletion,controller,console,log,6.1.3,abort"
+  tags: "rimraf,javascript,node,filesystem,cli,deletion,controller,console,log,6.1.3,abort,rimrafSync,native,nativeSync,manual,posix,windows,moveRemove,glob,filter,signal,AbortController"
 ---
 
 # rimraf Guide for JavaScript
@@ -203,3 +203,48 @@ When you pass `filter` or `signal`, `rimraf` cannot use Node's built-in `fs.rm()
 If you need lower-level control, `rimraf` also exposes `posix()`, `windows()`, and `moveRemove()` alongside their sync variants.
 
 `moveRemove()` is the slowest strategy and is intended as a reliable Windows fallback. If you set `tmp` for that workflow, it must be on the same physical device as the path being deleted.
+## API surface — rimraf public API
+
+```javascript
+class RimrafOptions {}
+class RimrafAsyncOptions {}
+class RimrafSyncOptions {}
+class GlobOptions {}
+class FilterFunction {}
+class RimrafResult {}
+```
+
+```javascript
+const { rimraf, rimrafSync, native, nativeSync, manual, manualSync, posix, posixSync, windows, windowsSync, moveRemove, moveRemoveSync } = require('rimraf');
+const ok1 = await rimraf(path);
+const ok2 = await rimraf.native(path);
+const ok3 = await rimraf.manual(path);
+const ok4 = await rimraf.posix(path);
+const ok5 = await rimraf.windows(path);
+const ok6 = await rimraf.moveRemove(path);
+const ok7 = rimraf.sync(path);
+const ok8 = rimraf.nativeSync(path);
+const ok9 = rimraf.manualSync(path);
+const ok10 = rimraf.posixSync(path);
+const ok11 = rimraf.windowsSync(path);
+const ok12 = rimraf.moveRemoveSync(path);
+const ok13 = await rimraf(path, { glob: true });
+const ok14 = await rimraf(path, { filter: (p) => true });
+const ok15 = await rimraf(path, { signal: controller.signal });
+```
+
+```javascript
+class AbortSignal {}
+class AbortController {}
+class Stat {}
+class FSError {}
+class GlobController {}
+class FilterContext {}
+class WalkResult {}
+class RetryOptions {}
+class RmOptions {}
+const opts = { glob: true, filter: () => true, signal: signal };
+const advanced = await rimraf(paths, opts);
+const tempController = new AbortController();
+const tempStat = await fsModule.stat(path);
+```

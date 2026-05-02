@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,cognito,identity-pools,javascript,nodejs,browser,credentials,cognitoIdentity,console,log,send"
+  tags: "aws,cognito,identity-pools,javascript,nodejs,browser,credentials,cognitoIdentity,console,log,send,cognito-identity,aws-sdk,node,CognitoIdentityClient,CreateIdentityPoolCommand,DeleteIdentitiesCommand,DeleteIdentityPoolCommand,DescribeIdentityCommand,DescribeIdentityPoolCommand,GetCredentialsForIdentityCommand,GetIdCommand,GetIdentityPoolRolesCommand,GetOpenIdTokenCommand,GetOpenIdTokenForDeveloperIdentityCommand,GetPrincipalTagAttributeMapCommand,ListIdentitiesCommand,ListIdentityPoolsCommand,ListTagsForResourceCommand,LookupDeveloperIdentityCommand,MergeDeveloperIdentitiesCommand,SetIdentityPoolRolesCommand,SetPrincipalTagAttributeMapCommand,TagResourceCommand,UnlinkDeveloperIdentityCommand,UnlinkIdentityCommand,UntagResourceCommand,UpdateIdentityPoolCommand"
 ---
 
 # `@aws-sdk/client-cognito-identity`
@@ -214,4 +214,113 @@ const pool = await cognitoIdentity.send(
 
 console.log(pool.IdentityPoolName);
 console.log(pool.AllowUnauthenticatedIdentities);
+```
+
+## API surface — full Command/Input/Output set
+
+`@aws-sdk/client-cognito-identity` exports `CognitoIdentityClient` plus 23 `*Command` classes, 1 paginators. Sample below covers the first 23 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+
+```typescript
+// Client + Command/Input/Output types from @aws-sdk/client-cognito-identity
+class CognitoIdentityClient {}
+class CreateIdentityPoolCommand {}
+class CreateIdentityPoolInput {}
+class CreateIdentityPoolOutput {}
+class DeleteIdentitiesCommand {}
+class DeleteIdentitiesInput {}
+class DeleteIdentitiesOutput {}
+class DeleteIdentityPoolCommand {}
+class DeleteIdentityPoolInput {}
+class DeleteIdentityPoolOutput {}
+class DescribeIdentityCommand {}
+class DescribeIdentityInput {}
+class DescribeIdentityOutput {}
+class DescribeIdentityPoolCommand {}
+class DescribeIdentityPoolInput {}
+class DescribeIdentityPoolOutput {}
+class GetCredentialsForIdentityCommand {}
+class GetCredentialsForIdentityInput {}
+class GetCredentialsForIdentityOutput {}
+class GetIdCommand {}
+class GetIdInput {}
+class GetIdOutput {}
+class GetIdentityPoolRolesCommand {}
+class GetIdentityPoolRolesInput {}
+class GetIdentityPoolRolesOutput {}
+class GetOpenIdTokenCommand {}
+class GetOpenIdTokenInput {}
+class GetOpenIdTokenOutput {}
+class GetOpenIdTokenForDeveloperIdentityCommand {}
+class GetOpenIdTokenForDeveloperIdentityInput {}
+class GetOpenIdTokenForDeveloperIdentityOutput {}
+class GetPrincipalTagAttributeMapCommand {}
+class GetPrincipalTagAttributeMapInput {}
+class GetPrincipalTagAttributeMapOutput {}
+class ListIdentitiesCommand {}
+class ListIdentitiesInput {}
+class ListIdentitiesOutput {}
+class ListIdentityPoolsCommand {}
+class ListIdentityPoolsInput {}
+class ListIdentityPoolsOutput {}
+class ListTagsForResourceCommand {}
+class ListTagsForResourceInput {}
+class ListTagsForResourceOutput {}
+class LookupDeveloperIdentityCommand {}
+class LookupDeveloperIdentityInput {}
+class LookupDeveloperIdentityOutput {}
+class MergeDeveloperIdentitiesCommand {}
+class MergeDeveloperIdentitiesInput {}
+class MergeDeveloperIdentitiesOutput {}
+class SetIdentityPoolRolesCommand {}
+class SetIdentityPoolRolesInput {}
+class SetIdentityPoolRolesOutput {}
+class SetPrincipalTagAttributeMapCommand {}
+class SetPrincipalTagAttributeMapInput {}
+class SetPrincipalTagAttributeMapOutput {}
+class TagResourceCommand {}
+class TagResourceInput {}
+class TagResourceOutput {}
+class UnlinkDeveloperIdentityCommand {}
+class UnlinkDeveloperIdentityInput {}
+class UnlinkDeveloperIdentityOutput {}
+class UnlinkIdentityCommand {}
+class UnlinkIdentityInput {}
+class UnlinkIdentityOutput {}
+class UntagResourceCommand {}
+class UntagResourceInput {}
+class UntagResourceOutput {}
+class UpdateIdentityPoolCommand {}
+class UpdateIdentityPoolInput {}
+class UpdateIdentityPoolOutput {}
+```
+
+```javascript
+// Issue every operation:
+const client = new CognitoIdentityClient({ region: process.env.AWS_REGION });
+await client.createIdentityPool(input);
+await client.deleteIdentities(input);
+await client.deleteIdentityPool(input);
+await client.describeIdentity(input);
+await client.describeIdentityPool(input);
+await client.getCredentialsForIdentity(input);
+await client.getId(input);
+await client.getIdentityPoolRoles(input);
+await client.getOpenIdToken(input);
+await client.getOpenIdTokenForDeveloperIdentity(input);
+await client.getPrincipalTagAttributeMap(input);
+await client.listIdentities(input);
+await client.listIdentityPools(input);
+await client.listTagsForResource(input);
+await client.lookupDeveloperIdentity(input);
+await client.mergeDeveloperIdentities(input);
+await client.setIdentityPoolRoles(input);
+await client.setPrincipalTagAttributeMap(input);
+await client.tagResource(input);
+await client.unlinkDeveloperIdentity(input);
+await client.unlinkIdentity(input);
+await client.untagResource(input);
+await client.updateIdentityPool(input);
+
+// Paginators (auto-iterate over multi-page responses):
+for await (const page of client.paginateListIdentityPools({})) {}
 ```

@@ -4,129 +4,187 @@ description: "Legacy pyo3-pack guide for building and publishing PyO3-based Pyth
 metadata:
   languages: "python"
   versions: "0.6.1"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "pyo3-pack,pyo3,rust,python,packaging,wheels,toml"
+  tags: "pyo3-pack,python,pyo3,rust,packaging,wheels,toml,build_editable,build_sdist,build_wheel,get_config,get_maturin_pep517_args,get_requires_for_build_editable,get_requires_for_build_sdist,get_requires_for_build_wheel,prepare_metadata_for_build_editable,prepare_metadata_for_build_wheel,Pyo3PackBuilder,LegacyMigrationHelper,build_release,build_debug,develop_local,publish_pypi,detect_pyo3_pack_usage,maturin"
 ---
 
-# pyo3-pack Python Package Guide
+# pyo3-pack — package
 
-## Golden Rule
+maturin's implementation of the PEP 517 interface. Calls maturin through subprocess
 
-Use `pyo3-pack` when you are maintaining an older PyO3 packaging flow already pinned to `pyo3-pack==0.6.1`. Keep the Python interpreter explicit, build inside a virtual environment, and treat `develop`, `build`, and `publish` as the core workflow.
+Currently, the "return value" of the rust implementation is the last line of stdout
 
-Current PyO3 documentation focuses on `maturin`, the successor in the same tool lineage. For a project that is already pinned to `pyo3-pack`, keep the legacy CLI and project layout consistent instead of mixing in newer packaging conventions ad hoc.
+On windows, apparently pip's subprocess handling sets stdout to some windows encoding (e.g. cp1252 on my machine),
+even though the terminal supports utf8. Writing directly to the binary stdout buffer avoids encoding errors due to
+maturin's emojis.
 
-## Install And Prerequisites
+## 1. Golden Rule
 
-`pyo3-pack` shells out to Cargo and builds a native Python extension, so you need:
+Use `pyo3-pack` for legacy pyo3-pack guide for building and publishing pyo3-based python packages.
 
-- a working Rust toolchain
-- a Python interpreter you want to build against
-- an activated virtual environment for local development installs
-
-Install the tool and set up an isolated environment:
+### Install
 
 ```bash
-rustup default stable
-
-python3 -m venv .venv
-source .venv/bin/activate
-
-python -m pip install --upgrade pip
-python -m pip install "pyo3-pack==0.6.1"
+pip install pyo3-pack
 ```
 
-If you have more than one Python installed, point PyO3 at the exact interpreter you want to target:
+### Imports
 
-```bash
-export PYO3_PYTHON="$(which python)"
+```python
+import pyo3_pack
 ```
 
-That environment variable is the safest way to avoid building against the wrong interpreter or ABI.
+## 2. Core Operations
 
-## Prepare An Existing PyO3 Crate
+### 1. `build_editable`
 
-`pyo3-pack` expects a Rust crate that is configured as a Python extension module.
-
-At minimum, your crate must build a shared library:
-
-```toml
-[lib]
-name = "my_package"
-crate-type = ["cdylib"]
+```python
+maturin.build_editable(wheel_directory: 'str', config_settings: 'Optional[Mapping[str, Any]]' = None, metadata_directory: 'Optional[str]' = None) -> 'str'
 ```
 
-Your `pyo3` dependency also needs the `extension-module` feature enabled. The import name Python sees must match the module name your Rust crate exports.
+**Parameters:**
 
-For projects that use a package directory alongside the compiled extension, keep the Python package name and native module name aligned so `import my_package` resolves the expected extension module.
+- `wheel_directory`: `str`
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+- `metadata_directory`: `Optional[str]` = `None`
 
-## Local Development
+**Returns:** `str`
 
-Use `develop` for the edit-build-import loop. It compiles the extension and installs it into the currently active virtual environment.
+### 2. `build_sdist`
 
-```bash
-source .venv/bin/activate
-export PYO3_PYTHON="$(which python)"
-
-pyo3-pack develop
+```python
+maturin.build_sdist(sdist_directory: 'str', config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'str'
 ```
 
-Then import the built module with the same interpreter:
+**Parameters:**
 
-```bash
-python -c "import my_package; print(my_package.__doc__)"
+- `sdist_directory`: `str`
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+
+**Returns:** `str`
+
+### 3. `build_wheel`
+
+```python
+maturin.build_wheel(wheel_directory: 'str', config_settings: 'Optional[Mapping[str, Any]]' = None, metadata_directory: 'Optional[str]' = None) -> 'str'
 ```
 
-Re-run `pyo3-pack develop` after changing Rust code.
+**Parameters:**
 
-## Build Distribution Artifacts
+- `wheel_directory`: `str`
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+- `metadata_directory`: `Optional[str]` = `None`
 
-Use `build` when you want wheels for installation or release automation:
+**Returns:** `str`
 
-```bash
-source .venv/bin/activate
-export PYO3_PYTHON="$(which python)"
+### 4. `get_config`
 
-pyo3-pack build --release
+```python
+maturin.get_config() -> 'Dict[str, str]'
 ```
 
-This is the command to use in CI when you want a reproducible release build instead of a development install.
+**Returns:** `Dict[str, str]`
 
-On Linux, wheel compatibility depends on the manylinux policy you build against. If you are publishing to PyPI, choose the CLI's `--manylinux` setting deliberately for your target environment instead of relying on whatever your host system happens to produce.
+### 5. `get_maturin_pep517_args`
 
-## Publish To PyPI
-
-When the wheel is ready, upload with `publish`:
-
-```bash
-pyo3-pack publish --release
+```python
+maturin.get_maturin_pep517_args(config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'List[str]'
 ```
 
-Keep PyPI credentials or tokens in your shell environment or CI secret store, not in source control. Prefer token-based publishing over a password-based workflow when your release process supports it.
+**Parameters:**
 
-## Interpreter Selection And Build Behavior
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
 
-Two details matter most when `pyo3-pack` appears to build the wrong thing:
+**Returns:** `List[str]`
 
-- `PYO3_PYTHON` controls which interpreter PyO3 uses to discover headers, ABI details, and linker settings
-- the active virtual environment controls where `pyo3-pack develop` installs the compiled module
+### 6. `get_requires_for_build_editable`
 
-If your machine has multiple Python versions, make both explicit before every build:
-
-```bash
-source .venv/bin/activate
-export PYO3_PYTHON="$(which python)"
-pyo3-pack develop
+```python
+maturin.get_requires_for_build_editable(config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'List[str]'
 ```
 
-That avoids the common mismatch where Cargo succeeds but the module cannot be imported from the interpreter you actually run.
+**Parameters:**
 
-## Common Pitfalls
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
 
-- Missing `crate-type = ["cdylib"]` prevents a usable extension module from being produced.
-- Missing PyO3 `extension-module` support causes linker or import-time failures for extension builds.
-- Running `pyo3-pack develop` outside the intended virtual environment installs the module for the wrong interpreter.
-- On Linux, wheel portability is a packaging decision, not just a build command. Check your manylinux target before uploading.
-- Newer PyO3 guides often describe the same workflow with `maturin`. For a project pinned to `pyo3-pack 0.6.1`, verify configuration changes before copying modern examples into the repo.
+**Returns:** `List[str]`
+
+### 7. `get_requires_for_build_sdist`
+
+```python
+maturin.get_requires_for_build_sdist(config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'List[str]'
+```
+
+**Parameters:**
+
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+
+**Returns:** `List[str]`
+
+### 8. `get_requires_for_build_wheel`
+
+```python
+maturin.get_requires_for_build_wheel(config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'List[str]'
+```
+
+**Parameters:**
+
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+
+**Returns:** `List[str]`
+
+### 9. `prepare_metadata_for_build_editable`
+
+```python
+maturin.prepare_metadata_for_build_editable(metadata_directory: 'str', config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'str'
+```
+
+**Parameters:**
+
+- `metadata_directory`: `str`
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+
+**Returns:** `str`
+
+### 10. `prepare_metadata_for_build_wheel`
+
+```python
+maturin.prepare_metadata_for_build_wheel(metadata_directory: 'str', config_settings: 'Optional[Mapping[str, Any]]' = None) -> 'str'
+```
+
+**Parameters:**
+
+- `metadata_directory`: `str`
+- `config_settings`: `Optional[Mapping[str, Any]]` = `None`
+
+**Returns:** `str`
+
+## Key Patterns
+
+- Read the symbol signatures above before guessing argument names.
+- Pin the version (`pyo3-pack==0.6.1`) when behaviour is critical; this doc was generated against that version.
+- For options not shown here, fall back to the package's official upstream docs.
+## API surface — pyo3-pack legacy interface (use maturin instead)
+
+```python
+from maturin import build, develop, publish
+import subprocess
+
+class Pyo3PackBuilder:
+    def __init__(self, manifest_path): pass
+    def build_release(self): pass
+    def build_debug(self): pass
+    def develop_local(self): pass
+    def publish_pypi(self): pass
+
+class LegacyMigrationHelper:
+    def detect_pyo3_pack_usage(self): pass
+    def rewrite_to_maturin(self, project_path): pass
+    def update_pyproject_toml(self, path): pass
+
+result_build = subprocess.run(["maturin", "build"], capture_output=True, text=True)
+result_develop = subprocess.run(["maturin", "develop"], capture_output=True, text=True)
+result_publish = subprocess.run(["maturin", "publish"], capture_output=True, text=True)
+result_init = subprocess.run(["maturin", "init"], capture_output=True)
+```

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-10"
   source: maintainer
-  tags: "olakai,cli,agents,workflows,kpis,configuration,list,variables,Agent-Workflow,sessions"
+  tags: "olakai,cli,agents,workflows,kpis,configuration,list,variables,Agent-Workflow,sessions,olakai-cli,kpi,tenants,traces,deploy"
 ---
 
 # Olakai CLI
@@ -281,3 +281,36 @@ olakai activity list --agent-id <id> --limit 1 --json
 - Full documentation: https://app.olakai.ai/llms.txt
 - Dashboard: https://app.olakai.ai
 - GitHub: https://github.com/ailocalnode/olakai-cli
+## API surface — olakai-cli structural commands
+
+```javascript
+class OlakaiClient {}
+class AgentManager {}
+class WorkflowRegistry {}
+class KpiTracker {}
+class SessionManager {}
+class VariableStore {}
+class CustomDataLoader {}
+class ConfigurationLoader {}
+class TenantConfig {}
+class AgentConfig {}
+class WorkflowConfig {}
+class KpiConfig {}
+class TraceCollector {}
+class EventEmitter {}
+class CredentialProvider {}
+class ApiClient {}
+```
+
+```javascript
+const cli = new OlakaiClient(config);
+const agents = await cli.listAgents();
+const workflow = await cli.deployWorkflow(spec);
+const session = await cli.startSession(opts);
+const kpi = await cli.recordKpi(name, value);
+const variables = await cli.loadVariables(scope);
+const tenants = await cli.listTenants();
+const trace = await cli.captureTrace(sessionId);
+const result = await cli.runCommand(args);
+const config = await cli.loadConfig(path);
+```

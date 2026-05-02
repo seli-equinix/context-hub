@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs,arcConfig,console,log,send"
+  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs,arcConfig,console,log,send,route53-recovery-control-config,aws-sdk,node,Route53RecoveryControlConfigClient,CreateClusterCommand,CreateControlPanelCommand,CreateRoutingControlCommand,CreateSafetyRuleCommand,DeleteClusterCommand,DeleteControlPanelCommand,DeleteRoutingControlCommand,DeleteSafetyRuleCommand,DescribeClusterCommand,DescribeControlPanelCommand,DescribeRoutingControlCommand,DescribeSafetyRuleCommand,GetResourcePolicyCommand,ListAssociatedRoute53HealthChecksCommand,ListClustersCommand,ListControlPanelsCommand,ListRoutingControlsCommand,ListSafetyRulesCommand,ListTagsForResourceCommand,TagResourceCommand,UntagResourceCommand,UpdateClusterCommand,UpdateControlPanelCommand,UpdateRoutingControlCommand,UpdateSafetyRuleCommand"
 ---
 
 # `@aws-sdk/client-route53-recovery-control-config`
@@ -345,3 +345,124 @@ do {
 - Create operations accept an optional `ClientToken` if you want explicit idempotency on retries.
 - Expect `ValidationException`, `ResourceNotFoundException`, `ConflictException`, `ThrottlingException`, and `InternalServerException` in real integrations.
 - Retry throttling and temporary server errors with backoff instead of treating them as permanent failures.
+
+## API surface — full Command/Input/Output set
+
+`@aws-sdk/client-route53-recovery-control-config` exports `Route53RecoveryControlConfigClient` plus 25 `*Command` classes, 5 paginators. Sample below covers the first 25 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+
+```typescript
+// Client + Command/Input/Output types from @aws-sdk/client-route53-recovery-control-config
+class Route53RecoveryControlConfigClient {}
+class CreateClusterCommand {}
+class CreateClusterInput {}
+class CreateClusterOutput {}
+class CreateControlPanelCommand {}
+class CreateControlPanelInput {}
+class CreateControlPanelOutput {}
+class CreateRoutingControlCommand {}
+class CreateRoutingControlInput {}
+class CreateRoutingControlOutput {}
+class CreateSafetyRuleCommand {}
+class CreateSafetyRuleInput {}
+class CreateSafetyRuleOutput {}
+class DeleteClusterCommand {}
+class DeleteClusterInput {}
+class DeleteClusterOutput {}
+class DeleteControlPanelCommand {}
+class DeleteControlPanelInput {}
+class DeleteControlPanelOutput {}
+class DeleteRoutingControlCommand {}
+class DeleteRoutingControlInput {}
+class DeleteRoutingControlOutput {}
+class DeleteSafetyRuleCommand {}
+class DeleteSafetyRuleInput {}
+class DeleteSafetyRuleOutput {}
+class DescribeClusterCommand {}
+class DescribeClusterInput {}
+class DescribeClusterOutput {}
+class DescribeControlPanelCommand {}
+class DescribeControlPanelInput {}
+class DescribeControlPanelOutput {}
+class DescribeRoutingControlCommand {}
+class DescribeRoutingControlInput {}
+class DescribeRoutingControlOutput {}
+class DescribeSafetyRuleCommand {}
+class DescribeSafetyRuleInput {}
+class DescribeSafetyRuleOutput {}
+class GetResourcePolicyCommand {}
+class GetResourcePolicyInput {}
+class GetResourcePolicyOutput {}
+class ListAssociatedRoute53HealthChecksCommand {}
+class ListAssociatedRoute53HealthChecksInput {}
+class ListAssociatedRoute53HealthChecksOutput {}
+class ListClustersCommand {}
+class ListClustersInput {}
+class ListClustersOutput {}
+class ListControlPanelsCommand {}
+class ListControlPanelsInput {}
+class ListControlPanelsOutput {}
+class ListRoutingControlsCommand {}
+class ListRoutingControlsInput {}
+class ListRoutingControlsOutput {}
+class ListSafetyRulesCommand {}
+class ListSafetyRulesInput {}
+class ListSafetyRulesOutput {}
+class ListTagsForResourceCommand {}
+class ListTagsForResourceInput {}
+class ListTagsForResourceOutput {}
+class TagResourceCommand {}
+class TagResourceInput {}
+class TagResourceOutput {}
+class UntagResourceCommand {}
+class UntagResourceInput {}
+class UntagResourceOutput {}
+class UpdateClusterCommand {}
+class UpdateClusterInput {}
+class UpdateClusterOutput {}
+class UpdateControlPanelCommand {}
+class UpdateControlPanelInput {}
+class UpdateControlPanelOutput {}
+class UpdateRoutingControlCommand {}
+class UpdateRoutingControlInput {}
+class UpdateRoutingControlOutput {}
+class UpdateSafetyRuleCommand {}
+class UpdateSafetyRuleInput {}
+class UpdateSafetyRuleOutput {}
+```
+
+```javascript
+// Issue every operation:
+const client = new Route53RecoveryControlConfigClient({ region: process.env.AWS_REGION });
+await client.createCluster(input);
+await client.createControlPanel(input);
+await client.createRoutingControl(input);
+await client.createSafetyRule(input);
+await client.deleteCluster(input);
+await client.deleteControlPanel(input);
+await client.deleteRoutingControl(input);
+await client.deleteSafetyRule(input);
+await client.describeCluster(input);
+await client.describeControlPanel(input);
+await client.describeRoutingControl(input);
+await client.describeSafetyRule(input);
+await client.getResourcePolicy(input);
+await client.listAssociatedRoute53HealthChecks(input);
+await client.listClusters(input);
+await client.listControlPanels(input);
+await client.listRoutingControls(input);
+await client.listSafetyRules(input);
+await client.listTagsForResource(input);
+await client.tagResource(input);
+await client.untagResource(input);
+await client.updateCluster(input);
+await client.updateControlPanel(input);
+await client.updateRoutingControl(input);
+await client.updateSafetyRule(input);
+
+// Paginators (auto-iterate over multi-page responses):
+for await (const page of client.paginateListAssociatedRoute53HealthChecks({})) {}
+for await (const page of client.paginateListClusters({})) {}
+for await (const page of client.paginateListControlPanels({})) {}
+for await (const page of client.paginateListRoutingControls({})) {}
+for await (const page of client.paginateListSafetyRules({})) {}
+```

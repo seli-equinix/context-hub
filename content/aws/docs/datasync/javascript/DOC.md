@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,datasync,javascript,nodejs,s3,data-transfer,migration,log,send,console"
+  tags: "aws,datasync,javascript,nodejs,s3,data-transfer,migration,log,send,console,aws-sdk,node,DataSyncClient,CancelTaskExecutionCommand,CreateAgentCommand,CreateLocationAzureBlobCommand,CreateLocationEfsCommand,CreateLocationFsxLustreCommand,CreateLocationFsxOntapCommand,CreateLocationFsxOpenZfsCommand,CreateLocationFsxWindowsCommand,CreateLocationHdfsCommand,CreateLocationNfsCommand,CreateLocationObjectStorageCommand,CreateLocationS3Command,CreateLocationSmbCommand,CreateTaskCommand,DeleteAgentCommand,DeleteLocationCommand,DeleteTaskCommand,DescribeAgentCommand,DescribeLocationAzureBlobCommand,DescribeLocationEfsCommand,DescribeLocationFsxLustreCommand,DescribeLocationFsxOntapCommand,DescribeLocationFsxOpenZfsCommand,DescribeLocationFsxWindowsCommand,DescribeLocationHdfsCommand,DescribeLocationNfsCommand,DescribeLocationObjectStorageCommand,DescribeLocationS3Command,DescribeLocationSmbCommand,DescribeTaskCommand"
 ---
 
 # `@aws-sdk/client-datasync`
@@ -291,3 +291,224 @@ DataSync documents a minimum schedule interval of one hour.
 - `StartTaskExecution` API reference: `https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html`
 - `DescribeTaskExecution` API reference: `https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html`
 - `UpdateTask` API reference: `https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateTask.html`
+
+## API surface — full Command/Input/Output set
+
+`@aws-sdk/client-datasync` exports `DataSyncClient` plus 53 `*Command` classes, 5 paginators. Sample below covers the first 50 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+
+```typescript
+// Client + Command/Input/Output types from @aws-sdk/client-datasync
+class DataSyncClient {}
+class CancelTaskExecutionCommand {}
+class CancelTaskExecutionInput {}
+class CancelTaskExecutionOutput {}
+class CreateAgentCommand {}
+class CreateAgentInput {}
+class CreateAgentOutput {}
+class CreateLocationAzureBlobCommand {}
+class CreateLocationAzureBlobInput {}
+class CreateLocationAzureBlobOutput {}
+class CreateLocationEfsCommand {}
+class CreateLocationEfsInput {}
+class CreateLocationEfsOutput {}
+class CreateLocationFsxLustreCommand {}
+class CreateLocationFsxLustreInput {}
+class CreateLocationFsxLustreOutput {}
+class CreateLocationFsxOntapCommand {}
+class CreateLocationFsxOntapInput {}
+class CreateLocationFsxOntapOutput {}
+class CreateLocationFsxOpenZfsCommand {}
+class CreateLocationFsxOpenZfsInput {}
+class CreateLocationFsxOpenZfsOutput {}
+class CreateLocationFsxWindowsCommand {}
+class CreateLocationFsxWindowsInput {}
+class CreateLocationFsxWindowsOutput {}
+class CreateLocationHdfsCommand {}
+class CreateLocationHdfsInput {}
+class CreateLocationHdfsOutput {}
+class CreateLocationNfsCommand {}
+class CreateLocationNfsInput {}
+class CreateLocationNfsOutput {}
+class CreateLocationObjectStorageCommand {}
+class CreateLocationObjectStorageInput {}
+class CreateLocationObjectStorageOutput {}
+class CreateLocationS3Command {}
+class CreateLocationS3Input {}
+class CreateLocationS3Output {}
+class CreateLocationSmbCommand {}
+class CreateLocationSmbInput {}
+class CreateLocationSmbOutput {}
+class CreateTaskCommand {}
+class CreateTaskInput {}
+class CreateTaskOutput {}
+class DeleteAgentCommand {}
+class DeleteAgentInput {}
+class DeleteAgentOutput {}
+class DeleteLocationCommand {}
+class DeleteLocationInput {}
+class DeleteLocationOutput {}
+class DeleteTaskCommand {}
+class DeleteTaskInput {}
+class DeleteTaskOutput {}
+class DescribeAgentCommand {}
+class DescribeAgentInput {}
+class DescribeAgentOutput {}
+class DescribeLocationAzureBlobCommand {}
+class DescribeLocationAzureBlobInput {}
+class DescribeLocationAzureBlobOutput {}
+class DescribeLocationEfsCommand {}
+class DescribeLocationEfsInput {}
+class DescribeLocationEfsOutput {}
+class DescribeLocationFsxLustreCommand {}
+class DescribeLocationFsxLustreInput {}
+class DescribeLocationFsxLustreOutput {}
+class DescribeLocationFsxOntapCommand {}
+class DescribeLocationFsxOntapInput {}
+class DescribeLocationFsxOntapOutput {}
+class DescribeLocationFsxOpenZfsCommand {}
+class DescribeLocationFsxOpenZfsInput {}
+class DescribeLocationFsxOpenZfsOutput {}
+class DescribeLocationFsxWindowsCommand {}
+class DescribeLocationFsxWindowsInput {}
+class DescribeLocationFsxWindowsOutput {}
+class DescribeLocationHdfsCommand {}
+class DescribeLocationHdfsInput {}
+class DescribeLocationHdfsOutput {}
+class DescribeLocationNfsCommand {}
+class DescribeLocationNfsInput {}
+class DescribeLocationNfsOutput {}
+class DescribeLocationObjectStorageCommand {}
+class DescribeLocationObjectStorageInput {}
+class DescribeLocationObjectStorageOutput {}
+class DescribeLocationS3Command {}
+class DescribeLocationS3Input {}
+class DescribeLocationS3Output {}
+class DescribeLocationSmbCommand {}
+class DescribeLocationSmbInput {}
+class DescribeLocationSmbOutput {}
+class DescribeTaskCommand {}
+class DescribeTaskInput {}
+class DescribeTaskOutput {}
+class DescribeTaskExecutionCommand {}
+class DescribeTaskExecutionInput {}
+class DescribeTaskExecutionOutput {}
+class ListAgentsCommand {}
+class ListAgentsInput {}
+class ListAgentsOutput {}
+class ListLocationsCommand {}
+class ListLocationsInput {}
+class ListLocationsOutput {}
+class ListTagsForResourceCommand {}
+class ListTagsForResourceInput {}
+class ListTagsForResourceOutput {}
+class ListTaskExecutionsCommand {}
+class ListTaskExecutionsInput {}
+class ListTaskExecutionsOutput {}
+class ListTasksCommand {}
+class ListTasksInput {}
+class ListTasksOutput {}
+class StartTaskExecutionCommand {}
+class StartTaskExecutionInput {}
+class StartTaskExecutionOutput {}
+class TagResourceCommand {}
+class TagResourceInput {}
+class TagResourceOutput {}
+class UntagResourceCommand {}
+class UntagResourceInput {}
+class UntagResourceOutput {}
+class UpdateAgentCommand {}
+class UpdateAgentInput {}
+class UpdateAgentOutput {}
+class UpdateLocationAzureBlobCommand {}
+class UpdateLocationAzureBlobInput {}
+class UpdateLocationAzureBlobOutput {}
+class UpdateLocationEfsCommand {}
+class UpdateLocationEfsInput {}
+class UpdateLocationEfsOutput {}
+class UpdateLocationFsxLustreCommand {}
+class UpdateLocationFsxLustreInput {}
+class UpdateLocationFsxLustreOutput {}
+class UpdateLocationFsxOntapCommand {}
+class UpdateLocationFsxOntapInput {}
+class UpdateLocationFsxOntapOutput {}
+class UpdateLocationFsxOpenZfsCommand {}
+class UpdateLocationFsxOpenZfsInput {}
+class UpdateLocationFsxOpenZfsOutput {}
+class UpdateLocationFsxWindowsCommand {}
+class UpdateLocationFsxWindowsInput {}
+class UpdateLocationFsxWindowsOutput {}
+class UpdateLocationHdfsCommand {}
+class UpdateLocationHdfsInput {}
+class UpdateLocationHdfsOutput {}
+class UpdateLocationNfsCommand {}
+class UpdateLocationNfsInput {}
+class UpdateLocationNfsOutput {}
+class UpdateLocationObjectStorageCommand {}
+class UpdateLocationObjectStorageInput {}
+class UpdateLocationObjectStorageOutput {}
+class UpdateLocationS3Command {}
+class UpdateLocationS3Input {}
+class UpdateLocationS3Output {}
+```
+
+```javascript
+// Issue every operation:
+const client = new DataSyncClient({ region: process.env.AWS_REGION });
+await client.cancelTaskExecution(input);
+await client.createAgent(input);
+await client.createLocationAzureBlob(input);
+await client.createLocationEfs(input);
+await client.createLocationFsxLustre(input);
+await client.createLocationFsxOntap(input);
+await client.createLocationFsxOpenZfs(input);
+await client.createLocationFsxWindows(input);
+await client.createLocationHdfs(input);
+await client.createLocationNfs(input);
+await client.createLocationObjectStorage(input);
+await client.createLocationS3(input);
+await client.createLocationSmb(input);
+await client.createTask(input);
+await client.deleteAgent(input);
+await client.deleteLocation(input);
+await client.deleteTask(input);
+await client.describeAgent(input);
+await client.describeLocationAzureBlob(input);
+await client.describeLocationEfs(input);
+await client.describeLocationFsxLustre(input);
+await client.describeLocationFsxOntap(input);
+await client.describeLocationFsxOpenZfs(input);
+await client.describeLocationFsxWindows(input);
+await client.describeLocationHdfs(input);
+await client.describeLocationNfs(input);
+await client.describeLocationObjectStorage(input);
+await client.describeLocationS3(input);
+await client.describeLocationSmb(input);
+await client.describeTask(input);
+await client.describeTaskExecution(input);
+await client.listAgents(input);
+await client.listLocations(input);
+await client.listTagsForResource(input);
+await client.listTaskExecutions(input);
+await client.listTasks(input);
+await client.startTaskExecution(input);
+await client.tagResource(input);
+await client.untagResource(input);
+await client.updateAgent(input);
+await client.updateLocationAzureBlob(input);
+await client.updateLocationEfs(input);
+await client.updateLocationFsxLustre(input);
+await client.updateLocationFsxOntap(input);
+await client.updateLocationFsxOpenZfs(input);
+await client.updateLocationFsxWindows(input);
+await client.updateLocationHdfs(input);
+await client.updateLocationNfs(input);
+await client.updateLocationObjectStorage(input);
+await client.updateLocationS3(input);
+
+// Paginators (auto-iterate over multi-page responses):
+for await (const page of client.paginateListAgents({})) {}
+for await (const page of client.paginateListLocations({})) {}
+for await (const page of client.paginateListTagsForResource({})) {}
+for await (const page of client.paginateListTaskExecutions({})) {}
+for await (const page of client.paginateListTasks({})) {}
+```

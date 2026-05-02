@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,sharp,images,node,image-processing,types,console,log,OverlayOptions"
+  tags: "typescript,sharp,images,node,image-processing,types,console,log,OverlayOptions,Metadata,resize,toBuffer,toFile,composite,blur,sharpen,rotate,extract,extend,trim,threshold,format,libvips"
 ---
 
 # sharp TypeScript Guide
@@ -225,3 +225,47 @@ This pattern is useful when you build typed helpers for social cards, badges, wa
 - https://sharp.pixelplumbing.com/install
 - https://sharp.pixelplumbing.com/api-constructor
 - https://github.com/lovell/sharp
+## API surface — sharp public API
+
+```typescript
+class Sharp {}
+class Metadata {}
+class Stats {}
+class WriteableStream {}
+class OutputInfo {}
+class OverlayOptions {}
+class ResizeOptions {}
+class JpegOptions {}
+class PngOptions {}
+class WebpOptions {}
+class TiffOptions {}
+class GifOptions {}
+class HeifOptions {}
+class AvifOptions {}
+class RawOptions {}
+class FormatEnum {}
+class FlattenOptions {}
+class NegateOptions {}
+class TrimOptions {}
+class ThresholdOptions {}
+class BoolOptions {}
+class ExtendOptions {}
+class Region {}
+class Color {}
+class Channels {}
+class Kernel {}
+class CreateRaw {}
+class CreateText {}
+```
+
+```javascript
+const image = sharp(input);
+const meta = await image.metadata();
+const buffer = await image.resize(800).toBuffer();
+const result = await image.toFile('out.jpg');
+const stats = await image.stats();
+const outputInfo = await image.png().toFile('out.png');
+const composite = await image.composite([{ input: 'overlay.png' }]);
+const rotated = image.rotate(90).blur(2).sharpen();
+const ext = sharp.format;
+```

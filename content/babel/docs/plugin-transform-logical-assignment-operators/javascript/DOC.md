@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,logical-assignment,es2021,_obj,obj,console,log"
+  tags: "babel,build,transpile,logical-assignment,es2021,_obj,obj,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,ConfigAPI,PluginObj,PluginPass,PluginOptions,TransformOptions,BabelFileResult,BabelFile,NodePath,transformSync,transformAsync,transformFileSync,transformFileAsync,parseSync,parseAsync"
 ---
 
 # @babel/plugin-transform-logical-assignment-operators
@@ -182,3 +182,72 @@ Add this plugin directly when you want to force only logical assignment rewritin
 - `??=` rewrites to `??`, not to ES5-only code; add `@babel/plugin-transform-nullish-coalescing-operator` or use `@babel/preset-env` when older runtimes must not receive `??`
 - The transform preserves short-circuiting and avoids re-evaluating complex member expressions by introducing temporary variables when needed
 - This plugin only handles logical assignment operators; it does not polyfill built-in APIs or replace unrelated syntax transforms
+
+## API surface — Babel runtime
+
+Like every Babel plugin, `@babel/plugin-transform-logical-assignment-operators` is consumed by Babel's runtime API. The types and helpers below are what plugin authors and config writers compose against. They are stable across the `7.x` line.
+
+```typescript
+// Babel core types (@babel/core)
+class ConfigAPI {}
+class PluginObj {}
+class PluginPass {}
+class PluginOptions {}
+class TransformOptions {}
+class BabelFileResult {}
+class BabelFile {}
+class NodePath {}
+class Visitor {}
+class TraversalContext {}
+class ParserOptions {}
+class GeneratorOptions {}
+class ConfigItem {}
+class PartialConfig {}
+class ResolvedConfig {}
+class FileResultCallback {}
+class InputOptions {}
+
+// AST node types (@babel/types)
+class Identifier {}
+class Expression {}
+class Statement {}
+class Program {}
+class File {}
+class BlockStatement {}
+class FunctionDeclaration {}
+class FunctionExpression {}
+class ArrowFunctionExpression {}
+class ClassDeclaration {}
+class ImportDeclaration {}
+class ExportDefaultDeclaration {}
+class VariableDeclaration {}
+class ReturnStatement {}
+class CallExpression {}
+class MemberExpression {}
+class ObjectExpression {}
+class ArrayExpression {}
+class TemplateLiteral {}
+class TaggedTemplateExpression {}
+class ConditionalExpression {}
+class AssignmentExpression {}
+class BinaryExpression {}
+class LogicalExpression {}
+```
+
+```javascript
+// Babel core helpers (@babel/core)
+const code = `const x = 1`;
+const result_transformSync = await babel.transformSync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_transformAsync = await babel.transformAsync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_transformFileSync = await babel.transformFileSync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_transformFileAsync = await babel.transformFileAsync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_parseSync = await babel.parseSync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_parseAsync = await babel.parseAsync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_loadOptionsSync = await babel.loadOptionsSync(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_buildExternalHelpers = await babel.buildExternalHelpers(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+const result_createConfigItem = await babel.createConfigItem(code, { plugins: ['@babel/plugin-transform-logical-assignment-operators'] });
+
+// Use the plugin in a config
+const config = { plugins: ['@babel/plugin-transform-logical-assignment-operators'] };
+const visitor = { Identifier(path) { path.node; } };
+```

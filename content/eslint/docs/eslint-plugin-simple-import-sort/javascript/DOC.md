@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "eslint,imports,sorting,javascript,linting,npm,groups,default,12.1.1"
+  tags: "eslint,imports,sorting,javascript,linting,npm,groups,default,12.1.1,linter,static-analysis,RuleTester,SourceCode,AST,RuleContext,RuleListener,RuleModule,loadESLint,verify,verifyAndFix,lintFiles,lintText,calculateConfigForFile"
 ---
 
 # eslint-plugin-simple-import-sort
@@ -149,3 +149,52 @@ npx eslint . --fix
 
 - This guide targets `eslint-plugin-simple-import-sort@12.1.1`.
 - Use the flat-config example when your repo has `eslint.config.js`. Use the legacy example only for projects that still rely on `.eslintrc*` files.
+
+## API surface — ESLint runtime
+
+Like every ESLint plugin/config, `eslint-plugin-simple-import-sort` integrates with ESLint's public API. The types and helpers below are the stable plugin/config author surface.
+
+```typescript
+// ESLint public types
+class Linter {}
+class ESLint {}
+class RuleTester {}
+class SourceCode {}
+class AST {}
+class RuleContext {}
+class RuleListener {}
+class RuleModule {}
+class RuleMetaData {}
+class Plugin {}
+class PluginRules {}
+class ConfigData {}
+class FlatConfig {}
+class ParserOptions {}
+class GlobalConf {}
+class Settings {}
+class Severity {}
+class ReportDescriptor {}
+class SuggestionReportDescriptor {}
+class Fix {}
+class FlatRuleConfig {}
+class LintResult {}
+class LintMessage {}
+class FixingProblem {}
+```
+
+```javascript
+// Programmatic usage of ESLint with this plugin/config
+const eslint = new ESLint({ overrideConfigFile: true });
+const result_loadESLint = await eslint.loadESLint(inputs);
+const result_verify = await eslint.verify(inputs);
+const result_verifyAndFix = await eslint.verifyAndFix(inputs);
+const result_lintFiles = await eslint.lintFiles(inputs);
+const result_lintText = await eslint.lintText(inputs);
+const result_calculateConfigForFile = await eslint.calculateConfigForFile(inputs);
+const result_isPathIgnored = await eslint.isPathIgnored(inputs);
+const result_getRulesMetaForResults = await eslint.getRulesMetaForResults(inputs);
+const result_outputFixes = await eslint.outputFixes(inputs);
+const linter = new Linter();
+const messages = linter.verify(code, { plugins: ['eslint-plugin-simple-import-sort'] });
+const fixed = linter.verifyAndFix(code, config);
+```

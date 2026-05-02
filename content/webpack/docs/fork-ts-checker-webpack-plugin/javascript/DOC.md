@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,typescript,build,plugin,type-checking,javascript,path,babel,resolve,app"
+  tags: "webpack,typescript,build,plugin,type-checking,javascript,path,babel,resolve,app,bundler,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close"
 ---
 
 # fork-ts-checker-webpack-plugin
@@ -274,3 +274,50 @@ Without matching TypeScript path mapping, webpack may bundle successfully while 
 
 - Maintainer docs: `https://github.com/TypeStrong/fork-ts-checker-webpack-plugin`
 - npm package: `https://www.npmjs.com/package/fork-ts-checker-webpack-plugin`
+
+## API surface — webpack runtime
+
+`fork-ts-checker-webpack-plugin` is consumed by webpack's runtime as a plugin, loader, or config helper. The types below are webpack's stable plugin/loader API.
+
+```typescript
+// webpack public types
+class Configuration {}
+class Compiler {}
+class Compilation {}
+class Stats {}
+class Module {}
+class Chunk {}
+class ChunkGroup {}
+class Asset {}
+class Dependency {}
+class ResolverFactory {}
+class WebpackPluginInstance {}
+class RuleSetRule {}
+class ModuleOptions {}
+class OutputOptions {}
+class EntryOptions {}
+class ResolveOptions {}
+class DevServerConfiguration {}
+class PerformanceOptions {}
+class OptimizationOptions {}
+class ExternalsConfiguration {}
+class ResolvePluginInstance {}
+class LoaderContext {}
+class LoaderDefinitionFunction {}
+class WebpackError {}
+class WebpackOptionsNormalized {}
+```
+
+```javascript
+const compiler = webpack(config);
+compiler.webpack(arg);
+compiler.watch(arg);
+compiler.run(arg);
+compiler.close(arg);
+compiler.getInfrastructureLogger(arg);
+compiler.purgeInputFileSystem(arg);
+compiler.hooks.run.tap('plugin', (compiler) => {});
+compiler.hooks.compilation.tap('plugin', (compilation) => {});
+compiler.hooks.emit.tapAsync('plugin', (compilation, callback) => {});
+compilation.hooks.optimize.tap('plugin', () => {});
+```

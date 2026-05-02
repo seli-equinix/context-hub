@@ -4,185 +4,3044 @@ description: "Pylint 4.0.5 package guide for Python linting, config setup, CI in
 metadata:
   languages: "python"
   versions: "4.0.5"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "pylint,python,linting,static-analysis,quality,ci,Version-Sensitive"
+  tags: "pylint,python,linting,static-analysis,quality,ci,Version-Sensitive,modify_sys_path,run_pylint,run_pyreverse,run_symilar,BaseChecker,add_message,check_consistency,close,create_message_definition_from_tuple,get_full_documentation,get_map_data,open,reduce_map_data,BaseRawFileChecker,process_module,BaseTokenChecker,process_tokens,DeprecatedMixin,check_deprecated_attribute,check_deprecated_class,check_deprecated_class_in_call,check_deprecated_method,check_deprecated_module,deprecated_arguments,deprecated_attributes,deprecated_classes,deprecated_decorators,deprecated_methods,deprecated_modules,visit_attribute,visit_call,visit_decorators,visit_import,visit_importfrom,LinterStats,get_bad_names,get_code_count,get_global_message_count,get_module_message_count,get_node_count,get_undocumented,increase_bad_name,increase_single_message_count,increase_single_module_message_count,init_single_module,reset_bad_names,reset_code_count,reset_duplicated_lines,reset_message_count,reset_node_count,reset_undocumented,diff_string,initialize,register_plugins,table_lines_from_stats,AsyncChecker,visit_asyncfunctiondef,visit_asyncwith,decorated_with,register,BadChainedComparisonChecker,visit_compare,AnyStyle,get_regex,BasicChecker,leave_try,visit_assert,visit_assign,visit_break,visit_classdef,visit_comprehension,visit_continue,visit_dict,visit_expr,visit_for,visit_functiondef,visit_if,visit_ifexp,visit_lambda,visit_module,visit_raise,visit_return,visit_set,visit_try,visit_with,BasicErrorChecker,visit_nonlocal,visit_starred,visit_unaryop,visit_while,visit_yield,visit_yieldfrom,CamelCaseStyle,ComparisonChecker,DocStringChecker,FunctionChecker"
 ---
 
-# Pylint Python Package Guide
-
-## What It Is
-
-`pylint` is a static analysis and linting tool for Python. It checks code style, probable bugs, import problems, refactor suggestions, and convention issues, then reports them as named messages such as `unused-import`, `import-error`, or `missing-function-docstring`.
-
-Use it when you want:
-
-- one command that can lint files, packages, or directories
-- project-wide configuration in `pyproject.toml` or rc/config files
-- CI- and editor-friendly output formats
-- plugin support for framework-specific checks
+# pylint — package
 
 ## Install
 
-Add it as a development dependency and keep it pinned with the rest of your tooling:
-
 ```bash
-python -m pip install "pylint==4.0.5"
+pip install pylint
 ```
 
-Common alternatives:
-
-```bash
-uv add --dev "pylint==4.0.5"
-poetry add --group dev "pylint==4.0.5"
-```
-
-If your project uses framework-specific or domain-specific Pylint plugins, install them in the same environment as `pylint`.
-
-## Initialize And Configure
-
-For new repos, prefer `pyproject.toml`. For existing repos already using INI-style tool config, `.pylintrc` is still fine.
-
-Generate a starter config:
-
-```bash
-pylint --generate-toml-config > /tmp/pylint-generated.toml
-```
-
-or:
-
-```bash
-pylint --generate-rcfile > .pylintrc
-```
-
-Notes:
-
-- Do not redirect `--generate-toml-config` straight into an existing `pyproject.toml`; generate to a temporary file and merge the `tool.pylint` sections you want.
-- In monorepos or repos with more than one possible config file, pass `--rcfile=/absolute/or/relative/path` in CI so discovery is deterministic.
-- If you lint code that targets a different Python version than the interpreter running Pylint, set `py-version` in config explicitly.
-
-Minimal setup workflow:
-
-1. Generate a starter config.
-2. Remove broad disables you do not actually want.
-3. Run Pylint against the main package and tests.
-4. Add narrow message disables only after you see real noise from your codebase.
-
-## Core Usage
-
-Lint a package or directory:
-
-```bash
-pylint src/ tests/
-```
-
-Lint a specific module or file:
-
-```bash
-pylint my_package my_package/api.py
-```
-
-Machine-readable output for tooling:
-
-```bash
-pylint src/ --output-format=json2 > pylint-report.json
-```
-
-GitHub Actions annotations:
-
-```bash
-pylint src/ --output-format=github
-```
-
-Useful habits:
-
-- Run Pylint from the project root so imports resolve the same way they do in normal development.
-- Lint the package root in CI, not only individual changed files, because many messages depend on import context.
-- Prefer message symbols like `missing-function-docstring` over numeric IDs when disabling or triaging checks.
-
-## Message Control
-
-The usual pattern is to keep project defaults in config and reserve inline disables for local exceptions.
-
-Command-line example:
-
-```bash
-pylint src/ --disable=missing-module-docstring,missing-function-docstring
-```
-
-Inline example:
+## Imports
 
 ```python
-message = "value: {}".format(value)  # pylint: disable=consider-using-f-string
+import pylint
 ```
 
-Use inline pragmas sparingly and keep them attached to the specific line or block that needs the exception.
+## Symbols (200)
 
-## Config, Plugins, And Environment
+| Symbol | Kind | Synopsis |
+|--------|------|----------|
+| `modify_sys_path` | Function | Modify sys path for execution as Python module.  Strip out the current working… |
+| `run_pylint` | Function | Run pylint.  argv can be a sequence of strings normally supplied as arguments o… |
+| `run_pyreverse` | Function | Run pyreverse.  argv can be a sequence of strings normally supplied as argument… |
+| `run_symilar` | Function | Run symilar.  argv can be a sequence of strings normally supplied as arguments… |
+| `BaseChecker` | Class | Base class for classes that provide arguments. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `BaseRawFileChecker` | Class | Base class for checkers which need to parse the raw file. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `process_module` | Method | Process a module.  The module's content is accessible via ``astroid.stream`` |
+| `reduce_map_data` | Method |  |
+| `BaseTokenChecker` | Class | Base class for checkers that want to have access to the token stream. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `process_tokens` | Method | Should be overridden by subclasses. |
+| `reduce_map_data` | Method |  |
+| `DeprecatedMixin` | Class | A mixin implementing logic for checking deprecated symbols.  A class implementi… |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `check_deprecated_attribute` | Method | Checks if the attribute is deprecated. |
+| `check_deprecated_class` | Method | Checks if the class is deprecated. |
+| `check_deprecated_class_in_call` | Method | Checks if call the deprecated class. |
+| `check_deprecated_method` | Method | Executes the checker for the given node.  This method should be called from the… |
+| `check_deprecated_module` | Method | Checks if the module is deprecated. |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `deprecated_arguments` | Method | Callback returning the deprecated arguments of method/function.  Args:     meth… |
+| `deprecated_attributes` | Method | Callback returning the deprecated attributes. |
+| `deprecated_classes` | Method | Callback returning the deprecated classes of module.  Args:     module (str): n… |
+| `deprecated_decorators` | Method | Callback returning the deprecated decorators.  Returns:     collections.abc.Con… |
+| `deprecated_methods` | Method | Callback returning the deprecated methods/functions.  Returns:     collections.… |
+| `deprecated_modules` | Method | Callback returning the deprecated modules.  Returns:     collections.abc.Contai… |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `visit_attribute` | Method | Called when an `Attribute` node is visited. |
+| `visit_call` | Method | Called when a :class:`nodes.Call` node is visited. |
+| `visit_decorators` | Method | Triggered when a decorator statement is seen. |
+| `visit_import` | Method | Triggered when an import statement is seen. |
+| `visit_importfrom` | Method | Triggered when a from statement is seen. |
+| `LinterStats` | Class | Class used to linter stats. |
+| `get_bad_names` | Method | Get a bad names node count. |
+| `get_code_count` | Method | Get a code type count. |
+| `get_global_message_count` | Method | Get a global message count. |
+| `get_module_message_count` | Method | Get a module message count. |
+| `get_node_count` | Method | Get a node count while handling some extra conditions. |
+| `get_undocumented` | Method | Get a undocumented node count. |
+| `increase_bad_name` | Method | Increase a bad names node count. |
+| `increase_single_message_count` | Method | Increase the message type count of an individual message type. |
+| `increase_single_module_message_count` | Method | Increase the message type count of an individual message type of a module. |
+| `init_single_module` | Method | Use through PyLinter.set_current_module so PyLinter.current_name is consistent. |
+| `reset_bad_names` | Method | Resets the bad_names attribute. |
+| `reset_code_count` | Method | Resets the code_type_count attribute. |
+| `reset_duplicated_lines` | Method | Resets the duplicated_lines attribute. |
+| `reset_message_count` | Method | Resets the message type count of the stats object. |
+| `reset_node_count` | Method | Resets the node count attribute. |
+| `reset_undocumented` | Method | Resets the undocumented attribute. |
+| `diff_string` | Function | Given an old and new value, return a string representing the difference. |
+| `initialize` | Function | Initialize linter with checkers in this package. |
+| `register_plugins` | Function | Load all module and package in the given directory, looking for a 'register' fu… |
+| `table_lines_from_stats` | Function | Get values listed in <columns> from <stats> and <old_stats>, and return a forma… |
+| `AsyncChecker` | Class | Base class for classes that provide arguments. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `visit_asyncfunctiondef` | Method |  |
+| `visit_asyncwith` | Method |  |
+| `decorated_with` | Function | Determine if the `func` node has a decorator with the qualified name `qname`. |
+| `register` | Function |  |
+| `BadChainedComparisonChecker` | Class | Checks for unintentional usage of chained comparison. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `visit_compare` | Method |  |
+| `BaseChecker` | Class | Base class for classes that provide arguments. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `register` | Function |  |
+| `AnyStyle` | Class | Class to register all accepted forms of a single naming style.  It may seem cou… |
+| `get_regex` | Method |  |
+| `BasicChecker` | Class | Basic checker.  Checks for : * doc strings * number of arguments, local variabl… |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `leave_try` | Method | Update try block flag. |
+| `open` | Method | Initialize visit variables and statistics. |
+| `reduce_map_data` | Method |  |
+| `visit_assert` | Method | Check whether assert is used on a tuple or string literal. |
+| `visit_assign` | Method |  |
+| `visit_asyncfunctiondef` | Method | Check function name, docstring, arguments, redefinition, variable names, max lo… |
+| `visit_break` | Method | Break node visitor.  1 - check if the node has a right sibling (if so, that's s… |
+| `visit_call` | Method | Visit a Call node. |
+| `visit_classdef` | Method | Check module name, docstring and redefinition increment branch counter. |
+| `visit_comprehension` | Method |  |
+| `visit_continue` | Method | Check is the node has a right sibling (if so, that's some unreachable code). |
+| `visit_dict` | Method | Check duplicate key in dictionary. |
+| `visit_expr` | Method | Check for various kind of statements without effect. |
+| `visit_for` | Method |  |
+| `visit_functiondef` | Method | Check function name, docstring, arguments, redefinition, variable names, max lo… |
+| `visit_if` | Method |  |
+| `visit_ifexp` | Method |  |
+| `visit_lambda` | Method | Check whether the lambda is suspicious. |
+| `visit_module` | Method | Check module name, docstring and required arguments. |
+| `visit_raise` | Method | Check if the node has a right sibling (if so, that's some unreachable code). |
+| `visit_return` | Method | Return node visitor.  1 - check if the node has a right sibling (if so, that's… |
+| `visit_set` | Method | Check duplicate value in set. |
+| `visit_try` | Method | Update try block flag. |
+| `visit_with` | Method |  |
+| `BasicErrorChecker` | Class | Permits separating multiple checks with the same checker name into classes/file. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `visit_assign` | Method |  |
+| `visit_asyncfunctiondef` | Method |  |
+| `visit_break` | Method |  |
+| `visit_call` | Method | Check instantiating abstract class with abc.ABCMeta as metaclass. |
+| `visit_classdef` | Method |  |
+| `visit_continue` | Method |  |
+| `visit_for` | Method |  |
+| `visit_functiondef` | Method |  |
+| `visit_nonlocal` | Method |  |
+| `visit_return` | Method |  |
+| `visit_starred` | Method | Check that a Starred expression is used in an assignment target. |
+| `visit_unaryop` | Method | Check use of the non-existent ++ and -- operators. |
+| `visit_while` | Method |  |
+| `visit_yield` | Method |  |
+| `visit_yieldfrom` | Method |  |
+| `CamelCaseStyle` | Class | Regex rules for camelCase naming style. |
+| `get_regex` | Method |  |
+| `ComparisonChecker` | Class | Checks for comparisons.  - singleton comparison: 'expr == True', 'expr == False… |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `visit_compare` | Method |  |
+| `DocStringChecker` | Class | Permits separating multiple checks with the same checker name into classes/file. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
+| `get_map_data` | Method |  |
+| `open` | Method | Called before visiting project (i.e. set of modules). |
+| `reduce_map_data` | Method |  |
+| `visit_asyncfunctiondef` | Method |  |
+| `visit_classdef` | Method |  |
+| `visit_functiondef` | Method |  |
+| `visit_module` | Method |  |
+| `FunctionChecker` | Class | Check if a function definition handles possible side effects. |
+| `add_message` | Method |  |
+| `check_consistency` | Method | Check the consistency of msgid.  msg ids for a checker should be a string of le… |
+| `close` | Method | Called after visiting project (i.e set of modules). |
+| `create_message_definition_from_tuple` | Method |  |
+| `get_full_documentation` | Method |  |
 
-Pylint is a local analyzer. There is no auth flow, API key, or remote service setup. The important environment concern is import resolution.
+## Classes
 
-Practical rules:
+### `BaseChecker`
 
-- Run Pylint in the same virtualenv as the project.
-- Install your package and its runtime dependencies before trusting `import-error` results.
-- If you use a `src/` layout, make sure the package is importable in the lint environment, typically via editable install.
-- If you need framework-specific checks, configure `load-plugins` and install those plugins in the same environment.
+Base class for classes that provide arguments.
 
-For pre-commit, remember that hooks run in isolated environments. If your lint run depends on plugins or project-only imports, add the required packages to the hook's `additional_dependencies`.
-
-## CI And Automation
-
-Typical CI command:
-
-```bash
-pylint src/ tests/ --output-format=text
+```python
+pylint.checkers.BaseChecker(self, linter: 'PyLinter') -> 'None'
 ```
 
-If another tool needs structured output, use `json2` instead of parsing the default text format.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
 
-In automation:
+### `BaseRawFileChecker`
 
-- pin the Pylint version so message behavior does not drift unexpectedly
-- pin plugin versions alongside Pylint
-- pass `--rcfile` explicitly in monorepos
-- treat new major versions as behavior changes, not just bugfix upgrades
+Base class for checkers which need to parse the raw file.
 
-## Common Pitfalls
+```python
+pylint.checkers.BaseRawFileChecker(self, linter: 'PyLinter') -> 'None'
+```
 
-### `import-error` false positives
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
 
-This usually means the lint environment does not match the app environment. Install the package in editable mode and include optional dependencies or plugins that the code imports.
+### `BaseTokenChecker`
 
-### Config discovery surprises
+Base class for checkers that want to have access to the token stream.
 
-Pylint can read config from multiple file formats. In larger repos, this can make local runs and CI disagree. Pick one canonical config file and pass it explicitly in scripted runs.
+```python
+pylint.checkers.BaseTokenChecker(self, linter: 'PyLinter') -> 'None'
+```
 
-### Over-disabling checks
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
 
-Generated starter configs can be noisy, but broad disables reduce the value of linting quickly. Disable by message symbol, keep the scope narrow, and prefer fixing the root cause when possible.
+### `DeprecatedMixin`
 
-### Pre-commit differs from local runs
+A mixin implementing logic for checking deprecated symbols.
 
-A pre-commit hook does not automatically reuse your project virtualenv. Missing plugins or missing app dependencies inside the hook environment are a common reason for inconsistent results.
+A class implementing mixin must define "deprecated-method" Message.
 
-### Python-version mismatch
+```python
+pylint.checkers.DeprecatedMixin(self, linter: 'PyLinter') -> 'None'
+```
 
-Pylint inspects code using the interpreter and target-version settings it sees. If your CI runs on Python 3.12 but the codebase targets 3.10, set `py-version` so checks match the code you actually support.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
 
-## Version-Sensitive Notes For 4.0.x
+### `LinterStats`
 
-- As of `2026-03-12`, both PyPI and the stable docs show `pylint 4.0.5`.
-- The `4.0` line requires Python `>=3.10` and moved to the Astroid `4.x` line.
-- The 4.0 release changed some naming-check behavior, especially around constants, type aliases, and `ClassVar` handling, so older suppressions may need review after upgrading from `3.x`.
-- If you depend on framework plugins or import-order behavior, keep the full lint toolchain pinned together during upgrades instead of upgrading Pylint alone.
+Class used to linter stats.
 
-## Official Sources Used
+```python
+pylint.checkers.LinterStats(self, bad_names: 'BadNames | None' = None, by_module: 'dict[str, ModuleStats] | None' = None, by_msg: 'dict[str, int] | None' = None, code_type_count: 'CodeTypeCount | None' = None, dependencies: 'dict[str, set[str]] | None' = None, duplicated_lines: 'DuplicatedLines | None' = None, node_count: 'NodeCount | None' = None, undocumented: 'UndocumentedNodes | None' = None) -> 'None'
+```
 
-- Docs root: `https://pylint.readthedocs.io/en/stable/`
-- Installation guide: `https://pylint.readthedocs.io/en/stable/user_guide/installation/index.html`
-- Running Pylint: `https://pylint.readthedocs.io/en/stable/user_guide/usage/run.html`
-- Configuration guide: `https://pylint.readthedocs.io/en/stable/user_guide/configuration/index.html`
-- What's new in 4.0: `https://pylint.readthedocs.io/en/v4.0.0/whatsnew/4/4.0/`
-- PyPI package page: `https://pypi.org/project/pylint/`
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `bad_names` | `BadNames \| None` | `None` | pos/kw |
+| `by_module` | `dict[str, ModuleStats] \| None` | `None` | pos/kw |
+| `by_msg` | `dict[str, int] \| None` | `None` | pos/kw |
+| `code_type_count` | `CodeTypeCount \| None` | `None` | pos/kw |
+| `dependencies` | `dict[str, set[str]] \| None` | `None` | pos/kw |
+| `duplicated_lines` | `DuplicatedLines \| None` | `None` | pos/kw |
+| `node_count` | `NodeCount \| None` | `None` | pos/kw |
+| `undocumented` | `UndocumentedNodes \| None` | `None` | pos/kw |
+
+### `AsyncChecker`
+
+Base class for classes that provide arguments.
+
+```python
+pylint.checkers.async_checker.AsyncChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `BadChainedComparisonChecker`
+
+Checks for unintentional usage of chained comparison.
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `BaseChecker`
+
+Base class for classes that provide arguments.
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `AnyStyle`
+
+Class to register all accepted forms of a single naming style.
+
+It may seem counter-intuitive that single naming style has multiple "accepted"
+forms of regular expressions, but we need to special-cas…
+
+```python
+pylint.checkers.base.AnyStyle(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `BasicChecker`
+
+Basic checker.
+
+Checks for :
+* doc strings
+* number of arguments, local variables, branches, returns and statements in
+functions, methods
+* required module attributes
+* dangerous default values as ar…
+
+```python
+pylint.checkers.base.BasicChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `BasicErrorChecker`
+
+Permits separating multiple checks with the same checker name into
+classes/file.
+
+```python
+pylint.checkers.base.BasicErrorChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `CamelCaseStyle`
+
+Regex rules for camelCase naming style.
+
+```python
+pylint.checkers.base.CamelCaseStyle(self, /, *args, **kwargs)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
+
+### `ComparisonChecker`
+
+Checks for comparisons.
+
+- singleton comparison: 'expr == True', 'expr == False' and 'expr == None'
+- yoda condition: 'const "comp" right' where comp can be '==', '!=', '<',
+  '<=', '>' or '>=', and…
+
+```python
+pylint.checkers.base.ComparisonChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `DocStringChecker`
+
+Permits separating multiple checks with the same checker name into
+classes/file.
+
+```python
+pylint.checkers.base.DocStringChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `FunctionChecker`
+
+Check if a function definition handles possible side effects.
+
+```python
+pylint.checkers.base.FunctionChecker(self, linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+## Functions
+
+### `modify_sys_path`
+
+Modify sys path for execution as Python module.
+
+Strip out the current working directory from sys.path.
+Having the working directory in `sys.path` means that `pylint` might
+inadvertently import user…
+
+```python
+pylint.modify_sys_path() -> 'None'
+```
+
+### `run_pylint`
+
+Run pylint.
+
+argv can be a sequence of strings normally supplied as arguments on the command line
+
+```python
+pylint.run_pylint(argv: 'Sequence[str] | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `argv` | `Sequence[str] \| None` | `None` | pos/kw |
+
+### `run_pyreverse`
+
+Run pyreverse.
+
+argv can be a sequence of strings normally supplied as arguments on the command line
+
+```python
+pylint.run_pyreverse(argv: 'Sequence[str] | None' = None) -> 'NoReturn'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `argv` | `Sequence[str] \| None` | `None` | pos/kw |
+
+**Returns:** `NoReturn`
+
+### `run_symilar`
+
+Run symilar.
+
+argv can be a sequence of strings normally supplied as arguments on the command line
+
+```python
+pylint.run_symilar(argv: 'Sequence[str] | None' = None) -> 'NoReturn'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `argv` | `Sequence[str] \| None` | `None` | pos/kw |
+
+**Returns:** `NoReturn`
+
+### `diff_string`
+
+Given an old and new value, return a string representing the difference.
+
+```python
+pylint.checkers.diff_string(old: 'float', new: 'float') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `old` | `float` | `—` | pos/kw |
+| `new` | `float` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `initialize`
+
+Initialize linter with checkers in this package.
+
+```python
+pylint.checkers.initialize(linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `register_plugins`
+
+Load all module and package in the given directory, looking for a
+'register' function in each one, used to register pylint checkers.
+
+```python
+pylint.checkers.register_plugins(linter: 'PyLinter', directory: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `directory` | `str` | `—` | pos/kw |
+
+### `table_lines_from_stats`
+
+Get values listed in <columns> from <stats> and <old_stats>,
+and return a formatted list of values.
+
+The return value is designed to be given to a ureport.Table object
+
+```python
+pylint.checkers.table_lines_from_stats(stats: 'LinterStats', old_stats: 'LinterStats | None', stat_type: "Literal['duplicated_lines', 'message_types']") -> 'list[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `stats` | `LinterStats` | `—` | pos/kw |
+| `old_stats` | `LinterStats \| None` | `—` | pos/kw |
+| `stat_type` | `Literal['duplicated_lines', 'message_types']` | `—` | pos/kw |
+
+**Returns:** `list[str]`
+
+### `decorated_with`
+
+Determine if the `func` node has a decorator with the qualified name `qname`.
+
+```python
+pylint.checkers.async_checker.decorated_with(func: 'nodes.ClassDef | nodes.FunctionDef | astroid.BoundMethod | astroid.UnboundMethod', qnames: 'Iterable[str]') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `func` | `nodes.ClassDef \| nodes.FunctionDef \| astroid.BoundMethod \| astroid.UnboundMethod` | `—` | pos/kw |
+| `qnames` | `Iterable[str]` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `register`
+
+```python
+pylint.checkers.async_checker.register(linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+### `register`
+
+```python
+pylint.checkers.bad_chained_comparison.register(linter: 'PyLinter') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `linter` | `PyLinter` | `—` | pos/kw |
+
+## Methods
+
+### `pylint.checkers.BaseChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.BaseChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.BaseChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.BaseChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.BaseChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.BaseChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.BaseChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.BaseChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.BaseChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `pylint.checkers.BaseRawFileChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.BaseRawFileChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.BaseRawFileChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.BaseRawFileChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.BaseRawFileChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.BaseRawFileChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.BaseRawFileChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.BaseRawFileChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `process_module`
+
+Process a module.
+
+The module's content is accessible via ``astroid.stream``
+
+```python
+pylint.checkers.BaseRawFileChecker.process_module(self, node: 'nodes.Module') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Module` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.BaseRawFileChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `pylint.checkers.BaseTokenChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.BaseTokenChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.BaseTokenChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.BaseTokenChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.BaseTokenChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.BaseTokenChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.BaseTokenChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.BaseTokenChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `process_tokens`
+
+Should be overridden by subclasses.
+
+```python
+pylint.checkers.BaseTokenChecker.process_tokens(self, tokens: 'list[TokenInfo]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `tokens` | `list[TokenInfo]` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.BaseTokenChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `pylint.checkers.DeprecatedMixin` methods
+
+### `add_message`
+
+```python
+pylint.checkers.DeprecatedMixin.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.DeprecatedMixin.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `check_deprecated_attribute`
+
+Checks if the attribute is deprecated.
+
+```python
+pylint.checkers.DeprecatedMixin.check_deprecated_attribute(self, node: 'nodes.Attribute') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Attribute` | `—` | pos/kw |
+
+### `check_deprecated_class`
+
+Checks if the class is deprecated.
+
+```python
+pylint.checkers.DeprecatedMixin.check_deprecated_class(self, node: 'nodes.NodeNG', mod_name: 'str', class_names: 'Iterable[str]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.NodeNG` | `—` | pos/kw |
+| `mod_name` | `str` | `—` | pos/kw |
+| `class_names` | `Iterable[str]` | `—` | pos/kw |
+
+### `check_deprecated_class_in_call`
+
+Checks if call the deprecated class.
+
+```python
+pylint.checkers.DeprecatedMixin.check_deprecated_class_in_call(self, node: 'nodes.Call') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Call` | `—` | pos/kw |
+
+### `check_deprecated_method`
+
+Executes the checker for the given node.
+
+This method should be called from the checker implementing this mixin.
+
+```python
+pylint.checkers.DeprecatedMixin.check_deprecated_method(self, node: 'nodes.Call', inferred: 'nodes.NodeNG') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Call` | `—` | pos/kw |
+| `inferred` | `nodes.NodeNG` | `—` | pos/kw |
+
+### `check_deprecated_module`
+
+Checks if the module is deprecated.
+
+```python
+pylint.checkers.DeprecatedMixin.check_deprecated_module(self, node: 'nodes.Import', mod_path: 'str | None') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Import` | `—` | pos/kw |
+| `mod_path` | `str \| None` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.DeprecatedMixin.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.DeprecatedMixin.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `deprecated_arguments`
+
+Callback returning the deprecated arguments of method/function.
+
+Args:
+    method (str): name of function/method checked for deprecated arguments
+
+Returns:
+    collections.abc.Iterable in form:…
+
+```python
+pylint.checkers.DeprecatedMixin.deprecated_arguments(self, method: 'str') -> 'Iterable[tuple[int | None, str]]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `method` | `str` | `—` | pos/kw |
+
+**Returns:** `Iterable[tuple[int | None, str]]`
+
+### `deprecated_attributes`
+
+Callback returning the deprecated attributes.
+
+```python
+pylint.checkers.DeprecatedMixin.deprecated_attributes(self) -> 'Iterable[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterable[str]`
+
+### `deprecated_classes`
+
+Callback returning the deprecated classes of module.
+
+Args:
+    module (str): name of module checked for deprecated classes
+
+Returns:
+    collections.abc.Container of deprecated class names.
+
+```python
+pylint.checkers.DeprecatedMixin.deprecated_classes(self, module: 'str') -> 'Iterable[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `module` | `str` | `—` | pos/kw |
+
+**Returns:** `Iterable[str]`
+
+### `deprecated_decorators`
+
+Callback returning the deprecated decorators.
+
+Returns:
+    collections.abc.Container of deprecated decorator names.
+
+```python
+pylint.checkers.DeprecatedMixin.deprecated_decorators(self) -> 'Iterable[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterable[str]`
+
+### `deprecated_methods`
+
+Callback returning the deprecated methods/functions.
+
+Returns:
+    collections.abc.Container of deprecated function/method names.
+
+```python
+pylint.checkers.DeprecatedMixin.deprecated_methods(self) -> 'Container[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Container[str]`
+
+### `deprecated_modules`
+
+Callback returning the deprecated modules.
+
+Returns:
+    collections.abc.Container of deprecated module names.
+
+```python
+pylint.checkers.DeprecatedMixin.deprecated_modules(self) -> 'Iterable[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterable[str]`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.DeprecatedMixin.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.DeprecatedMixin.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.DeprecatedMixin.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.DeprecatedMixin.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_attribute`
+
+Called when an `Attribute` node is visited.
+
+```python
+pylint.checkers.DeprecatedMixin.visit_attribute(self, node: 'nodes.Attribute') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Attribute` | `—` | pos/kw |
+
+### `visit_call`
+
+Called when a :class:`nodes.Call` node is visited.
+
+```python
+pylint.checkers.DeprecatedMixin.visit_call(self, node: 'nodes.Call') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Call` | `—` | pos/kw |
+
+### `visit_decorators`
+
+Triggered when a decorator statement is seen.
+
+```python
+pylint.checkers.DeprecatedMixin.visit_decorators(self, node: 'nodes.Decorators') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Decorators` | `—` | pos/kw |
+
+### `visit_import`
+
+Triggered when an import statement is seen.
+
+```python
+pylint.checkers.DeprecatedMixin.visit_import(self, node: 'nodes.Import') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Import` | `—` | pos/kw |
+
+### `visit_importfrom`
+
+Triggered when a from statement is seen.
+
+```python
+pylint.checkers.DeprecatedMixin.visit_importfrom(self, node: 'nodes.ImportFrom') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.ImportFrom` | `—` | pos/kw |
+
+### `pylint.checkers.LinterStats` methods
+
+### `get_bad_names`
+
+Get a bad names node count.
+
+```python
+pylint.checkers.LinterStats.get_bad_names(self, node_name: "Literal['argument', 'attr', 'class', 'class_attribute', 'class_const', 'const', 'inlinevar', 'function', 'method', 'module', 'variable', 'typevar', 'paramspec', 'typevartuple', 'typealias']") -> 'int'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node_name` | `Literal['argument', 'attr', 'class', 'class_attribute', 'class_const', 'const', 'inlinevar', 'function', 'method', 'module', 'variable', 'typevar', 'paramspec', 'typevartuple', 'typealias']` | `—` | pos/kw |
+
+**Returns:** `int`
+
+### `get_code_count`
+
+Get a code type count.
+
+```python
+pylint.checkers.LinterStats.get_code_count(self, type_name: "Literal['code', 'comment', 'docstring', 'empty', 'total']") -> 'int'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `type_name` | `Literal['code', 'comment', 'docstring', 'empty', 'total']` | `—` | pos/kw |
+
+**Returns:** `int`
+
+### `get_global_message_count`
+
+Get a global message count.
+
+```python
+pylint.checkers.LinterStats.get_global_message_count(self, type_name: 'str') -> 'int'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `type_name` | `str` | `—` | pos/kw |
+
+**Returns:** `int`
+
+### `get_module_message_count`
+
+Get a module message count.
+
+```python
+pylint.checkers.LinterStats.get_module_message_count(self, modname: 'str', type_name: 'MessageTypesFullName') -> 'int'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `modname` | `str` | `—` | pos/kw |
+| `type_name` | `MessageTypesFullName` | `—` | pos/kw |
+
+**Returns:** `int`
+
+### `get_node_count`
+
+Get a node count while handling some extra conditions.
+
+```python
+pylint.checkers.LinterStats.get_node_count(self, node_name: "Literal['function', 'class', 'method', 'module']") -> 'int'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node_name` | `Literal['function', 'class', 'method', 'module']` | `—` | pos/kw |
+
+**Returns:** `int`
+
+### `get_undocumented`
+
+Get a undocumented node count.
+
+```python
+pylint.checkers.LinterStats.get_undocumented(self, node_name: "Literal['function', 'class', 'method', 'module']") -> 'float'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node_name` | `Literal['function', 'class', 'method', 'module']` | `—` | pos/kw |
+
+**Returns:** `float`
+
+### `increase_bad_name`
+
+Increase a bad names node count.
+
+```python
+pylint.checkers.LinterStats.increase_bad_name(self, node_name: 'str', increase: 'int') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node_name` | `str` | `—` | pos/kw |
+| `increase` | `int` | `—` | pos/kw |
+
+### `increase_single_message_count`
+
+Increase the message type count of an individual message type.
+
+```python
+pylint.checkers.LinterStats.increase_single_message_count(self, type_name: 'str', increase: 'int') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `type_name` | `str` | `—` | pos/kw |
+| `increase` | `int` | `—` | pos/kw |
+
+### `increase_single_module_message_count`
+
+Increase the message type count of an individual message type of a
+module.
+
+```python
+pylint.checkers.LinterStats.increase_single_module_message_count(self, modname: 'str', type_name: 'MessageTypesFullName', increase: 'int') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `modname` | `str` | `—` | pos/kw |
+| `type_name` | `MessageTypesFullName` | `—` | pos/kw |
+| `increase` | `int` | `—` | pos/kw |
+
+### `init_single_module`
+
+Use through PyLinter.set_current_module so PyLinter.current_name is
+consistent.
+
+```python
+pylint.checkers.LinterStats.init_single_module(self, module_name: 'str') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `module_name` | `str` | `—` | pos/kw |
+
+### `reset_bad_names`
+
+Resets the bad_names attribute.
+
+```python
+pylint.checkers.LinterStats.reset_bad_names(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reset_code_count`
+
+Resets the code_type_count attribute.
+
+```python
+pylint.checkers.LinterStats.reset_code_count(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reset_duplicated_lines`
+
+Resets the duplicated_lines attribute.
+
+```python
+pylint.checkers.LinterStats.reset_duplicated_lines(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reset_message_count`
+
+Resets the message type count of the stats object.
+
+```python
+pylint.checkers.LinterStats.reset_message_count(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reset_node_count`
+
+Resets the node count attribute.
+
+```python
+pylint.checkers.LinterStats.reset_node_count(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reset_undocumented`
+
+Resets the undocumented attribute.
+
+```python
+pylint.checkers.LinterStats.reset_undocumented(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `pylint.checkers.async_checker.AsyncChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.async_checker.AsyncChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.async_checker.AsyncChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.async_checker.AsyncChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_asyncfunctiondef`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.visit_asyncfunctiondef(self, node: 'nodes.AsyncFunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.AsyncFunctionDef` | `—` | pos/kw |
+
+### `visit_asyncwith`
+
+```python
+pylint.checkers.async_checker.AsyncChecker.visit_asyncwith(self, node: 'nodes.AsyncWith') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.AsyncWith` | `—` | pos/kw |
+
+### `pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_compare`
+
+```python
+pylint.checkers.bad_chained_comparison.BadChainedComparisonChecker.visit_compare(self, node: 'nodes.Compare') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Compare` | `—` | pos/kw |
+
+### `pylint.checkers.bad_chained_comparison.BaseChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.bad_chained_comparison.BaseChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `pylint.checkers.base.AnyStyle` methods
+
+### `get_regex`
+
+```python
+pylint.checkers.base.AnyStyle.get_regex(name_type: 'str') -> 'Pattern[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name_type` | `str` | `—` | pos/kw |
+
+**Returns:** `Pattern[str]`
+
+### `pylint.checkers.base.BasicChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.base.BasicChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.base.BasicChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.base.BasicChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.base.BasicChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.base.BasicChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.base.BasicChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `leave_try`
+
+Update try block flag.
+
+```python
+pylint.checkers.base.BasicChecker.leave_try(self, _: 'nodes.Try') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `_` | `nodes.Try` | `—` | pos/kw |
+
+### `open`
+
+Initialize visit variables and statistics.
+
+```python
+pylint.checkers.base.BasicChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.base.BasicChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_assert`
+
+Check whether assert is used on a tuple or string literal.
+
+```python
+pylint.checkers.base.BasicChecker.visit_assert(self, node: 'nodes.Assert') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Assert` | `—` | pos/kw |
+
+### `visit_assign`
+
+```python
+pylint.checkers.base.BasicChecker.visit_assign(self, node: 'nodes.Assign') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Assign` | `—` | pos/kw |
+
+### `visit_asyncfunctiondef`
+
+Check function name, docstring, arguments, redefinition,
+variable names, max locals.
+
+```python
+pylint.checkers.base.BasicChecker.visit_asyncfunctiondef(self, node: 'nodes.FunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.FunctionDef` | `—` | pos/kw |
+
+### `visit_break`
+
+Break node visitor.
+
+1 - check if the node has a right sibling (if so, that's some
+unreachable code)
+2 - check if the node is inside the 'finally' clause of a 'try...finally'
+block
+
+```python
+pylint.checkers.base.BasicChecker.visit_break(self, node: 'nodes.Break') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Break` | `—` | pos/kw |
+
+### `visit_call`
+
+Visit a Call node.
+
+```python
+pylint.checkers.base.BasicChecker.visit_call(self, node: 'nodes.Call') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Call` | `—` | pos/kw |
+
+### `visit_classdef`
+
+Check module name, docstring and redefinition
+increment branch counter.
+
+```python
+pylint.checkers.base.BasicChecker.visit_classdef(self, _: 'nodes.ClassDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `_` | `nodes.ClassDef` | `—` | pos/kw |
+
+### `visit_comprehension`
+
+```python
+pylint.checkers.base.BasicChecker.visit_comprehension(self, node: 'nodes.Comprehension') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Comprehension` | `—` | pos/kw |
+
+### `visit_continue`
+
+Check is the node has a right sibling (if so, that's some unreachable
+code).
+
+```python
+pylint.checkers.base.BasicChecker.visit_continue(self, node: 'nodes.Continue') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Continue` | `—` | pos/kw |
+
+### `visit_dict`
+
+Check duplicate key in dictionary.
+
+```python
+pylint.checkers.base.BasicChecker.visit_dict(self, node: 'nodes.Dict') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Dict` | `—` | pos/kw |
+
+### `visit_expr`
+
+Check for various kind of statements without effect.
+
+```python
+pylint.checkers.base.BasicChecker.visit_expr(self, node: 'nodes.Expr') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Expr` | `—` | pos/kw |
+
+### `visit_for`
+
+```python
+pylint.checkers.base.BasicChecker.visit_for(self, node: 'nodes.For') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.For` | `—` | pos/kw |
+
+### `visit_functiondef`
+
+Check function name, docstring, arguments, redefinition,
+variable names, max locals.
+
+```python
+pylint.checkers.base.BasicChecker.visit_functiondef(self, node: 'nodes.FunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.FunctionDef` | `—` | pos/kw |
+
+### `visit_if`
+
+```python
+pylint.checkers.base.BasicChecker.visit_if(self, node: 'nodes.If') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.If` | `—` | pos/kw |
+
+### `visit_ifexp`
+
+```python
+pylint.checkers.base.BasicChecker.visit_ifexp(self, node: 'nodes.IfExp') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.IfExp` | `—` | pos/kw |
+
+### `visit_lambda`
+
+Check whether the lambda is suspicious.
+
+```python
+pylint.checkers.base.BasicChecker.visit_lambda(self, node: 'nodes.Lambda') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Lambda` | `—` | pos/kw |
+
+### `visit_module`
+
+Check module name, docstring and required arguments.
+
+```python
+pylint.checkers.base.BasicChecker.visit_module(self, _: 'nodes.Module') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `_` | `nodes.Module` | `—` | pos/kw |
+
+### `visit_raise`
+
+Check if the node has a right sibling (if so, that's some unreachable
+code).
+
+```python
+pylint.checkers.base.BasicChecker.visit_raise(self, node: 'nodes.Raise') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Raise` | `—` | pos/kw |
+
+### `visit_return`
+
+Return node visitor.
+
+1 - check if the node has a right sibling (if so, that's some
+unreachable code)
+2 - check if the node is inside the 'finally' clause of a 'try...finally'
+block
+
+```python
+pylint.checkers.base.BasicChecker.visit_return(self, node: 'nodes.Return') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Return` | `—` | pos/kw |
+
+### `visit_set`
+
+Check duplicate value in set.
+
+```python
+pylint.checkers.base.BasicChecker.visit_set(self, node: 'nodes.Set') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Set` | `—` | pos/kw |
+
+### `visit_try`
+
+Update try block flag.
+
+```python
+pylint.checkers.base.BasicChecker.visit_try(self, node: 'nodes.Try') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Try` | `—` | pos/kw |
+
+### `visit_with`
+
+```python
+pylint.checkers.base.BasicChecker.visit_with(self, node: 'nodes.With') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.With` | `—` | pos/kw |
+
+### `pylint.checkers.base.BasicErrorChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.base.BasicErrorChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.base.BasicErrorChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.base.BasicErrorChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.base.BasicErrorChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.base.BasicErrorChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.base.BasicErrorChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.base.BasicErrorChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.base.BasicErrorChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_assign`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_assign(self, node: 'nodes.Assign') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Assign` | `—` | pos/kw |
+
+### `visit_asyncfunctiondef`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_asyncfunctiondef(self, node: 'nodes.FunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.FunctionDef` | `—` | pos/kw |
+
+### `visit_break`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_break(self, node: 'nodes.Break') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Break` | `—` | pos/kw |
+
+### `visit_call`
+
+Check instantiating abstract class with
+abc.ABCMeta as metaclass.
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_call(self, node: 'nodes.Call') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Call` | `—` | pos/kw |
+
+### `visit_classdef`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_classdef(self, node: 'nodes.ClassDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.ClassDef` | `—` | pos/kw |
+
+### `visit_continue`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_continue(self, node: 'nodes.Continue') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Continue` | `—` | pos/kw |
+
+### `visit_for`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_for(self, node: 'nodes.For') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.For` | `—` | pos/kw |
+
+### `visit_functiondef`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_functiondef(self, node: 'nodes.FunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.FunctionDef` | `—` | pos/kw |
+
+### `visit_nonlocal`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_nonlocal(self, node: 'nodes.Nonlocal') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Nonlocal` | `—` | pos/kw |
+
+### `visit_return`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_return(self, node: 'nodes.Return') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Return` | `—` | pos/kw |
+
+### `visit_starred`
+
+Check that a Starred expression is used in an assignment target.
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_starred(self, node: 'nodes.Starred') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Starred` | `—` | pos/kw |
+
+### `visit_unaryop`
+
+Check use of the non-existent ++ and -- operators.
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_unaryop(self, node: 'nodes.UnaryOp') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.UnaryOp` | `—` | pos/kw |
+
+### `visit_while`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_while(self, node: 'nodes.While') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.While` | `—` | pos/kw |
+
+### `visit_yield`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_yield(self, node: 'nodes.Yield') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Yield` | `—` | pos/kw |
+
+### `visit_yieldfrom`
+
+```python
+pylint.checkers.base.BasicErrorChecker.visit_yieldfrom(self, node: 'nodes.YieldFrom') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.YieldFrom` | `—` | pos/kw |
+
+### `pylint.checkers.base.CamelCaseStyle` methods
+
+### `get_regex`
+
+```python
+pylint.checkers.base.CamelCaseStyle.get_regex(name_type: 'str') -> 'Pattern[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name_type` | `str` | `—` | pos/kw |
+
+**Returns:** `Pattern[str]`
+
+### `pylint.checkers.base.ComparisonChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.base.ComparisonChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.base.ComparisonChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.base.ComparisonChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.base.ComparisonChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.base.ComparisonChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.base.ComparisonChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.base.ComparisonChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.base.ComparisonChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_compare`
+
+```python
+pylint.checkers.base.ComparisonChecker.visit_compare(self, node: astroid.nodes.node_classes.Compare) -> None
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `Compare` | `—` | pos/kw |
+
+### `pylint.checkers.base.DocStringChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.base.DocStringChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.base.DocStringChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.base.DocStringChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.base.DocStringChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.base.DocStringChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+
+### `get_map_data`
+
+```python
+pylint.checkers.base.DocStringChecker.get_map_data(self) -> 'Any'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Any`
+
+### `open`
+
+Called before visiting project (i.e. set of modules).
+
+```python
+pylint.checkers.base.DocStringChecker.open(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `reduce_map_data`
+
+```python
+pylint.checkers.base.DocStringChecker.reduce_map_data(self, linter: 'PyLinter', data: 'list[Any]') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `linter` | `PyLinter` | `—` | pos/kw |
+| `data` | `list[Any]` | `—` | pos/kw |
+
+### `visit_asyncfunctiondef`
+
+```python
+pylint.checkers.base.DocStringChecker.visit_asyncfunctiondef(self, node: 'nodes.FunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.FunctionDef` | `—` | pos/kw |
+
+### `visit_classdef`
+
+```python
+pylint.checkers.base.DocStringChecker.visit_classdef(self, node: 'nodes.ClassDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.ClassDef` | `—` | pos/kw |
+
+### `visit_functiondef`
+
+```python
+pylint.checkers.base.DocStringChecker.visit_functiondef(self, node: 'nodes.FunctionDef') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.FunctionDef` | `—` | pos/kw |
+
+### `visit_module`
+
+```python
+pylint.checkers.base.DocStringChecker.visit_module(self, node: 'nodes.Module') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `node` | `nodes.Module` | `—` | pos/kw |
+
+### `pylint.checkers.base.FunctionChecker` methods
+
+### `add_message`
+
+```python
+pylint.checkers.base.FunctionChecker.add_message(self, msgid: 'str', line: 'int | None' = None, node: 'nodes.NodeNG | None' = None, args: 'Any' = None, confidence: 'Confidence | None' = None, col_offset: 'int | None' = None, end_lineno: 'int | None' = None, end_col_offset: 'int | None' = None) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `line` | `int \| None` | `None` | pos/kw |
+| `node` | `nodes.NodeNG \| None` | `None` | pos/kw |
+| `args` | `Any` | `None` | pos/kw |
+| `confidence` | `Confidence \| None` | `None` | pos/kw |
+| `col_offset` | `int \| None` | `None` | pos/kw |
+| `end_lineno` | `int \| None` | `None` | pos/kw |
+| `end_col_offset` | `int \| None` | `None` | pos/kw |
+
+### `check_consistency`
+
+Check the consistency of msgid.
+
+msg ids for a checker should be a string of len 4, where the two first
+characters are the checker id and the two last the msg id in this
+checker.
+
+:raises InvalidMess…
+
+```python
+pylint.checkers.base.FunctionChecker.check_consistency(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `close`
+
+Called after visiting project (i.e set of modules).
+
+```python
+pylint.checkers.base.FunctionChecker.close(self) -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `create_message_definition_from_tuple`
+
+```python
+pylint.checkers.base.FunctionChecker.create_message_definition_from_tuple(self, msgid: 'str', msg_tuple: 'MessageDefinitionTuple') -> 'MessageDefinition'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgid` | `str` | `—` | pos/kw |
+| `msg_tuple` | `MessageDefinitionTuple` | `—` | pos/kw |
+
+**Returns:** `MessageDefinition`
+
+### `get_full_documentation`
+
+```python
+pylint.checkers.base.FunctionChecker.get_full_documentation(self, msgs: 'dict[str, MessageDefinitionTuple]', options: 'Iterable[tuple[str, OptionDict, Any]]', reports: 'Sequence[tuple[str, str, ReportsCallable]]', doc: 'str | None' = None, module: 'str | None' = None, show_options: 'bool' = True) -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `msgs` | `dict[str, MessageDefinitionTuple]` | `—` | pos/kw |
+| `options` | `Iterable[tuple[str, OptionDict, Any]]` | `—` | pos/kw |
+| `reports` | `Sequence[tuple[str, str, ReportsCallable]]` | `—` | pos/kw |
+| `doc` | `str \| None` | `None` | pos/kw |
+| `module` | `str \| None` | `None` | pos/kw |
+| `show_options` | `bool` | `True` | pos/kw |
+
+**Returns:** `str`
+

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,import-meta,syntax,7.10.4,console,log"
+  tags: "babel,build,javascript,import-meta,syntax,7.10.4,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,ConfigAPI,PluginObj,PluginPass,PluginOptions,TransformOptions,BabelFileResult,BabelFile,NodePath,transformSync,transformAsync,transformFileSync,transformFileAsync,parseSync,parseAsync"
 ---
 
 # @babel/plugin-syntax-import-meta
@@ -138,3 +138,72 @@ With this plugin alone, Babel parses the file and preserves the `import.meta` ex
 - Babel docs: https://babeljs.io/docs/en/next/babel-plugin-syntax-import-meta.html
 - npm package page: https://www.npmjs.com/package/@babel/plugin-syntax-import-meta
 - Babel source package: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-import-meta
+
+## API surface — Babel runtime
+
+Like every Babel plugin, `@babel/plugin-syntax-import-meta` is consumed by Babel's runtime API. The types and helpers below are what plugin authors and config writers compose against. They are stable across the `7.x` line.
+
+```typescript
+// Babel core types (@babel/core)
+class ConfigAPI {}
+class PluginObj {}
+class PluginPass {}
+class PluginOptions {}
+class TransformOptions {}
+class BabelFileResult {}
+class BabelFile {}
+class NodePath {}
+class Visitor {}
+class TraversalContext {}
+class ParserOptions {}
+class GeneratorOptions {}
+class ConfigItem {}
+class PartialConfig {}
+class ResolvedConfig {}
+class FileResultCallback {}
+class InputOptions {}
+
+// AST node types (@babel/types)
+class Identifier {}
+class Expression {}
+class Statement {}
+class Program {}
+class File {}
+class BlockStatement {}
+class FunctionDeclaration {}
+class FunctionExpression {}
+class ArrowFunctionExpression {}
+class ClassDeclaration {}
+class ImportDeclaration {}
+class ExportDefaultDeclaration {}
+class VariableDeclaration {}
+class ReturnStatement {}
+class CallExpression {}
+class MemberExpression {}
+class ObjectExpression {}
+class ArrayExpression {}
+class TemplateLiteral {}
+class TaggedTemplateExpression {}
+class ConditionalExpression {}
+class AssignmentExpression {}
+class BinaryExpression {}
+class LogicalExpression {}
+```
+
+```javascript
+// Babel core helpers (@babel/core)
+const code = `const x = 1`;
+const result_transformSync = await babel.transformSync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_transformAsync = await babel.transformAsync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_transformFileSync = await babel.transformFileSync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_transformFileAsync = await babel.transformFileAsync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_parseSync = await babel.parseSync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_parseAsync = await babel.parseAsync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_loadOptionsSync = await babel.loadOptionsSync(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_buildExternalHelpers = await babel.buildExternalHelpers(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+const result_createConfigItem = await babel.createConfigItem(code, { plugins: ['@babel/plugin-syntax-import-meta'] });
+
+// Use the plugin in a config
+const config = { plugins: ['@babel/plugin-syntax-import-meta'] };
+const visitor = { Identifier(path) { path.node; } };
+```

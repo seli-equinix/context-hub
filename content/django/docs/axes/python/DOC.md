@@ -4,211 +4,1117 @@ description: "django-axes login lockout and failed-auth tracking for Django proj
 metadata:
   languages: "python"
   versions: "8.3.1"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "django,axes,authentication,security,login,lockout,JsonResponse,Version-Sensitive"
+  tags: "django,python,axes,authentication,security,login,lockout,JsonResponse,Version-Sensitive,AppConfig,create,get_model,get_models,import_models,initialize,ready,AxesBackendPermissionDenied,AxesBackendRequestParameterRequired,Migration,apply,mutate_state,suggest_name,unapply,deduplicate_attempts,AxesHandler,AxesDatabaseHandler,AxesCacheHandler,AccessAttempt,AccessLog,AccessFailureLog,get_user_attempts,reset_user_attempts,get_client_ip_address,user_locked_out"
 ---
 
-# Django Axes Python Package Guide
-
-## Golden Rule
-
-Use `django-axes` only in authentication flows that call Django `authenticate()` and `login()` or emit the same auth signals themselves. Put `axes.backends.AxesStandaloneBackend` first in `AUTHENTICATION_BACKENDS`, put `axes.middleware.AxesMiddleware` last in `MIDDLEWARE`, and make client IP resolution explicit when you run behind proxies.
+# django — axes
 
 ## Install
 
-Install the package with the optional `ipware` extra unless you already plan to provide a custom client-IP callable:
-
 ```bash
-python -m pip install "django-axes[ipware]==8.3.1"
+pip install django
 ```
 
-Without the extra:
-
-```bash
-python -m pip install "django-axes==8.3.1"
-```
-
-Use the plain package only if you will set `AXES_CLIENT_IP_CALLABLE` yourself.
-
-## Minimal Setup
-
-`django-axes` becomes active through Django settings plus a database migration.
+## Imports
 
 ```python
-# settings.py
-INSTALLED_APPS = [
-    # ...
-    "axes",
-]
-
-AUTHENTICATION_BACKENDS = [
-    "axes.backends.AxesStandaloneBackend",
-    "django.contrib.auth.backends.ModelBackend",
-]
-
-MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "axes.middleware.AxesMiddleware",
-]
+import django
 ```
 
-Then validate the config and create the tables:
+## Symbols (60)
 
-```bash
-python manage.py check
-python manage.py migrate
-```
+| Symbol | Kind | Synopsis |
+|--------|------|----------|
+| `AppConfig` | Class | Class representing a Django application and its configuration. |
+| `create` | Method | Factory that creates an app config from an entry in INSTALLED_APPS. |
+| `get_model` | Method | Return the model with the given case-insensitive model_name.  Raise LookupError… |
+| `get_models` | Method | Return an iterable of models.  By default, the following models aren't included… |
+| `import_models` | Method |  |
+| `initialize` | Method | Initialize Axes logging and show version information.  This method is re-entran… |
+| `ready` | Method | Override this method in subclasses to run code when Django starts. |
+| `AxesBackendPermissionDenied` | Class | Raised by authentication backend on locked out requests to stop the Django auth… |
+| `AxesBackendRequestParameterRequired` | Class | Raised by authentication backend on invalid or missing request parameter value. |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `deduplicate_attempts` | Function |  |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
+| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
+| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
+| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
 
-Notes:
+## Classes
 
-- `AxesStandaloneBackend` should be first in `AUTHENTICATION_BACKENDS`.
-- `AxesMiddleware` should be last in `MIDDLEWARE`.
-- `AxesBackend` still exists for backward compatibility, but upstream recommends `AxesStandaloneBackend` if you have custom permission logic.
-- `python manage.py check` is worth running in CI because Axes includes system checks for security-sensitive misconfiguration.
+### `AppConfig`
 
-## Auth Flow And Core Usage
-
-Axes monitors Django authentication by listening to:
-
-- `user_logged_in`
-- `user_logged_out`
-- `user_login_failed`
-
-If your login flow uses Django’s normal `authenticate()` and `login()`, those signals are handled for you. If you use custom JSON login views or a nonstandard auth layer, you must emit the expected signals yourself or Axes will not track failures correctly.
-
-With the default database handler, Axes stores attempts and lockouts in the database and can be reset from admin or management commands:
-
-```bash
-python manage.py axes_reset
-python manage.py axes_reset_ip 203.0.113.10
-python manage.py axes_reset_username alice
-python manage.py axes_reset_ip_username 203.0.113.10 alice
-python manage.py axes_reset_logs 30
-```
-
-If you switch to a non-database handler such as a cache-based handler, the docs note that you must implement custom reset commands for that handler.
-
-## Configuration That Matters In Real Projects
-
-### Lockout identity
-
-For modern Axes configuration, prefer `AXES_LOCKOUT_PARAMETERS` instead of the older boolean-style flags:
+Class representing a Django application and its configuration.
 
 ```python
-# Default-style lockout by IP
-AXES_LOCKOUT_PARAMETERS = ["ip_address"]
-
-# Lock out by username only
-AXES_LOCKOUT_PARAMETERS = ["username"]
-
-# Lock out by username + IP combination
-AXES_LOCKOUT_PARAMETERS = [["username", "ip_address"]]
+axes.apps.AppConfig(self, app_name, app_module)
 ```
 
-You can also combine factors:
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `app_name` | `—` | `—` | pos/kw |
+| `app_module` | `—` | `—` | pos/kw |
+
+### `AxesBackendPermissionDenied`
+
+Raised by authentication backend on locked out requests to stop the Django authentication flow.
 
 ```python
-AXES_LOCKOUT_PARAMETERS = ["ip_address", ["username", "user_agent"]]
+axes.exceptions.AxesBackendPermissionDenied(self, /, *args, **kwargs)
 ```
 
-This supersedes older settings such as `AXES_ONLY_USER_FAILURES`, `AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP`, `AXES_LOCK_OUT_BY_USER_OR_IP`, and `AXES_USE_USER_AGENT`.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-### Reverse proxies and client IPs
+### `AxesBackendRequestParameterRequired`
 
-If your Django app runs behind Nginx, a load balancer, or another proxy, do not rely on defaults blindly. Axes uses `django-ipware` when available and exposes proxy settings such as:
-
-- `AXES_IPWARE_PROXY_COUNT`
-- `AXES_IPWARE_META_PRECEDENCE_ORDER`
-- `AXES_IPWARE_PROXY_ORDER`
-
-If you do not install the `ipware` extra, provide your own IP lookup:
+Raised by authentication backend on invalid or missing request parameter value.
 
 ```python
-AXES_CLIENT_IP_CALLABLE = "project.security.get_client_ip"
+axes.exceptions.AxesBackendRequestParameterRequired(self, /, *args, **kwargs)
 ```
 
-### Username normalization
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `—` | `—` | *args |
+| `kwargs` | `—` | `—` | **kwargs |
 
-If your login identifiers are transformed before authentication, teach Axes the same transformation:
+### `Migration`
+
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
 
 ```python
-AXES_USERNAME_CALLABLE = "project.security.get_axes_username"
+axes.migrations.0001_initial.Migration(self, name, app_label)
 ```
 
-Axes does not apply those transformations for you before `authenticate()`. Your auth code and Axes configuration need to agree on the final username value.
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
 
-### API-friendly lockout responses
+### `Migration`
 
-If your app needs JSON or another custom response format on lockout, use a callable:
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
 
 ```python
-# settings.py
-AXES_LOCKOUT_CALLABLE = "project.views.lockout"
+axes.migrations.0002_auto_20151217_2044.Migration(self, name, app_label)
 ```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
+
+### `Migration`
+
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
 
 ```python
-# project/views.py
-from django.http import JsonResponse
-
-def lockout(request, response, credentials, *args, **kwargs):
-    return JsonResponse(
-        {"detail": "Too many failed login attempts"},
-        status=403,
-    )
+axes.migrations.0003_auto_20160322_0929.Migration(self, name, app_label)
 ```
 
-## Integration Notes
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
 
-### Django Allauth
+### `Migration`
 
-Allauth does not pass login data in the shape Axes expects by default. The upstream integration guide requires:
+The base class for all migrations.
 
-- `AXES_USERNAME_FORM_FIELD = "login"`
-- a custom Allauth login form that duplicates the login identifier into the credentials dict
-- decorating Allauth `LoginView.dispatch` with `axes_dispatch`
-- decorating `LoginView.form_invalid` with `axes_form_invalid`
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
 
-If you skip those patches, failed Allauth logins can bypass Axes tracking.
+```python
+axes.migrations.0004_auto_20181024_1538.Migration(self, name, app_label)
+```
 
-### Django REST Framework
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
 
-The upstream DRF guidance only applies to authentication schemes that use Django `authenticate()`. `TokenAuthentication` is explicitly called out as unsupported in that guide.
+### `Migration`
 
-For API lockouts, connect the `axes.signals.user_locked_out` signal to an exception or response your API stack understands, for example raising DRF `PermissionDenied`.
+The base class for all migrations.
 
-## Common Pitfalls
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
 
-- Wrong backend order: if `AxesStandaloneBackend` is not first, failed logins can bypass Axes.
-- Wrong middleware placement: `AxesMiddleware` belongs at the end of `MIDDLEWARE`.
-- Proxy misconfiguration: without `django-ipware` or a correct `AXES_CLIENT_IP_CALLABLE`, every user can appear to come from the proxy IP.
-- Custom login views that never emit Django auth signals: Axes will not see failures unless you send the signals yourself.
-- Using pre-6.x config flags from old blog posts instead of `AXES_LOCKOUT_PARAMETERS` and `AXES_IPWARE_*`.
-- Assuming reset commands work for every handler. The docs only describe them for the default database handler.
-- Trusting the docs requirements page for Python support. For `8.3.1`, PyPI metadata is the authoritative compatibility source.
+```python
+axes.migrations.0005_remove_accessattempt_trusted.Migration(self, name, app_label)
+```
 
-## Version-Sensitive Notes
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
 
-- `8.3.1` was released on February 11, 2026 and fixes configuration JSON serialization errors for Celery.
-- `8.1.0` added Django `6.0` support and Python `3.14` support, and removed Django `5.1` plus Python `3.9`.
-- `8.0.0` moved all database-related logic to the default `axes.handlers.database.AxesDatabaseHandler`.
-- If you upgraded from Axes 6 to 7 and use a callable for `AXES_COOLOFF_TIME`, the callable must now accept a `request`.
-- If you upgraded from Axes 5-era config, rename proxy settings to `AXES_IPWARE_*` and migrate older lockout booleans to `AXES_LOCKOUT_PARAMETERS`.
+### `Migration`
 
-## Official Sources
+The base class for all migrations.
 
-- Docs root: `https://django-axes.readthedocs.io/en/latest/`
-- Installation: `https://django-axes.readthedocs.io/en/latest/2_installation.html`
-- Usage: `https://django-axes.readthedocs.io/en/latest/3_usage.html`
-- Configuration: `https://django-axes.readthedocs.io/en/latest/4_configuration.html`
-- Customization: `https://django-axes.readthedocs.io/en/latest/5_customization.html`
-- Integration: `https://django-axes.readthedocs.io/en/latest/6_integration.html`
-- Changelog: `https://django-axes.readthedocs.io/en/latest/10_changelog.html`
-- PyPI: `https://pypi.org/project/django-axes/`
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
+
+```python
+axes.migrations.0006_remove_accesslog_trusted.Migration(self, name, app_label)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
+
+### `Migration`
+
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
+
+```python
+axes.migrations.0007_alter_accessattempt_unique_together.Migration(self, name, app_label)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
+
+### `Migration`
+
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
+
+```python
+axes.migrations.0008_accessfailurelog.Migration(self, name, app_label)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
+
+### `Migration`
+
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
+
+```python
+axes.migrations.0009_add_session_hash.Migration(self, name, app_label)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
+
+### `Migration`
+
+The base class for all migrations.
+
+Migration files will import this from django.db.migrations.Migration
+and subclass it as a class called Migration. It will have one or more
+of the following attribu…
+
+```python
+axes.migrations.0010_accessattemptexpiration.Migration(self, name, app_label)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `name` | `—` | `—` | pos/kw |
+| `app_label` | `—` | `—` | pos/kw |
+
+## Functions
+
+### `deduplicate_attempts`
+
+```python
+axes.migrations.0007_alter_accessattempt_unique_together.deduplicate_attempts(apps, schema_editor)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `apps` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+
+## Methods
+
+### `axes.apps.AppConfig` methods
+
+### `create`
+
+Factory that creates an app config from an entry in INSTALLED_APPS.
+
+```python
+axes.apps.AppConfig.create(entry)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `entry` | `—` | `—` | pos/kw |
+
+### `get_model`
+
+Return the model with the given case-insensitive model_name.
+
+Raise LookupError if no model exists with this name.
+
+```python
+axes.apps.AppConfig.get_model(self, model_name, require_ready=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `model_name` | `—` | `—` | pos/kw |
+| `require_ready` | `—` | `True` | pos/kw |
+
+### `get_models`
+
+Return an iterable of models.
+
+By default, the following models aren't included:
+
+- auto-created models for many-to-many relations without
+  an explicit intermediate table,
+- models that have been sw…
+
+```python
+axes.apps.AppConfig.get_models(self, include_auto_created=False, include_swapped=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `include_auto_created` | `—` | `False` | pos/kw |
+| `include_swapped` | `—` | `False` | pos/kw |
+
+### `import_models`
+
+```python
+axes.apps.AppConfig.import_models(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `initialize`
+
+Initialize Axes logging and show version information.
+
+This method is re-entrant and can be called multiple times.
+It displays version information exactly once at application startup.
+
+```python
+axes.apps.AppConfig.initialize()
+```
+
+### `ready`
+
+Override this method in subclasses to run code when Django starts.
+
+```python
+axes.apps.AppConfig.ready(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `axes.migrations.0001_initial.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0001_initial.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0001_initial.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0001_initial.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0001_initial.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0002_auto_20151217_2044.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0002_auto_20151217_2044.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0002_auto_20151217_2044.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0002_auto_20151217_2044.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0002_auto_20151217_2044.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0003_auto_20160322_0929.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0003_auto_20160322_0929.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0003_auto_20160322_0929.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0003_auto_20160322_0929.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0003_auto_20160322_0929.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0004_auto_20181024_1538.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0004_auto_20181024_1538.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0004_auto_20181024_1538.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0004_auto_20181024_1538.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0004_auto_20181024_1538.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0005_remove_accessattempt_trusted.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0005_remove_accessattempt_trusted.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0005_remove_accessattempt_trusted.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0005_remove_accessattempt_trusted.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0005_remove_accessattempt_trusted.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0006_remove_accesslog_trusted.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0006_remove_accesslog_trusted.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0006_remove_accesslog_trusted.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0006_remove_accesslog_trusted.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0006_remove_accesslog_trusted.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0007_alter_accessattempt_unique_together.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0007_alter_accessattempt_unique_together.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0007_alter_accessattempt_unique_together.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0007_alter_accessattempt_unique_together.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0007_alter_accessattempt_unique_together.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0008_accessfailurelog.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0008_accessfailurelog.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0008_accessfailurelog.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0008_accessfailurelog.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0008_accessfailurelog.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0009_add_session_hash.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0009_add_session_hash.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0009_add_session_hash.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0009_add_session_hash.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0009_add_session_hash.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `axes.migrations.0010_accessattemptexpiration.Migration` methods
+
+### `apply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a forwards order.
+
+Return the resulting project state for efficie…
+
+```python
+axes.migrations.0010_accessattemptexpiration.Migration.apply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+
+### `mutate_state`
+
+Take a ProjectState and return a new one with the migration's
+operations applied to it. Preserve the original object state by
+default and return a mutated state from a copy.
+
+```python
+axes.migrations.0010_accessattemptexpiration.Migration.mutate_state(self, project_state, preserve=True)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `preserve` | `—` | `True` | pos/kw |
+
+### `suggest_name`
+
+Suggest a name for the operations this migration might represent. Names
+are not guaranteed to be unique, but put some effort into the fallback
+name to avoid VCS conflicts if possible.
+
+```python
+axes.migrations.0010_accessattemptexpiration.Migration.suggest_name(self)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+### `unapply`
+
+Take a project_state representing all migrations prior to this one
+and a schema_editor for a live database and apply the migration
+in a reverse order.
+
+The backwards migration process consists of two…
+
+```python
+axes.migrations.0010_accessattemptexpiration.Migration.unapply(self, project_state, schema_editor, collect_sql=False)
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `project_state` | `—` | `—` | pos/kw |
+| `schema_editor` | `—` | `—` | pos/kw |
+| `collect_sql` | `—` | `False` | pos/kw |
+## API surface — django-axes Python entry points
+
+```python
+from axes.attempts import get_user_attempts, reset_user_attempts
+from axes.handlers import AxesHandler, AxesDatabaseHandler, AxesCacheHandler
+from axes.models import AccessAttempt, AccessLog, AccessFailureLog
+from axes.signals import user_locked_out, user_login_failed
+from axes.helpers import get_client_ip_address, get_client_username, is_ip_address_in_blacklist
+
+class AxesProxyHandler:
+    def is_allowed(self, request): pass
+    def user_login_failed(self, sender, credentials, **kwargs): pass
+    def is_locked_out(self, request, credentials): pass
+    def reset_attempts(self, ip=None, username=None): pass
+    def reset_logs(self, age_days=30): pass
+    def get_failures(self, request, credentials): pass
+
+result_attempts = get_user_attempts(request)
+result_reset = reset_user_attempts(request)
+result_ip = get_client_ip_address(request)
+result_username = get_client_username(request)
+```

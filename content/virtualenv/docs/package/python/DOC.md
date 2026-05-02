@@ -4,229 +4,3304 @@ description: "virtualenv package guide for creating isolated Python environments
 metadata:
   languages: "python"
   versions: "21.2.0"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "virtualenv,python,packaging,environments,venv,pip,cli_run,session_via_cli,BASH_SOURCE,Set-ExecutionPolicy,Version-Sensitive"
+  tags: "virtualenv,python,packaging,environments,venv,pip,cli_run,session_via_cli,BASH_SOURCE,Set-ExecutionPolicy,Version-Sensitive,BashActivator,add_parser_arguments,as_name,generate,instantiate_template,quote,replacements,supports,templates,BatchActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator,XonshActivator,Activator,ViaTemplateActivator"
 ---
 
-# virtualenv Python Package Guide
-
-## Golden Rule
-
-Use `virtualenv` when you need a fast, configurable environment creator beyond the stdlib `venv` defaults, and create environments against an explicit interpreter whenever the Python version matters.
-
-For this entry, the version used here `21.2.0` matches the live upstream release on PyPI dated March 9, 2026.
+# virtualenv — package
 
 ## Install
 
-Preferred install via `pipx` so the tool stays isolated from project environments:
-
 ```bash
-pipx install virtualenv
-virtualenv --help
+pip install virtualenv
 ```
 
-Pin the exact package version when reproducibility matters:
-
-```bash
-python -m pip install --user "virtualenv==21.2.0"
-python -m virtualenv --help
-```
-
-Use the published zipapp if you need a no-install path:
-
-```bash
-curl -LO https://bootstrap.pypa.io/virtualenv.pyz
-python virtualenv.pyz --help
-```
-
-## Create Environments
-
-Basic creation:
-
-```bash
-python -m virtualenv .venv
-```
-
-Use an explicit interpreter path for stable builds:
-
-```bash
-/opt/python/3.12/bin/python -m virtualenv .venv
-```
-
-Use interpreter discovery rules when you want `virtualenv` to search:
-
-```bash
-virtualenv --python=3.12 .venv
-virtualenv --python=">=3.12" .venv
-virtualenv --python=cpython3.12-64-arm64 .venv
-```
-
-If your machine has version-manager shims or multiple candidates, use `--try-first-with` as a hint before the normal search:
-
-```bash
-virtualenv --python=3.12 --try-first-with ~/.pyenv/versions/3.12.9/bin/python .venv
-```
-
-## Activate Or Use Directly
-
-Activation is optional. You can always call the environment's binaries directly.
-
-POSIX shells:
-
-```bash
-source .venv/bin/activate
-python --version
-python -m pip install -U pip
-deactivate
-```
-
-Windows `cmd.exe`:
-
-```bat
-.\.venv\Scripts\activate
-python --version
-```
-
-PowerShell:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-If PowerShell blocks activation scripts, the upstream docs recommend:
-
-```powershell
-Set-ExecutionPolicy RemoteSigned
-```
-
-## Core Options You Will Actually Use
-
-Create an env that can still see global packages:
-
-```bash
-virtualenv --system-site-packages .venv
-```
-
-Force copies instead of symlinks:
-
-```bash
-virtualenv --copies .venv
-```
-
-Blow away and recreate an existing destination:
-
-```bash
-virtualenv --clear .venv
-```
-
-Skip VCS ignore generation:
-
-```bash
-virtualenv --no-vcs-ignore .venv
-```
-
-Create a bare environment without seeded package installers:
-
-```bash
-virtualenv --no-seed .venv
-```
-
-Control which activation scripts are generated and the prompt prefix:
-
-```bash
-virtualenv --activators bash,powershell --prompt . .venv
-```
-
-The default activators cover `bash`, `batch`, `cshell`, `fish`, `nushell`, `powershell`, and `python`.
-
-## Seeding, Caches, And Offline-ish Setups
-
-`virtualenv` creates environments in two phases:
-
-1. Discover the base interpreter.
-2. Build the environment, seed packages, install activators, and create VCS ignore files.
-
-For seeding, the default method is `app-data`, which caches install images and makes repeat environment creation much faster than invoking `pip` from scratch every time.
-
-Useful flags:
-
-```bash
-virtualenv --download .venv
-virtualenv --no-periodic-update .venv
-virtualenv --extra-search-dir /srv/wheels --extra-search-dir /opt/wheels .venv
-virtualenv --upgrade-embed-wheels
-```
-
-Important defaults in current docs:
-
-- `--seeder app-data`
-- `--no-download` is the default
-- `--pip bundle`
-- `--setuptools none`
-
-That last point matters on modern Python: upstream docs say `setuptools` is disabled by default for Python 3.12+ environments, and `wheel` is only installed by default on Python 3.8.
-
-## Config And Authentication
-
-There is no service authentication layer in `virtualenv`. Configuration is local: CLI flags, environment variables, and `virtualenv.ini`.
-
-The docs say `virtualenv` looks for a standard `virtualenv.ini` unless `VIRTUALENV_CONFIG_FILE` overrides the path. Run `virtualenv --help` to print the active config-file location.
-
-Useful environment variables:
-
-```bash
-export VIRTUALENV_PYTHON=/opt/python-3.12/bin/python
-export VIRTUALENV_EXTRA_SEARCH_DIR=/srv/wheels,/opt/wheels
-export VIRTUALENV_OVERRIDE_APP_DATA=/var/cache/virtualenv
-```
-
-Notes:
-
-- Environment variable names mirror long CLI options with a `VIRTUALENV_` prefix.
-- Options that accept multiple values, such as `VIRTUALENV_PYTHON` and `VIRTUALENV_EXTRA_SEARCH_DIR`, can use comma-separated or newline-separated values.
-- The app-data directory is the seed cache. Override it when you need a shared or deterministic cache location in CI or managed build images.
-
-## Use From Python
-
-The supported Python API is CLI-shaped. Use `cli_run()` to create an environment and `session_via_cli()` if you only need the resolved session data.
+## Imports
 
 ```python
-from virtualenv import cli_run, session_via_cli
-
-session = cli_run(["--python=3.12", ".venv"])
-print(session.interpreter)
-
-preview = session_via_cli(["--python=3.12", ".venv"])
-print(preview.creator)
+import virtualenv
 ```
 
-The returned session object is documented as experimental. Treat it as inspection data, not a stable long-term interface.
+## Symbols (200)
 
-## Common Pitfalls
+| Symbol | Kind | Synopsis |
+|--------|------|----------|
+| `cli_run` | Function | Create a virtual environment given some command line interface arguments.  :par… |
+| `session_via_cli` | Function | Create a virtualenv session (same as cli_run, but this does not perform the cre… |
+| `BashActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `BatchActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `CShellActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `FishActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `NushellActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Nushell supports raw strings like: r###'this is a string'###.  https://github.c… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `PowerShellActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | This should satisfy PowerShell quoting rules [1], unless the quoted string is p… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `PythonActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `XonshActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote as a Python literal — xonsh parses the activation script as Python. |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `Activator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `BashActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `BatchActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `CShellActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `FishActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `NushellActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Nushell supports raw strings like: r###'this is a string'###.  https://github.c… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `PowerShellActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | This should satisfy PowerShell quoting rules [1], unless the quoted string is p… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `PythonActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
+| `quote` | Method | Quote strings in the activation script.  :param string: the string to quote  :r… |
+| `replacements` | Method |  |
+| `supports` | Method | Check if the activation script is supported in the given interpreter.  :param i… |
+| `templates` | Method |  |
+| `ViaTemplateActivator` | Class | Generates activate script for the virtual environment. |
+| `add_parser_arguments` | Method | Add CLI arguments for this activation script.  :param parser: the CLI parser :p… |
+| `as_name` | Method |  |
+| `generate` | Method | Generate activate script for the given creator.  :param creator: the creator (b… |
+| `instantiate_template` | Method |  |
 
-- Do not rely on a generic launcher like `python3 -m virtualenv .venv` if your system updates `/usr/bin/python3` under you. Use an exact interpreter path or an explicit specifier.
-- Activation is not required. In automation, calling `.venv/bin/python` or `.venv/Scripts/python.exe` is usually cleaner and less shell-dependent.
-- `--system-site-packages` breaks isolation by design. Only use it when your toolchain truly expects global packages.
-- If builds need internet-free seeding, populate wheel locations up front and use `--extra-search-dir`; `--download` is off by default.
-- PowerShell activation can fail because of execution policy, not because the environment is broken.
-- If your tooling imports `virtualenv.discovery.*` internals directly, that is now a migration target, not a stable contract.
+## Classes
 
-## Version-Sensitive Notes For 21.2.0
+### `BashActivator`
 
-- `21.2.0` was released on March 9, 2026.
-- `21.2.0` fixes `--no-vcs-ignore` being ignored on the subprocess `venv` path for Python 3.13+.
-- `21.2.0` fixes bash activation relocation fallback by using `BASH_SOURCE[0]`, which matters if the activate script is sourced from a different working directory.
-- `21.1.0` adds inline type annotations and ships `py.typed`, so static type checkers now recognize `virtualenv` as a typed package.
-- `21.0.0` extracts Python discovery into the separate `python-discovery` dependency. If older code imports `virtualenv.discovery.py_info.PythonInfo` or similar internals, switch to `python_discovery` instead of depending on compatibility shims.
-- `20.38.0` moved app-data storage to the OS cache directory and migrates existing cache data on first use. If your CI or container image pinned the old cache path, update that assumption.
+Generates activate script for the virtual environment.
 
-## Official Sources
+```python
+virtualenv.activation.BashActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
 
-- Stable docs: https://virtualenv.pypa.io/en/stable/
-- Installation: https://virtualenv.pypa.io/en/stable/installation.html
-- User guide: https://virtualenv.pypa.io/en/stable/user_guide.html
-- CLI reference: https://virtualenv.pypa.io/en/stable/cli_interface.html
-- Release history: https://virtualenv.pypa.io/en/stable/changelog.html
-- PyPI release page: https://pypi.org/project/virtualenv/21.2.0/
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `BatchActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.BatchActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `CShellActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.CShellActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `FishActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.FishActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `NushellActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.NushellActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `PowerShellActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.PowerShellActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `PythonActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.PythonActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `XonshActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.XonshActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `Activator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.activator.Activator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `BashActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.bash.BashActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `BatchActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.batch.BatchActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `CShellActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.cshell.CShellActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `FishActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.fish.FishActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `NushellActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.nushell.NushellActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `PowerShellActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.powershell.PowerShellActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `PythonActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.python.PythonActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+### `ViaTemplateActivator`
+
+Generates activate script for the virtual environment.
+
+```python
+virtualenv.activation.python.ViaTemplateActivator(self, options: 'VirtualEnvOptions') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `options` | `VirtualEnvOptions` | `—` | pos/kw |
+
+## Functions
+
+### `cli_run`
+
+Create a virtual environment given some command line interface arguments.
+
+:param args: the command line arguments
+:param options: passing in a ``VirtualEnvOptions`` object allows return of the parse…
+
+```python
+virtualenv.cli_run(args: 'list[str]', options: 'VirtualEnvOptions | None' = None, setup_logging: 'bool' = True, env: 'MutableMapping[str, str] | None' = None) -> 'Session'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `list[str]` | `—` | pos/kw |
+| `options` | `VirtualEnvOptions \| None` | `None` | pos/kw |
+| `setup_logging` | `bool` | `True` | pos/kw |
+| `env` | `MutableMapping[str, str] \| None` | `None` | pos/kw |
+
+**Returns:** `Session`
+
+### `session_via_cli`
+
+Create a virtualenv session (same as cli_run, but this does not perform the creation). Use this if you just want to query what the virtual environment would look like, but not actually create it.
+
+:p…
+
+```python
+virtualenv.session_via_cli(args: 'list[str]', options: 'VirtualEnvOptions | None' = None, setup_logging: 'bool' = True, env: 'MutableMapping[str, str] | None' = None) -> 'Session'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `args` | `list[str]` | `—` | pos/kw |
+| `options` | `VirtualEnvOptions \| None` | `None` | pos/kw |
+| `setup_logging` | `bool` | `True` | pos/kw |
+| `env` | `MutableMapping[str, str] \| None` | `None` | pos/kw |
+
+**Returns:** `Session`
+
+## Methods
+
+### `virtualenv.activation.BashActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.BashActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.BashActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.BashActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.BashActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.BashActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.BashActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.BashActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.BashActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.BatchActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.BatchActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.BatchActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.BatchActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.BatchActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.BatchActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.BatchActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.BatchActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.BatchActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.CShellActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.CShellActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.CShellActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.CShellActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.CShellActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.CShellActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.CShellActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.CShellActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.CShellActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.FishActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.FishActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.FishActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.FishActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.FishActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.FishActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.FishActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.FishActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.FishActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.NushellActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.NushellActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.NushellActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.NushellActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.NushellActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Nushell supports raw strings like: r###'this is a string'###.
+
+https://github.com/nushell/nushell.github.io/blob/main/book/working_with_strings.md
+
+This method finds the maximum continuous sharps in…
+
+```python
+virtualenv.activation.NushellActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.NushellActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.NushellActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.NushellActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.PowerShellActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.PowerShellActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.PowerShellActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.PowerShellActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.PowerShellActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+This should satisfy PowerShell quoting rules [1], unless the quoted string is passed directly to Windows native commands [2].
+
+[1]: https://learn.microsoft.com/en-us/powershell/module/microsoft.power…
+
+```python
+virtualenv.activation.PowerShellActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.PowerShellActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.PowerShellActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.PowerShellActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.PythonActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.PythonActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.PythonActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.PythonActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.PythonActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.PythonActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.PythonActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.PythonActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.PythonActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.XonshActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.XonshActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.XonshActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.XonshActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.XonshActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote as a Python literal — xonsh parses the activation script as Python.
+
+```python
+virtualenv.activation.XonshActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.XonshActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.XonshActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.XonshActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.activator.Activator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.activator.Activator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.activator.Activator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.activator.Activator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `virtualenv.activation.bash.BashActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.bash.BashActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.bash.BashActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.bash.BashActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.bash.BashActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.bash.BashActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.bash.BashActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.bash.BashActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.bash.BashActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.bash.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.bash.ViaTemplateActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.batch.BatchActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.batch.BatchActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.batch.BatchActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.batch.BatchActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.batch.BatchActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.batch.BatchActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.batch.BatchActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.batch.BatchActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.batch.BatchActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.batch.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.batch.ViaTemplateActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.cshell.CShellActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.cshell.CShellActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.cshell.CShellActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.cshell.CShellActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.cshell.CShellActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.cshell.CShellActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.cshell.CShellActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.cshell.CShellActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.cshell.CShellActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.cshell.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.cshell.ViaTemplateActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.fish.FishActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.fish.FishActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.fish.FishActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.fish.FishActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.fish.FishActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.fish.FishActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.fish.FishActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.fish.FishActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.fish.FishActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.fish.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.fish.ViaTemplateActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.nushell.NushellActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.nushell.NushellActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.nushell.NushellActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.nushell.NushellActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.nushell.NushellActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Nushell supports raw strings like: r###'this is a string'###.
+
+https://github.com/nushell/nushell.github.io/blob/main/book/working_with_strings.md
+
+This method finds the maximum continuous sharps in…
+
+```python
+virtualenv.activation.nushell.NushellActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.nushell.NushellActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.nushell.NushellActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.nushell.NushellActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.nushell.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.nushell.ViaTemplateActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.powershell.PowerShellActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+This should satisfy PowerShell quoting rules [1], unless the quoted string is passed directly to Windows native commands [2].
+
+[1]: https://learn.microsoft.com/en-us/powershell/module/microsoft.power…
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.powershell.PowerShellActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.powershell.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.powershell.ViaTemplateActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.python.PythonActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.python.PythonActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.python.PythonActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.python.PythonActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.python.PythonActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `quote`
+
+Quote strings in the activation script.
+
+:param string: the string to quote
+
+:returns: quoted string that works in the activation script
+
+```python
+virtualenv.activation.python.PythonActivator.quote(string: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `string` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `replacements`
+
+```python
+virtualenv.activation.python.PythonActivator.replacements(self, creator: 'Creator', dest_folder: 'Path') -> 'dict[str, str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+| `dest_folder` | `Path` | `—` | pos/kw |
+
+**Returns:** `dict[str, str]`
+
+### `supports`
+
+Check if the activation script is supported in the given interpreter.
+
+:param interpreter: the interpreter we need to support
+
+:returns: ``True`` if supported, ``False`` otherwise
+
+```python
+virtualenv.activation.python.PythonActivator.supports(interpreter: 'PythonInfo') -> 'bool'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+**Returns:** `bool`
+
+### `templates`
+
+```python
+virtualenv.activation.python.PythonActivator.templates(self) -> 'Iterator[str]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+
+**Returns:** `Iterator[str]`
+
+### `virtualenv.activation.python.ViaTemplateActivator` methods
+
+### `add_parser_arguments`
+
+Add CLI arguments for this activation script.
+
+:param parser: the CLI parser
+:param interpreter: the interpreter this virtual environment is based of
+
+```python
+virtualenv.activation.python.ViaTemplateActivator.add_parser_arguments(parser: 'ArgumentParser', interpreter: 'PythonInfo') -> 'None'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `parser` | `ArgumentParser` | `—` | pos/kw |
+| `interpreter` | `PythonInfo` | `—` | pos/kw |
+
+### `as_name`
+
+```python
+virtualenv.activation.python.ViaTemplateActivator.as_name(self, template: 'str') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+
+**Returns:** `str`
+
+### `generate`
+
+Generate activate script for the given creator.
+
+:param creator: the creator (based of :class:`virtualenv.create.creator.Creator`) we used to create this virtual
+    environment
+
+```python
+virtualenv.activation.python.ViaTemplateActivator.generate(self, creator: 'Creator') -> 'list[Path]'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `list[Path]`
+
+### `instantiate_template`
+
+```python
+virtualenv.activation.python.ViaTemplateActivator.instantiate_template(self, replacements: 'dict[str, str]', template: 'str', creator: 'Creator') -> 'str'
+```
+
+| Parameter | Type | Default | Kind |
+|-----------|------|---------|------|
+| `self` | `—` | `—` | pos/kw |
+| `replacements` | `dict[str, str]` | `—` | pos/kw |
+| `template` | `str` | `—` | pos/kw |
+| `creator` | `Creator` | `—` | pos/kw |
+
+**Returns:** `str`
+

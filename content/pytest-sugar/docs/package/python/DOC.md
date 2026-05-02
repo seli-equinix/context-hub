@@ -4,194 +4,227 @@ description: "pytest-sugar package guide for prettier pytest output, progress ba
 metadata:
   languages: "python"
   versions: "1.1.1"
-  revision: 1
-  updated-on: "2026-03-12"
+  updated-on: "2026-05-02"
   source: maintainer
-  tags: "pytest-sugar,pytest,testing,terminal,ci,playwright,ini,toml,Version-Sensitive"
+  tags: "pytest-sugar,python,pytest,testing,terminal,ci,playwright,ini,toml,Version-Sensitive,DeferredXdistPlugin,pytest_xdist_node_collection_finished,SugarTerminalReporter,begin_new_line,build_summary_stats_line,count,ensure_newline,flush,get_max_column_for_test_status,getreports,hasopt,insert_progress,line,overwrite,print_failure,print_teardown_sections,pytest_collection,pytest_collection_finish,pytest_collectreport,pytest_deselected,pytest_internalerror,pytest_keyboard_interrupt,pytest_plugin_registered,pytest_report_header,pytest_runtest_logfinish,pytest_runtest_logreport,pytest_runtest_logstart,pytest_runtestloop,pytest_sessionfinish,pytest_sessionstart,pytest_terminal_summary,pytest_unconfigure,pytest_warning_recorded,Theme,flatten,pytest_addoption,pytest_configure,pytest_report_teststatus,real_string_length,strip_colors,SugarReporter,ProgressBar,pytest_collection_modifyitems,pytest_runtest_protocol"
 ---
 
-# pytest-sugar Python Package Guide
+# pytest-sugar — package
 
-## What It Is
+pytest_sugar
+~~~~~~~~~~~~
 
-Use `pytest-sugar` as a pytest terminal UI plugin. It changes console output, adds a progress bar, and can show Playwright trace locations, but it does not change pytest's core collection, fixture, or assertion behavior.
+pytest-sugar is a plugin for pytest that changes the default look
+and feel of pytest (e.g. progressbar, show tests that fail instantly).
 
-This entry covers package version `1.1.1`.
+:copyright: see LICENSE for details
+:license: BSD, see LICENSE for more details.
 
-## Install
+## 1. Golden Rule
 
-Install it into the same environment as `pytest`:
+Use `pytest-sugar` for pytest-sugar package guide for prettier pytest output, progress bars, and playwright trace hints.
 
-```bash
-python -m pip install "pytest-sugar==1.1.1"
-```
-
-Common alternatives:
-
-```bash
-uv add "pytest-sugar==1.1.1"
-poetry add "pytest-sugar==1.1.1"
-```
-
-Run tests normally after install:
+### Install
 
 ```bash
-pytest
+pip install pytest-sugar
 ```
 
-The plugin auto-loads when pytest discovers installed plugins.
+### Imports
 
-## Initialization And Configuration Model
-
-There is no package-specific Python client to initialize, no authentication flow, and no package-specific environment variable required for normal usage.
-
-Use the same pytest entrypoint you already use:
-
-```bash
-pytest
+```python
+import pytest_sugar
 ```
 
-For persistent defaults, put options in normal pytest config such as `pyproject.toml` or `pytest.ini`.
+## 2. Core Operations
 
-## Core Usage
+### 1. `Theme`
 
-### Default behavior
+Theme(header: Optional[str] = 'magenta', skipped: Optional[str] = 'blue', success: Optional[str] = 'green', warning: Optional[str] = 'yellow', fail: Optional[str] = 'red', error: Optional[str] = 'red', xfailed: Optional[str] = 'green', xpassed: Optional[str] = 'red', progressbar: Optional[str] = 'g…
 
-After installation, `pytest-sugar` replaces pytest's standard progress/output view with a progress bar and prints failures as they happen.
-
-```bash
-pytest
+```python
+pytest_sugar.Theme(self, header: Optional[str] = 'magenta', skipped: Optional[str] = 'blue', success: Optional[str] = 'green', warning: Optional[str] = 'yellow', fail: Optional[str] = 'red', error: Optional[str] = 'red', xfailed: Optional[str] = 'green', xpassed: Optional[str] = 'red', progressbar: Optional[str] = 'green', progressbar_fail: Optional[str] = 'red', progressbar_background: Optional[str] = 'grey', path: Optional[str] = 'cyan', symbol_passed: str = '✓', symbol_skipped: str = 's', symbol_failed: str = '⨯', symbol_failed_not_call: str = 'ₓ', symbol_xfailed_skipped: str = 'x', symbol_xfailed_failed: str = 'X', symbol_unknown: str = '?', unknown: Optional[str] = 'blue', symbol_rerun: Optional[str] = 'R', rerun: Optional[str] = 'blue') -> None
 ```
 
-### Verbose mode
+**Parameters:**
 
-Use verbose mode if you want one test per line instead of the condensed progress UI:
+- `header`: `Optional` = `'magenta'`
+- `skipped`: `Optional` = `'blue'`
+- `success`: `Optional` = `'green'`
+- `warning`: `Optional` = `'yellow'`
+- `fail`: `Optional` = `'red'`
+- `error`: `Optional` = `'red'`
+- `xfailed`: `Optional` = `'green'`
+- `xpassed`: `Optional` = `'red'`
+- `progressbar`: `Optional` = `'green'`
+- `progressbar_fail`: `Optional` = `'red'`
+- `progressbar_background`: `Optional` = `'grey'`
+- `path`: `Optional` = `'cyan'`
+- `symbol_passed`: `str` = `'✓'`
+- `symbol_skipped`: `str` = `'s'`
+- `symbol_failed`: `str` = `'⨯'`
+- `symbol_failed_not_call`: `str` = `'ₓ'`
+- `symbol_xfailed_skipped`: `str` = `'x'`
+- `symbol_xfailed_failed`: `str` = `'X'`
+- `symbol_unknown`: `str` = `'?'`
+- `unknown`: `Optional` = `'blue'`
+- `symbol_rerun`: `Optional` = `'R'`
+- `rerun`: `Optional` = `'blue'`
 
-```bash
-pytest --verbose
+### 2. `pytest_deselected`
+
+Update tests_count to not include deselected tests
+
+```python
+pytest_sugar.pytest_deselected(items: Sequence[_pytest.nodes.Item]) -> None
 ```
 
-### Disable sugar for one run
+**Parameters:**
 
-If CI tooling or another plugin expects plain pytest output, disable `pytest-sugar` explicitly:
+- `items`: `Sequence`
 
-```bash
-pytest -p no:sugar
+### 3. `DeferredXdistPlugin`
+
+```python
+pytest_sugar.DeferredXdistPlugin(self, /, *args, **kwargs)
 ```
 
-## Important CLI Options
+**Parameters:**
 
-### Use the older detailed summary
+- `args`
+- `kwargs`
 
-```bash
-pytest --old-summary
+### 4. `SugarTerminalReporter`
+
+```python
+pytest_sugar.SugarTerminalReporter(self, config: _pytest.config.Config, file: Optional[TextIO] = None) -> None
 ```
 
-Use this when the default instant-failure display is too compact and you want a more traditional detailed summary.
+**Parameters:**
 
-### Force sugar output in non-interactive environments
+- `config`: `Config`
+- `file`: `Optional` = `None`
 
-```bash
-pytest --force-sugar
+### 5. `flatten`
+
+```python
+pytest_sugar.flatten(seq) -> Generator[Any, NoneType, NoneType]
 ```
 
-Use this in CI, containers, or redirected output where pytest does not think it is attached to a real terminal.
+**Parameters:**
 
-### Control Playwright trace lookup
+- `seq`
 
-By default, the plugin looks for Playwright traces in Playwright Python's default output directory, `test-results`.
+**Returns:** `typing.Generator[typing.Any, NoneType, NoneType]`
 
-```bash
-pytest --sugar-trace-dir artifacts/playwright
+### 6. `pytest_addoption`
+
+```python
+pytest_sugar.pytest_addoption(parser: _pytest.config.argparsing.Parser) -> None
 ```
 
-Disable trace lookup entirely if it adds noise:
+**Parameters:**
 
-```bash
-pytest --sugar-no-trace
+- `parser`: `Parser`
+
+### 7. `pytest_collection_finish`
+
+```python
+pytest_sugar.pytest_collection_finish(session: _pytest.main.Session) -> None
 ```
 
-## Project Configuration
+**Parameters:**
 
-### Pytest config
+- `session`: `Session`
 
-For most projects, keep defaults in regular pytest config through `addopts`.
+### 8. `pytest_configure`
 
-`pyproject.toml`:
-
-```toml
-[tool.pytest.ini_options]
-addopts = "-ra --force-sugar"
+```python
+pytest_sugar.pytest_configure(config) -> None
 ```
 
-`pytest.ini`:
+**Parameters:**
 
-```ini
-[pytest]
-addopts = -ra --force-sugar
+- `config`
+
+### 9. `pytest_report_teststatus`
+
+```python
+pytest_sugar.pytest_report_teststatus(report: _pytest.reports.BaseReport) -> Optional[Tuple[str, str, str]]
 ```
 
-### `pytest-sugar.conf`
+**Parameters:**
 
-Use the optional `pytest-sugar.conf` file only for presentation tweaks such as theme symbols, colors, and progress bar length.
+- `report`: `BaseReport`
 
-```ini
-[theme]
-symbol_passed = ✓
-symbol_failed = x
+**Returns:** `typing.Optional[typing.Tuple[str, str, str]]`
 
-[sugar]
-progressbar_length = 30
+### 10. `pytest_sessionstart`
+
+```python
+pytest_sugar.pytest_sessionstart(session: _pytest.main.Session) -> None
 ```
 
-Keep real test behavior in pytest config, not in the sugar-specific file.
+**Parameters:**
 
-## Common Workflows
+- `session`: `Session`
 
-### Local development
+### 11. `real_string_length`
 
-```bash
-pytest tests/unit
+```python
+pytest_sugar.real_string_length(string: str) -> int
 ```
 
-This is the common case: auto-loaded plugin, compact progress display, and failures shown immediately.
+**Parameters:**
 
-### CI with forced terminal-style output
+- `string`: `str`
 
-```bash
-pytest --force-sugar --maxfail=1
+**Returns:** `<class 'int'>`
+
+### 12. `strip_colors`
+
+```python
+pytest_sugar.strip_colors(text: str) -> str
 ```
 
-This is useful when CI captures stdout without a real TTY and you still want the sugar progress UI.
+**Parameters:**
 
-### Playwright end-to-end tests
+- `text`: `str`
 
-```bash
-pytest tests/e2e --sugar-trace-dir test-results
+**Returns:** `<class 'str'>`
+
+## API Classes Summary
+
+| Class | Synopsis |
+|-------|----------|
+| `DeferredXdistPlugin` |  |
+| `SugarTerminalReporter` |  |
+| `Theme` | Theme(header: Optional[str] = 'magenta', skipped: Optional[str] = 'blue', success: Optional[str] =… |
+
+## Key Patterns
+
+- Read the symbol signatures above before guessing argument names.
+- Pin the version (`pytest-sugar==1.1.1`) when behaviour is critical; this doc was generated against that version.
+- For options not shown here, fall back to the package's official upstream docs.
+## API surface — pytest-sugar plugin internals
+
+```python
+from pytest_sugar import SugarTerminalReporter
+
+class SugarReporter(SugarTerminalReporter):
+    def pytest_collection_modifyitems(self, items): pass
+    def pytest_runtest_logstart(self, nodeid, location): pass
+    def pytest_runtest_logreport(self, report): pass
+    def pytest_terminal_summary(self, terminalreporter, exitstatus, config): pass
+    def pytest_sessionstart(self, session): pass
+    def pytest_sessionfinish(self, session, exitstatus): pass
+    def pytest_collectreport(self, report): pass
+    def pytest_runtest_protocol(self, item, nextitem): pass
+
+class ProgressBar:
+    def __init__(self, total): pass
+    def update(self, n=1): pass
+    def render_line(self, status, name): pass
+    def overwrite_line(self, message): pass
+    def finalize(self): pass
 ```
-
-If Playwright writes traces on failures, `pytest-sugar` can point to those artifacts from test output.
-
-## Common Pitfalls
-
-- Do not treat `pytest-sugar` as a reporting backend. It is a terminal UX plugin, not an HTML, JUnit, or results storage system.
-- In CI or redirected output, the progress UI may not appear unless you add `--force-sugar`.
-- If another tool parses raw pytest output, disable sugar with `-p no:sugar` for that job.
-- The formatting is most useful in human-facing runs; plain pytest output is often better for machine-consumed logs.
-- Windows terminals can render odd glyphs or colors depending on terminal font and charset settings. If output looks wrong, simplify theme symbols or fall back to plain pytest output.
-- Playwright trace hints depend on where traces are actually written. If your suite uses a non-default artifact directory, set `--sugar-trace-dir` explicitly.
-
-## Version-Sensitive Notes
-
-- This entry targets `1.1.1`.
-- PyPI release history shows `1.1.1` published on August 23, 2025.
-- The PyPI long description still mentions older compatibility floors, while the maintainer repository for the current `1.1.x` line has newer packaging constraints. If you are pinning older Python or pytest versions, check the repo packaging metadata instead of relying on stale PyPI prose.
-- The `1.1.x` line includes Playwright trace-related options such as `--sugar-trace-dir` and `--sugar-no-trace`. Older blog posts and screenshots from pre-`1.0` releases may not mention them.
-
-## Official Sources
-
-- PyPI package page: `https://pypi.org/project/pytest-sugar/`
-- PyPI project JSON/API page: `https://pypi.org/pypi/pytest-sugar/`
-- Maintainer repository: `https://github.com/Teemu/pytest-sugar`
-- README: `https://github.com/Teemu/pytest-sugar/blob/main/README.md`
-- Changelog/releases source: `https://github.com/Teemu/pytest-sugar/blob/main/CHANGES.rst`
