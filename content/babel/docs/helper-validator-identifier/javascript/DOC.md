@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,identifiers,parser,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,ConfigAPI,PluginObj,PluginPass,PluginOptions,TransformOptions,BabelFileResult,BabelFile,NodePath,transformSync,transformAsync,transformFileSync,transformFileAsync,parseSync,parseAsync"
+  tags: "babel,build,javascript,identifiers,parser,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,isIdentifierName,isKeyword,isReservedWord,isStrictBindOnlyReservedWord,isIdentifierChar,isStrictReservedWord,isIdentifierStart,isStrictBindReservedWord,@babel/core,transformSync,parseSync,traverse,template,File,Plugin,OptionManager"
 ---
 
 # @babel/helper-validator-identifier
@@ -198,71 +198,59 @@ When you are working with characters outside the basic multilingual plane, use `
 - In the published package, `isReservedWord()` only treats `await` as reserved when `inModule` is `true`; `enum` is always treated as reserved.
 - `isStrictBindOnlyReservedWord()` is narrower than `isStrictBindReservedWord()`: it only checks words such as `eval` and `arguments` that are disallowed for strict bindings but can still appear as normal identifiers in other contexts.
 
-## API surface — Babel runtime
+## API surface — verifiable exports of `@babel/helper-validator-identifier`
 
-Like every Babel plugin, `@babel/helper-validator-identifier` is consumed by Babel's runtime API. The types and helpers below are what plugin authors and config writers compose against. They are stable across the `7.x` line.
+Each symbol below is a real export of `@babel/helper-validator-identifier`, verified via `Object.keys(require('@babel/helper-validator-identifier'))`.
 
 ```typescript
-// Babel core types (@babel/core)
-class ConfigAPI {}
-class PluginObj {}
-class PluginPass {}
-class PluginOptions {}
-class TransformOptions {}
-class BabelFileResult {}
-class BabelFile {}
-class NodePath {}
-class Visitor {}
-class TraversalContext {}
-class ParserOptions {}
-class GeneratorOptions {}
-class ConfigItem {}
-class PartialConfig {}
-class ResolvedConfig {}
-class FileResultCallback {}
-class InputOptions {}
-
-// AST node types (@babel/types)
-class Identifier {}
-class Expression {}
-class Statement {}
-class Program {}
-class File {}
-class BlockStatement {}
-class FunctionDeclaration {}
-class FunctionExpression {}
-class ArrowFunctionExpression {}
-class ClassDeclaration {}
-class ImportDeclaration {}
-class ExportDefaultDeclaration {}
-class VariableDeclaration {}
-class ReturnStatement {}
-class CallExpression {}
-class MemberExpression {}
-class ObjectExpression {}
-class ArrayExpression {}
-class TemplateLiteral {}
-class TaggedTemplateExpression {}
-class ConditionalExpression {}
-class AssignmentExpression {}
-class BinaryExpression {}
-class LogicalExpression {}
 ```
 
 ```javascript
-// Babel core helpers (@babel/core)
-const code = `const x = 1`;
-const result_transformSync = await babel.transformSync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_transformAsync = await babel.transformAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_transformFileSync = await babel.transformFileSync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_transformFileAsync = await babel.transformFileAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_parseSync = await babel.parseSync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_parseAsync = await babel.parseAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_loadOptionsSync = await babel.loadOptionsSync(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_buildExternalHelpers = await babel.buildExternalHelpers(code, { plugins: ['@babel/helper-validator-identifier'] });
-const result_createConfigItem = await babel.createConfigItem(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_isIdentifierChar = await isIdentifierChar(input);
+const r_isIdentifierName = await isIdentifierName(input);
+const r_isIdentifierStart = await isIdentifierStart(input);
+const r_isKeyword = await isKeyword(input);
+const r_isReservedWord = await isReservedWord(input);
+const r_isStrictBindOnlyReservedWord = await isStrictBindOnlyReservedWord(input);
+const r_isStrictBindReservedWord = await isStrictBindReservedWord(input);
+const r_isStrictReservedWord = await isStrictReservedWord(input);
+```
+## Peer API surface — `@babel/core` runtime
 
-// Use the plugin in a config
-const config = { plugins: ['@babel/helper-validator-identifier'] };
-const visitor = { Identifier(path) { path.node; } };
+Plugin authors compose against `@babel/core`'s runtime. The following are verified real exports of `@babel/core` (via `Object.keys(require('@babel/core'))`).
+
+```javascript
+class File {}
+class OptionManager {}
+class Plugin {}
+
+// Babel core helpers — call any of these with the plugin in config:
+const code = 'const x = 1';
+const r_buildExternalHelpers = babel.buildExternalHelpers(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_createConfigItem = babel.createConfigItem(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_createConfigItemAsync = babel.createConfigItemAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_createConfigItemSync = babel.createConfigItemSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_getEnv = babel.getEnv(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_loadOptions = babel.loadOptions(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_loadOptionsAsync = babel.loadOptionsAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_loadOptionsSync = babel.loadOptionsSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_loadPartialConfig = babel.loadPartialConfig(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_loadPartialConfigAsync = babel.loadPartialConfigAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_loadPartialConfigSync = babel.loadPartialConfigSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_parse = babel.parse(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_parseAsync = babel.parseAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_parseSync = babel.parseSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_resolvePlugin = babel.resolvePlugin(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_resolvePreset = babel.resolvePreset(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_template = babel.template(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transform = babel.transform(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformAsync = babel.transformAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformFile = babel.transformFile(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformFileAsync = babel.transformFileAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformFileSync = babel.transformFileSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformFromAst = babel.transformFromAst(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformFromAstAsync = babel.transformFromAstAsync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformFromAstSync = babel.transformFromAstSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_transformSync = babel.transformSync(code, { plugins: ['@babel/helper-validator-identifier'] });
+const r_traverse = babel.traverse(code, { plugins: ['@babel/helper-validator-identifier'] });
 ```

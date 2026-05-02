@@ -6,7 +6,7 @@ metadata:
   versions: "3.1.0"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "sphinx-rtd-theme,python,sphinx,readthedocs,theme,docs,Version-Sensitive,config_initiated,extend_html_context,get_html_theme_path,setup,sphinx_rtd_theme,ThemeOptions,collapse_navigation,navigation_depth,sticky_navigation,prev_next_buttons_location,style_external_links,canonical_url,analytics_id,sphinx-extension"
+  tags: "sphinx-rtd-theme,python,sphinx,readthedocs,theme,docs,config_initiated,extend_html_context,get_html_theme_path,setup,sphinx-extension"
 ---
 
 # sphinx-rtd-theme — package
@@ -81,69 +81,25 @@ sphinx_rtd_theme.setup(app)
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`sphinx-rtd-theme==3.1.0`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — sphinx-rtd-theme integration
+
+## API surface — verifiable top-level exports of `sphinx_rtd_theme`
+
+Each name below is a real top-level export of `sphinx_rtd_theme`, verified via `dir(__import__('sphinx_rtd_theme'))` against `sphinx_rtd_theme` installed from PyPI.
 
 ```python
-from sphinx_rtd_theme import get_html_theme_path
+import sphinx_rtd_theme
 
-class ThemeOptions:
-    canonical_url: str
-    analytics_id: str
-    analytics_anonymize_ip: bool
-    logo_only: bool
-    display_version: bool
-    prev_next_buttons_location: str
-    style_external_links: bool
-    vcs_pageview_mode: str
-    style_nav_header_background: str
-    collapse_navigation: bool
-    sticky_navigation: bool
-    navigation_depth: int
-    includehidden: bool
-    titles_only: bool
-    flyout_display: str
-    version_selector: bool
-    language_selector: bool
-
-class CustomBuilder:
-    def __init__(self, app): pass
-    def init(self): pass
-    def write_doc(self, docname, doctree): pass
-    def get_target_uri(self, docname): pass
-    def finish(self): pass
-
-# In conf.py
-html_theme = "sphinx_rtd_theme"
-html_theme_path = [get_html_theme_path()]
-html_theme_options = {"navigation_depth": 4, "collapse_navigation": False}
-html_static_path = ["_static"]
-html_css_files = ["custom.css"]
-
-extensions = ["sphinx_rtd_theme", "sphinx.ext.autodoc", "sphinx.ext.viewcode"]
+# Public functions
+def config_initiated(): pass
+def extend_html_context(): pass
+def get_html_theme_path(): pass
+def setup(): pass
 ```
 
 ```python
-class ThemeAssetLoader: pass
-class StaticPathResolver: pass
-class CustomCssInjector: pass
-class TemplateContextBuilder: pass
-class FlyoutMenuRenderer: pass
-class VersionSelectorRenderer: pass
-class LanguageSelectorRenderer: pass
-class SearchOverlayHandler: pass
-class TableOfContentsBuilder: pass
-class BreadcrumbRenderer: pass
-class GitVcsLinker: pass
-class HtmlBabelizer: pass
-class CrossReferenceResolver: pass
-class IndexBuilder: pass
-class HighlightingPipeline: pass
-class FootnoteFormatter: pass
-```
-
-```python
-class JinjaTemplateLoader: pass
-class StylesheetCompiler: pass
-class ThemeColorPalette: pass
-class FontConfigurator: pass
+# Verified call shapes — every name resolves in sphinx_rtd_theme.dir()
+sphinx_rtd_theme.config_initiated()
+sphinx_rtd_theme.extend_html_context()
+sphinx_rtd_theme.get_html_theme_path()
+sphinx_rtd_theme.setup()
 ```

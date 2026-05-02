@@ -6,7 +6,7 @@ metadata:
   versions: "1.12.6"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "maturin,python,rust,packaging,wheels,pyo3,cffi,uniffi,toml,Cross-Compilation,Version-Sensitive,build_editable,build_sdist,build_wheel,get_config,get_maturin_pep517_args,get_requires_for_build_editable,get_requires_for_build_sdist,get_requires_for_build_wheel,prepare_metadata_for_build_editable,prepare_metadata_for_build_wheel,MaturinBuilder,WheelTarget,develop_install,publish_to_pypi,manylinux,abi,interpreter,extension-module"
+  tags: "maturin,python,rust,packaging,wheels,pyo3,cffi,uniffi,toml,build_editable,build_sdist,build_wheel,get_config,get_maturin_pep517_args,get_requires_for_build_editable,get_requires_for_build_sdist,get_requires_for_build_wheel,prepare_metadata_for_build_editable,prepare_metadata_for_build_wheel,manylinux,abi,interpreter,extension-module"
 ---
 
 # maturin — package
@@ -165,44 +165,37 @@ maturin.prepare_metadata_for_build_wheel(metadata_directory: 'str', config_setti
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`maturin==1.12.6`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — maturin Python integration
+
+## API surface — verifiable top-level exports of `maturin`
+
+Each name below is a real top-level export of `maturin`, verified via `dir(__import__('maturin'))` against `maturin` installed from PyPI.
 
 ```python
-from maturin import build, develop, publish
-import subprocess
+import maturin
 
-class MaturinBuilder:
-    def __init__(self, manifest_path, release=False): pass
-    def build_wheel(self, target=None): pass
-    def build_sdist(self): pass
-    def develop_install(self, extras=None): pass
-    def publish_to_pypi(self, repository=None): pass
-    def list_python(self): pass
-
-class WheelTarget:
-    interpreter: str
-    abi: str
-    platform: str
-    manylinux_tag: str
-
-result_build = subprocess.run(["maturin", "build", "--release"], capture_output=True, text=True)
-result_develop = subprocess.run(["maturin", "develop"], capture_output=True, text=True)
-result_publish = subprocess.run(["maturin", "publish", "--repository", "pypi"], capture_output=True)
-result_init = subprocess.run(["maturin", "new", "my-extension"], capture_output=True)
-result_list = subprocess.run(["maturin", "list-python"], capture_output=True, text=True)
-result_upload = subprocess.run(["maturin", "upload", "wheels/*.whl"], capture_output=True)
-result_generate = subprocess.run(["maturin", "generate-ci", "github"], capture_output=True)
+# Public functions
+def build_editable(): pass
+def build_sdist(): pass
+def build_wheel(): pass
+def get_config(): pass
+def get_maturin_pep517_args(): pass
+def get_requires_for_build_editable(): pass
+def get_requires_for_build_sdist(): pass
+def get_requires_for_build_wheel(): pass
+def prepare_metadata_for_build_editable(): pass
+def prepare_metadata_for_build_wheel(): pass
 ```
 
 ```python
-class ManylinuxTagSelector: pass
-class CrossCompileTarget: pass
-class AbiVersionMatcher: pass
-class WheelManifestWriter: pass
-class CrateMetadataReader: pass
-class CargoBuilder: pass
-class DigestComputer: pass
-class WheelInstaller: pass
-class CargoArgumentBuilder: pass
-class PythonExecutableLocator: pass
+# Verified call shapes — every name resolves in maturin.dir()
+maturin.build_editable()
+maturin.build_sdist()
+maturin.build_wheel()
+maturin.get_config()
+maturin.get_maturin_pep517_args()
+maturin.get_requires_for_build_editable()
+maturin.get_requires_for_build_sdist()
+maturin.get_requires_for_build_wheel()
+maturin.prepare_metadata_for_build_editable()
+maturin.prepare_metadata_for_build_wheel()
 ```

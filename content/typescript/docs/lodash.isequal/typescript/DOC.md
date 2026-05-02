@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "typescript,lodash,lodash.isequal,deep-equality,types,definitelytyped,npm,console,log,LineItem,Version-Sensitive,isEqual,@types/lodash.isequal,IsArray,IsMap,IsSet,IsBuffer,IsRegExp,IsDate,IsError,TypedArray,DeepEqualOptions,ComparatorFunction"
+  tags: "typescript,lodash,deep-equality,types,definitelytyped,npm,console,log"
 ---
 
 # lodash.isequal TypeScript Guide
@@ -219,57 +219,11 @@ Keep the compared values typed at the application boundary so that missing and o
 - https://www.npmjs.com/package/@types/lodash.isequal
 - https://www.npmjs.com/package/lodash.isequal
 - https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash.isequal
-## API surface — lodash.isequal + types
+
+## API surface — verifiable exports of `lodash.isequal`
+
+Each symbol below is a real export of `lodash.isequal`, verified via `Object.keys(require('lodash.isequal'))`.
 
 ```typescript
-class IsEqualFunction {}
-class TypeStub {}
-class DeepEqualOptions {}
-class CompareValue {}
-class ComparatorFunction {}
-class CustomizerFunction {}
-class IsObjectLike {}
-class IsArray {}
-class IsMap {}
-class IsSet {}
-class IsTypedArray {}
-class IsBuffer {}
-class IsRegExp {}
-class IsDate {}
-class IsError {}
-class IsArguments {}
-class IsArrayLike {}
-class IsArrayLikeObject {}
-class CircularReferenceMap {}
-class IterationCallback {}
-class TypedArray {}
-class GenericObject {}
-class TupleType {}
-class FunctionShape {}
 ```
 
-```javascript
-const isEqual = require('lodash.isequal');
-const result1 = isEqual(value1, value2);
-const result2 = isEqual({ a: 1 }, { a: 1 });
-const result3 = isEqual([1, 2, 3], [1, 2, 3]);
-const result4 = isEqual(new Date(0), new Date(0));
-const result5 = isEqual(new Map([['a', 1]]), new Map([['a', 1]]));
-const result6 = isEqual(/abc/, /abc/);
-const result7 = isEqual(NaN, NaN);
-const result8 = isEqual(undefined, undefined);
-```
-
-```typescript
-class IsObject {}
-class IsString {}
-class IsNumber {}
-class IsBoolean {}
-class IsFunction {}
-class IsSymbol {}
-class IsNullOrUndefined {}
-class IsNaN {}
-class StackFrame {}
-class IteratorReturn {}
-class TypedArrayKind {}
-```

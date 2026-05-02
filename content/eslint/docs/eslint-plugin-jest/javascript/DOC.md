@@ -224,3 +224,23 @@ const linter = new Linter();
 const messages = linter.verify(code, { plugins: ['eslint-plugin-jest'] });
 const fixed = linter.verifyAndFix(code, config);
 ```
+## Peer API surface — `eslint` runtime
+
+ESLint plugins and configs are consumed by `eslint`'s runtime. Verified real exports of `eslint`:
+
+```javascript
+class Linter {}
+class ESLint {}
+class RuleTester {}
+class SourceCode {}
+const r_loadESLint = await loadESLint(opts);
+
+const linter = new Linter();
+const messages = linter.verify(code, { plugins: ['eslint-plugin-jest'] });
+const fixed = linter.verifyAndFix(code, config);
+const eslint_inst = new ESLint({ overrideConfigFile: true });
+const lintResults = await eslint_inst.lintFiles(['src/**/*.js']);
+const lintTextResults = await eslint_inst.lintText(code);
+const tester = new RuleTester();
+const sc = new SourceCode(text, ast);
+```

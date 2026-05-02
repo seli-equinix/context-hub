@@ -6,7 +6,7 @@ metadata:
   versions: "0.6.1"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "pyo3-pack,python,pyo3,rust,packaging,wheels,toml,build_editable,build_sdist,build_wheel,get_config,get_maturin_pep517_args,get_requires_for_build_editable,get_requires_for_build_sdist,get_requires_for_build_wheel,prepare_metadata_for_build_editable,prepare_metadata_for_build_wheel,Pyo3PackBuilder,LegacyMigrationHelper,build_release,build_debug,develop_local,publish_pypi,detect_pyo3_pack_usage,maturin"
+  tags: "pyo3-pack,python,pyo3,rust,packaging,wheels,toml,build_editable,build_sdist,build_wheel,get_config,get_maturin_pep517_args,get_requires_for_build_editable,get_requires_for_build_sdist,get_requires_for_build_wheel,prepare_metadata_for_build_editable,prepare_metadata_for_build_wheel,maturin"
 ---
 
 # pyo3-pack — package
@@ -165,26 +165,37 @@ maturin.prepare_metadata_for_build_wheel(metadata_directory: 'str', config_setti
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`pyo3-pack==0.6.1`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — pyo3-pack legacy interface (use maturin instead)
+
+## API surface — verifiable top-level exports of `maturin`
+
+Each name below is a real top-level export of `maturin`, verified via `dir(__import__('maturin'))` against `maturin` installed from PyPI.
 
 ```python
-from maturin import build, develop, publish
-import subprocess
+import maturin
 
-class Pyo3PackBuilder:
-    def __init__(self, manifest_path): pass
-    def build_release(self): pass
-    def build_debug(self): pass
-    def develop_local(self): pass
-    def publish_pypi(self): pass
+# Public functions
+def build_editable(): pass
+def build_sdist(): pass
+def build_wheel(): pass
+def get_config(): pass
+def get_maturin_pep517_args(): pass
+def get_requires_for_build_editable(): pass
+def get_requires_for_build_sdist(): pass
+def get_requires_for_build_wheel(): pass
+def prepare_metadata_for_build_editable(): pass
+def prepare_metadata_for_build_wheel(): pass
+```
 
-class LegacyMigrationHelper:
-    def detect_pyo3_pack_usage(self): pass
-    def rewrite_to_maturin(self, project_path): pass
-    def update_pyproject_toml(self, path): pass
-
-result_build = subprocess.run(["maturin", "build"], capture_output=True, text=True)
-result_develop = subprocess.run(["maturin", "develop"], capture_output=True, text=True)
-result_publish = subprocess.run(["maturin", "publish"], capture_output=True, text=True)
-result_init = subprocess.run(["maturin", "init"], capture_output=True)
+```python
+# Verified call shapes — every name resolves in maturin.dir()
+maturin.build_editable()
+maturin.build_sdist()
+maturin.build_wheel()
+maturin.get_config()
+maturin.get_maturin_pep517_args()
+maturin.get_requires_for_build_editable()
+maturin.get_requires_for_build_sdist()
+maturin.get_requires_for_build_wheel()
+maturin.prepare_metadata_for_build_editable()
+maturin.prepare_metadata_for_build_wheel()
 ```

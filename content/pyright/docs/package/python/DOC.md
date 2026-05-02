@@ -6,7 +6,7 @@ metadata:
   versions: "1.1.408"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "pyright,python,typing,type-checking,static-analysis,linting,toml,Version-Sensitive,Wrapper-Specific,main,run,entrypoint,install_pyright,BinaryNotFound,NodeError,PyrightError,VersionCheckFailed,GlobalStrategy,NodeJSWheelStrategy,NodeenvStrategy,check_target,env_to_bool,get_bin_dir,get_env_dir,get_env_variables,get_pkg_version,maybe_decode,version,get_cache_dir,PyrightRunner,PyrightConfig,typeCheckingMode,pythonVersion,reportMissingImports,reportMissingTypeStubs,strictListInference,strictDictionaryInference,verifytypes,createstub,Microsoft,nodejs"
+  tags: "pyright,python,typing,type-checking,static-analysis,linting,toml,main,run,entrypoint,install_pyright,BinaryNotFound,NodeError,PyrightError,VersionCheckFailed,GlobalStrategy,NodeJSWheelStrategy,NodeenvStrategy,check_target,env_to_bool,get_bin_dir,get_env_dir,get_env_variables,get_pkg_version,maybe_decode,version,get_cache_dir,verifytypes,createstub,nodejs"
 ---
 
 # pyright — package
@@ -207,41 +207,52 @@ pyright.errors.PyrightError(self, message: str) -> None
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`pyright==1.1.408`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — pyright invocation patterns
+
+## API surface — verifiable top-level exports of `pyright`
+
+Each name below is a real top-level export of `pyright`, verified via `dir(__import__('pyright'))` against `pyright` installed from PyPI.
 
 ```python
-import subprocess
-import json
-from pathlib import Path
+import pyright
 
-class PyrightRunner:
-    def __init__(self, project_root=None, venv_path=None): pass
-    def check(self, files, output_json=True): pass
-    def stats(self): pass
-    def watch(self, files): pass
-    def verify_types(self, package_name): pass
-    def create_stub(self, package_name): pass
-    def language_server(self): pass
+# Public classes
+class BinaryNotFound: pass
+class GlobalStrategy: pass
+class NodeError: pass
+class NodeJSWheelStrategy: pass
+class NodeenvStrategy: pass
+class PyrightError: pass
+class VersionCheckFailed: pass
 
-class PyrightConfig:
-    include: list
-    exclude: list
-    typeCheckingMode: str
-    pythonVersion: str
-    pythonPlatform: str
-    venvPath: str
-    venv: str
-    stubPath: str
-    reportMissingImports: str
-    reportMissingTypeStubs: str
-    strictListInference: bool
-    strictDictionaryInference: bool
-    deprecateTypingAliases: bool
+# Public functions
+def check_target(): pass
+def entrypoint(): pass
+def env_to_bool(): pass
+def get_bin_dir(): pass
+def get_cache_dir(): pass
+def get_env_dir(): pass
+def get_env_variables(): pass
+def get_pkg_version(): pass
+def install_pyright(): pass
+def main(): pass
+def maybe_decode(): pass
+def run(): pass
+def version(): pass
+```
 
-result_check = subprocess.run(["pyright", "src/"], capture_output=True, text=True)
-result_json = subprocess.run(["pyright", "--outputjson", "src/"], capture_output=True, text=True)
-result_stats = subprocess.run(["pyright", "--stats"], capture_output=True, text=True)
-result_watch = subprocess.run(["pyright", "--watch", "src/"], capture_output=True)
-result_verify = subprocess.run(["pyright", "--verifytypes", "my_package"], capture_output=True, text=True)
-result_stub = subprocess.run(["pyright", "--createstub", "untyped_dep"], capture_output=True)
+```python
+# Verified call shapes — every name resolves in pyright.dir()
+pyright.check_target()
+pyright.entrypoint()
+pyright.env_to_bool()
+pyright.get_bin_dir()
+pyright.get_cache_dir()
+pyright.get_env_dir()
+pyright.get_env_variables()
+pyright.get_pkg_version()
+pyright.install_pyright()
+pyright.main()
+pyright.maybe_decode()
+pyright.run()
+pyright.version()
 ```

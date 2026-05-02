@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "azure,communication,communication-common,javascript,authentication,identifiers,2.4.0,response,json,normalizeIdentifier,AzureCommunicationTokenCredential,CommunicationIdentifier,CommunicationUserIdentifier,PhoneNumberIdentifier,MicrosoftTeamsUserIdentifier,getToken,getIdentifierRawId,createIdentifierFromRawId,getIdentifierKind"
+  tags: "azure,communication,communication-common,javascript,authentication,identifiers,response,json,AzureCommunicationTokenCredential,getIdentifierRawId,createIdentifierFromRawId,getIdentifierKind,isPhoneNumberIdentifier,parseConnectionString,isTeamsExtensionUserIdentifier,isCommunicationUserIdentifier,deserializeCommunicationIdentifier,isMicrosoftTeamsAppIdentifier,isKeyCredential,createCommunicationAccessKeyCredentialPolicy,parseClientArguments,isUnknownIdentifier,createCommunicationAuthPolicy,serializeCommunicationIdentifier,isMicrosoftTeamsUserIdentifier"
 ---
 
 # Azure Communication Services Common JavaScript Package
@@ -188,54 +188,31 @@ This is the safe pattern when you read participant lists, sender identities, or 
 - `AzureCommunicationTokenCredential` reference: `https://learn.microsoft.com/en-us/javascript/api/@azure/communication-common/azurecommunicationtokencredential?view=azure-node-latest`
 - `CommunicationIdentifier` reference: `https://learn.microsoft.com/en-us/javascript/api/@azure/communication-common/communicationidentifier?view=azure-node-latest`
 - npm package page: `https://www.npmjs.com/package/@azure/communication-common`
-## API surface — Azure Communication common public API
+
+## API surface — verifiable exports of `@azure/communication-common`
+
+Each symbol below is a real export of `@azure/communication-common`, verified via `Object.keys(require('@azure/communication-common'))`.
 
 ```typescript
+// Other classes
 class AzureCommunicationTokenCredential {}
-class CommunicationIdentifier {}
-class CommunicationUserIdentifier {}
-class PhoneNumberIdentifier {}
-class MicrosoftTeamsUserIdentifier {}
-class MicrosoftTeamsAppIdentifier {}
-class TeamsExtensionUserIdentifier {}
-class CommunicationCloudEnvironment {}
-class UnknownIdentifier {}
-class CommunicationTokenRefreshOptions {}
-class CommunicationAccessToken {}
-class CommunicationIdentifierKind {}
-class TokenCredential {}
-class GetTokenOptions {}
-class CommunicationIdentifierModel {}
-class IdentifierMapper {}
-class TokenParser {}
-class JwtPayload {}
-class IdentifierKind {}
-class RawIdGenerator {}
 ```
 
 ```javascript
-const credential = new AzureCommunicationTokenCredential(token);
-const accessToken = await credential.getToken();
-const refreshable = new AzureCommunicationTokenCredential({ tokenRefresher: refresher, refreshProactively: true });
-const userId = createCommunicationUser('id');
-const isUser = isCommunicationUserIdentifier(identifier);
-const isPhone = isPhoneNumberIdentifier(identifier);
-const isTeams = isMicrosoftTeamsUserIdentifier(identifier);
-const isTeamsApp = isMicrosoftTeamsAppIdentifier(identifier);
-const isUnknown = isUnknownIdentifier(identifier);
-const rawId = getIdentifierRawId(identifier);
-const parsed = createIdentifierFromRawId(rawId);
-const kind = getIdentifierKind(identifier);
-credential.dispose();
-```
-
-```typescript
-class CommunicationTokenCredentialOptions {}
-class TokenCredentialOptions {}
-class JwtClaim {}
-class TokenRefresher {}
-class TokenSource {}
-class TokenStore {}
-class IdentifierUtils {}
-class RawIdParseError {}
+const r_createCommunicationAccessKeyCredentialPolicy = await createCommunicationAccessKeyCredentialPolicy(input);
+const r_createCommunicationAuthPolicy = await createCommunicationAuthPolicy(input);
+const r_createIdentifierFromRawId = await createIdentifierFromRawId(input);
+const r_deserializeCommunicationIdentifier = await deserializeCommunicationIdentifier(input);
+const r_getIdentifierKind = await getIdentifierKind(input);
+const r_getIdentifierRawId = await getIdentifierRawId(input);
+const r_isCommunicationUserIdentifier = await isCommunicationUserIdentifier(input);
+const r_isKeyCredential = await isKeyCredential(input);
+const r_isMicrosoftTeamsAppIdentifier = await isMicrosoftTeamsAppIdentifier(input);
+const r_isMicrosoftTeamsUserIdentifier = await isMicrosoftTeamsUserIdentifier(input);
+const r_isPhoneNumberIdentifier = await isPhoneNumberIdentifier(input);
+const r_isTeamsExtensionUserIdentifier = await isTeamsExtensionUserIdentifier(input);
+const r_isUnknownIdentifier = await isUnknownIdentifier(input);
+const r_parseClientArguments = await parseClientArguments(input);
+const r_parseConnectionString = await parseConnectionString(input);
+const r_serializeCommunicationIdentifier = await serializeCommunicationIdentifier(input);
 ```

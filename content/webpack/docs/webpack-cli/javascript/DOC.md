@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,webpack-cli,build,bundler,javascript,path,resolve,6.0.1,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close"
+  tags: "webpack,webpack-cli,build,bundler,javascript,path,resolve,build-tool,watch,run,close,Compiler,Compilation,BannerPlugin,DefinePlugin,ChunkGraph,Module"
 ---
 
 # webpack-cli for JavaScript
@@ -269,49 +269,63 @@ WEBPACK_CLI_FORCE_LOAD_ESM_CONFIG=true npx webpack --config ./webpack.config.mjs
 - `1`: webpack compilation errors
 - `2`: configuration problems, option problems, or internal CLI errors
 
-## API surface — webpack runtime
+## API surface — verifiable exports of `webpack-cli`
 
-`webpack-cli` is consumed by webpack's runtime as a plugin, loader, or config helper. The types below are webpack's stable plugin/loader API.
+Each symbol below is a real export of `webpack-cli`, verified via `Object.keys(require('webpack-cli'))`.
 
 ```typescript
-// webpack public types
-class Configuration {}
-class Compiler {}
-class Compilation {}
-class Stats {}
-class Module {}
-class Chunk {}
-class ChunkGroup {}
-class Asset {}
-class Dependency {}
-class ResolverFactory {}
-class WebpackPluginInstance {}
-class RuleSetRule {}
-class ModuleOptions {}
-class OutputOptions {}
-class EntryOptions {}
-class ResolveOptions {}
-class DevServerConfiguration {}
-class PerformanceOptions {}
-class OptimizationOptions {}
-class ExternalsConfiguration {}
-class ResolvePluginInstance {}
-class LoaderContext {}
-class LoaderDefinitionFunction {}
-class WebpackError {}
-class WebpackOptionsNormalized {}
 ```
+## Peer API surface — `webpack` runtime
+
+Webpack ecosystem packages plug into `webpack`'s runtime. Verified real exports of `webpack`:
 
 ```javascript
-const compiler = webpack(config);
-compiler.webpack(arg);
-compiler.watch(arg);
-compiler.run(arg);
-compiler.close(arg);
-compiler.getInfrastructureLogger(arg);
-compiler.purgeInputFileSystem(arg);
+class AutomaticPrefetchPlugin {}
+class AsyncDependenciesBlock {}
+class BannerPlugin {}
+class Cache {}
+class Chunk {}
+class ChunkGraph {}
+class CleanPlugin {}
+class Compilation {}
+class Compiler {}
+class ConcatenationScope {}
+class ContextExclusionPlugin {}
+class ContextReplacementPlugin {}
+class DefinePlugin {}
+class DelegatedPlugin {}
+class Dependency {}
+class DllPlugin {}
+class DllReferencePlugin {}
+class DynamicEntryPlugin {}
+class DotenvPlugin {}
+class EntryOptionPlugin {}
+class EntryPlugin {}
+class EnvironmentPlugin {}
+class EvalDevToolModulePlugin {}
+class EvalSourceMapDevToolPlugin {}
+class ExternalModule {}
+class ExternalsPlugin {}
+class Generator {}
+class HotUpdateChunk {}
+class HotModuleReplacementPlugin {}
+class InitFragment {}
+class IgnorePlugin {}
+class JavascriptModulesPlugin {}
+class LibManifestPlugin {}
+class LibraryTemplatePlugin {}
+class LoaderOptionsPlugin {}
+class LoaderTargetPlugin {}
+class Module {}
+class ModuleFactory {}
+class ModuleGraph {}
+class ModuleGraphConnection {}
+
+// webpack helpers
+const r_webpack = webpack(opts);
+const r_validate = validate(opts);
+const r_validateSchema = validateSchema(opts);
 compiler.hooks.run.tap('plugin', (compiler) => {});
 compiler.hooks.compilation.tap('plugin', (compilation) => {});
-compiler.hooks.emit.tapAsync('plugin', (compilation, callback) => {});
 compilation.hooks.optimize.tap('plugin', () => {});
 ```

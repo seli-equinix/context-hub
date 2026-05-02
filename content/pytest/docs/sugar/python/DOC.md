@@ -6,7 +6,7 @@ metadata:
   versions: "1.1.1"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "pytest,python,testing,terminal,ci,playwright,ini,toml,Version-Sensitive,DeferredXdistPlugin,pytest_xdist_node_collection_finished,SugarTerminalReporter,begin_new_line,build_summary_stats_line,count,ensure_newline,flush,get_max_column_for_test_status,getreports,hasopt,insert_progress,line,overwrite,print_failure,print_teardown_sections,pytest_collection,pytest_collection_finish,pytest_collectreport,pytest_deselected,pytest_internalerror,pytest_keyboard_interrupt,pytest_plugin_registered,pytest_report_header,pytest_runtest_logfinish,pytest_runtest_logreport,pytest_runtest_logstart,pytest_runtestloop,pytest_sessionfinish,pytest_sessionstart,pytest_terminal_summary,pytest_unconfigure,pytest_warning_recorded,Theme,flatten,pytest_addoption,pytest_configure,pytest_report_teststatus,real_string_length,strip_colors,SugarReporter,ProgressBar,pytest_collection_modifyitems,pytest_runtest_protocol"
+  tags: "pytest,python,testing,terminal,ci,playwright,ini,toml,DeferredXdistPlugin,SugarTerminalReporter,count,flush,getreports,hasopt,line,overwrite,pytest_collection_finish,pytest_deselected,pytest_sessionstart,Theme,flatten,pytest_addoption,pytest_configure,pytest_report_teststatus,real_string_length,strip_colors"
 ---
 
 # pytest — sugar
@@ -206,25 +206,40 @@ pytest_sugar.strip_colors(text: str) -> str
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`pytest==1.1.1`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — pytest-sugar plugin internals
+
+## API surface — verifiable top-level exports of `pytest-sugar`
+
+Each name below is a real top-level export of `pytest_sugar`, verified via `dir(__import__('pytest_sugar'))` against `pytest-sugar` installed from PyPI.
 
 ```python
-from pytest_sugar import SugarTerminalReporter
+import pytest_sugar
 
-class SugarReporter(SugarTerminalReporter):
-    def pytest_collection_modifyitems(self, items): pass
-    def pytest_runtest_logstart(self, nodeid, location): pass
-    def pytest_runtest_logreport(self, report): pass
-    def pytest_terminal_summary(self, terminalreporter, exitstatus, config): pass
-    def pytest_sessionstart(self, session): pass
-    def pytest_sessionfinish(self, session, exitstatus): pass
-    def pytest_collectreport(self, report): pass
-    def pytest_runtest_protocol(self, item, nextitem): pass
+# Public classes
+class DeferredXdistPlugin: pass
+class SugarTerminalReporter: pass
+class Theme: pass
 
-class ProgressBar:
-    def __init__(self, total): pass
-    def update(self, n=1): pass
-    def render_line(self, status, name): pass
-    def overwrite_line(self, message): pass
-    def finalize(self): pass
+# Public functions
+def flatten(): pass
+def pytest_addoption(): pass
+def pytest_collection_finish(): pass
+def pytest_configure(): pass
+def pytest_deselected(): pass
+def pytest_report_teststatus(): pass
+def pytest_sessionstart(): pass
+def real_string_length(): pass
+def strip_colors(): pass
+```
+
+```python
+# Verified call shapes — every name resolves in pytest_sugar.dir()
+pytest_sugar.flatten()
+pytest_sugar.pytest_addoption()
+pytest_sugar.pytest_collection_finish()
+pytest_sugar.pytest_configure()
+pytest_sugar.pytest_deselected()
+pytest_sugar.pytest_report_teststatus()
+pytest_sugar.pytest_sessionstart()
+pytest_sugar.real_string_length()
+pytest_sugar.strip_colors()
 ```

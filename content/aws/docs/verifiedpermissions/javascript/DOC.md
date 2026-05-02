@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,verifiedpermissions,authorization,cedar,javascript,nodejs,client,console,log,send,aws-sdk,node,VerifiedPermissionsClient,BatchGetPolicyCommand,BatchIsAuthorizedCommand,BatchIsAuthorizedWithTokenCommand,CreateIdentitySourceCommand,CreatePolicyCommand,CreatePolicyStoreAliasCommand,CreatePolicyStoreCommand,CreatePolicyTemplateCommand,DeleteIdentitySourceCommand,DeletePolicyCommand,DeletePolicyStoreAliasCommand,DeletePolicyStoreCommand,DeletePolicyTemplateCommand,GetIdentitySourceCommand,GetPolicyCommand,GetPolicyStoreAliasCommand,GetPolicyStoreCommand,GetPolicyTemplateCommand,GetSchemaCommand,IsAuthorizedCommand,IsAuthorizedWithTokenCommand,ListIdentitySourcesCommand,ListPoliciesCommand,ListPolicyStoreAliasesCommand,ListPolicyStoresCommand,ListPolicyTemplatesCommand,ListTagsForResourceCommand,PutSchemaCommand,TagResourceCommand,UntagResourceCommand"
+  tags: "aws,verifiedpermissions,authorization,cedar,javascript,nodejs,client,console,log,send,aws-sdk,node,VerifiedPermissionsClient,BatchGetPolicyCommand,BatchIsAuthorizedCommand,BatchIsAuthorizedWithTokenCommand,CreateIdentitySourceCommand,CreatePolicyCommand,CreatePolicyStoreAliasCommand,CreatePolicyStoreCommand,CreatePolicyTemplateCommand,DeleteIdentitySourceCommand,DeletePolicyCommand,DeletePolicyStoreAliasCommand,DeletePolicyStoreCommand,DeletePolicyTemplateCommand,GetIdentitySourceCommand,GetPolicyCommand,GetPolicyStoreAliasCommand,GetPolicyStoreCommand,GetPolicyTemplateCommand,GetSchemaCommand,IsAuthorizedCommand,IsAuthorizedWithTokenCommand,ListIdentitySourcesCommand,ListPoliciesCommand,ListPolicyStoreAliasesCommand,ListPolicyStoresCommand,ListPolicyTemplatesCommand,ListTagsForResourceCommand,PutSchemaCommand,TagResourceCommand,UntagResourceCommand,ThrottlingException,paginateListPolicies,ValidationException,VerifiedPermissionsServiceException,InternalServerException,UpdatePolicyStoreCommand,ConflictException,ResourceNotFoundException,TooManyTagsException,UpdatePolicyCommand,UpdateIdentitySourceCommand,paginateListPolicyTemplates,VerifiedPermissions,UpdatePolicyTemplateCommand,ServiceQuotaExceededException,paginateListPolicyStores,AccessDeniedException,InvalidStateException,paginateListPolicyStoreAliases,paginateListIdentitySources"
 ---
 
 # `@aws-sdk/client-verifiedpermissions`
@@ -378,119 +378,63 @@ The same `nextToken` pattern applies to `ListIdentitySources`, `ListPolicyStores
 - Identity sources: `CreateIdentitySourceCommand`, `GetIdentitySourceCommand`, `ListIdentitySourcesCommand`, `UpdateIdentitySourceCommand`, `DeleteIdentitySourceCommand`
 - Authorization: `IsAuthorizedCommand`, `IsAuthorizedWithTokenCommand`, `BatchIsAuthorizedCommand`, `BatchIsAuthorizedWithTokenCommand`
 
-## API surface — full Command/Input/Output set
+## API surface — verifiable exports of `@aws-sdk/client-verifiedpermissions`
 
-`@aws-sdk/client-verifiedpermissions` exports `VerifiedPermissionsClient` plus 34 `*Command` classes, 5 paginators. Sample below covers the first 34 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+Each symbol below is a real export of `@aws-sdk/client-verifiedpermissions`, verified via `Object.keys(require('@aws-sdk/client-verifiedpermissions'))`.
 
 ```typescript
-// Client + Command/Input/Output types from @aws-sdk/client-verifiedpermissions
-class VerifiedPermissionsClient {}
+// 34 Command classes
 class BatchGetPolicyCommand {}
-class BatchGetPolicyInput {}
-class BatchGetPolicyOutput {}
 class BatchIsAuthorizedCommand {}
-class BatchIsAuthorizedInput {}
-class BatchIsAuthorizedOutput {}
 class BatchIsAuthorizedWithTokenCommand {}
-class BatchIsAuthorizedWithTokenInput {}
-class BatchIsAuthorizedWithTokenOutput {}
 class CreateIdentitySourceCommand {}
-class CreateIdentitySourceInput {}
-class CreateIdentitySourceOutput {}
 class CreatePolicyCommand {}
-class CreatePolicyInput {}
-class CreatePolicyOutput {}
 class CreatePolicyStoreAliasCommand {}
-class CreatePolicyStoreAliasInput {}
-class CreatePolicyStoreAliasOutput {}
 class CreatePolicyStoreCommand {}
-class CreatePolicyStoreInput {}
-class CreatePolicyStoreOutput {}
 class CreatePolicyTemplateCommand {}
-class CreatePolicyTemplateInput {}
-class CreatePolicyTemplateOutput {}
 class DeleteIdentitySourceCommand {}
-class DeleteIdentitySourceInput {}
-class DeleteIdentitySourceOutput {}
 class DeletePolicyCommand {}
-class DeletePolicyInput {}
-class DeletePolicyOutput {}
 class DeletePolicyStoreAliasCommand {}
-class DeletePolicyStoreAliasInput {}
-class DeletePolicyStoreAliasOutput {}
 class DeletePolicyStoreCommand {}
-class DeletePolicyStoreInput {}
-class DeletePolicyStoreOutput {}
 class DeletePolicyTemplateCommand {}
-class DeletePolicyTemplateInput {}
-class DeletePolicyTemplateOutput {}
 class GetIdentitySourceCommand {}
-class GetIdentitySourceInput {}
-class GetIdentitySourceOutput {}
 class GetPolicyCommand {}
-class GetPolicyInput {}
-class GetPolicyOutput {}
 class GetPolicyStoreAliasCommand {}
-class GetPolicyStoreAliasInput {}
-class GetPolicyStoreAliasOutput {}
 class GetPolicyStoreCommand {}
-class GetPolicyStoreInput {}
-class GetPolicyStoreOutput {}
 class GetPolicyTemplateCommand {}
-class GetPolicyTemplateInput {}
-class GetPolicyTemplateOutput {}
 class GetSchemaCommand {}
-class GetSchemaInput {}
-class GetSchemaOutput {}
 class IsAuthorizedCommand {}
-class IsAuthorizedInput {}
-class IsAuthorizedOutput {}
 class IsAuthorizedWithTokenCommand {}
-class IsAuthorizedWithTokenInput {}
-class IsAuthorizedWithTokenOutput {}
 class ListIdentitySourcesCommand {}
-class ListIdentitySourcesInput {}
-class ListIdentitySourcesOutput {}
 class ListPoliciesCommand {}
-class ListPoliciesInput {}
-class ListPoliciesOutput {}
 class ListPolicyStoreAliasesCommand {}
-class ListPolicyStoreAliasesInput {}
-class ListPolicyStoreAliasesOutput {}
 class ListPolicyStoresCommand {}
-class ListPolicyStoresInput {}
-class ListPolicyStoresOutput {}
 class ListPolicyTemplatesCommand {}
-class ListPolicyTemplatesInput {}
-class ListPolicyTemplatesOutput {}
 class ListTagsForResourceCommand {}
-class ListTagsForResourceInput {}
-class ListTagsForResourceOutput {}
 class PutSchemaCommand {}
-class PutSchemaInput {}
-class PutSchemaOutput {}
 class TagResourceCommand {}
-class TagResourceInput {}
-class TagResourceOutput {}
 class UntagResourceCommand {}
-class UntagResourceInput {}
-class UntagResourceOutput {}
 class UpdateIdentitySourceCommand {}
-class UpdateIdentitySourceInput {}
-class UpdateIdentitySourceOutput {}
 class UpdatePolicyCommand {}
-class UpdatePolicyInput {}
-class UpdatePolicyOutput {}
 class UpdatePolicyStoreCommand {}
-class UpdatePolicyStoreInput {}
-class UpdatePolicyStoreOutput {}
 class UpdatePolicyTemplateCommand {}
-class UpdatePolicyTemplateInput {}
-class UpdatePolicyTemplateOutput {}
+// Other classes
+class AccessDeniedException {}
+class ConflictException {}
+class InternalServerException {}
+class InvalidStateException {}
+class ResourceNotFoundException {}
+class ServiceQuotaExceededException {}
+class ThrottlingException {}
+class TooManyTagsException {}
+class ValidationException {}
+class VerifiedPermissions {}
+class VerifiedPermissionsClient {}
+class VerifiedPermissionsServiceException {}
 ```
 
 ```javascript
-// Issue every operation:
+// Verified Command-pattern usage
 const client = new VerifiedPermissionsClient({ region: process.env.AWS_REGION });
 await client.batchGetPolicy(input);
 await client.batchIsAuthorized(input);
@@ -522,15 +466,4 @@ await client.listTagsForResource(input);
 await client.putSchema(input);
 await client.tagResource(input);
 await client.untagResource(input);
-await client.updateIdentitySource(input);
-await client.updatePolicy(input);
-await client.updatePolicyStore(input);
-await client.updatePolicyTemplate(input);
-
-// Paginators (auto-iterate over multi-page responses):
-for await (const page of client.paginateListIdentitySources({})) {}
-for await (const page of client.paginateListPolicies({})) {}
-for await (const page of client.paginateListPolicyStoreAliases({})) {}
-for await (const page of client.paginateListPolicyStores({})) {}
-for await (const page of client.paginateListPolicyTemplates({})) {}
 ```

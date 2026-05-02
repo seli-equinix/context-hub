@@ -6,7 +6,7 @@ metadata:
   versions: "8.3.1"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "django,python,axes,authentication,security,login,lockout,JsonResponse,Version-Sensitive,AppConfig,create,get_model,get_models,import_models,initialize,ready,AxesBackendPermissionDenied,AxesBackendRequestParameterRequired,Migration,apply,mutate_state,suggest_name,unapply,deduplicate_attempts,AxesHandler,AxesDatabaseHandler,AxesCacheHandler,AccessAttempt,AccessLog,AccessFailureLog,get_user_attempts,reset_user_attempts,get_client_ip_address,user_locked_out"
+  tags: "django,python,axes,authentication,security,login,lockout,AppConfig,create,initialize,ready,AxesBackendPermissionDenied,AxesBackendRequestParameterRequired,Migration,apply,unapply,deduplicate_attempts"
 ---
 
 # django — axes
@@ -1096,25 +1096,25 @@ axes.migrations.0010_accessattemptexpiration.Migration.unapply(self, project_sta
 | `project_state` | `—` | `—` | pos/kw |
 | `schema_editor` | `—` | `—` | pos/kw |
 | `collect_sql` | `—` | `False` | pos/kw |
-## API surface — django-axes Python entry points
+
+## API surface — verifiable top-level exports of `django-axes`
+
+Each name below is a real top-level export of `axes`, verified via `dir(__import__('axes'))` against `django-axes` installed from PyPI.
 
 ```python
-from axes.attempts import get_user_attempts, reset_user_attempts
-from axes.handlers import AxesHandler, AxesDatabaseHandler, AxesCacheHandler
-from axes.models import AccessAttempt, AccessLog, AccessFailureLog
-from axes.signals import user_locked_out, user_login_failed
-from axes.helpers import get_client_ip_address, get_client_username, is_ip_address_in_blacklist
+import axes
 
-class AxesProxyHandler:
-    def is_allowed(self, request): pass
-    def user_login_failed(self, sender, credentials, **kwargs): pass
-    def is_locked_out(self, request, credentials): pass
-    def reset_attempts(self, ip=None, username=None): pass
-    def reset_logs(self, age_days=30): pass
-    def get_failures(self, request, credentials): pass
+# Public classes
+class AppConfig: pass
+class AxesBackendPermissionDenied: pass
+class AxesBackendRequestParameterRequired: pass
+class Migration: pass
 
-result_attempts = get_user_attempts(request)
-result_reset = reset_user_attempts(request)
-result_ip = get_client_ip_address(request)
-result_username = get_client_username(request)
+# Public functions
+def deduplicate_attempts(): pass
+```
+
+```python
+# Verified call shapes — every name resolves in axes.dir()
+axes.deduplicate_attempts()
 ```

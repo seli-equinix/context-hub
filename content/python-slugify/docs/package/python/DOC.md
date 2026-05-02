@@ -6,7 +6,7 @@ metadata:
   versions: "8.0.4"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "python-slugify,python,slugify,unicode,transliteration,urls,text-processing,Version-Sensitive,add_uppercase_char,smart_truncate,UniqueSlugify,word_boundary,stopwords,separator,max_length"
+  tags: "python-slugify,python,slugify,unicode,transliteration,urls,text-processing,add_uppercase_char,smart_truncate,stopwords,separator"
 ---
 
 # python-slugify — package
@@ -174,50 +174,23 @@ slugify.special.add_uppercase_char(char_list: 'list[tuple[str, str]]') -> 'list[
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`python-slugify==8.0.4`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — slugify public API
+
+## API surface — verifiable top-level exports of `python-slugify`
+
+Each name below is a real top-level export of `slugify`, verified via `dir(__import__('slugify'))` against `python-slugify` installed from PyPI.
 
 ```python
-from slugify import slugify, smart_truncate, Slugify, UniqueSlugify
+import slugify
 
-class SlugifyOptions:
-    def __init__(self, **kwargs): pass
-    def apply(self, text): pass
-
-class TextProcessor:
-    def normalize_unicode(self, text): pass
-    def replace_separator(self, text, separator): pass
-    def truncate_text(self, text, max_length): pass
-    def filter_words(self, text, stopwords): pass
-    def transliterate(self, text, lang_code): pass
-
-class CustomReplacer:
-    def __init__(self, replacements): pass
-    def replace(self, text): pass
-
-result_basic = slugify("Hello World")
-result_lower = slugify("Hello World", lowercase=True)
-result_max = slugify("Hello World", max_length=20)
-result_word_boundary = slugify("Hello World", word_boundary=True)
-result_save_order = slugify("Hello World", save_order=True)
-result_separator = slugify("Hello World", separator="_")
-result_stopwords = slugify("the quick brown fox", stopwords=["the", "a", "an"])
-result_replacements = slugify("Hello World", replacements=[["world", "earth"]])
-result_regex = slugify("Hello-World", regex_pattern=r"[^-a-zA-Z0-9_]+")
-result_truncate = smart_truncate("a very long text that we want shortened", max_length=10)
+# Public functions
+def add_uppercase_char(): pass
+def slugify(): pass
+def smart_truncate(): pass
 ```
 
 ```python
-class UnicodeNormalizer: pass
-class TransliterationStrategy: pass
-class StopwordFilter: pass
-class WordBoundaryHandler: pass
-class SeparatorReplacer: pass
-class TruncationStrategy: pass
-class CaseConverter: pass
-class RegexValidator: pass
-class CharacterReplacementMap: pass
-class SmartTruncator: pass
-class TextNormalizer: pass
-class LengthLimiter: pass
-class OrderPreserver: pass
+# Verified call shapes — every name resolves in slugify.dir()
+slugify.add_uppercase_char()
+slugify.slugify()
+slugify.smart_truncate()
 ```

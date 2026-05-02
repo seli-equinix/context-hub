@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,css,build,plugin,assets,path,resolve,bundler,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close"
+  tags: "webpack,css,build,plugin,assets,path,resolve,bundler,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close,BannerPlugin,DefinePlugin,ChunkGraph"
 ---
 
 # mini-css-extract-plugin for JavaScript
@@ -319,5 +319,59 @@ compiler.purgeInputFileSystem(arg);
 compiler.hooks.run.tap('plugin', (compiler) => {});
 compiler.hooks.compilation.tap('plugin', (compilation) => {});
 compiler.hooks.emit.tapAsync('plugin', (compilation, callback) => {});
+compilation.hooks.optimize.tap('plugin', () => {});
+```
+## Peer API surface — `webpack` runtime
+
+Webpack ecosystem packages plug into `webpack`'s runtime. Verified real exports of `webpack`:
+
+```javascript
+class AutomaticPrefetchPlugin {}
+class AsyncDependenciesBlock {}
+class BannerPlugin {}
+class Cache {}
+class Chunk {}
+class ChunkGraph {}
+class CleanPlugin {}
+class Compilation {}
+class Compiler {}
+class ConcatenationScope {}
+class ContextExclusionPlugin {}
+class ContextReplacementPlugin {}
+class DefinePlugin {}
+class DelegatedPlugin {}
+class Dependency {}
+class DllPlugin {}
+class DllReferencePlugin {}
+class DynamicEntryPlugin {}
+class DotenvPlugin {}
+class EntryOptionPlugin {}
+class EntryPlugin {}
+class EnvironmentPlugin {}
+class EvalDevToolModulePlugin {}
+class EvalSourceMapDevToolPlugin {}
+class ExternalModule {}
+class ExternalsPlugin {}
+class Generator {}
+class HotUpdateChunk {}
+class HotModuleReplacementPlugin {}
+class InitFragment {}
+class IgnorePlugin {}
+class JavascriptModulesPlugin {}
+class LibManifestPlugin {}
+class LibraryTemplatePlugin {}
+class LoaderOptionsPlugin {}
+class LoaderTargetPlugin {}
+class Module {}
+class ModuleFactory {}
+class ModuleGraph {}
+class ModuleGraphConnection {}
+
+// webpack helpers
+const r_webpack = webpack(opts);
+const r_validate = validate(opts);
+const r_validateSchema = validateSchema(opts);
+compiler.hooks.run.tap('plugin', (compiler) => {});
+compiler.hooks.compilation.tap('plugin', (compilation) => {});
 compilation.hooks.optimize.tap('plugin', () => {});
 ```

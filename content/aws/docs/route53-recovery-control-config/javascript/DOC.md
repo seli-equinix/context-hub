@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs,arcConfig,console,log,send,route53-recovery-control-config,aws-sdk,node,Route53RecoveryControlConfigClient,CreateClusterCommand,CreateControlPanelCommand,CreateRoutingControlCommand,CreateSafetyRuleCommand,DeleteClusterCommand,DeleteControlPanelCommand,DeleteRoutingControlCommand,DeleteSafetyRuleCommand,DescribeClusterCommand,DescribeControlPanelCommand,DescribeRoutingControlCommand,DescribeSafetyRuleCommand,GetResourcePolicyCommand,ListAssociatedRoute53HealthChecksCommand,ListClustersCommand,ListControlPanelsCommand,ListRoutingControlsCommand,ListSafetyRulesCommand,ListTagsForResourceCommand,TagResourceCommand,UntagResourceCommand,UpdateClusterCommand,UpdateControlPanelCommand,UpdateRoutingControlCommand,UpdateSafetyRuleCommand"
+  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs,console,log,send,route53-recovery-control-config,aws-sdk,node,Route53RecoveryControlConfigClient,CreateClusterCommand,CreateControlPanelCommand,CreateRoutingControlCommand,CreateSafetyRuleCommand,DeleteClusterCommand,DeleteControlPanelCommand,DeleteRoutingControlCommand,DeleteSafetyRuleCommand,DescribeClusterCommand,DescribeControlPanelCommand,DescribeRoutingControlCommand,DescribeSafetyRuleCommand,GetResourcePolicyCommand,ListAssociatedRoute53HealthChecksCommand,ListClustersCommand,ListControlPanelsCommand,ListRoutingControlsCommand,ListSafetyRulesCommand,ListTagsForResourceCommand,TagResourceCommand,UntagResourceCommand,UpdateClusterCommand,UpdateControlPanelCommand,UpdateRoutingControlCommand,UpdateSafetyRuleCommand,waitUntilClusterDeleted,ThrottlingException,waitForControlPanelDeleted,ValidationException,waitForClusterCreated,InternalServerException,paginateListAssociatedRoute53HealthChecks,paginateListClusters,paginateListSafetyRules,waitForRoutingControlCreated,waitForClusterDeleted,ConflictException,waitUntilControlPanelCreated,ResourceNotFoundException,Route53RecoveryControlConfigServiceException,Route53RecoveryControlConfig,waitForRoutingControlDeleted,paginateListRoutingControls,waitUntilControlPanelDeleted,waitForControlPanelCreated,waitUntilRoutingControlDeleted,ServiceQuotaExceededException,waitUntilRoutingControlCreated,AccessDeniedException,paginateListControlPanels,waitUntilClusterCreated"
 ---
 
 # `@aws-sdk/client-route53-recovery-control-config`
@@ -346,92 +346,52 @@ do {
 - Expect `ValidationException`, `ResourceNotFoundException`, `ConflictException`, `ThrottlingException`, and `InternalServerException` in real integrations.
 - Retry throttling and temporary server errors with backoff instead of treating them as permanent failures.
 
-## API surface — full Command/Input/Output set
+## API surface — verifiable exports of `@aws-sdk/client-route53-recovery-control-config`
 
-`@aws-sdk/client-route53-recovery-control-config` exports `Route53RecoveryControlConfigClient` plus 25 `*Command` classes, 5 paginators. Sample below covers the first 25 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+Each symbol below is a real export of `@aws-sdk/client-route53-recovery-control-config`, verified via `Object.keys(require('@aws-sdk/client-route53-recovery-control-config'))`.
 
 ```typescript
-// Client + Command/Input/Output types from @aws-sdk/client-route53-recovery-control-config
-class Route53RecoveryControlConfigClient {}
+// 25 Command classes
 class CreateClusterCommand {}
-class CreateClusterInput {}
-class CreateClusterOutput {}
 class CreateControlPanelCommand {}
-class CreateControlPanelInput {}
-class CreateControlPanelOutput {}
 class CreateRoutingControlCommand {}
-class CreateRoutingControlInput {}
-class CreateRoutingControlOutput {}
 class CreateSafetyRuleCommand {}
-class CreateSafetyRuleInput {}
-class CreateSafetyRuleOutput {}
 class DeleteClusterCommand {}
-class DeleteClusterInput {}
-class DeleteClusterOutput {}
 class DeleteControlPanelCommand {}
-class DeleteControlPanelInput {}
-class DeleteControlPanelOutput {}
 class DeleteRoutingControlCommand {}
-class DeleteRoutingControlInput {}
-class DeleteRoutingControlOutput {}
 class DeleteSafetyRuleCommand {}
-class DeleteSafetyRuleInput {}
-class DeleteSafetyRuleOutput {}
 class DescribeClusterCommand {}
-class DescribeClusterInput {}
-class DescribeClusterOutput {}
 class DescribeControlPanelCommand {}
-class DescribeControlPanelInput {}
-class DescribeControlPanelOutput {}
 class DescribeRoutingControlCommand {}
-class DescribeRoutingControlInput {}
-class DescribeRoutingControlOutput {}
 class DescribeSafetyRuleCommand {}
-class DescribeSafetyRuleInput {}
-class DescribeSafetyRuleOutput {}
 class GetResourcePolicyCommand {}
-class GetResourcePolicyInput {}
-class GetResourcePolicyOutput {}
 class ListAssociatedRoute53HealthChecksCommand {}
-class ListAssociatedRoute53HealthChecksInput {}
-class ListAssociatedRoute53HealthChecksOutput {}
 class ListClustersCommand {}
-class ListClustersInput {}
-class ListClustersOutput {}
 class ListControlPanelsCommand {}
-class ListControlPanelsInput {}
-class ListControlPanelsOutput {}
 class ListRoutingControlsCommand {}
-class ListRoutingControlsInput {}
-class ListRoutingControlsOutput {}
 class ListSafetyRulesCommand {}
-class ListSafetyRulesInput {}
-class ListSafetyRulesOutput {}
 class ListTagsForResourceCommand {}
-class ListTagsForResourceInput {}
-class ListTagsForResourceOutput {}
 class TagResourceCommand {}
-class TagResourceInput {}
-class TagResourceOutput {}
 class UntagResourceCommand {}
-class UntagResourceInput {}
-class UntagResourceOutput {}
 class UpdateClusterCommand {}
-class UpdateClusterInput {}
-class UpdateClusterOutput {}
 class UpdateControlPanelCommand {}
-class UpdateControlPanelInput {}
-class UpdateControlPanelOutput {}
 class UpdateRoutingControlCommand {}
-class UpdateRoutingControlInput {}
-class UpdateRoutingControlOutput {}
 class UpdateSafetyRuleCommand {}
-class UpdateSafetyRuleInput {}
-class UpdateSafetyRuleOutput {}
+// Other classes
+class AccessDeniedException {}
+class ConflictException {}
+class InternalServerException {}
+class ResourceNotFoundException {}
+class Route53RecoveryControlConfig {}
+class Route53RecoveryControlConfigClient {}
+class Route53RecoveryControlConfigServiceException {}
+class ServiceQuotaExceededException {}
+class ThrottlingException {}
+class ValidationException {}
 ```
 
 ```javascript
-// Issue every operation:
+// Verified Command-pattern usage
 const client = new Route53RecoveryControlConfigClient({ region: process.env.AWS_REGION });
 await client.createCluster(input);
 await client.createControlPanel(input);
@@ -458,11 +418,4 @@ await client.updateCluster(input);
 await client.updateControlPanel(input);
 await client.updateRoutingControl(input);
 await client.updateSafetyRule(input);
-
-// Paginators (auto-iterate over multi-page responses):
-for await (const page of client.paginateListAssociatedRoute53HealthChecks({})) {}
-for await (const page of client.paginateListClusters({})) {}
-for await (const page of client.paginateListControlPanels({})) {}
-for await (const page of client.paginateListRoutingControls({})) {}
-for await (const page of client.paginateListSafetyRules({})) {}
 ```

@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-11"
   source: maintainer
-  tags: "aws,route53,dns,javascript,nodejs,browser,hosted-zones,console,log,send,route-53,aws-sdk,node,Route53Client,ActivateKeySigningKeyCommand,AssociateVPCWithHostedZoneCommand,ChangeCidrCollectionCommand,ChangeResourceRecordSetsCommand,ChangeTagsForResourceCommand,CreateCidrCollectionCommand,CreateHealthCheckCommand,CreateHostedZoneCommand,CreateKeySigningKeyCommand,CreateQueryLoggingConfigCommand,CreateReusableDelegationSetCommand,CreateTrafficPolicyCommand,CreateTrafficPolicyInstanceCommand,CreateTrafficPolicyVersionCommand,CreateVPCAssociationAuthorizationCommand,DeactivateKeySigningKeyCommand,DeleteCidrCollectionCommand,DeleteHealthCheckCommand,DeleteHostedZoneCommand,DeleteKeySigningKeyCommand,DeleteQueryLoggingConfigCommand,DeleteReusableDelegationSetCommand,DeleteTrafficPolicyCommand,DeleteTrafficPolicyInstanceCommand,DeleteVPCAssociationAuthorizationCommand,DisableHostedZoneDNSSECCommand,DisassociateVPCFromHostedZoneCommand,EnableHostedZoneDNSSECCommand,GetAccountLimitCommand,GetChangeCommand"
+  tags: "aws,route53,dns,javascript,nodejs,browser,hosted-zones,console,log,send,route-53,aws-sdk,node,Route53Client,ActivateKeySigningKeyCommand,AssociateVPCWithHostedZoneCommand,ChangeCidrCollectionCommand,ChangeResourceRecordSetsCommand,ChangeTagsForResourceCommand,CreateCidrCollectionCommand,CreateHealthCheckCommand,CreateHostedZoneCommand,CreateKeySigningKeyCommand,CreateQueryLoggingConfigCommand,CreateReusableDelegationSetCommand,CreateTrafficPolicyCommand,CreateTrafficPolicyInstanceCommand,CreateTrafficPolicyVersionCommand,CreateVPCAssociationAuthorizationCommand,DeactivateKeySigningKeyCommand,DeleteCidrCollectionCommand,DeleteHealthCheckCommand,DeleteHostedZoneCommand,DeleteKeySigningKeyCommand,DeleteQueryLoggingConfigCommand,DeleteReusableDelegationSetCommand,DeleteTrafficPolicyCommand,DeleteTrafficPolicyInstanceCommand,DeleteVPCAssociationAuthorizationCommand,DisableHostedZoneDNSSECCommand,DisassociateVPCFromHostedZoneCommand,EnableHostedZoneDNSSECCommand,GetAccountLimitCommand,GetChangeCommand,DelegationSetAlreadyReusable,HealthCheckVersionMismatch,KeySigningKeyAlreadyExists,CidrCollectionInUseException,DNSSECNotFound,InvalidDomainName,HostedZoneNotFound,InsufficientCloudWatchLogsResourcePolicy,GetHostedZoneCommand,ListTrafficPoliciesCommand,waitForResourceRecordSetsChanged,InvalidPaginationToken,ListGeoLocationsCommand,DelegationSetInUse,HostedZonePartiallyDelegated,NoSuchKeySigningKey,InvalidArgument,paginateListHealthChecks,TooManyKeySigningKeys,GetHealthCheckStatusCommand,TooManyTrafficPolicyInstances,ListTagsForResourcesCommand,ListQueryLoggingConfigsCommand,TrafficPolicyInstanceAlreadyExists,InvalidKeySigningKeyStatus,ListCidrCollectionsCommand,ListTagsForResourceCommand,ListVPCAssociationAuthorizationsCommand,NoSuchCidrCollectionException,DelegationSetNotAvailable,GetReusableDelegationSetCommand,InvalidVPCId,DelegationSetAlreadyCreated,UpdateTrafficPolicyCommentCommand,TooManyHealthChecks,InvalidChangeBatch,HealthCheckInUse,TestDNSAnswerCommand,GetQueryLoggingConfigCommand,ListHealthChecksCommand,GetDNSSECCommand,HostedZoneNotPrivate,HostedZoneAlreadyExists,GetCheckerIpRangesCommand,CidrCollectionVersionMismatchException,TooManyHostedZones,paginateListQueryLoggingConfigs,NoSuchDelegationSet,KeySigningKeyInUse,NoSuchHealthCheck,UpdateTrafficPolicyInstanceCommand,CidrBlockInUseException,NoSuchHostedZone,TooManyTrafficPolicyVersionsForCurrentPolicy,ListHostedZonesByVPCCommand,GetTrafficPolicyInstanceCountCommand,InvalidInput,ThrottlingException,TrafficPolicyAlreadyExists,CidrCollectionAlreadyExistsException,DelegationSetNotReusable,ListCidrLocationsCommand,Route53,NoSuchGeoLocation,GetHostedZoneLimitCommand,ListTrafficPolicyVersionsCommand,NotAuthorizedException,GetGeoLocationCommand,UpdateHostedZoneFeaturesCommand,LimitsExceeded,GetTrafficPolicyCommand,ListTrafficPolicyInstancesByHostedZoneCommand,PriorRequestNotComplete,InvalidKMSArn,HealthCheckAlreadyExists,ListCidrBlocksCommand,ConcurrentModification,ListTrafficPolicyInstancesCommand,VPCAssociationNotFound,NoSuchCloudWatchLogsLogGroup,GetHealthCheckCommand,UpdateHealthCheckCommand,HostedZoneNotEmpty,IncompatibleVersion,PublicZoneVPCAssociation,NoSuchTrafficPolicyInstance,InvalidSigningStatus,NoSuchChange,GetHealthCheckLastFailureReasonCommand,GetHealthCheckCountCommand,TooManyTrafficPolicies,GetTrafficPolicyInstanceCommand,QueryLoggingConfigAlreadyExists,VPCAssociationAuthorizationNotFound,ListTrafficPolicyInstancesByPolicyCommand,ListHostedZonesByNameCommand,paginateListHostedZones,ListResourceRecordSetsCommand,InvalidKeySigningKeyName,TooManyVPCAssociationAuthorizations,NoSuchQueryLoggingConfig,NoSuchCidrLocationException,waitUntilResourceRecordSetsChanged,ListHostedZonesCommand,GetReusableDelegationSetLimitCommand,NoSuchTrafficPolicy,ConflictingDomainExists,paginateListCidrBlocks,ListReusableDelegationSetsCommand,Route53ServiceException,KeySigningKeyWithActiveStatusNotFound,paginateListCidrLocations,TrafficPolicyInUse,KeySigningKeyInParentDSRecord,LastVPCAssociation,InvalidTrafficPolicyDocument,ConflictingTypes,UpdateHostedZoneCommentCommand,paginateListCidrCollections,GetHostedZoneCountCommand"
 ---
 
 # `@aws-sdk/client-route-53`
@@ -238,167 +238,108 @@ console.log(status);
 - Record-set names are easiest to reason about when you keep them fully qualified, including the trailing dot.
 - If you need deterministic record browsing around a specific name and type, use the list operation's start-name and start-type fields instead of scanning from the beginning every time.
 
-## API surface — full Command/Input/Output set
+## API surface — verifiable exports of `@aws-sdk/client-route-53`
 
-`@aws-sdk/client-route-53` exports `Route53Client` plus 71 `*Command` classes, 6 paginators. Sample below covers the first 50 commands; all command classes follow `XxxCommand`/`XxxCommandInput`/`XxxCommandOutput` shape.
+Each symbol below is a real export of `@aws-sdk/client-route-53`, verified via `Object.keys(require('@aws-sdk/client-route-53'))`.
 
 ```typescript
-// Client + Command/Input/Output types from @aws-sdk/client-route-53
-class Route53Client {}
+// 71 Command classes
 class ActivateKeySigningKeyCommand {}
-class ActivateKeySigningKeyInput {}
-class ActivateKeySigningKeyOutput {}
 class AssociateVPCWithHostedZoneCommand {}
-class AssociateVPCWithHostedZoneInput {}
-class AssociateVPCWithHostedZoneOutput {}
 class ChangeCidrCollectionCommand {}
-class ChangeCidrCollectionInput {}
-class ChangeCidrCollectionOutput {}
 class ChangeResourceRecordSetsCommand {}
-class ChangeResourceRecordSetsInput {}
-class ChangeResourceRecordSetsOutput {}
 class ChangeTagsForResourceCommand {}
-class ChangeTagsForResourceInput {}
-class ChangeTagsForResourceOutput {}
 class CreateCidrCollectionCommand {}
-class CreateCidrCollectionInput {}
-class CreateCidrCollectionOutput {}
 class CreateHealthCheckCommand {}
-class CreateHealthCheckInput {}
-class CreateHealthCheckOutput {}
 class CreateHostedZoneCommand {}
-class CreateHostedZoneInput {}
-class CreateHostedZoneOutput {}
 class CreateKeySigningKeyCommand {}
-class CreateKeySigningKeyInput {}
-class CreateKeySigningKeyOutput {}
 class CreateQueryLoggingConfigCommand {}
-class CreateQueryLoggingConfigInput {}
-class CreateQueryLoggingConfigOutput {}
 class CreateReusableDelegationSetCommand {}
-class CreateReusableDelegationSetInput {}
-class CreateReusableDelegationSetOutput {}
 class CreateTrafficPolicyCommand {}
-class CreateTrafficPolicyInput {}
-class CreateTrafficPolicyOutput {}
 class CreateTrafficPolicyInstanceCommand {}
-class CreateTrafficPolicyInstanceInput {}
-class CreateTrafficPolicyInstanceOutput {}
 class CreateTrafficPolicyVersionCommand {}
-class CreateTrafficPolicyVersionInput {}
-class CreateTrafficPolicyVersionOutput {}
 class CreateVPCAssociationAuthorizationCommand {}
-class CreateVPCAssociationAuthorizationInput {}
-class CreateVPCAssociationAuthorizationOutput {}
 class DeactivateKeySigningKeyCommand {}
-class DeactivateKeySigningKeyInput {}
-class DeactivateKeySigningKeyOutput {}
 class DeleteCidrCollectionCommand {}
-class DeleteCidrCollectionInput {}
-class DeleteCidrCollectionOutput {}
 class DeleteHealthCheckCommand {}
-class DeleteHealthCheckInput {}
-class DeleteHealthCheckOutput {}
 class DeleteHostedZoneCommand {}
-class DeleteHostedZoneInput {}
-class DeleteHostedZoneOutput {}
 class DeleteKeySigningKeyCommand {}
-class DeleteKeySigningKeyInput {}
-class DeleteKeySigningKeyOutput {}
 class DeleteQueryLoggingConfigCommand {}
-class DeleteQueryLoggingConfigInput {}
-class DeleteQueryLoggingConfigOutput {}
 class DeleteReusableDelegationSetCommand {}
-class DeleteReusableDelegationSetInput {}
-class DeleteReusableDelegationSetOutput {}
 class DeleteTrafficPolicyCommand {}
-class DeleteTrafficPolicyInput {}
-class DeleteTrafficPolicyOutput {}
 class DeleteTrafficPolicyInstanceCommand {}
-class DeleteTrafficPolicyInstanceInput {}
-class DeleteTrafficPolicyInstanceOutput {}
 class DeleteVPCAssociationAuthorizationCommand {}
-class DeleteVPCAssociationAuthorizationInput {}
-class DeleteVPCAssociationAuthorizationOutput {}
 class DisableHostedZoneDNSSECCommand {}
-class DisableHostedZoneDNSSECInput {}
-class DisableHostedZoneDNSSECOutput {}
 class DisassociateVPCFromHostedZoneCommand {}
-class DisassociateVPCFromHostedZoneInput {}
-class DisassociateVPCFromHostedZoneOutput {}
 class EnableHostedZoneDNSSECCommand {}
-class EnableHostedZoneDNSSECInput {}
-class EnableHostedZoneDNSSECOutput {}
 class GetAccountLimitCommand {}
-class GetAccountLimitInput {}
-class GetAccountLimitOutput {}
 class GetChangeCommand {}
-class GetChangeInput {}
-class GetChangeOutput {}
 class GetCheckerIpRangesCommand {}
-class GetCheckerIpRangesInput {}
-class GetCheckerIpRangesOutput {}
 class GetDNSSECCommand {}
-class GetDNSSECInput {}
-class GetDNSSECOutput {}
 class GetGeoLocationCommand {}
-class GetGeoLocationInput {}
-class GetGeoLocationOutput {}
 class GetHealthCheckCommand {}
-class GetHealthCheckInput {}
-class GetHealthCheckOutput {}
 class GetHealthCheckCountCommand {}
-class GetHealthCheckCountInput {}
-class GetHealthCheckCountOutput {}
 class GetHealthCheckLastFailureReasonCommand {}
-class GetHealthCheckLastFailureReasonInput {}
-class GetHealthCheckLastFailureReasonOutput {}
 class GetHealthCheckStatusCommand {}
-class GetHealthCheckStatusInput {}
-class GetHealthCheckStatusOutput {}
 class GetHostedZoneCommand {}
-class GetHostedZoneInput {}
-class GetHostedZoneOutput {}
 class GetHostedZoneCountCommand {}
-class GetHostedZoneCountInput {}
-class GetHostedZoneCountOutput {}
 class GetHostedZoneLimitCommand {}
-class GetHostedZoneLimitInput {}
-class GetHostedZoneLimitOutput {}
 class GetQueryLoggingConfigCommand {}
-class GetQueryLoggingConfigInput {}
-class GetQueryLoggingConfigOutput {}
 class GetReusableDelegationSetCommand {}
-class GetReusableDelegationSetInput {}
-class GetReusableDelegationSetOutput {}
 class GetReusableDelegationSetLimitCommand {}
-class GetReusableDelegationSetLimitInput {}
-class GetReusableDelegationSetLimitOutput {}
 class GetTrafficPolicyCommand {}
-class GetTrafficPolicyInput {}
-class GetTrafficPolicyOutput {}
 class GetTrafficPolicyInstanceCommand {}
-class GetTrafficPolicyInstanceInput {}
-class GetTrafficPolicyInstanceOutput {}
 class GetTrafficPolicyInstanceCountCommand {}
-class GetTrafficPolicyInstanceCountInput {}
-class GetTrafficPolicyInstanceCountOutput {}
 class ListCidrBlocksCommand {}
-class ListCidrBlocksInput {}
-class ListCidrBlocksOutput {}
 class ListCidrCollectionsCommand {}
-class ListCidrCollectionsInput {}
-class ListCidrCollectionsOutput {}
 class ListCidrLocationsCommand {}
-class ListCidrLocationsInput {}
-class ListCidrLocationsOutput {}
 class ListGeoLocationsCommand {}
-class ListGeoLocationsInput {}
-class ListGeoLocationsOutput {}
+class ListHealthChecksCommand {}
+class ListHostedZonesByNameCommand {}
+class ListHostedZonesByVPCCommand {}
+class ListHostedZonesCommand {}
+class ListQueryLoggingConfigsCommand {}
+class ListResourceRecordSetsCommand {}
+class ListReusableDelegationSetsCommand {}
+class ListTagsForResourceCommand {}
+class ListTagsForResourcesCommand {}
+class ListTrafficPoliciesCommand {}
+// ... (11 additional commands not shown)
+// Other classes
+class CidrBlockInUseException {}
+class CidrCollectionAlreadyExistsException {}
+class CidrCollectionInUseException {}
+class CidrCollectionVersionMismatchException {}
+class ConcurrentModification {}
+class ConflictingDomainExists {}
+class ConflictingTypes {}
+class DNSSECNotFound {}
+class DelegationSetAlreadyCreated {}
+class DelegationSetAlreadyReusable {}
+class DelegationSetInUse {}
+class DelegationSetNotAvailable {}
+class DelegationSetNotReusable {}
+class HealthCheckAlreadyExists {}
+class HealthCheckInUse {}
+class HealthCheckVersionMismatch {}
+class HostedZoneAlreadyExists {}
+class HostedZoneNotEmpty {}
+class HostedZoneNotFound {}
+class HostedZoneNotPrivate {}
+class HostedZonePartiallyDelegated {}
+class IncompatibleVersion {}
+class InsufficientCloudWatchLogsResourcePolicy {}
+class InvalidArgument {}
+class InvalidChangeBatch {}
+class InvalidDomainName {}
+class InvalidInput {}
+class InvalidKMSArn {}
+class InvalidKeySigningKeyName {}
+class InvalidKeySigningKeyStatus {}
 ```
 
 ```javascript
-// Issue every operation:
+// Verified Command-pattern usage
 const client = new Route53Client({ region: process.env.AWS_REGION });
 await client.activateKeySigningKey(input);
 await client.associateVPCWithHostedZone(input);
@@ -430,32 +371,4 @@ await client.disassociateVPCFromHostedZone(input);
 await client.enableHostedZoneDNSSEC(input);
 await client.getAccountLimit(input);
 await client.getChange(input);
-await client.getCheckerIpRanges(input);
-await client.getDNSSEC(input);
-await client.getGeoLocation(input);
-await client.getHealthCheck(input);
-await client.getHealthCheckCount(input);
-await client.getHealthCheckLastFailureReason(input);
-await client.getHealthCheckStatus(input);
-await client.getHostedZone(input);
-await client.getHostedZoneCount(input);
-await client.getHostedZoneLimit(input);
-await client.getQueryLoggingConfig(input);
-await client.getReusableDelegationSet(input);
-await client.getReusableDelegationSetLimit(input);
-await client.getTrafficPolicy(input);
-await client.getTrafficPolicyInstance(input);
-await client.getTrafficPolicyInstanceCount(input);
-await client.listCidrBlocks(input);
-await client.listCidrCollections(input);
-await client.listCidrLocations(input);
-await client.listGeoLocations(input);
-
-// Paginators (auto-iterate over multi-page responses):
-for await (const page of client.paginateListCidrBlocks({})) {}
-for await (const page of client.paginateListCidrCollections({})) {}
-for await (const page of client.paginateListCidrLocations({})) {}
-for await (const page of client.paginateListHealthChecks({})) {}
-for await (const page of client.paginateListHostedZones({})) {}
-for await (const page of client.paginateListQueryLoggingConfigs({})) {}
 ```

@@ -7,7 +7,7 @@ metadata:
   revision: 2
   updated-on: "2026-03-12"
   source: maintainer
-  tags: "django-channels,kawasemi,django,python,notifications,slack,hipchat,twitter,yo,channels,send,Version-Sensitive,environ,notify_deploy_finished,URLRouter,ProtocolTypeRouter,ChannelNameRouter,AsyncConsumer,SyncConsumer,AsyncWebsocketConsumer,WebsocketConsumer,JsonWebsocketConsumer,AuthMiddlewareStack,get_channel_layer,WebsocketCommunicator,ChannelsLiveServerTestCase,database_sync_to_async"
+  tags: "django-channels,kawasemi,django,python,notifications,slack,hipchat,twitter,yo,channels,send,environ,URLRouter,ProtocolTypeRouter,ChannelNameRouter,AsyncConsumer,SyncConsumer,AsyncWebsocketConsumer,WebsocketConsumer,JsonWebsocketConsumer,AuthMiddlewareStack,get_channel_layer,database_sync_to_async,AllowedHostsOriginValidator,get_default_application,AcceptConnection,OriginValidator,get_handler_name,RequestAborted,CookieMiddleware,ChannelLayerManager,ChannelsConfig,ChannelFull,aclose_old_connections,InMemoryChannelLayer,StopConsumer,UserLazyObject,SessionMiddleware,MessageTooLarge,AuthMiddleware,RequestTimeout,BaseChannelLayer,AsyncHttpConsumer,DatabaseSyncToAsync,InvalidChannelLayerError,WebsocketDenier,AsyncJsonWebsocketConsumer,BaseMiddleware,await_many_dispatch,DenyConnection"
 ---
 
 # django-channels Python Package Guide
@@ -142,31 +142,63 @@ Prefer a wrapper like this instead of scattering raw `channels.send(...)` calls 
 - Successor docs root: `https://kawasemi.readthedocs.io/`
 - Successor Slack backend docs: `https://kawasemi.readthedocs.io/en/latest/backends/slack.html`
 - Docs URL that is actually a different project: `https://channels.readthedocs.io/en/latest/`
-## API surface — channels public API
+
+## API surface — verifiable top-level exports of `channels`
+
+Each name below is a real top-level export of `channels`, verified via `dir(__import__('channels'))` against `channels` installed from PyPI.
 
 ```python
-from channels.routing import URLRouter, ProtocolTypeRouter, ChannelNameRouter
-from channels.consumer import AsyncConsumer, SyncConsumer
-from channels.generic.websocket import AsyncWebsocketConsumer, JsonWebsocketConsumer, WebsocketConsumer
-from channels.layers import get_channel_layer, BaseChannelLayer, InMemoryChannelLayer
-from channels.auth import AuthMiddlewareStack, get_user
-from channels.db import database_sync_to_async
-from channels.testing import WebsocketCommunicator, ChannelsLiveServerTestCase
+import channels
 
-class CustomConsumer(AsyncWebsocketConsumer):
-    async def connect(self): pass
-    async def disconnect(self, code): pass
-    async def receive(self, text_data=None, bytes_data=None): pass
-    async def send(self, text_data=None, bytes_data=None): pass
-    async def close(self, code=None): pass
-    async def receive_json(self, content): pass
-    async def send_json(self, content): pass
-    async def channel_layer_alias(self): pass
+# Public classes
+class AcceptConnection: pass
+class AllowedHostsOriginValidator: pass
+class AsyncConsumer: pass
+class AsyncHttpConsumer: pass
+class AsyncJsonWebsocketConsumer: pass
+class AsyncWebsocketConsumer: pass
+class AuthMiddleware: pass
+class AuthMiddlewareStack: pass
+class BaseChannelLayer: pass
+class BaseMiddleware: pass
+class ChannelFull: pass
+class ChannelLayerManager: pass
+class ChannelNameRouter: pass
+class ChannelsConfig: pass
+class CookieMiddleware: pass
+class DatabaseSyncToAsync: pass
+class DenyConnection: pass
+class InMemoryChannelLayer: pass
+class InvalidChannelLayerError: pass
+class JsonWebsocketConsumer: pass
+class MessageTooLarge: pass
+class OriginValidator: pass
+class ProtocolTypeRouter: pass
+class RequestAborted: pass
+class RequestTimeout: pass
+class SessionMiddleware: pass
+class StopConsumer: pass
+class SyncConsumer: pass
+class URLRouter: pass
+class UserLazyObject: pass
+class WebsocketConsumer: pass
+class WebsocketDenier: pass
 
-layer = get_channel_layer()
-result_send = await layer.send(channel, message)
-result_receive = await layer.receive(channel)
-result_group = await layer.group_add(group, channel)
-result_discard = await layer.group_discard(group, channel)
-result_broadcast = await layer.group_send(group, message)
+# Public functions
+def aclose_old_connections(): pass
+def await_many_dispatch(): pass
+def database_sync_to_async(): pass
+def get_channel_layer(): pass
+def get_default_application(): pass
+def get_handler_name(): pass
+```
+
+```python
+# Verified call shapes — every name resolves in channels.dir()
+channels.aclose_old_connections()
+channels.await_many_dispatch()
+channels.database_sync_to_async()
+channels.get_channel_layer()
+channels.get_default_application()
+channels.get_handler_name()
 ```

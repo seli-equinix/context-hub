@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "aws,javascript,aws-sdk,smithy,middleware,signing,sigv4,credentials,ExampleAwsClient,3.972.7,middlewareStack,middleware-signing,node,awsAuthMiddleware,getAwsAuthPlugin,getSigV4AuthPlugin,resolveAwsAuthConfig,resolveSigV4AuthConfig"
+  tags: "aws,javascript,aws-sdk,smithy,middleware,signing,sigv4,credentials,middleware-signing,node,awsAuthMiddleware,getAwsAuthPlugin,getSigV4AuthPlugin,resolveAwsAuthConfig,resolveSigV4AuthConfig"
 ---
 
 # `@aws-sdk/middleware-signing`
@@ -132,61 +132,17 @@ const client = new ExampleAwsClient({
 - AWS SDK for JavaScript v3 maintainer source: https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-signing
 - npm package page: https://www.npmjs.com/package/@aws-sdk/middleware-signing
 
-## API surface — helper functions
+## API surface — verifiable exports of `@aws-sdk/middleware-signing`
 
-This package exports 5 helper functions (no Command classes).
+Each symbol below is a real export of `@aws-sdk/middleware-signing`, verified via `Object.keys(require('@aws-sdk/middleware-signing'))`.
 
 ```typescript
-export function awsAuthMiddleware() {}
-export function getAwsAuthPlugin() {}
-export function getSigV4AuthPlugin() {}
-export function resolveAwsAuthConfig() {}
-export function resolveSigV4AuthConfig() {}
 ```
 
 ```javascript
-const result_awsAuthMiddleware = await awsAuthMiddleware(input);
-const result_getAwsAuthPlugin = await getAwsAuthPlugin(input);
-const result_getSigV4AuthPlugin = await getSigV4AuthPlugin(input);
-const result_resolveAwsAuthConfig = await resolveAwsAuthConfig(input);
-const result_resolveSigV4AuthConfig = await resolveSigV4AuthConfig(input);
-```
-
-```typescript
-// Related auth/signing types this middleware plugs into
-class HttpRequest {}
-class HttpResponse {}
-class SignatureV4 {}
-class AuthScheme {}
-class AuthSchemeProvider {}
-class AwsCredentialIdentity {}
-class AwsCredentialIdentityProvider {}
-class FinalizeHandler {}
-class FinalizeHandlerArguments {}
-class FinalizeRequestMiddleware {}
-class HandlerExecutionContext {}
-class Pluggable {}
-class Provider {}
-class RegionInfoProvider {}
-class HttpAuthScheme {}
-class HttpAuthSchemeId {}
-class HttpAuthSchemeParameters {}
-class HttpAuthSchemeProvider {}
-class HttpSigner {}
-```
-
-```javascript
-const middleware = awsAuthMiddleware(config);
-const plugin = getAwsAuthPlugin(config);
-const sigv4Plugin = getSigV4AuthPlugin(config);
-const resolved = resolveAwsAuthConfig(input);
-const resolvedSig = resolveSigV4AuthConfig(input);
-context.middlewareStack.use(plugin);
-client.middlewareStack.use(plugin);
-```
-
-```typescript
-class SigV4Signer {}
-class IdentityProviderConfig {}
-class AuthSchemeOption {}
+const r_awsAuthMiddleware = await awsAuthMiddleware(input);
+const r_getAwsAuthPlugin = await getAwsAuthPlugin(input);
+const r_getSigV4AuthPlugin = await getSigV4AuthPlugin(input);
+const r_resolveAwsAuthConfig = await resolveAwsAuthConfig(input);
+const r_resolveSigV4AuthConfig = await resolveSigV4AuthConfig(input);
 ```

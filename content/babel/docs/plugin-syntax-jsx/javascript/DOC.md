@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,javascript,jsx,syntax,parser,7.28.6,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,ConfigAPI,PluginObj,PluginPass,PluginOptions,TransformOptions,BabelFileResult,BabelFile,NodePath,transformSync,transformAsync,transformFileSync,transformFileAsync,parseSync,parseAsync"
+  tags: "babel,build,javascript,jsx,syntax,parser,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,default,@babel/core,transformSync,parseSync,traverse,template,File,Plugin,OptionManager"
 ---
 
 # @babel/plugin-syntax-jsx
@@ -177,71 +177,52 @@ This setup is useful when another tool handles JSX transformation later and you 
 - Babel source package: https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-jsx
 - Babel TypeScript syntax plugin docs: https://babel.dev/docs/en/next/babel-plugin-syntax-typescript
 
-## API surface — Babel runtime
+## API surface — verifiable exports of `@babel/plugin-syntax-jsx`
 
-Like every Babel plugin, `@babel/plugin-syntax-jsx` is consumed by Babel's runtime API. The types and helpers below are what plugin authors and config writers compose against. They are stable across the `7.x` line.
+Each symbol below is a real export of `@babel/plugin-syntax-jsx`, verified via `Object.keys(require('@babel/plugin-syntax-jsx'))`.
 
 ```typescript
-// Babel core types (@babel/core)
-class ConfigAPI {}
-class PluginObj {}
-class PluginPass {}
-class PluginOptions {}
-class TransformOptions {}
-class BabelFileResult {}
-class BabelFile {}
-class NodePath {}
-class Visitor {}
-class TraversalContext {}
-class ParserOptions {}
-class GeneratorOptions {}
-class ConfigItem {}
-class PartialConfig {}
-class ResolvedConfig {}
-class FileResultCallback {}
-class InputOptions {}
-
-// AST node types (@babel/types)
-class Identifier {}
-class Expression {}
-class Statement {}
-class Program {}
-class File {}
-class BlockStatement {}
-class FunctionDeclaration {}
-class FunctionExpression {}
-class ArrowFunctionExpression {}
-class ClassDeclaration {}
-class ImportDeclaration {}
-class ExportDefaultDeclaration {}
-class VariableDeclaration {}
-class ReturnStatement {}
-class CallExpression {}
-class MemberExpression {}
-class ObjectExpression {}
-class ArrayExpression {}
-class TemplateLiteral {}
-class TaggedTemplateExpression {}
-class ConditionalExpression {}
-class AssignmentExpression {}
-class BinaryExpression {}
-class LogicalExpression {}
 ```
 
 ```javascript
-// Babel core helpers (@babel/core)
-const code = `const x = 1`;
-const result_transformSync = await babel.transformSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_transformAsync = await babel.transformAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_transformFileSync = await babel.transformFileSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_transformFileAsync = await babel.transformFileAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_parseSync = await babel.parseSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_parseAsync = await babel.parseAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_loadOptionsSync = await babel.loadOptionsSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_buildExternalHelpers = await babel.buildExternalHelpers(code, { plugins: ['@babel/plugin-syntax-jsx'] });
-const result_createConfigItem = await babel.createConfigItem(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_default = await default(input);
+```
+## Peer API surface — `@babel/core` runtime
 
-// Use the plugin in a config
-const config = { plugins: ['@babel/plugin-syntax-jsx'] };
-const visitor = { Identifier(path) { path.node; } };
+Plugin authors compose against `@babel/core`'s runtime. The following are verified real exports of `@babel/core` (via `Object.keys(require('@babel/core'))`).
+
+```javascript
+class File {}
+class OptionManager {}
+class Plugin {}
+
+// Babel core helpers — call any of these with the plugin in config:
+const code = 'const x = 1';
+const r_buildExternalHelpers = babel.buildExternalHelpers(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_createConfigItem = babel.createConfigItem(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_createConfigItemAsync = babel.createConfigItemAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_createConfigItemSync = babel.createConfigItemSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_getEnv = babel.getEnv(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_loadOptions = babel.loadOptions(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_loadOptionsAsync = babel.loadOptionsAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_loadOptionsSync = babel.loadOptionsSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_loadPartialConfig = babel.loadPartialConfig(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_loadPartialConfigAsync = babel.loadPartialConfigAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_loadPartialConfigSync = babel.loadPartialConfigSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_parse = babel.parse(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_parseAsync = babel.parseAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_parseSync = babel.parseSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_resolvePlugin = babel.resolvePlugin(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_resolvePreset = babel.resolvePreset(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_template = babel.template(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transform = babel.transform(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformAsync = babel.transformAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformFile = babel.transformFile(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformFileAsync = babel.transformFileAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformFileSync = babel.transformFileSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformFromAst = babel.transformFromAst(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformFromAstAsync = babel.transformFromAstAsync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformFromAstSync = babel.transformFromAstSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_transformSync = babel.transformSync(code, { plugins: ['@babel/plugin-syntax-jsx'] });
+const r_traverse = babel.traverse(code, { plugins: ['@babel/plugin-syntax-jsx'] });
 ```

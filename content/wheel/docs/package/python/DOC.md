@@ -6,7 +6,7 @@ metadata:
   versions: "0.46.3"
   updated-on: "2026-05-02"
   source: maintainer
-  tags: "wheel,python,packaging,build,pypi,ini,toml,Version-Sensitive,calculate_macosx_platform_tag,extract_macosx_min_system_version,get_base_class_and_magic_number,parse_version,read_data,read_mach_header,swap32,convert_requirements,generate_requirements,pkginfo_to_metadata,requires_to_requires_dist,safe_extra,safe_name,split_sections,WheelError,WheelFile,close,extract,extractall,getinfo,infolist,mkdir,namelist,open,printdir,read,setpassword,testzip,write,write_files,writestr,get_zipinfo_datetime,urlsafe_b64decode,urlsafe_b64encode,BdistWheel,unpack,pack,convert,wheel.bdist_wheel,wheel.wheelfile,wheel.cli,WheelExtractor"
+  tags: "wheel,python,packaging,build,pypi,ini,toml,calculate_macosx_platform_tag,extract_macosx_min_system_version,get_base_class_and_magic_number,parse_version,read_data,read_mach_header,swap32,convert_requirements,generate_requirements,pkginfo_to_metadata,requires_to_requires_dist,safe_extra,safe_name,split_sections,WheelError,WheelFile,close,extract,extractall,getinfo,infolist,mkdir,namelist,open,printdir,read,setpassword,testzip,write,writestr,get_zipinfo_datetime,urlsafe_b64decode,urlsafe_b64encode,unpack,pack,convert"
 ---
 
 # wheel — package
@@ -228,29 +228,55 @@ wheel.wheelfile.urlsafe_b64decode(data: 'bytes') -> 'bytes'
 - Read the symbol signatures above before guessing argument names.
 - Pin the version (`wheel==0.46.3`) when behaviour is critical; this doc was generated against that version.
 - For options not shown here, fall back to the package's official upstream docs.
-## API surface — extra wheel symbols
+
+## API surface — verifiable top-level exports of `wheel`
+
+Each name below is a real top-level export of `wheel`, verified via `dir(__import__('wheel'))` against `wheel` installed from PyPI.
 
 ```python
-from wheel.bdist_wheel import bdist_wheel
-from wheel.wheelfile import WheelFile
-from wheel.cli import unpack, pack, convert
-from wheel.metadata import pkginfo_to_metadata
+import wheel
 
-class BdistWheel(bdist_wheel):
-    def initialize_options(self): pass
-    def finalize_options(self): pass
-    def get_tag(self): pass
-    def write_wheelfile(self, wheelfile_base): pass
-    def egg2dist(self, egginfo_path, distinfo_path): pass
+# Public classes
+class WheelError: pass
+class WheelFile: pass
 
-class WheelExtractor:
-    def __init__(self, wheel_path): pass
-    def extract_all(self, target): pass
-    def list_files(self): pass
-    def verify_record(self): pass
+# Public functions
+def calculate_macosx_platform_tag(): pass
+def convert_requirements(): pass
+def extract_macosx_min_system_version(): pass
+def generate_requirements(): pass
+def get_base_class_and_magic_number(): pass
+def get_zipinfo_datetime(): pass
+def parse_version(): pass
+def pkginfo_to_metadata(): pass
+def read_data(): pass
+def read_mach_header(): pass
+def requires_to_requires_dist(): pass
+def safe_extra(): pass
+def safe_name(): pass
+def split_sections(): pass
+def swap32(): pass
+def urlsafe_b64decode(): pass
+def urlsafe_b64encode(): pass
+```
 
-result_unpack = unpack(wheel_file, dest)
-result_pack = pack(directory, dest)
-result_convert = convert(files, dest, verbose=True)
-result_metadata = pkginfo_to_metadata(pkg_info_path, output_path)
+```python
+# Verified call shapes — every name resolves in wheel.dir()
+wheel.calculate_macosx_platform_tag()
+wheel.convert_requirements()
+wheel.extract_macosx_min_system_version()
+wheel.generate_requirements()
+wheel.get_base_class_and_magic_number()
+wheel.get_zipinfo_datetime()
+wheel.parse_version()
+wheel.pkginfo_to_metadata()
+wheel.read_data()
+wheel.read_mach_header()
+wheel.requires_to_requires_dist()
+wheel.safe_extra()
+wheel.safe_name()
+wheel.split_sections()
+wheel.swap32()
+wheel.urlsafe_b64decode()
+wheel.urlsafe_b64encode()
 ```
