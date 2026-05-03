@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,webpack-cli,build,bundler,javascript,path,resolve,build-tool,watch,run,close,Compiler,Compilation,BannerPlugin,DefinePlugin,ChunkGraph,Module"
+  tags: "webpack,webpack-cli,build,bundler,javascript,path,resolve,build-tool,watch,run,close"
 ---
 
 # webpack-cli for JavaScript
@@ -275,57 +275,4 @@ Each symbol below is a real export of `webpack-cli`, verified via `Object.keys(r
 
 ```typescript
 ```
-## Peer API surface — `webpack` runtime
 
-Webpack ecosystem packages plug into `webpack`'s runtime. Verified real exports of `webpack`:
-
-```javascript
-class AutomaticPrefetchPlugin {}
-class AsyncDependenciesBlock {}
-class BannerPlugin {}
-class Cache {}
-class Chunk {}
-class ChunkGraph {}
-class CleanPlugin {}
-class Compilation {}
-class Compiler {}
-class ConcatenationScope {}
-class ContextExclusionPlugin {}
-class ContextReplacementPlugin {}
-class DefinePlugin {}
-class DelegatedPlugin {}
-class Dependency {}
-class DllPlugin {}
-class DllReferencePlugin {}
-class DynamicEntryPlugin {}
-class DotenvPlugin {}
-class EntryOptionPlugin {}
-class EntryPlugin {}
-class EnvironmentPlugin {}
-class EvalDevToolModulePlugin {}
-class EvalSourceMapDevToolPlugin {}
-class ExternalModule {}
-class ExternalsPlugin {}
-class Generator {}
-class HotUpdateChunk {}
-class HotModuleReplacementPlugin {}
-class InitFragment {}
-class IgnorePlugin {}
-class JavascriptModulesPlugin {}
-class LibManifestPlugin {}
-class LibraryTemplatePlugin {}
-class LoaderOptionsPlugin {}
-class LoaderTargetPlugin {}
-class Module {}
-class ModuleFactory {}
-class ModuleGraph {}
-class ModuleGraphConnection {}
-
-// webpack helpers
-const r_webpack = webpack(opts);
-const r_validate = validate(opts);
-const r_validateSchema = validateSchema(opts);
-compiler.hooks.run.tap('plugin', (compiler) => {});
-compiler.hooks.compilation.tap('plugin', (compilation) => {});
-compilation.hooks.optimize.tap('plugin', () => {});
-```

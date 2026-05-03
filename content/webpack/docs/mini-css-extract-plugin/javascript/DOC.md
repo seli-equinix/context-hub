@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "webpack,css,build,plugin,assets,path,resolve,bundler,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close,BannerPlugin,DefinePlugin,ChunkGraph"
+  tags: "webpack,css,build,plugin,assets,path,resolve,bundler,build-tool,Configuration,Compiler,Compilation,Stats,Module,Chunk,ChunkGroup,Asset,watch,run,close,BannerPlugin,DefinePlugin,ChunkGraph,mini-css-extract-plugin-runtime"
 ---
 
 # mini-css-extract-plugin for JavaScript
@@ -275,52 +275,6 @@ module.exports = {
 
 Add preprocessors, `splitChunks`, or loader `publicPath` only when your build needs them.
 
-## API surface — webpack runtime
-
-`mini-css-extract-plugin` is consumed by webpack's runtime as a plugin, loader, or config helper. The types below are webpack's stable plugin/loader API.
-
-```typescript
-// webpack public types
-class Configuration {}
-class Compiler {}
-class Compilation {}
-class Stats {}
-class Module {}
-class Chunk {}
-class ChunkGroup {}
-class Asset {}
-class Dependency {}
-class ResolverFactory {}
-class WebpackPluginInstance {}
-class RuleSetRule {}
-class ModuleOptions {}
-class OutputOptions {}
-class EntryOptions {}
-class ResolveOptions {}
-class DevServerConfiguration {}
-class PerformanceOptions {}
-class OptimizationOptions {}
-class ExternalsConfiguration {}
-class ResolvePluginInstance {}
-class LoaderContext {}
-class LoaderDefinitionFunction {}
-class WebpackError {}
-class WebpackOptionsNormalized {}
-```
-
-```javascript
-const compiler = webpack(config);
-compiler.webpack(arg);
-compiler.watch(arg);
-compiler.run(arg);
-compiler.close(arg);
-compiler.getInfrastructureLogger(arg);
-compiler.purgeInputFileSystem(arg);
-compiler.hooks.run.tap('plugin', (compiler) => {});
-compiler.hooks.compilation.tap('plugin', (compilation) => {});
-compiler.hooks.emit.tapAsync('plugin', (compilation, callback) => {});
-compilation.hooks.optimize.tap('plugin', () => {});
-```
 ## Peer API surface — `webpack` runtime
 
 Webpack ecosystem packages plug into `webpack`'s runtime. Verified real exports of `webpack`:

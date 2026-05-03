@@ -7,7 +7,7 @@ metadata:
   revision: 1
   updated-on: "2026-03-13"
   source: maintainer
-  tags: "babel,build,transpile,runtime,polyfill,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,default,@babel/core,transformSync,parseSync,traverse,template,File,Plugin,OptionManager"
+  tags: "babel,build,transpile,runtime,polyfill,console,log,babel-core,babel-types,babel-traverse,babel-template,babel-generator,babel-plugin,default,traverse,template"
 ---
 
 # @babel/plugin-transform-runtime
@@ -222,43 +222,4 @@ Each symbol below is a real export of `@babel/plugin-transform-runtime`, verifie
 
 ```javascript
 const r_default = await default(input);
-```
-## Peer API surface — `@babel/core` runtime
-
-Plugin authors compose against `@babel/core`'s runtime. The following are verified real exports of `@babel/core` (via `Object.keys(require('@babel/core'))`).
-
-```javascript
-class File {}
-class OptionManager {}
-class Plugin {}
-
-// Babel core helpers — call any of these with the plugin in config:
-const code = 'const x = 1';
-const r_buildExternalHelpers = babel.buildExternalHelpers(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_createConfigItem = babel.createConfigItem(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_createConfigItemAsync = babel.createConfigItemAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_createConfigItemSync = babel.createConfigItemSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_getEnv = babel.getEnv(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_loadOptions = babel.loadOptions(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_loadOptionsAsync = babel.loadOptionsAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_loadOptionsSync = babel.loadOptionsSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_loadPartialConfig = babel.loadPartialConfig(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_loadPartialConfigAsync = babel.loadPartialConfigAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_loadPartialConfigSync = babel.loadPartialConfigSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_parse = babel.parse(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_parseAsync = babel.parseAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_parseSync = babel.parseSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_resolvePlugin = babel.resolvePlugin(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_resolvePreset = babel.resolvePreset(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_template = babel.template(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transform = babel.transform(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformAsync = babel.transformAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformFile = babel.transformFile(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformFileAsync = babel.transformFileAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformFileSync = babel.transformFileSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformFromAst = babel.transformFromAst(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformFromAstAsync = babel.transformFromAstAsync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformFromAstSync = babel.transformFromAstSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_transformSync = babel.transformSync(code, { plugins: ['@babel/plugin-transform-runtime'] });
-const r_traverse = babel.traverse(code, { plugins: ['@babel/plugin-transform-runtime'] });
 ```
