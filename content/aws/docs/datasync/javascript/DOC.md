@@ -1,13 +1,14 @@
 ---
 name: datasync
-description: "AWS SDK for JavaScript v3 client for AWS DataSync locations, tasks, and task executions."
+description: AWS SDK for JavaScript v3 client for AWS DataSync locations, tasks, and
+  task executions.
 metadata:
-  languages: "javascript"
-  versions: "3.1007.0"
+  languages: javascript
+  versions: 3.1007.0
   revision: 1
-  updated-on: "2026-03-13"
+  updated-on: '2026-03-13'
   source: maintainer
-  tags: "aws,datasync,javascript,nodejs,s3,data-transfer,migration,log,send,console,aws-sdk,node,DataSyncClient,CancelTaskExecutionCommand,CreateAgentCommand,CreateLocationAzureBlobCommand,CreateLocationEfsCommand,CreateLocationFsxLustreCommand,CreateLocationFsxOntapCommand,CreateLocationFsxOpenZfsCommand,CreateLocationFsxWindowsCommand,CreateLocationHdfsCommand,CreateLocationNfsCommand,CreateLocationObjectStorageCommand,CreateLocationS3Command,CreateLocationSmbCommand,CreateTaskCommand,DeleteAgentCommand,DeleteLocationCommand,DeleteTaskCommand,DescribeAgentCommand,DescribeLocationAzureBlobCommand,DescribeLocationEfsCommand,DescribeLocationFsxLustreCommand,DescribeLocationFsxOntapCommand,DescribeLocationFsxOpenZfsCommand,DescribeLocationFsxWindowsCommand,DescribeLocationHdfsCommand,DescribeLocationNfsCommand,DescribeLocationObjectStorageCommand,DescribeLocationS3Command,DescribeLocationSmbCommand,DescribeTaskCommand,DataSyncServiceException,DescribeTaskExecutionCommand,UpdateTaskCommand,TagResourceCommand,paginateListAgents,paginateListTasks,StartTaskExecutionCommand,UpdateLocationFsxOntapCommand,UpdateLocationS3Command,paginateListLocations,ListLocationsCommand,ListAgentsCommand,InternalException,ListTagsForResourceCommand,paginateListTagsForResource,DataSync,ListTaskExecutionsCommand,UpdateLocationFsxLustreCommand,UpdateLocationSmbCommand,UpdateLocationAzureBlobCommand,UpdateLocationFsxWindowsCommand,UpdateLocationObjectStorageCommand,UpdateLocationEfsCommand,UpdateLocationHdfsCommand,UpdateTaskExecutionCommand,paginateListTaskExecutions,InvalidRequestException,ListTasksCommand,UntagResourceCommand,UpdateLocationFsxOpenZfsCommand,UpdateLocationNfsCommand,UpdateAgentCommand"
+  tags: aws,datasync,javascript,nodejs,s3,data-transfer,migration,log,send,console,aws-sdk,node,DataSyncClient,CancelTaskExecutionCommand,CreateAgentCommand,CreateLocationAzureBlobCommand,CreateLocationEfsCommand,CreateLocationFsxLustreCommand,CreateLocationFsxOntapCommand,CreateLocationFsxOpenZfsCommand,CreateLocationFsxWindowsCommand,CreateLocationHdfsCommand,CreateLocationNfsCommand,CreateLocationObjectStorageCommand,CreateLocationS3Command,CreateLocationSmbCommand,CreateTaskCommand,DeleteAgentCommand,DeleteLocationCommand,DeleteTaskCommand,DescribeAgentCommand,DescribeLocationAzureBlobCommand,DescribeLocationEfsCommand,DescribeLocationFsxLustreCommand,DescribeLocationFsxOntapCommand,DescribeLocationFsxOpenZfsCommand,DescribeLocationFsxWindowsCommand,DescribeLocationHdfsCommand,DescribeLocationNfsCommand,DescribeLocationObjectStorageCommand,DescribeLocationS3Command,DescribeLocationSmbCommand,DescribeTaskCommand,DataSyncServiceException,DescribeTaskExecutionCommand,UpdateTaskCommand,TagResourceCommand,paginateListAgents,paginateListTasks,StartTaskExecutionCommand,UpdateLocationFsxOntapCommand,UpdateLocationS3Command,paginateListLocations,ListLocationsCommand,ListAgentsCommand,InternalException,ListTagsForResourceCommand,paginateListTagsForResource,DataSync,ListTaskExecutionsCommand,UpdateLocationFsxLustreCommand,UpdateLocationSmbCommand,UpdateLocationAzureBlobCommand,UpdateLocationFsxWindowsCommand,UpdateLocationObjectStorageCommand,UpdateLocationEfsCommand,UpdateLocationHdfsCommand,UpdateTaskExecutionCommand,paginateListTaskExecutions,InvalidRequestException,ListTasksCommand,UntagResourceCommand,UpdateLocationFsxOpenZfsCommand,UpdateLocationNfsCommand,UpdateAgentCommand
 ---
 
 # `@aws-sdk/client-datasync`
@@ -291,6 +292,106 @@ DataSync documents a minimum schedule interval of one hour.
 - `StartTaskExecution` API reference: `https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html`
 - `DescribeTaskExecution` API reference: `https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html`
 - `UpdateTask` API reference: `https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateTask.html`
+
+## Per-symbol detail
+
+### CreateAgentCommand
+
+The `CreateAgentCommand` class encapsulates the API operation to provision a new DataSync agent within your AWS account. You instantiate this command with configuration details, such as the agent name, and execute it using the DataSync client's `send` method. Upon completion, the returned promise resolves with a response containing the agent's Amazon Resource Name (ARN). This ARN is critical for linking the agent to specific storage locations and tasks in subsequent operations.
+
+```javascript
+import { DataSyncClient, CreateAgentCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const command = new CreateAgentCommand({ AgentName: "my-agent" });
+const response = await client.send(command);
+console.log("Created Agent ARN:", response.AgentArn);
+```
+
+### CreateLocationAzureBlobCommand
+
+The `CreateLocationAzureBlobCommand` class represents the AWS DataSync operation used to register an Azure Blob Storage account as a location for data transfers. You should instantiate this command when configuring a DataSync task to move data between AWS storage services and your Azure Blob Storage containers within a Node.js application. Upon execution via the client, it returns a promise that resolves with the response containing the newly created location's Amazon Resource Name (ARN) and status. This step is a prerequisite for defining the source or destination endpoints before initiating actual data synchronization tasks.
+
+```javascript
+import { DataSyncClient, CreateLocationAzureBlobCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const input = { /* Configuration for Azure Blob Storage location */ };
+const command = new CreateLocationAzureBlobCommand(input);
+const response = await client.send(command);
+```
+
+### CreateLocationEfsCommand
+
+The `CreateLocationEfsCommand` class encapsulates the API request to register an Amazon EFS file system as a location within AWS DataSync. In a Node.js application, you instantiate this command with the necessary EFS configuration and pass it to the client instance via the `send` method. The operation returns a Promise that resolves to the created location's metadata, including its Amazon Resource Name (ARN), which is required for subsequent task configurations. This command is typically used during the initialization phase of a DataSync workflow to establish the source or destination endpoint.
+
+```javascript
+import { DataSyncClient, CreateLocationEfsCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const command = new CreateLocationEfsCommand({ FileSystemArn: "arn:aws:elasticfilesystem:..." });
+const response = await client.send(command);
+```
+
+### CreateLocationFsxOntapCommand
+
+The `CreateLocationFsxOntapCommand` class encapsulates the API request to register an Amazon FSx for NetApp ONTAP file system as a location within AWS DataSync. In a Node.js environment, you instantiate this command with the required configuration and pass it to the DataSync client's `send` method to execute the operation asynchronously. The command returns a promise that resolves to a response containing the ARN of the newly created location, which is subsequently used to define data transfer tasks. This command is essential for establishing the storage endpoint before configuring tasks similar to those created with `CreateLocationEfsCommand`.
+
+```javascript
+import { DataSyncClient, CreateLocationFsxOntapCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const command = new CreateLocationFsxOntapCommand({
+  // Provide required configuration for the FSx for ONTAP location
+});
+const response = await client.send(command);
+```
+
+### CreateLocationFsxWindowsCommand
+
+The `CreateLocationFsxWindowsCommand` class represents an API request to configure a DataSync location for an Amazon FSx for Windows File Server. Developers utilize this command within a `DataSyncClient` instance to establish the necessary network and authentication settings required for transferring data to or from Windows-based file systems. Execution returns a Promise that resolves with the response containing the new location's Amazon Resource Name (ARN) and configuration status, enabling subsequent task definitions to reference the location. This operation follows the standard asynchronous command structure found throughout the AWS SDK for JavaScript v3.
+
+```javascript
+import { DataSyncClient, CreateLocationFsxWindowsCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const input = {
+  FsxFileSystemArn: "arn:aws:fsx:us-east-1:123456789012:filesystem/fs-12345678",
+  SubnetConfig: [{ SubnetArn: "arn:aws:ec2:us-east-1:123456789012:subnet/sub-12345678" }],
+  SecurityGroupConfig: [{ SecurityGroupArn: "arn:aws:ec2:us-east-1:123456789012:security-group/sg-12345678" }]
+};
+const command = new CreateLocationFsxWindowsCommand(input);
+const response = await client.send(command);
+```
+
+### CreateLocationHdfsCommand
+
+The `CreateLocationHdfsCommand` class encapsulates the API request to register a new HDFS storage location for use with AWS DataSync. Developers instantiate this command with the necessary location configuration and pass it to a `DataSyncClient` instance to initiate the creation process asynchronously. Upon execution, the command returns a Promise that resolves with the response containing the details of the newly created location resource. This pattern aligns with the standard AWS SDK for JavaScript v3 command-based architecture used alongside peers like `CreateLocationEfsCommand`.
+
+```javascript
+import { DataSyncClient, CreateLocationHdfsCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const command = new CreateLocationHdfsCommand({ /* Configuration */ });
+
+const response = await client.send(command);
+```
+
+### CreateLocationNfsCommand
+
+The `CreateLocationNfsCommand` class encapsulates the API request to register a Network File System (NFS) location for use with AWS DataSync. Developers utilize this command when defining an on-premises NFS server as either a source or destination for automated data transfer tasks. Within the Node.js environment, you pass an instance of this command to the DataSync client's `send` method to execute the operation asynchronously. Upon resolution, the returned promise provides the new location's Amazon Resource Name (ARN), which is essential for linking this location to specific tasks.
+
+```javascript
+import { DataSyncClient, CreateLocationNfsCommand } from "@aws-sdk/client-datasync";
+
+const client = new DataSyncClient({ region: "us-east-1" });
+const command = new CreateLocationNfsCommand({
+  // Provide required configuration such as ServerAddress, SubnetId, and SecurityGroupIds
+});
+
+const response = await client.send(command);
+console.log(response.LocationArn);
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-datasync`
 

@@ -1,13 +1,13 @@
 ---
 name: s3-request-presigner
-description: "Generate presigned Amazon S3 URLs in JavaScript with the AWS SDK v3."
+description: Generate presigned Amazon S3 URLs in JavaScript with the AWS SDK v3.
 metadata:
-  languages: "javascript"
-  versions: "3.1007.0"
+  languages: javascript
+  versions: 3.1007.0
   revision: 1
-  updated-on: "2026-03-13"
+  updated-on: '2026-03-13'
   source: maintainer
-  tags: "aws,s3,presigned-url,signing,javascript,console,log,s3-request-presigner,aws-sdk,node,S3RequestPresigner,getSignedUrl"
+  tags: aws,s3,presigned-url,signing,javascript,console,log,s3-request-presigner,aws-sdk,node,S3RequestPresigner,getSignedUrl
 ---
 
 # `@aws-sdk/s3-request-presigner`
@@ -187,6 +187,25 @@ console.log({ headUrl, deleteUrl });
 
 - This guide covers `@aws-sdk/s3-request-presigner` version `3.1007.0`.
 - Pair this package with `@aws-sdk/client-s3` in the same AWS SDK v3 dependency set to avoid unnecessary version skew.
+
+## Per-symbol detail
+
+### S3RequestPresigner
+
+The `S3RequestPresigner` class enables Node.js applications to generate temporary, signed URLs for Amazon S3 operations using the AWS SDK for JavaScript v3. You initialize this presigner with an existing `S3Client` instance to inherit its configuration and credentials, allowing you to delegate secure access to specific resources without exposing your own keys. When invoked with a standard S3 command, it returns a promise that resolves to a presigned URL string, granting time-limited permissions for the requested action. Additionally, the generated URL includes an expiration timestamp, ensuring that access is revoked automatically after the specified duration.
+
+```javascript
+import { S3RequestPresigner } from "@aws-sdk/s3-request-presigner";
+import { S3Client } from "@aws-sdk/client-s3";
+import { GetObjectCommand } from "@aws-sdk/client-s3";
+
+const client = new S3Client({ region: "us-east-1" });
+const presigner = new S3RequestPresigner(client);
+const command = new GetObjectCommand({ Bucket: "example-bucket", Key: "example-key" });
+
+const url = await presigner.presign(command);
+console.log(url);
+```
 
 ## API surface — verifiable exports of `@aws-sdk/s3-request-presigner`
 

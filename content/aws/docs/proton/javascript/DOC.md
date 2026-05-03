@@ -1,13 +1,14 @@
 ---
 name: proton
-description: "AWS Proton SDK for JavaScript guide for template discovery, environment and service lifecycle operations, and deployment inspection"
+description: AWS Proton SDK for JavaScript guide for template discovery, environment
+  and service lifecycle operations, and deployment inspection
 metadata:
-  languages: "javascript"
-  versions: "3.1007.0"
+  languages: javascript
+  versions: 3.1007.0
   revision: 1
-  updated-on: "2026-03-13"
+  updated-on: '2026-03-13'
   source: maintainer
-  tags: "aws,proton,javascript,nodejs,infrastructure,platform-engineering,send,console,log,aws-sdk,node,ProtonClient,AcceptEnvironmentAccountConnectionCommand,CancelComponentDeploymentCommand,CancelEnvironmentDeploymentCommand,CancelServiceInstanceDeploymentCommand,CancelServicePipelineDeploymentCommand,CreateComponentCommand,CreateEnvironmentAccountConnectionCommand,CreateEnvironmentCommand,CreateEnvironmentTemplateCommand,CreateEnvironmentTemplateVersionCommand,CreateRepositoryCommand,CreateServiceCommand,CreateServiceInstanceCommand,CreateServiceSyncConfigCommand,CreateServiceTemplateCommand,CreateServiceTemplateVersionCommand,CreateTemplateSyncConfigCommand,DeleteComponentCommand,DeleteDeploymentCommand,DeleteEnvironmentAccountConnectionCommand,DeleteEnvironmentCommand,DeleteEnvironmentTemplateCommand,DeleteEnvironmentTemplateVersionCommand,DeleteRepositoryCommand,DeleteServiceCommand,DeleteServiceSyncConfigCommand,DeleteServiceTemplateCommand,DeleteServiceTemplateVersionCommand,DeleteTemplateSyncConfigCommand,GetAccountSettingsCommand,waitUntilEnvironmentDeployed,paginateListRepositories,RejectEnvironmentAccountConnectionCommand,GetServiceInstanceCommand,waitUntilServicePipelineDeployed,paginateListEnvironmentProvisionedResources,waitUntilServiceUpdated,GetServiceCommand,ListServicePipelineOutputsCommand,paginateListComponents,UpdateEnvironmentTemplateVersionCommand,UpdateServicePipelineCommand,ListTagsForResourceCommand,ListServiceInstanceOutputsCommand,GetEnvironmentCommand,ListServiceTemplatesCommand,waitForComponentDeployed,waitForServiceTemplateVersionRegistered,waitUntilServiceTemplateVersionRegistered,waitForEnvironmentDeployed,ListEnvironmentAccountConnectionsCommand,paginateListServices,UpdateAccountSettingsCommand,waitUntilComponentDeleted,UpdateServiceSyncConfigCommand,ListDeploymentsCommand,GetServiceInstanceSyncStatusCommand,paginateListEnvironmentTemplates,UpdateEnvironmentAccountConnectionCommand,GetServiceSyncConfigCommand,paginateListEnvironmentAccountConnections,UpdateServiceTemplateCommand,paginateListComponentOutputs,waitForServicePipelineDeployed,ListEnvironmentOutputsCommand,paginateListDeployments,GetServiceTemplateCommand,ListComponentProvisionedResourcesCommand,GetTemplateSyncStatusCommand,ListServicesCommand,UpdateServiceCommand,paginateListServiceInstanceOutputs,GetTemplateSyncConfigCommand,waitForServiceInstanceDeployed,ServiceQuotaExceededException,ListEnvironmentTemplateVersionsCommand,paginateListEnvironments,waitUntilServiceInstanceDeployed,GetServiceTemplateVersionCommand,UpdateComponentCommand,waitForServiceDeleted,ValidationException,paginateListServiceTemplates,waitForServiceUpdated,GetComponentCommand,InternalServerException,UpdateServiceTemplateVersionCommand,ListServicePipelineProvisionedResourcesCommand,ListServiceTemplateVersionsCommand,ConflictException,ListRepositoriesCommand,GetRepositoryCommand,ListServiceInstancesCommand,paginateListRepositorySyncDefinitions,UpdateEnvironmentCommand,paginateListServiceInstances,GetServiceSyncBlockerSummaryCommand,waitForServiceCreated,ListComponentsCommand,ListEnvironmentProvisionedResourcesCommand,paginateListServiceTemplateVersions,ProtonServiceException,Proton,ListRepositorySyncDefinitionsCommand,GetResourcesSummaryCommand,waitUntilServiceDeleted,paginateListServicePipelineProvisionedResources,waitUntilEnvironmentTemplateVersionRegistered,ThrottlingException,GetDeploymentCommand,paginateListEnvironmentOutputs,waitForComponentDeleted,paginateListServiceInstanceProvisionedResources,TagResourceCommand,waitUntilComponentDeployed,UpdateEnvironmentTemplateCommand,GetEnvironmentAccountConnectionCommand,NotifyResourceDeploymentStatusChangeCommand,GetEnvironmentTemplateCommand,ResourceNotFoundException,paginateListServicePipelineOutputs,UpdateTemplateSyncConfigCommand,paginateListTagsForResource,ListComponentOutputsCommand,waitUntilServiceCreated,GetRepositorySyncStatusCommand,paginateListComponentProvisionedResources,GetEnvironmentTemplateVersionCommand,ListServiceInstanceProvisionedResourcesCommand,ListEnvironmentsCommand,UntagResourceCommand,waitForEnvironmentTemplateVersionRegistered,AccessDeniedException,paginateListEnvironmentTemplateVersions,UpdateServiceSyncBlockerCommand,UpdateServiceInstanceCommand,ListEnvironmentTemplatesCommand"
+  tags: aws,proton,javascript,nodejs,infrastructure,platform-engineering,send,console,log,aws-sdk,node,ProtonClient,AcceptEnvironmentAccountConnectionCommand,CancelComponentDeploymentCommand,CancelEnvironmentDeploymentCommand,CancelServiceInstanceDeploymentCommand,CancelServicePipelineDeploymentCommand,CreateComponentCommand,CreateEnvironmentAccountConnectionCommand,CreateEnvironmentCommand,CreateEnvironmentTemplateCommand,CreateEnvironmentTemplateVersionCommand,CreateRepositoryCommand,CreateServiceCommand,CreateServiceInstanceCommand,CreateServiceSyncConfigCommand,CreateServiceTemplateCommand,CreateServiceTemplateVersionCommand,CreateTemplateSyncConfigCommand,DeleteComponentCommand,DeleteDeploymentCommand,DeleteEnvironmentAccountConnectionCommand,DeleteEnvironmentCommand,DeleteEnvironmentTemplateCommand,DeleteEnvironmentTemplateVersionCommand,DeleteRepositoryCommand,DeleteServiceCommand,DeleteServiceSyncConfigCommand,DeleteServiceTemplateCommand,DeleteServiceTemplateVersionCommand,DeleteTemplateSyncConfigCommand,GetAccountSettingsCommand,waitUntilEnvironmentDeployed,paginateListRepositories,RejectEnvironmentAccountConnectionCommand,GetServiceInstanceCommand,waitUntilServicePipelineDeployed,paginateListEnvironmentProvisionedResources,waitUntilServiceUpdated,GetServiceCommand,ListServicePipelineOutputsCommand,paginateListComponents,UpdateEnvironmentTemplateVersionCommand,UpdateServicePipelineCommand,ListTagsForResourceCommand,ListServiceInstanceOutputsCommand,GetEnvironmentCommand,ListServiceTemplatesCommand,waitForComponentDeployed,waitForServiceTemplateVersionRegistered,waitUntilServiceTemplateVersionRegistered,waitForEnvironmentDeployed,ListEnvironmentAccountConnectionsCommand,paginateListServices,UpdateAccountSettingsCommand,waitUntilComponentDeleted,UpdateServiceSyncConfigCommand,ListDeploymentsCommand,GetServiceInstanceSyncStatusCommand,paginateListEnvironmentTemplates,UpdateEnvironmentAccountConnectionCommand,GetServiceSyncConfigCommand,paginateListEnvironmentAccountConnections,UpdateServiceTemplateCommand,paginateListComponentOutputs,waitForServicePipelineDeployed,ListEnvironmentOutputsCommand,paginateListDeployments,GetServiceTemplateCommand,ListComponentProvisionedResourcesCommand,GetTemplateSyncStatusCommand,ListServicesCommand,UpdateServiceCommand,paginateListServiceInstanceOutputs,GetTemplateSyncConfigCommand,waitForServiceInstanceDeployed,ServiceQuotaExceededException,ListEnvironmentTemplateVersionsCommand,paginateListEnvironments,waitUntilServiceInstanceDeployed,GetServiceTemplateVersionCommand,UpdateComponentCommand,waitForServiceDeleted,ValidationException,paginateListServiceTemplates,waitForServiceUpdated,GetComponentCommand,InternalServerException,UpdateServiceTemplateVersionCommand,ListServicePipelineProvisionedResourcesCommand,ListServiceTemplateVersionsCommand,ConflictException,ListRepositoriesCommand,GetRepositoryCommand,ListServiceInstancesCommand,paginateListRepositorySyncDefinitions,UpdateEnvironmentCommand,paginateListServiceInstances,GetServiceSyncBlockerSummaryCommand,waitForServiceCreated,ListComponentsCommand,ListEnvironmentProvisionedResourcesCommand,paginateListServiceTemplateVersions,ProtonServiceException,Proton,ListRepositorySyncDefinitionsCommand,GetResourcesSummaryCommand,waitUntilServiceDeleted,paginateListServicePipelineProvisionedResources,waitUntilEnvironmentTemplateVersionRegistered,ThrottlingException,GetDeploymentCommand,paginateListEnvironmentOutputs,waitForComponentDeleted,paginateListServiceInstanceProvisionedResources,TagResourceCommand,waitUntilComponentDeployed,UpdateEnvironmentTemplateCommand,GetEnvironmentAccountConnectionCommand,NotifyResourceDeploymentStatusChangeCommand,GetEnvironmentTemplateCommand,ResourceNotFoundException,paginateListServicePipelineOutputs,UpdateTemplateSyncConfigCommand,paginateListTagsForResource,ListComponentOutputsCommand,waitUntilServiceCreated,GetRepositorySyncStatusCommand,paginateListComponentProvisionedResources,GetEnvironmentTemplateVersionCommand,ListServiceInstanceProvisionedResourcesCommand,ListEnvironmentsCommand,UntagResourceCommand,waitForEnvironmentTemplateVersionRegistered,AccessDeniedException,paginateListEnvironmentTemplateVersions,UpdateServiceSyncBlockerCommand,UpdateServiceInstanceCommand,ListEnvironmentTemplatesCommand
 ---
 
 # AWS Proton SDK for JavaScript
@@ -331,6 +332,175 @@ If you need outputs or resources for a specific deployment attempt, the output-l
 - AWS SDK for JavaScript v3 credential configuration for Node.js: `https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials-node.html`
 - AWS CLI Proton reference: `https://docs.aws.amazon.com/cli/latest/reference/proton/`
 - npm package: `https://www.npmjs.com/package/@aws-sdk/client-proton`
+
+## Per-symbol detail
+
+### AcceptEnvironmentAccountConnectionCommand
+
+The `AcceptEnvironmentAccountConnectionCommand` class represents an API operation that approves a pending environment account connection request within the AWS Proton service. You should instantiate this command and pass it to the `ProtonClient.send` method when you need to authorize a linked account to access a Proton environment. Upon successful execution, the command resolves to a response object that updates the connection status and confirms the relationship between the accounts.
+
+```javascript
+const { ProtonClient, AcceptEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton");
+
+async function main() {
+  const client = new ProtonClient({ region: "us-east-1" });
+  const input = { connectionId: "your-connection-id" };
+  const command = new AcceptEnvironmentAccountConnectionCommand(input);
+  const response = await client.send(command);
+}
+```
+
+### AccessDeniedException
+
+This exception is thrown by the AWS Proton client when an API operation fails due to insufficient IAM permissions or access control restrictions. In JavaScript applications, developers should wrap Proton commands in a `try/catch` block to specifically handle this error type and implement appropriate fallback logic or user notifications. When caught, the error object provides details about the denied action, allowing the application to gracefully manage security-related failures without crashing. It affects the execution flow of lifecycle operations such as environment creation or service deployment by halting the process until access is resolved.
+
+```javascript
+import { ProtonClient, CancelComponentDeploymentCommand } from "@aws-sdk/client-proton";
+import { AccessDeniedException } from "@aws-sdk/client-proton";
+
+const client = new ProtonClient({ region: "us-east-1" });
+try {
+  await client.send(new CancelComponentDeploymentCommand({ componentDeploymentId: "example-id" }));
+} catch (error) {
+  if (error instanceof AccessDeniedException) {
+    console.error("Access denied, check IAM permissions.");
+  }
+}
+```
+
+### CancelComponentDeploymentCommand
+
+The `CancelComponentDeploymentCommand` class encapsulates the API request required to stop an ongoing deployment for a specific component managed by AWS Proton. Developers instantiate this command with the target deployment identifier and execute it via the `send` method on a configured `ProtonClient` to perform the cancellation asynchronously. If the operation succeeds, the component deployment status transitions to canceled, while failures may result in exceptions such as `AccessDeniedException` depending on the caller's permissions. This command is essential for managing the lifecycle of infrastructure components when manual intervention or error recovery is needed during the deployment process.
+
+```javascript
+const { ProtonClient, CancelComponentDeploymentCommand } = require("@aws-sdk/client-proton");
+
+const client = new ProtonClient({ region: "us-east-1" });
+const input = { componentDeploymentId: "example-deployment-id" };
+const command = new CancelComponentDeploymentCommand(input);
+
+try {
+  const response = await client.send(command);
+  console.log("Deployment canceled successfully:", response);
+} catch (err) {
+  console.error("Failed to cancel deployment:", err);
+}
+```
+
+### CancelEnvironmentDeploymentCommand
+
+The `CancelEnvironmentDeploymentCommand` class represents an API operation to terminate an ongoing deployment process for a specific AWS Proton environment. Developers invoke this command when a deployment is stalled or needs to be halted before completion, ensuring resources are not consumed unnecessarily. In the JavaScript SDK, executing this command returns a Promise that resolves to the deployment details, though it may reject with `AccessDeniedException` if permissions are insufficient. This operation integrates seamlessly with other lifecycle commands such as `CancelComponentDeploymentCommand` to manage the full scope of environment modifications.
+
+```javascript
+const { ProtonClient, CancelEnvironmentDeploymentCommand } = require("@aws-sdk/client-proton");
+
+async function example() {
+  const client = new ProtonClient({ region: "us-east-1" });
+  const command = new CancelEnvironmentDeploymentCommand({
+    environmentName: "my-environment",
+    deploymentId: "deployment-123"
+  });
+  const response = await client.send(command);
+}
+```
+
+### CancelServiceInstanceDeploymentCommand
+
+The `CancelServiceInstanceDeploymentCommand` class encapsulates the request to terminate an active deployment process for a specific service instance within AWS Proton. Developers should utilize this command when a running provisioning or update operation needs to be halted immediately to prevent further state changes. When executed through the SDK client using the `send` method, it returns a Promise that resolves upon successful submission of the cancellation request, enabling standard asynchronous error handling in Node.js applications. This pattern aligns with the asynchronous design of the AWS SDK for JavaScript v3.
+
+```javascript
+const { ProtonClient, CancelServiceInstanceDeploymentCommand } = require("@aws-sdk/client-proton");
+
+async function main() {
+  const client = new ProtonClient({ region: "us-east-1" });
+  const input = { serviceInstanceId: "my-service-instance-id", deploymentId: "my-deployment-id" };
+  const command = new CancelServiceInstanceDeploymentCommand(input);
+
+  try {
+    await client.send(command);
+    console.log("Deployment cancellation requested");
+  } catch (err) {
+    console.error("Failed to cancel deployment", err);
+  }
+}
+```
+
+### CancelServicePipelineDeploymentCommand
+
+The `CancelServicePipelineDeploymentCommand` class represents an operation to stop an active deployment for a service pipeline managed by AWS Proton. Developers use this command when a deployment needs to be halted mid-process to prevent unintended state changes or to address configuration errors. The command is sent via the Proton client and returns a promise that resolves with the updated deployment details, adhering to the standard asynchronous patterns found in the AWS SDK for JavaScript. It complements other lifecycle commands such as `CancelEnvironmentDeploymentCommand` and `CancelServiceInstanceDeploymentCommand` within the same package.
+
+```javascript
+import { ProtonClient, CancelServicePipelineDeploymentCommand } from "@aws-sdk/client-proton";
+
+const client = new ProtonClient({ region: "us-east-1" });
+const input = { servicePipelineDeploymentId: "your-deployment-id" };
+const command = new CancelServicePipelineDeploymentCommand(input);
+const response = await client.send(command);
+```
+
+### ConflictException
+
+The `ConflictException` is thrown by AWS Proton operations when a request conflicts with the current state of a resource, such as attempting to create an existing service instance or modifying a resource that is currently being updated. In JavaScript applications using the AWS SDK for Proton, this error is typically caught within a `try/catch` block to handle specific failure scenarios gracefully without crashing the application. Developers should inspect the exception message or name to distinguish this from other errors like `AccessDeniedException` and implement retry logic or user notifications accordingly. Handling this exception ensures that your application can respond appropriately to transient or permanent resource state issues.
+
+```javascript
+const { ProtonClient, CancelEnvironmentDeploymentCommand, ConflictException } = require("@aws-sdk/client-proton");
+const client = new ProtonClient({ region: "us-east-1" });
+try {
+  await client.send(new CancelEnvironmentDeploymentCommand({ environmentId: "env-123" }));
+} catch (error) {
+  if (error instanceof ConflictException) {
+    console.error("Operation conflict:", error.message);
+  }
+}
+```
+
+### CreateComponentCommand
+
+The `CreateComponentCommand` class encapsulates the API operation required to register a new component within an AWS Proton environment, defining reusable infrastructure templates. Developers instantiate this command with necessary configuration details and pass it to a `ProtonClient` instance to execute the creation asynchronously. Upon successful completion, the `send` method resolves a promise containing the component's metadata, which can then be used for subsequent deployment or management tasks. This operation is fundamental for establishing the infrastructure definitions that Proton manages across your AWS accounts.
+
+```javascript
+const { ProtonClient, CreateComponentCommand } = require("@aws-sdk/client-proton");
+
+async function run() {
+  const client = new ProtonClient({ region: "us-east-1" });
+  const command = new CreateComponentCommand({
+    name: "example-component",
+    templateName: "example-template",
+    templateVersion: "1.0.0"
+  });
+
+  const response = await client.send(command);
+  console.log("Component created:", response.component.name);
+}
+
+run();
+```
+
+### CreateEnvironmentAccountConnectionCommand
+
+This command initiates a request to link an AWS account to an AWS Proton environment, enabling the account to participate in managed infrastructure operations. In JavaScript applications using the AWS SDK for JavaScript v3, you instantiate this command with the necessary connection details and pass it to the client's `send` method. The operation returns a Promise that resolves with the connection details or rejects with an error such as `AccessDeniedException` if permissions are insufficient. This workflow is typically followed by using `AcceptEnvironmentAccountConnectionCommand` from the target account to finalize the trust relationship.
+
+```javascript
+import { ProtonClient, CreateEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton";
+
+const client = new ProtonClient({ region: "us-east-1" });
+const input = { /* connection parameters */ };
+const command = new CreateEnvironmentAccountConnectionCommand(input);
+const response = await client.send(command);
+```
+
+### CreateEnvironmentCommand
+
+The `CreateEnvironmentCommand` class encapsulates the API request to provision a new environment instance managed by AWS Proton. In Node.js applications, you typically instantiate this command with the necessary input parameters and pass it to the Proton client's `send` method to trigger the asynchronous creation process. Upon completion, the promise resolves with the environment metadata or rejects with exceptions such as `AccessDeniedException` if the caller lacks the required IAM permissions.
+
+```javascript
+import { ProtonClient, CreateEnvironmentCommand } from "@aws-sdk/client-proton";
+
+const client = new ProtonClient({ region: "us-east-1" });
+const input = { environmentName: "my-env", templateName: "my-template" };
+const command = new CreateEnvironmentCommand(input);
+const response = await client.send(command);
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-proton`
 

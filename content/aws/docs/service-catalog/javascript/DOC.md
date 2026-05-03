@@ -1,13 +1,14 @@
 ---
 name: service-catalog
-description: "AWS Service Catalog SDK for JavaScript (v3) for discovering products, reading launch parameters, provisioning products, and tracking request records"
+description: AWS Service Catalog SDK for JavaScript (v3) for discovering products,
+  reading launch parameters, provisioning products, and tracking request records
 metadata:
-  languages: "javascript"
-  versions: "3.1007.0"
+  languages: javascript
+  versions: 3.1007.0
   revision: 1
-  updated-on: "2026-03-13"
+  updated-on: '2026-03-13'
   source: maintainer
-  tags: "aws,service-catalog,portfolios,provisioning,cloudformation,client,console,log,send,aws-sdk,node,ServiceCatalogClient,AcceptPortfolioShareCommand,AssociateBudgetWithResourceCommand,AssociatePrincipalWithPortfolioCommand,AssociateProductWithPortfolioCommand,AssociateServiceActionWithProvisioningArtifactCommand,AssociateTagOptionWithResourceCommand,BatchAssociateServiceActionWithProvisioningArtifactCommand,BatchDisassociateServiceActionFromProvisioningArtifactCommand,CopyProductCommand,CreateConstraintCommand,CreatePortfolioCommand,CreatePortfolioShareCommand,CreateProductCommand,CreateProvisionedProductPlanCommand,CreateProvisioningArtifactCommand,CreateServiceActionCommand,CreateTagOptionCommand,DeleteConstraintCommand,DeletePortfolioCommand,DeletePortfolioShareCommand,DeleteProductCommand,DeleteProvisionedProductPlanCommand,DeleteProvisioningArtifactCommand,DeleteServiceActionCommand,DeleteTagOptionCommand,DescribeConstraintCommand,DescribeCopyProductStatusCommand,DescribePortfolioCommand,DescribePortfolioShareStatusCommand,DescribePortfolioSharesCommand,paginateListConstraintsForPortfolio,DescribeServiceActionExecutionParametersCommand,paginateListAcceptedPortfolioShares,DescribeProductCommand,UpdateConstraintCommand,UpdateTagOptionCommand,ListStackInstancesForProvisionedProductCommand,DescribeProvisionedProductCommand,DescribeProductViewCommand,DisableAWSOrganizationsAccessCommand,UpdateProvisionedProductPropertiesCommand,NotifyProvisionProductEngineWorkflowResultCommand,UpdateProductCommand,ListServiceActionsCommand,UpdateServiceActionCommand,paginateListPortfoliosForProduct,DescribeProvisioningParametersCommand,DisassociateBudgetFromResourceCommand,ListProvisionedProductPlansCommand,ListResourcesForTagOptionCommand,RejectPortfolioShareCommand,ListConstraintsForPortfolioCommand,DisassociateServiceActionFromProvisioningArtifactCommand,SearchProductsAsAdminCommand,paginateListOrganizationPortfolioAccess,ListProvisioningArtifactsCommand,ImportAsProvisionedProductCommand,ServiceCatalogServiceException,ListLaunchPathsCommand,ListRecordHistoryCommand,paginateListLaunchPaths,NotifyTerminateProvisionedProductEngineWorkflowResultCommand,UpdateProvisioningArtifactCommand,ListOrganizationPortfolioAccessCommand,ExecuteProvisionedProductServiceActionCommand,ListServiceActionsForProvisioningArtifactCommand,paginateSearchProvisionedProducts,InvalidStateException,paginateListBudgetsForResource,DescribeProvisionedProductPlanCommand,SearchProductsCommand,UpdatePortfolioShareCommand,paginateSearchProducts,paginateSearchProductsAsAdmin,NotifyUpdateProvisionedProductEngineWorkflowResultCommand,DescribeServiceActionCommand,paginateListServiceActionsForProvisioningArtifact,paginateListResourcesForTagOption,paginateListPortfolioAccess,paginateListTagOptions,ResourceNotFoundException,ResourceInUseException,ListTagOptionsCommand,DescribeTagOptionCommand,ListAcceptedPortfolioSharesCommand,ListBudgetsForResourceCommand,ListPortfoliosCommand,InvalidParametersException,LimitExceededException,ScanProvisionedProductsCommand,paginateGetProvisionedProductOutputs,GetProvisionedProductOutputsCommand,GetAWSOrganizationsAccessStatusCommand,ProvisionProductCommand,TerminateProvisionedProductCommand,TagOptionNotMigratedException,DescribeRecordCommand,UpdateProvisionedProductCommand,ExecuteProvisionedProductPlanCommand,ListPortfolioAccessCommand,ServiceCatalog,paginateDescribePortfolioShares,paginateListPortfolios,paginateListServiceActions,DisassociateProductFromPortfolioCommand,UpdatePortfolioCommand,OperationNotSupportedException,ListPortfoliosForProductCommand,EnableAWSOrganizationsAccessCommand,DescribeProductAsAdminCommand,paginateListProvisioningArtifactsForServiceAction,DuplicateResourceException,ListPrincipalsForPortfolioCommand,ListProvisioningArtifactsForServiceActionCommand,paginateListPrincipalsForPortfolio,SearchProvisionedProductsCommand,DescribeProvisioningArtifactCommand,DisassociateTagOptionFromResourceCommand,DisassociatePrincipalFromPortfolioCommand"
+  tags: aws,service-catalog,portfolios,provisioning,cloudformation,client,console,log,send,aws-sdk,node,ServiceCatalogClient,AcceptPortfolioShareCommand,AssociateBudgetWithResourceCommand,AssociatePrincipalWithPortfolioCommand,AssociateProductWithPortfolioCommand,AssociateServiceActionWithProvisioningArtifactCommand,AssociateTagOptionWithResourceCommand,BatchAssociateServiceActionWithProvisioningArtifactCommand,BatchDisassociateServiceActionFromProvisioningArtifactCommand,CopyProductCommand,CreateConstraintCommand,CreatePortfolioCommand,CreatePortfolioShareCommand,CreateProductCommand,CreateProvisionedProductPlanCommand,CreateProvisioningArtifactCommand,CreateServiceActionCommand,CreateTagOptionCommand,DeleteConstraintCommand,DeletePortfolioCommand,DeletePortfolioShareCommand,DeleteProductCommand,DeleteProvisionedProductPlanCommand,DeleteProvisioningArtifactCommand,DeleteServiceActionCommand,DeleteTagOptionCommand,DescribeConstraintCommand,DescribeCopyProductStatusCommand,DescribePortfolioCommand,DescribePortfolioShareStatusCommand,DescribePortfolioSharesCommand,paginateListConstraintsForPortfolio,DescribeServiceActionExecutionParametersCommand,paginateListAcceptedPortfolioShares,DescribeProductCommand,UpdateConstraintCommand,UpdateTagOptionCommand,ListStackInstancesForProvisionedProductCommand,DescribeProvisionedProductCommand,DescribeProductViewCommand,DisableAWSOrganizationsAccessCommand,UpdateProvisionedProductPropertiesCommand,NotifyProvisionProductEngineWorkflowResultCommand,UpdateProductCommand,ListServiceActionsCommand,UpdateServiceActionCommand,paginateListPortfoliosForProduct,DescribeProvisioningParametersCommand,DisassociateBudgetFromResourceCommand,ListProvisionedProductPlansCommand,ListResourcesForTagOptionCommand,RejectPortfolioShareCommand,ListConstraintsForPortfolioCommand,DisassociateServiceActionFromProvisioningArtifactCommand,SearchProductsAsAdminCommand,paginateListOrganizationPortfolioAccess,ListProvisioningArtifactsCommand,ImportAsProvisionedProductCommand,ServiceCatalogServiceException,ListLaunchPathsCommand,ListRecordHistoryCommand,paginateListLaunchPaths,NotifyTerminateProvisionedProductEngineWorkflowResultCommand,UpdateProvisioningArtifactCommand,ListOrganizationPortfolioAccessCommand,ExecuteProvisionedProductServiceActionCommand,ListServiceActionsForProvisioningArtifactCommand,paginateSearchProvisionedProducts,InvalidStateException,paginateListBudgetsForResource,DescribeProvisionedProductPlanCommand,SearchProductsCommand,UpdatePortfolioShareCommand,paginateSearchProducts,paginateSearchProductsAsAdmin,NotifyUpdateProvisionedProductEngineWorkflowResultCommand,DescribeServiceActionCommand,paginateListServiceActionsForProvisioningArtifact,paginateListResourcesForTagOption,paginateListPortfolioAccess,paginateListTagOptions,ResourceNotFoundException,ResourceInUseException,ListTagOptionsCommand,DescribeTagOptionCommand,ListAcceptedPortfolioSharesCommand,ListBudgetsForResourceCommand,ListPortfoliosCommand,InvalidParametersException,LimitExceededException,ScanProvisionedProductsCommand,paginateGetProvisionedProductOutputs,GetProvisionedProductOutputsCommand,GetAWSOrganizationsAccessStatusCommand,ProvisionProductCommand,TerminateProvisionedProductCommand,TagOptionNotMigratedException,DescribeRecordCommand,UpdateProvisionedProductCommand,ExecuteProvisionedProductPlanCommand,ListPortfolioAccessCommand,ServiceCatalog,paginateDescribePortfolioShares,paginateListPortfolios,paginateListServiceActions,DisassociateProductFromPortfolioCommand,UpdatePortfolioCommand,OperationNotSupportedException,ListPortfoliosForProductCommand,EnableAWSOrganizationsAccessCommand,DescribeProductAsAdminCommand,paginateListProvisioningArtifactsForServiceAction,DuplicateResourceException,ListPrincipalsForPortfolioCommand,ListProvisioningArtifactsForServiceActionCommand,paginateListPrincipalsForPortfolio,SearchProvisionedProductsCommand,DescribeProvisioningArtifactCommand,DisassociateTagOptionFromResourceCommand,DisassociatePrincipalFromPortfolioCommand
 ---
 
 # AWS Service Catalog SDK for JavaScript
@@ -517,6 +518,171 @@ If you are wiring Service Catalog into an app or agent workflow, the normal sequ
 - AWS Service Catalog `ScanProvisionedProducts` API: `https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ScanProvisionedProducts.html`
 - AWS Service Catalog `TerminateProvisionedProduct` API: `https://docs.aws.amazon.com/servicecatalog/latest/dg/API_TerminateProvisionedProduct.html`
 - npm package: `https://www.npmjs.com/package/@aws-sdk/client-service-catalog`
+
+## Per-symbol detail
+
+### AcceptPortfolioShareCommand
+
+The `AcceptPortfolioShareCommand` class encapsulates the API operation required to accept a portfolio share granted to your AWS account by a different account. In the JavaScript SDK v3, you instantiate this command with the target portfolio identifier and execute it asynchronously using the `send` method on a `ServiceCatalogClient` instance. Once the promise resolves successfully, the shared portfolio is registered in your account, enabling the provisioning of associated products and services. This command is critical for establishing cross-account resource governance within the Service Catalog ecosystem.
+
+```javascript
+import { ServiceCatalogClient, AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog";
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const command = new AcceptPortfolioShareCommand({ PortfolioId: "portfolio-id" });
+
+try {
+  const response = await client.send(command);
+  console.log("Portfolio share accepted:", response);
+} catch (err) {
+  console.error("Failed to accept share:", err);
+}
+```
+
+### AssociateBudgetWithResourceCommand
+
+The `AssociateBudgetWithResourceCommand` enables the association of a specific AWS Budget with a Service Catalog resource to facilitate cost monitoring. Developers should utilize this command when configuring financial controls or alerts for provisioned products and portfolios within their AWS accounts. When invoked in a Node.js environment, the command returns a promise that resolves upon successful association or rejects if the resource or budget cannot be linked, typically handled using async/await patterns. This operation ensures that the specified budget applies to the target resource without creating duplicate entries.
+
+```javascript
+const { ServiceCatalogClient, AssociateBudgetWithResourceCommand } = require("@aws-sdk/client-service-catalog");
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const input = {
+  BudgetArn: "arn:aws:budgets:...",
+  ResourceId: "arn:aws:servicecatalog:..."
+};
+const command = new AssociateBudgetWithResourceCommand(input);
+const response = await client.send(command);
+```
+
+### AssociatePrincipalWithPortfolioCommand
+
+The `AssociatePrincipalWithPortfolioCommand` enables you to grant an IAM principal access to a specific Service Catalog portfolio by linking their identity to the portfolio's permissions. You should use this command when configuring access control to ensure that specific users or roles can view and provision products within the associated portfolio. In the JavaScript SDK v3, this operation is executed by instantiating the command with the necessary portfolio and principal identifiers, then passing it to the client's `send` method. The promise resolves to a response object confirming the association was successful.
+
+```javascript
+import { ServiceCatalogClient, AssociatePrincipalWithPortfolioCommand } from "@aws-sdk/client-service-catalog";
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const command = new AssociatePrincipalWithPortfolioCommand({
+  PortfolioId: "portfolio-id",
+  PrincipalARN: "arn:aws:iam::123456789012:role/ExampleRole"
+});
+const response = await client.send(command);
+```
+
+### AssociateServiceActionWithProvisioningArtifactCommand
+
+The `AssociateServiceActionWithProvisioningArtifactCommand` class encapsulates the API request required to link a specific service action to a provisioning artifact within an AWS Service Catalog product. Developers instantiate this command with the relevant identifiers and pass it to a `ServiceCatalogClient` instance when configuring product versions to enable specific operational actions. Executing the command via the client's `send` method returns a Promise that resolves upon successful association, allowing you to manage product lifecycle configurations programmatically in your Node.js application.
+
+```javascript
+import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog";
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const command = new AssociateServiceActionWithProvisioningArtifactCommand({
+  ProductId: "prod-123",
+  ProvisioningArtifactId: "pa-456",
+  ServiceActionId: "sa-789"
+});
+const response = await client.send(command);
+```
+
+### AssociateTagOptionWithResourceCommand
+
+The `AssociateTagOptionWithResourceCommand` class represents an API operation that links a specific tag option to a designated AWS Service Catalog resource. You should use this command when managing resource organization by applying predefined tag options to products, portfolios, or provisioned items within your account. In a Node.js environment, executing this command involves sending the request via the Service Catalog client, which returns a promise that resolves successfully once the association is established. This operation modifies the resource's metadata without returning a payload, requiring standard error handling to confirm the update.
+
+```javascript
+import { ServiceCatalogClient, AssociateTagOptionWithResourceCommand } from "@aws-sdk/client-service-catalog";
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const input = {
+  ResourceArn: "arn:aws:servicecatalog:us-east-1:123456789012:product/p-123456789",
+  TagOptionId: "tag-option-123"
+};
+const command = new AssociateTagOptionWithResourceCommand(input);
+try {
+  await client.send(command);
+  console.log("Tag option associated successfully");
+} catch (err) {
+  console.error("Failed to associate tag option:", err);
+}
+```
+
+### BatchAssociateServiceActionWithProvisioningArtifactCommand
+
+The `BatchAssociateServiceActionWithProvisioningArtifactCommand` enables you to associate multiple service actions with a specific provisioning artifact in a single API request. You should use this operation when managing multiple service actions for a product version to reduce API overhead compared to individual association calls like `AssociateServiceActionWithProvisioningArtifactCommand`. When executed through the `ServiceCatalogClient`, the command returns a response object confirming the batch operation's success or failure. This effectively updates the artifact's available service actions for end users within the Service Catalog environment.
+
+```javascript
+const { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog");
+
+async function example() {
+  const client = new ServiceCatalogClient({ region: "us-east-1" });
+  const input = {
+    ProvisioningArtifactId: "pa-1234567890abcdef0",
+    ServiceActionIds: ["sa-1234567890abcdef0", "sa-0987654321fedcba9"]
+  };
+  const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(input);
+  const response = await client.send(command);
+  console.log(response);
+}
+```
+
+### BatchDisassociateServiceActionFromProvisioningArtifactCommand
+
+The `BatchDisassociateServiceActionFromProvisioningArtifactCommand` class represents an API operation that removes one or more service actions from a specific provisioning artifact within a Service Catalog product. You instantiate this command and pass it to a `ServiceCatalogClient` to execute the disassociation asynchronously, which is essential when modifying product capabilities or cleaning up unused configurations. Upon successful execution, the operation returns a promise that resolves to the API response, allowing you to handle the result or errors using standard JavaScript async/await patterns. This command complements other management operations such as `AssociateServiceActionWithProvisioningArtifactCommand` to maintain consistent portfolio states.
+
+```javascript
+import { ServiceCatalogClient, BatchDisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog";
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const input = {
+  ProductId: "prod-123",
+  ProvisioningArtifactId: "pa-456",
+  ServiceActionIds: ["sa-789"]
+};
+const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(input);
+const response = await client.send(command);
+```
+
+### CopyProductCommand
+
+The `CopyProductCommand` class encapsulates the API request to duplicate an existing Service Catalog product into a specified target portfolio. Developers utilize this command when they need to replicate a product's configuration, such as launch constraints or provisioning artifacts, across different portfolios or regions without manually recreating the definition. Upon successful execution via the `ServiceCatalogClient`, it returns a response containing the new product identifier, allowing subsequent operations to reference the copied asset within the JavaScript runtime. This operation is asynchronous and requires proper error handling to manage potential conflicts or permission issues during the copy process.
+
+```javascript
+const { ServiceCatalogClient, CopyProductCommand } = require("@aws-sdk/client-service-catalog");
+
+async function copyProduct() {
+  const client = new ServiceCatalogClient({ region: "us-east-1" });
+  const input = {
+    SourceProductId: "prod-xxxxx",
+    TargetPortfolioId: "port-xxxxx"
+  };
+  const command = new CopyProductCommand(input);
+  const response = await client.send(command);
+  console.log("Copied Product Id:", response.ProductDetail?.Id);
+}
+```
+
+### CreateConstraintCommand
+
+The `CreateConstraintCommand` class encapsulates the request to define a constraint on a specific Service Catalog portfolio, enabling administrators to restrict product launches based on criteria such as allowed launch paths or regions. You should instantiate this command with the necessary constraint details and send it via the Service Catalog client to enforce governance policies on your catalog resources. Upon successful execution, the command resolves to an output object containing the newly created constraint identifier, which can be used for subsequent management operations. This pattern aligns with the AWS SDK for JavaScript v3 asynchronous design, requiring `await` and `try/catch` blocks for robust error handling.
+
+```javascript
+import { ServiceCatalogClient, CreateConstraintCommand } from "@aws-sdk/client-service-catalog";
+
+const client = new ServiceCatalogClient({ region: "us-east-1" });
+const command = new CreateConstraintCommand({
+  PortfolioId: "portfolio-id",
+  Type: "LAUNCH_PATH_CONSTRAINT",
+  Value: "arn:aws:..."
+});
+
+try {
+  const response = await client.send(command);
+  console.log("Constraint created:", response.ConstraintId);
+} catch (err) {
+  console.error("Failed to create constraint:", err);
+}
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-service-catalog`
 

@@ -1,13 +1,14 @@
 ---
 name: api-gateway
-description: "AWS SDK for JavaScript v3 client for managing Amazon API Gateway REST APIs, resources, methods, deployments, stages, usage plans, and domains."
+description: AWS SDK for JavaScript v3 client for managing Amazon API Gateway REST
+  APIs, resources, methods, deployments, stages, usage plans, and domains.
 metadata:
-  languages: "javascript"
-  versions: "3.1006.0"
+  languages: javascript
+  versions: 3.1006.0
   revision: 1
-  updated-on: "2026-03-11"
+  updated-on: '2026-03-11'
   source: maintainer
-  tags: "aws,api-gateway,javascript,nodejs,rest-api,openapi,send,console,log,aws-sdk,node,APIGatewayClient,CreateApiKeyCommand,CreateAuthorizerCommand,CreateBasePathMappingCommand,CreateDeploymentCommand,CreateDocumentationPartCommand,CreateDocumentationVersionCommand,CreateDomainNameAccessAssociationCommand,CreateDomainNameCommand,CreateModelCommand,CreateRequestValidatorCommand,CreateResourceCommand,CreateRestApiCommand,CreateStageCommand,CreateUsagePlanCommand,CreateUsagePlanKeyCommand,CreateVpcLinkCommand,DeleteApiKeyCommand,DeleteAuthorizerCommand,DeleteBasePathMappingCommand,DeleteClientCertificateCommand,DeleteDeploymentCommand,DeleteDocumentationPartCommand,DeleteDocumentationVersionCommand,DeleteDomainNameAccessAssociationCommand,DeleteDomainNameCommand,DeleteGatewayResponseCommand,DeleteIntegrationCommand,DeleteIntegrationResponseCommand,DeleteMethodCommand,DeleteMethodResponseCommand,GetDomainNameAccessAssociationsCommand,GetResourcesCommand,paginateGetUsage,GetStageCommand,UpdateAccountCommand,GetAccountCommand,GetDocumentationPartCommand,GetVpcLinkCommand,DeleteUsagePlanKeyCommand,GetIntegrationCommand,DeleteRequestValidatorCommand,GetDomainNameCommand,TestInvokeMethodCommand,UpdateModelCommand,UpdateIntegrationResponseCommand,paginateGetModels,UpdateDeploymentCommand,GetDocumentationPartsCommand,GetResourceCommand,UpdateDocumentationVersionCommand,UpdateDomainNameCommand,RejectDomainNameAccessAssociationCommand,UpdateDocumentationPartCommand,UpdateRequestValidatorCommand,GetClientCertificateCommand,DeleteStageCommand,GetDeploymentsCommand,UpdateUsageCommand,PutIntegrationCommand,UpdateUsagePlanCommand,GetApiKeysCommand,UnauthorizedException,FlushStageAuthorizersCacheCommand,GetExportCommand,GetGatewayResponseCommand,GetTagsCommand,GetAuthorizersCommand,UpdateStageCommand,GetClientCertificatesCommand,GetUsagePlanKeysCommand,NotFoundException,TestInvokeAuthorizerCommand,UpdateResourceCommand,PutIntegrationResponseCommand,UpdateAuthorizerCommand,UpdateBasePathMappingCommand,PutGatewayResponseCommand,GetBasePathMappingsCommand,ImportDocumentationPartsCommand,UpdateMethodResponseCommand,ImportRestApiCommand,paginateGetUsagePlanKeys,GetUsageCommand,GetGatewayResponsesCommand,GetModelsCommand,GetDocumentationVersionCommand,PutRestApiCommand,UpdateMethodCommand,GetUsagePlanKeyCommand,paginateGetVpcLinks,ServiceUnavailableException,PutMethodCommand,paginateGetDeployments,GetRequestValidatorsCommand,GetRestApiCommand,ConflictException,PutMethodResponseCommand,GetSdkCommand,TooManyRequestsException,GetAuthorizerCommand,paginateGetDomainNames,UpdateApiKeyCommand,GetModelTemplateCommand,UpdateRestApiCommand,GetDomainNamesCommand,paginateGetResources,DeleteVpcLinkCommand,GetSdkTypesCommand,GetBasePathMappingCommand,DeleteUsagePlanCommand,GetIntegrationResponseCommand,GenerateClientCertificateCommand,GetDocumentationVersionsCommand,GetMethodResponseCommand,UpdateGatewayResponseCommand,paginateGetApiKeys,paginateGetClientCertificates,GetDeploymentCommand,ImportApiKeysCommand,FlushStageCacheCommand,TagResourceCommand,GetModelCommand,UpdateIntegrationCommand,GetUsagePlanCommand,GetRequestValidatorCommand,DeleteModelCommand,GetSdkTypeCommand,paginateGetUsagePlans,GetUsagePlansCommand,GetApiKeyCommand,UpdateClientCertificateCommand,GetMethodCommand,LimitExceededException,GetStagesCommand,APIGateway,paginateGetBasePathMappings,GetRestApisCommand,APIGatewayServiceException,GetVpcLinksCommand,UntagResourceCommand,UpdateVpcLinkCommand,paginateGetRestApis,DeleteRestApiCommand,BadRequestException,DeleteResourceCommand"
+  tags: aws,api-gateway,javascript,nodejs,rest-api,openapi,send,console,log,aws-sdk,node,APIGatewayClient,CreateApiKeyCommand,CreateAuthorizerCommand,CreateBasePathMappingCommand,CreateDeploymentCommand,CreateDocumentationPartCommand,CreateDocumentationVersionCommand,CreateDomainNameAccessAssociationCommand,CreateDomainNameCommand,CreateModelCommand,CreateRequestValidatorCommand,CreateResourceCommand,CreateRestApiCommand,CreateStageCommand,CreateUsagePlanCommand,CreateUsagePlanKeyCommand,CreateVpcLinkCommand,DeleteApiKeyCommand,DeleteAuthorizerCommand,DeleteBasePathMappingCommand,DeleteClientCertificateCommand,DeleteDeploymentCommand,DeleteDocumentationPartCommand,DeleteDocumentationVersionCommand,DeleteDomainNameAccessAssociationCommand,DeleteDomainNameCommand,DeleteGatewayResponseCommand,DeleteIntegrationCommand,DeleteIntegrationResponseCommand,DeleteMethodCommand,DeleteMethodResponseCommand,GetDomainNameAccessAssociationsCommand,GetResourcesCommand,paginateGetUsage,GetStageCommand,UpdateAccountCommand,GetAccountCommand,GetDocumentationPartCommand,GetVpcLinkCommand,DeleteUsagePlanKeyCommand,GetIntegrationCommand,DeleteRequestValidatorCommand,GetDomainNameCommand,TestInvokeMethodCommand,UpdateModelCommand,UpdateIntegrationResponseCommand,paginateGetModels,UpdateDeploymentCommand,GetDocumentationPartsCommand,GetResourceCommand,UpdateDocumentationVersionCommand,UpdateDomainNameCommand,RejectDomainNameAccessAssociationCommand,UpdateDocumentationPartCommand,UpdateRequestValidatorCommand,GetClientCertificateCommand,DeleteStageCommand,GetDeploymentsCommand,UpdateUsageCommand,PutIntegrationCommand,UpdateUsagePlanCommand,GetApiKeysCommand,UnauthorizedException,FlushStageAuthorizersCacheCommand,GetExportCommand,GetGatewayResponseCommand,GetTagsCommand,GetAuthorizersCommand,UpdateStageCommand,GetClientCertificatesCommand,GetUsagePlanKeysCommand,NotFoundException,TestInvokeAuthorizerCommand,UpdateResourceCommand,PutIntegrationResponseCommand,UpdateAuthorizerCommand,UpdateBasePathMappingCommand,PutGatewayResponseCommand,GetBasePathMappingsCommand,ImportDocumentationPartsCommand,UpdateMethodResponseCommand,ImportRestApiCommand,paginateGetUsagePlanKeys,GetUsageCommand,GetGatewayResponsesCommand,GetModelsCommand,GetDocumentationVersionCommand,PutRestApiCommand,UpdateMethodCommand,GetUsagePlanKeyCommand,paginateGetVpcLinks,ServiceUnavailableException,PutMethodCommand,paginateGetDeployments,GetRequestValidatorsCommand,GetRestApiCommand,ConflictException,PutMethodResponseCommand,GetSdkCommand,TooManyRequestsException,GetAuthorizerCommand,paginateGetDomainNames,UpdateApiKeyCommand,GetModelTemplateCommand,UpdateRestApiCommand,GetDomainNamesCommand,paginateGetResources,DeleteVpcLinkCommand,GetSdkTypesCommand,GetBasePathMappingCommand,DeleteUsagePlanCommand,GetIntegrationResponseCommand,GenerateClientCertificateCommand,GetDocumentationVersionsCommand,GetMethodResponseCommand,UpdateGatewayResponseCommand,paginateGetApiKeys,paginateGetClientCertificates,GetDeploymentCommand,ImportApiKeysCommand,FlushStageCacheCommand,TagResourceCommand,GetModelCommand,UpdateIntegrationCommand,GetUsagePlanCommand,GetRequestValidatorCommand,DeleteModelCommand,GetSdkTypeCommand,paginateGetUsagePlans,GetUsagePlansCommand,GetApiKeyCommand,UpdateClientCertificateCommand,GetMethodCommand,LimitExceededException,GetStagesCommand,APIGateway,paginateGetBasePathMappings,GetRestApisCommand,APIGatewayServiceException,GetVpcLinksCommand,UntagResourceCommand,UpdateVpcLinkCommand,paginateGetRestApis,DeleteRestApiCommand,BadRequestException,DeleteResourceCommand
 ---
 
 # `@aws-sdk/client-api-gateway`
@@ -342,6 +343,122 @@ for await (const page of paginator) {
 - For imperative workflows, store `restApiId`, `rootResourceId`, `resourceId`, `deployment.id`, and `stageName` as soon as they are created.
 - Changes to resources, methods, and integrations do not affect live traffic until a deployment is created and a stage points at it.
 - API Gateway resource trees can become large, so use the paginators rather than assuming one page is enough.
+
+## Per-symbol detail
+
+### APIGatewayClient
+
+The `APIGatewayClient` class serves as the primary entry point for interacting with Amazon API Gateway services within Node.js applications. You instantiate this client to manage REST APIs, including resources, methods, deployments, and stages through various service commands. It handles authentication and request signing automatically, returning promises that resolve with operation results or reject with exceptions like `BadRequestException`. This client is essential for any server-side JavaScript logic requiring programmatic control over API Gateway configurations.
+
+```javascript
+import { APIGatewayClient } from "@aws-sdk/client-api-gateway";
+import { BadRequestException } from "@aws-sdk/client-api-gateway";
+
+const client = new APIGatewayClient({ region: "us-east-1" });
+
+async function run() {
+  try {
+    // Execute API Gateway operation
+  } catch (error) {
+    if (error instanceof BadRequestException) {
+      console.error("Invalid request parameters");
+    }
+  }
+}
+```
+
+### CreateApiKeyCommand
+
+The `CreateApiKeyCommand` class encapsulates the logic required to provision a new API key for securing access to your Amazon API Gateway REST API. Developers typically instantiate this command alongside an `APIGatewayClient` to send the request asynchronously, allowing for non-blocking execution within Node.js applications. Upon successful completion, the promise resolves with the generated key details, whereas invalid configurations or existing keys may trigger specific errors such as `BadRequestException` or `ConflictException`.
+
+```javascript
+import { APIGatewayClient, CreateApiKeyCommand } from "@aws-sdk/client-api-gateway";
+
+const client = new APIGatewayClient({ region: "us-east-1" });
+const command = new CreateApiKeyCommand({ name: "MyApiKey" });
+const response = await client.send(command);
+```
+
+### CreateAuthorizerCommand
+
+The `CreateAuthorizerCommand` class encapsulates the request to provision a new authorizer for an Amazon API Gateway REST API. Developers instantiate this command and pass it to an `APIGatewayClient` when configuring authentication logic such as Lambda or Cognito integration. The operation returns a Promise that resolves with the created authorizer configuration or rejects with service exceptions like `BadRequestException` if the input is invalid. This command follows the standard AWS SDK for JavaScript v3 pattern for managing API Gateway resources.
+
+```javascript
+import { APIGatewayClient, CreateAuthorizerCommand } from 'aws/api-gateway';
+
+const client = new APIGatewayClient({ region: 'us-east-1' });
+const command = new CreateAuthorizerCommand({ /* authorizer configuration */ });
+const response = await client.send(command);
+```
+
+### CreateBasePathMappingCommand
+
+The `CreateBasePathMappingCommand` is used to associate a custom domain name with a specific stage of an Amazon API Gateway REST API. You should instantiate this command and pass it to an `APIGatewayClient` instance when configuring domain mappings for production or custom endpoints. The operation returns a promise that resolves upon successful creation, allowing you to manage the mapping lifecycle within your Node.js application. If the request fails, the client may throw exceptions such as `BadRequestException` or `ConflictException` to indicate validation or state issues.
+
+```javascript
+import { APIGatewayClient, CreateBasePathMappingCommand } from "@aws-sdk/client-api-gateway";
+
+const client = new APIGatewayClient({ region: "us-east-1" });
+const command = new CreateBasePathMappingCommand({
+  basePath: "api",
+  restApiId: "your-rest-api-id",
+  stageName: "prod"
+});
+
+try {
+  await client.send(command);
+} catch (error) {
+  // Handle errors potentially including BadRequestException or ConflictException
+}
+```
+
+### CreateDeploymentCommand
+
+The `CreateDeploymentCommand` class encapsulates the request to create a new deployment version for an Amazon API Gateway REST API. Developers typically instantiate this command alongside an `APIGatewayClient` instance to publish configuration changes, such as new resources or methods, to a live stage. When executed via the client's `send` method, it returns a promise resolving to deployment details, including the unique deployment ID. This operation is essential for version control and may throw service exceptions such as `BadRequestException` or `ConflictException` if the API state is incompatible.
+
+```javascript
+import { APIGatewayClient, CreateDeploymentCommand, BadRequestException } from "@aws-sdk/client-api-gateway";
+
+const client = new APIGatewayClient({ region: "us-east-1" });
+const command = new CreateDeploymentCommand({
+  apiId: "your-api-id",
+  stageName: "prod"
+});
+
+try {
+  const response = await client.send(command);
+  console.log("Deployment ID:", response.id);
+} catch (err) {
+  if (err instanceof BadRequestException) {
+    console.error("Invalid request:", err.message);
+  }
+}
+```
+
+### CreateDocumentationPartCommand
+
+The `CreateDocumentationPartCommand` class facilitates the creation of documentation parts within an Amazon API Gateway REST API configuration. Developers utilize this command through an `APIGatewayClient` instance when they need to attach custom documentation to specific resources, methods, or models. Execution returns a Promise that resolves with the created documentation part details, though it may reject with exceptions such as `BadRequestException` or `ConflictException` if the input is invalid or conflicts with existing configurations.
+
+```javascript
+import { APIGatewayClient, CreateDocumentationPartCommand } from "@aws-sdk/client-api-gateway";
+import { BadRequestException, ConflictException } from "@aws-sdk/client-api-gateway";
+
+const client = new APIGatewayClient({ region: "us-east-1" });
+const command = new CreateDocumentationPartCommand({
+  apiId: "your-api-id",
+  location: { type: "MODEL", name: "MyModel" },
+  value: "This is documentation"
+});
+
+try {
+  const response = await client.send(command);
+  console.log(response);
+} catch (error) {
+  if (error.name === "BadRequestException" || error.name === "ConflictException") {
+    console.error("API Gateway error:", error.message);
+  }
+}
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-api-gateway`
 

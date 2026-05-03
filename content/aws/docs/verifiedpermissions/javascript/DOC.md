@@ -1,13 +1,14 @@
 ---
 name: verifiedpermissions
-description: "AWS SDK for JavaScript v3 client for Amazon Verified Permissions policy stores, Cedar policies, identity sources, and authorization decisions."
+description: AWS SDK for JavaScript v3 client for Amazon Verified Permissions policy
+  stores, Cedar policies, identity sources, and authorization decisions.
 metadata:
-  languages: "javascript"
-  versions: "3.1007.0"
+  languages: javascript
+  versions: 3.1007.0
   revision: 1
-  updated-on: "2026-03-13"
+  updated-on: '2026-03-13'
   source: maintainer
-  tags: "aws,verifiedpermissions,authorization,cedar,javascript,nodejs,client,console,log,send,aws-sdk,node,VerifiedPermissionsClient,BatchGetPolicyCommand,BatchIsAuthorizedCommand,BatchIsAuthorizedWithTokenCommand,CreateIdentitySourceCommand,CreatePolicyCommand,CreatePolicyStoreAliasCommand,CreatePolicyStoreCommand,CreatePolicyTemplateCommand,DeleteIdentitySourceCommand,DeletePolicyCommand,DeletePolicyStoreAliasCommand,DeletePolicyStoreCommand,DeletePolicyTemplateCommand,GetIdentitySourceCommand,GetPolicyCommand,GetPolicyStoreAliasCommand,GetPolicyStoreCommand,GetPolicyTemplateCommand,GetSchemaCommand,IsAuthorizedCommand,IsAuthorizedWithTokenCommand,ListIdentitySourcesCommand,ListPoliciesCommand,ListPolicyStoreAliasesCommand,ListPolicyStoresCommand,ListPolicyTemplatesCommand,ListTagsForResourceCommand,PutSchemaCommand,TagResourceCommand,UntagResourceCommand,ThrottlingException,paginateListPolicies,ValidationException,VerifiedPermissionsServiceException,InternalServerException,UpdatePolicyStoreCommand,ConflictException,ResourceNotFoundException,TooManyTagsException,UpdatePolicyCommand,UpdateIdentitySourceCommand,paginateListPolicyTemplates,VerifiedPermissions,UpdatePolicyTemplateCommand,ServiceQuotaExceededException,paginateListPolicyStores,AccessDeniedException,InvalidStateException,paginateListPolicyStoreAliases,paginateListIdentitySources"
+  tags: aws,verifiedpermissions,authorization,cedar,javascript,nodejs,client,console,log,send,aws-sdk,node,VerifiedPermissionsClient,BatchGetPolicyCommand,BatchIsAuthorizedCommand,BatchIsAuthorizedWithTokenCommand,CreateIdentitySourceCommand,CreatePolicyCommand,CreatePolicyStoreAliasCommand,CreatePolicyStoreCommand,CreatePolicyTemplateCommand,DeleteIdentitySourceCommand,DeletePolicyCommand,DeletePolicyStoreAliasCommand,DeletePolicyStoreCommand,DeletePolicyTemplateCommand,GetIdentitySourceCommand,GetPolicyCommand,GetPolicyStoreAliasCommand,GetPolicyStoreCommand,GetPolicyTemplateCommand,GetSchemaCommand,IsAuthorizedCommand,IsAuthorizedWithTokenCommand,ListIdentitySourcesCommand,ListPoliciesCommand,ListPolicyStoreAliasesCommand,ListPolicyStoresCommand,ListPolicyTemplatesCommand,ListTagsForResourceCommand,PutSchemaCommand,TagResourceCommand,UntagResourceCommand,ThrottlingException,paginateListPolicies,ValidationException,VerifiedPermissionsServiceException,InternalServerException,UpdatePolicyStoreCommand,ConflictException,ResourceNotFoundException,TooManyTagsException,UpdatePolicyCommand,UpdateIdentitySourceCommand,paginateListPolicyTemplates,VerifiedPermissions,UpdatePolicyTemplateCommand,ServiceQuotaExceededException,paginateListPolicyStores,AccessDeniedException,InvalidStateException,paginateListPolicyStoreAliases,paginateListIdentitySources
 ---
 
 # `@aws-sdk/client-verifiedpermissions`
@@ -377,6 +378,178 @@ The same `nextToken` pattern applies to `ListIdentitySources`, `ListPolicyStores
 - Templates: `CreatePolicyTemplateCommand`, `GetPolicyTemplateCommand`, `ListPolicyTemplatesCommand`, `UpdatePolicyTemplateCommand`, `DeletePolicyTemplateCommand`
 - Identity sources: `CreateIdentitySourceCommand`, `GetIdentitySourceCommand`, `ListIdentitySourcesCommand`, `UpdateIdentitySourceCommand`, `DeleteIdentitySourceCommand`
 - Authorization: `IsAuthorizedCommand`, `IsAuthorizedWithTokenCommand`, `BatchIsAuthorizedCommand`, `BatchIsAuthorizedWithTokenCommand`
+
+## Per-symbol detail
+
+### AccessDeniedException
+
+The `AccessDeniedException` class indicates that the AWS Verified Permissions client was unable to authorize a request due to insufficient permissions or Cedar policy constraints. In a Node.js application, you should catch this error within a `try/catch` block to distinguish permission failures from other service issues like `ConflictException`. When thrown, it interrupts the execution of commands such as `BatchIsAuthorizedCommand` and exposes the denial reason through the standard `message` property. Proper handling ensures your application can respond to authorization failures without terminating unexpectedly.
+
+```javascript
+import { VerifiedPermissionsClient, BatchIsAuthorizedCommand, AccessDeniedException } from "@aws-sdk/client-verified-permissions";
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+try {
+  const command = new BatchIsAuthorizedCommand({ policyStoreId: "example-store" });
+  await client.send(command);
+} catch (err) {
+  if (err instanceof AccessDeniedException) {
+    console.error("Access denied:", err.message);
+  }
+}
+```
+
+### BatchGetPolicyCommand
+
+The `BatchGetPolicyCommand` facilitates the retrieval of multiple policy definitions from a Verified Permissions policy store in a single API request. Developers should use this command when bulk fetching policies is required to optimize network latency and reduce the number of calls made to the service. The command resolves with a response containing the requested policy data, though it may throw exceptions such as `AccessDeniedException` if the caller lacks sufficient permissions. This operation adheres to the AWS SDK for JavaScript v3 pattern, requiring an instance of the client to send the command asynchronously.
+
+```javascript
+import { VerifiedPermissionsClient, BatchGetPolicyCommand } from "@aws-sdk/client-verified-permissions";
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+const command = new BatchGetPolicyCommand({ PolicyIdentifierList: ["policy-id-1"] });
+const response = await client.send(command);
+```
+
+### BatchIsAuthorizedCommand
+
+The `BatchIsAuthorizedCommand` enables efficient authorization checks by evaluating multiple subjects against a policy within a single API call, reducing network latency compared to individual requests. In JavaScript applications using the AWS SDK for JavaScript v3, you instantiate this command with your request context and send it via the `VerifiedPermissionsClient`. The operation resolves to a response object containing the authorization decision for each subject, allowing you to handle results programmatically. This command is particularly useful when validating access for a group of users or resources simultaneously within your Node.js environment.
+
+```javascript
+const { VerifiedPermissionsClient, BatchIsAuthorizedCommand } = require("@aws-sdk/client-verified-permissions");
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+const command = new BatchIsAuthorizedCommand({
+  policyStoreIdentifier: { id: "your-store-id" },
+  policyIdentifier: { id: "your-policy-id" },
+  subjects: [{ principal: { id: "user-id" }, type: "User" }]
+});
+const response = await client.send(command);
+```
+
+### BatchIsAuthorizedWithTokenCommand
+
+The `BatchIsAuthorizedWithTokenCommand` enables efficient verification of authorization decisions for multiple principals using identity tokens within the Amazon Verified Permissions service. In a Node.js environment, developers instantiate this command with the necessary policy store context and token information, then invoke the client's `send` method to execute the batch request asynchronously. This operation is ideal for high-throughput applications requiring rapid access control checks against Cedar policies without the overhead of individual API calls. Upon completion, the response object provides the authorization status for each principal-action pair, allowing the application to proceed based on the collective results.
+
+```javascript
+const { VerifiedPermissionsClient, BatchIsAuthorizedWithTokenCommand } = require("@aws-sdk/client-verified-permissions");
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+const command = new BatchIsAuthorizedWithTokenCommand({
+  policyStoreId: "your-policy-store-id",
+  principal: "user:123",
+  action: "write",
+  resource: "document:456"
+});
+
+const response = await client.send(command);
+```
+
+### ConflictException
+
+The `ConflictException` is thrown when an operation conflicts with the current state of a Verified Permissions resource, such as attempting to create a policy that already exists. In JavaScript applications, you should wrap your policy store or policy commands in a try-catch block to handle this specific error type gracefully. When caught, the exception provides details about the conflicting resource, allowing your application to decide whether to skip the operation or notify the user. This ensures robust error handling during batch policy updates or authorization checks.
+
+```javascript
+const { VerifiedPermissionsClient, BatchGetPolicyCommand, ConflictException } = require("@aws-sdk/client-verified-permissions");
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+try {
+  await client.send(new BatchGetPolicyCommand({ policyStoreIdentifier: "store-id" }));
+} catch (err) {
+  if (err instanceof ConflictException) {
+    console.error("Resource conflict detected:", err.message);
+  }
+}
+```
+
+### CreateIdentitySourceCommand
+
+The `CreateIdentitySourceCommand` allows you to register a new identity source within a specific Amazon Verified Permissions policy store. In Node.js applications, you instantiate this command with the required configuration and execute it by passing it to the client instance via the `send` method. The operation returns a promise that resolves with the created identity source details, enabling your application to link external identity providers to your authorization system. Developers should handle potential `AccessDeniedException` or `ConflictException` errors to manage permission issues or duplicate source names gracefully.
+
+```javascript
+const { VerifiedPermissionsClient, CreateIdentitySourceCommand } = require("@aws-sdk/client-verified-permissions");
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+
+const command = new CreateIdentitySourceCommand({
+  policyStoreId: "your-policy-store-id",
+  name: "example-identity-source"
+});
+
+const response = await client.send(command);
+```
+
+### CreatePolicyStoreAliasCommand
+
+The `CreatePolicyStoreAliasCommand` enables you to assign a custom alias to an existing policy store, simplifying reference management across development and production environments. Within a Node.js application, you construct this command with the target store identifier and desired alias, then execute it using the client's `send` method. The operation returns a promise that resolves with the alias metadata, allowing your application to utilize the alias for future authorization checks. Developers should handle potential `ConflictException` errors if the alias already exists or `AccessDeniedException` if the user lacks the necessary IAM permissions.
+
+```javascript
+import { VerifiedPermissionsClient, CreatePolicyStoreAliasCommand } from "@aws-sdk/client-verified-permissions";
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+const command = new CreatePolicyStoreAliasCommand({
+  PolicyStoreId: "store-123",
+  Alias: "prod-alias"
+});
+
+try {
+  const response = await client.send(command);
+  console.log("Alias created:", response);
+} catch (err) {
+  console.error("Failed to create alias:", err);
+}
+```
+
+### CreatePolicyStoreCommand
+
+The `CreatePolicyStoreCommand` class encapsulates the request to provision a new policy store within Amazon Verified Permissions. In a Node.js environment, you instantiate this command with your store configuration and pass it to the client's `send` method to execute the operation asynchronously. The command resolves to the created store details upon success, or rejects with exceptions such as `AccessDeniedException` or `ConflictException` if the operation violates permissions or naming constraints. This command is typically invoked during the initialization phase of your application to establish the foundational container for Cedar policies.
+
+```javascript
+import { VerifiedPermissionsClient, CreatePolicyStoreCommand } from "@aws-sdk/client-verified-permissions";
+import { AccessDeniedException, ConflictException } from "@aws-sdk/client-verified-permissions";
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+
+async function main() {
+  const command = new CreatePolicyStoreCommand({ storeName: "my-policy-store" });
+  try {
+    const response = await client.send(command);
+    console.log("Store created:", response);
+  } catch (err) {
+    if (err instanceof AccessDeniedException) {
+      console.error("Access denied:", err.message);
+    } else if (err instanceof ConflictException) {
+      console.error("Store conflict:", err.message);
+    } else {
+      throw err;
+    }
+  }
+}
+
+main();
+```
+
+### CreatePolicyTemplateCommand
+
+The `CreatePolicyTemplateCommand` instantiates a new policy template within a specified Verified Permissions policy store, defining the schema for principals, actions, and resources. You should use this command during the setup phase to establish reusable policy structures before creating specific policy instances. Upon successful execution, the command returns the created template's metadata, while potential issues such as insufficient permissions or existing conflicts are surfaced as `AccessDeniedException` or `ConflictException`.
+
+```javascript
+import { VerifiedPermissionsClient, CreatePolicyTemplateCommand } from "@aws-sdk/client-verified-permissions";
+
+const client = new VerifiedPermissionsClient({ region: "us-east-1" });
+const command = new CreatePolicyTemplateCommand({
+  policyStoreId: "your-policy-store-id",
+  policyTemplate: { /* template definition */ }
+});
+
+try {
+  const response = await client.send(command);
+  console.log("Created template:", response.policyTemplate);
+} catch (err) {
+  if (err.name === "AccessDeniedException" || err.name === "ConflictException") {
+    console.error("Policy creation failed:", err.message);
+  }
+}
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-verifiedpermissions`
 

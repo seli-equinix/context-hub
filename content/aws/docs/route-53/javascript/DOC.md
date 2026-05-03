@@ -1,13 +1,14 @@
 ---
 name: route-53
-description: "AWS SDK for JavaScript v3 Route 53 client for hosted zones, record sets, and DNS change workflows."
+description: AWS SDK for JavaScript v3 Route 53 client for hosted zones, record sets,
+  and DNS change workflows.
 metadata:
-  languages: "javascript"
-  versions: "3.1006.0"
+  languages: javascript
+  versions: 3.1006.0
   revision: 1
-  updated-on: "2026-03-11"
+  updated-on: '2026-03-11'
   source: maintainer
-  tags: "aws,route53,dns,javascript,nodejs,browser,hosted-zones,console,log,send,route-53,aws-sdk,node,Route53Client,ActivateKeySigningKeyCommand,AssociateVPCWithHostedZoneCommand,ChangeCidrCollectionCommand,ChangeResourceRecordSetsCommand,ChangeTagsForResourceCommand,CreateCidrCollectionCommand,CreateHealthCheckCommand,CreateHostedZoneCommand,CreateKeySigningKeyCommand,CreateQueryLoggingConfigCommand,CreateReusableDelegationSetCommand,CreateTrafficPolicyCommand,CreateTrafficPolicyInstanceCommand,CreateTrafficPolicyVersionCommand,CreateVPCAssociationAuthorizationCommand,DeactivateKeySigningKeyCommand,DeleteCidrCollectionCommand,DeleteHealthCheckCommand,DeleteHostedZoneCommand,DeleteKeySigningKeyCommand,DeleteQueryLoggingConfigCommand,DeleteReusableDelegationSetCommand,DeleteTrafficPolicyCommand,DeleteTrafficPolicyInstanceCommand,DeleteVPCAssociationAuthorizationCommand,DisableHostedZoneDNSSECCommand,DisassociateVPCFromHostedZoneCommand,EnableHostedZoneDNSSECCommand,GetAccountLimitCommand,GetChangeCommand,DelegationSetAlreadyReusable,HealthCheckVersionMismatch,KeySigningKeyAlreadyExists,CidrCollectionInUseException,DNSSECNotFound,InvalidDomainName,HostedZoneNotFound,InsufficientCloudWatchLogsResourcePolicy,GetHostedZoneCommand,ListTrafficPoliciesCommand,waitForResourceRecordSetsChanged,InvalidPaginationToken,ListGeoLocationsCommand,DelegationSetInUse,HostedZonePartiallyDelegated,NoSuchKeySigningKey,InvalidArgument,paginateListHealthChecks,TooManyKeySigningKeys,GetHealthCheckStatusCommand,TooManyTrafficPolicyInstances,ListTagsForResourcesCommand,ListQueryLoggingConfigsCommand,TrafficPolicyInstanceAlreadyExists,InvalidKeySigningKeyStatus,ListCidrCollectionsCommand,ListTagsForResourceCommand,ListVPCAssociationAuthorizationsCommand,NoSuchCidrCollectionException,DelegationSetNotAvailable,GetReusableDelegationSetCommand,InvalidVPCId,DelegationSetAlreadyCreated,UpdateTrafficPolicyCommentCommand,TooManyHealthChecks,InvalidChangeBatch,HealthCheckInUse,TestDNSAnswerCommand,GetQueryLoggingConfigCommand,ListHealthChecksCommand,GetDNSSECCommand,HostedZoneNotPrivate,HostedZoneAlreadyExists,GetCheckerIpRangesCommand,CidrCollectionVersionMismatchException,TooManyHostedZones,paginateListQueryLoggingConfigs,NoSuchDelegationSet,KeySigningKeyInUse,NoSuchHealthCheck,UpdateTrafficPolicyInstanceCommand,CidrBlockInUseException,NoSuchHostedZone,TooManyTrafficPolicyVersionsForCurrentPolicy,ListHostedZonesByVPCCommand,GetTrafficPolicyInstanceCountCommand,InvalidInput,ThrottlingException,TrafficPolicyAlreadyExists,CidrCollectionAlreadyExistsException,DelegationSetNotReusable,ListCidrLocationsCommand,Route53,NoSuchGeoLocation,GetHostedZoneLimitCommand,ListTrafficPolicyVersionsCommand,NotAuthorizedException,GetGeoLocationCommand,UpdateHostedZoneFeaturesCommand,LimitsExceeded,GetTrafficPolicyCommand,ListTrafficPolicyInstancesByHostedZoneCommand,PriorRequestNotComplete,InvalidKMSArn,HealthCheckAlreadyExists,ListCidrBlocksCommand,ConcurrentModification,ListTrafficPolicyInstancesCommand,VPCAssociationNotFound,NoSuchCloudWatchLogsLogGroup,GetHealthCheckCommand,UpdateHealthCheckCommand,HostedZoneNotEmpty,IncompatibleVersion,PublicZoneVPCAssociation,NoSuchTrafficPolicyInstance,InvalidSigningStatus,NoSuchChange,GetHealthCheckLastFailureReasonCommand,GetHealthCheckCountCommand,TooManyTrafficPolicies,GetTrafficPolicyInstanceCommand,QueryLoggingConfigAlreadyExists,VPCAssociationAuthorizationNotFound,ListTrafficPolicyInstancesByPolicyCommand,ListHostedZonesByNameCommand,paginateListHostedZones,ListResourceRecordSetsCommand,InvalidKeySigningKeyName,TooManyVPCAssociationAuthorizations,NoSuchQueryLoggingConfig,NoSuchCidrLocationException,waitUntilResourceRecordSetsChanged,ListHostedZonesCommand,GetReusableDelegationSetLimitCommand,NoSuchTrafficPolicy,ConflictingDomainExists,paginateListCidrBlocks,ListReusableDelegationSetsCommand,Route53ServiceException,KeySigningKeyWithActiveStatusNotFound,paginateListCidrLocations,TrafficPolicyInUse,KeySigningKeyInParentDSRecord,LastVPCAssociation,InvalidTrafficPolicyDocument,ConflictingTypes,UpdateHostedZoneCommentCommand,paginateListCidrCollections,GetHostedZoneCountCommand"
+  tags: aws,route53,dns,javascript,nodejs,browser,hosted-zones,console,log,send,route-53,aws-sdk,node,Route53Client,ActivateKeySigningKeyCommand,AssociateVPCWithHostedZoneCommand,ChangeCidrCollectionCommand,ChangeResourceRecordSetsCommand,ChangeTagsForResourceCommand,CreateCidrCollectionCommand,CreateHealthCheckCommand,CreateHostedZoneCommand,CreateKeySigningKeyCommand,CreateQueryLoggingConfigCommand,CreateReusableDelegationSetCommand,CreateTrafficPolicyCommand,CreateTrafficPolicyInstanceCommand,CreateTrafficPolicyVersionCommand,CreateVPCAssociationAuthorizationCommand,DeactivateKeySigningKeyCommand,DeleteCidrCollectionCommand,DeleteHealthCheckCommand,DeleteHostedZoneCommand,DeleteKeySigningKeyCommand,DeleteQueryLoggingConfigCommand,DeleteReusableDelegationSetCommand,DeleteTrafficPolicyCommand,DeleteTrafficPolicyInstanceCommand,DeleteVPCAssociationAuthorizationCommand,DisableHostedZoneDNSSECCommand,DisassociateVPCFromHostedZoneCommand,EnableHostedZoneDNSSECCommand,GetAccountLimitCommand,GetChangeCommand,DelegationSetAlreadyReusable,HealthCheckVersionMismatch,KeySigningKeyAlreadyExists,CidrCollectionInUseException,DNSSECNotFound,InvalidDomainName,HostedZoneNotFound,InsufficientCloudWatchLogsResourcePolicy,GetHostedZoneCommand,ListTrafficPoliciesCommand,waitForResourceRecordSetsChanged,InvalidPaginationToken,ListGeoLocationsCommand,DelegationSetInUse,HostedZonePartiallyDelegated,NoSuchKeySigningKey,InvalidArgument,paginateListHealthChecks,TooManyKeySigningKeys,GetHealthCheckStatusCommand,TooManyTrafficPolicyInstances,ListTagsForResourcesCommand,ListQueryLoggingConfigsCommand,TrafficPolicyInstanceAlreadyExists,InvalidKeySigningKeyStatus,ListCidrCollectionsCommand,ListTagsForResourceCommand,ListVPCAssociationAuthorizationsCommand,NoSuchCidrCollectionException,DelegationSetNotAvailable,GetReusableDelegationSetCommand,InvalidVPCId,DelegationSetAlreadyCreated,UpdateTrafficPolicyCommentCommand,TooManyHealthChecks,InvalidChangeBatch,HealthCheckInUse,TestDNSAnswerCommand,GetQueryLoggingConfigCommand,ListHealthChecksCommand,GetDNSSECCommand,HostedZoneNotPrivate,HostedZoneAlreadyExists,GetCheckerIpRangesCommand,CidrCollectionVersionMismatchException,TooManyHostedZones,paginateListQueryLoggingConfigs,NoSuchDelegationSet,KeySigningKeyInUse,NoSuchHealthCheck,UpdateTrafficPolicyInstanceCommand,CidrBlockInUseException,NoSuchHostedZone,TooManyTrafficPolicyVersionsForCurrentPolicy,ListHostedZonesByVPCCommand,GetTrafficPolicyInstanceCountCommand,InvalidInput,ThrottlingException,TrafficPolicyAlreadyExists,CidrCollectionAlreadyExistsException,DelegationSetNotReusable,ListCidrLocationsCommand,Route53,NoSuchGeoLocation,GetHostedZoneLimitCommand,ListTrafficPolicyVersionsCommand,NotAuthorizedException,GetGeoLocationCommand,UpdateHostedZoneFeaturesCommand,LimitsExceeded,GetTrafficPolicyCommand,ListTrafficPolicyInstancesByHostedZoneCommand,PriorRequestNotComplete,InvalidKMSArn,HealthCheckAlreadyExists,ListCidrBlocksCommand,ConcurrentModification,ListTrafficPolicyInstancesCommand,VPCAssociationNotFound,NoSuchCloudWatchLogsLogGroup,GetHealthCheckCommand,UpdateHealthCheckCommand,HostedZoneNotEmpty,IncompatibleVersion,PublicZoneVPCAssociation,NoSuchTrafficPolicyInstance,InvalidSigningStatus,NoSuchChange,GetHealthCheckLastFailureReasonCommand,GetHealthCheckCountCommand,TooManyTrafficPolicies,GetTrafficPolicyInstanceCommand,QueryLoggingConfigAlreadyExists,VPCAssociationAuthorizationNotFound,ListTrafficPolicyInstancesByPolicyCommand,ListHostedZonesByNameCommand,paginateListHostedZones,ListResourceRecordSetsCommand,InvalidKeySigningKeyName,TooManyVPCAssociationAuthorizations,NoSuchQueryLoggingConfig,NoSuchCidrLocationException,waitUntilResourceRecordSetsChanged,ListHostedZonesCommand,GetReusableDelegationSetLimitCommand,NoSuchTrafficPolicy,ConflictingDomainExists,paginateListCidrBlocks,ListReusableDelegationSetsCommand,Route53ServiceException,KeySigningKeyWithActiveStatusNotFound,paginateListCidrLocations,TrafficPolicyInUse,KeySigningKeyInParentDSRecord,LastVPCAssociation,InvalidTrafficPolicyDocument,ConflictingTypes,UpdateHostedZoneCommentCommand,paginateListCidrCollections,GetHostedZoneCountCommand
 ---
 
 # `@aws-sdk/client-route-53`
@@ -237,6 +238,162 @@ console.log(status);
 - Use `UPSERT` for idempotent automation when you want create-or-replace behavior.
 - Record-set names are easiest to reason about when you keep them fully qualified, including the trailing dot.
 - If you need deterministic record browsing around a specific name and type, use the list operation's start-name and start-type fields instead of scanning from the beginning every time.
+
+## Per-symbol detail
+
+### ActivateKeySigningKeyCommand
+
+This command facilitates the activation of a pending Key Signing Key (KSK) to enable DNSSEC signing for a specific Route 53 hosted zone. In a Node.js application, you construct an instance of this command with the required zone and key identifiers, then pass it to the client's send method. The operation transitions the key state from pending to active, effectively updating the DNSSEC configuration for the domain. Execution returns a promise that resolves with the command output, allowing developers to handle the result using standard async/await patterns.
+
+```javascript
+import { Route53Client, ActivateKeySigningKeyCommand } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({ region: "us-east-1" });
+const input = {
+  HostedZoneId: "Z1234567890ABC",
+  KeySigningKeyId: "12345"
+};
+const command = new ActivateKeySigningKeyCommand(input);
+const response = await client.send(command);
+```
+
+### ChangeResourceRecordSetsCommand
+
+The `ChangeResourceRecordSetsCommand` class encapsulates the logic required to create, update, or delete resource record sets within a specific Amazon Route 53 hosted zone. In a Node.js environment, you instantiate this command with the necessary DNS configuration details and pass it to a `Route53Client` instance to execute the change asynchronously. The operation returns a promise that resolves to a response containing the change identifier, allowing your application to track the status of the DNS update workflow. This command is essential for automating DNS management tasks where record sets must be modified dynamically based on application state.
+
+```javascript
+import { Route53Client, ChangeResourceRecordSetsCommand } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({ region: "us-east-1" });
+const command = new ChangeResourceRecordSetsCommand({
+  HostedZoneId: "Z1234567890",
+  ChangeBatch: {
+    Changes: [
+      {
+        Action: "CREATE",
+        ResourceRecordSet: { Name: "example.com", Type: "A" }
+      }
+    ]
+  }
+});
+const response = await client.send(command);
+```
+
+### ChangeTagsForResourceCommand
+
+This command enables you to add or remove tags from a specific Route 53 resource identified by its Amazon Resource Name (ARN). It is typically used to manage resource metadata for cost allocation, organization, or access control policies within your AWS account. In JavaScript, you instantiate this command and pass it to the Route 53 client's `send` method, which returns a promise resolving to the operation's response. Successful execution updates the resource's tag set without altering DNS records or zone configuration.
+
+```javascript
+import { Route53Client, ChangeTagsForResourceCommand } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({ region: "us-east-1" });
+const params = {
+  ResourceArn: "arn:aws:route53:::hostedzone/EXAMPLE",
+  TagsToAdd: [{ Key: "Environment", Value: "Production" }]
+};
+const command = new ChangeTagsForResourceCommand(params);
+const response = await client.send(command);
+```
+
+### CidrBlockInUseException
+
+The `CidrBlockInUseException` is thrown by the Route 53 client when an operation attempts to assign a CIDR block that is already associated with another resource. This error typically occurs during configuration changes involving CIDR collections where uniqueness is required for the specified block. In JavaScript applications, developers should catch this specific exception using standard try/catch blocks to handle conflicts gracefully without terminating the process. It affects the execution flow by preventing the requested modification until the conflicting resource is resolved.
+
+```javascript
+import { Route53Client, ChangeCidrCollectionCommand } from "@aws-sdk/client-route-53";
+import { CidrBlockInUseException } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({ region: "us-east-1" });
+const command = new ChangeCidrCollectionCommand({ /* params */ });
+
+try {
+  await client.send(command);
+} catch (error) {
+  if (error instanceof CidrBlockInUseException) {
+    console.log("CIDR block conflict detected");
+  }
+}
+```
+
+### CidrCollectionAlreadyExistsException
+
+`CidrCollectionAlreadyExistsException` is thrown by the Route 53 client when an operation attempts to create a CIDR collection that is already present in your account. Developers should catch this error specifically within a `try/catch` block when executing commands like `ChangeCidrCollectionCommand` to prevent unhandled promise rejections in their Node.js application. Upon catching the exception, the error object contains the `name` and `message` properties, allowing the application to log the conflict or return a user-friendly response indicating the resource already exists. This ensures that your workflow handles idempotency checks correctly without terminating the process unexpectedly.
+
+```javascript
+import { Route53Client, ChangeCidrCollectionCommand } from "@aws-sdk/client-route-53";
+import { CidrCollectionAlreadyExistsException } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({ region: "us-east-1" });
+const command = new ChangeCidrCollectionCommand({ /* parameters */ });
+
+try {
+  await client.send(command);
+} catch (error) {
+  if (error instanceof CidrCollectionAlreadyExistsException) {
+    console.log("CIDR collection already exists:", error.message);
+  } else {
+    throw error;
+  }
+}
+```
+
+### CidrCollectionInUseException
+
+The `CidrCollectionInUseException` indicates that a CIDR collection cannot be modified or deleted because it is currently associated with an active resource within Route 53. In Node.js applications, this error is typically caught within a `try/catch` block surrounding commands like `ChangeCidrCollectionCommand` to handle state conflicts gracefully. It affects the workflow by requiring the application to verify resource dependencies before proceeding with destructive operations. Handling this exception allows developers to implement retry logic or notify users about the dependency constraint.
+
+```javascript
+import { Route53Client, ChangeCidrCollectionCommand } from "@aws-sdk/client-route-53";
+import { CidrCollectionInUseException } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({ region: "us-east-1" });
+try {
+  await client.send(new ChangeCidrCollectionCommand({ /* params */ }));
+} catch (err) {
+  if (err instanceof CidrCollectionInUseException) {
+    console.log("Collection is in use, cannot modify.");
+  }
+}
+```
+
+### CidrCollectionVersionMismatchException
+
+`CidrCollectionVersionMismatchException` is thrown by the Route 53 client when a request to update a CIDR collection fails because the provided version identifier does not match the server's current state. This error is specifically relevant when using commands like `ChangeCidrCollectionCommand` to ensure data consistency during concurrent modifications. In a Node.js environment, developers must catch this error within a `try/catch` block to implement retry logic or handle the conflict appropriately. Resolving this exception typically involves fetching the latest collection version before attempting the update again.
+
+```javascript
+import { Route53Client, ChangeCidrCollectionCommand } from "@aws-sdk/client-route-53";
+import { CidrCollectionVersionMismatchException } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({});
+const command = new ChangeCidrCollectionCommand({});
+
+try {
+  await client.send(command);
+} catch (err) {
+  if (err instanceof CidrCollectionVersionMismatchException) {
+    // Handle version mismatch logic here
+  }
+}
+```
+
+### ConcurrentModification
+
+This error class indicates that a request to modify a Route 53 resource failed because another operation is currently modifying the same resource. Developers should catch this exception when invoking commands like `ChangeResourceRecordSetsCommand` to prevent unhandled promise rejections in their Node.js applications. The typical resolution pattern involves implementing a retry mechanism with exponential backoff to wait for the lock to release. Proper handling ensures that DNS changes are applied reliably even under high concurrency.
+
+```javascript
+import { Route53Client, ChangeResourceRecordSetsCommand } from "@aws-sdk/client-route-53";
+import { ConcurrentModification } from "@aws-sdk/client-route-53";
+
+const client = new Route53Client({});
+const command = new ChangeResourceRecordSetsCommand({});
+
+try {
+  await client.send(command);
+} catch (error) {
+  if (error instanceof ConcurrentModification) {
+    // Implement retry logic here
+  }
+}
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-route-53`
 

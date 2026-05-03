@@ -1,13 +1,14 @@
 ---
 name: route53-recovery-control-config
-description: "AWS SDK for JavaScript v3 client for Route 53 Application Recovery Controller configuration APIs."
+description: AWS SDK for JavaScript v3 client for Route 53 Application Recovery Controller
+  configuration APIs.
 metadata:
-  languages: "javascript"
-  versions: "3.1007.0"
+  languages: javascript
+  versions: 3.1007.0
   revision: 1
-  updated-on: "2026-03-13"
+  updated-on: '2026-03-13'
   source: maintainer
-  tags: "aws,route53,application-recovery-controller,arc,javascript,nodejs,console,log,send,route53-recovery-control-config,aws-sdk,node,Route53RecoveryControlConfigClient,CreateClusterCommand,CreateControlPanelCommand,CreateRoutingControlCommand,CreateSafetyRuleCommand,DeleteClusterCommand,DeleteControlPanelCommand,DeleteRoutingControlCommand,DeleteSafetyRuleCommand,DescribeClusterCommand,DescribeControlPanelCommand,DescribeRoutingControlCommand,DescribeSafetyRuleCommand,GetResourcePolicyCommand,ListAssociatedRoute53HealthChecksCommand,ListClustersCommand,ListControlPanelsCommand,ListRoutingControlsCommand,ListSafetyRulesCommand,ListTagsForResourceCommand,TagResourceCommand,UntagResourceCommand,UpdateClusterCommand,UpdateControlPanelCommand,UpdateRoutingControlCommand,UpdateSafetyRuleCommand,waitUntilClusterDeleted,ThrottlingException,waitForControlPanelDeleted,ValidationException,waitForClusterCreated,InternalServerException,paginateListAssociatedRoute53HealthChecks,paginateListClusters,paginateListSafetyRules,waitForRoutingControlCreated,waitForClusterDeleted,ConflictException,waitUntilControlPanelCreated,ResourceNotFoundException,Route53RecoveryControlConfigServiceException,Route53RecoveryControlConfig,waitForRoutingControlDeleted,paginateListRoutingControls,waitUntilControlPanelDeleted,waitForControlPanelCreated,waitUntilRoutingControlDeleted,ServiceQuotaExceededException,waitUntilRoutingControlCreated,AccessDeniedException,paginateListControlPanels,waitUntilClusterCreated"
+  tags: aws,route53,application-recovery-controller,arc,javascript,nodejs,console,log,send,route53-recovery-control-config,aws-sdk,node,Route53RecoveryControlConfigClient,CreateClusterCommand,CreateControlPanelCommand,CreateRoutingControlCommand,CreateSafetyRuleCommand,DeleteClusterCommand,DeleteControlPanelCommand,DeleteRoutingControlCommand,DeleteSafetyRuleCommand,DescribeClusterCommand,DescribeControlPanelCommand,DescribeRoutingControlCommand,DescribeSafetyRuleCommand,GetResourcePolicyCommand,ListAssociatedRoute53HealthChecksCommand,ListClustersCommand,ListControlPanelsCommand,ListRoutingControlsCommand,ListSafetyRulesCommand,ListTagsForResourceCommand,TagResourceCommand,UntagResourceCommand,UpdateClusterCommand,UpdateControlPanelCommand,UpdateRoutingControlCommand,UpdateSafetyRuleCommand,waitUntilClusterDeleted,ThrottlingException,waitForControlPanelDeleted,ValidationException,waitForClusterCreated,InternalServerException,paginateListAssociatedRoute53HealthChecks,paginateListClusters,paginateListSafetyRules,waitForRoutingControlCreated,waitForClusterDeleted,ConflictException,waitUntilControlPanelCreated,ResourceNotFoundException,Route53RecoveryControlConfigServiceException,Route53RecoveryControlConfig,waitForRoutingControlDeleted,paginateListRoutingControls,waitUntilControlPanelDeleted,waitForControlPanelCreated,waitUntilRoutingControlDeleted,ServiceQuotaExceededException,waitUntilRoutingControlCreated,AccessDeniedException,paginateListControlPanels,waitUntilClusterCreated
 ---
 
 # `@aws-sdk/client-route53-recovery-control-config`
@@ -345,6 +346,165 @@ do {
 - Create operations accept an optional `ClientToken` if you want explicit idempotency on retries.
 - Expect `ValidationException`, `ResourceNotFoundException`, `ConflictException`, `ThrottlingException`, and `InternalServerException` in real integrations.
 - Retry throttling and temporary server errors with backoff instead of treating them as permanent failures.
+
+## Per-symbol detail
+
+### AccessDeniedException
+
+`AccessDeniedException` is an error class thrown by the Route 53 Recovery Control Config client when the caller lacks the necessary IAM permissions to execute a specific API operation. You should catch this exception within a `try/catch` block when invoking commands such as `CreateClusterCommand` or `CreateControlPanelCommand` to handle permission failures gracefully. Upon occurrence, the promise returned by the command rejects with this error, allowing Node.js applications to inspect the `name` property or log the `message` to diagnose access issues.
+
+```javascript
+import { Route53RecoveryControlConfigClient, CreateClusterCommand } from "@aws-sdk/client-route-53-recovery-control-config";
+import { AccessDeniedException } from "@aws-sdk/client-route-53-recovery-control-config";
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+try {
+  await client.send(new CreateClusterCommand({}));
+} catch (error) {
+  if (error instanceof AccessDeniedException) {
+    console.error("Permission denied:", error.message);
+  }
+}
+```
+
+### ConflictException
+
+This exception indicates that the requested operation conflicts with the current state of a resource in the Route 53 Application Recovery Controller. In Node.js applications, developers catch this error within a `try/catch` block to handle scenarios where a resource already exists or is being modified concurrently. The error object provides details about the conflict, allowing the application to decide whether to retry the operation or notify the user of the state mismatch. Proper handling ensures your application remains resilient against race conditions during cluster or control panel creation.
+
+```javascript
+import { Route53RecoveryControlConfigClient, CreateClusterCommand } from "@aws-sdk/client-route53-recovery-control-config";
+import { ConflictException } from "@aws-sdk/client-route53-recovery-control-config";
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+try {
+  await client.send(new CreateClusterCommand({ clusterName: "example-cluster" }));
+} catch (err) {
+  if (err instanceof ConflictException) {
+    console.error("Cluster already exists or is in conflict state");
+  }
+}
+```
+
+### CreateClusterCommand
+
+The `CreateClusterCommand` class encapsulates the API request to create a new cluster for Route 53 Application Recovery Controller within your AWS account. In JavaScript applications, you typically construct an instance of this command with your desired configuration and pass it to an initialized `Route53RecoveryControlConfigClient` to trigger the asynchronous operation. The command returns a Promise that resolves with the cluster metadata or rejects with exceptions like `AccessDeniedException` or `ConflictException` if permissions or state conflicts occur. This usage follows the standard v3 SDK pattern where commands are immutable objects sent to a client for execution.
+
+```javascript
+import { Route53RecoveryControlConfigClient, CreateClusterCommand } from "@aws-sdk/client-route-53-recovery-control-config";
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+const command = new CreateClusterCommand({ ClusterName: "example-cluster" });
+
+try {
+  const response = await client.send(command);
+  console.log(response.ClusterArn);
+} catch (err) {
+  console.error(err);
+}
+```
+
+### CreateRoutingControlCommand
+
+The `CreateRoutingControlCommand` class encapsulates the request to provision a new routing control within an existing control panel for Route 53 Application Recovery Controller. This command is typically invoked during the setup phase of a disaster recovery strategy, following the creation of a cluster and control panel, to define specific traffic routing targets. In Node.js, executing this command via the client returns a Promise that resolves with the created control details or rejects with errors such as `AccessDeniedException` or `ConflictException` if the configuration conflicts with existing resources.
+
+```javascript
+const { Route53RecoveryControlConfigClient, CreateRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config");
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+
+const input = {
+  ControlPanelArn: "arn:aws:route53-recovery-control-config:us-east-1:123456789012:controlpanel/...",
+  RoutingControlArn: "my-routing-control"
+};
+
+const command = new CreateRoutingControlCommand(input);
+const response = await client.send(command);
+```
+
+### CreateSafetyRuleCommand
+
+The `CreateSafetyRuleCommand` class represents a request to define a new safety rule within a specified control panel, acting as a safeguard against accidental modifications to routing controls. In a Node.js environment, you instantiate this command and pass it to the client's `send` method to execute the operation asynchronously. The promise resolves with the created safety rule details, or rejects with errors such as `AccessDeniedException` and `ConflictException` if the operation violates permissions or existing constraints. This pattern aligns with the standard AWS SDK for JavaScript v3 idioms for managing Route 53 Application Recovery Controller resources.
+
+```javascript
+import { Route53RecoveryControlConfigClient, CreateSafetyRuleCommand } from "@aws-sdk/client-route-53-recovery-control-config";
+import { AccessDeniedException, ConflictException } from "@aws-sdk/client-route-53-recovery-control-config";
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+const command = new CreateSafetyRuleCommand({ controlPanelArn: "arn:aws:...", safetyRuleName: "example" });
+try {
+  const response = await client.send(command);
+  console.log(response);
+} catch (err) {
+  if (err instanceof AccessDeniedException || err instanceof ConflictException) {
+    console.error("Error:", err.message);
+  }
+}
+```
+
+### DeleteClusterCommand
+
+The `DeleteClusterCommand` class encapsulates the API operation required to remove a specified cluster from your Route 53 Application Recovery Controller configuration. In a Node.js environment, you instantiate this command with the target cluster identifier and execute it via the client's `send` method when the cluster is no longer needed. This asynchronous operation resolves a Promise upon successful deletion initiation, but it may reject with errors like `ConflictException` if dependencies exist or `AccessDeniedException` if the caller lacks permissions. Proper error handling is essential to distinguish between temporary failures and permanent configuration issues during the deletion process.
+
+```javascript
+const { Route53RecoveryControlConfigClient, DeleteClusterCommand } = require("@aws-sdk/client-route-53-recovery-control-config");
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+const command = new DeleteClusterCommand({ ClusterArn: "arn:aws:r53recoverycontrol:..." });
+
+try {
+  await client.send(command);
+} catch (error) {
+  console.error("Failed to delete cluster:", error);
+}
+```
+
+### DeleteControlPanelCommand
+
+The `DeleteControlPanelCommand` class encapsulates the API request required to remove a specific control panel from your Route 53 Application Recovery Controller configuration. In a Node.js environment, you instantiate this command with the resource identifier and pass it to the client's `send` method to execute the deletion asynchronously. This operation may reject the promise with errors such as `AccessDeniedException` or `ConflictException` if the deletion is blocked by permissions or resource state. Successful execution resolves the promise, confirming that the control panel has been successfully removed from the configuration.
+
+```javascript
+import { Route53RecoveryControlConfigClient, DeleteControlPanelCommand } from "@aws-sdk/client-route-53-recovery-control-config";
+
+async function main() {
+  const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+  const input = { controlPanelArn: "arn:aws:r53recovery:..." };
+  const command = new DeleteControlPanelCommand(input);
+  const response = await client.send(command);
+}
+```
+
+### DeleteRoutingControlCommand
+
+The `DeleteRoutingControlCommand` class encapsulates the API request to permanently remove a routing control from a specified control panel in Route 53 Application Recovery Controller. To execute this operation, you instantiate the command with the target routing control identifier and pass it to the client's `send` method, awaiting the result in an asynchronous context. Successful deletion resolves the promise immediately, while failures may throw exceptions such as `AccessDeniedException` or `ConflictException` depending on the resource state and permissions.
+
+```javascript
+import { Route53RecoveryControlConfigClient, DeleteRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config";
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+const command = new DeleteRoutingControlCommand({ routingControlArn: "arn:aws:..." });
+
+try {
+  await client.send(command);
+} catch (error) {
+  console.error("Deletion failed", error);
+}
+```
+
+### DeleteSafetyRuleCommand
+
+The `DeleteSafetyRuleCommand` class represents an operation to remove a specific safety rule from a Route 53 Application Recovery Control Panel within the AWS SDK for JavaScript v3. You should use this command when you need to modify the safety constraints governing your routing controls or clean up obsolete rules associated with a specific control panel ARN. Upon execution, the command returns a promise that resolves when the deletion is complete, effectively updating the control panel's configuration state. Developers typically handle this operation using `await` within an async function and catch exceptions like `AccessDeniedException` or `ConflictException` if the operation fails.
+
+```javascript
+import { Route53RecoveryControlConfigClient, DeleteSafetyRuleCommand } from "@aws-sdk/client-route-53-recovery-control-config";
+
+const client = new Route53RecoveryControlConfigClient({ region: "us-east-1" });
+const input = {
+  controlPanelArn: "arn:aws:route53-recovery-control-config:us-east-1:123456789012:controlpanel/12345678-1234-1234-1234-123456789012",
+  safetyRuleArn: "arn:aws:route53-recovery-control-config:us-east-1:123456789012:safetyrule/12345678-1234-1234-1234-123456789012"
+};
+const command = new DeleteSafetyRuleCommand(input);
+const response = await client.send(command);
+```
 
 ## API surface — verifiable exports of `@aws-sdk/client-route53-recovery-control-config`
 
