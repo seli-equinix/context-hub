@@ -62,64 +62,9 @@ import flit_core
 | `iter_files` | Method | Iterate over the files contained in this module.  Yields absolute paths - calle… |
 | `NoDocstringError` | Class | Inappropriate argument value (of correct type). |
 | `NoVersionError` | Class | Inappropriate argument value (of correct type). |
-| `ProblemInModule` | Class | Inappropriate argument value (of correct type). |
-| `VCSError` | Class | Common base class for all non-exit exceptions. |
-| `check_version` | Function | Check whether a given version string match PEP 440, and do normalisation.  Rais… |
-| `dist_info_name` | Function | Get the correct name of the .dist-info folder |
-| `get_docstring_and_version_via_ast` | Function | Return a tuple like (docstring, version) for the given module, extracted by par… |
-| `get_docstring_and_version_via_import` | Function | Return a tuple like (docstring, version) for the given module, extracted by imp… |
-| `get_info_from_module` | Function | Load the module/package, get its docstring and __version__ |
-| `hash_file` | Function |  |
-| `is_version_str_assignment` | Function | Check if *node* is a simple string assignment to __version__ |
-| `make_metadata` | Function |  |
-| `normalise_core_metadata_name` | Function | Normalise a project or extra name (as in PEP 503, also PEP 685) |
-| `normalise_version` | Function | Normalise version number according to rules in PEP 440  Raises InvalidVersion i… |
-| `normalize_dist_name` | Function | Normalizes a name and a PEP 440 version  The resulting string is valid as dist-… |
-| `normalize_file_permissions` | Function | Normalize the permission bits in the st_mode field from stat to 644/755  Popula… |
-| `parse_entry_point` | Function | Check and parse a 'package.module:func' style entry point specification.  Retur… |
-| `walk_data_dir` | Function | Iterate over the files in the given data directory.  Yields paths prefixed with… |
-| `write_entry_points` | Function | Write entry_points.txt from a two-level dict  Sorts on keys to ensure results a… |
-| `ConfigError` | Class | Inappropriate argument value (of correct type). |
-| `EntryPointsConflict` | Class | Inappropriate argument value (of correct type). |
-| `LoadedConfig` | Class |  |
-| `add_scripts` | Method |  |
-| `description_from_file` | Function |  |
-| `flatten_entrypoints` | Function | Flatten nested entrypoints dicts.  Entry points group names can include dots. B… |
-| `isabs_ish` | Function | Like os.path.isabs(), but Windows paths from a drive root count as absolute  is… |
-| `name_is_valid` | Function |  |
-| `normalise_compound_license_expr` | Function | Validate and normalise a compund SPDX license expression.  Per the specificatio… |
-| `normalise_core_metadata_name` | Function | Normalise a project or extra name (as in PEP 503, also PEP 685) |
-| `normalise_simple_license_expr` | Function | Normalise a simple SPDX license expression.  https://spdx.github.io/spdx-spec/v… |
-| `normalise_version` | Function | Normalise version number according to rules in PEP 440  Raises InvalidVersion i… |
-| `pep621_people` | Function | Convert authors/maintainers from PEP 621 to core metadata fields |
-| `prep_toml_config` | Function | Validate config loaded from pyproject.toml and prepare common metadata  Returns… |
-| `read_flit_config` | Function | Read and check the `pyproject.toml` file with data about the package. |
-| `read_pep621_metadata` | Function |  |
-| `FilePatterns` | Class | Manage a set of file inclusion/exclusion patterns relative to basedir |
-| `match_dir` | Method |  |
-| `match_file` | Method |  |
-| `SdistBuilder` | Class | Builds a minimal sdist  These minimal sdists should work for PEP 517. The class… |
-| `add_setup_py` | Method | No-op here; overridden in flit to generate setup.py |
-| `apply_includes_excludes` | Method |  |
-| `build` | Method |  |
-| `from_ini_path` | Method |  |
-| `prep_entry_points` | Method |  |
-| `select_files` | Method | Pick which files from the source tree will be included in the sdist  This is ov… |
-| `clean_tarinfo` | Function | Clean metadata from a TarInfo object to make it more reproducible.  - Set uid &… |
-| `load` | Function | Parse TOML from a binary file object. |
-| `loads` | Function | Parse TOML from a string. |
-| `normalise_version` | Function | Normalise version number according to rules in PEP 440  Raises InvalidVersion i… |
-| `WheelBuilder` | Class |  |
-| `add_data_directory` | Method |  |
-| `add_pth` | Method |  |
-| `build` | Method |  |
-| `copy_module` | Method |  |
-| `from_ini_path` | Method |  |
-| `write_metadata` | Method |  |
-| `write_record` | Method |  |
-| `main` | Function |  |
-| `make_wheel_in` | Function |  |
-| `zip_timestamp_from_env` | Function | Prepare a timestamp from $SOURCE_DATE_EPOCH, if set |
+
+_Plus 58 more — see ## Classes / ## Functions / ## Methods below._
+
 
 ## Classes
 

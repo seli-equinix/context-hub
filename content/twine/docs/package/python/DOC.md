@@ -62,77 +62,9 @@ import twine
 | `check` | Function | Check that a distribution will render correctly on PyPI and display the results… |
 | `main` | Function | Execute the ``check`` command.  :param args:     The command-line arguments.  :… |
 | `main` | Function | Execute the ``register`` command.  :param args:     The command-line arguments. |
-| `register` | Function | Pre-register a package name with a repository before uploading a distribution.… |
-| `main` | Function | Execute the ``upload`` command.  :param args:     The command-line arguments. |
-| `skip_upload` | Function | Determine if a failed upload is an error or can be safely ignored.  :param resp… |
-| `upload` | Function | Upload one or more distributions to a repository, and display the progress.  If… |
-| `Distribution` | Class |  |
-| `read` | Method |  |
-| `InvalidConfiguration` | Class | Raised when configuration is invalid. |
-| `InvalidDistribution` | Class | Raised when a distribution is invalid. |
-| `InvalidPyPIUploadURL` | Class | Repository configuration tries to use PyPI with an incorrect URL.  For example,… |
-| `InvalidSigningConfiguration` | Class | Both the sign and identity parameters must be present. |
-| `InvalidSigningExecutable` | Class | Signing executable must be installed on system. |
-| `NonInteractive` | Class | Raised in non-interactive mode when credentials could not be found. |
-| `PackageNotFound` | Class | A package file was provided that could not be found on the file system.  This i… |
-| `RedirectDetected` | Class | A redirect was detected that the user needs to resolve.  In some cases, request… |
-| `from_args` | Method |  |
-| `TrustedPublishingFailure` | Class | Raised if we expected to use trusted publishing but couldn't. |
-| `TwineException` | Class | Base class for all exceptions raised by twine. |
-| `UnreachableRepositoryURLDetected` | Class | An upload attempt was detected to a URL without a protocol prefix.  All reposit… |
-| `UnsupportedConfiguration` | Class | An upload attempt was detected using features not supported by a repository.  T… |
-| `UploadToDeprecatedPyPIDetected` | Class | An upload attempt was detected to deprecated PyPI domains.  The sites pypi.pyth… |
-| `from_args` | Method | Return an UploadToDeprecatedPyPIDetected instance. |
-| `HashManager` | Class | Manage our hashing objects for simplicity.  This will also allow us to better t… |
-| `hash` | Method | Hash the file contents. |
-| `hexdigest` | Method | Return the hexdigest for the file. |
-| `Hexdigest` | Class | Hexdigest(sha2, blake2) |
-| `PackageFile` | Class |  |
-| `add_attestations` | Method |  |
-| `add_gpg_signature` | Method |  |
-| `from_filename` | Method |  |
-| `metadata_dictionary` | Method | Merge multiple sources of metadata into a single dictionary.  Includes values f… |
-| `run_gpg` | Method |  |
-| `sign` | Method |  |
-| `PackageMetadata` | Class | dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from… |
-| `Repository` | Class |  |
-| `close` | Method |  |
-| `package_is_uploaded` | Method | Determine if a package has been uploaded to PyPI already.  .. warning:: This do… |
-| `register` | Method |  |
-| `release_urls` | Method |  |
-| `set_certificate_authority` | Method |  |
-| `set_client_certificate` | Method |  |
-| `upload` | Method |  |
-| `verify_package_integrity` | Method |  |
-| `make_requests_session` | Function | Prepare a requests Session with retries & twine's user-agent string. |
-| `SDist` | Class |  |
-| `read` | Method |  |
-| `TarGzSDist` | Class |  |
-| `read` | Method |  |
-| `ZipSDist` | Class |  |
-| `read` | Method |  |
-| `Settings` | Class | Object that manages the configuration for Twine.  This object can only be insta… |
-| `check_repository_url` | Method | Verify we are not using legacy PyPI.  :raises twine.exceptions.UploadToDeprecat… |
-| `create_repository` | Method | Create a new repository for uploading. |
-| `from_argparse` | Method | Generate the Settings from parsed arguments. |
-| `register_argparse_arguments` | Method | Register the arguments for argparse. |
-| `verify_feature_capability` | Method | Verify configured settings are supported for the configured repository.  This p… |
-| `EnvironmentDefault` | Class | Get values from environment variable. |
-| `format_usage` | Method |  |
-| `EnvironmentFlag` | Class | Set boolean flag from environment variable. |
-| `bool_from_env` | Method | Allow '0' and 'false' and 'no' to be False. |
-| `format_usage` | Method |  |
-| `check_status_code` | Function | Generate a helpful message based on the response from the repository.  Raise a… |
-| `get_config` | Function | Read repository configuration from a file (i.e. ~/.pypirc).  Format: https://pa… |
-| `get_file_size` | Function | Return the size of a file in KB, or MB if >= 1024 KB. |
-| `get_repository_from_config` | Function | Get repository config command-line values or the .pypirc file. |
-| `get_userpass_value` | Function | Get a credential (e.g. a username or password) from the configuration.  Uses th… |
-| `make_requests_session` | Function | Prepare a requests Session with retries & twine's user-agent string. |
-| `normalize_repository_url` | Function |  |
-| `sanitize_url` | Function | Sanitize a URL.  Sanitize URLs, removing any user:password combinations and rep… |
-| `Wheel` | Class |  |
-| `find_candidate_metadata_files` | Method | Filter files that may be METADATA files. |
-| `read` | Method |  |
+
+_Plus 71 more — see ## Classes / ## Functions / ## Methods below._
+
 
 ## Classes
 

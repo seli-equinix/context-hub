@@ -59,52 +59,9 @@ import pytest_cov
 | `summary` | Method | Produce coverage reports. |
 | `DistCovError` | Class | Raised when dynamic_context is set to test_function and xdist is also used.  Se… |
 | `DistMaster` | Class | Implementation for distributed master. |
-| `configure_node` | Method | Workers need to know if they are collocated and what files have moved. |
-| `ensure_topdir` | Method |  |
-| `finish` | Method | Combines coverage data and sets the list of coverage objects to report on. |
-| `get_node_desc` | Method | Return a description of this node. |
-| `get_width` | Method |  |
-| `pause` | Method |  |
-| `resume` | Method |  |
-| `sep` | Method |  |
-| `start` | Method |  |
-| `summary` | Method | Produce coverage reports. |
-| `testnodedown` | Method | Collect data file name from worker. |
-| `DistWorker` | Class | Implementation for distributed workers. |
-| `ensure_topdir` | Method |  |
-| `finish` | Method | Stop coverage and send relevant info back to the master. |
-| `get_node_desc` | Method | Return a description of this node. |
-| `get_width` | Method |  |
-| `pause` | Method |  |
-| `resume` | Method |  |
-| `sep` | Method |  |
-| `start` | Method |  |
-| `summary` | Method | Only the master reports so do nothing. |
-| `CovDisabledWarning` | Class | Indicates that Coverage was manually disabled. |
-| `CovPlugin` | Class | Use coverage package to produce code coverage reports.  Delegates all work to a… |
-| `pytest_configure_node` | Method | Delegate to our implementation.  Mark this hook as optional in case xdist is no… |
-| `pytest_runtest_call` | Method |  |
-| `pytest_runtestloop` | Method |  |
-| `pytest_sessionstart` | Method | At session start determine our implementation and delegate to it. |
-| `pytest_terminal_summary` | Method |  |
-| `pytest_testnodedown` | Method | Delegate to our implementation.  Mark this hook as optional in case xdist is no… |
-| `start` | Method |  |
-| `write_heading` | Method |  |
-| `CovReportWarning` | Class | Indicates that we failed to generate a report. |
-| `PytestCovWarning` | Class | The base for all pytest-cov warnings, never raised directly. |
-| `StoreReport` | Class | Information about how to convert command line strings to Python objects.  Actio… |
-| `format_usage` | Method |  |
-| `TestContextPlugin` | Class |  |
-| `pytest_runtest_call` | Method |  |
-| `pytest_runtest_setup` | Method |  |
-| `pytest_runtest_teardown` | Method |  |
-| `switch_context` | Method |  |
-| `pytest_addoption` | Function | Add options to control coverage. |
-| `pytest_configure` | Function |  |
-| `pytest_load_initial_conftests` | Function |  |
-| `validate_context` | Function |  |
-| `validate_fail_under` | Function |  |
-| `validate_report` | Function |  |
+
+_Plus 46 more — see ## Classes / ## Functions / ## Methods below._
+
 
 ## Classes
 

@@ -61,31 +61,9 @@ import copier
 | `TaskError` | Class | Exception raised when a task fails. |
 | `from_process` | Method | Create a TaskError from a CompletedProcess. |
 | `UnknownCopierVersionWarning` | Class | Cannot determine installed Copier version. |
-| `UnsafeTemplateError` | Class | Unsafe Copier template features are used without explicit consent. |
-| `UnsupportedVersionError` | Class | Copier version does not support template version. |
-| `UserMessageError` | Class | Exit the program giving a message to the user. |
-| `YieldTagInFileError` | Class | A yield tag is used in the file content, but it is not allowed. |
-| `printf_exception` | Function | Print exception with common format. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member` | Function | Deprecate a module member with a new import statement with a warning.  Args:… |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member` | Function | Deprecate a module member with a new import statement with a warning.  Args:… |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
-| `deprecate_member_as_internal` | Function | Deprecate a module member as internal with a warning.  Args:     member: The mo… |
-| `deprecate_module_as_internal` | Function | Deprecate a module as internal with a warning.  Args:     name: The module name. |
+
+_Plus 25 more — see ## Classes / ## Functions / ## Methods below._
+
 
 ## Classes
 

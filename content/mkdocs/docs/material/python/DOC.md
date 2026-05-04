@@ -57,37 +57,9 @@ import mkdocs
 | `run` | Method | Run the treeprocessor.  Arguments:     root: The root element of the parsed Mar… |
 | `get_filter` | Function | Get file filter from settings.  Arguments:     settings: The settings.     key:… |
 | `makeExtension` | Function | Register Markdown extension.  Arguments:     **kwargs: Configuration options.… |
-| `View` | Class | An item in MkDocs structure - see concrete subclasses Section, Page or Link. |
-| `read_source` | Method |  |
-| `render` | Method | Convert the Markdown source file to HTML as per the config. |
-| `validate_anchor_links` | Method |  |
-| `view_name` | Function |  |
-| `view_post_count` | Function |  |
-| `Mapping` | Class | A mapping between a page or link and a set of tags.  We use this class to store… |
-| `Tag` | Class | A tag.  Tags can be used to categorize pages and group them into a tag structur… |
-| `item_title` | Function |  |
-| `item_url` | Function |  |
-| `tag_name` | Function |  |
-| `tag_name_casefold` | Function |  |
-| `is_mkdocs` | Function |  |
-| `FileFilter` | Class | A file filter. |
-| `Filter` | Class | A filter. |
-| `FilterConfig` | Class | A filter configuration. |
-| `clear` | Method | D.clear() -> None.  Remove all items from D. |
-| `copy` | Method |  |
-| `fromkeys` | Method |  |
-| `get` | Method | D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None. |
-| `items` | Method | D.items() -> a set-like object providing a view on D's items |
-| `keys` | Method | D.keys() -> a set-like object providing a view on D's keys |
-| `load_dict` | Method | Load config options from a dictionary. |
-| `load_file` | Method | Load config options from the open file descriptor of a YAML file. |
-| `pop` | Method | D.pop(k[,d]) -> v, remove specified key and return the corresponding value. If… |
-| `popitem` | Method | D.popitem() -> (k, v), remove and return some (key, value) pair as a 2-tuple; b… |
-| `set_defaults` | Method | Set the base config by going through each validator and getting the default if… |
-| `setdefault` | Method | D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D |
-| `update` | Method | D.update([E, ]**F) -> None.  Update D from mapping/iterable E and F. If E prese… |
-| `validate` | Method |  |
-| `values` | Method | D.values() -> an object providing a view on D's values |
+
+_Plus 31 more — see ## Classes / ## Functions / ## Methods below._
+
 
 ## Classes
 

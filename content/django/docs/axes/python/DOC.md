@@ -57,36 +57,9 @@ import django
 | `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
 | `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
 | `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
-| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
-| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
-| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
-| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
-| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
-| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
-| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
-| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
-| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `deduplicate_attempts` | Function |  |
-| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
-| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
-| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
-| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
-| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
-| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
-| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `Migration` | Class | The base class for all migrations.  Migration files will import this from djang… |
-| `apply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
-| `mutate_state` | Method | Take a ProjectState and return a new one with the migration's operations applie… |
-| `suggest_name` | Method | Suggest a name for the operations this migration might represent. Names are not… |
-| `unapply` | Method | Take a project_state representing all migrations prior to this one and a schema… |
+
+_Plus 30 more — see ## Classes / ## Functions / ## Methods below._
+
 
 ## Classes
 
